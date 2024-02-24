@@ -6,7 +6,7 @@
 
 % Commands
 \newcommand{\tree}{\mathcal{T}}
-
+\newcommand{\tw}{\text{tw}}
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -30,7 +30,7 @@
 
 \maketitle
 
-\section{Treewidth and balanced separators}
+\section{Treewidth}
 
 \begin{definition}[Tree-decomposition]
 	The tree-decomposition $\tree$ of a graph $G$ is defined as a tree $T$ with associated \textit{bags} $\lbrace B_x : x \in V(T) \rbrace$ such that:
@@ -39,10 +39,75 @@
 		\item For all edges $vw \in E(G)$, there exists a bag $B_x$ such that both $v$ and $w$ are in the bag $B_x$.
 	\end{itemize}
 \end{definition}
+We refer to the vertices of the tree $T$ as \textit{nodes}. 
 The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace |B_x| - 1 : x \in V(T) \rbrace$. We define the \textit{treewidth} of a graph $G$ as such:
 
 
 \begin{definition}
-	The treewidth is defined to be the smallest width for all tree decompositions of the graph $G$.
+	The treewidth of a graph $G$, denoted as $\tw(G)$, is defined to be the smallest width for all tree decompositions of the graph $G$.
 \end{definition}
+The reason why the $-1$ appears in the definition of the with of a tree decomposition is because the definition wanted the treewidth of a forest to be 1. However, this causes some notational confusion.
+\begin{example}
+	$\tw(G) = 1$ iff $G$ is a forest.
+	\begin{lemma}
+		If $G$ is a forest, then $\tw(G) = 1$.
+	\end{lemma}
+	\begin{proof}
+		Suppose $G$ is a tree. Root the graph $G$ at the vertex $r$. Then let $T = G$ and $B_x:= \lbrace x, p \rbrace$ where $p$ is the parent of $x$. The bag $B_r$ will just contain $r$. Then all edges $vw$ will be between parent $v$ and child $w$, so it will be in bag $B_w$. Finally, the subgraph induced by vertex $x$ in $T$ will be $x$ and the children of $x$, which is a connected subtree.
+		
+		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. 
+	\end{proof}
+	\begin{lemma}
+		If $\tw(G) = 1$, then $G$ has no cycles.
+	\end{lemma}
+	\begin{proof}
+		If $G$ has a cycle $C$, then the treewidth cannot be 1. This is because if there is a tree decomposition $\tree$ where the size of each bag is at most 2, then as the graph must have every edge, then every edge in $C$ is in separate bags. However, we have that for any vertex $v$ in $C$ to have an induced connected subgraph in $T$, then it follows that the cycle $C$ is also in $T$. Thus $T$ is not a tree, and this is not a valid tree-decomposition. 
+	\end{proof}
+\end{example}
+\begin{lemma}[Helly Property]
+	Let $T_1, ..., T_k$ be subtrees of a tree $T$ such that for every pair of trees, there is a vertex in common. Then there exists a vertex which is common to all trees.
+\end{lemma}
+\begin{proof}[Helly property]
+	If $T_1$, $T_2$ and $T_3$ are subtrees of $T$ such that the vertex sets are pairwise nonempty, then there is a common vertex in all three subtrees. If this is not the case, denote $v_1$ as a vertex in the intersection of $T_1$ and $T_2$, $v_2$ as the vertex in $T_1 \cap T_3$, and $v_3$ as the vertex in $T_2$ and $T_3$. Then there exists a unique path $P$ in $T_1$ from $v_1$ to $v_2$. Choose two vertices $x$ and $y$ on $P$ such that they are disjoint....
+\end{proof}
+
+\begin{theorem}[Clique theorem]
+	In any tree-decomposition of $G$, for every clique $C$ in $G$, there exists a node $x \in V(T)$ such that $C \subseteq B_x$. 
+\end{theorem}
+
+\begin{proof}
+	Let $\tree$ be a tree-decomposition. Every vertex $v$ induces a connected subtree in $T$, call it $T_v$. Then for any two vertices $x, y$ in $C$, we have that $T_x$ and $T_y$ must intersect as the edge $xy$ is inside a bag $B_z$ corresponding to a node $z$. Then by the Helly property, there exists a node $v$ such that $C \subseteq B_v$.
+\end{proof}
+
+\begin{corollary}
+	$\tw(K_n)$ is $n-1$. 
+\end{corollary}
+
+\begin{theorem}
+	If $H$ is a minor of $G$, then $\tw(H) \leq \tw(G)$. 
+\end{theorem}
+\begin{proof}[Proof of minor]
+	Suppose we have a tree-decomposition $\tree$ of $G$. If we delete an edge in $G$, then $\tree$ remains a valid tree-decomposition. If we delete a vertex $v$, then $\tree$ where we remove $v$ from every bag in $\tree$ is also a valid tree-decomposition. If we contract an edge $vw$, creating a new vertex $u$, then relabeling $v$ and $w$ in all bags to $u$ is a valid tree-decomposition as the induced subtree of $u$ is the union of the induced subtrees of $v$ and $w$, and every neighbor of $v$ or $w$ is a neighbor of $u$. But the edges in the neighborhood do not change. Thus this is a valid tree-decomposition, with width at most the width of $\tree$.
+\end{proof}
+
+\begin{example}
+	The treewidth of an outerplanar graph is at most 2.
+\end{example}
+\begin{proof}[Proof of outerplanar treewidth.]
+	Let $G$ be the outerplanar graph, and let $G'$ be the triangulation of $G$. As $G$ is a minor of $G'$, $\tw(G) \leq \tw(G')$. We look at the \textit{weak dual} of $G'$. This is a tree $T$, where every node $v_f$ in $T$ corresponds to a face $f$ in $G'$. Then let $B_{v_f}$ be the bag of the tree-decomposition, where $B_{v_f}$ is the set of vertices on the boundary of the face $f$. Then the tree $T$ with bags $B_{v_f}$ is a valid tree-decomposition of $G'$, where every bag has at most 3 vertices. Thus, $\tw(G) \leq 2$. 
+\end{proof}
+
+\section{Separators}
+A subset $X$ of $V(G)$ is a \textit{balanced separator} of $G$ if each component of $G - X$ has at most $|V(G)|/2$ vertices. This implies that we can partition the vertices of $G$ into sets $A$ and $B$ such that there are no $AB$-edges and the size of $A$ and $B$ is at most $2/3 |V(G)|$. This is because we can order the components from smallest to largest and partition them into sets $A$ and $B$ where the sizes are at most $2/3 |V(G)|$.
+
+\begin{theorem}
+	For all graphs $G$, there exists a balanced separator of size $\tw(G) + 1$. 
+\end{theorem}
+\begin{proof}[Proof of balanced separator]
+	We take a tree-decomposition $\tree$ of treewidth $\tw(G) - 1$. For any edge $xy$ in $T$, denote the largest subtree containing $x$ that does not contain $y$ as $T_{x,y}$, and similarly denote $T_{y, x}$ as the same thing. If the size of the union of the corresponding bags of the nodes of $T_{x,y}$ is larger than the size of the union of bags in $T_{y, x}$, orient the edge $xy$ to point from $y$ to $x$, otherwise orient it the other way. Do this for every edge. Then let $x$ be the node where all arrows are pointing inwards, and let $B_x$ be the corresponding bag. Then $B_x$ is a separator of $G$ as we have that at most $|V(G)|/2$ vertices are in any component of $T$ by definition. Thus $B_x$ is a balanced separator of $G$. 
+\end{proof}
+
+\begin{theorem}
+	There exists an $X$
+\end{theorem}
 \end{document}
