@@ -2,7 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[]{amsthm}
+\usepackage{amsthm}
 
 % Commands
 \newcommand{\tree}{\mathcal{T}}
@@ -33,12 +33,16 @@
 \section{Treewidth and balanced separators}
 
 \begin{definition}[Tree-decomposition]
-	The tree-decomposition of a graph $G$ is defined as a tree $\tree$ with associated \textit{bags} $\lbrace B_x : x \in V(\tree) \rbrace$ such that:
+	The tree-decomposition $\tree$ of a graph $G$ is defined as a tree $T$ with associated \textit{bags} $\lbrace B_x : x \in V(T) \rbrace$ such that:
 	\begin{itemize}
-		\item for all $v \in V(G)$, the subset of vertices $\lbrace x \in V(\tree): v \in B_x \rbrace$ in $V(\tree)$ induces a connected subtree in $V(\tree)$.
+		\item for all $v \in V(G)$, the subset of vertices $\lbrace x \in V(T): v \in B_x \rbrace$ in $V(T)$ induces a connected subtree in $V(T)$.
 		\item For all edges $vw \in E(G)$, there exists a bag $B_x$ such that both $v$ and $w$ are in the bag $B_x$.
 	\end{itemize}
 \end{definition}
-The \textit{width} of the tree $T$ is defined as $\max \lbrace |B_x| - 1 : x \in V(\tree) \rbrace$. 
+The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace |B_x| - 1 : x \in V(T) \rbrace$. We define the \textit{treewidth} of a graph $G$ as such:
 
+
+\begin{definition}
+	The treewidth is defined to be the smallest width for all tree decompositions of the graph $G$.
+\end{definition}
 \end{document}
