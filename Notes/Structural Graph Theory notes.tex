@@ -1,5 +1,27 @@
 \documentclass[]{article}
 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[]{amsthm}
+
+% Commands
+\newcommand{\tree}{\mathcal{T}}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
 %opening
 \title{Structural Graph theory}
 \author{Eric Luu}
@@ -8,6 +30,15 @@
 
 \maketitle
 
-\section{}
+\section{Treewidth and balanced separators}
+
+\begin{definition}[Tree-decomposition]
+	The tree-decomposition of a graph $G$ is defined as a tree $\tree$ with associated \textit{bags} $\lbrace B_x : x \in V(\tree) \rbrace$ such that:
+	\begin{itemize}
+		\item for all $v \in V(G)$, the subset of vertices $\lbrace x \in V(\tree): v \in B_x \rbrace$ in $V(\tree)$ induces a connected subtree in $V(\tree)$.
+		\item For all edges $vw \in E(G)$, there exists a bag $B_x$ such that both $v$ and $w$ are in the bag $B_x$.
+	\end{itemize}
+\end{definition}
+The \textit{width} of the tree $T$ is defined as $\max \lbrace |B_x| - 1 : x \in V(\tree) \rbrace$. 
 
 \end{document}
