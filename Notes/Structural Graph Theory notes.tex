@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{url}
 
 % Commands
 \newcommand{\tree}{\mathcal{T}}
@@ -194,4 +195,51 @@ If $G$ has $n$ vertices with layered treewidth $k$, then $G$ has treewidth $2 \s
 \end{corollary}
 
 \subsection{Bounded genus and crossings}
+A graph is $(g, k)$-planar if there exists an embedding of $G$ on a genus $g$ surface with at most $k$ crossings per edge.If $G$ is $(g, k)$-planar, we shall show that $G$ has treewidth of at most $2\sqrt{(4g + 6)(k + 1) n}$. For fixed $g$ and $k$, this admits a treewidth of $G$ which is $O(\sqrt{n})$. 
+\begin{theorem}{\url{https://link.springer.com/chapter/10.1007/978-3-319-27261-0_8}}
+	Every $(g, k)$-planar graph $G$ has layered treewidth at most $(4g + 6)(k + 1)$. 
+\end{theorem}
+
+\begin{proof}
+	Draw $G$ on the plane with an arbitrary orientation of the edges. Then replace every crossing with a new dummy variable to form $G'$. From above $\ltw(G') \leq 2g + 3$. Let $T'$ be the tree decomposition of $G'$, and let $V_0', V_1', ...$ be the layering of $G'$. For each dummy vertex $x$ which crosses the arcs $vw$ and $ab$, where $w$ and $b$ are the tail of the arcs respectively, replace $x$ in $T$ with $w$ and $b$. Then this is tree-decomposition with layered treewidth of $2(k+1) (2g + 3)$. Thus shown. 
+\end{proof}
+
+\subsection{$K_t$-minor-free graphs}
+Refer to MTH3000 report for definitions.
+
+\begin{theorem}{\url{https://arxiv.org/abs/2104.06627}}
+	If $G$ is $K_t$-minor-free, then $tw(G) \leq t^{3/2} n^{1/2}$. 
+\end{theorem} 
+
+\begin{lemma}{\url{https://www.ams.org/journals/jams/1990-03-04/S0894-0347-1990-1065053-0/}}
+	Let $G$ be a graph and $A_1, ..., A_r$ be nonempty subsets of $V(G)$. Let $x \in \mathbb{R}$, $x \geq 1$. Then either:
+	\begin{enumerate}
+		\item There exists a tree $T$ in $G$ where $|V(T)| \leq x$ and $V(T) \cap A_i$ is nonempty for all $i$, or,
+		\item There exists a set $Y$ in $V(G)$ of size at most $(r-1)n/x$ such that no component of $G-Y$ intersects all of $A_1, ..., A_r$. To rephrase, if $C$ is a component of $G - Y$, then we have there exists a set $A_i$ such that $C$ and $A_i$ are disjoint. 
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	\newcommand{\dist}{\text{dist}}
+	We form a path in $G$ of $A_1 \rightarrow A_2 \rightarrow ... \rightarrow A_r$ such that there exists a path from $A_1$ to $A_r$ passing through all of $A_i$. We then form a new graph $J$ by taking $r-1$ copies of $G$ and between copies $G_i$ and $G_{i+1}$, there is an edge between the copied vertices of $A_{i+1}$ in $G_i$ and $A_{i+1}$ in $G_{i+1}$. Denote the sets $X$ and $Y$ to be $A_1$ in $G_1$ and $A_r$ in $G_{r-1}$ respectively. 
+	\par
+	Then if $ \dist_J(X, Y) \leq x$, then the path $|P|$ is less than $X$, so we project $P$ back to $G$ and eliminate all loops to form a path, and therefore a tree, of length at most $x$. 
+	\par
+	If $ \dist_J(X, Y) > x$, then there is a bfs layering in $J$ where $L_i =  \lbrace v \in V(J) : \dist_J(X, v) = i \rbrace$. By construction, there exists a $j$ such that $|L_j| \leq (r-1)n/x$ and in the projection, $L_j$ is a separator. 
+\end{proof}
+
+\begin{theorem}[Illingsworth, Scott, Wood]
+	For all $t \geq 5$, if $G$ is $K_t$-minor-free, then $G \subseteq H \boxtimes K_{\lfloor m \rfloor}$, where $\tw(H) \leq t-2$ and $m = \sqrt{(t-4)n}$.
+\end{theorem}
+\begin{proof}
+	We shall prove something stronger. For all $t \geq 5$ and $K_t$-minor-free graphs $G$, for all $r \leq t - 1$, and all $K_r$-models $(U_1, ..., U_r)$ in $G$ with $1 \geq |U_i| \geq m$ for all $i$, there exists a $H$-partition of $G$ with width $m$ and $U_1, ..., U_r \in V(H)$, and $tw(H) \leq t-2$, where the width of a partition is the size of the largest bag.
+	\paragraph{Base case}
+	Let $U = \bigcup_i U_i$. Then suppose if $|V(G)| = U$, then $(U_1, ..., U_r)$ is the desired $H$-partition where $H = K_r$ has treewidth $r-1 \leq t-2$. 
+	\paragraph{Inductive case}
+	Let $A_i = N_G(U_i) \ U$ for each $i$. If some $A_i$ is empty, then we use the induction hypothesis on $G - U_i$. There is a partition $H'$ of treewidth at most $t-2$ which has $(U_1, ...., U_{i-1}, U_{i+1}, ..., U_{r})$ as a set, with width at most $m$. Then the neighbourhood of $U_i$ is a clique on $r-1$ vertices, so $tw(H) = \max(tw(H'), r-1) \leq t - 2$. 
+	\paragraph{Disconnected $G-U$}
+	Suppose $G - U$ is disconnected. Then we can partition $V(G - U)$ into two s $C$ and $D$ such that there is no edge from $C$ to $D$. Let $G_1 = G[C \cup U]$ and $G_2 = G[D \cup U]$. Then by induction, there is a partition $H_1$, $H_2$ of $G_1$ and $G_2$ respectively of width at most $t-1$ and treewidth at most $s$ that contains $(U_1, ..., U_r)$ as a bag. Then we let $H$ be the model where we identify the two $H_1$ and $H_2$ models on the bag. Then $\tw(H) = \max(\tw(H_1), \tw(H_2)) \leq s$, with width of $H$ being at most $t-1$.
+	\paragraph{Connected $G-U$}
+	Use the lemma above and set $A_1, ... A_r$ to be $(A_1, ..., A_r)$ and set $x = m$. Then there exists a tree in $U$ which intersects with $A_i$ for all $i$, or there exists a set $Y$ such that $C$ separates out $C$ and $D$. We can show that the first scenario cannot happen as we have that $Y$ would be too large, so there must be a $Y$ such that this holds. Then $Y \leq (r-1)n/m \leq (tn)/\sqrt(tn) = \sqrt(tn) = m$, so this would be the required set $Y$. 
+\end{proof}
 \end{document}
