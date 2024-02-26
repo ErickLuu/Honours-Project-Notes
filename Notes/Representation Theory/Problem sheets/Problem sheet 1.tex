@@ -1,0 +1,30 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+%opening
+\title{Representation Theory notes}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chapter 0}
+
+\subsection*{0.1}
+\subsubsection*{a}
+\paragraph{Field} A field is a set of numbers with two binary operations, addition and multiplication. It must hold that the field is an abelian group under addition with a $0$ as the identity, the field is an abelian group under multiplication with 1 as the identity, and there is a distributive property. 
+\paragraph{Direct sum} A direct sum of abelian groups $\bigoplus_{i \in I} A_i$ is the set of tuples where $a_i$ is nonzero for finitely many elements. Addition is defined coordinate-wise. 
+\paragraph{Vector space} A vector space is a set with a field $F$ where they are an abelian group addition and there is a concept of scalar multiplication which satisfies distribution properties. 
+\paragraph{Linear map} A linear map $f : V \rightarrow W$ is a map between vector spaces $V$ and $W$ where $f(a \bm{v} + b \bm{w})  = a f(\bm{v}) + b f(\bm{w})$.
+\paragraph{Subspace} A subspace is subset of a vector space which is closed under scalar multiplication and addition.
+\paragraph{Inner product} An inner product on $V$ is a binary operation $\langle \cdot, \cdot \rangle : V \times V \rightarrow F \rbrace$. It must satisfy the property that $\langle x, y \rangle  = \overline{\langle y, x \rangle}$, $\langle ax + by, z \rangle = a \langle x, z \rangle + b \langle y , z \rangle$ and $\langle x, x \rangle > 0$. 
+\paragraph{Span} A subset $S$ of a vector space $V$ spans $V$ if all elements in $V$ can be written as a linear combination of elements in $S$.
+\paragraph{Basis} A subset $B$ is a basis of a vector space $V$ if $B$ spans $V$ and there is no linear combination of elements of $B$ that sum to 0. 
+\paragraph{Dimension} The dimension of $V$ is the number of elements in a basis of $V$. 
+
+\paragraph{Diagonalisable matrix} A diagonalisable matrix $A$ can be written as $P \Lambda P^{-1}$ where $P$ is an invertible matrix and $\Lambda$ is a diagonal matrix.
+\paragraph{Trace} The trace of an $n \times n$ matrix $A$ is equal to $\sum_{i=1}^n [A]_{i,i}$. 
+
+\end{document}
