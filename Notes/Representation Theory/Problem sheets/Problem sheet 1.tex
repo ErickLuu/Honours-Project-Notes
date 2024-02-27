@@ -23,8 +23,156 @@
 \paragraph{Span} A subset $S$ of a vector space $V$ spans $V$ if all elements in $V$ can be written as a linear combination of elements in $S$.
 \paragraph{Basis} A subset $B$ is a basis of a vector space $V$ if $B$ spans $V$ and there is no linear combination of elements of $B$ that sum to 0. 
 \paragraph{Dimension} The dimension of $V$ is the number of elements in a basis of $V$. 
-
-\paragraph{Diagonalisable matrix} A diagonalisable matrix $A$ can be written as $P \Lambda P^{-1}$ where $P$ is an invertible matrix and $\Lambda$ is a diagonal matrix.
 \paragraph{Trace} The trace of an $n \times n$ matrix $A$ is equal to $\sum_{i=1}^n [A]_{i,i}$. 
+\paragraph{Determinant} The determinant of an  $n \times n$ matrix $A$ is equal to:
+\begin{equation}
+	\sum_{\sigma \in S_n} \text{sign}(\sigma) \prod_{i = 1}^n [A]_{i, \sigma(i)}.
+\end{equation} 
+
+\paragraph{Characteristic polynomial} The characteristic polynomial $P$ of a square matrix $A$ is $P(\lambda) := \det(I\lambda - A )$. 
+\paragraph{Eigenvector+ eigenvalues} An eigenvector of a matrix $A$ is a vector $v$ such that $A v$ = $\lambda v$ where $\lambda$ is the eigenvalue of $A$.
+\paragraph{Jordan normal form} The Jordan normal form of a matrix $A$ is an upper triangular matrix where there are eigenvalues of $A$ on the diagonal, some ones above it in Jordan blocks (squares around degenerate eigenvalues) and zeroes elsewhere.
+\paragraph{Diagonalisable matrix} A diagonalisable matrix $A$ can be written as $P \Lambda P^{-1}$ where $P$ is an invertible matrix and $\Lambda$ is a diagonal matrix.
+\subsubsection*{b}
+\paragraph{Group}
+A group $G$ is a set of elements with a binary operation $ \cdot \times \cdot : G \times G \rightarrow G$ which satisfies the associativity, identity and inverse laws.
+\paragraph{Symmetric group} For an set $X$, the symmetric group $S_X$ is the group of bijections from $X$ to itself. 
+\paragraph{Homomorphism} A homomorphism is a function $f$ between two groups $G$ and $H$ such that $f(ab) = f(a) f(b)$ for all $a, b \in G$. 
+\paragraph{Isomorphism} An isomorphism $\phi$ is a homomorphism between two groups $G$ and $H$ that is also a bijection.
+\paragraph{Subgroup} A subgroup of $G$ is a set of elements in $G$ that are closed under inversion and group multiplication. 
+\paragraph{Normal subgroup} A normal subgroup $N$ of a group $G$ is a subgroup such that $g N g^{-1} = N$ for all $g \in G$. 
+\paragraph{Coset} A left coset of a normal subgroup $N$ in $G$ are the equivalence classes $gN$ for some $g \in G$ which partition the set of elements in $G$.
+\paragraph{Quotient group} For a normal subgroup $N$ in a group $G$, the normal subgroup $G/N$ have elements $gN$ for left cosets of $G$ and the group operation of $(gN)(hN)$ is $(gh)N$. 
+\paragraph{Cyclic group } A cyclic group is a group of the form $\mathbb{Z}/n\mathbb{Z}$ where $n\mathbb{Z}$ are the elements of $\mathbb{Z}$ which are multiples of $n$. 
+\paragraph{Alternating group} The alternating group $A_X$ is the subgroup of $S_X$ where the number of transpositions are even. 
+\paragraph{Group presentations} A group presentation of $G$ is the group 
+\begin{equation}
+	\langle r_1, r_2, ..., r_n | r_a r_b r_c, ...\rangle,
+\end{equation}
+where $r_1, r_2, ..., r_n$ is a set of generators and $r_a r_b r_c, ...$ is a set of relators.
+\paragraph{Direct product} The direct product of two groups $G, H$ is the group $G \times H$ with elements $(g, h)$ and multiplication is defined coordinate wise.
+\paragraph{Dihedral group} A dihedral group is a group with presentation $\langle r, d | r^n, d^2 , rdrd \rangle$ for some $n$. 
+\paragraph{Group action} If $G$ is a group and $X$ is a set, a group action $\rho: G \times X \rightarrow X $ is a function which satisfies $\rho_1(x) = x$ and $\rho_g \rho_h(x) = \rho_{gh} (x)$. 
+
+\subsection*{0.3}
+\subsubsection*{a}
+\begin{itemize}
+	\item Reflexive: We have that $a = 1 a 1^{-1}$ so $a$ is conjugate to a.
+	\item Symmetric: We have that if $a = g b g^{-1}$, then $b = g^{-1} a g$. 
+	\item Transitive: If $a = g b g^{-1}$, $b = h c h^{-1}$, then $a = gh c h^{-1} g^{-1} = (gh) c (gh)^{-1}$. 
+\end{itemize}
+Thus conjugacy is an equivalence relation. 
+\subsubsection*{b}
+We have that $D_4$ has elements $1, r, d, r^2, r^3, rd, r^2d, r^3d$ with the relationship $drd = r^{-1}$. Therefore, the conjugacy classes are: $\lbrace 1 \rbrace, \lbrace r^2 \rbrace, \lbrace r, r^3 \rbrace, \lbrace d, r^2 d \rbrace, \lbrace rd, r^3 d \rbrace$. 
+\subsubsection*{c}
+\paragraph{$\Leftarrow$}
+Suppose $a$ and $b$ are permutations of the set $X$. Let $a_i = (a_{i, 1}, a_{i, 2}, ...a_{i, m})$ be a cycle. We have that $a$ is comprised of disjoint cycles $(a_1, a_2, ..., a_k)$ with lengths $(\ell_1, \ell_2, ..., \ell_k)$ in non-increasing order, and $b$ has disjoint cycles $(b_1, b_2, ..., b_k)$ with the same lengths in non-increasing order. Thus there is a bijection $\sigma_i : a_i \rightarrow b_i$ where we send element $a_{i, j}$ to $b_{i, j}$ in the cycle.  We have that each element appears only once in these cycles, thus we can combine these sigmas to form the function $\sigma: X \rightarrow X$. We have that $\sigma(a_{i, j} = b_{i,j})$, if $a_{i,j}$ appears in $a$. If an element does not appear in $a$, we send it to an arbitrary element in $b$ such that there is a bijection between these elements, so that $\sigma$ is a bijection. Then we have that $b = \sigma a \sigma^{-1}$, as for any element $x \in X$ that is not sent to itself in $b$, we take $x$ to $\sigma^{-1}$ to move $x$ from $b_{i,j}$ to $a_{i,j}$, cycle $a_{i,j}$ to $a_{i, j+1}$ and then send $a_{i, j+1}$ back to $b_{i, j+1}$. If $x$ is sent to itself, since it gets sent to an element in $a$ that gets sent to itself, then $\sigma$ takes it back to $x$. Therefore, if $a$ and $b$ have the same cycle type, there is a $\sigma$ such that $b = \sigma a \sigma^{-1}$. 
+\paragraph{$\Rightarrow$}
+Suppose $a = \sigma b \sigma^{-1}$ for some $\sigma$. ... DO LATER
+
+\subsubsection*{d}
+We have the conjugacy classes of $S_4$ on the set $\lbrace 1, 2, 3, 4 \rbrace$ are: 
+\begin{itemize}
+	\item $\lbrace () \rbrace$
+	\item $\lbrace (1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4) \rbrace$
+	\item $\lbrace (1, 2, 3) , (1,3, 2), (1,2, 4), (1, 4, 2), (1, 3, 4), (1, 4, 3), (2, 3, 4), (2, 4, 3) \rbrace$
+	\item $\lbrace (1, 2, 3) , (1,3, 2), (1,2, 4), (1, 4, 2), (1, 3, 4), (1, 4, 3), (2, 3, 4), (2, 4, 3) \rbrace$
+	\item $\lbrace (1,2)(3, 4), (1, 3)(2, 4), (1,4)(2,3) \rbrace$
+	\item $\lbrace(1, 2, 3, 4), (1, 2, 4, 3), (1, 3, 2, 4), (1, 3, 4, 2), (1, 4, 2, 3), (1, 4, 3, 2) \rbrace$
+\end{itemize}
+
+\subsubsection*{e}
+We have that the number of conjugancy classes in the symmetric group $S_5$ is equivalent to finding the number of unique nondecreasing sequences of numbers between 2 and 5 that add to at most 5, and the identity, by the characterization of cycles from part $c$.
+We have the following list:
+\begin{enumerate}
+	\item ()
+	\item 2
+	\item 3
+	\item 4
+	\item 5
+	\item 2 + 2
+	\item 3 + 2
+\end{enumerate}
+Thus there are seven conjugancy classes in $S_5$.
+
+\subsection*{0.4}
+\begin{equation*}
+tr(AB) = \sum_{i = 1}^n [AB]_{i,i} = \sum_{i = 1}^n \sum_{j = 1}^n [A]_{i,j} [B]_{j, i } = \sum_{j = 1}^n\sum_{i = 1}^n  [B]_{j, i }[A]_{i,j}   = \sum_{j = 1}^n [BA]_{j,j} = tr(BA)
+\end{equation*}
+Thus shown. 
+\section*{1}
+\subsection*{1.1}
+
+We have that $s$ sends $
+\begin{bmatrix}
+	1\\
+	0
+\end{bmatrix}
+$
+to 
+$
+\begin{bmatrix}
+	1\\
+	0
+\end{bmatrix}
+$
+and it sends 
+$
+\begin{bmatrix}
+	0\\
+	1
+\end{bmatrix}
+$
+to
+$
+\begin{bmatrix}
+	0\\
+	-1
+\end{bmatrix}
+$
+So $\rho_s =
+\begin{bmatrix}
+	1 & 0 \\
+	0 & -1\\
+\end{bmatrix}
+$.
+\begin{itemize}
+	\item $\rho_s =
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & -1\\
+	\end{bmatrix}
+	$.
+	\item $\rho_{r^2} = 
+	\begin{bmatrix}
+		-1 & 0 \\
+		0 & -1\\
+	\end{bmatrix}
+	$
+	\item $\rho_{r^3} = 
+	\begin{bmatrix}
+		0 & 1 \\
+		-1 & 0\\
+	\end{bmatrix}
+	$
+	\item $\rho_{rs} = 
+	\begin{bmatrix}
+		0 & 1 \\
+		1 & 0\\
+	\end{bmatrix}
+	$
+	\item $\rho_{r^2s} = 
+	\begin{bmatrix}
+		-1 & 0 \\
+		0 & 1\\
+	\end{bmatrix}
+	$
+	\item $\rho_{r^3s} = 
+	\begin{bmatrix}
+		0 & -1 \\
+		-1 & 0\\
+	\end{bmatrix}
+	$
+\end{itemize}
 
 \end{document}
