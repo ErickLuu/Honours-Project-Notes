@@ -242,4 +242,33 @@ Refer to MTH3000 report for definitions.
 	\paragraph{Connected $G-U$}
 	Use the lemma above and set $A_1, ... A_r$ to be $(A_1, ..., A_r)$ and set $x = m$. Then there exists a tree in $U$ which intersects with $A_i$ for all $i$, or there exists a set $Y$ such that $C$ separates out $C$ and $D$. We can show that the first scenario cannot happen as we have that $Y$ would be too large, so there must be a $Y$ such that this holds. Then $Y \leq (r-1)n/m \leq (tn)/\sqrt(tn) = \sqrt(tn) = m$, so this would be the required set $Y$. 
 \end{proof}
+
+\section{Algorithms on bounded treewidth}
+\subsection{Monadic Second-order logic}
+\begin{theorem}{Courcelle's theorem}
+	If a family of graphs $\mathcal{G}$ has bounded treewidth, then any graph property of any graph $G \in \mathcal{G}$ that can be expressed in Monadic Second-order logic can be decided in linear time. 
+\end{theorem}
+
+\section{Characterisations of $K_t$-minor free graphs}
+What is the structure of $K_t$-minor free graphs? We shall show that we can roughly characterise all $K_t$-minor free graphs as graphs that are products of a series of operations that preserve the treewidth. 
+\subsection{Bounded genus graphs}
+\subsubsection{Planar graphs}
+\begin{theorem}
+	If $G$ is a planar graph, then $G$ is $K_5$-minor-free.
+\end{theorem}
+\begin{proof}
+	If $G$ is planar with $n$ vertices and $m$ edges, then we have that $m \leq 3n -6$. However, we have that $K_5$ has $5$ vertices and $10$edges, but we have that $ 10 > 3 \times 5 - 6$, so $K_5$ is not planar. As the family of planar graphs is minor-closed, then if $G$ is planar, then $K_5$ is minor-free.
+\end{proof}
+
+We can use a different argument to show that $K_{3,3}$ is not embeddable on the plane, by using the fact that $K_{3,3}$ is triangle-free. 
+(INSERT PROOF HERE)
+
+\subsubsection{Genus-g graphs}
+We define the genus $g$ of a surface to be 2 times the number of handles + the number of crosscaps. Thus we have that the Euler characteristic $\chi = 2 - g$ for both orientable and non-orientable surfaces. 
+
+In fact, we can show that if $G$ has Euler genus $g$, then if $G$ has $n$ vertices and $m$ edges, then $n - m + f = \chi = 2-g$, therefore we can show that 
+\begin{theorem}{Clique-sum}
+	content...
+\end{theorem}
+
 \end{document}
