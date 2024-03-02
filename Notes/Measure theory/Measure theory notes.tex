@@ -23,6 +23,7 @@
 \newcommand{\alg}{\mathcal{A}}
 \newcommand{\sig}{\mathcal{S}}
 \newcommand{\mono}{\mathcal{M}}
+\newcommand{\sigmes}{\Lambda_{\mu^*}}
 %opening
 \title{Measures}
 \author{Eric Luu}
@@ -107,6 +108,49 @@ Since algebras and $\sigma$-algebras are not closed under subsets, then we do no
 		\mu^*(A) := \inf \left\lbrace \sum_{j \in \mathbb{N}} \mu(E_j) : A \subset \bigcup_{j \in \mathbb{N}} E_j, E_j \in \alg \right\rbrace
 	\end{equation}
 \end{definition} 
-Note that $\mu^*(A) \leq \mu(X)$, as $X$ is in $\alg$. 
+Note that $\mu^*(A) \leq \mu(X)$, as $X$ is in $\alg$. We set $\mu^*(A) = \infty$ if no cover exists with finite summation.
 
+\begin{lemma}
+	We have that:
+	\begin{enumerate}
+		\item $\mu^*(\emptyset) = 0$
+		\item $\mu^*(A) \geq 0$ for all $A \in 2^X$
+		\item $\mu^*(A) \leq \mu^*(B)$ when $A \subset B$. If $\lbrace E_j \rbrace_{j \in \mathbb{N}}$ is a cover of $B$, then it is a cover of $A$.
+		\item $\mu^*(A) = \mu(A)$ when $A \in \alg$. 
+		\item If $\lbrace A_n \rbrace_{n \in \mathbb{N}}$ is a sequence of subsets of $X$, then
+		\begin{equation}
+			\mu^*\left(\bigcup_{n \in \mathbb{N}} A_n \right) \leq \sum_{n \in \mathbb{N}} \mu^*(A_n).
+		\end{equation}
+	\end{enumerate}
+\end{lemma}
+The last property states that $\mu^*$ is $\sigma$-subadditive.
+
+\begin{proof}[Item 4]
+	We have that $\mu^*(A) \leq \mu(A)= \mu(A)$ as $A$ is a cover of itself. However, consider any cover of $A$ in $\alg$. Note that $A = \bigcup_{j \in \mathbb{N}}(A_j \cap A)$, meaning that $\mu(A) \leq \sum_{j \in \mathbb{N}} \mu(A \cap A_j) \leq \sum_{j \in \mathbb{N}} \mu(A_j)$
+	Thus $\mu(A) \leq \sum_{j \in \mathbb{N}} \mu(A_j)$ for any cover $\lbrace A_j \rbrace_{j \in \mathbb{N}}$. 
+\end{proof}
+
+\begin{proof}[Subadditivity]
+	Let $\varepsilon > 0$. Then for each $n \in \mathbb{N}$, let $\lbrace A_{n_j} \rbrace_{j \in \mathbb{N}}$ be a sequence where $A_n \subset \bigcap_{j \in \mathbb{N}}  A_{n_j}$ and $\sum_{j \in \mathbb{N}}\mu(A_{n_j}) \leq \mu(A_n) + 2^{-n} \varepsilon$. We have that the size of the covering sequence gets exponentially smaller for each element. 
+	
+	Then we have that 
+	\begin{equation}
+		\mu^* \left(\bigcup_{n \in \mathbb{N}}A_n \right) \leq \sum_{n \in \mathbb{N}} \sum_{j \in \mathbb{N}} \mu(A_{n_j}) \leq \sum_{n \in \mathbb{N}}\mu^*(A_n) + \varepsilon
+	\end{equation}
+\end{proof}
+
+\subsubsection{Caratheodory's theorem}
+We have that $E \subset X$ is called $\mu^*$-measurable whenever:
+$\mu^*(A) = \mu^*(A \cap E) + \mu^*(A \cap E^C)$ for all $A \subseteq X$. The collection of all $\mu^*$-measurable subsets of $X$ is called $\sigmes$. It contains $\alg$.
+Note that $ \alg$ is a subset of $\sigmes$. Let $A$ be in $\alg$ and let $B \subset X$. Then we have that $\mu^*(B) = \sum_{n \in \mathbb{N}}\mu(A_n)$ for some collection of $A_n \in \alg$. However, we can split apart $A_n = (A_n \cap A) \cup (A_n \cap A^c)$ such that
+\begin{equation}
+	\mu^*(B) = \sum_{n \in \mathbb{N}}\mu(A_n\cap A \cup A_n \cap A^c) = \sum_{n \in \mathbb{N}} \mu(A_n \cap A) + \sum_{n \in \mathbb{N}} \mu(A_n \cap A^c) \geq \mu^*(A \cap B) + \mu^*(A^c \cap B)
+\end{equation}
+ Finally, $\mu^*(A \cap B) + \mu^*(A^c \cap B) \geq \mu^*((A \cap B) \cup (A^c \cap B)) = \mu^*(A \cap (E \cup E^c)) = \mu^*(A)$. 
+
+What sets are $\mu^*$-measurable?
+\begin{itemize}
+	\item Sets in $\alg$
+	\item Null sets
+\end{itemize}
 \end{document}
