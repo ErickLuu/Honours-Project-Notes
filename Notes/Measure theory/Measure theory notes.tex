@@ -1,5 +1,5 @@
-\documentclass[]{article}
-
+\documentclass{article}
+\usepackage[margin=2in]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -20,12 +20,82 @@
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
 
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\sig}{\mathcal{S}}
+\newcommand{\mono}{\mathcal{M}}
 %opening
-\title{Representation theory Notes}
+\title{Measures}
 \author{Eric Luu}
 
 \begin{document}
 
 \maketitle
-\section{Representations}
+\section{What is a measure?}
+
+\subsection{Algebras and $\sigma$-algebras}
+Let $X$ be a nonempty set, and let $2^X$ be its powerset. Then a collection $\alg \subset 2^X$ is an algebra if it satisfies the properties:
+
+\begin{enumerate}
+	\item $\emptyset$ is in $\alg$
+	\item $\alg$ is closed under complementation
+	\item $\alg$ is closed under finite union.
+\end{enumerate}
+Note that this implies that $X \in \alg$ and $\alg$ is closed under finite intersection, by De Morgan's law. Note that algebras are not closed under inclusion, meaning that if $B \subset A$ then $B$ may not be in $\alg$.
+
+\subsubsection{$\sigma$-algebra}
+Let $x$ be a nonempty set. Then $\sig \subset 2^X$ is a $\sigma$-algebra if:
+\begin{enumerate}
+	\item $\sig$ is an algebra
+	\item $\sig$ is closed under countable unions. 
+\end{enumerate}
+Every $\sigma$-algebra is also closed under countable intersection. 
+
+\begin{example}
+	\begin{enumerate}
+		\item $2^X$ is a $\sigma$-algebra. This is the smallest $\sigma$-algebra on a set.
+		\item $\lbrace \emptyset, X \rbrace$ is a $\sigma$-algebra. Note that this is the largest $\sigma$-algebra on a set.
+		\item If $A \subset X$, then $\lbrace \emptyset, X, A, A^C \rbrace$ is a $\sigma$-algebra.
+		\item $X$ is infinite, collection of finite elements is not an algebra-not closed under complementation. 
+		\item If $X$ is infinite, then $\mathcal{C}:= \lbrace A \subset X : A \text{ or } A^c \text{ is finite} \rbrace$ is an algebra but not a $\sigma$-algebra. Consider countable union of singleton elements.
+		\item If $X$ is uncountable, then the collection of countable elements is not an algebra. This is not closed under complementation.
+		\item If $X$ is uncaountable, the collection $\mathcal{C} := \lbrace A \subset X : A \text{ or } A^C \text{ is countable} \rbrace$ is a $\sigma$-algebra. It is closed under complementation. (Show)
+		\item The collection $C_1$ of $\mathbb{R}$ that can be written as a finite union of the type $(a, b]$, $(a, \infty)$, $(-\infty, b]$, $(-\infty, \infty)$ is an algebra but not a $C^*$-algebra. Note that $(1/2, 1] \cup (1/4, 1/3] \cup ...$ is not in $C_1$.
+	\end{enumerate}
+\end{example}
+
+Remarks: Intersections of $\sigma$-algebras is a $\sigma$-algebra. The union of two algebras is not necessarily an algebra. For all $\mathcal{F} \subset 2^X$, there exists a smallest $\sigma$-algebra $\sigma(\mathcal{F})$ which contains $\mathcal{F}$. This comes from taking the intersections of all $\sigma$-algebras containing $\mathcal{F}$. 
+
+\begin{example}[Borel sets]
+	Let $(X, d)$ be a separable metric space, such that there exists a countable subset such that all open sets contains at least one element in the subset. Then the Borel-$\sigma$-algebra is the smallest $\sigma$-algebra on the open sets in $X$.
+\end{example}
+
+A monotone class on $X$ is a collection $\mathcal{M}$ of subsets of $X$ that is closed under monotone unions and monotone intersections.
+\begin{enumerate}
+	\item if $A_1 \subset A_2 \subset ..., $ then $\bigcup_{n \in \mathbb{N}} A_n \in \mathcal{M}$.
+	\item if $A_1 \supset A_2 \supset ..., $ then $\bigcap_{n \in \mathbb{N}} A_n \in \mathcal{M}$.
+\end{enumerate}
+\begin{lemma}[Monotone class lemma]
+	Let $\alg$ be an algebra. Then $\mathcal{M}(\alg) = \sigma(\alg)$.
+\end{lemma}
+
+\begin{proof}
+	Every $\sigma$-algebra is a monotone class, so the smallest monotone class containing $\alg$ is inside the smallest $\sigma$-algebra containing $\alg$. Thus it suffices to show that $\mono$ is a $\sigma$-algebra.
+	
+	Let $\mono_0$ be the subset of $\mono(\alg)$ of all $F \in \mono(\alg)$ where $F^c \in \mono(\alg)$. Then $\alg \in \mono_0$, and $\mono_0$ is a monotone class from De Morgan's law. $(\bigcup_{n \in \mathbb{N}} A_n)^c = \bigcap_{n \in \mathbb{N}} A_n^c$ thus the complement is contained in $\mono_0$. Therefore, $\mono_0 = \mono(\alg)$ from definition.
+	\par
+	... Thus $\mono(A) = \sigma(A)$.
+\end{proof}
+
+\subsection{Measures on algebras}
+Let $\alg$ be an algebra on $X$. Then $\mu : \alg \rightarrow [0, \infty]$ is a measure if:
+
+\begin{enumerate}
+	\item $\mu(\emptyset) = 0$
+	\item If $\lbrace A_n \rbrace_{n \in \mathbb{N}} \subset \alg$ is a pw disjoint family with $\cup_{n \in \mathbb{N}} A_n \in \alg$, then
+	\begin{equation}
+		\mu \left( \bigcup_{n \in \mathbb{N}} A_n\right) = \sum_{n \in \mathbb{N}} \mu(A_n).
+	\end{equation}
+	This is known as $\sigma$-additivity.
+\end{enumerate}
+
 \end{document}
