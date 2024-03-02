@@ -98,4 +98,15 @@ Let $\alg$ be an algebra on $X$. Then $\mu : \alg \rightarrow [0, \infty]$ is a 
 	This is known as $\sigma$-additivity.
 \end{enumerate}
 
+\subsection{Extension of measures.}
+Since algebras and $\sigma$-algebras are not closed under subsets, then we do not get that if $M \subset N$ and $\mu(N) = 0$, then $\mu(M) = 0$ as it may be the case that $M$ is not in $\alg$. Thus, we want to complete the measure in some formal sense.
+
+\begin{definition}
+	If $A \in 2^X$, then let
+	\begin{equation}
+		\mu^*(A) := \inf \left\lbrace \sum_{j \in \mathbb{N}} \mu(E_j) : A \subset \bigcup_{j \in \mathbb{N}} E_j, E_j \in \alg \right\rbrace
+	\end{equation}
+\end{definition} 
+Note that $\mu^*(A) \leq \mu(X)$, as $X$ is in $\alg$. 
+
 \end{document}
