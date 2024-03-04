@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\sig}{\mathcal{S}}
+\newcommand{\mono}{\mathcal{M}}
+\newcommand{\sigmes}{\Lambda_{\mu^*}}
+\newcommand{\salg}{$\sigma$-algebra}
+%opening
+\title{Assignment 1}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Part 1}
+\subsection{Problem 1}
+\newcommand{\Erel}{\mathcal{S}_E}
+\subsubsection{a}
+\paragraph{\salg}
+We shall show that $\Erel$ is a \salg. 
+\par
+We have that $\emptyset = E \cap \emptyset$, thus $\emptyset \in \Erel$. 
+\par
+If $S \in \Erel$, then $S = E \cap A$ for some $A \in \sig$. However, we have that $X - A \in \sig$ by the definition of a \salg. But that means that $E \cap (X - A) \in \Erel$, but $E \cap (X - A) = (E \cap X) - (E \cap A) = E - S \in \Erel$. Thus $S^c = E - S \in \Erel$. 
+\par
+If $S = \bigcup_{n \in \mathbb{N}} S_n$, then $S = \bigcup_{n \in \mathbb{N}} E \cap A_n$ for some $A_n$. But we have that $ \bigcup_{n \in \mathbb{N}} E \cap A_n = E \cap (\bigcup_{n \in \mathbb{N}}A_n)$. But as $\sig$ is a \salg, then $\bigcup_{n \in \mathbb{N}}A_n \in \sig$. Therefore, $S = E \cap \bigcup_{n \in \mathbb{N}}A_n$ is in $\Erel$. 
+\paragraph{Measure}
+To show $\nu$ is a measure, we have that $\nu(\emptyset) = \mu^*|_{\Erel}(\emptyset) = \mu^*(\emptyset) = 0$, as $\emptyset \subset \Erel$. 
+\paragraph{Countable disjoint sets}
+Suppose $\left\lbrace S_n \right\rbrace_{n \in \mathbb{N}}$ is a family of pairwise disjoint sets in $\Erel$. Then we have that $S_n = E \cap A_n$ for some $A_n \in \mathbb{N}$. Now define a new set $B_i = A_i \cap (\bigcup_{j \in \mathbb{N}, j \neq i} A_j)^c$, which is in $\sig$ for all $i$ as $\bigcup_{j \in \mathbb{N}, j \neq i} A_j$ is a countable set. Therefore, $\bigcup_{j \in \mathbb{N}, j \neq i} A_j$ is in $\sig$ thus its complement and the intersection with $A_i$ is in $\sig$. However, we have that each $S_i$ is pairwise disjoint in $E$, thus it is pairwise disjoint in $\sig$. Therefore, $S_i = B_i \cap E$ as each point in $S_i$ appears only in $B_i$ and nowhere else, so it is not removed. Finally, we have that $B_i$ is disjoint from $B_j$ for all $i \neq j$ as we remove any points in $A_i$ common to $A_j$ in the construction. 
+\par
+Therefore, we have that $B_i$ is pairwise disjoint and in $\sig$, and contains $S_i$. Therefore, we have that:
+\begin{align*}
+	\nu(\bigcup_{n \in \mathbb{N}} S_n) &= \nu(\bigcup_{n \in \mathbb{N}}(E \cap B_n))\\
+	&= \nu(E \cap \bigcup_{n \in \mathbb{N}}( B_n))\\
+	&= \mu^*|_{\Erel}(E \cap \bigcup_{n \in \mathbb{N}}( B_n))\\
+	&= \mu^*|_{\Erel}(E \cap \bigcup_{n \in \mathbb{N}}( B_n)) + \mu^*|_{\Erel}(E^c \cap \bigcup_{n \in \mathbb{N}}( B_n))
+\end{align*}
+We use the fact that $\mu^*|_{\Erel}(E^c \cap \bigcup_{n \in \mathbb{N}}( B_n)) =  \mu^*(\emptyset) = 0$. We now use that $E$ is $\mu^*$-measurable and nonempty, so $\mu^*|_{\Erel}(A) = \mu^*|_{\Erel}(E \cap A) + \mu^*|_{\Erel}(E^c \cap A)$. So we get that this is equal to 
+\begin{align*}
+	&= \mu^*|_{\Erel}(\bigcup_{n \in \mathbb{N}}( B_n))\\
+	&= \sum_{n \in \mathbb{N}} \mu^*|_{\Erel}(B_n)
+\end{align*}
+where we use the fact that $B_n$ is pairwise disjoint in $\sig$, so $\mu^*$ and thus its restriction is additive. Finally, we have that $\sum_{n \in \mathbb{N}} \mu^*|_{\Erel}(B_n) = \sum_{n \in \mathbb{N}}\nu (E \cap B_n) = \sum_{n \in \mathbb{N}}\nu(S_n)$, which is the desired result. 
+
+\subsubsection{b}
+
+\subsubsection{c}
+\subsection{Problem 2}
+\subsubsection{a}
+Suppose $A \subset B$, where $B$ is countably infinite and therefore in $\sig$. Then $A$ is either countable infinite, or finite. Thus $A \in \sig$. Furthermore, we have that $\mu(B) = \infty$, and $\mu(A)$ is either $0$ or $\infty$, thus $\mu(A) \leq \mu(B)$. If $B$ is finite, then $A$ must be finite as well, and it is in $\sig$. Thus $\mu(A) = \mu(B)$.
+\subsubsection{b}
+Suppose no family of $\left\lbrace A_j \right\rbrace_{j = 1}^m$ is countably infinite. Then that implies $\bigcup_{j = 1}^m A_j$ is finite, thus $\mu(\bigcup_{j = 1}^m A_j) = \sum_{j = 1}^m \mu(A_j) = 0$. If at least one of the $A_j$ is countably infinite, then $\mu(\bigcup_{j = 1}^m A_j)$ is also countably infinite. Thus $\mu(\bigcup_{j = 1}^m A_j) = \sum_{j = 1}^m \mu(A_j) = \infty$.
+\subsubsection{c}
+No, as measures are defined on algebras, but $\sig$ is not an algebra. We have that $\emptyset$ is in $\sig$, but the complement of $\emptyset$, $\mathbb{R}$, is not countable. Thus $\sig$ does not contain $\mathbb{R}$ and therefore it is not closed under complement.
+\end{document}
