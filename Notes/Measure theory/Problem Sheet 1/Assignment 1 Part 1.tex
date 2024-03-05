@@ -64,7 +64,10 @@ We use the fact that $\mu^*|_{\Erel}(E^c \cap \bigcup_{n \in \mathbb{N}}( B_n)) 
 where we use the fact that $B_n$ is pairwise disjoint in $\sig$, so $\mu^*$ and thus its restriction is additive. Finally, we have that $\sum_{n \in \mathbb{N}} \mu^*|_{\Erel}(B_n) = \sum_{n \in \mathbb{N}}\nu (E \cap B_n) = \sum_{n \in \mathbb{N}}\nu(S_n)$, which is the desired result. 
 
 \subsubsection{b}
-
+\paragraph{Proof that $\mu^*|_{2^E}(S) \leq \nu^*(S)$:}
+Let $S \subset E$. Then for all $\varepsilon > 0$, there exists a cover of $S$ , $\lbrace S_n \rbrace_{n \in \mathbb{N}}$ in $S^E$ such that $\sum_{n \in \mathbb{N}} \nu(S_n) \leq \nu^*(S) + \varepsilon$. However, we have that $\sum_{n \in \mathbb{N}} \nu(S_n) = \sum_{n \in \mathbb{N}} \mu^*|_{\Erel}(B_n)$ for some $B_n$. However, $ \mu^*|_{\Erel}(B_n) = \mu^*|_{2^E}(B_n)$ for all $B_n$ as $B_n \cap E$ has a well-defined value in $\mu^*|_{\Erel}(B_n)$, thus the extension to $2^E$ must also be well-defined. However, note that $\mu^*|_{2^E}(S) \leq \sum_{n \in \mathbb{N}} \mu^*|_{2^E}(B_n)$. Thus, $\mu^*|_{2^E}(S) \leq \nu^*(S) + \varepsilon$ for all $\varepsilon > 0$, thus $ \mu^*|_{2^E}(S) \leq \nu^*(S) $.
+\paragraph{Proof that $\mu^*|_{2^E}(S) \geq \nu^*(S)$:}
+For all $\varepsilon > 0$, let $\lbrace B_n \rbrace_{n \in \mathbb{N}}$ be a cover of $S$ in $\sig$ such that $\sum_{n \in \mathbb{N}}\mu^*|_{2^E}(B_n) \leq \mu^*|_{2^E}(S) + \varepsilon$. Then $\mu^*(B_n) = \mu^*(E \cap B_n) + \mu^*(E^c \cap B_n)$, thus $\mu^*|_{2^E}(B_n) = \mu^*(E \cap B_n)$. However, as $S \subset E$, it holds that $ \lbrace E \cap B_n \rbrace_{n \in \mathbb{N}}$ is a cover of $S$, thus $\nu^*(S) \leq \sum_{n \in \mathbb{N}}\nu^*(B_n) = \sum_{n \in \mathbb{N}}\mu^*|_{2^E}(B_n) \leq \mu^*|_{2^E}(S) + \varepsilon$. Thus $\nu^*(S) \leq \mu^*|_{2^E}(S) + \varepsilon$. 
 \subsubsection{c}
 \subsection{Problem 2}
 \subsubsection{a}
