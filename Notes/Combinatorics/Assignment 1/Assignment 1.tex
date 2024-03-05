@@ -20,9 +20,13 @@ If we let $m = n + k - 1$, then we have that $|S_m| = \binom{n + k - 1}{k} = |W_
 We have that the function $\phi: S_{n + k - 1} \rightarrow W_n$, where it sends $[s_1, S_2, ..., S_{k}]$ to $[s_1, s_2 - 1, ..., s_{k} - k + 1]$, is a bijection. Proof...
 \section{Question 2}
 \section{Question 3}
-We have that $T_{n, 0} = 1$, as there is only one way to arrange students such that they are in line.
-
-We have that $T(2, 1) = 2$, $T(n, 1) = 2n - 1$. 
+We have that $T_{n, 0} = 1$, as there is only one way to arrange the students in nonincreasing order, as for each pair of twins, swapping the positions of the twins is identified with keeping the twins the same as they are identical. 
+\paragraph{Recurrence}
+We first note that the two shortest twins must be placed next to each other because as they are the shortest, then there are no taller pupils between them. 
+For the size of $T_{n, k}$, we look at where the shortest twins are placed. We have that the twins can be placed in front of one of the other $2n - 2$ pupils, or they can go at the end. Then if they are placed in front of a pupil, then when we remove the shortest twins, then we have that there are $n-1$ twins and exactly $k-1$ pupils in front of someone shorter. If the shortest twins are placed at the very end, then there are $n-1$ twins and $k$ pupils in front of someone shorter. Thus we have the recurrence:
+\begin{equation}
+	T_{(n, k)} = 2(n-1) T_{(n-1, k-1)} + T_{(n-1, k)}
+\end{equation}
 \section{Question 4}
 \section{Question 5}
 
