@@ -26,9 +26,14 @@ To show injectivity, consider if $\phi([a_1, a_2, ... a_k]) = \phi([b_1, b_2, ..
 To show surjectivity, consider any sequence $[w_1, w_2, ... w_k]\in W_n$. Then the sequence $[w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]$ is in $S_n$ as if $w_i \leq w_{i + 1}$, then $w_{i} + (i - 1) < w_i + (i)$, and $\phi([w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]) = [w_1, w_2, ... w_k]$ . Therefore, $|S_{n + k - 1}| = |W_n|$ by this bijection. 
 \section{Question 2}
 \section{Question 3}
-We have that $T_{n, 0} = 1$, as there is only one way to arrange students such that they are in line.
+We have that $T_{n, 0} = 1$, as there is only one way to arrange the students in nonincreasing order, as for each pair of twins, swapping the positions of the twins is identified with keeping the twins the same as they are identical. 
+\paragraph{Recurrence}
+We first note that the two shortest twins must be placed next to each other because as they are the shortest, then there are no taller pupils between them. 
+For the size of $T_{n, k}$, we look at where the shortest twins are placed. We have that the twins can be placed in front of one of the other $2n - 2$ pupils, or they can go at the end. Then if they are placed in front of a pupil, then when we remove the shortest twins, then we have that there are $n-1$ twins and exactly $k-1$ pupils in front of someone shorter. If the shortest twins are placed at the very end, then there are $n-1$ twins and $k$ pupils in front of someone shorter. Thus we have the recurrence:
+\begin{equation}
+	T_{(n, k)} = 2(n-1) T_{(n-1, k-1)} + T_{(n-1, k)}
+\end{equation}
 
-We have that $T(2, 1) = 2$, 
 \section{Question 4}
 \section{Question 5}
 

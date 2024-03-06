@@ -89,6 +89,7 @@ and $J = \begin{bmatrix}
 $.
 We have that if $A = I$, then $P$ and $\Lambda = I$. 
 \subsubsection*{b}
+
 \paragraph{Group}
 A group $G$ is a set of elements with a binary operation $ \cdot \times \cdot : G \times G \rightarrow G$ which satisfies the associativity, identity and inverse laws. An example of a group is $K_4$ and $D_4$.
 \paragraph{Symmetric group} For an set $X$, the symmetric group $S_X$ is the group of bijections from $X$ to itself. For example, the set $\lbrace 1, 2, 3\rbrace$ would have $S_3$ as the group of bijections, so $\lbrace (), (1, 2), (1, 3), (2, 3), (1,2,3), (1, 3, 2) \rbrace$. 
@@ -288,14 +289,50 @@ $\phi(r^3 d) =
 \end{bmatrix}$
 \end{itemize}
 \subsubsection*{c}
-
+We have that $\phi_g (
+\begin{pmatrix}
+	1\\
+	1\\
+	1\\
+	1\\
+\end{pmatrix}
+) = \begin{pmatrix}
+	1\\
+	1\\
+	1\\
+	1\\
+\end{pmatrix}$ for all $g \in G$. Therefore, the subspace $span(\begin{pmatrix}
+1\\
+1\\
+1\\
+1\\
+\end{pmatrix})$ is an invariant subspace of $\phi$, thus $\phi$ is reducible. In contrast, we have that the eigenvectors of $\rho_{s}$ are $
+\begin{bmatrix}
+	1\\
+	0\\
+\end{bmatrix}$ and 
+$
+\begin{bmatrix}
+	0\\
+	1\\
+\end{bmatrix}
+$
+but the eigenvectors of $\rho_r$ are:
+$\begin{bmatrix}
+	i\\
+	1\\
+\end{bmatrix}$
+and 
+$\begin{bmatrix}
+	-i\\
+	1\\
+\end{bmatrix}$. Thus $\rho$ has no nontrivial subspace $U$ such that $\rho_g (U) = U$. Therefore, $\rho$ is irreducible. 
 \subsubsection*{d}
 
 \subsection*{1.2}
 Recall that two representations $\rho$ and $\phi$ are equivalent if there exists an isomorphism of vector spaces $T: \mathbb{C} \rightarrow \mathbb{C}$ such that $T \rho_g = \phi_g T$ for all $g \in G$. 
 If $\rho, \phi$ are equivalent functions, then $\rho_g = [1] \phi_g [1]$ for all $g$ in $G$, where $[1] : \mathbb{C} \rightarrow \mathbb{C}$ is the identity function. Thus $\rho_g$ and $\phi_g$ are equivalent representations.
 If $\rho$ and $\phi$ are equivalent representations, then $\rho_g = T \phi_g T^{-1}$ for some isomorphism $T$ for all $g \in G$. However, we can represent $T = [a]$, where $ a \in \mathbb{C}^*$. Then $\rho_g = a \phi_g a^{-1}$ as $\phi_g \in \mathbb{C}^*$. However, multiplication commutes in $\mathbb{C}$, so $\rho_g = a a^{-1} \phi_g = \phi_g$ for all $g \in G$. Thus $\rho$ and $\phi$ are equal functions. 
-
 \subsection{1.3}
 \subsubsection*{a}
 We must show that $\rho(1) = 1$. We have that $\rho(1) \rho(g) =\rho(1 g) =  \rho(g)$ for all $g \in G$ by the commutativity of $\rho$. Thus $\rho(1)$ is the identity in $\mathbb{C}^*$ which is $1$. Therefore, $\rho(g^n) = \underbrace{\rho(g) \rho(g) \cdots \rho(g)}_{n \text{ times}} = \rho(1) = 1$, therefore $\rho(g)^n = 1$. Thus $\rho(g)$ is an $n$-th root of unity. 

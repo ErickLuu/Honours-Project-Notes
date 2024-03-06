@@ -69,6 +69,17 @@ Let $S \subset E$. Then for all $\varepsilon > 0$, there exists a cover of $S$ ,
 \paragraph{Proof that $\mu^*|_{2^E}(S) \geq \nu^*(S)$:}
 For all $\varepsilon > 0$, let $\lbrace B_n \rbrace_{n \in \mathbb{N}}$ be a cover of $S$ in $\sig$ such that $\sum_{n \in \mathbb{N}}\mu^*|_{2^E}(B_n) \leq \mu^*|_{2^E}(S) + \varepsilon$. Then $\mu^*(B_n) = \mu^*(E \cap B_n) + \mu^*(E^c \cap B_n)$, thus $\mu^*|_{2^E}(B_n) = \mu^*(E \cap B_n)$. However, as $S \subset E$, it holds that $ \lbrace E \cap B_n \rbrace_{n \in \mathbb{N}}$ is a cover of $S$, thus $\nu^*(S) \leq \sum_{n \in \mathbb{N}}\nu^*(B_n) = \sum_{n \in \mathbb{N}}\mu^*|_{2^E}(B_n) \leq \mu^*|_{2^E}(S) + \varepsilon$. Thus $\nu^*(S) \leq \mu^*|_{2^E}(S) + \varepsilon$. 
 \subsubsection{c}
+\paragraph{$\Rightarrow$}
+We shall show that if $F \subseteq E$ is $\mu^*$-measurable, then $F$ is $\nu^*$-measurable. Let $G \subseteq E$. Then $\mu^*(G) = \mu^*(G \cap F) + \mu^*(G \cap F^c)$, as $F$ is $\mu^*$-measurable. But as we have that $G \subseteq E$, then $\mu^*(G) = \mu^*|_{2^E}(G)$ as the restriction is well-defined on subsets of $E$. However, we have that $\mu^* (G \cap F^c) = \mu^*(G \cap F^c \cap E) + \mu^*(G \cap F^c \cap E^c)$, therefore restricting $\mu^*$ to subsets of $E$ will have that $\mu^*|_{2^E}(G \cap F^c) = \mu^*|_{2^E}(G \cap F^c \cap E) +  \mu^*|_{2^E}(G \cap F^c \cap E^c) = \mu^*|_{2^E}(G \cap F^c \cap E)$.
+\par
+Therefore, we have that $\mu^*|_{2^E}(G) = \mu^*|_{2^E}(G \cap F) + \mu^*|_{2^E}(G \cap F^C \cap E)$, therefore $\nu^*(G) = \nu^*(G \cap F) + \nu^*(G \cap (E- F))$. As this holds for arbitrary $G$, then $F$ is $\nu^*$-measurable.
+\paragraph{$\Leftarrow$} 
+Suppose $F \subseteq E$ and $F$ is $\nu^*$-measurable. Then let $G \subset X$, thus as $E$ is $\mu^*$-measurable, then $\mu^*(G) = \mu^*(G \cap E) + \mu^*(G \cap E^c)$. But $\mu^*(G \cap E) = \mu^*|_{2^E}(G \cap E) = \nu^*(G \cap E)$, therefore, $\mu^*(G \cap E) = \nu^*(F \cap G \cap E) + \nu^*(F^c \cap G \cap E)$. However, both of these sets live in $E$ thus $\mu^*$ agrees on these sets. Therefore, $\mu^*(G \cap E) = \mu^*(F \cap G \cap E) + \mu^*(F^c \cap G \cap E)$. However, we can write $F \cap G \cap E$ as $F \cap G$ and we can also write $G \cap E^c$ as $F^c \cap G \cap E^c$, as $F \subset E$. Therefore, 
+\begin{align*}
+	\mu^*(G) &= \mu^*(F \cap G) + \mu^*((F^c \cap G) \cap E) + \mu^*((F^c \cap G) \cap E)\\
+	\mu^*(G) &= \mu^*(F \cap G) + \mu^*(F^c \cap G)
+\end{align*}
+where we use the fact that $\mu^*(F^c \cap G) = \mu^*((F^c \cap G) \cap E) + \mu^*((F^c \cap G) \cap E)$ as $E$ is $\mu^*$-measurable. As $G$ is arbitrary, then $F$ is $\mu^*$-measurable. 
 \subsection{Problem 2}
 \subsubsection{a}
 Suppose $A \subset B$, where $B$ is countably infinite and therefore in $\sig$. Then $A$ is either countable infinite, or finite. Thus $A \in \sig$. Furthermore, we have that $\mu(B) = \infty$, and $\mu(A)$ is either $0$ or $\infty$, thus $\mu(A) \leq \mu(B)$. If $B$ is finite, then $A$ must be finite as well, and it is in $\sig$. Thus $\mu(A) = \mu(B)$.
