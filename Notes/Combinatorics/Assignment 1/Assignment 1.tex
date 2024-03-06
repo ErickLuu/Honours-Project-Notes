@@ -10,19 +10,25 @@
 \maketitle
 \section{Question 1}
 \subsection{Part a}
-There is a bijection from $W_n$ to placing $k$ balls in $n$ urns labelled $1 .. n$. Let $[w_1, w_2, ..., w_{k}]$ be a sequence in $W_n$.
+\paragraph{$S_n$}
+There is a bijection from $W_n$ to placing $k$ balls in $n$ urns labelled $1 .. n$. Label the set of ways to place $k$ balls in $n$ urns as $U_n$. We shall show that there is a bijective function $\psi: W_n \rightarrow U_n$. Let $[w_1, w_2, ..., w_{k}]$ be a sequence in $W_n$. Then  $\psi([w_1, w_2, ..., w_{k}])$ has that the $i$-th ball is in $U_{w_i}$. This is a bijective function. To show injectivity, if $\psi(a) = \psi(b)$, then since the urns are the same, then it must hold that sequence $a$ and $b$ have the same numbers and thus $a = b$ as they will be uniquely non-decreasing. Tp show surjectivity, if urn 1 contains $a_1$ balls, urn 2 contains $a_2$ balls, up to urn $n$ containing $a_n$ balls such that $\sum_{i = 1}^n a_n = k$, then the sequence $[1, 1, ..., 1, 2, 2, 2, ..., ... n, n, n]$ such that the number $i$ appears $a_i$ times in the sequence will be mapped to the urns. 
 Therefore, $|W_n| = \binom{n + k - 1}{k}$. 
-There is a bijection from $S_n$ to choosing $k$ numbers in $[n]$...
+\paragraph{$S_n$}
+There is a bijection from $S_n$ to choosing $k$ numbers in $[n]$. Suppose we have the numbers $[s_1, s_2, ... s_k]$. Then this will correspond to choosing the numbers $s_1, s_2, ..., s_k$ from $[n]$. This is injective as if two sequences choose the same numbers, as the sequences are increasing, the only way that this can happen is if the sequences are identical. Secondly, for every way to choose $k$ numbers from $[n]$, we order them smallest to largest to form a sequence in $S_n$. Thus the sequences we have are bijective.
 Therefore, $|S_n| = \binom{n}{k}$. 
 \subsection{Part b}
 If we let $m = n + k - 1$, then we have that $|S_m| = \binom{n + k - 1}{k} = |W_n|$. 
 \subsection{Part c}
-We have that the function $\phi: S_{n + k - 1} \rightarrow W_n$, where it sends $[s_1, S_2, ..., S_{k}]$ to $[s_1, s_2 - 1, ..., s_{k} - k + 1]$, is a bijection. Proof...
+We have that the function $\phi: S_{n + k - 1} \rightarrow W_n$, where it sends $[s_1, s_2, ..., s_{k}]$ to $[s_1, s_2 - 1, ..., s_{k} - k + 1]$, is a bijection. 
+To show that this function is well-defined, we have that if $s_i < s_{i+1}$, then $s_i + 1 \leq s_{i + 1}$, therefore $s_i - i + 1 \leq s_{i + 1} - i$. However, we have that $s_i - i + 1$ is the $i$-th term that $s_i$ gets sent to and $s_{i + 1} - i$ is the $i + 1$-th term. Finally, we have that $1 \geq s_1$, and $s_k \leq n + k - 1$, therefore $ 1 \leq s_1 $ and $s_k + k - 1 \leq n$. Therefore we have that $[s_1, s_2 - 1, ..., s_{k} - k + 1] \in W_n$. 
+
+To show injectivity, consider if $\phi([a_1, a_2, ... a_k]) = \phi([b_1, b_2, ..., b_k])$. Then $[a_1, a_2 -1, ..., a_k - k + 1] = [b_1, b_2 -1, ..., b_k - k + 1]$. However, this implies $a_1 = b_1, a_2 = b_2$ and so on. Thus these sequences are equal.
+To show surjectivity, consider any sequence $[w_1, w_2, ... w_k]\in W_n$. Then the sequence $[w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]$ is in $S_n$ as if $w_i \leq w_{i + 1}$, then $w_{i} + (i - 1) < w_i + (i)$, and $\phi([w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]) = [w_1, w_2, ... w_k]$ . Therefore, $|S_{n + k - 1}| = |W_n|$ by this bijection. 
 \section{Question 2}
 \section{Question 3}
 We have that $T_{n, 0} = 1$, as there is only one way to arrange students such that they are in line.
 
-We have that $T(2, 1) = 2$, $T(n, 1) = 2n - 1$. 
+We have that $T(2, 1) = 2$, 
 \section{Question 4}
 \section{Question 5}
 
