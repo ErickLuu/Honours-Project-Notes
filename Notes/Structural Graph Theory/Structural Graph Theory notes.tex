@@ -9,6 +9,7 @@
 \newcommand{\tree}{\mathcal{T}}
 \newcommand{\tw}{\text{tw}}
 \newcommand{\had}{\text{had}}
+\newcommand{\pw}{\text{pw}}
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -320,4 +321,31 @@ Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embedd
 	For all $t$, there exists $g, p, a \geq 0$, $k \ell \geq 1$, such that every $K_t$-minor-free graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-embeddable. 
 \end{theorem}
 In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-almost embeddable, then $G$ has no $K_t$ minor. One possible function is $t(g, p, k, a) = a + ck \sqrt{g + p}$. 
+
+\section{Path-width}
+We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ such that the subsequence of bags containing a vertex $v$ induces a subpath and each edge $vw$ is in a bag $B_i$. Then we define the width of a path-decomposition as $\max_i \lbrace |B_i| \rbrace -1$, same as treewidth. The pathwidth of a graph $G$ is the minimum treewidth.
+\begin{example}
+	\begin{theorem}[Caterpillars]
+		Graphs have pathwidth at most 11 iff every connected component is a caterpillar (graphs where removing every leaf yields a path).
+	\end{theorem}
+	\begin{proof}[Caterpillars]
+		Suppose $G$ is a caterpillar graph and $p_1, p_2, ..., p_n$ is the central path, and the leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Then have the bags $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1. If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
+	\end{proof}
+	
+\end{example}
+\begin{example}
+	If a graph $F$ is a forest, then the pathwidth of $F$ is the largest pathwidth over all connected components.
+\end{example}
+\begin{example}
+	The pathwidth of a single vertex is 0.
+\end{example}
+\begin{example}
+	The pathwidth of a tree $T$ is $\min_{P \subset T} 1 + \pw(T - V(P))$ where $P$ is a path. 
+\end{example}
+
+\begin{proof}[Proof of inductive path-width]
+	To show $\pw(T) \leq 1 + \pw(T - V(P))$, we have that if $P$ is a path in $T$ with vertices $v_1, v_2, ...$, then consider the subtrees hanging off $v_i$ for all $i$. $T - V(P)$ will have a path-width and we can order each connected component such that they appear in the order of the trees. Then we have that adding $v_i$ to the bags of subtrees connected to $v_i$, and the bag $(v_i, v_{i+1})$ between the subtrees $v_i$ and $v_{i + 1}$ will yield a path-decomposition of width $1 + \pw(T - V(P))$. 
+	\paragraph{Other direction}
+	To show $\pw(T) \geq 
+\end{proof}
 \end{document}
