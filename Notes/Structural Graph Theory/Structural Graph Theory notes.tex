@@ -11,6 +11,7 @@
 \newcommand{\tw}{\text{tw}}
 \newcommand{\had}{\text{had}}
 \newcommand{\pw}{\text{pw}}
+\newcommand{\td}{\text{td}}
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -173,7 +174,7 @@ A \textit{layering} of a graph $G$ is a partition of the vertex set of $G$ into 
 	Planar graphs have $\ltw$ at most 3. 
 \end{theorem}
 \begin{proof}
-	If $G$ is a planar triangulation, and $T$ is a bfs spanning tree, then the vertices ordered by distance from the root $r$ of $T$ is a layering of $G$. Then consider the dual graph $G^*$. Then there exists a spanning tree of $G^*$, $T^*$, such that no edge in $T^*$ crosses over an edge in $T$. Call this spanning tree the cotree of $G$. Then let $\left( B_x: x \in V(T*) \right)$ be bags. For a face $\alpha$, the set of vertices $v_1, v_2, v_3$ on the border of $\alpha$ and the vertices on path in $T$ from $v_i$ to $r$ for all $i$ in $\lbrace 1, 2, 3 \rbrace$ is $B_\alpha$. Every edge is on the border of some face, so every edge is in $T^*$. If $x$ is a vertex, then the subtree containing $x$ goes to all the faces incident with the descendants of $x$, which is connected. Thus this is a tree-decomposition. Finally, the intersection between $V_i$ and $B_\alpha$ is at most 3 as at most 3 vertices can be on the same layer by the construction. Thus $ltw(G) \leq 3$. 
+	If $G$ is a planar triangulation, and $T$ is a bfs spanning tree, then the vertices ordered by distance from the root $r$ of $T$ is a layering of $G$. Then consider the dual graph $G^*$. Then there exists a spanning tree of $G^*$, $T^*$, such that no edge in $T^*$ crosses over an edge in $T$. Call this spanning tree the cotree of $G$. Then let $\left( B_x: x \in V(T^*) \right)$ be bags. For a face $\alpha$, the set of vertices $v_1, v_2, v_3$ on the border of $\alpha$ and the vertices on path in $T$ from $v_i$ to $r$ for all $i$ in $\lbrace 1, 2, 3 \rbrace$ is $B_\alpha$. Every edge is on the border of some face, so every edge is in $T^*$. If $x$ is a vertex, then the subtree containing $x$ goes to all the faces incident with the descendants of $x$, which is connected. Thus this is a tree-decomposition. Finally, the intersection between $V_i$ and $B_\alpha$ is at most 3 as at most 3 vertices can be on the same layer by the construction. Thus $ltw(G) \leq 3$. 
 \end{proof}
 
 \subsection{Upper bound on treewidth}
@@ -363,4 +364,11 @@ We define a ternary tree to be a tree where every vertex has degree 1 or 4, exce
 
 For complete binary trees of edge-height $h$, it is easy to show there is a path-decomposition of width $\lceil h/2 \rceil$. (Consider doing the same operation, but with half the vertices.)
 
+\subsection{Treedepth}
+We define the \textit{closure} of a rooted tree $T$ to be the the graph $G$ where $V(G) = V(T)$ and $vw$ is an edge in $G$ iff $v$ is an ancestor of $w$ in $T$.
+\begin{definition}
+	The treedepth of a graph $G$, denoted as $\td(G)$, is defined to be the minimum vertex-height of a rooted forest $T$ such that $G \subseteq $ closure of $T$.
+\end{definition}
+We have that this defines a path-decomposition of $G$ by enumerating through all the vertices of $T$ in the natural order with the bag $B_i$ is the path from leaf $\ell_i$ to $r$. The size of the bag is the vertex-height, thus $\pw(G) \leq \td(G) - 1$. As every path-decomposition is a valid tree-decomposition, $\tw(G) \leq \pw(G) \leq \td(G) - 1$. However, these parameters are not \textit{tied}. We say two parameters $p(G), q(G)$ of a graph are tied if there is a function $f$ such that $ p(G) \leq f(q(G))$ and $q(G) \leq f(p(G))$ for all graphs $G$. 
+Let $\mathcal{G}$ be the graph family $T_1, T_2, ...$ where $T_h$ is the complete ternary tree of height $h$. Then $\tw(G) = 1$ for all $G \in \mathcal{G}$, but $\pw(T_h) = h$, thus the pathwidth may be unbounded while the treewidth is constant. Let $\mathcal{G}$ be the set of paths $P_i$ for $i \in \mathbb{N}$. Then  
 \end{document}
