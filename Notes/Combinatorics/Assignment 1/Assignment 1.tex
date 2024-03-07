@@ -25,15 +25,25 @@ To show that this function is well-defined, we have that if $s_i < s_{i+1}$, the
 To show injectivity, consider if $\phi([a_1, a_2, ... a_k]) = \phi([b_1, b_2, ..., b_k])$. Then $[a_1, a_2 -1, ..., a_k - k + 1] = [b_1, b_2 -1, ..., b_k - k + 1]$. However, this implies $a_1 = b_1, a_2 = b_2$ and so on. Thus these sequences are equal.
 To show surjectivity, consider any sequence $[w_1, w_2, ... w_k]\in W_n$. Then the sequence $[w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]$ is in $S_n$ as if $w_i \leq w_{i + 1}$, then $w_{i} + (i - 1) < w_i + (i)$, and $\phi([w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]) = [w_1, w_2, ... w_k]$ . Therefore, $|S_{n + k - 1}| = |W_n|$ by this bijection. 
 \section{Question 2}
+\subsection{Part a}
+We will introduce $U_{k, n}$, the set of arbitrary $k \times n$-sized Latin rectangles, and establish a relationship between $S_{k,n}$ and $U_{k,n}$. We can convert a rectangle in $U_{k,n}$ to one in $S_{k,n}$ by rearranging the column vectors such that the first row is in non-decreasing order, then rearranging the rows such that the first column is in non-decreasing order. At every step, we are presented with no choices, therefore all Latin rectangles in $U_{k,n}$ are mapped to a single rectangle in $S_{k,n}$. To see the inverse process, we permute $(k - 1)$ rows (except for the first) and then permute $n$ columns. This gives us $(k - 1)! n!$ switching operations and each Latin rectangle corresponds with a unique switching operation, thus we have that $|U_{k, n}| = (k - 1)! n! |S_{k, n}|$. However, we have that $|U_{k, n}| = \frac{(n - 1)! n!}{(n-k)!} |R_{k,n}|$, thus $\frac{(n - 1)! n!}{(n-k)!} |R_{k,n}|= (k - 1)! n! |S_{k, n}|$. Rearranging around the fraction, we have that:
+\begin{align*}
+	|S_{k, n}| &= \frac{(n - 1)!}{(n-k)!(k - 1)!} |R_{k,n}|\\
+	&= \frac{(n - 1)! n k}{(n-k)!(k - 1)! n k} |R_{k,n}|\\
+	&= \frac{n! k}{(n-k)! k! n} |R_{k, n}|\\
+	|S_{k, n}| &= \frac{k}{n} \binom{n}{k} |R_{k, n}|
+\end{align*}
+\subsection{Part b}
+We have that $|S_{2, n}| = n! \sum_{i = 0}^n \frac{(-1)^i}{i!} $, which is the number of derangements on $[n]$. We also have that $|S_{2, n}| = \frac{2}{n} \binom{n}{2} |R_{2, n}| = (n-1) |R_{2,n}|$. We have that $|R_{2, n}|$ is the number of derangements where  $\sigma(1) = 2$. 
 \section{Question 3}
 We have that $T_{n, 0} = 1$, as there is only one way to arrange the students in nondecreasing order, as for each pair of twins, swapping the positions of the twins is identified with keeping the twins the same as they are identical. 
 \paragraph{Recurrence}
 We first note that the two shortest twins must be placed next to each other because as they are the shortest, then there are no taller pupils between them. 
-For the size of $T_{n, k}$, we look at where the shortest twins are placed. We have that the twins can be placed behind of one of the other $2n - 2$ pupils, or they can go at the end. Then if they are placed behind a pupil, then when we remove the shortest twins, then we have that there are $n-1$ twins and exactly $k-1$ pupils in front of someone shorter. If the shortest twins are placed at the very start, then there are $n-1$ twins and $k$ pupils in front of someone shorter. Thus we have the recurrence:
+For the size of $T_{n, k}$, we look at where the shortest twins are placed. We have that the twins can be placed behind of one of the other $2n - 2$ pupils, or they can go at the start. Then if they are placed behind a pupil, then when we remove the shortest twins, then we have that there are $n-1$ twins and exactly $k-1$ pupils in front of someone shorter. If the shortest twins are placed at the very start, then there are $n-1$ twins and $k$ pupils in front of someone shorter. Thus we have the recurrence:
 \begin{equation}
 	T_{(n, k)} = 2(n-1) T_{(n-1, k-1)} + T_{(n-1, k)}
 \end{equation}
-
+with the base case $T_{n, 0} = 1$. We also have an upper bound where ...
 \section{Question 4}
 \section{Question 5}
 
