@@ -1,4 +1,5 @@
 \documentclass[]{article}
+\usepackage[margin = 1in]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -348,4 +349,18 @@ We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ s
 	\paragraph{Other direction}
 	To show there exists a path $P$ such that $\pw(T) \geq 1 + \pw(T - V(P))$, we proceed by induction. Let $B_1, ... B_n$ be a path-decomposition of $T$. Let $x$ live in bag $B_1$ and $y$ live in bag $B_n$, the final bag. Then let $P$ be the unique path from $x$ to $y$. Then $P$ traverses through every bag in the path-decomposition. Then $\tw(T) \geq 1 + \tw(T - P)$ by induction. 
 \end{proof}
+
+We define a ternary tree to be a tree where every vertex has degree 1 or 4, except for the root $r$, which has degree 3. We define the complete ternary tree of edge-height $h$ to be the unique complete ternary tree where the distance from the root $r$ to any other vertex is at most $h$. Note that the treewidth of any tree is 1.
+\begin{lemma}
+	Let $T_h$ be the complete ternary tree of edge-height $h$. Then $\pw(T_h) = h$.
+\end{lemma}
+
+\begin{proof}
+	We shall show for any path $P$, $T_h - V(P)$ has a copy of $T_{h-1}$. Let $P$ be a path, and suppose that it goes the root $r$. Then as $P$ cannot go through all three subtrees of $T_h$ hanging off $r$, there must be a subtree which $P$ does not go through. $T - V(P)$ will contain this subtree, thus $\pw(T_h) \geq 1 + \pw(T - V(P)) \geq 1 + (h-1) = h$.
+	\paragraph{Lower bound}
+	There exists a path-decomposition of $T_h$ such that the size of each bag is at most $h + 1$. Order the leaves of the balanced ternary trees in the standard way, left to right when drawn with no crossings. Then let $B_i$ be vertices on the path from $r$ to the leaf $\ell_i$. Then this is a tree-decomposition with at most $h + 1$ vertices, thus $\tw(T_h) \leq h$.
+\end{proof}
+
+For complete binary trees of edge-height $h$, it is easy to show there is a path-decomposition of width $\lceil h/2 \rceil$. (Consider doing the same operation, but with half the vertices.)
+
 \end{document}
