@@ -34,7 +34,7 @@ We will introduce $U_{k, n}$, the set of arbitrary $k \times n$-sized Latin rect
 	|S_{k, n}| &= \frac{k}{n} \binom{n}{k} |R_{k, n}|
 \end{align*}
 \subsection{Part b}
-We have that $|S_{2, n}| = n! \sum_{i = 0}^n \frac{(-1)^i}{i!} $, which is the number of derangements on $[n]$. We also have that $|S_{2, n}| = \frac{2}{n} \binom{n}{2} |R_{2, n}| = (n-1) |R_{2,n}|$. We have that $|R_{2, n}|$ is the number of derangements where  $\sigma(1) = 2$. 
+We have that $|S_{2, n}| = n! \sum_{i = 0}^n \frac{(-1)^i}{i!} $, which is the number of derangements on $[n]$. We also have that $|S_{2, n}| = \frac{2}{n} \binom{n}{2} |R_{2, n}| = (n-1) |R_{2,n}|$. We have that $|R_{2, n}|$ is the number of derangements where  $\sigma(1) = 2$. FINISH LATER
 \section{Question 3}
 We have that $T_{n, 0} = 1$, as there is only one way to arrange the students in nondecreasing order, as for each pair of twins, swapping the positions of the twins is identified with keeping the twins the same as they are identical. 
 \paragraph{Recurrence}
@@ -43,8 +43,26 @@ For the size of $T_{n, k}$, we look at where the shortest twins are placed. We h
 \begin{equation}
 	T_{(n, k)} = 2(n-1) T_{(n-1, k-1)} + T_{(n-1, k)}
 \end{equation}
-with the base case $T_{n, 0} = 1$. We also have an upper bound where ...
+with the base case $T_{n, 0} = 1$. We also have an upper bound where $T_{1, 1} = 0$, which upper bounds the number of pupils
 \section{Question 4}
+Let $P_n$ be the number of queues of $n$ identical twins. Consider the permutations of $[2n]$ but we are allowed to swap $i$ and $n + i$ around, where $i \in [n]$. There are $(2n)!$ permutations, and for each pair of twins, we identify two permutations. Therefore, the fraction is:
+\begin{equation}
+	P_n = \frac{(2n)!}{2^n}
+\end{equation}
+Now consider $Q_n$, the number of queues where no two twins are next to each other. First, let $R_n$ be the number of permutations of $[2n]$ where $i$ and $n + i$ is not allowed to be next to each other ($i$ is also in $[n]$). We shall use the principle of inclusion-exclusion. Let $A := S_{2n}$ be the set of permutations of $[2n]$ and let $P_{i}$ be the property of permutation $\sigma$ where $i$ and $i + n$ are next to each other. We have that either $i$ or $n + i$ is first, the first number can go in $(2n - 1)$ places (we exclude the last position of the queue), and the other numbers can be, arbitrarily, in $(2n - 2)!$ permutations. The number of permutations where $i$, $i + 1$ are next to each other are $2(2n - 1) (2n - 2)! = 2 (2n - 1)!$. Suppose we choose $k$ pairs of twins, and look at the permutations where they are next to each other. Then we could put $k$ twins in any nonconsecutive positions. The number of ways to choose $k$ nonconsecutive numbers from $[2n-1]$ is $\binom{2n - k}{k}$ (PROOF LATER). Thus, we choose any one of the $\binom{2n - k}{k}$ ways to choose $k$ consecutive numbers, choose from each pair of twins which twin goes first (which has $2^k$ choices), choose how to order the $k$ twins, leading to $k!$ choices, and order the other $(2n - 2k)!$ students. So the number of permutations with the property that $k$ twins are next to each other (and more) are:
+\begin{equation}
+	\binom{2n - k}{k} 2^k k! (2n - 2k)! =  \frac{(2n - k)!}{k! (2n - 2k)!}2^k k! (2n - 2k)! = (2n - k)!2^k.
+\end{equation}
+There are $\binom{n}{k}$ choices for which we can choose the $k$ properties. From inclusion-exclusion, we have that:
+\begin{align*}
+	R_n &=  \sum_{k = 0}^n (-1)^k \binom{n}{k} (2n - k)!2^k\\ 
+	&=  \sum_{k = 0}^n (-1)^k \frac{n!}{k! (n - k)!} (2n - k)!2^k\\
+	&= \sum_{k = 0}^n (-1)^k \frac{n!(2n - k)! 2^k}{k! (n - k)!}
+\end{align*}
+We can relate $Q_n$ with $R_n$ with the same "trick" by identifying relations where we can swap around $i$ and $n+ i$, meaning that $Q_n = R_n/2^n$. 
+\begin{equation}
+	Q_n = \sum_{k = 0}^n (-1)^k \frac{n!(2n - k)! 2^{k - n}}{k! (n - k)!}
+\end{equation}
 \section{Question 5}
 
 \end{document}
