@@ -1,0 +1,84 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+%opening
+\title{Representation Theory notes}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chapter 1}
+\subsection*{1.10}
+We have that $\tilde{\rho}_{()}$ sends $(e_1, e_2, e_3)$ to $(e_1, e_2, e_3)$, $(e_1 - e_2)$ to $(e_1 - e_2)$, and $(e_1 - e_3)$ to $(e_1 - e_3)$. Therefore, $\tilde{\rho}_{()} = 
+\begin{bmatrix}
+	1 & 0 & 0\\
+	0 & 1 & 0\\
+	0 & 0 & 1
+\end{bmatrix}
+$.
+\subsection*{1.11}
+Recall that the left regular representation $\rho$ on a finite group $G$ is the representation on the vector space $V=$span$(\lbrace e_g : g \in G \rbrace)$ such that $\rho_g e_h = e_{gh}$ for all $g, h \in G$. However, consider the vector $v = \sum_{h \in G} e_h$. Then for all $g \in G$, $\rho_g v = \rho_g \sum_{h \in G} e_h = \sum_{h \in G} \rho_g e_h = \sum_{h \in G} e_{gh} = \sum_{x \in G} e_x = v$, thus the subspace span$(\lbrace v \rbrace)$ is an invariant subspace of $V$. However, if dim$(V) > 1$, then $\rho$ will have a nontrivial invariant subspace, thus $\rho$ is reducible. Therefore if $\rho$ is irreducible, then dim$(V) = 1$, therefore there is only a single element in $G$, which means that $G$ is the trivial group.
+\subsection*{1.13}
+We will first show that $\rho$ is reducible. We have that $\rho_a \begin{bmatrix}
+	1\\
+	0
+\end{bmatrix}
+= \begin{bmatrix}
+	1\\
+	0
+\end{bmatrix}
+$ for all $a$, therefore, the subspace span$\lbrace \begin{bmatrix}
+	1\\
+	0
+\end{bmatrix} \rbrace$ is an invariant subspace in $(\mathbb{F}_p)^2$. 
+
+To show $\rho$ is indecomposable, assume for contradiction that the span of $
+\begin{bmatrix}
+	1\\
+	1\\
+\end{bmatrix}$
+invariant. Note that it is not in span$\lbrace \begin{bmatrix}
+	1\\
+	0
+\end{bmatrix} \rbrace$.
+However, we get that:
+$
+\begin{bmatrix}
+	1 & 1\\
+	0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+	1\\
+	1\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+	2\\
+	1\\
+\end{bmatrix}
+$.
+For all $p$, $1$ and $2$ are in different cosets for $\mathbb{Z}_p$. Thus, $\begin{bmatrix}
+	2\\
+	1\\
+\end{bmatrix}$ is not in the span of $\lbrace \begin{bmatrix}
+	1\\
+	1
+\end{bmatrix} \rbrace$. 
+Therefore, $\rho$ is indecomposable by contradiction.
+
+\section*{Chapter 2}
+\subsection*{2.1}
+\subsubsection*{a}
+We shall show that $\lbrace v_1 \oplus 0, v_2 \oplus 0, ... v_m \oplus 0 \rbrace \cup \lbrace 0 \oplus w_1, 0 \oplus w_2, ... \rbrace$ is a basis for $V \bigoplus W$, by showing it spans $V \oplus W$ and is linearly independent. Let $v \oplus w \in V \bigoplus W$, where $v = \sum_i \alpha_i v_i$ and $w = \sum_j \beta_j w_j$, where $\alpha_i$ and $\beta_j$ are complex scalars. Then $\sum_i \alpha_i( v_i\oplus 0) + \sum_j \beta_j( 0 \oplus w_j) = (\sum_i \alpha_i v_i) \oplus 0 + 0 \oplus (\sum_j \beta_j w_j)$ by the direct sum scalar multiplication and addition relations. Finally, by the addition relation, we have that this is equal to $(\sum_i \alpha_i v_i) \oplus (\sum_j \beta_j w_j) = v \oplus w$, as required. Therefore, the set above spans $V \oplus W$. To show it is linearly independent, we have that if $\sum_i \alpha_i (v_i \oplus 0) + \sum_j \beta_j (0 \oplus w_j) = 0$, then $(\sum_i \alpha_i v_i) \oplus (\sum_j \beta_j w_j) = 0 \oplus 0$. However, as $v_i$ is linearly independent, and $w_j$ is linearly independent, it must hold that $\alpha_i = 0$ for all $i$, and $\beta_j = 0$ for all $j$. Thus the vectors are linearly independent, and the dimension of $V \oplus W$ is the size of the basis, which is dim $V + $ dim $W$.
+
+\subsection*{b}
+To show that $\rho \oplus \psi$ is a representation, we have that $(\rho \oplus \psi)_g (\rho \oplus \psi)_h (v \oplus w) = (\rho \oplus \psi)_g (\rho_h v \oplus \psi_h w)  = (\rho_g \rho_h v) \oplus (\psi_g \psi_h w) = (\rho_{gh} v) \oplus (\psi_{gh} w) = (\rho \oplus \psi)_{gh} v \oplus w$. Furthermore, we have that $(\rho \oplus \psi)_g (\alpha(v_1 \oplus w_1) + \beta(v_2 \oplus w_2)) = (\rho \oplus \psi)_g ((\alpha v_1 + \beta v_2) \oplus (\alpha w_1 + \beta w_2)) = (\rho_g (\alpha v_1 + \beta v_2) \oplus \psi_g (\alpha w_1 + \beta w_2)) = (\alpha \rho_g v_1 + \beta \rho_g v_2) \oplus (\alpha \psi_g w_1 + \beta \psi_g w_2)$, which is from $\rho$ and $\psi$ being representations. Finally, we have that $(\alpha \rho_g v_1 + \beta \rho_g v_2) \oplus (\alpha \psi_g w_1 + \beta \psi_g w_2) = \alpha (\rho_g v_1 \oplus \psi_g w_1) + \beta (\rho_g v_2 \oplus \psi_g w_2) = \alpha (\rho \oplus \psi)_g (v_1 \oplus w_1) + \beta (\rho \oplus \psi)_h (v_2 \oplus w_2)$. Thus $\rho \oplus \psi$ is a homomorphism and is linear, thus it is a representation. 
+
+\subsection*{2.2}
+\subsection*{a}
+We will show the set spans $V \otimes W$ and is linearly independent.
+Consider $v \otimes w \in V \otimes W$, and suppose $v = \sum_i \alpha_i v_i$ and $w = \sum_j \beta_j w_j$. Then $ (\sum_i \alpha_i v_i) \otimes (\sum_j \beta_j w_j) = \sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j)$ by the left linearity of the tensor product, and $\sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j) = \sum_i (\alpha_i \beta_j (v_i \otimes w_j))) = \sum_i \sum_j \alpha_i \beta_j (v_i \otimes w_j)$. Thus $(v_i \otimes w_j)$ spans $V \otimes W$. To show linear independence, consider when $\sum_{i, j} \alpha_{i,j} (v_i \oplus w_j) = 0$. Then we can shove all of the $\alpha_{i, j}$ into one $w_j$ to have that $\sum_j ( \sum_i \alpha_{i,j} v_i \oplus w_j) = 0$. But this implies that $\sum_i \alpha_{i,j} v_i = 0$ for all $j$, therefore, we have that $\alpha_{i, j} = 0$ as $v_i$ is linearly independent. Therefore, this is a basis and dim$(V \otimes W) =$ dim$(V) \times$ dim$(W)$.
+\end{document}
