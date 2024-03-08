@@ -9,9 +9,9 @@ def queue(n: int) -> int:
     '''
     count = 0
     for k in range(n + 1):
-    '''
-    Count is from 0 to n inclusive. Calculates values from paper.
-    '''
+        '''
+        Count is from 0 to n inclusive. Calculates values from paper.
+        '''
         count += (-1)**k * fc(n) * fc(2* n - k)* 2**k /fc(k)/fc(n-k)
     return count/2**n
 print(queue(4))
