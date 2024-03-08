@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\sig}{\mathcal{S}}
+\newcommand{\mono}{\mathcal{M}}
+\newcommand{\sigmes}{\Lambda_{\mu^*}}
+\newcommand{\salg}{$\sigma$-algebra}
+%opening
+\title{Assignment 1}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Part 1}
+\subsection{Problem 1}
+\paragraph{Extension of condition to all open sets}
+From topology, the open intervals form a basis on $\mathbb{R}$ and thus any open set $U$ can be written as $\bigcup_{n \in \mathbb{N}} J_n$ for some disjoint family of open intervals $\lbrace J_n \rbrace_{n \in \mathbb{N}}$ in $\mathbb{R}$. As $\lambda(A \cap J_n) \leq 1/2 \lambda(J_n)$, we have from $A$ being Lebesgue measurable and the $\sigma$-additivity of $\lambda$ that $ \lambda(A \cap U) = \lambda(A \cap \bigcup_{n \in \mathbb{N}} J_n)= \lambda(\bigcup_{n \in \mathbb{N}} (A \cap J_n)) =\sum_{n \in \mathbb{N}} \lambda(A \cap J_n) \leq 1/2 \sum \lambda(J_n) = 1/2 \lambda(\bigcup_{n \in \mathbb{N}} J_n) = 1/2 \lambda(U)$. Thus shown that we can extend the condition to any open set in $\mathbb{R}$. 
+\paragraph{Proof}
+First, $\lambda(A)$ is a defined value as $A$ is Lebesgue-measurable. We use the regularity of $A$ to prove $A$ is a null-set. As $A$ is Lebesgue-measurable, then for all $\varepsilon > 0$ there exists an open set $U$ such that $A \subseteq U$ and $\lambda(U\setminus A) \leq \epsilon$. However, we have as $A$ is Lebesgue-measurable and as the Lebesgue measure is an outer-measure, then $\lambda(U) = \lambda(U \cap A) + \lambda(U \cap A^c) = \lambda(U \cap A) + \lambda(U \setminus A)$, as $A \subseteq U$. However we have that $\lambda(U \cap A) \leq 1/2 \lambda(U)$, thus $\lambda(U \setminus A)) \geq 1/2 \lambda(U)$. But we have that $\varepsilon> \lambda(U \setminus A)) \geq 1/2 \lambda(U)$. As we can find a $U$ for every $\varepsilon> 0$ such that $A \subseteq U$ and $\lambda(U) < 2 \varepsilon$, then by the monotonicity of $\lambda$, $\lambda(A) \leq \lambda(U) < 2 \varepsilon$ for all $\varepsilon > 0$. Thus $\lambda(A) = 0$, therefore $A$ is a null-set.  
+\end{document}
