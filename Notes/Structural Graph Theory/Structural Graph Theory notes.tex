@@ -370,5 +370,77 @@ We define the \textit{closure} of a rooted tree $T$ to be the the graph $G$ wher
 	The treedepth of a graph $G$, denoted as $\td(G)$, is defined to be the minimum vertex-height of a rooted forest $T$ such that $G \subseteq $ closure of $T$.
 \end{definition}
 We have that this defines a path-decomposition of $G$ by enumerating through all the vertices of $T$ in the natural order with the bag $B_i$ is the path from leaf $\ell_i$ to $r$. The size of the bag is the vertex-height, thus $\pw(G) \leq \td(G) - 1$. As every path-decomposition is a valid tree-decomposition, $\tw(G) \leq \pw(G) \leq \td(G) - 1$. However, these parameters are not \textit{tied}. We say two parameters $p(G), q(G)$ of a graph are tied if there is a function $f$ such that $ p(G) \leq f(q(G))$ and $q(G) \leq f(p(G))$ for all graphs $G$. 
-Let $\mathcal{G}$ be the graph family $T_1, T_2, ...$ where $T_h$ is the complete ternary tree of height $h$. Then $\tw(G) = 1$ for all $G \in \mathcal{G}$, but $\pw(T_h) = h$, thus the pathwidth may be unbounded while the treewidth is constant. Let $\mathcal{G}$ be the set of paths $P_i$ for $i \in \mathbb{N}$. Then $\pw(P_i) =  1$, but $\td(P_i) = \lceil i/2 \rceil$. 
+Let $\mathcal{G}$ be the graph family $T_1, T_2, ...$ where $T_h$ is the complete ternary tree of height $h$. Then $\tw(G) = 1$ for all $G \in \mathcal{G}$, but $\pw(T_h) = h$, thus the pathwidth may be unbounded while the treewidth is constant. Let $\mathcal{G}$ be the set of paths $P_i$ for $i \in \mathbb{N}$. Then $\pw(P_i) =  1$, but $\td(P_i) = \lceil i/2 \rceil$. Therefore, the treedepth of graphs is not tied to the pathwidth, or to the treewidth.
+\subsubsection{Bounds on treedepth}
+\begin{lemma}
+	If $T$ is a tree, then $\td(T) \leq \log n$, where we take $\log = \log_2$. 
+\end{lemma}
+\begin{proof}[Proof of above lemma]
+	For all trees $T$, there exists a balanced separator with a single vertex $v$, from above. Therefore, $T-v$ has components of size at most $n/2$. Then we find the separators $w_1,... w_m$ of the other components of $T - v$ and we add an edge from $v$ to $w$, with tree-depth at most $\log(n/2) = \log(n) - 1$. Then $T$ has treedepth at most $\log(n) - 1 + 1 = \log n$. Thus shown. 
+\end{proof}
+
+\begin{corollary}
+	The tree-depth of a graph $G$ with treewidth $h$ is $O(h \log n)$.
+\end{corollary}
+The proof of this corollary is by calculating the tree-depth of the tree-decomposition of $G$, which is $O(\log n)$ (we may fudge numbers and bound the number of vertices in the tree-decomposition by the number of edges in $G$ to get the desired result).
+
+\section{Classification of graph families}
+As before, we could classify graph families in this way:
+\begin{enumerate}
+	\item $\tw(G) \leq O(1)$ for all $G \in \mathcal{G}$. These graph families will include trees and paths, so the pathwidth and treedepth is unbounded, but from the lemma above, $\tw(G) \leq O(\log n)$ for all graphs in the class, where we hide the treewidth.
+	\item $\tw(G) \leq O(n^{1/2})$ for all $G \in \mathcal{G}$.
+	\item $\tw(G) \leq O(n^{1- \varepsilon})$ fixed $\varepsilon > 0$, for all $G \in \mathcal{G}$.
+	\item $\tw(G \geq \Omega(n))$ for all $G \in \mathcal{G}$.
+\end{enumerate}
+We shall prove a very strong statement relating the path-width and tree-depth of a graph $G$ for families of graphs of the form $\tw(G) \leq O(n^{1- \varepsilon})$. 
+\begin{theorem}
+	If $\mathcal{G}$ is a graph family such that $\tw(G) \leq O(n^{1- \varepsilon})$ for all $G \in \mathcal{G}$, then $\pw(G) \leq O(n^{1-\varepsilon})$ and $\td(G) \leq O(n^{1-\varepsilon})$ for all $G \in \mathcal{G}$.
+\end{theorem}
+We shall prove this using the following lemma. We define a \textit{hereditary class} $\mathcal{G}$ to be a class closed under vertex deletion. This is a weaker condition than minor-closure. 
+\begin{lemma}
+	Fix $c > 0$ and $\varepsilon$ in $(0, 1)$. Then suppose for all $n$-vertex graphs $G \in \mathcal{G}$, $G$ has a balanced separator of order at most $c n^{1-\varepsilon}$. Then every $n$-vertex graph $G \in \mathcal{G}$ has $\pw(G) \leq \td(G) \leq c' n^{1- \varepsilon}$. 
+\end{lemma}
+\begin{proof}
+	We use the balanced separator concept from earlier, and use induction on the number of verticesWe have that the balanced separator $S$ where $|S| \leq cn^{1-\varepsilon}$ and consider the connected components of $G - V(S)$. As $G$ is minor closed, then each connected component of $G - V(S)$ will have treedepth at most $c'(n/2)^{1 - \varepsilon}$, where $c' := \frac{c}{1 - 1/(2^{1-\varepsilon})}$. Then suppose we form a complete graph on $S$ and add edges from $S$ to all the vertices in $G - V(S)$ to form the closure of a tree of height at most $c n^{1 - \varepsilon} + c'(n/2)^{1 - \varepsilon}$. However, we have that:
+	\begin{align*}
+		c n^{1 - \varepsilon} + c'(n/2)^{1 - \varepsilon} &= c n^{1 - \varepsilon} + \frac{c}{1 - 1/(2^{1-\varepsilon})}(n/2)^{1 - \varepsilon}\\
+		&= \frac{1}{1 - 1/2^{1-\varepsilon}} (c n^{1 - \varepsilon}(1 - 1/(2^{1-\varepsilon})) + c (n/2)^{1 - \varepsilon})\\
+		&= c'n^{1 - \varepsilon}
+	\end{align*}
+\end{proof}
+thus the treewidth is bounded by $c' n^{1-\varepsilon}$. 
+
+\subsection{H-minor-free families}
+Let $\mathcal{G}_H:=$ the class of all $H$-minor free graphs.
+We have that $(\tw(\mathcal{G}_H), \pw(\mathcal{G})_H, \td(\mathcal{G})_H)$ are $O(n^{1/2})$ constants, where $n$ is the number of vertices. 
+\begin{theorem}[Robertson + Seymour + Illingsworth]
+	The statement: "There exists a constant $c$ such that for all $G \in \mathcal{G}_H$, $\pw(G) \leq c$" is equivalent to the statement: "$H$ is a forest".
+\end{theorem}
+
+\begin{proof}
+	Suppose $H$ is not a forest. Then $H$ has a cycle. However, the set of complete ternary trees has no $H$-minor and has unbounded path-width. The other direction is proven in \url{https://www.sciencedirect.com/science/article/pii/009589569190068U}. 
+\end{proof}
+
+Therefore, a minor-closed class $\mathcal{G}$ has bounded path-width iff $\mathcal{G}$ excludes some forest. The equivalent statement for treewidth is that: 
+"a minor-closed class $\mathcal{G}$ has bounded treewidth iff $\mathcal{G}$ excludes some planar graph". Proof by Robertson + Seymour, graph minors 1.
+\begin{lemma}
+	For all $n$-vertex planar graphs $G$, $G$ is a minor of the grid on $2n \times 2n$ vertices.
+\end{lemma}
+We also introduce the grid minor theorem as well.
+\begin{theorem}[Grid minor theorem]
+	There exists a function $f$ such that every $P_k \square P_k$-minor free graph has $\tw \leq f(k)$. 
+\end{theorem}
+\begin{proof}[Robertson + Seymour, GM 1]
+	Suppose $\mathcal{G}$ excludes a non-planar $H$. Then the family of $n \times n$ grids is $H$-minor free with unbounded treewidth.
+	Suppose $H$ is planar of $k$ verses. Then $H$ is a minor of the $P_{2k} \square P_{2k}$ grid. Then $G$ is $P_{2k} \square P_{2k}$-minor-free. Therefore, $\tw(G) \leq f(2k)$ by the grid minor theorem. 
+\end{proof}
+
+The grid minor theorem states that treewidth measures how close a graph is to being a tree and how far away a graph is from being a large grid. 
+\subsection{Alternative characterisations of treewidth and path-width}
+We can show the following:
+For all $G$, the $\pw(G) = \min k$ such that $G$ is a spanning subgraph of an interval graph with no $K_{k + 2}$, so the intervals cross at most $K + 1$ times. 
+
+We can show a similar result for treewidth as well:
+For all $G$, $\tw(G) = \min k$ such that $G$ is a spanning subgraph of a \textit{chordal graph} with no $K_{k + 2}$ subgraph. A chordal graph is a graph with no induced cycle with more than 4 vertices. This is equivalent to saying that $G$ has $\tw \leq k$ iff $G$ is a spanning subgraph of the intersection graph of a tree $T$ with max clique size $k + 1$. 
+$G$ is chordal if all minimal separators are a clique. 
 \end{document}
