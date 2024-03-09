@@ -8,6 +8,7 @@
 \begin{document}
 
 \maketitle
+We denote $[n]$ as the integer
 \section{Question 1}
 \subsection{Part a}
 \paragraph{$S_n$}
@@ -34,7 +35,15 @@ We will introduce $U_{k, n}$, the set of arbitrary $k \times n$-sized Latin rect
 	|S_{k, n}| &= \frac{k}{n} \binom{n}{k} |R_{k, n}|
 \end{align*}
 \subsection{Part b}
-We have that $|S_{2, n}| = n! \sum_{i = 0}^n \frac{(-1)^i}{i!} $, which is the number of derangements on $[n]$. We also have that $|S_{2, n}| = \frac{2}{n} \binom{n}{2} |R_{2, n}| = (n-1) |R_{2,n}|$. We have that $|R_{2, n}|$ is the number of derangements where  $\sigma(1) = 2$. FINISH LATER
+We have that $|S_{2, n}|$ is the number of derangements of $[n]$, which satisfies the recurrence relationship $|S_{2, n}| = (n - 1) |S_{2, n-1}| + (n - 1)|S_{2, n-2}|$. Consider any derangement $\sigma$. If we have that $a = \sigma(n) = \sigma^{-1} n$, where $a$ is in $[n-1]$, then we remove $a$ and $n$ to generate a smaller derangement of size $n-2$. If $\sigma(n)$ and $\sigma^{-1}(n)$ are distinct, then we can remove $n$ and set $\sigma(n) = \sigma^{-1}(n)$, where we have $n-1$ choices of what the predecessor of $n$ is. This will yield a derangement of size $n-1$. Therefore, we have that $|S_{2, n}| = (n - 1) |S_{2, n-1}| + (n - 1)|S_{2, n-2}|$.
+
+We have that $R_{2, n}$ is the number of derangements where $\sigma(1) = 2$. Consider $R_{2, n}$ and a derangement $\sigma$ where $\sigma(1) = 2$. Now consider removing $n$ in $\sigma$. The predecessor of $n$ is $\lbrace 2, 3, ..., n-1 \rbrace$ and the successor is $\lbrace 1, 3, 4, ... , n-1$. We have $n-3$ options for the predecessor being the same as the successor, as we exclude $\lbrace 1, 2, n \rbrace$. If the predecessor is not the successor, then we have $(n-2)$ predecessors that $n$ can be in front of, therefore removing $n$ and setting $\sigma^{-1}(n) = \sigma(n)$ yields a reduced Latin rectangle of size $n - 2$. Therefore, we have that
+\begin{equation}
+	|R_{2, n}| = (n - 3) |R_{2, n - 2}| + (n - 2) |R_{2, n-1}|
+\end{equation}
+We have that $|S_{2, n}| = \frac{2}{n} \binom{n}{2} |R_{2, n}| = (n-1) |R_{2,n}|$, from 2a. Therefore, $|R_{2, n}| = |S_{2, n}|/(n-1)$, therefore $|R_{2, n-1}| = |S_{2, n-1}|/(n-2)$ and $|R_{2, n-2}| = |S_{2, n-2}|/(n-3)$. Plugging it into the relation above, we have that $|S_{2, n}|/(n-1) = |S_{2, n-1}| + |S_{2, n-2}|$, which is the relation found above. Therefore, we have shown that we can deduce the recurrence in multiple ways. 
+
+
 \section{Question 3}
 We have that $T_{n, 0} = 1$, as there is only one way to arrange the students in nondecreasing order, as for each pair of twins, swapping the positions of the twins is identified with keeping the twins the same as they are identical. 
 \paragraph{Recurrence}
@@ -66,5 +75,5 @@ We can relate $Q_n$ with $R_n$ with the same "trick" by identifying relations wh
 	Q_n = \sum_{k = 0}^n (-1)^k \frac{n!(2n - k)! 2^{k - n}}{k! (n - k)!}
 \end{equation}
 \section{Question 5}
-
+HELP
 \end{document}
