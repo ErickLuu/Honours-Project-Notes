@@ -130,7 +130,7 @@ Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embedd
 \end{theorem}
 In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-almost embeddable, then $G$ has no $K_t$ minor. We can show that such a function is $t(g, p, k, a) = a + ck \sqrt{g + p}$. 
 
-\section{Algorithms for embedding graphs}
+\section{Bounds of pagenumbers of graphs}
 \begin{theorem}
 	Let $g$ be the genus of a graph $G$. We have that for all graphs $G$, $\pn(G) \leq O(g)$ for some $g$.
 \end{theorem}
@@ -140,4 +140,7 @@ In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree
 Note that this bound extends the one found by Yannakakis. 
 The best known bound is $\sqrt{g}$, found by Malitz. (cite here).
 
+We additionally have that $\pn(G) \leq \tw(G) + 1$, from \url{https://link.springer.com/article/10.1007/s00454-007-1318-7}. 
+We also have that bounded clique-sums of graphs of bounded treewidth also have bounded path-number.
+What is a sticking-point is vortices of graphs on bounded genus, and cliquesums of vortices on bounded genus as well. 
 \end{document}
