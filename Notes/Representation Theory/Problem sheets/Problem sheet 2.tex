@@ -82,5 +82,29 @@ To show that $\rho \oplus \psi$ is a representation, we have that $(\rho \oplus 
 We will show the set spans $V \otimes W$ and is linearly independent.
 Consider $v \otimes w \in V \otimes W$, and suppose $v = \sum_i \alpha_i v_i$ and $w = \sum_j \beta_j w_j$. Then $ (\sum_i \alpha_i v_i) \otimes (\sum_j \beta_j w_j) = \sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j)$ by the left linearity of the tensor product, and $\sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j) = \sum_i (\alpha_i \beta_j (v_i \otimes w_j))) = \sum_i \sum_j \alpha_i \beta_j (v_i \otimes w_j)$. Thus $(v_i \otimes w_j)$ spans $V \otimes W$. To show linear independence, consider when $\sum_{i, j} \alpha_{i,j} (v_i \oplus w_j) = 0$. Then we can shove all of the $\alpha_{i, j}$ into one $w_j$ to have that $\sum_j ( \sum_i \alpha_{i,j} v_i \oplus w_j) = 0$. But this implies that $\sum_i \alpha_{i,j} v_i = 0$ for all $j$, therefore, we have that $\alpha_{i, j} = 0$ as $v_i$ is linearly independent. Therefore, this is a basis and dim$(V \otimes W) =$ dim$(V) \times$ dim$(W)$.
 \subsection*{b}
-We have that $(\rho \otimes \psi)_g$ is linear by definition. Then  $(\rho \otimes \psi)_g (\rho \otimes \psi)_h (v \otimes w) = (\rho \otimes \psi)_g (\rho_h v \otimes \psi_h w) = (\rho_g \rho_h v \otimes \psi_g \psi_h w) = (\rho_{gh} v \otimes \psi_{gh} w) = (\rho \otimes \psi)_{gh} (v \otimes w)$
+We have that $(\rho \otimes \psi)_g$ is linear by definition. Then  $(\rho \otimes \psi)_g (\rho \otimes \psi)_h (v \otimes w) = (\rho \otimes \psi)_g (\rho_h v \otimes \psi_h w) = (\rho_g \rho_h v \otimes \psi_g \psi_h w) = (\rho_{gh} v \otimes \psi_{gh} w) = (\rho \otimes \psi)_{gh} (v \otimes w)$, thus we have that this is a representation
+
+\subsection{2.3}
+\subsubsection{Part a}
+Let $\lbrace v_1, v_2, ..., v_m \rbrace$ be a basis for $V$. Then let $(w_1 \otimes w_2 \otimes ... \otimes w_k) \in \text{Sym}^k(V)$, and suppose $w_i = \sum_{j = 1}^n \alpha_{i,j} v_j$. Then we have that $w_1 \otimes w_2 \otimes ... \otimes w_k = \sum_{i} \alpha_{1, i} v_i \otimes w_2 \otimes ... \otimes w_k$. But we can repeat this multiple times to have that:
+\begin{equation}
+	w_1 \otimes w_2 \otimes ... \otimes w_k = \sum_{\sigma \in [n]^k} \prod_{i = 1}^k \alpha_{i,\sigma(i)} (v_{\sigma(1)} \otimes v_{\sigma(2)} \otimes ... \otimes v_{\sigma(k)})
+\end{equation}
+where $[n]^k$ is selecting $k$ items from $n$ with repetition in order. However, we have that $v_{\sigma(1)} \otimes v_{\sigma(2)}$ and since from the relation we can reorder every element, we can reorder $(v_{\sigma(1)} \otimes v_{\sigma(2)} \otimes ... \otimes v_{\sigma(k)})$ to be in nondecreasing order. As we can do this for all elements in the sum, then we can express $w_1 \otimes w_2 \otimes ... \otimes w_k$ as a sum of elements of the form. To show it is a basis, consider
+\begin{equation}
+	\sum_{\sigma \in [m]^k} A_{\sigma} (v_{\sigma(1)} \otimes v_{\sigma(2)} \otimes ... \otimes v_{\sigma(k)}) = 0
+\end{equation}
+If $k = 1$, then we have $\sum_{i = 1}^m A_{i} (v_{i}) = 0$, which implies $A_i = 0$ for all $i$ as $v_i$ is a basis of $V$. Suppose that for $k-1$, we have that
+\begin{equation}
+	\sum_{\sigma \in [m]^{k-1}} A_{\sigma} (v_{\sigma(1)} \otimes v_{\sigma(2)} \otimes ... \otimes v_{\sigma(k-1)}) = 0
+\end{equation}
+implies $A_{\sigma} = 0$ for all $\sigma$. Then we can express the $k$-th case as:
+\begin{equation}
+	 \sum_{k = 1}^m (\sum_{\sigma \in [v_{\sigma(k)}]^{k-1}} A_{\sigma}(v_{\sigma(1)} \otimes v_{\sigma(2)} \otimes ... v_{\sigma(k-1)}) \otimes v_{\sigma(k)}) = 0
+\end{equation}
+but that implies that $A_{\sigma} = 0$ for all $\sigma \in [v_{\sigma(k)}]^{k-1}$ from the inductive hypothesis, thus $A_{\sigma} = 0$ for all $\sigma \in [m]^k$.
+\paragraph{Size of basis}
+Therefore, the size of the bases is the number of these $v_{i_1} \oplus ... \oplus v_{i, k}$ where $1 \leq i_1 \leq ... \leq i_k \leq m$. However, there is a bijection between these bases and the number of ways to put $k$ unlabelled balls into $m$ bins, where the number of ways to arrange the balls and bins is $\binom{k + m - 1}{k}$. Therefore, $\text{dim Sym}^k (V) = \binom{\text{dim} V + k - 1}{k}$.
+\subsubsection{Part b}
+We have that $\text{Sym}^k(\rho)$ is linear by definition. What remains to show is that it is a homomorphism. Consider $\text{Sym}^k(\rho)_g \circ \text{Sym}^k(\rho)_h (v_1 \otimes v_2 \otimes ... \otimes v_k)$. Then we have this is equal to $\text{Sym}^k(\rho)_g (\rho_h v_1 \otimes \rho_h v_2 \otimes ... \otimes \rho_h v_k) = (\rho_g \rho_h v_1 \otimes \rho_g \rho_h v_2 \otimes ... \otimes \rho_g \rho_h v_k) = \text{Sym}^k(\rho)_{gh} (v_1 \otimes v_2 \otimes ... \otimes v_k)$. Thus $\text{Sym}^k(\rho)$ is a homomorphism. 
 \end{document}
