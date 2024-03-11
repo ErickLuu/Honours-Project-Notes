@@ -86,7 +86,7 @@ Therefore,
 \begin{equation}
 	N_{=}(S_0) = N_{\geq}(S_0) - N_{\geq}(S_1) + N_{\geq}(S_2) - N_{\geq}(S_3) + N_{\geq}(S_4)    
 \end{equation}
-but as we have that $N_{\geq}(S_4) = N_{\geq}(S_4) = m_1$, and $N_{=}(S_0) = m_0$, then we can write this equation as:
+but as we have that $N_{=}(S_4) = N_{\geq}(S_4) = m_1$, and $N_{=}(S_0) = m_0$, then we can write this equation as:
 \begin{equation}
 	m_0 - m_1 = N_{\geq}(S_0) - N_{\geq}(S_1) + N_{\geq}(S_2) - N_{\geq}(S_3)    
 \end{equation}
@@ -99,6 +99,8 @@ For the $N_{\geq}(S_2)$ case, choose one out of $n$ rows and choose two entries 
 We choose an arbitrary row and we choose two distinct entries with $1$ in them. Then we choose an distinguished column containing one of the $1$s and we choose another distinct $1$ that lies on the edge. This gives us $n$ rows to choose from, $\binom{k}{2} \times 2$ $1$s to choose with ordering, and $k-1$ entries to choose from. Therefore, we have $N_{\geq}(S_3) = 2 n \binom{k}{2} (k - 1)$. 
 Therefore, we have that:
 \begin{equation}
-	m0 - m1 = \binom{n}{2}\binom{n}{2} - kn(n-1)^2 + (2n \binom{k}{2}(n-1) + \frac{nk(nk - 2k + 1)}{2}) - 2 n \binom{k}{2} (k - 1)
+	m_0 - m_1 = \binom{n}{2}\binom{n}{2} - kn(n-1)^2 + (2n \binom{k}{2}(n-1) + \frac{nk(nk - 2k + 1)}{2}) - 2 n \binom{k}{2} (k - 1)
 \end{equation}
+
+If $k \leq 1$, then we will simply replace $k$ with $n - k$ and change $m_0 - m_1$ to $m_1 - m_0$. If $n = 2$, then if $k = 0$, $m_0 = 1$, $m_1 = 0$, if $k = 1$, $m_0 = m_1 = 0$, and if $k = 2$, then $m_1 = 1$, $m_0 = 0$.
 \end{document}
