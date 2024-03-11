@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -32,7 +32,7 @@
 \begin{document}
 
 \maketitle
-\section{Part 1}
+\section{Part 2}
 \subsection{Problem 1}
 \paragraph{Extension of condition to all open sets}
 From topology, any open set $U$ can be written as $\bigcup_{n \in \mathbb{N}} J_n$ for some disjoint family of open intervals $\lbrace J_n \rbrace_{n \in \mathbb{N}}$ in $\mathbb{R}$. As $\lambda(A \cap J_n) \leq 1/2 \lambda(J_n)$, we have from $A$ being Lebesgue measurable and the $\sigma$-additivity of $\lambda$ that $ \lambda(A \cap U) = \lambda(A \cap \bigcup_{n \in \mathbb{N}} J_n)= \lambda(\bigcup_{n \in \mathbb{N}} (A \cap J_n)) =\sum_{n \in \mathbb{N}} \lambda(A \cap J_n) \leq 1/2 \sum \lambda(J_n) = 1/2 \lambda(\bigcup_{n \in \mathbb{N}} J_n) = 1/2 \lambda(U)$. Thus shown that we can extend the condition to any open set in $\mathbb{R}$. 
