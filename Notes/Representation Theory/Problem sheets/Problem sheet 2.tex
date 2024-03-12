@@ -12,13 +12,77 @@
 
 \section*{Chapter 1}
 \subsection*{1.10}
-We have that $\tilde{\rho}_{()}$ sends $(e_1, e_2, e_3)$ to $(e_1, e_2, e_3)$, $(e_1 - e_2)$ to $(e_1 - e_2)$, and $(e_1 - e_3)$ to $(e_1 - e_3)$. Therefore, $\tilde{\rho}_{()} = 
+We define $A_{B \rightarrow \tilde{B}}$ to be the matrix:
+$
+\begin{bmatrix}
+	1 & 1 & 1\\
+	1 & -1 & 0\\
+	1 & 0 & -1
+\end{bmatrix}
+$.
+The inverse of this matrix is:
+$A_{\tilde{B} \rightarrow B} = (A_{B \rightarrow \tilde{B}})^{-1} = 
+\begin{bmatrix}
+	1/3 & 1/3 & 1/3\\
+	1/3 & -2/3 & 1/3\\
+	1/3 & 1/3 & -2/3
+\end{bmatrix}
+$
+and $\tilde{\rho}_g = A_{B \rightarrow \tilde{B}} \rho_g A_{\tilde{B} \rightarrow B}$. 
+
+We have that $\tilde{\rho}_{()}$ sends $(e_1 + e_2 + e_3)$ to $(e_1 + e_2 + e_3)$, $(e_1 - e_2)$ to $(e_1 - e_2)$, and $(e_1 - e_3)$ to $(e_1 - e_3)$. Therefore, $\tilde{\rho}_{()} = 
 \begin{bmatrix}
 	1 & 0 & 0\\
 	0 & 1 & 0\\
 	0 & 0 & 1
 \end{bmatrix}
 $.
+
+We have that $\tilde{\rho}_{(12)}$ takes $e_1 + e_2 + e_3$ to $e_1 - e_2$, $e_1 - e_2$ to $e_1 + e_2 + e_3$ and $e_1 - e_3$ to $e_1 - e_3$. Therefore, 
+$\tilde{\rho}_{(12)} = 
+\begin{bmatrix}
+	1 & 0 & 0\\
+	0 & -1 & 0\\
+	0 & -1 & 1
+\end{bmatrix}
+$.
+
+We have that $\tilde{\rho}_{(23)}$ takes $e_1 + e_2 + e_3$ to $e_1 + e_2 + e_3$, $e_1 - e_2$ to $e_1 - e_3$, and $e_1 - e_3$ to $e_1 - e_2$. Therefore, 
+$\tilde{\rho}_{(23)} = 
+\begin{bmatrix}
+	1 & 0 & 0\\
+	0 & 0 & 1\\
+	0 & 1 & 0
+\end{bmatrix}
+$.
+
+$\tilde{\rho}_{(13)}$ takes $e_1 + e_2 + e_3$ to $e_1 - e_3$, takes $e_1 - e_2$ to $e_1 - e_2$, and $e_1 - e_3$ to $e_1 + e_2 + e_3$. Therefore, 
+$\tilde{\rho}_{(13)} = 
+\begin{bmatrix}
+	1 & 0 & 0\\
+	0 & 1 & -1\\
+	0 & 0 & -1
+\end{bmatrix}
+$.
+\\
+$\tilde{\rho}_{(123)} = 
+\begin{bmatrix}
+	1 & 0 & 0\\
+	0 & -1 & 1\\
+	0 & -1 & 0
+\end{bmatrix}
+$.
+\\
+$\tilde{\rho}_{(132)} = 
+\begin{bmatrix}
+	1 & 0 & 0\\
+	0 & 0 & -1\\
+	0 & 1 & -1
+\end{bmatrix}
+$.
+\\
+We have that all of the nonzero entries are 1 or -1 and the determinant of the matrix equals the sign of the permutation.
+
 \subsection*{1.11}
 Recall that the left regular representation $\rho$ on a finite group $G$ is the representation on the vector space $V=$span$(\lbrace e_g : g \in G \rbrace)$ such that $\rho_g e_h = e_{gh}$ for all $g, h \in G$. However, consider the vector $v = \sum_{h \in G} e_h$. Then for all $g \in G$, $\rho_g v = \rho_g \sum_{h \in G} e_h = \sum_{h \in G} \rho_g e_h = \sum_{h \in G} e_{gh} = \sum_{x \in G} e_x = v$, thus the subspace span$(\lbrace v \rbrace)$ is an invariant subspace of $V$. However, if dim$(V) > 1$, then $\rho$ will have a nontrivial invariant subspace, thus $\rho$ is reducible. Therefore if $\rho$ is irreducible, then dim$(V) = 1$, therefore there is only a single element in $G$, which means that $G$ is the trivial group.
 \subsection*{1.13}
