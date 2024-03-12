@@ -103,4 +103,12 @@ Therefore, we have that:
 \end{equation}
 
 If $k \leq 1$, then we will simply replace $k$ with $n - k$ and change $m_0 - m_1$ to $m_1 - m_0$. If $n = 2$, then if $k = 0$, $m_0 = 1$, $m_1 = 0$, if $k = 1$, $m_0 = m_1 = 0$, and if $k = 2$, then $m_1 = 1$, $m_0 = 0$.
+\subsection{Proof of correctness}
+Suppose a submatrix has all entries 0. It is counted once in $N_{\geq}(S_0)$ and 0 everywhere else, so it counted once in $N_{=}(S_0)$. 
+
+Suppose a submatrix has one entry equalling $1$ and zeroes everywhere else. It is counted once in $N_{\geq}(S_0)$ and once in $N_{\geq}(S_1)$, so it contributes $1 - 1 = 0$ times to the total of $N_{=}(S_0)$. 
+
+Suppose a submatrix has two entries equalling $1$ and zeroes everywhere else. It is counted once in $N_{\geq}(S_0)$, twice in $N_{\geq}(S_1)$, and once in $N_{\geq}(S_2)$, so it contributes $1 - 2 + 1 = 0$ times to the total of $N_{=}(S_0)$.
+
+Suppose a submatrix has three entries equalling $1$ and zeroes everywhere else. It is counted once in $N_{\geq}(S_0)$, three times in $N_{\geq}(S_1)$, three times in $N_{\geq}(S_2)$, and once in $N_{\geq}(S_2)
 \end{document}
