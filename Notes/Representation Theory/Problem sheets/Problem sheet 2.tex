@@ -81,7 +81,7 @@ $\tilde{\rho}_{(132)} =
 \end{bmatrix}
 $.
 \\
-We have that all of the nonzero entries are 1 or -1 and the determinant of the matrix equals the sign of the permutation.
+We have that these matrices are decomposable into the spaces $\mathbb{R} \oplus \mathbb{R}^2$, thus $\rho$ is reducible. We have that all of the nonzero entries are 1 or -1 and the determinant of the matrix equals the sign of the permutation.
 
 \subsection*{1.11}
 Recall that the left regular representation $\rho$ on a finite group $G$ is the representation on the vector space $V=$span$(\lbrace e_g : g \in G \rbrace)$ such that $\rho_g e_h = e_{gh}$ for all $g, h \in G$. However, consider the vector $v = \sum_{h \in G} e_h$. Then for all $g \in G$, $\rho_g v = \rho_g \sum_{h \in G} e_h = \sum_{h \in G} \rho_g e_h = \sum_{h \in G} e_{gh} = \sum_{x \in G} e_x = v$, thus the subspace span$(\lbrace v \rbrace)$ is an invariant subspace of $V$. However, if dim$(V) > 1$, then $\rho$ will have a nontrivial invariant subspace, thus $\rho$ is reducible. Therefore if $\rho$ is irreducible, then dim$(V) = 1$, therefore there is only a single element in $G$, which means that $G$ is the trivial group.
@@ -144,9 +144,9 @@ To show that $\rho \oplus \psi$ is a representation, we have that $(\rho \oplus 
 \subsection*{2.2}
 \subsection*{a}
 We will show the set spans $V \otimes W$ and is linearly independent.
-Consider $v \otimes w \in V \otimes W$, and suppose $v = \sum_i \alpha_i v_i$ and $w = \sum_j \beta_j w_j$. Then $ (\sum_i \alpha_i v_i) \otimes (\sum_j \beta_j w_j) = \sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j)$ by the left linearity of the tensor product, and $\sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j) = \sum_i (\alpha_i \beta_j (v_i \otimes w_j))) = \sum_i \sum_j \alpha_i \beta_j (v_i \otimes w_j)$. Thus $(v_i \otimes w_j)$ spans $V \otimes W$. To show linear independence, consider when $\sum_{i, j} \alpha_{i,j} (v_i \oplus w_j) = 0$. Then we can shove all of the $\alpha_{i, j}$ into one $w_j$ to have that $\sum_j ( \sum_i \alpha_{i,j} v_i \oplus w_j) = 0$. But this implies that $\sum_i \alpha_{i,j} v_i = 0$ for all $j$, therefore, we have that $\alpha_{i, j} = 0$ as $v_i$ is linearly independent. Therefore, this is a basis and dim$(V \otimes W) =$ dim$(V) \times$ dim$(W)$.
+Consider $v \otimes w \in V \otimes W$, and suppose $v = \sum_i \alpha_i v_i$ and $w = \sum_j \beta_j w_j$. Then $ (\sum_i \alpha_i v_i) \otimes (\sum_j \beta_j w_j) = \sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j)$ by the left linearity of the tensor product, and $\sum_i \alpha_i (v_i \otimes \sum_j \beta_j w_j) = \sum_i (\alpha_i \beta_j (v_i \otimes w_j))) = \sum_i \sum_j \alpha_i \beta_j (v_i \otimes w_j)$. Thus $(v_i \otimes w_j)$ spans $V \otimes W$. To show linear independence, consider the dual of $V \otimes W$. We have that the basis of the dual of $V$ is $\psi_i(v_j) = \delta_{i, j}$, and the basis of the dual of $W$ is $\rho_i(w_j) = \delta_{i,j}$. Then the map $\psi_{i,j}$ $V \times W \rightarrow \mathcal{C}$ by $v, w \rightarrow \psi_i(v) \rho_j(w)$ can be applied to the universal property to form a map $\psi_{i,j}(v \otimes w) = \psi_i(v) \rho_j(w)$. Thus the basis of the dual is $\psi_{i,j}$ and as this dual is the dual to the basis as stated, then this forms a map. 
 \subsection*{b}
-We have that $(\rho \otimes \psi)_g$ is linear by definition. Then  $(\rho \otimes \psi)_g (\rho \otimes \psi)_h (v \otimes w) = (\rho \otimes \psi)_g (\rho_h v \otimes \psi_h w) = (\rho_g \rho_h v \otimes \psi_g \psi_h w) = (\rho_{gh} v \otimes \psi_{gh} w) = (\rho \otimes \psi)_{gh} (v \otimes w)$, thus we have that this is a representation
+We have that $(\rho \otimes \psi)_g$ is linear by definition. Then  $(\rho \otimes \psi)_g (\rho \otimes \psi)_h (v \otimes w) = (\rho \otimes \psi)_g (\rho_h v \otimes \psi_h w) = (\rho_g \rho_h v \otimes \psi_g \psi_h w) = (\rho_{gh} v \otimes \psi_{gh} w) = (\rho \otimes \psi)_{gh} (v \otimes w)$, thus we have that this is a representation.
 
 \subsection{2.3}
 \subsubsection{Part a}
