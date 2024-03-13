@@ -58,7 +58,7 @@ Let $P_n$ be the number of queues of $n$ identical twins. Consider the permutati
 \begin{equation}
 	P_n = \frac{(2n)!}{2^n}
 \end{equation}
-The number of ways to choose $k$ nonconsecutive numbers from $[n]$ is $\binom{n - k + 1}{k}$. There is a bijection between choosing $k$ consecutive numbers in $[n]$ and the number of $n$-length strings of $0$ and $1$ such that no $1$ is adjacent to another $1$. Then this is a bijection to adding $n - 2k + 1$ balls into $k + 1$ bins...
+The number of ways to choose $k$ nonconsecutive numbers from $[n]$ is $\binom{n - k + 1}{k}$. There is a bijection between choosing $k$ consecutive numbers in $[n]$ and the number of $n$-length strings of $0$ and $1$ such that no $1$ is adjacent to another $1$. Then this is a bijection to having $n-k$ zeroes where the numbers will not be chosen will go. Then we have $n - k + 1$ gaps where we will place the ones. Therefore, we have $\binom{n - k + 1}{k}$ ways to solve this equation. 
 \par
 Now consider $Q_n$, the number of queues where no two twins are next to each other. First, let $R_n$ be the number of permutations of $[2n]$ where $i$ and $n + i$ is not allowed to be next to each other ($i$ is also in $[n]$). We shall use the principle of inclusion-exclusion. Let $A := S_{2n}$ be the set of permutations of $[2n]$ and let $P_{i}$ be the property of permutation $\sigma$ where $i$ and $i + n$ are next to each other. We have that either $i$ or $n + i$ is first, the first number can go in $(2n - 1)$ places (we exclude the last position of the queue), and the other numbers can be, arbitrarily, in $(2n - 2)!$ permutations. The number of permutations where $i$, $i + 1$ are next to each other are $2(2n - 1) (2n - 2)! = 2 (2n - 1)!$. Suppose we choose $k$ pairs of twins, and look at the permutations where they are next to each other. Then we could put $k$ twins in any nonconsecutive positions. The number of ways to choose $k$ nonconsecutive numbers from $[2n-1]$ is $\binom{2n - k}{k}$. Thus, we choose any one of the $\binom{2n - k}{k}$ ways to choose $k$ consecutive numbers, choose from each pair of twins which twin goes first (which has $2^k$ choices), choose how to order the $k$ twins, leading to $k!$ choices, and order the other $(2n - 2k)!$ students. So the number of permutations with the property that $k$ twins are next to each other (and more) are:
 \begin{equation}
@@ -98,7 +98,7 @@ For the $N_{\geq}(S_2)$ case, choose one out of $n$ rows and choose two entries 
 \paragraph{$S_3$}
 We choose an arbitrary entry with $1$ and another entry with $1$ on the same row and another entry with $1$ on the same column. Then we have $nk$ choices for which $1$, and $(k-1)(k-1)$ choices for $1$ in the same column. Therefore, we have that 
 \begin{equation}
-	m_0 - m_1 = \binom{n}{2}\binom{n}{2} - kn(n-1)^2 + (2n \binom{k}{2}(n-1) + \frac{nk(nk - 2k + 1)}{2}) - nk(k-1)^2
+	m_0 - m_1 = \binom{n}{2}\binom{n}{2} - kn(n-1)^2 + \left( 2n \binom{k}{2}(n-1) + \frac{nk(nk - 2k + 1)}{2} \right) - nk(k-1)^2
 \end{equation}
 
 If $k \leq 1$, then we will simply replace $k$ with $n - k$ and change $m_0 - m_1$ to $m_1 - m_0$. If $n = 2$, then if $k = 0$, $m_0 = 1$, $m_1 = 0$, if $k = 1$, $m_0 = m_1 = 0$, and if $k = 2$, then $m_1 = 1$, $m_0 = 0$.
@@ -109,7 +109,7 @@ Suppose a submatrix has one entry equalling $1$ and zeroes everywhere else. It i
 
 Suppose a submatrix has two entries equalling $1$ and zeroes everywhere else. It is counted once in $N_{\geq}(S_0)$, twice in $N_{\geq}(S_1)$, and once in $N_{\geq}(S_2)$, so it contributes $1 - 2 + 1 = 0$ times to the total of $N_{=}(S_0)$.
 
-Suppose a submatrix has three entries equalling $1$ and zeroes everywhere else. It is counted once in $N_{\geq}(S_0)$, three times in $N_{\geq}(S_1)$, three times in $N_{\geq}(S_2)$, and once in $N_{\geq}(S_3)$. 
+Suppose a submatrix has three entries equalling $1$ and zeroes everywhere else. It is counted once in $N_{\geq}(S_0)$, three times in $N_{\geq}(S_1)$, three times in $N_{\geq}(S_2)$, and once in $N_{\geq}(S_3)$. So it is counted $1 - 3 + 3 - 1 = 0$ times overall.
 
-Suppose a submatrix has four entries equalling $1$. It is counted once in $N_{\geq}(S_0)$, four times in $N_{\geq}(S_1)$, six times in $N_{\geq}(S_2)$, four times in $N_{\geq}(S_3)$, and once in $N_{\geq}(S_4)$.
+Suppose a submatrix has four entries equalling $1$. It is counted once in $N_{\geq}(S_0)$, four times in $N_{\geq}(S_1)$, six times in $N_{\geq}(S_2)$, four times in $N_{\geq}(S_3)$, and once in $N_{\geq}(S_4)$. So it is counted $1 - 4 + 6 - 4 + 1 = 0$ times overall.
 \end{document}
