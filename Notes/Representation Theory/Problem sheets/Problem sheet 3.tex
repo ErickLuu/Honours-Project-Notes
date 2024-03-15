@@ -1,0 +1,78 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+%opening
+\title{Representation Theory- Problem sheet 2}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chapter 2}
+\subsection*{2.5}
+\subsubsection*{Part a}
+ We have that for a map $f: V \rightarrow \mathbb{C}$ if $f(v_i) = \alpha_i$, then $f = \sum_i \alpha_i v^*_i$. 
+Consider an element $v = \sum_j \beta_j v_j$. Then $f(v) = \sum_j \beta_j f(v_j) = \sum_j \beta_j \alpha_j$. But $\sum_i \alpha_i v^*_i(v) = \sum_i \alpha_i \beta_i = f(v)$, thus these functions are the same function. Therefore, the set spans $V^*$.
+\\
+Now suppose $\sum \alpha_i v_i^* = 0$, where $0$ is the zero map. Then that implies that for all $v_i$, $\sum \alpha_i v_i^*(v_i) = 0$. But $\sum \alpha_i v_i^*(v_i) = \alpha_i$, so $\alpha_i = 0$ for all $i$. Thus this set is linearly independent.
+Therefore, $\text{dim } V^* = \text{dim } V$. 
+\subsubsection*{Part b}
+We have that $\rho^*$ is linear by definition. Then $\rho^*_g \circ \rho^*_h (f) (v) = \rho^*_g f \rho_{h^{-1}}(v) = f \rho_{h^{-1}}\rho_{g^{-1}} (v) = \rho^*_{gh} (f)(v)$.
+\subsubsection*{Part c}
+We have that $\langle \rho^*_g(f) , \rho_g v \rangle = \rho^*_g(f) (\rho_g v) = f (\rho_g \rho_{g^{-1}} v) = f(\rho_1 v) = f(v)$. Thus shown.
+\subsection*{2.6}
+We have a map $\phi: V^* \otimes W \rightarrow \text{Hom}(V, W)$ with the map:
+\begin{equation}
+	(f \otimes w)(v) \mapsto f(v) w
+\end{equation}
+Let $\lbrace v_1, v_2, ... , v_n \lbrace$ be a basis for $V$ and $f_i$ the corresponding dual basis for $V^*$.
+We have another map $\psi: \text{Hom}(V, W) \rightarrow V^* \otimes W$ where we take
+\begin{equation}
+	u \mapsto \sum_i f_i \oplus u(v_i)
+\end{equation}
+It remains to show that these two maps are inverses of each other. 
+We have that $(\phi \circ \psi u) = \phi(\sum_i f_i \oplus u(v_i))= \sum_i \phi(f_i \oplus u(v_i)) = \sum_i u(v_i) f_i$. So for $v = \sum_j \alpha_j v_j$, we have that $u(v) = \sum_j \alpha_j u(v_j) = \sum_i f_i(v) u(v_i)$ as $f_i(v) = \alpha_i$. 
+\\
+Finally, we have that 
+$(\psi \circ \phi (f \otimes w)) = \psi(w f) = \sum_i f_i \oplus w f(v_i)$. However we have that $f(v_i)$ is a scalar, so we can move it out, to get $\sum_i f(v_i) f_i \oplus w$. Then we have that for any $v \in V$, we have that $(\sum_i f(v_i) f_i \oplus w) (v) = \sum_i f(v_i) f_i(v) \oplus w = \sum_i \alpha_i f(v_i) \oplus w = f(v) \oplus w$.
+Therefore, we have that these two functions are inverses of each other, and thus these spaces are isomorphic. 
+\subsection*{2.9}
+If the group algebra $\mathbb{C} G$ is commutative, then we have for all $g, h \in G$, we have that $(1 g), (1 h) \in \mathbb{C}G$. Then $(1 gh) = (1 g)\cdot (1 h) = (1 h) \cdot (1 g) = (1 hg)$, so $gh = hg$. 
+\par
+If $G$ is commutative, then we have that for all $a, b \in \mathbb{C} G$ where $a = \sum_{g \in G} \alpha_g g$, $h = \sum_{h \in G} \beta_h h$, we have that:
+\begin{equation}
+	a \cdot b = \sum_{g \in G} \sum_{h \in G} \alpha_g \beta_h gh = \sum_{h \in G} \sum_{g \in G} \beta_h\alpha_g  hg
+\end{equation} from the commutivity of $\mathbb{C}$ and $G$.
+Then this is equal to $b \cdot a$. Thus $\mathbb{C}G$ is commutative. 
+\subsection*{2.10}
+Let $A$ be an algebra over a field $K$.
+We wish to show that $Z(A)$ is a vector subspace and is also closed under the binary operation $(\cdot) : A \times A \rightarrow A$. 
+
+Let $a, b \in Z(A)$. Then we want to have that $ma + nb \in Z(A)$. We have that for all $c \in A$, $(ma + nb) \cdot c = ma \cdot c + nb \cdot c = m c \cdot a + n c \cdot b = c \cdot (ma) + c \cdot (nb) = c \cdot (ma + nb)$. Thus shown that $Z(A)$ is a vector subspace.
+If $1$ is the identity in $A$, then $1 \cdot a = a \cdot 1$ for all $a \in A$. Therefore, the identity is in $Z(A)$.
+
+If $a, b \in Z(A)$, then we want that $a \cdot b \in Z(A)$. We have that for $c \in A$, $(a \cdot b) \cdot c = a \cdot ( b \cdot c) = a \cdot (c \cdot b) = (a \cdot c) \cdot b = c \cdot a \cdot b$. Thus $a \cdot b \in Z(A)$. 
+Therefore, $Z(A)$ is a subalgebra of $A$. 
+
+\subsection*{2.12}
+Suppose $\text{Mat}_2(\mathbb{C})$ has a one-dimensional module, so there exists an algebra homomorphism $\tilde{\rho} : \text{Mat}_2(\mathbb{C}) \rightarrow \text{End}(\mathbb{C})$. 
+\subsection*{2.14}
+\paragraph{Invariance}
+Let $U$ and $V$ be $A$-modules, and let $T \in \text{Hom}_A(U, V)$. 
+We will show that $ker T$ is a submodule of $U$.
+If $Tv = 0$, then $T (a \cdot v) = a \cdot T(v) = a \cdot 0 = 0$. Therefore, $\text{ker } T$ is invariant under the algebra.
+We will show that $\text{im } T$ is a submodule of $V$.
+If $v = T u$ for some $u$, then $a \cdot v = a \cdot Tu = T (a \cdot u)$. Thus $a \cdot v$ is in the image of $T$.
+\paragraph{Proof} 
+Let $U$ and $V$ be simple $A$-modules, and let $T \in \text{Hom}_A(U, V)$. 
+Then suppose $T \neq 0$. Then as $U$ is simple, $\text{ker } T = \lbrace 0 \rbrace$ or $U$. As $\text{ker } T$ is not $U$, then $\text{ker } T = 0$, thus $T$ is injective.
+
+Similarly, we have that as $V$ is simple, $\text{im } T = \lbrace 0 \rbrace$ or $V$. As $\text{im } T \neq 0$, then it must be $V$. Thus $T$ is bijective, and thus an isomorphism.
+\par
+If there is a nonzero map $T : U \rightarrow V$, then $T$ is an isomorphism. Thus if $U \ncong V$, then $\text{Hom}_A(U, V) = \lbrace 0 \rbrace$.
+
+\par
+We have that $T$ has an eigenvalue $\lambda \in \mathbb{C}$ such that $T(u) = \lambda u$ for $u \in U$. Thus $\lambda I - T$ is not invertible, thus is the zero map. Thus $T = \lambda I$. 
+\end{document}

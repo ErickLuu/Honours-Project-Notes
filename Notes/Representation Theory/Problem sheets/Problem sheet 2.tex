@@ -3,7 +3,7 @@
 \usepackage{amssymb}
 \usepackage{bm}
 %opening
-\title{Representation Theory notes}
+\title{Representation Theory- Problem sheet 2}
 \author{Eric Luu}
 
 \begin{document}
@@ -81,7 +81,7 @@ $\tilde{\rho}_{(132)} =
 \end{bmatrix}
 $.
 \\
-We have that these matrices are decomposable into the spaces $\mathbb{R} \oplus \mathbb{R}^2$, thus $\rho$ is reducible by Matzche's theorem. We have that all of the nonzero entries are 1 or -1 and the determinant of the matrix equals the sign of the permutation.
+We have that these matrices are decomposable into the spaces $\mathbb{R} \oplus \mathbb{R}^2$, thus $\rho$ is reducible by Maschke's theorem. We have that all of the nonzero entries are 1 or -1 and the determinant of the matrix equals the sign of the permutation.
 
 \subsection*{1.11}
 Recall that the left regular representation $\rho$ on a finite group $G$ is the representation on the vector space $V=$span$(\lbrace e_g : g \in G \rbrace)$ such that $\rho_g e_h = e_{gh}$ for all $g, h \in G$. However, consider the vector $v = \sum_{h \in G} e_h$. Then for all $g \in G$, $\rho_g v = \rho_g \sum_{h \in G} e_h = \sum_{h \in G} \rho_g e_h = \sum_{h \in G} e_{gh} = \sum_{x \in G} e_x = v$, thus the subspace span$(\lbrace v \rbrace)$ is an invariant subspace of $V$. However, if dim$(V) > 1$, then $\rho$ will have a nontrivial invariant subspace, thus $\rho$ is reducible. Therefore if $\rho$ is irreducible, then dim$(V) = 1$, therefore there is only a single element in $G$, which means that $G$ is the trivial group.
@@ -148,8 +148,8 @@ Consider $v \otimes w \in V \otimes W$, and suppose $v = \sum_i \alpha_i v_i$ an
 \subsection*{b}
 We have that $(\rho \otimes \psi)_g$ is linear by definition. Then  $(\rho \otimes \psi)_g (\rho \otimes \psi)_h (v \otimes w) = (\rho \otimes \psi)_g (\rho_h v \otimes \psi_h w) = (\rho_g \rho_h v \otimes \psi_g \psi_h w) = (\rho_{gh} v \otimes \psi_{gh} w) = (\rho \otimes \psi)_{gh} (v \otimes w)$, thus we have that this is a representation.
 
-\subsection{2.3}
-\subsubsection{Part a}
+\subsection*{2.3}
+\subsubsection*{Part a}
 Let $\lbrace v_1, v_2, ..., v_m \rbrace$ be a basis for $V$. Then let $(w_1 \otimes w_2 \otimes ... \otimes w_k) \in \text{Sym}^k(V)$, and suppose $w_i = \sum_{j = 1}^n \alpha_{i,j} v_j$. Then we have that $w_1 \otimes w_2 \otimes ... \otimes w_k = \sum_{i} \alpha_{1, i} v_i \otimes w_2 \otimes ... \otimes w_k$. But we can repeat this multiple times to have that:
 \begin{equation}
 	w_1 \otimes w_2 \otimes ... \otimes w_k = \sum_{\sigma \in [n]^k} \prod_{i = 1}^k \alpha_{i,\sigma(i)} (v_{\sigma(1)} \otimes v_{\sigma(2)} \otimes ... \otimes v_{\sigma(k)})
@@ -169,6 +169,6 @@ implies $A_{\sigma} = 0$ for all $\sigma$. Then we can express the $k$-th case a
 but that implies that $A_{\sigma} = 0$ for all $\sigma \in [v_{\sigma(k)}]^{k-1}$ from the inductive hypothesis, thus $A_{\sigma} = 0$ for all $\sigma \in [m]^k$.
 \paragraph{Size of basis}
 Therefore, the size of the bases is the number of these $v_{i_1} \oplus ... \oplus v_{i, k}$ where $1 \leq i_1 \leq ... \leq i_k \leq m$. However, there is a bijection between these bases and the number of ways to put $k$ unlabelled balls into $m$ bins, where the number of ways to arrange the balls and bins is $\binom{k + m - 1}{k}$. Therefore, $\text{dim Sym}^k (V) = \binom{\text{dim} V + k - 1}{k}$.
-\subsubsection{Part b}
+\subsubsection*{Part b}
 We have that $\text{Sym}^k(\rho)$ is linear by definition. What remains to show is that it is a homomorphism. Consider $\text{Sym}^k(\rho)_g \circ \text{Sym}^k(\rho)_h (v_1 \otimes v_2 \otimes ... \otimes v_k)$. Then we have this is equal to $\text{Sym}^k(\rho)_g (\rho_h v_1 \otimes \rho_h v_2 \otimes ... \otimes \rho_h v_k) = (\rho_g \rho_h v_1 \otimes \rho_g \rho_h v_2 \otimes ... \otimes \rho_g \rho_h v_k) = \text{Sym}^k(\rho)_{gh} (v_1 \otimes v_2 \otimes ... \otimes v_k)$. Thus $\text{Sym}^k(\rho)$ is a homomorphism. 
 \end{document}
