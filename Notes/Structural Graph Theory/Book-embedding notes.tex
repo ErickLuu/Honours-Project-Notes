@@ -143,4 +143,25 @@ The best known bound is $\sqrt{g}$, found by Malitz. (cite here).
 We additionally have that $\pn(G) \leq \tw(G) + 1$, from \url{https://core.ac.uk/download/pdf/82019214.pdf}. 
 We also have that bounded clique-sums of graphs of bounded treewidth also have bounded path-number.
 What is a sticking-point is vortices of graphs on bounded genus, and cliquesums of vortices on bounded genus as well. 
+\subsection{Tree-decomposition into bounded page number components}
+We denote $G(\mathcal{G}, T)$ as a clique-sum tree, where each vertex $v_i$ in the tree $T$ is a graph $G_i$ in $\mathcal{G}$, and the edge $v_iv_j$ corresponds with the clique sum of graphs $G_i$ and $G_j$. We refer to the stack layout as a tuple $(\leq , \psi)$ where $\leq$ is an ordering of the vertices and $\psi : E(G) \rightarrow X$ assigns to each edge the page. The page number is the smallest set $X$ on which this is defined. 
+\begin{theorem}[Hickingbotham and Wood, private communications]
+	Let $G(\mathcal{G}, T)$ be a clique-sum tree where $\pn(G_i) \leq s$ for all $G_i \in \mathcal{G}$. Then $\pn(G(\mathcal{G}, T)) \leq 2s^2 + 4s + 1$.  
+\end{theorem}
+
+\subsubsection{Proof of above theorem.}
+Let $C$ be a clique in $G$ and let $\sigma_C = (u_1, ... , u_k)$ be a vertex ordering of $V(C)$. For any arbitrary clique $J$, we define a rainbow-vertex $w \in V(J)$ as a vertex where for any $x, y \in V(J)$, the edges $wx$ and $wy$ are on different pages. We want the book embedding to have the structure $(\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})$.
+
+We will use these two results.
+\begin{lemma}
+	If $pn(G) \leq s$, then $G$ does not contain any cliques on more than $2s-1$ vertices.
+\end{lemma}
+\begin{lemma}
+	For any graph $G$, $\chi(G) \leq 2 \pn(G) + 2$.
+\end{lemma}
+
+To prove this theorem, we will use a common technique in graph theory. We will strengthen the lemma so that we may use induction to prove the statement.
+\begin{lemma}
+	Let $G$ be a graph where $\pn(G) \leq S$. Then we 
+\end{lemma}
 \end{document}
