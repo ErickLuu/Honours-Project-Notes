@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[]{report}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -27,5 +27,88 @@
 \begin{document}
 
 \maketitle
+\chapter{Representations}
 \section{Representations}
+A representation of a group $G$ on a vector space $V$ is a map $\rho : G \rightarrow GL(V)$ where $\rho_{g}: V \rightarrow V$ and $\rho_{1} = id$ and $\rho_{g}\rho_{h} x = \rho_{gh} x$. The degree of $\rho$ is dim $V$. The vector spaces that we will be working over are finite-dimensional vector spaces over $\mathbb{C}$, and the groups are finite.
+
+\subsection{Examples}
+\begin{enumerate}
+	\item Trivial representation: $g \mapsto Id_V$.
+	\item Sign representation: $\rho: S_n \rightarrow \mathbb{C}^*$ where $g \mapsto \text{sign}(g)$. 
+	\item Natural representation of $S_n \rightarrow GL_n(\mathbb{C})$:
+	$g(e_i) = e_{g(i)}$ for $i = 1, 2, ..., n$. The set of permutation matrices of the identity matrix.
+	\item Regular representation: For a set $G$, let $V = \text{span}\lbrace e_h : h \in G \rbrace$. Then $\rho_g(e_h) = e_{gh}$ is the left regular representation.
+\end{enumerate}
+We say that two representations $\rho^1: G \rightarrow GL(V_1)$ and $\rho^2: G \rightarrow GL(V_2)$ are equivalent if there exists an isomorphism $T: V_1 \rightarrow V_2$ such that $\rho^2_g = T \rho^{1}_g T^{-1}$.
+\section{Irreducible and indecomposible}
+We say a subspace $U \leq V$ is $\rho$-invariant under a representation $\rho: G \rightarrow GL(V)$ if $\rho_g(u) \in U$ for all $u \in U$ and $g \in G$, or in terms of actions, the orbit space of $U$ is $U$. Restricting $\rho$ to $U$ is a subrepresentation.
+$\rho: G \rightarrow GL(V)$ is irreducible if the only invariant subspaces are trivial, and reducible otherwise. We say that $V$ is decomposable if $V = V_1 \oplus V_2$ for non-zero invariant subspaces, and indecomposible otherwise.
+Note that decomposable implies reducible, and irreducible implies decomposable. Completely reducible implies that we can decompose $V$ into direct sum of subspaces $V_i$ where the representation on $V_i$ is irreducible. 
+
+Matschke's theorem: Every representation of a finite group over $\mathbb{C}$ is completely reducible. Proof: Consider $\langle \cdot , \cdot \rangle$ as the standard inner product on $V$. We can construct a inner product
+$\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$
+such that $\rho$ is unitary.
+
+Suppose $V$ is unitary. Then $V$ is completely decomposable. We look at the orthogonal complement of the nontrivial subspace and show that under $\langle \cdot, \cdot \rangle_\rho$, $U^\bot$ is invariant. 
+
+Schur's lemma. Suppose $\rho$ and $\phi$ be irreducible representations over $\mathbb{C}$. Then the only homomorphisms between $\rho$ and $\phi$ are null-homeomorphisms or scaled isomorphisms. 
+
+
+\chapter{Algebraic constructions}
+\section{New constructions}
+We have that if $V$ and $W$ are vector spaces, then the direct sum $V \oplus W$ is a vector space where every element is of the form $v \oplus w$, and obeys the laws that $v_1 \oplus w_1 + v_2 \oplus w_2 = (v_1 + v_2) \oplus (w_1 + w_2)$ and $c (v_1 \oplus w_1) = (c v_1) \oplus (c w_1)$. 
+
+The tensor product $V \otimes W$ is the vector space where $(v_1 + v_2) \otimes w = v_1 \otimes w + v_2 \otimes w$, $v \otimes (w_1 + w_2) = v \otimes w_1 + v \otimes w_2$, $c (v \otimes w) = (cv) \otimes w = v \otimes (cw)$. 
+
+\section{Algebras}
+A ring is a structure with an addition and multiplication operator. We have that:
+$R$ is an abelian group under addition, so:
+\begin{itemize}
+	\item $(a + b) + c = a + (b + c)$
+	\item $a + b = b + a$
+	\item there is an identity such that $a + 0 = a$ for all $a$ in $\mathbb{R}$.
+	\item For all $a$ there exists a $-a$ such that $a - a = 0$. 
+\end{itemize}
+$R$ is a monoid under multiplication, so:
+\begin{itemize}
+	\item $(a \times b) \times c = a \times (b \times c)$
+	\item There exists a $1$ such that $a \times 1 = a = 1 \times a$.
+\end{itemize}
+Finally, these elements work together nicely, so
+\begin{itemize}
+	\item $a \times (b + c) = a \times b + a \times c$
+	\item $(b + c) \times a = b \times a + c \times a$. 
+\end{itemize}
+
+A field is a commutative (so $a \times b = b \times a$) ring where $0 \neq 1$ and all nonzero elements are invertible under multiplication.
+
+An algebra $A$ over a field $K$ is a vector space over $K$ with a bilinear product $A \times A \rightarrow A$ that is bilinear, where:
+\begin{itemize}
+	\item $(x + y) \cdot z = x \cdot z + y \cdot z$
+	\item $x  \cdot (y + z) = x \cdot y + x \cdot z$.
+	\item $(cx) \cdot y = x \cdot (cy) = c (x \cdot y)$.
+\end{itemize}
+We will also assume our algebras are associative, so $(x \cdot y) \cdot z = x \cdot (y \cdot z)$ and unital, so there is a $1 \in A$ such that $1 \cdot x = x \cdot 1 = x$.
+
+\subsection{Examples}
+\begin{itemize}
+	\item $\mathbb{C}$ under multiplication
+	\item $\mathbb{C}[t]$ = complex polynomials under polynomial multiplication
+	\item $Mat_n(\mathbb{C})$ is the $n \times n$ complex matrices under matrix multiplication
+	\item $\mathbb{C} G$ is a group algebra.
+\end{itemize}
+
+A module over a ring $R$ is an abelian group $M$ and an operation $R \times M \rightarrow M$ where:
+\begin{itemize}
+	\item $r \cdot (x + y) = r \cdot x + r \cdot y$
+	\item $(r + s) \cdot x = r \cdot x + s \cdot x$
+	\item $(rs )\cdot x = r \cdot (s \cdot x)$
+	\item $1 \cdot x = x$
+\end{itemize}
+for $r, s \in R$, $x, y \in M$.
+
+Essentially, we treat the algebra $A$ as the ring and $V$ as the abelian group to form an $A$-module. There is an algebra homomorphism $\tilde{\rho}: A \rightarrow End(V)$ and we write it as $a \cdot v$. 
+
+\subsection{Schur's lemma}
+Let $U$ and $V$ be simple $A$-modules, where $A$ is an algebra over $\mathcal{C}$. Then the only homomorphisms between $U$ and $V$ are the null map, or a scaled isomorphism.
 \end{document}

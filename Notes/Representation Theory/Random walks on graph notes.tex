@@ -20,12 +20,47 @@
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
 
+\newcommand{\supp}{\text{Supp}}
+
 %opening
-\title{Representation theory Notes}
+\title{Random walks on groups notes}
 \author{Eric Luu}
 
 \begin{document}
 
 \maketitle
-\section{Representations}
+\section{Motivation}
+Notes from Steinberg, Representation theory of finite groups 
+In a famous paper " Trailing the dovetail shuffle to its lair", Bayer and Diaconis showed that you had to riffle-shuffle a deck of cards seven times to randomly shuffle the deck. The paper used random walks on $S_n$ to model shuffling the deck.
+
+\section{Definitions}
+Suppose $G$ is a finite group with random variable $X$ and $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$. We can omit $X$.
+
+For a set $A \subseteq G$, we have that $P(A) = \sum_{g \in A} P(g)$. We define the support of $P$ as $\supp(P) = \lbrace g \in G : P(g) \neq 0 \rbrace$. 
+\section{Creating probability distributions}
+We define the uniform distribution $U$ on $G$ as $U(g) = 1/|G|$ for all $g \in G$. 
+We can convolve a probability like so. Let $P$, $Q$ be probabilities on $G$. Suppose we choose $X$ according to $P$ and $Y$ according to $Q$. Then the probability that $XY = g$ is the probability that $Y = h$ for some $h \in G$ and the probability that $X = gh^{-1}$. 
+So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
+
+\begin{proposition}
+	Let $P$ and $Q$ be probability distributions on $G$. Then $P \ast Q$ is a probability distribution on $G$, with $\supp(P \ast Q) = \supp(P)\supp(Q) = \lbrace xy : x \in \supp(P), y \in \supp Q \rbrace$. 
+\end{proposition}
+\begin{proof}
+	Trivial to show is between 0 and 1.
+	Next, we have that:
+	\begin{align*}
+		\sum_{g \in G} P \ast Q(g) &= \sum_{g \in G} \sum_{h \in G} P(gh^{-1}) Q(h)\\
+		&=\sum_{h \in G} Q(h) \sum_{g \in G} P(gh^{-1})\\
+		&= \sum_{h \in G} Q(h)\\
+		&= 1
+	\end{align*}
+\end{proof}
+Thus this is a probability distribution. Note that the support is also trivial.
+
+\section{Notion of difference between probabilities}
+We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. The $L^1$-norm is a metric and also $\|a \ast b\|_1 \leq \|a\|_1 \cdot \|b\|_1$. 
+
+Proof in notes.
+
+We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. 
 \end{document}
