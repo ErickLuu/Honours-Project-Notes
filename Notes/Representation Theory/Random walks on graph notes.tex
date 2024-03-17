@@ -1,4 +1,5 @@
 \documentclass[]{article}
+\usepackage[margin=1in]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -30,7 +31,7 @@
 
 \maketitle
 \section{Motivation}
-Notes from Steinberg, Representation theory of finite groups 
+Notes from Steinberg, Representation theory of finite groups, chapter 11. All group multiplication will be done left to right. 
 In a famous paper " Trailing the dovetail shuffle to its lair", Bayer and Diaconis showed that you had to riffle-shuffle a deck of cards seven times to randomly shuffle the deck. The paper used random walks on $S_n$ to model shuffling the deck.
 
 \section{Definitions}
@@ -63,4 +64,65 @@ We want to quantify how far a distribution is away from being uniform. We define
 Proof in notes.
 
 We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. 
+
+\begin{lemma}
+	Let $P$ and $Q$ be probabilities on $G$, and let $B = \lbrace g \in G : P(g) \geq Q(g) \rbrace$, $C = \lbrace g \in G : Q(g) \geq P(g) \rbrace$.
+	Then $\|P - Q \|_{TV} = P(B) - Q(B) = Q(C) - P(C)$.
+\end{lemma}
+\begin{proof}[heading]
+	We have that as $\sum_{g \in G} P(g) = \sum_{g \in G} Q(g) = 1$. 
+	
+	
+	By definition, $\|P - Q\|_{TV} \geq |P(B) - Q(B)| = P(B) - Q(B)$.
+	Let $A$ be a set such that $\|P - Q\|_{TV} = |P(A) - Q(A)|.$ Then $|P(A^c) - Q(A^c)| = |1 - P(A) - (1 - Q(A))| = |Q(A) - P(A)| = \|P - Q \|_{TV}$. Therefore, this is closed under complement. It is trivial to show that $P(B) - Q(B) = |Q(A) - P(A)|$. 
+\end{proof}
+Finally, we have that $\|P - Q \|_{TV}$ is a metric:
+\begin{proposition}
+	$\|P - Q\|_{TV} = \frac{1}{2} \|P - Q \|_1$. 
+\end{proposition}
+
+\begin{proof}
+	\begin{align*}
+		\|P - Q\|_{TV} &= \frac{1}{2}[P(B) - Q(B) + Q(C) - P(C)]\\
+		&=\frac{1}{2}\left[ \sum_{g \in G : P(g) \geq Q(g)} (P(g) - Q(g)) + \sum_{g \in G : Q(g) \geq P(g)} (Q(g) - P(g)) \right]\\
+		&= \frac{1}{2}\left[ \sum_{g \in G}|P(g) - Q(g)| \right]\\
+		&= \|P - Q\|_1
+	\end{align*}
+\end{proof}
+
+We say that a sequence of probabilities $\lbrace P_n \rbrace_{n \in \mathbb{N}}$ converges to $P$ if for all $\varepsilon > 0$, there exists $N > 0$ such that $\|P_n - P \|_{TV} < \varepsilon$ when $n \geq N$. 
+\section{Random walks}
+We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{times}}$. 
+The way to think about random walks is as follows. We start at the identity and move to $X_1$ of $G$ according to $P$. Then we choose another element $X_2$ and move to $X_1 X_2$. So this is a sequence of i.i.d. variables with distribution $P$.
+
+Let $Y_0$ be the random variable with distribution $\delta_1$, so $Y_0 = id$ with probability 1. Then $Y_k = Y_{k-1} X_k$ for $k \geq 1$. This $Y_k$ is the distribution of the position on the $k$-th step of the random walk. We have that $Y_k$ is a random variable with distribution $P^{\ast k}$. 
+
+This forms a Markov chain. 
+\subsection{Examples of random walks on graphs}
+Let  $G$ be a group and $S$ be a symmetric subset. Let $\Gamma$ be the Cayley graph of $G$ with respect to $S$. The simple random walk is to choose a random element $s \in S$ with uniform distribution and move to the vertex $gs$. By construction, the vertices adjacent to $\Gamma$ on $g$ are $gs$ with $s \in S$.
+
+Let $p, q \geq 0$, $p + q = 1$. Suppose we move around an $n$-gon. Then we go one step clockwise with probability $p$ and one step back with probability $q$. Then the probability distribution is $p \delta_1 + q \delta_{-1}$. 
+
+\subsection{Ergodicity}
+A random walk on a group $G$ driven by a probability $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast N}(g) > 0$ for all $g \in G$, so every event can be reached from $P$. 
+
+\begin{proposition}
+	Let $P$ be a probability on a finite group $G$ and suppose $P(1) > 0$ and $Supp(P)$ generates the group $G$. Then the random walk driven by $P$ is ergodic.
+\end{proposition}
+
+\begin{proof}
+	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
+\end{proof}
+\section{Proof of convergence}
+In this section, we shall prove the theorem below.
+\begin{theorem}
+	If $P$ is an ergodic random walk on a finite group $G$, then $(P^{\ast k})$ converges to the uniform distribution $U$. 
+\end{theorem}
+We define $L(G)$ to the group algebra on $G$, where $L(G) = \lbrace f : f: G \rightarrow \mathbb{C} \rbrace$. This is an inner product space where $\langle f_1, f_2 \rangle = 1/|G| \sum_{g \in G} f_1(g) \overline{f_2(g)}$. 
+We define a convolution operator on a probability distribuion $P$ as $M : L(G) \rightarrow L(G)$ where $M(a) = P \ast a$, where $(P \ast a) (g) =\sum_{h\in G} P(gh^{-1})a(h)$.
+\begin{definition}
+	The spectrum of a random walk driven by probability distribution $P$ is the set of eigenvalues of $M$. 
+\end{definition} 
+It is easy to show that $P \ast U = U$ and that $U$ is an eigenvalue of $M$ with eigenvalue $1$. 
+
 \end{document}
