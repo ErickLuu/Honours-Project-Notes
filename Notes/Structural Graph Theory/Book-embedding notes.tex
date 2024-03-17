@@ -38,6 +38,9 @@
 
 \section{Book embedding}
 A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \url{https://www.sciencedirect.com/science/article/pii/0095895679900212?via%3Dihub}.
+
+\subsection{Properties of page numbers}
+We have that if $H$ is a subgraph of $G$, then $\pn(H)$ is a subgraph of $\pn(G)$. (CHECK IF PAGENUMBER IS MINOR-CLOSED)
 \subsection{Graphs with bounded page number}
 \begin{lemma}
 	A graph $G$ has page-number at most 1 iff $G$ is an outerplanar graph.
@@ -162,6 +165,63 @@ We will use these two results.
 
 To prove this theorem, we will use a common technique in graph theory. We will strengthen the lemma so that we may use induction to prove the statement.
 \begin{lemma}
-	Let $G$ be a graph where $\pn(G) \leq S$. Then we 
+	Let $G$ be a graph where $\pn(G) \leq s$, and a clique $C$ with an ordering $\sigma_C$. There exists a $(2s^2 + 4s + 1)$-stack layout $(\leq, \psi)$ of $G$ where:
+	\begin{enumerate}
+		\item The vertex ordering has the structure $(\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})$
+		\item For every $u \in V(C)$, the edges $\lbrace uv \in E(G) : u \leq v \rbrace$ are in a single page with no other edges on it
+		\item For every clique $J$, the last vertex of $J$ is a rainbow-vertex. 
+	\end{enumerate}
 \end{lemma}
+Let $(\leq_a, \psi_a)$ be a $s$-stack layout of $G$ and let $\rho: V(G) \rightarrow \lbrace 1, 2, ..., 2s + 2 \rbrace$ be a proper colouring of $V(G)$. Then:
+
+Let $u_1, ..., u_k$ be the vertices of $C$ ordered by $\sigma_C$. Note that $k \leq 2s + 1$. Then the new ordering starts with $u_1 \leq u_2 \leq ..., \leq u_k$, and all vertices not in $K$ are placed after. according to $\leq_a$.
+Then the stack assignment $\psi$ is now defined. For every edge $u_i v$ where $u_i \in V(C)$ and $u_i \leq v$, define $u_i v = i$. Otherwise, if neither $u$ or $v$ are in $V(C)$, and $u \leq v$, then let $\psi(uv) = (\rho(u), \psi_a(uv))$. Then we have at most $|\rho| |\psi_a| + k \leq (2s + 2) s + (2s + 1) = 2s^2 + 4s + 1$ pages.
+
+We shall show that $(\leq, \psi)$ is a proper book-embedding. Suppose we have a pair of edges $uv$ and $xy$ which cross, and $\phi(uv) = \phi(xy)$. Suppose that $u$ is the smallest vertex in the ordering $\leq$. If $u \in V(C)$, then the edge $uv$ is assigned to its own page, meaning that it cannot cross $xy$. So $x = u$, but we can draw $uv$ and $uy$ on a single page. Thus they do not cross. Therefore we have that $u, v, x, y$ are not in $V(C)$, and as we preserve the original book-embedding, then these edges do not cross. Thus shown.
+We have that property 1 and 2 are immediate. For property 3, consider a clique $J$ in $G$. Then we must show the last vertex of $J$ is rainbow. Suppose the last vertex of $J$ is $w$, and let $u, v$ be earlier vertices. Since $u$ and $v$ necessarily are assigned different colours in the colouring, then $\psi(uw) = (\rho(u), \psi_a(uw))$ and $\psi(vw) = (\rho(v), \psi_a(vw))$. Therefore, the two edges are on different pages. Thus $w$ is a rainbow vertex. 
+
+\subsubsection{Full proof}
+\begin{theorem}
+	Suppose $G = G(\mathcal{G}, T)$ be the clique-sum tree, with vertices $G_0, G_1, ..., G_k$, and for all $i \in \lbrace 0, 1, ..., k \rbrace$, we have that $\pn(G) \leq s$. Then there is a book-embedding of $G$ with pagenumber of at most $2s^2 + 4s + 1$. 
+\end{theorem}
+
+\begin{proof}
+	To prove the statement, we shall prove the stronger statement that there exists a book-embedding with the properties described with the lemma above using induction. In particular, we will have that the last vertex of any clique $J$ is a rainbow vertex.
+	
+	Suppose $k = 0$. Then $G_0$ is a single graph with $\pn(G) \leq s$. Then by the lemma above, there is a book-embedding with pagenumber at most $2s^2 + 4s + 1$ with the property that it starts with $K$ and every last vertex in a clique is a rainbow vertex.
+	
+	Suppose $k = n$. Let $C$ be the clique between $G_n$ and the rest of $G$, where $G_n$ is a leaf of the tree $T$. Denote the induced subgraph $G[V(G) - V(G_n - C)]$ as $G'$. Then let $(\leq_n, \psi_n)$ be the $2s^2 + 4s + 1$-page-number book-embedding of $G_n$ that starts with $V(C)$, and let $\sigma_C$ be the ordering of $V(C)$ by $\leq_n$. Let $(\leq_{n-1}, \psi_{n-1})$ be the stack-embedding of $G'$. By induction, this has a $2s^2 + 4s + 1)$ book-embedding with the properties described above.
+	
+	\paragraph{Construction  of new book-embedding}
+	Let $w \in V(K)$ be the last vertex of $K$ with respect to $\leq_{n-1}$. Then insert $V(G_n - C)$ between $w$ and its successor in the order of $\leq_{n}$. For the page assignment $\psi$, we have that if $uv \in E(G')$, then $\psi(uv) = \psi_{n-1}(uv)$. For the remaining edges, we can permute the edge assignments of $\psi_n$ such that for all $u \in V(K)$, we have that $\psi(E_u) = \psi_n(uw)$. We can do this as $w$ is a rainbow vertex and the edges $E_u$ are assigned to a unique page in $\psi_n$. Finally, let $\psi(uv) = \psi_n(uv)$ for the remainder of the edges. Denote the new ordering and assignment as $(\leq, \psi)$. 
+	
+	We claim that $(\leq , \psi)$ is a stack layout that satisfies the induction hypothesis. Suppose that $\psi(uv) = \psi(xy)$. If $uv, xy \in E(G')$, then by the induction hypothesis, they do not cross. Similarly, if $uv, xy \in E(G_n)$, then they will not cross, by the above lemma. If $uv$ is in $E(G')$ and $xy \in E(G_n)$, then they will go over each other or be sequential and therefore will not cross. 
+	Finally, if $u, v, x, y \in C$, then by the induction hypothesis on $G'$, they do not cross either. The final case is if $uv \in E(G_{i + 1})$ and $u \in V(C)$, $v \notin V(C)$, $xy \in E(G')$. If $uv$ and $xy$ cross, then we have that $xy$ and $uw$ will cross. But this will contradict the page-embedding of $G'$.
+	
+	Let $J$ be a clique in $G$, and $w$ is its final vertex. Then if $J$ is in $G'$, then $w$ is a rainbow-vertex. Otherwise, the last vertex is contained in $G_n$. By the above lemma, $w$ must also be a rainbow vertex. Thus shown.
+\end{proof}
+
+\subsection{Bounded treewidth and page number}
+\begin{theorem}{Ganley + Heath}
+	Every graph $G$ with $\tw(G) \leq k$ has $\pn(G) \leq k + 1$. 
+\end{theorem}
+
+We use the characterisation of treewidth as a subgraph of a $k$-tree. We will show that all $k$-trees have pagenumber at most $k + 1$, which suffices to show the above theorem.
+
+\begin{theorem}
+	If $G$ is a $k$-tree, then $\pn(G) \leq k + 1$. 
+\end{theorem}
+\begin{proof}
+	Consider a tree-decomposition of $G$, $\tree = (B, T)$, and perform a depth-first search on $T$, starting at an arbitrary root $r$. Let the ordering of the book-embedding $\sigma(v)$ of a vertex $v$ in $V(G)$ be determined by the first time $x \in T$ appears, where $v \in B_x$. For the vertices in the root bag $B_r$, we order arbitrarily. By the definition of a $k$-tree, only one vertex will be added in the depth-first search. Now consider the subtree $T_v$ induced by the bags $B_x$ containing $v$. We now consider colouring the subtrees $T_v$ for all $v \in G$ such that no overlapping subtrees have the same colour. Let $H$ be the intersection graph of the subtrees, where $V(H) = \lbrace T_v : v \in G \rbrace$ and $T_u T_v \in E(H)$ if there exists a bag $B_x$ such that $u, b \in B_x$. We have that $H$ is perfect, and thus $\chi(H) = \omega(H)$. Since $|B_x| = k + 1$ for all $x \in V(T)$, then there is a clique of size $k + 1$ in $H$. If there is a clique in $H$ with more than $k+ 1$ vertices, then this implies that there exists some $B_x$ such that $|B_x| > k + 1$. Thus $\chi(H) = k + 1$. 
+	\paragraph{}
+	We now use this to assign the edges of $G$ a page. Let $c(T_v)$ be the colour assigned to $T_v$. Colour each edge $uv \in E(G)$ as follows:
+	\begin{equation}
+		c(uv) = 
+		\begin{cases}
+			c(T_u) &\text{ if } \sigma(u) \leq \sigma(v),\\
+			c(T_v) &\text{ if } \sigma(v) \leq \sigma(u)
+		\end{cases}
+	\end{equation}
+	Then we claim that this is a proper book-embedding of $G$. Suppose we have that edges $uv$, $xy$ cross, so $\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)$. However, this implies that there exists a bag $B$ such that $u, x, v \in B$, as we have that $uv$ is an edge in $B$ and we do a depth-first search to establish the ordering, meaning that $u, v, x$ are in a clique. Therefore, they are in the same bags. However, this implies that the trees $T_u$ and $T_x$ intersect, meaning that $c(uv) \neq c(xy)$. Finally, the number of pages used is $\chi(H) = k + 1$, so $\pn(G) \leq k + 1$. Thus shown.
+\end{proof}
 \end{document}
