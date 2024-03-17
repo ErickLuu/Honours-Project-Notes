@@ -25,6 +25,7 @@ To show that this function is well-defined, we have that if $s_i < s_{i+1}$, the
 
 To show injectivity, consider if $\phi([a_1, a_2, ... a_k]) = \phi([b_1, b_2, ..., b_k])$. Then $[a_1, a_2 -1, ..., a_k - k + 1] = [b_1, b_2 -1, ..., b_k - k + 1]$. However, this implies $a_1 = b_1, a_2 = b_2$ and so on. Thus these sequences are equal.
 To show surjectivity, consider any sequence $[w_1, w_2, ... w_k]\in W_n$. Then the sequence $[w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]$ is in $S_n$ as if $w_i \leq w_{i + 1}$, then $w_{i} + (i - 1) < w_i + (i)$, and $\phi([w_1, w_2 + 1, w_3 + 2, ..., w_k + k - 1]) = [w_1, w_2, ... w_k]$ . Therefore, $|S_{n + k - 1}| = |W_n|$ by this bijection. 
+\newpage
 \section{Question 2}
 \subsection{Part a}
 We will introduce $U_{k, n}$, the set of arbitrary $k \times n$-sized Latin rectangles, and establish a relationship between $S_{k,n}$ and $U_{k,n}$. We can convert a rectangle in $U_{k,n}$ to one in $S_{k,n}$ by rearranging the column vectors such that the first row is in non-decreasing order, then rearranging the rows such that the first column is in non-decreasing order. At every step, we are presented with no choices, therefore all Latin rectangles in $U_{k,n}$ are mapped to a single rectangle in $S_{k,n}$. To see the inverse process, we permute $(k - 1)$ rows (except for the first) and then permute $n$ columns. This gives us $(k - 1)! n!$ switching operations and each Latin rectangle corresponds with a unique switching operation, thus we have that $|U_{k, n}| = (k - 1)! n! |S_{k, n}|$. However, we have that $|U_{k, n}| = \frac{(n - 1)! n!}{(n-k)!} |R_{k,n}|$, thus $\frac{(n - 1)! n!}{(n-k)!} |R_{k,n}|= (k - 1)! n! |S_{k, n}|$. Rearranging around the fraction, we have that:
@@ -43,7 +44,7 @@ We have that $R_{2, n}$ is the number of derangements where $\sigma(1) = 2$. Con
 \end{equation}
 We have that $|S_{2, n}| = \frac{2}{n} \binom{n}{2} |R_{2, n}| = (n-1) |R_{2,n}|$, from 2a. Therefore, $|R_{2, n}| = |S_{2, n}|/(n-1)$, therefore $|R_{2, n-1}| = |S_{2, n-1}|/(n-2)$ and $|R_{2, n-2}| = |S_{2, n-2}|/(n-3)$. Plugging it into the relation above, we have that $|S_{2, n}|/(n-1) = |S_{2, n-1}| + |S_{2, n-2}|$, which is the relation found above. Therefore, we have shown that we can deduce the recurrence in multiple ways. 
 
-
+\newpage
 \section{Question 3}
 We have that $T_{n, 0} = 1$, as there is only one way to arrange the students in nondecreasing order, as for each pair of twins, swapping the positions of the twins is identified with keeping the twins the same as they are identical. 
 \paragraph{Recurrence}
@@ -52,7 +53,8 @@ For the size of $T_{n, k}$, we look at where the shortest twins are placed. We h
 \begin{equation}
 	T_{(n, k)} = 2(n-1) T_{(n-1, k-1)} + T_{(n-1, k)}
 \end{equation}
-with the base case $T_{n, 0} = 1$. We also have an upper bound where $T_{1, 1} = 0$, which upper bounds the number of pupils
+with the base case $T_{n, 0} = 1$. We also have an upper bound where $T_{1, 1} = 0$, which filters out the recurrence for impossible scenarios. 
+\newpage
 \section{Question 4}
 Let $P_n$ be the number of queues of $n$ identical twins. Consider the permutations of $[2n]$ but we are allowed to swap $i$ and $n + i$ around, where $i \in [n]$. There are $(2n)!$ permutations, and for each pair of twins, we identify two permutations. Therefore, the fraction is:
 \begin{equation}
@@ -74,6 +76,7 @@ We can relate $Q_n$ with $R_n$ with the same "trick" by identifying relations wh
 \begin{equation}
 	Q_n = \sum_{k = 0}^n (-1)^k \frac{n!(2n - k)! 2^{k - n}}{k! (n - k)!}
 \end{equation}
+\newpage
 \section{Question 5}
 We have that there are $nk$ ones and $n(n-k)$ zeroes. 
 Let $\mathcal{A}$ be the set of all $2 \times 2$ submatrices of $A$, and denote a submatrix of $A$ as $B$. Give exactly 1 property for every $1$ in the matrix $A$. 
