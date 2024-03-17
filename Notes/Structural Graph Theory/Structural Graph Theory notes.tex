@@ -102,6 +102,11 @@ The reason why the $-1$ appears in the definition of the with of a tree decompos
 	Let $G$ be the outerplanar graph, and let $G'$ be the triangulation of $G$. As $G$ is a minor of $G'$, $\tw(G) \leq \tw(G')$. We look at the \textit{weak dual} of $G'$. This is a tree $T$, where every node $v_f$ in $T$ corresponds to a face $f$ in $G'$. Then let $B_{v_f}$ be the bag of the tree-decomposition, where $B_{v_f}$ is the set of vertices on the boundary of the face $f$. Then the tree $T$ with bags $B_{v_f}$ is a valid tree-decomposition of $G'$, where every bag has at most 3 vertices. Thus, $\tw(G) \leq 2$. 
 \end{proof}
 
+\subsection{Different characterisations of treewidth}
+\subsubsection{$k$-trees}
+We define a $k$-tree inductively. We have that the complete graph $K_k$ is a $k$-tree, and if $G$ is a $k$-tree, then we add a new vertex to $G$ that is adjacent to $k$ vertices that form a clique of size $k$ in $G$ results in a $k$-tree. 
+A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a subgraph of a $k$-tree. 
+
 \section{Separators}
 A subset $X$ of $V(G)$ is a \textit{balanced separator} of $G$ if each component of $G - X$ has at most $|V(G)|/2$ vertices. This implies that we can partition the vertices of $G$ into sets $A$ and $B$ such that there are no $AB$-edges and the size of $A$ and $B$ is at most $2/3 |V(G)|$. This is because we can order the components from smallest to largest and partition them into sets $A$ and $B$ where the sizes are at most $2/3 |V(G)|$.
 
