@@ -49,9 +49,9 @@ We have that $|S_{2, n}| = \frac{2}{n} \binom{n}{2} |R_{2, n}| = (n-1) |R_{2,n}|
 We have that $T_{n, 0} = 1$, as there is only one way to arrange the students in nondecreasing order, as for each pair of twins, swapping the positions of the twins is identified with keeping the twins the same as they are identical. 
 \paragraph{Recurrence}
 We first note that the two shortest twins must be placed next to each other because as they are the shortest, then there are no taller pupils between them. 
-For the size of $T_{n, k}$, we look at where the shortest twins are placed. We have that the twins can be placed behind of one of the other $2n - 2$ pupils, or they can go at the start. Then if they are placed behind a pupil, then when we remove the shortest twins, then we have that there are $n-1$ twins and exactly $k-1$ pupils in front of someone shorter. If the shortest twins are placed at the very start, then there are $n-1$ twins and $k$ pupils in front of someone shorter. Thus we have the recurrence:
+For the size of $T_{n, k}$, we look at where the shortest twins are placed. We have that the twins can be placed behind of one of the other $2n - 2$ pupils, or they can go at the start. Then if they are placed behind a pupil, then when we remove the shortest twins, then we have that there are $n-1$ twins and exactly $k-1$ pupils in front of someone shorter, except when they are placed between a taller and then shorter pupil. So we have $2(n-1) - (k-1)$ positions. If the shortest twins are placed at the very start, then there are $n-1$ twins and $k$ pupils in front of someone shorter. Thus we have the recurrence:
 \begin{equation}
-	T_{(n, k)} = 2(n-1) T_{(n-1, k-1)} + T_{(n-1, k)}
+	T_{(n, k)} = \left(2(n-1)- (k-1)\right)  T_{(n-1, k-1)} + k T_{(n-1, k)}
 \end{equation}
 with the base case $T_{n, 0} = 1$. We also have an upper bound where $T_{1, 1} = 0$, which filters out the recurrence for impossible scenarios. 
 \newpage
