@@ -56,7 +56,7 @@ This is because we can embed the graph on a sphere with the vertices and Hamilto
 	If an $n$-vertex graph $G$ has $\pn(G) = k$, then $G$ has at most $n + k(n-3)$ edges.
 \end{theorem}
 \begin{proof}
-	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the edges $v_i v_i+1$, $v_1 v_n$ can appear on any page. Furthermore we have that there must be at $n-3$ vertices on each page as the maximum number of edges in an outerplanar graph is $2n - 3$, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
+	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the edges $v_i v_i+1$, $v_1 v_n$ (we refer to this cycle as the outer-cycle) can appear on any page. Furthermore we have that there must be at most $n-3$ non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is $2n - 3$, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
 \end{proof}
 \begin{theorem}
 	For all graphs $G$, $\chi(G) \leq 2 \pn(G) + 2$.
@@ -69,6 +69,7 @@ Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have th
 The proof of this will be shown below.
 \subsubsection{Yannakakis' Algorithm}
 DO LATER
+
 
 
 \subsection{Historical interest}
@@ -236,4 +237,53 @@ We use the characterisation of treewidth as a subgraph of a $k$-tree. We will sh
 	\end{equation}
 	Then we claim that this is a proper book-embedding of $G$. Suppose we have that edges $uv$, $xy$ cross, so $\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)$. However, this implies that there exists a bag $B$ such that $u, x, v \in B$, as we have that $uv$ is an edge in $B$ and we do a depth-first search to establish the ordering, meaning that $u, v, x$ are in a clique. Therefore, they are in the same bags. However, this implies that the trees $T_u$ and $T_x$ intersect, meaning that $c(uv) \neq c(xy)$. Finally, the number of pages used is $\chi(H) = k + 1$, so $\pn(G) \leq k + 1$. Thus shown.
 \end{proof}
+
+\subsection{Bounded genus}
+It was shown by Heath and Istrail that the family of graphs of bounded genus have bounded page-number. 
+We refer to the "layout" of the graph as the book-embedding of the graph and "embedding" as the surface-embedding. We refer to orientable surfaces as genus $g$ as a sphere with $g$ handles, and a nonorientable surface of genus $g$ as a sphere with $g$ cross-caps. We define the orientable genus of a graph $G$, denoted $\gamma(G)$, as the minimum orientable surface genus that $G$ can be embedded on. The nonorientable genus of a graph $G$, denoted $\tilde{\gamma}(G)$, is the minimum nonorientable genus surface that $G$ can be embedded on. \url{https://www.sciencedirect.com/science/article/pii/S0012365X97001441} Mohar claims that $\tilde{\gamma}(G) \leq 2 \gamma(G) + 1$ for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that \url{https://www.jstor.org/stable/24900840}, Auslander et al. showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus. 
+\paragraph{Proof}
+We say that the embedding is $2$-cell if every face is homeomorphic to an open disc in $\mathbb{R}^2$. Any embedding of $G$ onto an orientable surface is a 2-cell embedding, but this does not hold for nonorientable surfaces, but we assume there exists a $2$-cell embedding.
+Heath and Istrail rely on decomposing the graph $G$ of genus $\gamma(G)$ into a planar spanning subgraph $G_p$ of $G$ such that:
+\begin{enumerate}
+	\item The edges in $E(G) - E(G_p)$ attach to the boundary vertices of $V(G_p)$. 
+	\item Adding an edge from $E(G) - E(G_p)$ to $G_p$ breaks the above condition. 
+\end{enumerate}
+To talk about graphs embedded in surfaces, we assign to each face a cyclic permutation $\sigma_v$ which represents the sequence of vertices encountered when traversing the boundary of a face in counterclockwise order.
+
+This is enough to represent any graph in an orientable surface, but not enough for a non-orientable surface. We have to attach on an orientation to each edge, where each edge is either orientation-preserving or orientation-reversing. 
+
+We have that a planar-nonplanar decomposition of $G$ is a triple $(R, G_P, E_N)$ where $R$ is a rotation of $G$ representing the surface embedding on the surface $S$, $G$ is a spanning planar graph, and $E_N = E - E(G_P)$. 
+This satisfies a list of properties:
+\begin{enumerate}
+	\item The subrotation induces a planar embedding of $G_p$, so we can arrange $G$ on the surface $S$ such that the embedding of $G_p$ is planar. 
+	\item For each $vw \in E_N$, we have that $v$ and $w$ live on the outerface $F_0$.
+	\item $E(G_P)$ is maximal, so we cannot add edges from $E_N$ to $G_P$ without breaking properties 1 and 2. 
+\end{enumerate}
+
+We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the boundary of $F_0$ appears at least once, and twice if it is an articulation point, and each edge on the boundary of $F_0$ is encountered at least once on this cycle. Heath and Istrail refer to a directed subpath of the cycle $C_0$ as a trace, so trace $T = v_1 \rightarrow v_2 \rightarrow ... \rightarrow v_t$. The inverse trace is $T^{-1} = v_t \rightarrow v_{t-1} \rightarrow ... \rightarrow v_1$. We now wish to partition $E_N$ into equivalence classes. Suppose that $u_1v_1, u_2v_2 \in E_N$ are part of the boundary of the same face $F$ on the embedding of $G$. Then $u_1v_1$ and $u_2v_2$ are homotopic (with respect to $F$) if:
+\begin{enumerate}
+	\item $u_1v_1$ and $u_2v_2$ are the only edges of $E_N$ on the boundary of $F$
+	\item There exist traces $T_u = u_1 \rightarrow ... \rightarrow u_2$ and $T_v = v_1 \rightarrow ... \rightarrow v_2$ such that $T_u$ and $T_v$ are on the boundary of $F$.
+\end{enumerate}
+We may think of $G_n$ as living on a locally flat part of $S$ and the homotopy class $u_1v_1$ and $u_2 v_2$ living on a handle (alternatively, passing through a crosscap) of the surface such that if we take $G_n$ to a point, there exists a homotopy from $u_1v_1$ to $u_2v_2$. These form equivalence classes of the vertices.
+
+\begin{lemma}
+	If $C$ is a homotopy class of edges $u_1v_1, ..., u_kv_k$ with a natural order, then we can build traces $T_1$ and $T_2$ by building the trace from $u_1$ to $u_k$ passing through all $u_i$, and $v_1$ to $v_k$ passing through all $v_i$. 
+\end{lemma}
+We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite directions, and non-orientable if $T_1$ and $T_2$ go in the same direction.
+
+\begin{lemma}
+	We have that if $G$ is embedded in an orientable surface, then every homotopy class is orientable.
+\end{lemma}
+\begin{proof}[Sketch]
+	We have that if a homotopy class is non-orientable, then on the handle the class sits on, the edges must cross. However, we have the graph is embedded on the surface, therefore this cannot happen. Thus shown. 
+\end{proof}
+
+\begin{lemma}
+	If $G$ is $2$-cell embedded on an orientable surface of genus $g$, then any planar-nonplanar decomposition has at most $6g-3$ homotopy classes. 
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+
 \end{document}
