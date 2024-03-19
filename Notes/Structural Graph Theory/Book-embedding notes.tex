@@ -283,7 +283,14 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	If $G$ is $2$-cell embedded on an orientable surface of genus $g$, then any planar-nonplanar decomposition has at most $6g-3$ homotopy classes. 
 \end{lemma}
 \begin{proof}
-	content...
+	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $v - e + f = 2 - 2g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3v = 2e$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $v = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 6 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $6(f-1) + v \leq 2e$, by double counting faces and edges. Thus, we have that $6g - e \geq v/2 = h$ by manipulating the inequalities. 
+\end{proof}
+
+\begin{lemma}
+	If $G$ is $2$-cell embedded on an non-orientable surface of genus $g$, then any planar-nonplanar decomposition has at most $3g-3$ homotopy classes. 
+\end{lemma}
+\begin{proof}[Similar to above]
+	Use Euler's identity $v - e + f = 2-g$. 
 \end{proof}
 
 \end{document}
