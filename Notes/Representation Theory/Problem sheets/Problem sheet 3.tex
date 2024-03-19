@@ -57,7 +57,45 @@ If $a, b \in Z(A)$, then we want that $a \cdot b \in Z(A)$. We have that for $c 
 Therefore, $Z(A)$ is a subalgebra of $A$. 
 
 \subsection*{2.12}
-Suppose $\text{Mat}_2(\mathbb{C})$ has a one-dimensional module, so there exists an algebra homomorphism $\tilde{\rho} : \text{Mat}_2(\mathbb{C}) \rightarrow \text{End}(\mathbb{C})$. 
+Suppose $\text{Mat}_2(\mathbb{C})$ has a one-dimensional module, so there exists an algebra homomorphism $\tilde{\rho} : \text{Mat}_2(\mathbb{C}) \rightarrow \text{End}(\mathbb{C})$. However we have that:
+
+$
+\begin{bmatrix}
+	1 & 0 \\
+	0 & 1 
+\end{bmatrix}
+\cdot a = a$
+but 
+$
+\left(\begin{bmatrix}
+	1 & 0 \\
+	0 & 0 
+\end{bmatrix} + \begin{bmatrix}
+0 & 0 \\
+0 & 1 
+\end{bmatrix}\right)
+\cdot a = a$
+but that implies that
+$
+\begin{bmatrix}
+	1 & 0 \\
+	0 & 0 
+\end{bmatrix} \cdot a + \begin{bmatrix}
+	0 & 0 \\
+	0 & 1 
+\end{bmatrix}
+\cdot a= a$.
+However, we have that 
+$
+\begin{bmatrix}
+	1 & 0 \\
+	0 & 0 
+\end{bmatrix} \times \begin{bmatrix}
+	0 & 0 \\
+	0 & 1 
+\end{bmatrix}
+\cdot a = 0$
+...
 \subsection*{2.14}
 \paragraph{Invariance}
 Let $U$ and $V$ be $A$-modules, and let $T \in \text{Hom}_A(U, V)$. 
