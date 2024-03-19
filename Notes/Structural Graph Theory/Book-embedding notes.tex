@@ -50,6 +50,18 @@ We have that if $H$ is a subgraph of $G$, then $\pn(H)$ is a subgraph of $\pn(G)
 	A graph $G$ has pagenumber at most 2 iff $G$ is a subgraph of a planar graph with a Hamiltonian cycle. This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and the edges forming the interior and exterior edges of the cycle respectively.
 \end{lemma}
 This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and the edges forming the interior and exterior edges of the cycle respectively.
+
+\subsection{Tied components}
+\begin{theorem}[https://core.ac.uk/download/pdf/82255245.pdf- Section 3.3]
+	If an $n$-vertex graph $G$ has $\pn(G) = k$, then $G$ has at most $n + k(n-3)$ edges.
+\end{theorem}
+\begin{proof}
+	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the edges $v_i v_i+1$, $v_1 v_n$ can appear on any page. Furthermore we have that there must be at $n-3$ vertices on each page as the maximum number of edges in an outerplanar graph is $2n - 3$, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
+\end{proof}
+\begin{theorem}
+	For all graphs $G$, $\chi(G) \leq 2 \pn(G) + 2$.
+\end{theorem}
+Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
 \subsection{Planar graphs}
 \begin{theorem}
 	Planar graphs can be embedded on at most four pages.
