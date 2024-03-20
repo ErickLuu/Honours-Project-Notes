@@ -293,4 +293,26 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	Use Euler's identity $v - e + f = 2-g$. 
 \end{proof}
 
+\begin{theorem}
+	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an orientable surface $\Sigma$. Then $G$ can be embedded on at most $18g - 5$ pages.
+\end{theorem}
+\begin{proof}
+	We use Yannikakis' algorithm to lay out the nonplanar spanning subgraph $G_P$ on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in $E_P$, we allocate three pages. One page is for vertices in the same block, and the other two ages are used for edges between blocks, the biconnected components of $G$. Therefore, we need at most $4 + 3(6g - 3) = 18g-5$ pages if $G$ has a planar-nonplanar decomposition. 
+\end{proof}
+
+\begin{theorem}
+	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an non-orientable surface $\Sigma$. Then $G$ can be embedded on at most $9g - 1$ pages.
+\end{theorem}
+\begin{proof}
+	content...
+\end{proof}
+
+\section{Decomposing graphs on orientable surfaces}
+We first have to know that the planar-nonplanar decomposition exists. 
+
+Suppose $G$ is embedded on an orientable surface $\Sigma$. Then we wish to triangulate $G$ to form $G_T$. We choose a single triangle as the starting point and we add taces to the planar part incrementally. At each step, we set $G_P$ to be the current planar part and $E_N$ as the edges that are outside the planar part. There are two types of edges in $E_N$: edges which have both endpoints in $V(G_P)$, so cannot become edges of $G_P$, and edges that have either one or no endpoints in $V(G_P)$. 
+
+For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \rightarrow v_k$ is trace with no edge of $E_N$ incident to $v_j$, then $v_iv_k \in E(G_T)$ is called a safe edge. If $v_i \rightarrow v_j$ is on the boundary of $G_P$, and $v_k \notin V(G_P)$, and $v_i,v_j,v_k$ is the boundary of a face, then $v_k$ is a safe vertex and we can add it to $G_P$. 
+
+If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
 \end{document}
