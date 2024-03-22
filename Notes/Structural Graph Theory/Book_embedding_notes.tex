@@ -129,12 +129,22 @@ Recall that an outerplanar graph is a planar graph where there exists a face suc
 \end{proof}
 
 \subsection{Historical discussion}\label{ssec:tw_historical}
-Treewidth was introduced in 
+Treewidth was introduced in \cite{berteleChapterEliminationVariables1972}
 
-\subsection{Different characterisations of treewidth}
-\subsubsection{$k$-trees}
+\subsection{Characteristics of treewidth}\label{ssec:characterising_Treewidth}
+\subsubsection{$k$-trees}\label{sssec:k-trees}
 We define a $k$-tree inductively. We have that the complete graph $K_k$ is a $k$-tree, and if $G$ is a $k$-tree, then we add a new vertex to $G$ that is adjacent to $k$ vertices that form a clique of size $k$ in $G$ results in a $k$-tree. 
 A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a subgraph of a $k$-tree. 
+
+
+\subsubsection{Bounded treewidth graphs}\label{sssec:Graph_treewidth_Bounded}
+\begin{theorem}\label{thm:treewidth_clique-minor-free}
+	If $\tw(G) \leq k$, then $G$ is $K_{k+2}$-minor-free. 
+\end{theorem}
+\begin{proof}
+	We shall prove the contrapositive: If $K_t$ is a minor of $G$, then $tw(G) \geq t-1$.
+	If $K_t$ is a minor of $G$, and $\tw(G) \leq k$, then we have that $\tw(K_t) \leq \tw(G) \leq k$, but $\tw(K_t) = t-1 \leq k$, so $t \leq k + 1$. Thus shown a family of minor-closed which are $K_t$-minor free. 
+\end{proof}
 
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
@@ -193,18 +203,13 @@ We define $\had(G)$ to be the largest $t$ such that $G$ has a $K_t$ minor.
 \end{proof}
 
 \subsubsection{Genus-g graphs}\label{sssec:Graph_genus}
-We define the genus $g$ of a surface to be 2 times the number of handles + the number of crosscaps. From topology, we have that we can add a handle to crosscaps to form 3 crosscaps. Therefore, the Euler characteristic $\chi = 2 - g$ for both orientable and non-orientable surfaces. Note that the genus is defined slightly differently from topology. We do this to allow non-orientable and orientable surfaces to coincide in definition.
+We define the genus $g$ of a surface to be 2 times the number of handles + the number of crosscaps. From topology, we know that the connected sum of the torus $T$ and the projective plane $\mathbb{R}P^2$ is diffeomorphic to the connected sum of three copies of $\mathbb{R}P^2$, thus we can make any surface with crosscaps and handles to be purely crosscaps. Therefore, the Euler characteristic $\chi = 2 - g$ for both orientable and non-orientable surfaces. Note that the genus is defined slightly differently from topology. We do this to allow non-orientable and orientable surfaces to coincide in definition.
 
 We can show that if $G$ has genus $g$, then if $G$ has $n$ vertices and $m$ edges, then $n - m + f = \chi = 2-g$, then as each face has at most 3 vertices and each edge is incident to two faces, we have that $f \leq 2m/3$. Therefore, $m \leq 3(n + g - 2)$, and if $K_t$ is embeddable on a genus $g$ graph, then $\binom{t}{2} \leq 3 (t + g - 2)$. Thus $t \leq \sqrt{6g} + 4$. So if a graph has genus $g$, then it is $K_t$-minor-free, where $t > \sqrt{6g} + 4$. 
 
-\subsubsection{Bounded treewidth graphs}\label{sssec:Graph_treewidth_Bounded}
-\begin{theorem}\label{thm:treewidth_clique-minor-free}
-	If $\tw(G) \leq k$, then $G$ is $K_{k+2}$-minor-free. 
-\end{theorem}
-\begin{proof}
-	We shall prove the contrapositive: If $K_t$ is a minor of $G$, then $tw(G) \geq t-1$.
-	If $K_t$ is a minor of $G$, and $\tw(G) \leq k$, then we have that $\tw(K_t) \leq \tw(G) \leq k$, but $\tw(K_t) = t-1 \leq k$, so $t \leq k + 1$. Thus shown a family of minor-closed which are $K_t$-minor free. 
-\end{proof}
+\subsubsection{Bounded treewidth graphs}\label{sssec:Bded_Tw_graph}
+From \cref{thm:bded_treewidth_bded_pagenumber}, the pagenumber of any graph is bounded by the treewidth.
+
 \subsubsection{Apex vertices}\label{sssec:Apex_Vertices}
 An apex vertex $v$ is added to a graph $G$ such that it has arbitrary edges. As such, it can simply dominate all other vertices in $G$. Then if $G$ is $K_t$-minor free, $G$ with the apex vertex $v$ is $K_{t+1}$- minor free. 
 \subsubsection{Clique-sums}\label{sssec:Clique_Sums}
@@ -214,7 +219,7 @@ The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is t
 	If $G = G_1 \# G_2$,then $\had(G) = \max(\had(G_1), \had(G_2))$ and $\tw(G) = \max(\tw(G_1), \tw(G_2))$.
 \end{lemma}
 
-\begin{example}
+\begin{example}\label{ex:clique_sum_genus}
 	If $G$ is the clique-sum of Euler genus $g$ graphs, then $G$ is $K_{\sqrt{6g} + 5}$-minor-free, but has unbounded genus.
 \end{example}
 
@@ -223,14 +228,14 @@ The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is t
 \end{theorem}
 
 
-\subsection{Torsos and adhesion}
-Given a graph $G$ and a tree-decomposition $\tree$, the \textit{torso} of a bag $B_x$ of $T$ is the graph $G\langle B_x \rangle$, obtained from $G[B_x]$ where $vw$ is a vertex in $G\langle B_x \rangle$ iff $v,w \in B_x \cap B_y$, where $y$ is a neighbour of $x$ in $T$. So the set $B_x \cap B_y$ for all neighbours $y$ of $x$ in $T$ is a clique in $G\langle B_x \rangle$. 
+\subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
+Given a graph $G$ and a tree-decomposition $\tree$, the \textit{torso} of a bag $B_x$ of $T$ is the graph $G\langle B_x \rangle$, obtained from $G[B_x]$ where $vw$ is a vertex in $G\langle B_x \rangle$ iff $v,w \in B_x \cap B_y$, where $y$ is any neighbour of $x$ in $T$. So the set $B_x \cap B_y$ for all neighbours $y$ of $x$ in $T$ is a clique in $G\langle B_x \rangle$. 
 The \textit{adhesion} of a tree is defined as $\max(|B_x \cap B_y|)$ where $xy$ is an edge in $T$.
 
-\subsubsection{Vortices}
+\subsubsection{Vortices}\label{sssec:vortices}
 Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$ be a disc in $\Sigma$ such that $D$ only intersects $G$ only on vertices on the boundary of $F$. We denote these discs as $G$-clean. 
 
-Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a path-decomposition of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
+Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
 
 Vortices were created to solve the problem of grid-like graphs with large treewidth, torsos and adhesion, yet are all $K_t$-free for bounded $t$. 
 \subsection{Robertson-Seymour Graph Structure theorem\cite{robertsonGraphMinorsXVI2003}}\label{ssec:Robertson_Seymour_Graph_Structure}
@@ -259,7 +264,7 @@ In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree
 Note that this bound extends the one found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus. 
 The best known bound is $\sqrt{g}$, found by Malitz\cite{malitzGenusGraphsHave1994}.
 
-We additionally have that $\pn(G) \leq \tw(G) + 1$, from \cite{ganleyPagenumberTrees2001}. 
+We additionally have that $\pn(G) \leq \twn(G) + 1$, from \cite{ganleyPagenumberTrees2001}. 
 We also have that bounded clique-sums of graphs of bounded treewidth also have bounded path-number.
 What is a sticking-point is vortices of graphs on bounded genus, and cliquesums of vortices on bounded genus as well. 
 \subsection{Tree-decomposition into bounded page number components}\label{ssec:Clique_sum_Pagenumber_bound}
