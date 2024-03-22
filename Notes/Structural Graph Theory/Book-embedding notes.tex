@@ -6,7 +6,12 @@
 \usepackage{amsthm}
 \usepackage{url}
 \usepackage{todonotes}
+\usepackage{biblatex}
 
+\addbibresource{Book-Embeddings.bib}
+
+\usepackage{hyperref}
+\usepackage[noabbrev, capitalise]{cleveref}
 % Commands
 \newcommand{\tree}{\mathcal{T}}
 \newcommand{\tw}{\text{tw}}
@@ -38,7 +43,7 @@
 \maketitle
 
 \section{Book embedding}
-A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \url{https://www.sciencedirect.com/science/article/pii/0095895679900212?via%3Dihub}.
+A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \ref{bernhartBookThicknessGraph1979}.
 
 \subsection{Properties of page numbers}
 We have that if $H$ is a subgraph of $G$, then $\pn(H)$ is a subgraph of $\pn(G)$. (CHECK IF PAGENUMBER IS MINOR-CLOSED)
@@ -317,4 +322,6 @@ For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \right
 
 If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
 \todo{Add pictures! this proof needs lots of pictures}
+
+\printbibliography
 \end{document}
