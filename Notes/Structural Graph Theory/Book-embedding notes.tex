@@ -58,6 +58,84 @@ eprint = false
 
 \maketitle
 
+\section{Treewidth}\label{sec:treewidth}
+
+\begin{definition}[Tree-decomposition]\label{def:tree-decomposition}
+	The tree-decomposition $\tree$ of a graph $G$ is defined as a tree $T$ with associated \textit{bags} $\lbrace B_x : x \in V(T) \rbrace$ such that:
+	\begin{itemize}
+		\item for all $v \in V(G)$, the subset of vertices $\lbrace x \in V(T): v \in B_x \rbrace$ in $V(T)$ induces a connected subtree in $V(T)$.
+		\item For all edges $vw \in E(G)$, there exists a bag $B_x$ such that both $v$ and $w$ are in the bag $B_x$.
+	\end{itemize}
+\end{definition}
+We refer to the vertices of the tree $T$ as \textit{nodes}. 
+The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace |B_x| - 1 : x \in V(T) \rbrace$. We define the \textit{treewidth} of a graph $G$ as such:
+
+
+\begin{definition}\label{def:treewidth}
+	The treewidth of a graph $G$, denoted as $\tw(G)$, is defined to be the smallest width for all tree decompositions of the graph $G$.
+\end{definition}
+
+
+\begin{example}\label{ex:treewidth_forest}
+	$\tw(G) = 1$ iff $G$ is a forest.
+	\begin{lemma}
+		If $G$ is a forest, then $\tw(G) = 1$.
+	\end{lemma}
+	\begin{proof}
+		Suppose $G$ is a tree. Root the graph $G$ at the vertex $r$. Then let $T = G$ and $B_x:= \lbrace x, p \rbrace$ where $p$ is the parent of $x$. The bag $B_r$ will just contain $r$. Then all edges $vw$ will be between parent $v$ and child $w$, so it will be in bag $B_w$. Finally, the subgraph induced by vertex $x$ in $T$ will be $x$ and the children of $x$, which is a connected subtree.
+		
+		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. 
+	\end{proof}
+	\begin{lemma}
+		If $\tw(G) = 1$, then $G$ has no cycles.
+	\end{lemma}
+	\begin{proof}
+		If $G$ has a cycle $C$, then the treewidth cannot be 1. This is because if there is a tree decomposition $\tree$ where the size of each bag is at most 2, then as the graph must have every edge, then every edge in $C$ is in separate bags. However, we have that for any vertex $v$ in $C$ to have an induced connected subgraph in $T$, then it follows that the cycle $C$ is also in $T$. Thus $T$ is not a tree, and this is not a valid tree-decomposition. 
+	\end{proof}
+\end{example}
+
+\begin{lemma}[Helly Property]\label{lem:Helly}
+	Let $T_1, ..., T_k$ be subtrees of a tree $T$ such that for every pair of trees, there is a vertex in common. Then there exists a vertex which is common to all trees.
+\end{lemma}
+\begin{proof}[Helly property]
+	If $T_1$, $T_2$ and $T_3$ are subtrees of $T$ such that the vertex sets are pairwise nonempty, then there is a common vertex in all three subtrees. If this is not the case, denote $v_1$ as a vertex in the intersection of $T_1$ and $T_2$, $v_2$ as the vertex in $T_1 \cap T_3$, and $v_3$ as the vertex in $T_2$ and $T_3$. Then there exists a unique path $P$ in $T_1$ from $v_1$ to $v_2$. Choose two vertices $x$ and $y$ on $P$ such that they are disjoint....
+\end{proof}
+
+\begin{theorem}[Clique theorem]\label{thm:clique}
+	In any tree-decomposition of $G$, for every clique $C$ in $G$, there exists a node $x \in V(T)$ such that $C \subseteq B_x$. 
+\end{theorem}
+
+\begin{proof}
+	Let $\tree$ be a tree-decomposition. Every vertex $v$ induces a connected subtree in $T$, call it $T_v$. Then for any two vertices $x, y$ in $C$, we have that $T_x$ and $T_y$ must intersect as the edge $xy$ is inside a bag $B_z$ corresponding to a node $z$. Then by the Helly property, there exists a node $v$ such that $C \subseteq B_v$.
+\end{proof}
+
+\begin{corollary}\label{cor:complete_tw}
+	$\tw(K_n)$ is $n-1$. 
+\end{corollary}
+
+\begin{theorem}\label{thm:tw_minor_closure}
+	If $H$ is a minor of $G$, then $\tw(H) \leq \tw(G)$. 
+\end{theorem}
+\begin{proof}[Proof of minor]
+	Suppose we have a tree-decomposition $\tree$ of $G$. If we delete an edge in $G$, then $\tree$ remains a valid tree-decomposition. If we delete a vertex $v$, then $\tree$ where we remove $v$ from every bag in $\tree$ is also a valid tree-decomposition. If we contract an edge $vw$, creating a new vertex $u$, then relabeling $v$ and $w$ in all bags to $u$ is a valid tree-decomposition as the induced subtree of $u$ is the union of the induced subtrees of $v$ and $w$, and every neighbor of $v$ or $w$ is a neighbor of $u$. But the edges in the neighborhood do not change. Thus this is a valid tree-decomposition, with width at most the width of $\tree$.
+\end{proof}
+
+Recall that an outerplanar graph is a planar graph where there exists a face such that all vertices lie on the boundary of that face. 
+\begin{example}\label{ex:tw_outerplanar}
+	The treewidth of an outerplanar graph is at most 2.
+\end{example}
+\begin{proof}[Proof of outerplanar treewidth.]
+	Let $G$ be an outerplanar graph, and let $G'$ be the triangulation of $G$. As $G$ is a minor of $G'$, $\tw(G) \leq \tw(G')$. We look at the \textit{weak dual} of $G'$. This is a tree $T$, where every node $v_f$ in $T$ corresponds to a face $f$ in $G'$. Then let $B_{v_f}$ be the bag of the tree-decomposition, where $B_{v_f}$ is the set of vertices on the boundary of the face $f$. Then the tree $T$ with bags $B_{v_f}$ is a valid tree-decomposition of $G'$, where every bag has at most 3 vertices. Thus, $\tw(G) \leq 2$. 
+\end{proof}
+
+\subsection{Historical discussion}\label{ssec:tw_historical}
+Treewidth 
+
+\subsection{Different characterisations of treewidth}
+\subsubsection{$k$-trees}
+We define a $k$-tree inductively. We have that the complete graph $K_k$ is a $k$-tree, and if $G$ is a $k$-tree, then we add a new vertex to $G$ that is adjacent to $k$ vertices that form a clique of size $k$ in $G$ results in a $k$-tree. 
+A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a subgraph of a $k$-tree. 
+
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
 
