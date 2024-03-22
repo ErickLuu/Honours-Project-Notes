@@ -11,9 +11,9 @@ jobs:
         with:
           working_directory: "./Notes/Structural Graph Theory"
           
-          root_file: "'Book_embedding_notes.tex'"
+          root_file: "Book_embedding_notes.tex"
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: "'Book_embedding_notes.pdf'"
+          path: "Book_embedding_notes.pdf"
