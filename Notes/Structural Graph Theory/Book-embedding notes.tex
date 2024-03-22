@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{url}
+\usepackage{todonotes}
 
 % Commands
 \newcommand{\tree}{\mathcal{T}}
@@ -68,7 +69,7 @@ Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have th
 \end{theorem}
 The proof of this will be shown below.
 \subsubsection{Yannakakis' Algorithm}
-DO LATER
+\todo{Do later}
 
 
 
@@ -304,7 +305,7 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an non-orientable surface $\Sigma$. Then $G$ can be embedded on at most $9g - 1$ pages.
 \end{theorem}
 \begin{proof}
-	content...
+\todo{	content...}
 \end{proof}
 
 \section{Decomposing graphs on orientable surfaces}
@@ -315,4 +316,5 @@ Suppose $G$ is embedded on an orientable surface $\Sigma$. Then we wish to trian
 For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \rightarrow v_k$ is trace with no edge of $E_N$ incident to $v_j$, then $v_iv_k \in E(G_T)$ is called a safe edge. If $v_i \rightarrow v_j$ is on the boundary of $G_P$, and $v_k \notin V(G_P)$, and $v_i,v_j,v_k$ is the boundary of a face, then $v_k$ is a safe vertex and we can add it to $G_P$. 
 
 If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
+\todo{Add pictures! this proof needs lots of pictures}
 \end{document}

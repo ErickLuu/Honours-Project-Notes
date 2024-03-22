@@ -11,18 +11,17 @@ Required: Title, Abstract, Introduction, Work, conclusion, bibliography
 
 Latex + maths
 
-Abstract: 150-250 words
-Essay: Focus on subtopic, don't presenta all your work
+- Abstract: 150-250 words
+- Essay: Focus on subtopic, don't presenta all your work
 
 Could be background/review, try to be self-contained.
 
 ## Structure
 
-Introduction: Motivation, Context, "Details
+Introduction: Motivation, Context, Details
 What's to come, main results
 
-Conclusion:
-Future work, mini summary, take home message
+Conclusion: Future work, mini summary, take home message
 
 New results
 Separate new from old, cite appropriately
@@ -38,21 +37,19 @@ Lack of citations
 Write professionally
 
 ## Writing:
-Concise
-Comprehensible
-Build on intuition
-Beauty
-Well-structured
-Acknowledge
+- Concise
+- Comprehensible
+- Build on intuition
+- Beauty
+- Well-structured
+- Acknowledge
 
-Break down long proofs
-Explain what comes next, bring technical details
+- Break down long proofs
+- Explain what comes next, bring technical details
 
-Consistent notation
-
-Explanatory discussions/examples
-
-Graphs + diagrams
+- Consistent notation
+- Explanatory discussions/examples
+- Graphs + diagrams
 
 Check with supervisors what they think
 
