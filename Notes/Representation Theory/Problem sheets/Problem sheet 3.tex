@@ -57,7 +57,7 @@ If $a, b \in Z(A)$, then we want that $a \cdot b \in Z(A)$. We have that for $c 
 Therefore, $Z(A)$ is a subalgebra of $A$. 
 
 \subsection*{2.12}
-Suppose $\text{Mat}_2(\mathbb{C})$ has a one-dimensional module, so there exists an algebra homomorphism $\tilde{\rho} : \text{Mat}_2(\mathbb{C}) \rightarrow \text{End}(\mathbb{C})$. However we have that:
+Suppose $\text{Mat}_2(\mathbb{C})$ has a one-dimensional module, so there exists an algebra homomorphism $\tilde{\rho} : \text{Mat}_2(\mathbb{C}) \rightarrow \text{End}(\mathbb{C})$. However we have that for all $a \in \mathbb{C}$:
 
 $
 \begin{bmatrix}
@@ -74,28 +74,201 @@ $
 0 & 0 \\
 0 & 1 
 \end{bmatrix}\right)
-\cdot a = a$
-but that implies that
+\cdot a = a$. However, we have that
 $
-\begin{bmatrix}
+\left(\begin{bmatrix}
 	1 & 0 \\
 	0 & 0 
-\end{bmatrix} \cdot a + \begin{bmatrix}
+\end{bmatrix}
+\right)
+=
+\left(\begin{bmatrix}
+	0 & 1 \\
+	0 & 0 
+\end{bmatrix}
+\right)
+\left(\begin{bmatrix}
+	0 & 0 \\
+	1 & 0 
+\end{bmatrix}
+\right)
+$
+and
+$
+\left(\begin{bmatrix}
 	0 & 0 \\
 	0 & 1 
 \end{bmatrix}
-\cdot a= a$.
-However, we have that 
+\right)
+=
+\left(\begin{bmatrix}
+	0 & 0 \\
+	1 & 0 
+\end{bmatrix}
+\right)
+\left(\begin{bmatrix}
+	0 & 1 \\
+	0 & 0 
+\end{bmatrix}
+\right)
 $
+Therefore,
+\begin{align*}
+	\rho\left(
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 1 
+	\end{bmatrix}
+	\right)
+	&=
+	\rho\left(
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 0 
+	\end{bmatrix}\right)
+	+
+	\rho\left(
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & 1 
+	\end{bmatrix}\right)
+	\\
+	&=
+	\rho\left(
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & 0 \\
+		1 & 0 
+	\end{bmatrix}
+	\right)
+	+
+	\rho\left(
+	\begin{bmatrix}
+		0 & 0 \\
+		1 & 0 
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}
+	\right)\\
+	&=
+	\rho\left(
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}\right)
+	\rho
+	\left(\begin{bmatrix}
+		0 & 0 \\
+		1 & 0 
+	\end{bmatrix}\right)
+	+
+	\rho\left(
+	\begin{bmatrix}
+		0 & 0 \\
+		1 & 0 
+	\end{bmatrix}\right)
+	\rho
+	\left(\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}\right)\\
+	&=
+	2 \rho\left(
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}\right)
+	\rho
+	\left(\begin{bmatrix}
+		0 & 0 \\
+		1 & 0 
+	\end{bmatrix}\right)
+\end{align*}
+but we have that
+\begin{equation}
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 0 
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}
+\end{equation}
+but 
+\begin{equation}
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 0 
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 0 
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+	0 & 0 \\
+	0 & 0 
+	\end{bmatrix}
+\end{equation}
+Therefore,
+\begin{align*}
+\rho\left(
+	\begin{bmatrix}
+	0 & 1 \\
+	0 & 0 
+\end{bmatrix}
+\right)
+&=
+\rho\left(
 \begin{bmatrix}
 	1 & 0 \\
 	0 & 0 
-\end{bmatrix} \times \begin{bmatrix}
-	0 & 0 \\
-	0 & 1 
 \end{bmatrix}
-\cdot a = 0$
-...
+\begin{bmatrix}
+	0 & 1 \\
+	0 & 0 
+\end{bmatrix}
+\right)\\
+&=
+\rho\left(
+\begin{bmatrix}
+	0 & 1 \\
+	0 & 0 
+\end{bmatrix}
+\begin{bmatrix}
+	1 & 0 \\
+	0 & 0 
+\end{bmatrix}
+\right)\\
+\rho\left(
+\begin{bmatrix}
+	0 & 0 \\
+	0 & 0 
+\end{bmatrix}
+\right)\\
+= 0
+\end{align*}
+Therefore, $\rho\left(
+\begin{bmatrix}
+	1 & 0 \\
+	0 & 1
+\end{bmatrix}
+\right)
+= 0
+$
+, but this contradicts the identity requirement on $\rho$. 
+
 \subsection*{2.14}
 \paragraph{Invariance}
 Let $U$ and $V$ be $A$-modules, and let $T \in \text{Hom}_A(U, V)$. 
