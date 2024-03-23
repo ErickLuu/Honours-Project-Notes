@@ -57,8 +57,62 @@ eprint = false
 \begin{document}
 
 \maketitle
-\section{Introduction}
-We 
+\section{Introduction}\label{sec:introduction}
+The concept of the \textit{pagenumber} of a graph was discovered by Bernhart and Kainen\cite{bernhartBookThicknessGraph1979} in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph is a way to arrange the vertices on the "spine" of a book and arrange the edges on "pages" of a book, or half-planes. The pagenumber of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
+\paragraph{Robertson-Seymour Graph structure theorem}
+Robertson and Seymour, in a landmark series of 23 pages, drew a rough characterisation of $K_t$-minor free graphs, among other extremely famous results. They showed that if a graph $G$ does not have $K_t$ as a minor, then the reason is because they can be almost (but not quite) drawn without crossings on a surface with bounded genus. 
+
+The driving question of this report is the following: 
+\begin{conjecture}\label{conj:bded_had_pn}
+	Given a graph $G$ with no $K_t$ minor, is the pagenumber of $G$ bounded by a function on $t$?
+\end{conjecture}
+Answering this question will yield a link between the pagenumber of a graph and the global structure of the graph. This report currently lays out the literature related to this question.
+\begin{itemize}
+	\item \cref{sec:Book Embedding} formally defines a book-embedding and pagenumber of a graph $G$, and describes some cases where the pagenumber is completely defined for a family of graphs $\mathcal{G}$. Additionally, we describe some related graph parameters to pagenumber.
+	\item \cref{sec:treewidth} describes treewidth and tree-decompositions, which are important concepts in the graph structure theorem. We formally define treewidth and give the treewidth of some family of graphs. 
+	\item \cref{sec:Kt_Minor_Free} describes the graph structure theorem, but we do not discuss the proof.
+	\item \cref{sec:BoundedPagenumber} describes some results of graphs with bounded pagenumber. One of the most important results is Yannakakis's proof that planar graphs have pagenumber at most four\cite{yannakakisEmbeddingPlanarGraphs1989}, as well as some other results. 
+\end{itemize}
+
+\paragraph{Reader expectations}
+The reader is expected to be familiar with graph theory, but not necessarily structural graph theory. For some additional context, we refer you to my previous MTH3000 report.
+
+
+
+\section{Book embedding}\label{sec:Book Embedding}
+A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
+
+\subsection{Properties of page numbers}\label{ssec:Properties_Of_Pagenumber}
+We have that if $H$ is a subgraph of $G$, then $\pn(H)$ is a subgraph of $\pn(G)$. (CHECK IF PAGENUMBER IS MINOR-CLOSED)
+\subsection{Graphs with bounded page number}\label{ssec:Bounded_Pagenumber}
+\begin{lemma}\label{lem:Pagenumber_1}
+	A graph $G$ has page-number at most 1 iff $G$ is an outerplanar graph.
+\end{lemma}
+\todo{Quick proof}
+\begin{lemma}\label{lem:Pagenumber_2}
+	A graph $G$ has pagenumber at most 2 iff $G$ is a subgraph of a planar graph with a Hamiltonian cycle. This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and the edges forming the interior and exterior edges of the cycle respectively.
+\end{lemma}
+This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and the edges forming the interior and exterior edges of the cycle respectively.
+
+\subsection{Pagenumber of other graphs}\label{ssec:Pagenumber_Graphs}
+We have that $K_n$ complete graphs can be embedded on $\lceil n/2 \rceil$ pages\cite{bernhartBookThicknessGraph1979}. Therefore for any graph $G$ on $n$ vertices, $\pn(G) \leq \lceil n/2 \rceil$. 
+
+\subsection{Related graph properties}\label{ssec:Related_Properties}
+
+\begin{lemma}[Bound on number of edges \cite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
+	If an $n$-vertex graph $G$ has $\pn(G) = k$, then $G$ has at most $n + k(n-3)$ edges.
+\end{lemma}
+\begin{proof}
+	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the edges $v_i v_i+1$, $v_1 v_n$ (we refer to this cycle as the outer-cycle) can appear on any page. Furthermore we have that there must be at most $n-3$ non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is $2n - 3$, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
+\end{proof}
+\begin{theorem}[Chromatic number bound]\label{thm:Colouring_Bound}
+	For all graphs $G$, $\chi(G) \leq 2 \pn(G) + 2$.
+\end{theorem}
+Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
+
+\subsection{Historical interest}\label{ssec:Pagenumber_History}
+Pagenumbers were developed for processor designs, but more recently have been used in bioinformatics and the like. 
+The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. It was conjectured by Yannakakis that there exist planar graphs with pagenumber 4, but only recently were planar graphs found with pagenumber 4\cite{yannakakisPlanarGraphsThat2020}\cite{bekosFourPagesAre2020}. 
 
 \section{Treewidth}\label{sec:treewidth}
 
@@ -152,42 +206,8 @@ Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with a
 	Every infinite family of graphs contains two distinct graphs $G$ and $H$ such that $H$ is a minor of $G$.
 \end{theorem}
 
-\section{Book embedding}\label{sec:Book Embedding}
-A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
 
-\subsection{Properties of page numbers}\label{ssec:Properties_Of_Pagenumber}
-We have that if $H$ is a subgraph of $G$, then $\pn(H)$ is a subgraph of $\pn(G)$. (CHECK IF PAGENUMBER IS MINOR-CLOSED)
-\subsection{Graphs with bounded page number}\label{ssec:Bounded_Pagenumber}
-\begin{lemma}\label{lem:Pagenumber_1}
-	A graph $G$ has page-number at most 1 iff $G$ is an outerplanar graph.
-\end{lemma}
-\todo{Quick proof}
-\begin{lemma}\label{lem:Pagenumber_2}
-	A graph $G$ has pagenumber at most 2 iff $G$ is a subgraph of a planar graph with a Hamiltonian cycle. This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and the edges forming the interior and exterior edges of the cycle respectively.
-\end{lemma}
-This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and the edges forming the interior and exterior edges of the cycle respectively.
-
-\subsection{Pagenumber of other graphs}\label{ssec:Pagenumber_Graphs}
-We have that $K_n$ complete graphs can be embedded on $\lceil n/2 \rceil$ pages\cite{bernhartBookThicknessGraph1979}. Therefore for any graph $G$ on $n$ vertices, $\pn(G) \leq \lceil n/2 \rceil$. 
-
-\subsection{Related graph properties}\label{ssec:Related_Properties}
-
-\begin{lemma}[Bound on number of edges \cite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
-	If an $n$-vertex graph $G$ has $\pn(G) = k$, then $G$ has at most $n + k(n-3)$ edges.
-\end{lemma}
-\begin{proof}
-	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the edges $v_i v_i+1$, $v_1 v_n$ (we refer to this cycle as the outer-cycle) can appear on any page. Furthermore we have that there must be at most $n-3$ non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is $2n - 3$, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
-\end{proof}
-\begin{theorem}[Chromatic number bound]\label{thm:Colouring_Bound}
-	For all graphs $G$, $\chi(G) \leq 2 \pn(G) + 2$.
-\end{theorem}
-Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
-
-\subsection{Historical interest}\label{ssec:Pagenumber_History}
-Pagenumbers were developed for processor designs, but more recently have been used in bioinformatics and the like. 
-The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. It was conjectured by Yannakakis that there exist planar graphs with pagenumber 4, but only recently were planar graphs found with pagenumber 4\cite{yannakakisPlanarGraphsThat2020}\cite{bekosFourPagesAre2020}. 
-
-\section{Characterisations of bounded clique-minor-free-graphs}\label{sec:Kt_Minor_Free}
+\section{Graph Structure Theorem}\label{sec:Kt_Minor_Free}
 What is the structure of $K_t$-minor free graphs? We shall show that we can roughly characterise all $K_t$-minor free graphs as graphs that are products of a series of operations. 
 \subsection{Clique-minor-free minor-closed families}\label{ssec:Kt_Minor_Closed_families}
 We define $\had(G)$ to be the largest $t$ such that $G$ has a $K_t$ minor. 
