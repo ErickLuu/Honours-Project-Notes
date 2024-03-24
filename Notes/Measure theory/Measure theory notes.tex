@@ -153,4 +153,119 @@ What sets are $\mu^*$-measurable?
 	\item Sets in $\alg$
 	\item Null sets
 \end{itemize}
+
+\section{Lebesgue measure}
+We define the algebra $\mathcal{C}_m$ of intervals in $\mathbb{R}^m$. We then define the volume to be:
+\begin{definition}[Volume]
+	\begin{equation*}
+		\text{Vol}_m(I) := \prod_{k = 1}^m |b_k - a_k|
+	\end{equation*}
+\end{definition}
+
+Then we use the Caratheodory extension lemma to form the Lebesgue-measurable sets, with the Lebesgue measure being defined as $\lambda_m(A) := \text{Vol}_m^*\llcorner \Gamma_{\text{Vol}_m^*}$.
+
+\begin{example}[Examples of measurable sets]
+	\begin{itemize}
+		\item Intervals, or boxes
+		\item Countably many isolated points
+		\item Open sets in the topology (Borel measure)
+	\end{itemize}
+\end{example}
+We have that the Lebesgue measure is translation and rotation invariant.
+\subsubsection{Almost open, closed and compact}
+\begin{theorem}[Almost open]
+	A subset $E \subset \mathbb{R}^m$ is Lebesgue iff it is almost open, meaning that for all $\varepsilon > 0$, there exists an open set $E \subset U$ and $\lambda_m(U\\E) \equiv \lambda_m(U) - \lambda_m(E) < \varepsilon$. 
+\end{theorem}
+\begin{proof}[Proof of above theorem]
+	Consider when $\lambda_m(E) \leq \infty$. Then given $\varepsilon > 0$, choose a sequence $\left\lbrace I_j \right\rbrace_{j \in \mathbb{N}} $ such that $E \subseteq \bigcup_{j \in \mathbb{N}}I_j$ and $\sum_{j \in \mathbb{N}} \lambda_mI_j < \varepsilon + \lambda_m(E)$. This set exists by the infinum property.
+	Let $U := \bigcup_{j \in \mathbb{N}}I_j$. We have that $\lambda_m(U) \leq \sum_{j \in \mathbb{N}}\lambda_m(I_j) < \varepsilon + \lambda_m(E)$. Thus shown for $< \infty$. If $\lambda_m(E) = \infty$, then we use the $\sigma$-finiteness of $\mathbb{R}^m$. 
+\end{proof}
+
+\section{Counterexamples}
+There are sets in $\mathbb{R}$ which are not Lebesgue measurable.
+\subsection{Vitali set}
+Let $\mathbb{D}$ be the set of decimal numbers, and let $V$ be the set of representatives of non-decimal numbers where we identify two non-decimal numbers if they differ by a decimal number. Then $\mathbb{D}$ is a Lebesgue null-set. 
+Now consider $A = \cup_{d \in \mathbb{D}}(V + d)$. Suppose $\lambda(V) = 0$. then $\lambda(A) = \sum_{d \in \mathbb{D}} \lambda_1(V + d) = \sum_{d \in \mathbb{D}} \lambda_1(V) = 0$. but as $[0, 1] \subset A$. then $\lambda_1(A) > 1$.
+Suppose $\lambda(V) > 0$. Then $\lambda_1(A) =  \sum_{d \in \mathbb{D}} \lambda_1(V)  = \infty$. But $A \subset [-1, 2]$, which has measure 3. Thus $V$ is not Lebesgue measrable and $V$ is not Borel. 
+
+\subsection{Cantor set}
+The Cantor set has measure 0, but is not the intersection of any open set. Thus the Cantor set is Lebesgue measurable nut not Borel measurable. 
+
+\section{Lebesgue integral}
+We say that $(X, \mathcal{S}, \mu)$ is a measure space. 
+\subsection{Measurable functions}
+We say that $f: X \rightarrow \mathbb{R} \cup \lbrace \pm \infty \rbrace$ is $\mu$-measurable if the sets $\lbrace x \in X | f(x) = \pm \infty \rbrace$ and $\lbrace x \in X : f(x) > \alpha \rbrace$ for all $\alpha \in \mathbb{R}$ are measurable. 
+
+We can replace $> \alpha$ with $< \alpha$, $\geq \alpha$, $\leq \alpha$.
+\begin{example}[Examples of measurable functions]
+	\begin{enumerate}
+		\item Constant functions
+		\item Indicator functions of measurable sets
+		\item Continuous functions
+	\end{enumerate}
+\end{example}
+We have that if $\lbrace f_n \rbrace_{n \in \mathbb{N}}$ is a sequence of measurable functions, then $f(x) := inf_{n \in \mathbb{N}} f_n(x)$ and $F(x) := \sup_{n \in \mathbb{N}} f_n(x)$ are both measurable. 
+This is because $\lbrace x \in X : f(x) \geq \alpha \rbrace = \cap_{n \in \mathbb{N}} \lbrace x \in X : f_n(x) \geq \alpha \rbrace$ and $\lbrace x \in X : F(x) > \alpha \rbrace = \cup_{n \in \mathbb{N}} \lbrace x \in X : f_n(x) > \alpha \rbrace$.
+
+\begin{definition}
+	If $f$ is measurable and $g$ is a function such that the set where $f$ and $g$ disagree is a null-set, then $f = g$ almost everywhere (a.e.) and $g$ is measurable. 
+\end{definition} 
+We adopt the convention that $(f + g) (x) = f(x) + g(x)$ when $f$ and $g$ are not $\pm \infty$, and 0 otherwise.
+
+We have that this forms a vector space with the inner product $(fg)(x) = f(x)g(x)$ also being measurable. We have that $f^+(x) := \sup(f(x), 0)$ and $f^-(x) := sup(-f(x), 0)$ is also measurable. 
+
+Finally, we have that $|f(x)| $ is also measurable. 
+
+We have that if $g$ is continuous and $f$ is measurable, then $g \circ f$ is measurable. 
+
+If $f$ is a non-negative measurable function, then there exists a sequence $\lbrace \varphi_n \rbrace_{n \in \mathbb{N}} \subset M$ such that:
+\begin{itemize}
+	\item $0 \leq \phi_n(x) \leq \varphi_{n+1}(x)$
+	\item $f(x) = \lim_{n \rightarrow \infty} \phi_n(x)$
+	\item each function takes on a finite number of values. 
+\end{itemize}
+\subsection{Integration}
+We say $\phi$ is simple if it takes on a finite number of values. If $\varphi$ is simple, then:
+
+\begin{equation}
+	\int_X \varphi d\mu := \sum_{j = 1}^N a_j \mu(E_j).
+\end{equation}
+If $f \in \mathcal{M}^+$, then \begin{equation}
+	\int_X f d\mu := \sup \left \lbrace \int_X \varphi d\mu: \varphi \in \mathcal{M}^+, \mu \text{ is simple}, 0 \leq \varphi(x) \leq f(x) \right\rbrace \in [0, \infty].
+\end{equation}
+We have that if $E$ is measurable, then $\int_E f d\mu := \int_X \chi_E f d\mu$. 
+
+\begin{theorem}[Monotone convergence theorem:]
+	Let $\lbrace f_n \rbrace_{n \in \mathbb{N}}$ be an increasing sequence of functions in $\mathcal{M}^+$ converging pointwise to $f$. Then \begin{equation}
+	\int_X f d\mu = \lim_{n \rightarrow \infty} \int_X f_n d\mu.
+\end{equation}
+\end{theorem}
+\begin{theorem}[Fatou's lemma:]
+	Let $\lbrace f_n \rbrace_{n \in \mathbb{N}}$ be a sequence of functions in $\mathcal{M}^+$. Then \begin{equation}
+		\int_X \liminf_{n\rightarrow \infty} f_n d\mu \leq \liminf_{n \rightarrow \infty} \int_X f_n d\mu.
+	\end{equation}
+\end{theorem}
+
+\subsection{Integrable functions}
+A function $f \in \mathcal{M}$ is integrable if $\int_X f^+ d \mu < \infty$ and $\int_X f^- d \mu < \infty$. Denote the vector space of functions as $\mathcal{L}$. 
+
+\begin{theorem}[Lebesgue Dominated convergence theorem]
+	Let $\lbrace f_n \rbrace_{n \in \mathbb{N}} \subset \mathcal{L}$ such that $f_n$ converges almost everywhere to $f$. Then suppose there exists a function $g \in \mathcal{L}$ such that $|f_n| \leq g$ for all $n \in \mathbb{N}$. Then $f \in \mathcal{L}$ and:
+	\begin{equation}
+		\int f d\mu = \lim_{n \rightarrow \infty} \int f_n d\mu.
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	Consider $g + f_n$ and $g - f_n$ and use Fatou's lemma. 
+\end{proof}
+
+\section{Lebesgue $L^p$ spaces}
+We say that two functions $f\sim g$ iff $f = g$ a.e.. Then we define the quotient space $L^1(X, \mathcal{S}, \mu)$ as the identification of these elements. Then $\|f \|_{L^1(X)} = \int_X |f| d\mu$, which defines a norm on $L^1$. Indeed $\int_X |f| d\mu = 0$ iff $f$ is 0 a.e. 
+
+\subsection{$L^p$ spaces, $p \in [1, \infty)$}
+We let $L^p$ be the space of measurable functions where $|f|^p$ has finite integral. Then we say:
+
+\begin{equation}
+	\|f \|_p := \|f\|_{L^p} = \left(\int_X |f|^p d\mu \right)^{1/p}.
+\end{equation}
 \end{document}
