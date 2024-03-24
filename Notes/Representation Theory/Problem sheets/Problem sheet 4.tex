@@ -1,0 +1,73 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+%opening
+\title{Representation Theory- Problem sheet 2}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chapter 3}
+\subsection*{3.1}
+Suppose $f$ is a class function. Let $g, h \in G$. Then we have that $f(h (gh) h^{-1}) = f(gh)$, so $f(hg) = f(gh)$. As $g$ and $h$ are arbitrary, then $f(hg) = f(gh) $ for all $g \in G$. If $f(gh) = f(hg)$ for all $g, h \in G$, then for any $g, h \in G$, we have that $f((gh^{-1})h)= f(h (gh^{-1}))$, so $f(g) = f(ghg^{-1})$. Thus $f$ is a class function.
+\subsection*{3.2}
+\subsubsection*{a}
+We have that $\rho_0$ is the map $1 \mapsto [1]$, $a \mapsto [1]$, and $a^2 \mapsto [1]$.
+We have that $\rho_1$ is the map $1 \mapsto [1]$, $a \mapsto [e^{2 \pi i/3}]$,$a^2 \mapsto [e^{4 \pi i/3}]$.
+We have that $\rho_2$ is the map $1 \mapsto [1]$, $a \mapsto [e^{4 \pi i/3}]$,$a^2 \mapsto [e^{2 \pi i/3}]$.
+
+Therefore, we have that:
+We have that $\chi_0$ is the map $1 \mapsto 1$, $a \mapsto 1$, and $a^2 \mapsto 1$.
+We have that $\chi_1$ is the map $1 \mapsto 1$, $a \mapsto e^{2 \pi i/3}$,$a^2 \mapsto e^{4 \pi i/3}$.
+We have that $\chi_2$ is the map $1 \mapsto 1$, $a \mapsto e^{4 \pi i/3}$,$a^2 \mapsto e^{2 \pi i/3}$.
+
+\subsubsection*{b}
+We have that $\chi$ is the map $1 \mapsto 2$, $a \mapsto -1$, $a^2 \mapsto -1$. 
+
+We have that:
+
+\begin{align*}
+	 \langle \chi | \chi_0 \rangle &= 1/3 \left( \chi(1)\overline{\chi_0(1)} +   \chi(a)\overline{\chi_0(a)} + \chi(a^2)\overline{\chi_0(a^2)}   \right) \\
+	 &= 1/3(2 - 1 - 1) \\
+	 &= 0.
+\end{align*}
+\begin{align*}
+	\langle \chi | \chi_1 \rangle &= 1/3 \left( \chi(1)\overline{\chi_1(1)} +   \chi(a)\overline{\chi_1(a)} + \chi(a^2)\overline{\chi_1(a^2)}   \right) \\
+	&= 1/3(2 -e^{-2 \pi i/3} - \mapsto e^{-4 \pi i/3}) \\
+	&= 1.
+\end{align*}
+
+\begin{align*}
+	\langle \chi | \chi_2 \rangle &= 1/3 \left( \chi(1)\overline{\chi_2(1)} +   \chi(a)\overline{\chi_2(a)} + \chi(a^2)\overline{\chi_2(a^2)}   \right) \\
+	&= 1/3(2 -e^{-4 \pi i/3} - \mapsto e^{-2 \pi i/3}) \\
+	&= 1.
+\end{align*}
+Therefore, $\chi = \chi_1 \oplus \chi_2$.
+
+\subsection*{3.3}
+\subsubsection*{a}
+Let $a \in Z(G)$. Then let $v \in V$. If $\rho(a)$ is an $A$-module homomorphism between $\rho$ and $\rho$ and $g \in G$, $v \in V$, then $\rho(a) \rho(g)(v) = \rho(g) \rho(a) (v)$. However, we have that $\rho(a) \rho(g) = \rho(ag) = \rho(ga) = \rho(g) \rho(a)$. Thus $\rho(a)$ is an element of $Hom_G(\rho, \rho)$.
+
+\subsubsection*{b}
+As $\rho(a)$ is an isomorphism as we have that $\rho(a) \rho(g) \rho(a^{-1}) = \rho(g)$ for all $g \in G$, then $\rho(a) = \phi(a) Id_V$ for some $\phi(a) \in C^*$. 
+\subsubsection*{c}
+We have that $\phi(a) \phi(b) Id_V = \phi(a) Id_V \phi(b) Id_V = \rho(a) \rho(b) = \rho(ab) = \phi(ab) Id_V$. Thus $\phi(a) \phi(b) = \phi(ab)$. Secondly, we have that $\rho(1) = Id$, so $\phi(1) = 1$. Thus $\phi$ is a representation. 
+
+%\subsection*{3.4}
+%We have that the map $\rho_S: (\mathbb{Z}_2)^m \rightarrow GL(\mathbb{C^|S|})$ by mapping $(0, 0, ..., 0)$ to $diag(1, 1, 1, 1 ... , 1)$ and $(1, 0, 0, ..., 0) \mapsto diag(-1, 1, 1, ..., 1)$, where diag turns a vector into a diagonal matrix in the usual way. Then we have that this map is a representation as it maps the identity to the identity and $\rho_S
+
+%\subsection*{3.5}
+%Consider the standard representation $\rho$ of $Sym(X)$ on $X$, and consider the subrepresentation $\rho |_G$ on $X$. Then $tr(\rho(\sigma)) = |Fix(\sigma)|$. However, we have that $Span\lbrace (1, 1, 1, ..., 1) \rbrace$ is an invariant subspace of $\rho$, thus $\rho$ is completely reducible to $\rho_0 \oplus \rho_1$, where $\rho_0$ is the trivial representation. Then let $\chi_1$ be the associated character of $\rho_1$. We have that $\chi = \chi_0 + \chi_1$, therefore $|Fix(\sigma)| = 1 + \chi_1(\sigma)$, so $\chi_1(\sigma) = |Fix(\sigma)| - 1$. 
+%\subsection*{3.19}
+%\subsubsection*{a}
+%Consider the eigenvectors of $\phi_g$ and $\overline{\psi_g}$. We have that if $v$ is an eigenvector of $\phi_g$ and $w$ is an eigenvector of $\overline{\psi_g}$, then $\phi_g v w^T \overline{\psi_g} = (\phi_g v) (\overline{\psi_g} w)^T = (\lambda_1 v)(\lambda_2 w)^T = \lambda_1\lambda_2 vw^T$. Thus the eigenvectors of $\chi_\rho$ are exactly the matrices of the form $vw^T$, as there are $mn$ of these eigenvectors and the dimension of $V$ is $mn$. Thus the sums of the eigenvalues of $\chi_\rho$ are the eigenvalues of all combinations of $vw^T$, which is $\chi_\phi \overline{\chi_\psi}$. 
+%
+%\subsubsection*{b}
+%Let $A \in V^G$, so $\psi_g A \psi^*_g = A$ for all $g$. 
+
+\subsubsection*{3.11}
+Suppose all irreducible representations of $G$ have degree 1. Then 
+\end{document}
