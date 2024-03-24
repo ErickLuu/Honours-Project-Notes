@@ -1,0 +1,116 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
+
+%opening
+\title{Combinatorics Notes}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Generating functions}
+We have that formal power series form a ring of the form:
+\begin{equation}
+	a_0 + a_1x + a_2 x^2 + ...
+\end{equation}
+where $\lbrace a_n \rbrace_0^\infty$ is the sequence of coefficients. Two sequences are equal if they have the same coefficients. Convergence does not matter. A polynomial is one where after a point all terms are zero.
+
+We say that $f \ops \lbrace a_n \rbrace_{n \geq 0} $ is the \textit{ordinary power series} generating function of the sequence $\lbrace a_n \rbrace_{n \geq 0}$. We have that $[x^k] \sum_{n \geq 0} a_n x^n = a_k$, where $[x^k]$ extracts out the $k$-th coefficient.
+
+So $[x^n]1/(1-x) = 1$, $[x^n] e^x = 1/n!$, $[x^n](x^a f) = [x^{n-a}] f$. More generally, $[cx^n] f = 1/c [x^n] f$.
+\subsection{Operations on power series}
+We have that addition and subtraction is defined in the usual way. We also have that:
+$f = \sum_{n \geq 0} a_n x^n, g = \sum_{n \geq 0} b_n x^n$, then $fg = \sum_{n \geq 0} \sum_{k=0}^{n} a_k b^{n-k} a_k$.  
+\subsubsection{Inverses}
+We have that $(1-x)(\sum_{n \geq 0}x^n) = 1$, thus
+\begin{equation}
+	\frac{1}{1-x} = \sum_{n \geq 0} x^n.
+\end{equation}
+\begin{theorem}
+	A power series has an inverse iff its constant term is nonzero. 
+\end{theorem}
+\subsubsection{Composition of formal series}
+We have that $f(g(x))$ is well-defined iff $g(0) = 0$ or $f$ is a polynomial. 
+
+\subsubsection{Derivatives}
+If $f = \sum_{n \geq 0} a_n x^n$, then $Df = \sum_{n \geq 1} na_nx^{n-1}$. 
+Additionally, $xD f = \sum_{n \geq 1} na_nx^n$.
+\subsection{Recurrences}
+We have that $F_0 = 0$, $F_1 = 1$, $F_{n+2} = F_{n+1} + F_n$. 
+Let $f \overset{\ops}{\leftrightarrow} \lbrace F_n \rbrace_{n \geq 0} $ be its generating function. Then $\sum_{n \geq 0}F_{n+2} x^n = \sum_{n \geq 0} F_{n+1} x^n + \sum_{n \geq 0}F_n x^n$.
+But that implies that:
+\begin{align*}
+	1/x^2 \sum_{n \geq 0}F_{n+2} x^{n+2} &= 1/x\sum_{n \geq 0} F_{n+1} x^{n+1} + \sum_{n \geq 0}F_n x^n\\
+	1/x^2(f(x) - F_0 - F_1 x) &= 1/x(f(x) - F_0) + f(x)\\
+	1/x^2(f(x) - x) &= 1/x f(x) + f(x)\\
+	f(x) &= \frac{x}{1-x-x^2}.
+\end{align*}
+Let $r_\pm = (1 \pm \sqrt{5})/2$. Then:
+\begin{align*}
+	\frac{x}{1-x-x^2} &= \frac{x}{(1-xr_+)(1-xr_-)}\\
+	&= \frac{1}{r_+ - r_-}\left(\frac{1}{1 - xr_+}- \frac{1}{1-x r_-}\right)\\
+	&= \frac{1}{\sqrt{5}} \left(\sum_{n \geq 0}r_+^n x^n -\sum_{n \geq 0}r_-^n x^n  \right)
+\end{align*}
+\subsection{Linear recurrences}
+A sequence $\lbrace a_n \rbrace_{n \geq 0}$ satisfies a linear recurrence:
+\begin{equation}
+	a_n = c_1 a_{n-1} + c_2 a_{n-2} + c_3a_{n-3} + ... + c_ka_{n-k}
+\end{equation}
+iff $A(x)$ is a rational function, where $A \ops \lbrace a_n \rbrace_{n \geq 0}$.
+
+\subsection{Multivariate generating functions}
+$\binom{n}{k}$ has two parameters, so consider $B \ops {\binom{n}{k}}_{n, k\geq 0}$, $B(x) = \sum_{n,k \geq 0}\binom{n}{k} x^n y^k$ and $\binom{0}{0} = 1$. 
+We have that \begin{align*}
+	\sum_{\substack{
+		n,k \geq 0\\
+		(n,k) \neq (0,0)
+}}
+\binom{n}{k} x^n y^k &= \sum \binom{n}{k}x^n y^k + \sum \binom{n-1}{k} x^n y^k\\
+B(x,y) - 1 &= xyB(x,y) + xB(x,y)\\
+\end{align*}
+Therefore,
+\begin{equation}
+	B(x,y) = \frac{1}{1-xy-x}.
+\end{equation}
+So we have that 
+\begin{equation}
+	[x^n]B(x,y) = [x^n]\frac{1}{1-(1+y) x} = (1 + y)^n.
+\end{equation}
+This makes sense as $(1 + y)^n$ is a one variable generating function for the binomial coefficients.
+
+We also have that
+\begin{equation}
+	\frac{1}{1-xy-x} = \frac{1}{1-x} \frac{1}{1 - \frac{x}{1-x} y} = \frac{1}{1-x} \sum_{k \geq 0}\left(\frac{x}{1-x}\right)^k y^k
+\end{equation}
+So \begin{equation}
+	[y^k] B(x,y) = \frac{x^k}{(1-x)^{k+1}}
+\end{equation}
+And:
+\begin{align*}
+	[x^n] \frac{x^k}{(1-x)^{k+1}} &= [x^{n-k}]\frac{1}{(1-x)^{k+1}}\\
+	&= [x^{n-k}]\frac{1}{(n-k)!}\left( \left(\dfrac{d}{dx}\right)^{n-k} \frac{1}{(1-x)^{k+1}}  \right)\\
+	&= \frac{n!}{(n-k) k!} = \binom{n}{k}
+\end{align*}
+\end{document}
