@@ -59,8 +59,19 @@ We have that $\phi(a) \phi(b) Id_V = \phi(a) Id_V \phi(b) Id_V = \rho(a) \rho(b)
 %\subsection*{3.4}
 %We have that the map $\rho_S: (\mathbb{Z}_2)^m \rightarrow GL(\mathbb{C^|S|})$ by mapping $(0, 0, ..., 0)$ to $diag(1, 1, 1, 1 ... , 1)$ and $(1, 0, 0, ..., 0) \mapsto diag(-1, 1, 1, ..., 1)$, where diag turns a vector into a diagonal matrix in the usual way. Then we have that this map is a representation as it maps the identity to the identity and $\rho_S
 
-%\subsection*{3.5}
-%Consider the standard representation $\rho$ of $Sym(X)$ on $X$, and consider the subrepresentation $\rho |_G$ on $X$. Then $tr(\rho(\sigma)) = |Fix(\sigma)|$. However, we have that $Span\lbrace (1, 1, 1, ..., 1) \rbrace$ is an invariant subspace of $\rho$, thus $\rho$ is completely reducible to $\rho_0 \oplus \rho_1$, where $\rho_0$ is the trivial representation. Then let $\chi_1$ be the associated character of $\rho_1$. We have that $\chi = \chi_0 + \chi_1$, therefore $|Fix(\sigma)| = 1 + \chi_1(\sigma)$, so $\chi_1(\sigma) = |Fix(\sigma)| - 1$. 
+\subsection*{3.5}
+Consider the standard representation $\rho$ of $Sym(X)$ on $X$, and consider the subrepresentation $\rho |_G$ on $X$. Then $tr(\rho(\sigma)) = |Fix(\sigma)|$. However, we have that $Span\lbrace (1, 1, 1, ..., 1) \rbrace$ is an invariant subspace of $\rho$, thus $\rho$ is completely reducible to $\rho_0 \oplus \rho_1$, where $\rho_0$ is the trivial representation. Then let $\chi_1$ be the associated character of $\rho_1$. We have that $\chi = \chi_0 + \chi_1$, therefore $|Fix(\sigma)| = 1 + \chi_1(\sigma)$, so $\chi_1(\sigma) = |Fix(\sigma)| - 1$. 
+
+\subsection*{3.7}
+We have that $\phi: G \rightarrow H$ is a surjective homomorphism, and $\rho: H \rightarrow GL(V)$ is an irreducible representation. Let $\psi =  \rho \circ \phi$. Then let $W$ be a subspace of $V$ where $\psi_g(W) = W$ for all $g \in G$. But we have that $\psi_g(W) = \rho_{\phi(g)}(W)$, and as $\phi$ is surjective, then every element in $h$ has a corresponding $\phi(g)$. Therefore, $\psi_h(W) = W$ for all $h \in H$, thus $W$ must be only the trivial subspace or $V$. Thus $\psi$ is an irreducible representation of $G$.
+\subsection*{3.8}
+\subsubsection*{a}
+We have that from the first orthogonality relation,
+$\sum_{g \in G} \chi(g) \overline{\chi_1(g)} = 0$. But we have that $\chi_1(g) = \overline{\chi_1(g)} = 1$, so we have that $\sum_{g \in G} \chi(g) = 0$. 
+
+\subsubsection*{b}
+We have that from the first orthogonality relation,
+$\sum_{g \in G} \chi(g) \overline{sgn(g)} = 0$. But we have that $sgn(g) = \overline{sgn(g)}$, so we have that $\sum_{g \in G} \chi(g)sgn(g) = 0$. 
 %\subsection*{3.19}
 %\subsubsection*{a}
 %Consider the eigenvectors of $\phi_g$ and $\overline{\psi_g}$. We have that if $v$ is an eigenvector of $\phi_g$ and $w$ is an eigenvector of $\overline{\psi_g}$, then $\phi_g v w^T \overline{\psi_g} = (\phi_g v) (\overline{\psi_g} w)^T = (\lambda_1 v)(\lambda_2 w)^T = \lambda_1\lambda_2 vw^T$. Thus the eigenvectors of $\chi_\rho$ are exactly the matrices of the form $vw^T$, as there are $mn$ of these eigenvectors and the dimension of $V$ is $mn$. Thus the sums of the eigenvalues of $\chi_\rho$ are the eigenvalues of all combinations of $vw^T$, which is $\chi_\phi \overline{\chi_\psi}$. 
