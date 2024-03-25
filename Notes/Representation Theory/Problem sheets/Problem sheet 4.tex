@@ -60,7 +60,14 @@ We have that $\phi(a) \phi(b) Id_V = \phi(a) Id_V \phi(b) Id_V = \rho(a) \rho(b)
 %We have that the map $\rho_S: (\mathbb{Z}_2)^m \rightarrow GL(\mathbb{C^|S|})$ by mapping $(0, 0, ..., 0)$ to $diag(1, 1, 1, 1 ... , 1)$ and $(1, 0, 0, ..., 0) \mapsto diag(-1, 1, 1, ..., 1)$, where diag turns a vector into a diagonal matrix in the usual way. Then we have that this map is a representation as it maps the identity to the identity and $\rho_S
 
 \subsection*{3.5}
-Consider the standard representation $\rho$ of $Sym(X)$ on $X$, and consider the subrepresentation $\rho |_G$ on $X$. Then $tr(\rho(\sigma)) = |Fix(\sigma)|$. However, we have that $Span\lbrace (1, 1, 1, ..., 1) \rbrace$ is an invariant subspace of $\rho$, thus $\rho$ is completely reducible to $\rho_0 \oplus \rho_1$, where $\rho_0$ is the trivial representation. Then let $\chi_1$ be the associated character of $\rho_1$. We have that $\chi = \chi_0 + \chi_1$, therefore $|Fix(\sigma)| = 1 + \chi_1(\sigma)$, so $\chi_1(\sigma) = |Fix(\sigma)| - 1$. 
+Consider the standard representation $\rho_S$ of $Sym(X)$ on $X$, and consider the subrepresentation $\rho |_G$ on $X$. Then $tr(\rho(\sigma)) = |Fix(\sigma)|$. 
+We shall show that $\rho_S = \rho_1 \oplus \rho$, where $\chi_\rho(\sigma) = |Fix(\sigma)| - 1$. We have to show that $\langle \rho_S, \rho_1 \rangle > 0$. We have that 
+\begin{equation}
+	\langle \rho_S, \rho_1 \rangle = \frac{1}{|G|} \sum_{\sigma \in G} \chi_S(\sigma) \overline{\chi_1(\sigma)} = \frac{1}{|G|} \sum_{\sigma \in G} \chi_S(\sigma) \overline{1} = \frac{1}{|G|} \sum_{\sigma \in G} \chi_S(\sigma).
+\end{equation}
+However, we have that $|Fix(\sigma)| \geq 0$ with $|Fix(1)| = |X|$, therefore we have that $ \langle \rho_S, \rho_1 \rangle > 0$, therefore as the inner product must take on non-negative integer values, $\langle \rho_S, \rho_1 \rangle \geq 1$. Thus $\rho_S = \rho_1 \oplus \rho$ for some representation $\rho$. 
+Let $\chi$ be the associated character for $\rho$. 
+ We have that $\chi_S = \chi_1 + \chi$, therefore $|Fix(\sigma)| = 1 + \chi(\sigma)$, so $\chi(\sigma) = |Fix(\sigma)| - 1$. Thus shown by construction.
 
 \subsection*{3.7}
 We have that $\phi: G \rightarrow H$ is a surjective homomorphism, and $\rho: H \rightarrow GL(V)$ is an irreducible representation. Let $\psi =  \rho \circ \phi$. Then let $W$ be a subspace of $V$ where $\psi_g(W) = W$ for all $g \in G$. But we have that $\psi_g(W) = \rho_{\phi(g)}(W)$, and as $\phi$ is surjective, then every element in $h$ has a corresponding $\phi(g)$. Therefore, $\psi_h(W) = W$ for all $h \in H$, thus $W$ must be only the trivial subspace or $V$. Thus $\psi$ is an irreducible representation of $G$.
