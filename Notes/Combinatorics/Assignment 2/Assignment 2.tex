@@ -1,0 +1,34 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%opening
+\title{Assignment 1}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Question 5'}
+We have that:
+\begin{equation}
+	e^x = \sum_{n \geq 0} \frac{1}{n!}x^n.
+\end{equation}
+Now consider:
+\begin{equation}
+	\frac{1}{4} \left(e^x + e^{-x} + e^{ix} + e^{-ix} \right) = \sum_{n \geq 0} \frac{1}{n!} \cdot \frac{1}{4} \left(x^n + (-1)^n x^n + (i)^n x^n + (-i)^n x^n\right).
+\end{equation}
+We have that if: 
+\begin{itemize}
+	\item $n \equiv 0 \mod 4$, then the coefficient of $x^n$ is $\frac{1}{n!}\frac{1}{4} \left(1 + 1 + 1 + 1\right) = \frac{1}{n!}$. 
+	\item $n \equiv 1 \mod 4$, then the coefficient of $x^n$ is $\frac{1}{n!}\frac{1}{4} \left(1 + -1 + i -i \right) = 0$. 
+	\item $n \equiv 2 \mod 4$, then the coefficient of $x^n$ is $\frac{1}{n!}\frac{1}{4} \left(1 + 1 + -1 -1 \right) = 0$. 
+	\item $n \equiv 3 \mod 4$, then the coefficient of $x^n$ is $\frac{1}{n!}\frac{1}{4} \left(1 + -1 -i + i \right) = 0$. 
+\end{itemize}
+Therefore, the only terms that remain are $n \equiv 0 \mod 4$. Therefore, we have that:
+
+\begin{equation}
+	\frac{1}{4} \left(e^x + e^{-x} + e^{ix} + e^{-ix} \right) = \sum_{n \geq 0} \frac{1}{(4n)!} x^{4n}.
+\end{equation}
+Now consider taking the integral of both sides. We have that
+\end{document}
