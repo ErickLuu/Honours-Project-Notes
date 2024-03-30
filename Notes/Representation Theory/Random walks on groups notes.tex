@@ -5,6 +5,8 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{url}
+\usepackage{hyperref}
+\usepackage{cleveref}
 
 % Environments
 
@@ -35,7 +37,7 @@ Notes from Steinberg, Representation theory of finite groups, chapter 11. All gr
 In a famous paper " Trailing the dovetail shuffle to its lair", Bayer and Diaconis showed that you had to riffle-shuffle a deck of cards seven times to randomly shuffle the deck. The paper used random walks on $S_n$ to model shuffling the deck.
 
 \section{Definitions}
-Suppose $G$ is a finite group with random variable $X$ and $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$. We can omit $X$.
+Suppose $G$ is a finite group and $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$.
 
 For a set $A \subseteq G$, we have that $P(A) = \sum_{g \in A} P(g)$. We define the support of $P$ as $\supp(P) = \lbrace g \in G : P(g) \neq 0 \rbrace$. 
 \section{Creating probability distributions}
@@ -78,6 +80,7 @@ We define the total variation distance between probabilities $P$ and $Q$ on a gr
 \end{proof}
 Finally, we have that $\|P - Q \|_{TV}$ is a metric:
 \begin{proposition}
+	\label{prop:distribution difference equality}
 	$\|P - Q\|_{TV} = \frac{1}{2} \|P - Q \|_1$. 
 \end{proposition}
 
@@ -158,6 +161,7 @@ We can extend the definition of Fourier transforms on cyclic groups to any finit
 Furthermore, we have that if $\chi, \psi \in \widehat{G}$, then $\widehat{\chi}(\psi) = \langle \chi, \psi \rangle = |G|\delta_{\chi, \psi}$. So $\widehat{\chi} = |G| \delta_{\chi}$, where $\delta_{\chi}(\psi) = 1$ if $\psi = \chi$ and 0 else. 
 
 \begin{theorem}
+	\label{thm:abelian dual commutation}
 	Let $G$ be an abelian group, and $a, b \in \mathbb{C}G$. Then $ \widehat{a \ast b} = \widehat{a} \widehat{b}$. 
 \end{theorem}
 
@@ -185,6 +189,7 @@ And setting $k = gh^{-1}$, so $g =kh$, we get that:
 \end{proof}
 
 \begin{theorem}
+	\label{thm:Eigenvector operators}
 	Let $G$ be a finite abelian group and $a \in \mathbb{C}(G)$. Define the operator $A: \mathbb{C}(G) \rightarrow \mathbb{C}(G)$ by $A(b) = a \ast b$. Then $A$ is linear and furthermore $\chi$ is an eigenvector with eigenvalue $\widehat{a}(\chi)$ for all $\chi \in \widehat{G}$. Therefore, $A$ is diagonalisable. 
 \end{theorem}
 
@@ -201,19 +206,72 @@ It is easy to show that $P \ast U = U$ and that $U$ is an eigenvector of $M$ wit
 
 
 \begin{theorem}[Diaconis]
+	\label{thm:Diaconis}
 	Let $G$ be a finite abelian group and let $P$ be a probability on $G$. Then $spec(P) = \lbrace \widehat{P}(\chi) : \chi \in \widehat{G} \rbrace$ where the multiplicity of $\lambda \in spec(P)$ are the number of characters where $\widehat{P}(\chi) = \lambda$. The orthonormal basis for the eigenspace of $\lambda$ is the set of all characters $\chi$ where $\widehat{P}(\chi) = \lambda$. 
 \end{theorem}
-This is a special case of the above lemma. 
+This is a special case of \cref{thm:Eigenvector operators}
 
 \begin{lemma}
+	\label{lem:Absolute Value Inequality}
 	Define $\|f\| = \sqrt{\langle f, f \rangle}$, where $f \in \mathbb{C}(G)$. Then $\|f \|_1 \leq |G| \|f \|$.
 \end{lemma}
 \begin{proof}
 	We have that $\|f \|_1 = |G| \langle f, \chi_1 \rangle \leq |G| \|f \| \|\chi_1 \| = |G| \|f \|$, where $\|\chi_1 \| = 1$ and we use the Cauchy-Schwartz inequality. 
 \end{proof}
 
-\begin{theorem}{Plancherel}
+\begin{theorem}[Plancherel]
+	\label{thm:Plancherel}
 	Let $G$ be a finite abelian group and let $a, b \in \mathbb{C}(G)$. Then $\langle a, b \rangle = 1/|G| \langle \widehat{a}, \widehat{b} \rangle$. 
 \end{theorem}
-We have that $a = 1/|G| \sum_{\chi \in \widehat{G}} \widehat{a}(\chi) \chi$, and $b = 1/|G| \sum_{\chi \in \widehat{G}} \widehat{b}(\chi) \chi$. Thus $\lbrace a, b \rbrace = 1/|G|^2 \langle \widehat{a}(\chi) \widehat(b)(\chi) \delta_{\chi, \chi} = 1/|G| \langle \widehat{a}, \widehat{b} \rangle$. 
+\begin{proof}
+	We have that $a = 1/|G| \sum_{\chi \in \widehat{G}} \widehat{a}(\chi) \chi$, and $b = 1/|G| \sum_{\chi \in \widehat{G}} \widehat{b}(\chi) \chi$. Thus \begin{equation}
+		\langle a, b \rangle = 1/|G|^2 \langle \widehat{a}(\chi) \widehat(b)(\chi) \delta_{\chi, \chi} = 1/|G| \langle \widehat{a}, \widehat{b} \rangle.
+	\end{equation}
+
+\end{proof}
+
+\begin{lemma}[Diaconis–Shahshahan Upper bound lemma]
+	\label{lem:Upper bound lemma}
+	Let $G$ be a finite abelian group, and let $F$ be the set of non-trivial irreducible characters of $G$. Let $Q$ be a probability on $G$.  Then:
+	\begin{equation}
+		\|Q - U\|^2_{TV} \leq \frac{1}{4} \sum_{\chi \in F} |\widehat{Q}(\chi)|^2.
+	\end{equation}
+\end{lemma}
+\begin{proof}[Proof]
+	From \cref{prop:distribution difference equality}, we have that:
+	\begin{equation}
+		\|Q - U\|^2_{TV} = \frac{1}{4} \| Q - U\|_1^2
+	\end{equation}
+	and from \cref{lem:Absolute Value Inequality}, we have that:
+	\begin{equation}
+		\frac{1}{4} \| P - Q\|_1^2 \leq \frac{|G|^2}{4} \| Q - U \|^2
+	\end{equation}
+	Then by \cref{thm:Plancherel},
+	\begin{equation}
+		|G|^2 \|Q - U \|^2 = |G| \left[ \langle \widehat{Q}, \widehat{Q} \rangle - 2 \langle \widehat{Q}, \widehat{U} \rangle + \langle \widehat{U}, \widehat{U} \rangle \right]
+	\end{equation}
+	As $\widehat{U} = \delta_{\chi_1}$, then $\widehat{U}(\chi) = \langle \chi_1, \chi \rangle$. 
+	Therefore, $\langle \chi_1, \chi_1 \rangle = 1/|G|$, and $\langle \widehat{Q}, \widehat{U} = \widehat{Q}(\chi_1) = 1/|G|$, and
+	\begin{equation}
+		\langle \widehat{Q}, \widehat{Q} \rangle = 1/|G| + 1/|G| \sum_{\chi \in F} \widehat{Q}(\chi) \overline{\widehat{Q}(\chi)}.
+	\end{equation}
+	Therefore, $|G|^2 \|Q - U \|^2 =  \sum_{\chi \in F}| \widehat{Q}(\chi)|^2$ and thus 
+	\begin{equation}
+		\|Q - U\|^2_{TV} \leq \frac{1}{4} \sum_{\chi \in F} |\widehat{Q}(\chi)|^2.
+	\end{equation}
+\end{proof}
+
+\begin{corollary}
+	\label{cor:Convolution Inequality}
+	Let $G$ be a finite abelian group and let $P$ be a probability on $G$. Then 
+	\begin{equation}
+	\|P^{\ast k} - U\|^2_{TV} \leq \frac{1}{4} \sum_{\chi \in F} |\widehat{P}(\chi)|^{2k}.
+\end{equation}
+\end{corollary}
+
+\begin{theorem}
+	If $P$ is a probability on a finite abelian group $G$ and $P$ is ergodic, then $P^{\ast n}$ converges to $U$.
+\end{theorem}
+It suffices to show that $|\widehat{P}(\chi) < 1$ for all nontrivial characters $\chi$ of $G$. Assume that $P(g) > 0$ with ergodicity. Recall that $|\widehat{P}(\chi)|\leq \sum_{g \in G} P(g) |\overline{\chi(g)}| = 1$, from \cref{thm:Diaconis}. We have that if equality holds, then $P(g) \overline{\chi(g)}$ are non-negative multiples of a common complex number. But $P(1) \geq 0$ and $\overline{\chi(1)} = 1$. Therefore, $P(1) \overline{\chi(1)} = P(1)$, but we have that there is a $\overline{\chi(g)} \neq 1$ for some $g \in G$. Thus we have that equality does not hold, so $|\widehat{P}(\chi) < 1$. 
+
 \end{document}

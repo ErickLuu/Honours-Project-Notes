@@ -268,4 +268,32 @@ We let $L^p$ be the space of measurable functions where $|f|^p$ has finite integ
 \begin{equation}
 	\|f \|_p := \|f\|_{L^p} = \left(\int_X |f|^p d\mu \right)^{1/p}.
 \end{equation}
+
+
+\begin{theorem}[Holder inequality]
+	Let $p \in (1, \infty)$ and $f \in L^p$. Then define the dual exponent $q$ satisfying $1/p + 1/q = 1$. Then if $g \in L^q$, then 
+	\begin{equation}
+		\| fg \|_1 \leq \|f \|_p \| g \|_q
+	\end{equation}
+	From $a^\theta b^{1-\theta} \leq \theta a + (1 - \theta) b$. 
+\end{theorem}
+
+\begin{theorem}[Minkowski Inequality]
+	If $f$ and $g \in L^p$, so does $f + g$ and:
+	\begin{equation}
+	\| f + g \|_p \leq \|f \|_p + \| g \|_p
+\end{equation}
+\end{theorem}
+
+\begin{lemma}
+	If $\mu(X)$ is finite, and $1 \leq p_1 \leq p_2 < \infty$, then $L^{p_2} \subseteq L^{p_1}$. Furthermore,
+	\begin{equation}
+		\| f\|_{p_1} \leq |\mu(X)|^{1/ p_1 - 1/p_2} \| f \|_{p_2}
+	\end{equation}
+	Set $F = |f|^{p_1}$, $G = 1$, $p = p_2/p_1$. and use Holder inequality.
+\end{lemma}
+
+\begin{proposition}[Chebyshev Inequality]
+	We have that $\mu \left( \left\lbrace x \in X : |f(x)| \leq \lambda\right\rbrace   \right) \leq \lambda^{-p} \int_X |f|^p d{\mu}$. 
+\end{proposition}
 \end{document}
