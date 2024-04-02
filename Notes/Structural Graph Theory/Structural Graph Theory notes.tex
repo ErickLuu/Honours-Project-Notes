@@ -448,4 +448,62 @@ For all $G$, the $\pw(G) = \min k$ such that $G$ is a spanning subgraph of an in
 We can show a similar result for treewidth as well:
 For all $G$, $\tw(G) = \min k$ such that $G$ is a spanning subgraph of a \textit{chordal graph} with no $K_{k + 2}$ subgraph. A chordal graph is a graph with no induced cycle with more than 4 vertices. This is equivalent to saying that $G$ has $\tw \leq k$ iff $G$ is a spanning subgraph of the intersection graph of a tree $T$ with max clique size $k + 1$. 
 $G$ is chordal if all minimal separators are a clique. 
+
+
+\section{Proof of Path-Width theorem}
+\begin{theorem}
+	\label{thm:Path-Width theorem }
+	For every forest $F$, if a graph $G$ is $F$-minor-free, then $\pw(G) \leq |F| - 2$.
+\end{theorem}
+The contrapositive is:
+\begin{theorem}
+	\label{thm:pw-tree contrapositive }
+	If a graph $G$ has path-width at least $w$, and $F$ is a forest where $|F| \leq w + 2$, then $G$ contains $F$ as a minor. 
+\end{theorem}
+Note that a complete graph on $|F|-1$ vertices has pathwidth $|F| - 2$. 
+We say that a separation is a pair $(A, B)$ of $V(G)$ where $A \cup B = V(G)$, there are no edges between $A - B$ and $B - A$, and the order of the separation is $|A \cap B |$. We can consider $A$ as being on the left of some separator, and $B$ on the right of some separator. We say that $(A, B) \leq (A', B')$ if:
+\begin{itemize}
+	\item $A \subseteq A'$
+	\item $B' \subseteq B$
+\end{itemize}
+So $(A', B')$ is to the "right" of $(A, B)$. For each $w \geq 0$, we say that $(A, B)$ is $w$-good, if we can decompose $A$ into a path of width at most $w$ and the last bag is $A \cap B$, the separator. 
+
+\subsection{Proof}
+\begin{lemma}
+	If $(A, B)$ and $(P, Q)$ are separations of $G$, $(A, B)$ is $w$-good, $(P, Q) \leq (A, B)$, and there are $|P \cap Q|$ vertex-disjoint paths of $G$ between $P$ and $B'$, then $(P, Q)$ is $w$-good. 
+\end{lemma}
+\begin{proof}
+	Let $R_1, ..., R_t$ be disjoint paths between $P$ and $B'$, where $t = | P \cap Q|$. Then we have that each path must pass through $P \cap Q$ as this is a separator, thus there are at least $t$ elements in the separator. Additionally, each path must belong inside $A$ as $A \cap B$ is also a separator. Therefore, $t \leq |A \cap B|$. 
+	Let $H = G[P] \cup \lbrace R_1, ..., R_t \rbrace$. As $H$ is in $A$, then there exists a path-decomposition of width at most $w$ where the last bag is precisely $A \cap B$, or the endpoints of $R_1, ..., R_t$. But contracting $R_1, ..., R_t$ to a single point yields a path-decomposition where the last bag is $P \cap Q$, as contracting $A \cap B$ along $R_1, ..., R_t$ yields $P \cap Q$. 
+\end{proof}
+
+We say that if $(A, B)$ and $(A', B')$ are separations of $G$, the second \textit{extends} the first if $(A, B) \leq (A', B')$ and the order of $(A', B')$ is at most the order of $(A, B)$. We say that a $w$-good separation of $G$ is maximal if no other $w$-good separation extends it. 
+
+Let $T$ be a tree, $(A, B)$ a separation. We say $(A, B)$ is $(w, T)$ spanning if:
+\begin{itemize}
+	\item $|A \cap B| = |T|$
+	\item There exists a model $\varphi$ of $T$ in $G[A]$ such that each block in the model contains a vertex in $A \cap B$
+	\item If $|T| \leq w + 1$ then $(A, B)$ is maximal $w$-good.
+\end{itemize}
+
+\begin{lemma}
+	Let $w \geq 0$ be an integer. Let $G$ be a graph with path-width at least $w$, and let $T$ be a tree, with $|T| \leq w + 2$. Then there exists a $(w, T)$ spanning separation of $G$. 
+\end{lemma}
+
+\begin{proof}
+	Fix $w$. Then if $|T| = 0$, let $A = \emptyset$, $B = V(G)$. Then $(A, B)$ is a $w$-good separation which is $(w, T)$-spanning.
+	
+	If $|T| = 1$, then let $v = V(T)$. Then we choose an arbitrary $v \in B$ such that $A = \lbrace v \rbrace$, $B = V(G)$, and extend by maximality. 
+	If $2 \leq |T| \leq w + 1$, then let $v$ be a leaf of $T$. we have that there is a  $(w, T - v)$-spanning separation $(A, B)$ of $G$ which is maximal $w$-good. Then let $u$ be the neighbour of $v$ in $T$ and let $u'$ be the intersection of the block of $u$ in $G$ and $B$. Then $u'$ has a vertex $v'$ in $B - A$, otherwise $(A, B - \lbrace u' \rbrace)$ is $w$-good and extends $(A, B)$, contradicting the maximality of $(A, B)$. 
+	
+	We assume that $(A \cup \lbrace v' \rbrace, B)$ is $w$-good. Therefore, there exists a maximal $w$-good separation $(A', B')$ that extends $(A \cup \lbrace v' \rbrace, B)$. Then $(A', B')$ has order exactly $|T|$ as it did not extend $(A, B)$. Now we wish to show that $(A', B')$ is $(w, T)$-spanning.
+	\paragraph{Contradiction argument}
+	Suppose not. Then there exists less than $|T|$ paths between $A \cup \lbrace v' \rbrace$ and $B'$. By Menger's theorem, then that implies that there exists a separator between $A \cup \lbrace v' \rbrace$ and $B'$ of order $< T$. Call this separator $(P, Q)$ with minimum order.
+	
+	We have that $(A \cup \lbrace v' \rbrace, B) \leq (P, Q) \leq (A', B')$. By Menger's theorem, there exists $|P \cap Q|$ vertex-disjoint paths from $P$ to $B'$. Therefore, $(P, Q)$ is $w$-good, by the above lemma. But $(P, Q)$ must extend $(A, B)$, since $|P \cap Q| \leq |A \cap B|$, and $(P, Q) \neq (A, B)$. However, this contradicts the maximality of $(A, B)$.
+	Therefore, there are $|T|$ disjoint paths between $A \cup \lbrace v \rbrace$ and $B'$. Therefore, $(A', B')$ is $(w, T)$-spanning.
+	
+	\paragraph{Conclusion}
+	Therefore, there is a $(w, T)$-spanning path separator $(A, B)$ where $|T| = w + 2$. Therefore, we have that $G[A]$ contains a model of $T$, therefore $G$ contains a model of $T$. Thus shown. 
+\end{proof}
 \end{document}

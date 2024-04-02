@@ -296,4 +296,53 @@ We let $L^p$ be the space of measurable functions where $|f|^p$ has finite integ
 \begin{proposition}[Chebyshev Inequality]
 	We have that $\mu \left( \left\lbrace x \in X : |f(x)| \leq \lambda\right\rbrace   \right) \leq \lambda^{-p} \int_X |f|^p d{\mu}$. 
 \end{proposition}
+We use the Holder inequality on $|f|^p$, $\rho = \lambda^p$.
+
+\subsection{Space $L^\infty$}
+We say that $L^{\infty}$ is the space of essentially bounded functions, which are $\mu$-measurable, $\mu$-almost everywhere bounded.
+We define:
+\begin{equation}
+	S_f(N) := \sup \lbrace |f|(x): x \in N^c \rbrace
+\end{equation}
+and:
+\begin{equation}
+	\|f \|_{\infty} = \inf \lbrace S_f(N): N \in S, \mu(N) = 0 \rbrace
+\end{equation}
+We say $f \in L^\infty$ when $\|f\|_{\infty} < \infty$. 
+We have that $|f|(x) \leq \|f\|_{\infty}$ for $\mu$-almost every $x$. 
+
+We have that $L^\infty$ is a normed space. where we take the sum of two elements $\|f + g \|_{\infty}$ to be the intersection of the almost-everywhere spaces. 
+\begin{theorem}[Holder Inequality]
+	Let $p \in [1, \infty]$. If $f \in L^p$ and $g \in L^\infty$, then:
+	\begin{equation}
+		\|fg \|_p \leq \|f\|_p \|g \|_\infty
+	\end{equation}
+\end{theorem}
+
+\subsection{Completeness}
+We say that $\left\lbrace f_n \right\rbrace_{n \in \mathbb{N}} \in L^p$ \textit{converges in $L^p$} to $g$ if:
+
+\begin{equation}
+	\lim_{n \rightarrow \infty} \| f_n - g \|_p = 0.
+\end{equation}
+The sequence is Cauchy if for any $\varepsilon > 0$, there exists $M \in \mathbb{N}$ such that:
+\begin{equation}
+	\|f_n - f_m \|_{p} \leq \varepsilon
+\end{equation}
+for all $n, m  > M$. 
+
+\begin{theorem}[Riesz- Fischer]
+	$L^p$ with $\| \cdot \|_{p}$ is complete. 
+\end{theorem}
+\subsection{Miscellania}
+Small functions are dense.
+Suppose $\Omega \in \mathcal{S}$ is a $\mu$-measurable subset with finite measure. Then if $\varphi$ is convex and $f : X \rightarrow \mathbb{R}$ is integrable, then:
+\begin{equation}
+	\int_{\Omega} (\varphi \circ f) \, d\mu 
+\end{equation}
+is well defined
+and
+\begin{equation}
+	\varphi \left(\frac{1}{\mu(\Omega)} \int_{\Omega} f \, d\mu \right)\leq \frac{1}{\mu(\Omega)}\int_{\Omega} (\varphi \circ f) \, d\mu 
+\end{equation}
 \end{document}
