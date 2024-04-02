@@ -1,0 +1,70 @@
+\documentclass[]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\makeatletter
+\setbeamertemplate{footline}
+{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=1\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+		\end{beamercolorbox}%
+	}%
+	\vskip0pt%
+}
+\makeatother
+
+%\setbeameroption{show notes on second screen}
+\setbeamertemplate{page number in head/foot}{}
+\setbeamertemplate{title in head/foot}{}
+\setbeamertemplate{author in head/foot}{}
+%opening
+\title{Cyclotomic Polynomials}
+\subtitle{Proving there are infinitely many primes of the form $1 \mod n$}
+\author{Eric Luu}
+
+\begin{document}
+\begin{frame}
+	Notes adapted from AMSI summer school- Dirichlet's theorem on prime progressions. 
+	Notes created by Tim Trudgian, Valeriia Starichkova, and Michaela Cully-Hugill.
+\end{frame}
+
+\begin{frame}
+	
+\frametitle{Cyclotomic Polynomial}
+The $n$-th cyclotomic polynomial is:
+	\begin{equation}
+		\Phi_n(x) = \prod_{k \in \mathbb{Z}_n^*}\left(x - e^{\frac{2 i \pi k}{n}}\right)
+	\end{equation}
+	where $\mathbb{Z}_n^* := \left\lbrace k : 1 \leq k \leq n, \gcd(k, n) = 1 \right\rbrace$. 
+	\begin{block}{Facts about cyclotomic polynomials}
+		\begin{enumerate}
+			\item Monic polynomial
+			\item Integer polynomial
+			\item $\Phi_n(0) = 1$
+			\item 		\begin{equation}
+				x^n - 1 = \prod_{d|n} \Phi_d(x).
+			\end{equation}
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Technical lemma}
+	If $p$ is prime, and $d, m, d \neq m$ are positive integers where $d | m$, $p \nmid m$, then $P_d(x)$ and $\phi_m(x)$ have no common roots$\mod p$. 
+\note{
+Suppose not, and let $a$ be a common root mod $p$ such that $P_d(a) \equiv \phi_m(a) \mod p$.  Then we can factor out $a$ on both sides to yield $P_d(a) \equiv (x - a)f(x) \mod p$, $\phi_m(a) \equiv (x - a) g(x) \mod p$. We can also write $X^m - 1$ as $\Phi_m(x) (x^d - 1) \prod_{d' | m, d'\neq m, d' \nmid d} \Phi_{d'}(x)$, where $\prod_{d' | m, d'\neq m, d' \nmid d} \Phi_{d'}(x)$ has integer coefficients. 
+However, this means that $\Phi_m(x) \equiv (x - a)^2 s(x) \mod p$. Differentiating both sides, we have that $mx^{m-1} \equiv (x-a) s_1(x) \mod p$, so $ma^{m-1} \equiv 0 \mod p$. But as $m$ is coprime to $p$, then $a^{m-1} \equiv 0 \mod p$, so $p|a^{m-1}$, implying $p|a$. But $a^d \equiv -1 \mod p$, so contradiction. 
+}
+\end{frame}
+\begin{frame}
+	\frametitle{Proof of Dirichlet's theorem $1 \mod m$}
+	\begin{enumerate}
+		\item Assume not. Finitely many primes, $p_1, ..., p_N$.
+		\item There exists an integer $l$ such that $\Phi_m(l m p_1 ... p_N) > 1$(monic).
+		\item Let $a = l m p_1 ... p_N$. 
+		\item Let $p$ be a prime factor of $\Phi_m(a)$. As $\Phi_n(0) = 1$, then $p \nmid a$. Therefore, $\gcd(a, p) = 1$.
+		\item From above, $p | a^m - 1$. Assume for contradiction $m$ is not the order of $a \mod p$. Then use technical lemma to find contradiction.
+		\item Order of $a \mod p$ is $m$. Then $a^{p-1} \equiv 1 \mod p$. Thus $m | p-1$. But that implies $ p \equiv 1 \mod m$, $p \nmid a$.
+	\end{enumerate}
+\end{frame}
+\end{document}

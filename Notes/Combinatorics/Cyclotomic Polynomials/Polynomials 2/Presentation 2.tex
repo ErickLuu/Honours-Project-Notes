@@ -1,0 +1,82 @@
+\documentclass[]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\makeatletter
+\setbeamertemplate{footline}
+{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=1\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+		\end{beamercolorbox}%
+	}%
+	\vskip0pt%
+}
+\makeatother
+
+%\setbeameroption{show notes on second screen}
+\setbeamertemplate{page number in head/foot}{}
+\setbeamertemplate{title in head/foot}{}
+\setbeamertemplate{author in head/foot}{}
+%opening
+\title{Cyclotomic Polynomials}
+\author{Eric Luu}
+\newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Cyclotomic Polynomial}
+\begin{block}{Notes}
+	Notes by Richard P. Stanley
+\end{block}
+The $n$-th cyclotomic polynomial is:
+	\begin{equation}
+		\Phi_n(x) = \prod_{k \in \mathbb{Z}_n^*}\left(x - e^{\frac{2 i \pi k}{n}}\right)
+	\end{equation}
+	where $\mathbb{Z}_n^* := \left\lbrace k : 1 \leq k \leq n, \gcd(k, n) = 1 \right\rbrace$. 
+\note{
+}
+\end{frame}
+
+\begin{frame}{Calculating Cylcotomic polynomials}
+	\begin{align*}
+		\Phi_1(x) &= x - 1\\
+		\Phi_2(x) &= \frac{x^2 - 1}{x - 1}\\
+		\Phi_3(x) &= \frac{x^3 - 1}{x-1}\\
+		\Phi_6(x) &= x^2 - x + 1
+	\end{align*}
+	Properties:
+	\begin{enumerate}
+		\item Monic polynomial
+		\item Integer polynomial
+		\item $\Phi_n(0) = 1$
+		\item $x^n - 1 = \prod_{d|n} \Phi_d(x)$.
+	\end{enumerate}
+\end{frame}
+\begin{frame}{Calculations}
+	\begin{align*}
+		x^6 - 1 &= \prod_{d | 6} \Phi_d(x)\\
+		&= \Phi_1(x) \Phi_2(x) \Phi_3(x) \Phi_6(x)\\
+	\end{align*}
+	So:
+	\begin{equation}
+		\frac{\Phi_6(x)}{1-x} = \frac{1 - x^6}{(1 - x^2)(1 - x^3)}
+	\end{equation}
+\end{frame}
+\begin{frame}[allowframebreaks]{Counting}
+	\begin{theorem}[Schur, 1926]
+		The number of partitions of $n$ where no part appears exactly once, $p_n$, is the same as the number of partitions of $n$ into parts congruent to $0, 2, 3, 4 \mod 6$. 
+	\end{theorem}
+		$P(x) \ops \lbrace p_n \rbrace_{n \geq 0}$.
+		Then:
+		\begin{align*}
+			P(x) &= \prod_{k \geq 1}(1 + x^{2k} + x^{3k} + ...)\\
+			&= \prod_{k \geq 1}\left(\frac{1}{1-x^k} - x^k\right)\\
+			&= \prod_{k \geq 1} \left(\frac{1 - x^k + x^{2k}}{1-x^k}\right)\\
+			&= \prod_{k \geq 1} \frac{\Phi_6(x^k)}{1-x^k}\\
+			&= \prod_{k \geq 1} \frac{1 - x^{6k}}{(1 - x^{2k})(1 - x^{3k})}\\
+			&= \prod \frac{1}{(1 - x^{2})}\frac{1}{(1 - x^{3})}\frac{1}{(1 - x^{4})}\frac{1}{(1 - x^{6})}...
+		\end{align*}
+\note{We double count each $1 - x^{6k}$ for every higher $k$ so what remains are multiples of 2 and multiples of 3, counted exactly once.}
+\end{frame}
+\end{document}
