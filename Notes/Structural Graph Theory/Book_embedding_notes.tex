@@ -381,6 +381,12 @@ The proof of this will be shown below.
 \todo{Do later}
 
 
+\subsubsection{A short discussion of topology}
+A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. All surfaces are assumed to be closed. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
+
+We can classify all surfaces as the connected sums of tori or projective planes. We say that a surface $\Sigma$ is orientable if it is a connected sum of tori, and $\Sigma$ is non-orientable if it is a connected sum of projective planes. Note that if $P$ is a projective 
+
+We say that the genus 
 \subsection{Bounded genus}
 It was shown by Heath and Istrail that the family of graphs of bounded genus have bounded page-number. 
 We refer to the "layout" of the graph as the book-embedding of the graph and "embedding" as the surface-embedding. We refer to orientable surfaces as genus $g$ as a sphere with $g$ handles, and a nonorientable surface of genus $g$ as a sphere with $g$ cross-caps. We define the orientable genus of a graph $G$, denoted $\gamma(G)$, as the minimum orientable surface genus that $G$ can be embedded on. The nonorientable genus of a graph $G$, denoted $\tilde{\gamma}(G)$, is the minimum nonorientable genus surface that $G$ can be embedded on. Mohar\cite{moharOrientableGenusGraphs1998} claims that $\tilde{\gamma}(G) \leq 2 \gamma(G) + 1$ for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that, Auslander et al.\cite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus. 
@@ -408,8 +414,10 @@ We first have to know that the planar-nonplanar decomposition exists.
 
 Suppose $G$ is embedded on an surface $\Sigma$. Then we wish to triangulate $G$ to form $G_T$. We choose a single triangle as the starting point and we add traces to the planar part incrementally. At each step, we set $G_P$ to be the current planar part and $E_N$ as the edges that are outside the planar part. There are two types of edges in $E_N$: edges which have both endpoints in $V(G_P)$, so cannot become edges of $G_P$, and edges that have either one or no endpoints in $V(G_P)$. 
 
+We want to maintain the property that if $v \in G_P$, and edge $vw \in E_n$, then $v$ is a vertex on the boundary of $G_p$. 
+\paragraph{Adding vertices to biconnected block}
 For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \rightarrow v_k$ is trace with no edge of $E_N$ incident to $v_j$, then $v_iv_k \in E(G_T)$ is called a safe edge. If $v_i \rightarrow v_j$ is on the boundary of $G_P$, and $v_k \notin V(G_P)$, and $v_i,v_j,v_k$ is the boundary of a face, then $v_k$ is a safe vertex and we can add it to $G_P$. 
-
+\paragraph{Creating new biconnected block}
 If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
 \todo{Add pictures! this proof needs lots of pictures}
 
@@ -419,7 +427,7 @@ We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the bou
 	\item $u_1v_1$ and $u_2v_2$ are the only edges of $E_N$ on the boundary of $F$
 	\item There exist traces $T_u = u_1 \rightarrow ... \rightarrow u_2$ and $T_v = v_1 \rightarrow ... \rightarrow v_2$ such that $T_u$ and $T_v$ are on the boundary of $F$.
 \end{enumerate}
-We may think of $G_n$ as living on a locally flat part of $S$ and the homotopy class $u_1v_1$ and $u_2 v_2$ living on a handle (alternatively, passing through a crosscap) of the surface such that if we take $G_n$ to a point, there exists a homotopy from $u_1v_1$ to $u_2v_2$. These form equivalence classes of the vertices.
+We may think of $G_n$ as living on a locally flat part of $S$ and the homotopy class $u_1v_1$ and $u_2 v_2$ living on a handle (alternatively, passing through a crosscap such that they bound a face) of the surface such that if we take $G_n$ to a point, there exists a homotopy from $u_1v_1$ to $u_2v_2$. These form equivalence classes of the vertices.
 
 \begin{lemma}
 	If $C$ is a homotopy class of edges $u_1v_1, ..., u_kv_k$ with a natural order, then we can build traces $T_1$ and $T_2$ by building the trace from $u_1$ to $u_k$ passing through all $u_i$, and $v_1$ to $v_k$ passing through all $v_i$. 
