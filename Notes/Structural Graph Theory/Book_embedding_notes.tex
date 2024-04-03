@@ -403,6 +403,17 @@ This satisfies a list of properties:
 	\item $E(G_P)$ is maximal, so we cannot add edges from $E_N$ to $G_P$ without breaking properties 1 and 2. 
 \end{enumerate}
 
+\subsubsection{Decomposing graphs on surfaces}\label{sssec:Planar_nonplanar_decomp}
+We first have to know that the planar-nonplanar decomposition exists. 
+
+Suppose $G$ is embedded on an surface $\Sigma$. Then we wish to triangulate $G$ to form $G_T$. We choose a single triangle as the starting point and we add traces to the planar part incrementally. At each step, we set $G_P$ to be the current planar part and $E_N$ as the edges that are outside the planar part. There are two types of edges in $E_N$: edges which have both endpoints in $V(G_P)$, so cannot become edges of $G_P$, and edges that have either one or no endpoints in $V(G_P)$. 
+
+For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \rightarrow v_k$ is trace with no edge of $E_N$ incident to $v_j$, then $v_iv_k \in E(G_T)$ is called a safe edge. If $v_i \rightarrow v_j$ is on the boundary of $G_P$, and $v_k \notin V(G_P)$, and $v_i,v_j,v_k$ is the boundary of a face, then $v_k$ is a safe vertex and we can add it to $G_P$. 
+
+If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
+\todo{Add pictures! this proof needs lots of pictures}
+
+\subsubsection{Proving the decomposition}
 We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the boundary of $F_0$ appears at least once, and twice if it is an articulation point, and each edge on the boundary of $F_0$ is encountered at least once on this cycle. Heath and Istrail refer to a directed subpath of the cycle $C_0$ as a trace, so trace $T = v_1 \rightarrow v_2 \rightarrow ... \rightarrow v_t$. The inverse trace is $T^{-1} = v_t \rightarrow v_{t-1} \rightarrow ... \rightarrow v_1$. We now wish to partition $E_N$ into equivalence classes. Suppose that $u_1v_1, u_2v_2 \in E_N$ are part of the boundary of the same face $F$ on the embedding of $G$. Then $u_1v_1$ and $u_2v_2$ are homotopic (with respect to $F$) if:
 \begin{enumerate}
 	\item $u_1v_1$ and $u_2v_2$ are the only edges of $E_N$ on the boundary of $F$
@@ -449,16 +460,6 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 \begin{proof}
 \todo{	content...}
 \end{proof}
-
-\subsubsection{Decomposing graphs on surfaces}\label{sssec:Planar_nonplanar_decomp}
-We first have to know that the planar-nonplanar decomposition exists. 
-
-Suppose $G$ is embedded on an surface $\Sigma$. Then we wish to triangulate $G$ to form $G_T$. We choose a single triangle as the starting point and we add traces to the planar part incrementally. At each step, we set $G_P$ to be the current planar part and $E_N$ as the edges that are outside the planar part. There are two types of edges in $E_N$: edges which have both endpoints in $V(G_P)$, so cannot become edges of $G_P$, and edges that have either one or no endpoints in $V(G_P)$. 
-
-For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \rightarrow v_k$ is trace with no edge of $E_N$ incident to $v_j$, then $v_iv_k \in E(G_T)$ is called a safe edge. If $v_i \rightarrow v_j$ is on the boundary of $G_P$, and $v_k \notin V(G_P)$, and $v_i,v_j,v_k$ is the boundary of a face, then $v_k$ is a safe vertex and we can add it to $G_P$. 
-
-If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
-\todo{Add pictures! this proof needs lots of pictures}
 
 \printbibliography
 \end{document}
