@@ -384,9 +384,10 @@ The proof of this will be shown below.
 \subsubsection{A short discussion of topology}
 A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. All surfaces are assumed to be closed. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
 
-We can classify all surfaces as the connected sums of tori or projective planes. We say that a surface $\Sigma$ is orientable if it is a connected sum of tori, and $\Sigma$ is non-orientable if it is a connected sum of projective planes. Note that if $P$ is a projective 
+We can classify all surfaces as the connected sum $\# $ of tori or projective planes. We say that a surface $\Sigma$ is orientable if it is a connected sum of tori, and $\Sigma$ is non-orientable if it is a connected sum of projective planes. Note that $P \# T = P \# P \# P$.
 
-We say that the genus 
+We say that the genus $g$ of an non-orientable surface is the number of projective planes, and the Euler characteristic is $2 - g$.
+We say that the genus $g$ of an orientable surface is twice the number of tori connected together, and the Euler characteristic is $2 - g$. This is different from the regular context of genus, where it is the number of the connected tori. This is because we want to keep the Euler characteristic to be $2-g$. 
 \subsection{Bounded genus}
 It was shown by Heath and Istrail that the family of graphs of bounded genus have bounded page-number. 
 We refer to the "layout" of the graph as the book-embedding of the graph and "embedding" as the surface-embedding. We refer to orientable surfaces as genus $g$ as a sphere with $g$ handles, and a nonorientable surface of genus $g$ as a sphere with $g$ cross-caps. We define the orientable genus of a graph $G$, denoted $\gamma(G)$, as the minimum orientable surface genus that $G$ can be embedded on. The nonorientable genus of a graph $G$, denoted $\tilde{\gamma}(G)$, is the minimum nonorientable genus surface that $G$ can be embedded on. Mohar\cite{moharOrientableGenusGraphs1998} claims that $\tilde{\gamma}(G) \leq 2 \gamma(G) + 1$ for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that, Auslander et al.\cite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus. 
@@ -418,7 +419,8 @@ We want to maintain the property that if $v \in G_P$, and edge $vw \in E_n$, the
 \paragraph{Adding vertices to biconnected block}
 For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \rightarrow v_k$ is trace with no edge of $E_N$ incident to $v_j$, then $v_iv_k \in E(G_T)$ is called a safe edge. If $v_i \rightarrow v_j$ is on the boundary of $G_P$, and $v_k \notin V(G_P)$, and $v_i,v_j,v_k$ is the boundary of a face, then $v_k$ is a safe vertex and we can add it to $G_P$. 
 \paragraph{Creating new biconnected block}
-If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
+If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $(x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
+We then add all safe edges to the picture, as we are finished with the edges inside.
 \todo{Add pictures! this proof needs lots of pictures}
 
 \subsubsection{Proving the decomposition}
@@ -459,7 +461,7 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an orientable surface $\Sigma$. Then $G$ can be embedded on at most $18g - 5$ pages.
 \end{lemma}
 \begin{proof}
-	We use Yannikakis' algorithm to lay out the nonplanar spanning subgraph $G_P$ on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in $E_P$, we allocate three pages. One page is for vertices in the same block, and the other two ages are used for edges between blocks, the biconnected components of $G$. Therefore, we need at most $4 + 3(6g - 3) = 18g-5$ pages if $G$ has a planar-nonplanar decomposition. 
+	We use Yannikakis' algorithm to lay out the nonplanar spanning subgraph $G_P$ on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in $E_P$, we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks, the biconnected components of $G$. We need two as we could have some which span blocks in a way that forces them to be on different pages. Therefore, we need at most $4 + 3(6g - 3) = 18g-5$ pages if $G$ has a planar-nonplanar decomposition. 
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_nonorientable}
@@ -467,6 +469,8 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 \end{lemma}
 \begin{proof}
 \todo{	content...}
+
+We want to add edges in a controlled way so that the traces that are reversed become unreversed. 
 \end{proof}
 
 \printbibliography
