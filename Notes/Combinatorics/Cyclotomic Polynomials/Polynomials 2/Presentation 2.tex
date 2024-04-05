@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \makeatletter
+\setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}
 {%
 	\leavevmode%
@@ -25,24 +26,23 @@
 
 
 \begin{frame}
-\frametitle{Cyclotomic Polynomial}
-\begin{block}{Notes}
-	Notes by Richard P. Stanley
-\end{block}
-The $n$-th cyclotomic polynomial is:
-	\begin{equation}
+\frametitle{Cyclotomic Polynomials}
+\begin{block}{What is a cyclotomic polynomial?}
+		\begin{equation}
 		\Phi_n(x) = \prod_{k \in \mathbb{Z}_n^*}\left(x - e^{\frac{2 i \pi k}{n}}\right)
 	\end{equation}
 	where $\mathbb{Z}_n^* := \left\lbrace k : 1 \leq k \leq n, \gcd(k, n) = 1 \right\rbrace$. 
-\note{
-}
+\end{block}
+
 \end{frame}
 
-\begin{frame}{Calculating Cylcotomic polynomials}
+\begin{frame}{Calculating Cyclotomic polynomials}
 	\begin{align*}
 		\Phi_1(x) &= x - 1\\
-		\Phi_2(x) &= \frac{x^2 - 1}{x - 1}\\
-		\Phi_3(x) &= \frac{x^3 - 1}{x-1}\\
+		\Phi_2(x) &= \frac{x^2 - 1}{x - 1} = x + 1\\
+		\Phi_3(x) &= \frac{x^3 - 1}{x-1} = x^2 + x + 1\\
+		\Phi_4(x) &= x^2 + 1\\
+		\Phi_5(x) &= x^4 + x^3 + x^2 + x + 1\\
 		\Phi_6(x) &= x^2 - x + 1
 	\end{align*}
 	Properties:
@@ -67,6 +67,7 @@ The $n$-th cyclotomic polynomial is:
 	\begin{theorem}[Schur, 1926]
 		The number of partitions of $n$ where no part appears exactly once, $p_n$, is the same as the number of partitions of $n$ into parts congruent to $0, 2, 3, 4 \mod 6$. 
 	\end{theorem}
+		Proof by Richard P. Stanley.
 		$P(x) \ops \lbrace p_n \rbrace_{n \geq 0}$.
 		Then:
 		\begin{align*}
@@ -78,5 +79,16 @@ The $n$-th cyclotomic polynomial is:
 			&= \prod \frac{1}{(1 - x^{2})}\frac{1}{(1 - x^{3})}\frac{1}{(1 - x^{4})}\frac{1}{(1 - x^{6})}...
 		\end{align*}
 \note{We double count each $1 - x^{6k}$ for every higher $k$ so what remains are multiples of 2 and multiples of 3, counted exactly once.}
+\end{frame}
+
+\begin{frame}{Cyclotomic sets}
+	\begin{definition}
+		A cyclotomic set is a subset of integers such that:
+		\begin{equation}
+			\frac{1}{1-x} - \sum_{j \in S} x^j = \frac{N_S(x)}{1-x}
+		\end{equation}
+		where $N_S(x)$ is a finite product of cyclotomic polynomials.
+	\end{definition}
+	Classification is wide open!
 \end{frame}
 \end{document}
