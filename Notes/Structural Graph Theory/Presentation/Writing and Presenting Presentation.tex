@@ -1,0 +1,84 @@
+\documentclass[]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{svg}
+\usepackage{todonotes}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}
+{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=1\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+		\end{beamercolorbox}%
+	}%
+	\vskip0pt%
+}
+\makeatother
+
+%\setbeameroption{show notes on second screen}
+\setbeamertemplate{page number in head/foot}{}
+\setbeamertemplate{title in head/foot}{}
+\setbeamertemplate{author in head/foot}{}
+%opening
+\title{Book embeddings of $K_t$-minor free graphs}
+\author{Eric Luu}
+\newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
+\begin{document}
+
+\frame{\titlepage}
+\begin{frame}{Graph minors}
+	$H$ is a \textit{graph minor} of $G$ if $H$ can be obtained from $G$ by contracting edges, deleting edges, and deleting vertices.
+	\begin{definition}[$K_t$-minor free]
+		A graph $G$ is $K_t$-minor free if $K_t$ is not a minor of $G$.
+	\end{definition}
+	\begin{figure}[h]
+		\centering
+		\includesvg[scale=0.2]{Drawings/P10.svg}
+		\includesvg[scale=0.2]{Drawings/P10 contraction to K5}
+		\caption{The Petersen graph has a $K_5$ minor.}\label{P10contraction}
+	\end{figure}
+	\note{The Petersen graph is $K_6$-minor-free as there is no way to contract edges such that there is a $K_6$ minor. Note the Petersen graph has 10 vertices, so if there was a $K_6$ minor, there would have to be a vertex which does not get contracted. But all vertices have degree 3 so it would not be $K_6$.}
+\end{frame}
+
+\begin{frame}{$K_t$-minor-free graphs, $ 1 \leq t \leq 5$}
+	\begin{itemize}
+		\item $K_1$-minor-free graph is the empty graph
+		\item $K_2$-minor-free graphs have no edges
+		\item $K_3$-minor-free graphs are forests
+		\item $K_4$-minor-free graphs are graphs whose biconnected components are series parallel graphs
+		\item $K_5$-minor-free graphs are almost planar graphs.
+	\end{itemize}
+\end{frame}
+\begin{frame}[allowframebreaks]{Pagenumber}
+	Embed graph $G$ on series of half-planes identified on edge where:
+	\begin{itemize}
+		\item $V(G)$ lies on boundary of half-planes
+		\item $E(G)$ lies on a single half plane so that no two edges cross
+	\end{itemize}
+	Half planes are \textit{pages}, vertices lie on spines of a book. 
+	So book embedding has a vertex ordering $(\leq)$ and a function $\varphi: E(G) \rightarrow \lbrace 1, 2, ..., n \rbrace$ where we assign edges to pages.
+	Can use cyclic ordering to not worry about the first vertex. Many proofs are agnostic to the first starting vertex.
+	\begin{block}{Pagenumber}
+		The \textit{pagenumber} (or book-thickness) of $G$ is the smallest number of pages needed to embed a graph $G$.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Examples}
+	\begin{itemize}
+		\item $G$ has pagenumber 1 iff $G$ is outerplanar ( all vertices on one face )
+		\item $G$ has pagenumber 2 iff $G$ is Hamiltonian and planar
+	\end{itemize}
+	Easy examples, much harder to classify beyond.
+\end{frame}
+
+\begin{frame}
+	Yannikakis \note{Add citation}
+	All planar graphs can be embedded in 4 pages.
+\end{frame}
+\note{Discuss easier example, look at Shor paper}
+
+\note{Add notes on Heath + Istrail paper}
+
+\note{Do not discuss Robertson-Seymour, will take up entire 20 minutes}
+\end{document}
