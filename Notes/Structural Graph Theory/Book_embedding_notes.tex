@@ -58,7 +58,7 @@ eprint = false
 
 \maketitle
 \section{Introduction}\label{sec:introduction}
-The concept of the \textit{pagenumber} of a graph was discovered by Bernhart and Kainen\cite{bernhartBookThicknessGraph1979} in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph is a way to arrange the vertices on the "spine" of a book and arrange the edges on "pages" of a book, or half-planes. The pagenumber of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
+The concept of the \textit{pagenumber} of a graph was discovered by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979} in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph is a way to arrange the vertices on the "spine" of a book and arrange the edges on "pages" of a book, or half-planes. The pagenumber of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
 \paragraph{Robertson-Seymour Graph structure theorem}
 Robertson and Seymour, in a landmark series of 23 pages, drew a rough characterisation of $K_t$-minor free graphs, among other extremely famous results. They showed that if a graph $G$ does not have $K_t$ as a minor, then the reason is because they can be almost (but not quite) drawn without crossings on a surface with bounded genus. 
 
@@ -157,7 +157,7 @@ The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace
 	Let $T_1, ..., T_k$ be subtrees of a tree $T$ such that for every pair of trees, there is a vertex in common. Then there exists a vertex which is common to all trees.
 \end{lemma}
 \begin{proof}[Helly property]
-	If $T_1$, $T_2$ and $T_3$ are subtrees of $T$ such that the vertex sets are pairwise nonempty, then there is a common vertex in all three subtrees. If this is not the case, denote $v_1$ as a vertex in the intersection of $T_1$ and $T_2$, $v_2$ as the vertex in $T_1 \cap T_3$, and $v_3$ as the vertex in $T_2$ and $T_3$. Then there exists a unique path $P$ in $T_1$ from $v_1$ to $v_2$. Choose two vertices $x$ and $y$ on $P$ such that they are disjoint....
+	If $T_1$, $T_2$ and $T_3$ are subtrees of $T$ such that the vertex sets are pairwise nonempty, then there is a common vertex in all three subtrees. If this is not the case, denote $v_1$ as a vertex in the intersection of $T_1$ and $T_2$, $v_2$ as the vertex in $T_1 \cap T_3$, and $v_3$ as the vertex in $T_2$ and $T_3$. Then there exists a unique path $P$ in $T_1$ from $v_1$ to $v_2$.
 \end{proof}
 
 \begin{theorem}[Clique theorem]\label{thm:clique}
@@ -198,8 +198,8 @@ A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a s
 	If $\tw(G) \leq k$, then $G$ is $K_{k+2}$-minor-free. 
 \end{theorem}
 \begin{proof}
-	We shall prove the contrapositive: If $K_t$ is a minor of $G$, then $tw(G) \geq t-1$.
-	If $K_t$ is a minor of $G$, and $\tw(G) \leq k$, then we have that $\tw(K_t) \leq \tw(G) \leq k$, but $\tw(K_t) = t-1 \leq k$, so $t \leq k + 1$. Thus shown a family of minor-closed which are $K_t$-minor free. 
+	We shall prove the contrapositive: If $K_t$ is a minor of $G$, then $\tw(G) \geq t-1$.
+	If $K_t$ is a minor of $G$, then we have that from \cref{thm:tw_minor_closure} that $\tw(K_t) \leq \tw(G)$. As $\tw(K_t) = r-1$, then we have that $\tw(G) \geq t - 1$. 
 \end{proof}
 
 \subsection{Historical discussion}\label{ssec:tw_historical}
@@ -219,13 +219,13 @@ We define $\had(G)$ to be the largest $t$ such that $G$ has a $K_t$ minor.
 	If $G$ is a planar graph, then $G$ is $K_5$-minor-free.
 \end{theorem}
 \begin{proof}
-	If $G$ is planar with $n$ vertices and $m$ edges, then we have that $m \leq 3n -6$. However, we have that $K_5$ has $5$ vertices and $10$edges, but we have that $ 10 > 3 \times 5 - 6$, so $K_5$ is not planar. As the family of planar graphs is minor-closed, then if $G$ is planar, then $K_5$ is minor-free.
+	If $G$ is planar with $n$ vertices and $m$ edges, then we have that $m \leq 3n -6$. However, we have that $K_5$ has $5$ vertices and $10$ edges, but we have that $ 10 > 3 \times 5 - 6$, so $K_5$ is not planar. As the family of planar graphs is minor-closed, then if $G$ is planar, then $K_5$ is minor-free.
 \end{proof}
 
 \subsubsection{Genus-g graphs}\label{sssec:Graph_genus}
-We define the genus $g$ of a surface $\Sigma$ to be 2 times the number of handles + the number of crosscaps. From topology, we know that the connected sum of the torus $T$ and the projective plane $\mathbb{R}P^2$ is diffeomorphic to the connected sum of three copies of $\mathbb{R}P^2$, thus we can make any surface with crosscaps and handles to be purely crosscaps. Therefore, the Euler characteristic $\chi = 2 - g$ for both orientable and non-orientable surfaces. Note that the genus is defined slightly differently from topology. We do this to allow non-orientable and orientable surfaces to coincide in genus and Euler characteristic.
+We define the genus $g$ of a surface $\Sigma$ to be 2 times the number of handles + the number of crosscaps. From topology, we know that the connected sum of the torus $T$ and the projective plane $\mathbb{R}P^2$ is diffeomorphic to the connected sum of three copies of $\mathbb{R}P^2$, thus we can make any surface with crosscaps and handles to be purely crosscaps. Therefore, the Euler characteristic $\chi = 2 - g$ for both orientable and non-orientable surfaces. Note that the genus is defined slightly differently from topology. We do this to allow non-orientable and orientable surfaces to coincide in the formula relating the genus and Euler characteristic.
 
-We define the \textit{genus} of a graph $G$ to be the smallest genus surface $\Sigma$ (note that $\Sigma$ can be orientable or nonorientable). 
+We define the \textit{genus} of a graph $G$ to be the smallest genus surface $\Sigma$ such that $G$ can be embedded on $\Sigma$ without crossings (note that $\Sigma$ can be orientable or nonorientable). 
 
 \begin{theorem}[Bounded genus]\label{thm:bounded_genus_kt_free}
 	If $G$ is a genus $g$ graph, then $G$ is $K_t$-minor free, where $t > \sqrt{6g} + 4$. 
@@ -468,9 +468,7 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an non-orientable surface $\Sigma$. Then $G$ can be embedded on at most $9g - 1$ pages.
 \end{lemma}
 \begin{proof}
-\todo{	content...}
-
-We want to add edges in a controlled way so that the traces that are reversed become unreversed. 
+We want to add edges in a controlled way so that the traces that are reversed become unreversed. This is done by adding edges between vertices so that we can invert the ordering on the circle such that we have that the vertices in one homotopy class have a non-crossing page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page where there are finitely many pages wrt to the genus of the surface. Let $\mathcal{C}_{i,j}$ be a chord class when it is the set of chords that go between traces $T_i$ and $T_j$, where $T_i$ and $T_j$ both go clockwise or counterclockwise. Note that the number of chord classes $\mathcal{C}_{i,j}$ is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite. 
 \end{proof}
 
 \printbibliography
