@@ -64,20 +64,48 @@
 	\end{block}
 \end{frame}
 
+\begin{frame}
+	\begin{itemize}
+		\item Book-thickness was investigated in 1979
+		\item Applications to chip design, knot theory, abstract algebra
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Examples}
 	\begin{itemize}
 		\item $G$ has pagenumber 1 iff $G$ is outerplanar ( all vertices on one face )
-		\item $G$ has pagenumber 2 iff $G$ is Hamiltonian and planar
+		\item $G$ has pagenumber 2 iff $G$ is Hamiltonian planar.
 	\end{itemize}
 	Easy examples, much harder to classify beyond.
 \end{frame}
 
 \begin{frame}
-	Yannikakis \note{Add citation}
-	All planar graphs can be embedded in 4 pages.
+	\begin{theorem}[Yannikakis] \note{add citation}
+		All planar graphs can be embedded in 4 pages.
+	\end{theorem}
 \end{frame}
-\note{Discuss easier example, look at Shor paper}
 
+\begin{frame}{Graph genus}
+	The genus $g$ of a surface $\Sigma$ is defined (in this lecture only) as two times number of handles + number of crosscaps
+	A graph has genus $g$ if it can be embedded on a surface $\Sigma$ of genus $g$.
+	\begin{equation}
+		v - e + f = \chi = 2 - g
+	\end{equation}
+	where $\chi$ is the Euler number.
+\end{frame}
+
+\begin{frame}{Bounded genus pagenumber}
+	\begin{theorem}[Heath and Istrail]
+		Graphs of genus $g$ have pagenumber $O(g)$. 
+	\end{theorem}
+	\note{Add more photographs}
+\end{frame}
+
+\begin{frame}{Conclusion}
+	Book thickness is a useful graph parameter
+	Generalises planarity
+	Bounded book thickness- interesting problems
+\end{frame}
 \note{Add notes on Heath + Istrail paper}
 
 \note{Do not discuss Robertson-Seymour, will take up entire 20 minutes}
