@@ -116,44 +116,17 @@ A random walk on a group $G$ driven by a probability $P$ is said to be ergodic i
 \begin{proof}
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
-\section{Proof of convergence}
-In this section, we shall prove the theorem below.
-\begin{theorem}
-	If $P$ is an ergodic random walk on a finite group $G$, then $(P^{\ast k})$ converges to the uniform distribution $U$. 
-\end{theorem}
-Recall $\mathcal{C}(G)$ is the group algebra on $G$, where $\mathcal{C}(G) = \lbrace f : f: G \rightarrow \mathbb{C} \rbrace$. This is an inner product space where $\langle f_1, f_2 \rangle = 1/|G| \sum_{g \in G} f_1(g) \overline{f_2(g)}$. 
-
-Recall that $\chi_\rho: G \rightarrow \mathbb{C}$ is a character by having that $\chi_\rho(g) = tr(\rho(g))$.
 
 \section{Fourier analysis on finite groups}
-\subsection{Fourier analysis on cyclic groups}
-We have that all irreducible characters from $\mathbb{Z}_n \rightarrow \mathbb{C}$ are of the form $\chi_j$, $0 \leq j \leq n-1$, which maps $[a]$ to $e^{2 \pi i a j/n}$. 
-
-Now we have functions $f: \mathbb{Z}_n \rightarrow \mathbb{C}$ are the periodic functions of period $n$ from $\mathbb{Z} \rightarrow \mathbb{C}$. We have that the characters ${\chi_j}_{1 \leq j \leq n-1}$ form a basis of $\mathbb{C}\mathbb{Z}_n$, so we have that $f : \mathbb{Z}_n \rightarrow \mathbb{C}$ can be written as $f = \langle f, \chi_0 \rangle \chi_0 + \langle f, \chi_1 \rangle \chi_1 + ... + \langle f , \chi_{n-1} \rangle \chi_{n+1}$.
-
-We can define a Fourier transform $\widehat{f}: \mathbb{Z}_n \rightarrow \mathbb{C}$ by 
-\begin{equation}
-	\widehat{f}([m]) = n \langle f, \chi_m \rangle = \sum_{i = 0}^{n-1}f([k]) e^{-2\pi i ma/n}.
-\end{equation}
-
-This is invertible, so we have that
-\begin{equation}
-	f = \frac{1}{n}\sum_{j = 0}^{n-1} \widehat{f}([j])\chi_j
-\end{equation}
-.
-
 \subsection{Dual groups}
 Let $G$ be a finite abelian group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. $\widehat{G}$ is the dual group of $G$, where multiplication is defined as $(\chi_a \cdot \chi_b)(g) = \chi_a(g)\chi_b(g)$, and $\chi_a^{-1} = \overline{\chi_a}$. 
-
-\begin{example}
-	Trivial example: We have that for cyclic group $Z_n$, the set of characters from above is the dual group, and furthermore $\widehat{Z_n} \cong Z_n$. 
-\end{example}
 
 \begin{theorem}
 	Let $G$ be a finite abelian group. Then $G \cong \widehat{G}$.
 \end{theorem}
+This is easy to see for cyclic groups. Extend definition using fundamental theorem.
 
-We can extend the definition of Fourier transforms on cyclic groups to any finite abelian group, so $\widehat{f}: \mathbb{Z}_n \rightarrow \mathbb{C}$ is defined as:
+We have the general definition of Fourier transform $\widehat{f}: \mathbb{Z}_n \rightarrow \mathbb{C}$ is defined as:
 \begin{equation}
 	\widehat{f}(\chi) = |G| \langle f, \chi \rangle = \sum_{g \in G} f(g) \overline{\chi(g)}
 \end{equation}
@@ -198,7 +171,7 @@ And setting $k = gh^{-1}$, so $g =kh$, we get that:
 \end{proof}
 
 \section{Spectrums of random walks}
-We define a convolution operator on a probability distribution $P$ as $M : L(G) \rightarrow L(G)$ where $M(a) = P \ast a$, where $(P \ast a) (g) =\sum_{h\in G} P(gh^{-1})a(h)$.
+We define a convolution operator on a probability distribution $P$ as $M : \mathbb{C}G \rightarrow \mathbb{C}G$ where $M(a) = P \ast a$, where $(P \ast a) (g) =\sum_{h\in G} P(gh^{-1})a(h)$.
 \begin{definition}
 	The spectrum of a random walk driven by probability distribution $P$ is the set of eigenvalues of $M$. 
 \end{definition} 
@@ -207,9 +180,9 @@ It is easy to show that $P \ast U = U$ and that $U$ is an eigenvector of $M$ wit
 
 \begin{theorem}[Diaconis]
 	\label{thm:Diaconis}
-	Let $G$ be a finite abelian group and let $P$ be a probability on $G$. Then $spec(P) = \lbrace \widehat{P}(\chi) : \chi \in \widehat{G} \rbrace$ where the multiplicity of $\lambda \in spec(P)$ are the number of characters where $\widehat{P}(\chi) = \lambda$. The orthonormal basis for the eigenspace of $\lambda$ is the set of all characters $\chi$ where $\widehat{P}(\chi) = \lambda$. 
+	Let $G$ be a finite abelian group and let $P$ be a probability on $G$. Then $spec(P) := \lbrace \widehat{P}(\chi) : \chi \in \widehat{G} \rbrace$ where the multiplicity of $\lambda \in spec(P)$ are the number of characters where $\widehat{P}(\chi) = \lambda$. The orthonormal basis for the eigenspace of $\lambda$ is the set of all characters $\chi$ where $\widehat{P}(\chi) = \lambda$. 
 \end{theorem}
-This is a special case of \cref{thm:Eigenvector operators}
+This is a special case of \cref{thm:Eigenvector operators}.
 
 \begin{lemma}
 	\label{lem:Absolute Value Inequality}
