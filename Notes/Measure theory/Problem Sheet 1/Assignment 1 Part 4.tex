@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\sig}{\mathcal{S}}
+\newcommand{\mono}{\mathcal{M}}
+\newcommand{\sigmes}{\Lambda_{\mu^*}}
+\newcommand{\salg}{$\sigma$-algebra}
+\newcommand{\intd}{\, d}
+%opening
+\title{Assignment 1}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section*{Part 4}
+\subsection*{Question 1}
+
+\subsubsection*{a}
+
+\subsubsection*{b}
+
+\subsubsection*{c}
+
+\subsubsection*{d}
+
+\subsubsection*{e}
+
+\subsubsection*{f}
+
+\subsection*{Question 2}
+
+Let $f_n : [0, \infty) \rightarrow \mathbb{R}$ where
+\begin{equation}
+	f(x) = \left( 1 + \frac{x}{n}\right)^n e^{-2x}
+\end{equation}
+We have that $f_n(x) \leq f_{n+1}(x)$. We use the AM-GM inequality to yield that:
+
+\begin{equation}
+	\sqrt[n + 1]{(1) \left( 1 + \frac{x}{n}\right)^n} < \frac{1 + n \left( 1 + \frac{x}{n}\right)}{n + 1}
+\end{equation}
+Therefore,
+\begin{equation}
+	\left( 1 + \frac{x}{n}\right)^{\frac{n}{n + 1}} < \frac{1 + n + x}{n + 1} = 1 + \frac{x}{n + 1}
+\end{equation}
+Therefore,
+
+\begin{equation}
+	\left( 1 + \frac{x}{n}\right)^n < \left( 1 + \frac{x}{n+1}\right)^{n + 1}
+\end{equation}
+therefore, we have that these functions are monotonically increasing. In the limit,
+$\lim_{n \rightarrow \infty} f_n(x) = e^{x} e^{-2x} = e^{-x}$. 
+Therefore, by monotone convergence theorem,
+\begin{equation}
+	\lim_{n \rightarrow \infty} \int_{0}^\infty f_n(x) \, dx = \int_{0}^\infty \lim_{n \rightarrow \infty} f_n(x) dx = \int_{0}^\infty e^{-x} dx = 1. 
+\end{equation}
+\subsection*{Question 3}
+\subsubsection*{a}
+We use lemma 3.13 to yield that:
+\begin{equation}
+	\| f \chi_X \|_p \leq \| \chi_X \|_p \|f \|_\infty = (\mu(X))^{1/p} \|f \|_{\infty}
+\end{equation}
+
+If we take $p \rightarrow \infty$, we get that $(\mu(X))^{1/p} \rightarrow 1$, so 
+
+\begin{equation}
+	\lim_{p \rightarrow \infty} \| f \chi_X \|_p \leq \|f \|_{\infty}.
+\end{equation}
+
+To show equality FIX LATER
+
+\subsubsection*{b}
+No. Consider the Lebesgue measure space $(\mathbb{R}, Vol^*, \lambda)$ and $f : \mathbb{R} \rightarrow \mathbb{R}$, $f(x) = 1$. Then $f(x)$ is in no $L^p$ space but it is in $L^\infty$. Thus this does not hold if $(X, \mu)$ is not finite, or even $\sigma$-finite. 
+\subsection*{Question 4}
+\subsubsection*{Part a}
+We have that the function $g: \mathbb{R} \rightarrow \mathbb{R}$, $g(x) = \sqrt{1 + x^2}$ is convex as $x^2$ is convex, $\sqrt{1 + x}$ is concave and nondecreasing, so by function composition $g(x)$ is convex. 
+
+Therefore by Jensen's inequality we have that:
+
+\begin{equation}
+	\sqrt{1 + \left(\frac{1}{\mu(X)} \int_X f \, d\mu\right)^2} \leq \frac{1}{\mu(X)} \int_X \left(1 + f^2\right)^{1/2} \, dx
+\end{equation}
+However, we have that $\mu(X) = 1$, so 
+\begin{equation}
+	\sqrt{1 + \left( \int_X f \, d\mu\right)^2} \leq \int_X \left(1 + f^2\right)^{1/2} \, dx
+\end{equation}
+Therefore, substituting $A := \int_X f \, dx$, we have that:
+\begin{equation}
+	\sqrt{1 + A^2} \leq \int_X \left(1 + f^2\right)^{1/2} \, dx
+\end{equation}
+To have the right inequality, consider all $x$ non-negative. We have that $(1 + x^2) \leq (1 + x^2 + 2x)$ for all non-negative $x$ and as the $\sqrt{ \cdot }$ function is monotone increasing, it holds that
+\begin{equation}
+	\sqrt{1 + x^2} \leq \sqrt{1 + x^2 + 2x} = \sqrt{(1 + x)^2} = 1 + x
+\end{equation}
+Therefore, $\sqrt{1 + f(x)^2} \leq 1 + f(x)$ pointwise, so as integration respects inequalities, then:
+
+\begin{equation}
+\int_X \left(1 + f^2\right)^{1/2} \, dx \leq \int_X 1 + f(x) \, dx
+\end{equation}
+and as $\int_X 1 \, dx = \mu(X) = 1$, then 
+\begin{equation}
+	\int_X \left(1 + f^2\right)^{1/2} \, dx \leq 1 + A
+\end{equation}
+\subsubsection*{Part b}
+Consider $F(x) = 2/3 x^{3/2}$. Then $f = F' = x^{1/2}$. Then $A := \int_{[0,1]} f(x) \, dx =  F(1) - F(0) = 2/3$. 
+
+We have that
+\begin{equation}
+	\int_{[0,1]} \sqrt{1 + x} \, dx = \frac{2}{3} (2)^{3/2} - \frac{2}{3} = 1.22
+\end{equation}
+We also have that $\sqrt{1 + A^2} = \sqrt{1 + \frac{2}{3}^2} = 1.20$ and $1 + A = 1 + 2/3 = 1.33$. Therefore, 
+
+\begin{equation}
+	\sqrt{1 + A^2} \leq \int_{[0,1]} \sqrt{1 + x} \, dx \leq 1 + A
+\end{equation}
+as needed.
+\end{document}
