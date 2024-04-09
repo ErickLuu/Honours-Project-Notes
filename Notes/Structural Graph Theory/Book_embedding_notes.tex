@@ -423,7 +423,12 @@ If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ a
 We then add all safe edges to the picture, as we are finished with the edges inside.
 \todo{Add pictures! this proof needs lots of pictures}
 
+\subsubsection{Level sets and cycles}
+On a planar graph $G$, we want to separate out vertices depending on how far away they are from the outerface. We fix a single outerface $F_0$ and define the first level set $V_0$ as the vertices adjacent to $F_0$. We then define the $i$-th level set, $V_i$ inductively. Consider the induced graph on $V(G) - \cup_{k = 0}^{i-1} V_k$. Then we define the vertices adjacent to $F_0$ in this induced graph, where we expand $F_0$ to include the vertices.
+
+We then define $C_i$ to be the vertices on 
 \subsubsection{Proving the decomposition}
+
 We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the boundary of $F_0$ appears at least once, and twice if it is an articulation point, and each edge on the boundary of $F_0$ is encountered at least once on this cycle. Heath and Istrail refer to a directed subpath of the cycle $C_0$ as a trace, so trace $T = v_1 \rightarrow v_2 \rightarrow ... \rightarrow v_t$. The inverse trace is $T^{-1} = v_t \rightarrow v_{t-1} \rightarrow ... \rightarrow v_1$. We now wish to partition $E_N$ into equivalence classes. Suppose that $u_1v_1, u_2v_2 \in E_N$ are part of the boundary of the same face $F$ on the embedding of $G$. Then $u_1v_1$ and $u_2v_2$ are homotopic (with respect to $F$) if:
 \begin{enumerate}
 	\item $u_1v_1$ and $u_2v_2$ are the only edges of $E_N$ on the boundary of $F$
