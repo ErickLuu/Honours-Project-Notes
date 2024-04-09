@@ -424,9 +424,27 @@ We then add all safe edges to the picture, as we are finished with the edges ins
 \todo{Add pictures! this proof needs lots of pictures}
 
 \subsubsection{Level sets and cycles}
-On a planar graph $G$, we want to separate out vertices depending on how far away they are from the outerface. We fix a single outerface $F_0$ and define the first level set $V_0$ as the vertices adjacent to $F_0$. We then define the $i$-th level set, $V_i$ inductively. Consider the induced graph on $V(G) - \cup_{k = 0}^{i-1} V_k$. Then we define the vertices adjacent to $F_0$ in this induced graph, where we expand $F_0$ to include the vertices.
+On a planar graph $G$, we want to separate out vertices depending on how far away they are from the outerface. We fix a single outerface $F_0$ and define the first level set $V_0$ as the vertices adjacent to $F_0$. We then define the $i$-th level set, $V_i$ inductively. Consider the induced graph on $V(G) - \cup_{k = 0}^{i-1} V_k$. Then we define the vertices adjacent to $F_0$ in this induced graph, where we expand $F_0$ to include the vertices. This partitions $V(G)$.
 
-We then define $C_i$ to be the vertices on 
+We then define $C_0$ to be the edges adjacent to $F_0$ in this decomposition. Then we want $C_i$ to be the edges adjacent to $F_0$ in this decomposition. We define the chord edges $K_i$ to be the edges between vertices in $V_i$ that are not edges in $C_i$. Finally, we define the edges between faces, $E_i$ as the edges that are between vertices on level $V_i$ and $V_{i + 1}$.
+
+\begin{lemma}
+	For all faces $F$ in $G$, the vertices around $F$ are either all in one $C_i$ or they are in $C_i$ and $C_{i + 1}$ for some $i$.
+\end{lemma}
+
+\begin{proof}
+	Let $i$ be the smallest value such that $v \in V_i$ is on the boundary of $F$. Now we have that $G[V(G) - \cup_{j = 1}^{i} V_i]$ will also remove $v$. However, this removes all the edges next to $v$, therefore all vertices that are on the boundary of $F$ will either be in $V_i$ or $V_{i + 1}$.
+\end{proof}
+We refer to the faces that have vertices in only $V_i$ as chordal and the faces that are between $V_i$ and $V_{i + 1}$ as non-chordal.
+
+We define a weak triangulation of $G$ to be a triangulation $G'$ such that all faces except for the outerface is a triangulation.
+\begin{lemma}
+	There exists a weak triangulation of $G$, $G'$ which preserves the level sets $V_i$ and edge sets $E_i$, $C_i$, $K_i$ for all $i$. 
+\end{lemma}
+
+\begin{proof}
+	If $F$ is a chordal face of $G$, then any triangulation maintains the property. If $F$ is nonchordal and the boundary has edges in $V_i$ and $V_{i + 1}$, then add edges that are only between vertices in $V_i$ and $V_{i + 1}$...
+\end{proof}
 \subsubsection{Proving the decomposition}
 
 We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the boundary of $F_0$ appears at least once, and twice if it is an articulation point, and each edge on the boundary of $F_0$ is encountered at least once on this cycle. Heath and Istrail refer to a directed subpath of the cycle $C_0$ as a trace, so trace $T = v_1 \rightarrow v_2 \rightarrow ... \rightarrow v_t$. The inverse trace is $T^{-1} = v_t \rightarrow v_{t-1} \rightarrow ... \rightarrow v_1$. We now wish to partition $E_N$ into equivalence classes. Suppose that $u_1v_1, u_2v_2 \in E_N$ are part of the boundary of the same face $F$ on the embedding of $G$. Then $u_1v_1$ and $u_2v_2$ are homotopic (with respect to $F$) if:
