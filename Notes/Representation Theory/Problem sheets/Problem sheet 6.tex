@@ -1,0 +1,140 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\newcommand{\tr}{\text{tr}}
+\newcommand{\fix}{\text{Fix}}
+%opening
+\title{Representation Theory- Problem sheet 2}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chapter 4}
+\subsection*{4.2}
+We are doing problem 4.2 before 4.1 to make my life easier.
+
+\subsubsection*{a}
+We have that if $g$ and $h$ are conjugate, then $g$ and $h$ are in the same conjugacy class. Therefore, $\chi(g) = \chi(h)$ for all $\chi$. If $\chi(g) = \chi(h)$, then by column orthogonality, we have that $\sum_\chi \chi(g) \overline{\chi(h)} = \sum_\chi |\chi(g)|^2 > 0$, as $|\chi_1(g)|^2 = 1$. By the second column orthogonality relation, we have that $\sum_\chi \chi(g) \overline{\chi(h)} > 0$ iff $g$ and $h$ are in the same conjugacy class. Thus shown.
+\subsubsection*{b}
+If $C = C^{-1}$, then for all $\chi$ and for a $g \in C$, we have that $\chi(g) = \chi(g^{-1}) = \overline{\chi(g)}$. Thus $\chi(g)$ is real. 
+
+If $\chi(g)$ is real for all $\chi$, then we have that $\chi(g) = \overline{\chi(g)} = \chi(g^{-1})$, for all $\chi$, but from 4.2.a, this means that $g$ and $g^{-1}$ are in the same conjugacy class. Therefore, $C = C^{-1}$. 
+
+\subsection*{4.1}
+We use the fact that the conjugacy classes of $S_n$ correspond precisely with the cycle types. We also note that if $\sigma \in S_n$ has a cycle type $(\lambda_1, ..., \lambda_n)$, then $\sigma^{-1}$ will also have the same cycle types $(\lambda_1, ..., \lambda_n)$. Thus for all $C \in S_n$, $C = C^{-1}$. By 4.2.b, this implies that for all $\chi$, $\chi$ is real for all $g \in G$. Thus all $\chi$ are real. Thus shown. 
+
+\subsection*{4.3}
+
+\subsubsection*{a}
+We have that $\rho \circ \alpha$ is a homomorphism as $\alpha$ is a homomorphism and so is $\rho$. We also have that the map is linear as $\rho$ is linear.
+
+\subsubsection*{b}
+We have that $\chi_{\alpha^*(\rho)} = \tr(\alpha^*(\rho)) = \tr(\rho) \circ \alpha$. 
+We also have that $\alpha^*(\chi_\rho) = \tr(\rho) \circ \alpha$. Thus they are the same map.
+
+\subsubsection*{c}
+We have that $ \langle \chi_\rho , \chi_\rho \rangle = 1$ iff $\rho$ is irreducible. We must show that $\langle \chi_{\alpha^*(\rho)}, \chi_{\alpha^*(\rho)} \rangle = 1$ to show $\alpha^*\rho$ is irreducible. We substitute $\alpha^*(\chi_\rho)$ from above and we have that:
+\begin{align*}
+	\langle \chi_{\alpha^*(\rho)}, \chi_{\alpha^*(\rho)} \rangle
+	&=\langle \alpha^*(\chi_\rho), \alpha^*(\chi_\rho) \rangle \\
+	&= 1/|G| \sum_{g \in G} \chi_\rho \alpha(g) \overline{\chi_\rho \alpha(g)} \\
+	&= 1/|G| \sum_{x \in G} \chi_\rho x \overline{\chi_\rho x} \\
+	&= \langle \chi_\rho , \chi_\rho \rangle \\
+	&= 1.
+\end{align*}
+Thus $\alpha^*(\rho)$ is also irreducible.
+\subsubsection*{d}
+We have to show that if $g, h \in C$, then $\alpha(g) \sim \alpha(h)$. We have that $g = xhx^{-1}$ for some $x$, therefore $\alpha(g) = \alpha(xhx^{-1}) = \alpha(x) \alpha(h) \alpha(x)^{-1}$. Thus $\alpha(g) \sum \alpha(h)$. We also have to show that if $\alpha(g) \sim \alpha(h)$, then $g \sim h$. We have that $\alpha(g) = \alpha(x) \alpha(h) \alpha(x)^{-1}$ for some $x$, thus we use the face that $\alpha$ is an isomorphism and the fact that $\alpha^{-1}$ exists to have that $g = xhx^{-1}$ for some $x$. 
+
+\subsubsection*{e}
+Let $A$ be the permutation (row) matrix which takes the row $\chi$ to $\alpha^*(\chi)$. Then let $B$ be the permutation column matrix which takes the conjugacy class $C$ to $\alpha(C)$. Let $X$ be the character table. We want to show that $AX = XB$. We have that $AX$ permutes the rows of $X$. We have that $XB$ permutes the columns of $X$ in the exact same way as $AX$, so $AX = \alpha(X) = XB$. Therefore, $A = XBX^{-1}$ where $X^{-1}$ exists as it is a transition matrix. Therefore, $\tr(A) = \tr(B)$, but $\tr(A)$ is the number of irreducible characters where $\chi = \alpha^(\chi)$ and $\tr(B)$ is the number of conjugacy classes where $C = \alpha(C)$. Thus shown. 
+
+\newpage
+\subsection*{4.4}
+\subsubsection*{a}
+We have that the character table is:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Character table & $(1)$ & $(12)$ & $(123)$ \\ \hline
+		$\chi_1$        & 1     & 1     & 1       \\ \hline
+		$\chi_2$        & 1     & -1    & 1       \\ \hline
+		$\chi_3$        & 2     & 0     & -1      \\ \hline
+	\end{tabular}
+\end{table}
+We have that:
+\begin{align*}
+	E_1 &= \frac{1}{6}\left((1) + (12) + (13) + (23) + (123) + (132)\right)\\
+	E_2 &= \frac{1}{6}\left((1) -(12) -(13) -(23) + (123) + (132)\right)\\
+	E_3 &= \frac{1}{3}\left(2(1)  - (123) - (132)\right)
+\end{align*}
+The sums of the orthogonal idempotents is:
+\begin{equation}
+	E_1 + E_2 + E_3 = (1)
+\end{equation}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|}
+		\hline
+		Character table & $(1)$ & $(12)$ & $(12)(34)$ & $(123)$ & $(1234)$ \\ \hline
+		$\chi_1$        & 1     & 1      & 1          & 1       & 1        \\ \hline
+		$\chi_2$        & 1     & -1     & 1          & 1       & -1       \\ \hline
+		$\chi_3$        & 3     & 1      & -1         & 0       & -1       \\ \hline
+		$\chi_4$        & 3     & -1     & -1         & 0       & 1        \\ \hline
+		$\chi_5$        & 2     & 0      & 2          & -1      & 0        \\ \hline
+	\end{tabular}
+\end{table}
+\begin{align*}
+	E_1 &= \frac{1}{6}\left(C_{(1)} + C_{(12)} + C_{(12)(34)} + C_{(123)} + C_{(1234)}\right)\\
+	E_2 &= \frac{1}{6}\left(C_{(1)} - C_{(12)} + C_{(12)(34)} + C_{(123)} - C_{(1234)}\right)\\
+	E_3 &= \frac{1}{2}\left(3 C_{(1)} + C_{(12)} - C_{(12)(34)}  - C_{(1234)}\right)\\
+	E_4 &= \frac{1}{2}\left(3 C_{(1)} - C_{(12)} - C_{(12)(34)}  + C_{(1234)}\right)\\
+	E_5 &= \frac{1}{3}\left(2 C_{(1)} + 2 C_{(12)(34)}  - C_{(123)}\right)\\
+\end{align*}
+We have that $E_1 + E_2 + E_3 + E_4 + E_5 = 1$.
+\subsubsection*{b}
+We have that
+\begin{equation}
+	\sum_{i = 1}^k E_i = \sum_{i = 1}^k \frac{\chi^i_1}{|G|} \sum_{j = 1}^k \overline{\chi^{(i)}_j} C_j
+\end{equation} 
+We have that the coefficient $(1)$ is $\frac{1}{|G|} \sum_{i = 1}^k \chi_1^i \overline{\chi_1^{(i)}} = \langle \chi_1, \chi_1 \rangle = 1$ by the first orthogonality relation. For a non-trivial $g \in C_j \neq C_1$, we have that the coefficient is:
+
+\begin{equation}
+	\frac{1}{|G|} \sum_{i = 1}^k \chi_1^i \overline{\chi_j^{(i)}} = \langle \chi_1, \chi_j \rangle = 0
+\end{equation}
+by the first orthogonality relation.
+Thus $\sum_{i = 1}^k E_i = 1$. 
+
+\subsection*{4.5}
+\subsubsection*{a}
+We have that $N(\underbrace{C_2, C_2, ..., C_2}_{d-1 \text{ times}}, C_m)$ counts the number of transpositions $(t_1, t_2, ..., t_d, c)$ such that $t_1t_2...t_d = c^{-1}$. However, we want one specific arrangement, namely only when $c^{-1} = (1 \, 2 \, 3 \, ... \, d)$. Therefore, we want to divide this by the number of cycles of length $d$, where there are $(d-1)!$ cycles as we place 1 at the start and choose any arrangement of $[2..d]$. Therefore, we have that:
+\begin{equation}
+	H(d) = \frac{1}{(d-1)!}N(\underbrace{C_2, C_2, ..., C_2}_{d-1 \text{ times}}, C_m)
+\end{equation}
+We have that when $d = 1$, $H(1) = 0$ as $(1 \, 2)$ is not a cycle at all.
+When $d = 2$, we have that:
+\begin{align*}
+	H(2) &= \frac{1}{1!}\frac{1}{2} \left(\frac{1 \times 1}{1^0} + \frac{-1 \times -1}{1^0} \right) = 1\\
+	H(3) &= \frac{1}{2!} \frac{3 \times 3 \times 2}{6} \left( \frac{1 \times 1 \times 1}{1^1} + \frac{-1 \times -1 \times 1}{1^1} + \frac{0 \times 0 \times -1}{2^1} \right) = 3\\
+	H(4) &= \frac{1}{3!} \frac{6 \times 6 \times 6 \times 6}{4!} \left(\frac{1^3 \times 1}{1^2} + \frac{(-1)^3 \times -1}{1^2} + \frac{1^3 \times -1}{3^2} + \frac{(-1)^3 \times 1}{3^2} + \frac{0^3 \times 0}{2^2} \right)\\
+	&= \frac{6^3}{4!}\left(1 + 1 - \frac{1}{9} - \frac{1}{9}\right)
+	= 16\\
+	H(5) &= \frac{1}{4!} \frac{10^4 4!}{5!} \left(\frac{1^4 1}{1^3} + \frac{(-1)^4 1}{1^3} + \frac{2^4 (-1)}{4^3} + \frac{1^4 \times 0}{5^3} + \frac{0^4\times 1}{6^3} + \frac{(-1)^4 \times 0}{5^3} + \frac{(-2)^4 (-1)}{4^3}\right)\\
+	&=\frac{10^4}{5!}(1 + 1 -\frac{1}{4} - \frac{1}{4})
+	= 125
+\end{align*}
+We conjecture that $H(n) = n^{(n-2)}$. Complete coincidence, but this is the number of labelled trees on $n$ vertices. 
+
+\subsection*{4.6}
+\subsubsection*{a}
+We have that $c = \sum_{h \in G} h$. Therefore, $gc = \sum_{h \in G} gh = \sum_{x \in G} x = c = cg$ by the same logic, and the fact that $g$ permutes elements. Therefore, we have that $c^2 = \sum_{g \in G} \sum_{h \in G} gh = \sum_{g \in G} c = |G| c$. 
+\subsubsection*{b}
+We have that $\theta(g_i) = g_i c = c$ for all $i$. Therefore, the matrix that represents $\theta$ is the all-ones matrix. 
+ 
+\end{document}
