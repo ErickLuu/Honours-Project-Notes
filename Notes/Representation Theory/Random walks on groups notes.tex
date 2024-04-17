@@ -37,12 +37,21 @@ Notes from Steinberg, Representation theory of finite groups, chapter 11. All gr
 In a famous paper " Trailing the dovetail shuffle to its lair", Bayer and Diaconis showed that you had to riffle-shuffle a deck of cards seven times to randomly shuffle the deck. The paper used random walks on $S_n$ to model shuffling the deck.
 
 \section{Definitions}
-Suppose $G$ is a finite group and $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$.
+Suppose $G$ is a finite group and $X$ is a r.v. on $G$. $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$.
 
 For a set $A \subseteq G$, we have that $P(A) = \sum_{g \in A} P(g)$. We define the support of $P$ as $\supp(P) = \lbrace g \in G : P(g) \neq 0 \rbrace$. 
-\section{Creating probability distributions}
-We define the uniform distribution $U$ on $G$ as $U(g) = 1/|G|$ for all $g \in G$. 
-We can convolve a probability like so. Let $P$, $Q$ be probabilities on $G$. Suppose we choose $X$ according to $P$ and $Y$ according to $Q$. Then the probability that $XY = g$ is the probability that $Y = h$ for some $h \in G$ and the probability that $X = gh^{-1}$. 
+
+
+\begin{example}
+	\par
+	\begin{itemize}
+		\item We define the uniform distribution $U$ on $G$ as $U(g) = 1/|G|$ for all $g \in G$. 
+		\item We define the subset distribution $S \subset G$ to be $1/|S|$ for all $ g \in S$ and 0 else.
+	\end{itemize}
+\end{example}
+
+Instead of treating the group as a set, we can treat the elements as functions, specifically the left regular group action. Then we can act on the group and walk around it. The convolution operator encapsulates taking steps around a group.
+Let $P$, $Q$ be probabilities on $G$. Suppose we choose $X$ according to $P$ and $Y$ according to $Q$. Then the probability that $XY = g$ is the probability that $Y = h$ for some $h \in G$ and the probability that $X = gh^{-1}$. 
 So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
 
 \begin{proposition}
@@ -58,7 +67,7 @@ So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
 		&= 1
 	\end{align*}
 \end{proof}
-Thus this is a probability distribution. Note that the support is also trivial.
+Thus this is a probability distribution. Proof of support is trivial.
 
 \section{Notion of difference between probabilities}
 We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. The $L^1$-norm is a metric and also $\|a \ast b\|_1 \leq \|a\|_1 \cdot \|b\|_1$. 
@@ -96,13 +105,15 @@ We want to quantify how far a distribution is away from being uniform. We define
 We say that a sequence of probabilities $\lbrace P_n \rbrace_{n \in \mathbb{N}}$ converges to $P$ if for all $\varepsilon > 0$, there exists $N > 0$ such that $\|P_n - P \|_1 < \varepsilon$ when $n \geq N$. 
 \section{Random walks}
 We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{times}}$. 
-The way to think about random walks is as follows. We start at the identity and move to $X_1$ of $G$ according to $P$. Then we choose another element $X_2$ and move to $X_1 X_2$. So this is a sequence of i.i.d. variables with distribution $P$.
+The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
 
 This forms a Markov chain. 
-\subsection{Examples of random walks on graphs}
-Let  $G$ be a group and $R$ be the generators and their inverses. Let $\Gamma$ be the Cayley graph of $G$. The simple random walk is to choose a random element $s \in R$ with uniform distribution and move to the vertex $gs$. By construction, the vertices adjacent to $\Gamma$ on $g$ are $gs$ with $s \in R$.
-
-Let $p, q \geq 0$, $p + q = 1$. Suppose we move around an $n$-gon. Then we go one step clockwise with probability $p$ and one step back with probability $q$. Then the probability distribution is $p \delta_1 + q \delta_{-1}$. 
+\begin{example}
+	\begin{itemize}
+		\item Let $G$ be a group and $R$ be the generators and their inverses. Let $\Gamma$ be the Cayley graph of $G$. The simple random walk is to choose a random element $s \in R$ with uniform distribution and move to the vertex $gs$. By construction, the vertices adjacent to $\Gamma$ on $g$ are $gs$ with $s \in R$.
+		\item Let $G = \mathbb{Z}_n$. Let us walk  $p, q \geq 0$, $p + q = 1$. Suppose we have that $P[X = 1] = p$, $P[x = -1] = q$ Then we go one step clockwise with probability $p$ and one step back with probability $q$. Then the probability distribution is $p \delta_1 + q \delta_{-1}$. 
+	\end{itemize}
+\end{example}
 
 \subsection{Ergodicity}
 A random walk on a group $G$ driven by a probability $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast N}(g) > 0$ for all $g \in G$, so every event can be reached from $P$. 
@@ -115,19 +126,29 @@ A random walk on a group $G$ driven by a probability $P$ is said to be ergodic i
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
 
+With regular Markov chains, we have reccurrent, hitting times, ergodicity, stationary distributions, etc. For walks on finite abelian groups, if the walk is ergodic, then the stationary distribution is uniform
+
 \section{Fourier analysis on finite groups}
 \subsection{Dual groups}
-Let $G$ be a finite abelian group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. $\widehat{G}$ is the dual group of $G$, where multiplication is defined as $(\chi_a \cdot \chi_b)(g) = \chi_a(g)\chi_b(g)$, and $\chi_a^{-1} = \overline{\chi_a}$. 
+Let $G$ be a finite abelian group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. Note all characters are of degree 1, so they are representations of degree 1.We will use the dual character/representation multiple times. $\widehat{G}$ is the dual group of $G$, where multiplication is defined as $(\chi_{ab})(g) = \chi_a(g)\chi_b(g)$, inverses are defined as $\chi_a^{-1} = \overline{\chi_a}$, and $\chi_1$, the trivial group, is the identity. (Prove later!).
 
 \begin{theorem}
 	Let $G$ be a finite abelian group. Then $G \cong \widehat{G}$.
 \end{theorem}
 This is easy to see for cyclic groups. Extend definition using fundamental theorem.
 
-We have the general definition of Fourier transform. Let $f: Z(L(G)) \rightarrow \mathbb{C}$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
+We have the general definition of Fourier transform. Let $f \in ZL(G)$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
 \begin{equation}
 	\widehat{f}(\chi) = |G| \langle f, \chi \rangle = \sum_{g \in G} f(g) \overline{\chi(g)}
 \end{equation}
+
+The Fourier inverse is defined as:
+
+\begin{equation}
+	f(x) = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{f}(\chi) \chi(x)
+\end{equation}
+
+Note that $ZL(G) = L(G)$, but we will use the former more often than not to generalise to non-abelian groups.
 
 Furthermore, we have that if $\chi, \psi \in \widehat{G}$, then $\widehat{\chi}(\psi) = \langle \chi, \psi \rangle = |G|\delta_{\chi, \psi}$. So $\widehat{\chi} = |G| \delta_{\chi}$, where $\delta_{\chi}(\psi) = 1$ if $\psi = \chi$ and 0 else. 
 
@@ -164,7 +185,7 @@ And setting $k = gh^{-1}$, so $g =kh$, we get that:
 \end{theorem}
 
 \begin{proof}
-	First, we have that $\widehat{a\ast \chi} = \widehat{a} \widehat{\chi} = \widehat{a} n \delta_\chi$, and $\widehat{a} n \delta_\chi(\psi) = \widehat{a}(\psi) n$ if $\psi = \chi$ and 0 else, so $\widehat{a} n \delta_\chi = \widehat{a}(\chi) n \delta_\chi$. When we apply the inverse of the Fourier transform, we have that $a \ast \chi = \widehat{a}(\chi) \chi$, so $A \chi = \widehat{a}(\chi) \chi$. Thus shown. 
+	First, we have that $\widehat{a\ast \chi} = \widehat{a} \widehat{\chi} = \widehat{a} |G| \delta_\chi$, and $\widehat{a} |G| \delta_\chi(\psi) = \widehat{a}(\psi) |G|$ if $\psi = \chi$ and 0 else, so $\widehat{a} |G| \delta_\chi = \widehat{a}(\chi) |G| \delta_\chi$. When we apply the inverse of the Fourier transform, we have that $a \ast \chi = \widehat{a}(\chi) \chi$ by the 1st orthogonality, so $A \chi = \widehat{a}(\chi) \chi$. Thus shown. 
 \end{proof}
 
 \section{Spectrums of random walks}
@@ -191,11 +212,11 @@ This is a special case of \cref{thm:Eigenvector operators}.
 
 \begin{theorem}[Plancherel]
 	\label{thm:Plancherel}
-	Let $G$ be a finite abelian group and let $a, b \in \mathbb{C}(G)$. Then $\langle a, b \rangle = 1/|G| \langle \widehat{a}, \widehat{b} \rangle$. 
+	Let $G$ be a finite abelian group and let $a, b \in \mathbb{C}(G)$. Then $\langle a, b \rangle = \frac{1}{|G|} \langle \widehat{a}, \widehat{b} \rangle$. 
 \end{theorem}
 \begin{proof}
-	We have that $a = 1/|G| \sum_{\chi \in \widehat{G}} \widehat{a}(\chi) \chi$, and $b = 1/|G| \sum_{\chi \in \widehat{G}} \widehat{b}(\chi) \chi$. Thus \begin{equation}
-		\langle a, b \rangle = 1/|G|^2 \langle \widehat{a}(\chi) \widehat(b)(\chi) \delta_{\chi, \chi} = 1/|G| \langle \widehat{a}, \widehat{b} \rangle.
+	We have that $a =\frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{a}(\chi) \chi$, and $b = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{b}(\chi) \chi$. Thus \begin{equation}
+		\langle a, b \rangle = \left(\frac{1}{|G|}\right)^2 \langle \widehat{a}(\chi), \widehat{b}(\chi) \rangle \delta_{\chi, \chi} = \frac{1}{|G|} \langle \widehat{a}, \widehat{b} \rangle.
 	\end{equation}
 
 \end{proof}
@@ -211,16 +232,16 @@ This is a special case of \cref{thm:Eigenvector operators}.
 
 	and from \cref{lem:Absolute Value Inequality}, we have that:
 	\begin{equation}
-		\frac{1}{4} \| P - Q\|_1^2 \leq \frac{|G|^2}{4} \| Q - U \|^2
+		 \| P - Q\|_1^2 \leq |G|^2 \| Q - U \|^2
 	\end{equation}
 	Then by \cref{thm:Plancherel},
 	\begin{equation}
 		|G|^2 \|Q - U \|^2 = |G| \left[ \langle \widehat{Q}, \widehat{Q} \rangle - 2 \langle \widehat{Q}, \widehat{U} \rangle + \langle \widehat{U}, \widehat{U} \rangle \right]
 	\end{equation}
 	As $\widehat{U} = \delta_{\chi_1}$, then $\widehat{U}(\chi) = \langle \chi_1, \chi \rangle$. 
-	Therefore, $\langle \chi_1, \chi_1 \rangle = 1/|G|$, and $\langle \widehat{Q}, \widehat{U} = \widehat{Q}(\chi_1) = 1/|G|$, and
+	Therefore, $\langle \chi_1, \chi_1 \rangle = \frac{1}{|G|}$, and $\langle \widehat{Q}, \widehat{U} = \widehat{Q}(\chi_1) = 1/|G|$, and
 	\begin{equation}
-		\langle \widehat{Q}, \widehat{Q} \rangle = 1/|G| + 1/|G| \sum_{\chi \in F} \widehat{Q}(\chi) \overline{\widehat{Q}(\chi)}.
+		\langle \widehat{Q}, \widehat{Q} \rangle =\frac{1}{|G|} + \frac{1}{|G|} \sum_{\chi \in F} \widehat{Q}(\chi) \overline{\widehat{Q}(\chi)}.
 	\end{equation}
 	Therefore, $|G|^2 \|Q - U \|^2 =  \sum_{\chi \in F}| \widehat{Q}(\chi)|^2$ and thus 
 	\begin{equation}
@@ -239,6 +260,6 @@ This is a special case of \cref{thm:Eigenvector operators}.
 \begin{theorem}
 	If $P$ is a probability on a finite abelian group $G$ and $P$ is ergodic, then $P^{\ast n}$ converges to $U$.
 \end{theorem}
-It suffices to show that $|\widehat{P}(\chi)| < 1$ for all nontrivial characters $\chi$ of $G$. Assume that $P(g) > 0$ with ergodicity. Recall that $|\widehat{P}(\chi)|\leq \sum_{g \in G} P(g) |\overline{\chi(g)}| = 1$, from \cref{thm:Diaconis}. We have that if equality holds, then $P(g) \overline{\chi(g)}$ are non-negative multiples of a common complex number. But $P(1) \geq 0$ and $\overline{\chi(1)} = 1$. Therefore, $P(1) \overline{\chi(1)} = P(1)$, but we have that there is a $\overline{\chi(g)} \neq 1$ for some $g \in G$. Thus we have that equality does not hold, so $|\widehat{P}(\chi)| < 1$. 
+It suffices to show that $|\widehat{P}(\chi)| < 1$ for all nontrivial characters $\chi$ of $G$. Assume that $P(g) > 0$ with ergodicity. Recall that $|\widehat{P}(\chi)| = |\sum_{g \in G} P(G) \overline{\chi(g)}| \leq \sum_{g \in G} P(G) |\overline{\chi(g)}| = 1$ But we have that if $|\widehat{P}(\chi)| = 1$, then $P(g) \overline{\chi(g)}$ are non-negative multiples of a common complex number. But $P(1) \geq 0$ and $\overline{\chi(1)} = 1$. Therefore, $P(1) \overline{\chi(1)} = P(1)$, but we have that there is a $\overline{\chi(g)} \neq 1$ for some $g \in G$. Thus we have that equality does not hold, so $|\widehat{P}(\chi)| < 1$. 
 
 \end{document}
