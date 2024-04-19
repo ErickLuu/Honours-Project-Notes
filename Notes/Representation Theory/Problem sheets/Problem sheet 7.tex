@@ -1,0 +1,113 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\newcommand{\tr}{\text{tr}}
+\newcommand{\fix}{\text{Fix}}
+%opening
+\title{Representation Theory- Problem sheet 2}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chapter 5}
+\subsection*{5.1}
+\subsubsection*{a}
+We want to show that if $g_1 \in HxK$, $g_2 \in H y K$, and $z \in Hx K \cap H y K$, then $g_1$ and $g_2$ are in the same coset. We have that $g_1 = h_1 x k_1$, $g_2 = h_2 y k_2$, and $z = h_3 x k_3 = h_4 y k_4$. Then we have that $y = h_4^{-1} h_3 x k_3 k_4^{-1}$, so $g_2 = h_2 h_4^{-1} h_3 x k_3 k_4^{-1} k_2$. But this means that $g_2 \in H x K$ as well. 
+\subsection*{b}
+We have that if $H \unlhd G$, then $H \textbackslash G / H = G/H$. We have that $H x H = x HH = x H$, so $H x H$ corresponds with $xH$. Thus they are the same sets. If $H \textbackslash G / H = G/H$, then this implies that for all $x \in G$, $xH = H x H$, as $xH \subseteq H x H$. Then this implies that $H x H \subseteq x H$, so $Hx \subseteq x H$. But this implies that for all $h_1 \in H$, $h_1 x = x h_2$ for some $h_2 \in H$, but that implies that $h_2 = x^{-1} h_1 x$. Thus $x^{-1} H x \subseteq H$, so $x^{-1} H x = H$ for all $x$. Thus $H$ is a normal subgroup. 
+
+\subsection*{c}
+Consider $H \times K \rightarrow G$ by $(h, k) \cdot g = h g k^{-1}$. Then $Orb(g) = H g K$, and $Stab(g) = \lbrace h \in H, k \in K: hgk^{-1} = g \rbrace = \lbrace h \in H : h \in g K g^{-1} \rbrace \cap \lbrace k \in K: k \in g^{-1} H g\rbrace \subseteq(H \times K)$. Then we have that $|Stab(g)| = |H \cap g K g^{-1}|$, so by the orbit-stabiliser theorem, we have that $|H g K| = \frac{|H| |K|}{|H \cap g K g^{-1}|}$.
+
+
+\subsection*{5.5}
+We have that $Ind_H^{S_n} \rho(g) = \frac{1}{(n-1)!} \sum_{x \in S_n}\dot{\rho}(x^{-1} g x)$. However if $\rho(x^{-1} g x)$ is 1 when $x^{-1} g x$ fixes $n$ and $0$ if not. But for any point $m$ such that $g(m) = m$, we are counting the number of $x \in S_n$ such that $x(n) = m$. For every fixed point, we have that there are $(n-1)!$ different maps $x$ such that $x(n) = m$, therefore we have that $\sum_{x \in S_n}\dot{\rho}(x^{-1} g x) = |Fix(g)| (n-1)!$, so $Ind_H^{S_n} \rho(g) = |Fix(g)|$.
+
+\subsection*{5.6}
+\subsubsection*{a}
+We have that the elements of $A_4$ are, arranged by their cycle lengths, as
+\begin{itemize}
+	\item $(1)$
+	\item $(123), (132), (134), (143), (124), (142), (234), (243)$
+	\item $(12)(34), (13)(24), (14)(23)$
+\end{itemize}
+We have that if two elements are in different conjugacy classes in $S_4$, then they are in different conjugacy classes in $A_4$. Thus it remains to figure out how each element splits. We have that:
+\begin{align*}
+	(132) [(12)(34)](123) &= (13)(24)\\
+	(134)[(12)(34)](143) &= (14)(23)\\
+\end{align*}
+Therefore, we have that the third conjugacy class is preserved. To show the second conjugacy class splits, take $(123)$. We have that:
+\begin{align*}
+	(12)(34) [(123)] (12)(34) &= (142)\\
+	(13)(24) [(123)] (13)(24) &= (134)\\
+	(14)(23) [(123)] (14)(23) &= (243)\\
+	(123)[(123)](132) &= (123)\\
+	(132)[(123)](123) &= (123)\\
+	(134)[(123)](143) &= (243)\\
+	(143) [(123)] (134) &= (142)\\
+	(142)[(123)] (124) &= (134)\\
+	(124)[(123)](142) &= (243)\\
+	(234)[(123)](243) &= (134)\\
+	(243)[(123)](234) &= (142)
+\end{align*}
+Therefore, we have that the conjugacy class containing $(123)$ only contains $(123), (134), (142), (243)$. Therefore, the other conjugacy class is $(132), (143), (124), (234)$. 
+
+Therefore, $A$ has conjugacy classes:
+\begin{itemize}
+	\item $C_1 = \left\lbrace (1)\right\rbrace $
+	\item $C_2 = \left\lbrace (123), (134), (142), (243)\right\rbrace $
+	\item $C_3 = \left\lbrace (132), (143), (124), (234)\right\rbrace $
+	\item $C_4 = \left\lbrace (12)(34), (13)(24), (14)(23)\right\rbrace $
+\end{itemize}
+Thus the degrees of the characters must be of the form $d_1^2 + d_2^2 + d_3^2 + d_4^2 = 12$, and $d_1 = 1$, the trivial character. Therefore, the only 3 integers that satisfy this equation are $d_2 = 1$, $d_3 = 1$, $d_4 = 3$. 
+\subsubsection*{b}
+Obviously, $\chi_1$ is the trivial group. Then we guess that:
+\begin{align*}
+	\chi_2(C_1) &= 1\\
+	\chi_2(C_2) &= \omega\\
+	\chi_2(C_3) &= \omega^2\\
+	\chi_2(C_4) &= 1\\
+\end{align*}
+where $\omega = e^{\frac{2 \pi i}{3}}$.
+We also guess that:
+\begin{align*}
+	\chi_2(C_1) &= 1\\
+	\chi_2(C_2) &= \omega^2\\
+	\chi_2(C_3) &= \omega\\
+	\chi_2(C_4) &= 1\\
+\end{align*}
+We have that for $g_1 \in C_2, g_2 \in C_2$, we have that $g_1 g_2$ is always something in $C_3$, therefore $\chi_2$ and $\chi_3$ respects this action. We also have that for $h_1 \in C_3, h_2 \in C_3$, $h_1 h_2$ is always something in $C_2$, so the characters respect this action as well. We also have that for $g \in C_2, h \in C_3$, $gh$ and $hg$ is either in $C_1$ or $C_4$. If $g \in C_4, h \in C_4$, then $gh$ is either in $C_4$ or in $C_1$. Finally, we have that $C_2 C_4$ is in $C_2$, and so is $C_3 C_4$. Thus they are indeed representations. 
+
+\subsubsection*{c}
+We have that the character table for $A_4$ is:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		$A_4$    & $(1)$ & $(123)$    & $(132)$    & $(12)(34)$ \\ \hline
+		$\chi_1$ & 1     & 1          & 1          & 1          \\ \hline
+		$\chi_2$ & 1     & $\omega$   & $\omega^2$ & 1          \\ \hline
+		$\chi_3$ & 1     & $\omega^2$ & $\omega$   & 1          \\ \hline
+		$\chi_4$ & 3     & a          & b          & c         \\ \hline
+	\end{tabular}
+\end{table}
+To fill out the final 4 characters, we use column orthogonality. We have that $1 + \omega + \omega^2 + 3a = 0$, but $\omega + \omega^2 = -1$, so $a = 0$. Similarly for $b$, we have $b = 0$. Finally, we have that $1 + 1 + 1 + 3c = 0$, so $c = -1$. Therefore, the character table is:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		$A_4$    & $(1)$ & $(123)$    & $(132)$    & $(12)(34)$ \\ \hline
+		$\chi_1$ & 1     & 1          & 1          & 1          \\ \hline
+		$\chi_2$ & 1     & $\omega$   & $\omega^2$ & 1          \\ \hline
+		$\chi_3$ & 1     & $\omega^2$ & $\omega$   & 1          \\ \hline
+		$\chi_4$ & 3     & 0          & 0          & -1         \\ \hline
+	\end{tabular}
+\end{table}
+\subsubsection*{d} (HELP)
+We have that 
+\end{document}
