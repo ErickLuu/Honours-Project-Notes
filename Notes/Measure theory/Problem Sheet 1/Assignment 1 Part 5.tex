@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\sig}{\mathcal{S}}
+\newcommand{\mono}{\mathcal{M}}
+\newcommand{\sigmes}{\Lambda_{\mu^*}}
+\newcommand{\salg}{$\sigma$-algebra}
+\newcommand{\intd}{\, d}
+%opening
+\title{Assignment 1}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Part 5}
+\subsection{Question 1}
+
+
+\begin{equation}
+	g(x) := \tilde{g}(x) - \frac{1}{T} \int_{0}^{T} \tilde{g}(t) \, dt
+\end{equation}
+
+Then we have that for all $x$,
+\begin{align*}
+	\int_{x}^{x + T} g(t) \, dt &= \int_{x}^{x + T} \left(\tilde{g}(u) - \frac{1}{T} \int_{0}^{T} \tilde{g}(t) \, dt\right) \, du\\
+	&= \int_{x}^{x + T} \tilde{g}(u)\, du - \int_{0}^{T} \tilde{g}(t) \, dt
+\end{align*}
+However, as $\tilde{g}(x)$ is $T$-periodic, it must hold that integration over any interval of length $T$ will yield the same result. Therefore, we have that
+\begin{equation}
+	\int_{x}^{x + T} \tilde{g}(u)\, du - \int_{0}^{T} \tilde{g}(t) \, dt = 0
+\end{equation}
+
+Now for any pair $p \leq q$ for any real number where $q > p + T$, we have that:
+\begin{equation}
+	\left| \int_{p}^{q} g(x) \, dx \right| = \left| \int_{p}^{q-T} g(x) \, dx +  \int_{q - T}^{q} g(x) \, dx\right| = \left| \int_{p}^{q-T} g(x) \, dx  \right|
+\end{equation}
+from above.
+
+Therefore we can iterate this operation to find $q'$, where $\left| \int_{p}^{q} g(x) \, dx \right| = \left| \int_{p}^{q'} g(x) \, dx \right|$ and $p \leq q \leq p + T$. Then we have that from $T$-periodicity,
+\begin{equation}
+	\left| \int_{p}^{q'} g(x) \, dx \right| = \left| \int_{a}^{b} g(x) \, dx + \int_{c}^{d} g(x) \, dx \right|
+\end{equation}
+for some $ 0 \leq a \leq b \leq c \leq d \leq T$, by shuffling around the domains. We have that:
+\begin{align*}
+	\left| \int_{a}^{b} g(x) \, dx + \int_{c}^{d} g(x) \, dx \right| &\leq \left| \int_{a}^{b} g(x) \, dx \right| + \left| \int_{c}^{d} g(x) \, dx \right|\\
+	&\leq  \int_{a}^{b} |g(x)| \, dx +\int_{c}^{d} |g(x)| \, dx\\
+	&\leq \int_{0}^T |g(x)| \, dx
+\end{align*}
+But we have that $\int_{0}^T |g(x)| \, dx \leq T \max_{x \in [0, T]} |g(x)|$.
+
+\subsubsection{Proving the integral}
+Let $A$ be a measurable set where $\lambda(A) < \infty$ and $\chi_A$ be its associated characteristic function. Then we have that
+
+\begin{equation}
+	\int_{\mathbb{R}} \tilde{g}(nx) \chi_A \, dx = \int_{\mathbb{R}} \left(g(nx) + M\right) \chi_A \, dx
+\end{equation}
+We can split this integral into two sides. 
+
+\begin{equation}
+	\int_{\mathbb{R}} \left(g(nx) + M\right) \chi_A \, dx = \int_{\mathbb{R}}  g(nx) \chi_A \, dx + \int_{\mathbb{R}} M \chi_A \, dx = \int_{\mathbb{R}}  g(nx) \chi_A \, dx + M \lambda(A)
+\end{equation}
+
+\end{document}
