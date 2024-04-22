@@ -58,7 +58,7 @@ eprint = false
 
 \maketitle
 \chapter{Abstract}\label{abstract}
-In this report we outline our current progress in proving that $K_t$-minor free graphs have bounded pagenumber. Proving this bound will connect two important concepts in structural graph theory that have been studied for at least 40 years. In this report we will outline the most important theorem in structural graph theory related to $K_t$-minor free graphs, the graph structure theorem. We will also introduce some other proofs which will be of use proving this bounded pagenumber conjecture. 
+In this report we outline our current progress in proving that $K_t$-minor free graphs have bounded pagenumber. Proving this bound will connect two important concepts in structural graph theory that have been studied extensively for the past\wedge 40 years. In this report we will outline the most important theorem in structural graph theory related to $K_t$-minor free graphs, the graph structure theorem. We will also introduce some other proofs which will be of use proving this bounded pagenumber conjecture. 
 \chapter{Introduction}\label{sec:introduction}
 Structural graph theory is a fundamental topic in graph theory and its study has led to a deeper understanding in decomposing graphs into simpler components with bounded parameters. One of the most important theorems in structural graph theory is Robertson and Seymour's Graph Minor theorem \cite{robertsonGraphMinorsXX2004} which states that minor-closed families of graphs are characterised by a finite set of forbidden minors. 
 The concept of the \textit{pagenumber} of a graph was discovered by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979} in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph is a way to arrange the vertices on the "spine" of a book and arrange the edges on "pages" of a book, or half-planes. The \textit{pagenumber} of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
@@ -69,7 +69,7 @@ The driving question of this report is the following:
 \end{conjecture}
 Answering this question will yield a link between the pagenumber of a graph and the global structure of the graph. This report currently lays out the literature related to this question. We use a result in one of the papers of the Graph Minor theorem, which is the Graph Structure theorem \cite{robertsonGraphMinorsXVI2003}.
 \subsection{Plan for solving the problem}
-We aim to solve the question using the graph structure theorem \cite{robertsonGraphMinorsXVI2003}, which describes the layout of graphs which do not contain a $K_t$ minor. It states that all graphs that do not contain a $K_t$ minor can be built out of \textit{clique sums} with cliques of size $\ell$ of graphs which are $(g, p, k, a)$- almost embeddable, with the \textit{sadhesions} of the clique-sums being bounded. $(g, p, k, a)$ are a function of $t$ and Robertson and Seymour proved that for fixed $t$, $(g, p, k, a)$ are constants. These are graphs which can be embedded on a surface of bounded genus $g$, with $p$ \textit{vortices} which cannot be embedded on the surface, but have bounded width $k$. There are also $a$ apex vertices. We have that all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}, all graphs of bounded treewidth have bounded pagenumber \cite{ganleyPagenumberTrees2001}, and finally clique-sums of graphs with bounded pagenumber on cliques of bounded size have bounded pagenumber\cite{hickingbothamStackNumberCliqueSum2023}.
+We aim to solve the question using the graph structure theorem \cite{robertsonGraphMinorsXVI2003}, which describes the layout of graphs which do not contain a $K_t$ minor. It states that all graphs that do not contain a $K_t$ minor can be built out of \textit{clique sums} with cliques of size $\ell$ of graphs which are $(g, p, k, a)$- almost embeddable, with the \textit{adhesions} of the clique-sums being bounded. $(g, p, k, a)$ are a function of $t$ and Robertson and Seymour proved that for fixed $t$, $(g, p, k, a)$ are constants. These are graphs which can be embedded on a surface of bounded genus $g$, with $p$ \textit{vortices} which cannot be embedded on the surface, but have bounded width $k$. There are also $a$ apex vertices. We have that all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}, all graphs of bounded treewidth have bounded pagenumber \cite{ganleyPagenumberTrees2001}, and finally clique-sums of graphs with bounded pagenumber on cliques of bounded size have bounded pagenumber\cite{hickingbothamStackNumberCliqueSum2023}.
 
 \subsection{Layout of report}
 \begin{itemize}
@@ -305,7 +305,7 @@ The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is t
 \end{example}
 
 \begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
-	If $G$ is $K_5$-minor-free, then $G$ can be obtained from $\leq 3$-clique-sums of planar graphs and the Wagner graph $W_8$.
+	If $G$ is $K_5$-minor-free, then $G$ can be obtained from $(\leq 3)$-clique-sums of planar graphs and the Wagner graph $W_8$.
 \end{theorem}
 
 
@@ -358,8 +358,8 @@ To prove this theorem, we will use a common technique in graph theory. We will s
 \begin{lemma}\label{lem:Hickingbotham_Lemma}
 	Let $G$ be a graph where $\pn(G) \leq s$, and a clique $C$ with an ordering $\sigma_C$. There exists a $(2s^2 + 4s + 1)$-stack layout $(\leq, \psi)$ of $G$ where:
 	\begin{enumerate}
-		\item The vertex ordering has the structure $(\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})$
-		\item For every $u \in V(C)$, the edges $\lbrace uv \in E(G) : u \leq v \rbrace$ are a monochromatic star
+		\item The vertex ordering has the structure $(\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})$. 
+		\item For every $u \in V(C)$, the edges $\lbrace uv \in E(G) : u \leq v \rbrace$ are a monochromatic star. 
 		\item For every clique $J$, the last vertex of $J$ is a rainbow-vertex. 
 	\end{enumerate}
 \end{lemma}
@@ -420,11 +420,11 @@ We use the characterisation of treewidth as a subgraph of a $k$-tree. We will sh
 \end{proof}
 
 \subsection{Planar graphs}\label{ssec:Planar_Graphs}
-\begin{theorem}[Embedding planar graphs \cite{yannakakisEmbeddingPlanarGraphs1989b}] \label{thm:4Pages_Planar}
+\begin{theorem}[Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989b}] \label{thm:4Pages_Planar}
 	Planar graphs can be embedded on at most four pages.
 \end{theorem}
 
-\subsection{Bounded genus}\label{ssec:pagenumber_bounded_genus}
+\subsection{Graphs embedded on a sufrace of bounded genus}\label{ssec:pagenumber_bounded_genus}
 \begin{theorem}[Heath and Istrail\cite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
 	Let $g$ be the genus of a graph $G$. We have that for all graphs $G$, $\pn(G) \leq O(g)$ for some $g$.
 \end{theorem}
@@ -488,7 +488,7 @@ We define a weak triangulation of $G$ to be a triangulation $G'$ such that all f
 	If $F$ is a chordal face of $G$, then any triangulation maintains the property. If $F$ is nonchordal and the boundary has edges in $V_i$ and $V_{i + 1}$, then add edges that are only between vertices in $V_i$ and $V_{i + 1}$. This will suffice to build a new triangulated graph $G'$ where all vertices and edges are in the correct place. 
 \end{proof}
 
-\subsubsection{Proving the decomposition}
+\subsubsection{Classifying nonplanar edges according to homotopy class}
 
 We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the boundary of $F_0$ appears at least once, and twice if it is an articulation point, and each edge on the boundary of $F_0$ is encountered at least once on this cycle. Heath and Istrail refer to a directed subpath of the cycle $C_0$ as a trace, so trace $T = v_1 \rightarrow v_2 \rightarrow ... \rightarrow v_t$. The inverse trace is $T^{-1} = v_t \rightarrow v_{t-1} \rightarrow ... \rightarrow v_1$. We now wish to partition $E_N$ into equivalence classes. Suppose that $u_1v_1, u_2v_2 \in E_N$ are part of the boundary of the same face $F$ on the embedding of $G$. Then $u_1v_1$ and $u_2v_2$ are homotopic (with respect to $F$) if:
 \begin{enumerate}
@@ -522,12 +522,12 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 \begin{proof}[Similar to above]
 	Use Euler's identity $v - e + f = 2-g$. 
 \end{proof}
-
+\subsubsection{Proving graphs with bounded number of homotopy classes have bounded pagenumber}\label{sssec:bounded_pagenumber_homotopy}
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
 	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an orientable surface $\Sigma$. Then $G$ can be embedded on at most $18g - 5$ pages.
 \end{lemma}
 \begin{proof}
-	We use Yannikakis' algorithm to lay out the nonplanar spanning subgraph $G_P$ on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in $E_P$, we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks, the biconnected components of $G$. We need two as we could have some which span blocks in a way that forces them to be on different pages. Therefore, we need at most $4 + 3(6g - 3) = 18g-5$ pages if $G$ has a planar-nonplanar decomposition. 
+	We use Yannikakis' proof \cref{ssec:Planar_Graphs} to lay out the nonplanar spanning subgraph $G_P$ on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in $E_P$, we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks, the biconnected components of $G$. We need two as we could have some which span blocks in a way that forces them to be on different pages. Therefore, we need at most $4 + 3(6g - 3) = 18g-5$ pages if $G$ has a planar-nonplanar decomposition. 
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_nonorientable}
@@ -582,10 +582,10 @@ The real problem are distinguished cliques of size $3$, $uvw$.
 	If $G$ is a graph with components $G'$ and $A$ apex vertices and $G'$ is a graph with pagenumber $s$, $a = |A|$, then $G$ has pagenumber $s + \left\lceil \frac{3a}{2}\right\rceil$. 
 \end{theorem}
 \begin{proof}
-	Let $G'$ have book-embedding $(<, \rho)$. Then place the vertices of $A$ at the very start of $(<)$ and for every edge $u_iv$, $u_i \in A$, $v \in G'$, we colour $\rho(uv) = i$. Then for any edge $e \in E(G')$, we maintain the same colour as before. Then for the edges between vertices in $A$, we have the the number of colours is bounded above by $\left\lceil \frac{a}{2} \right\rceil$ from \cref{thm:Pagenumber_Complete_Graph}. Therefore, we have that $\pn(G) \leq \pn(G') + a + \left\lceil \frac{a}{2} \right\rceil =s + \left\lceil \frac{3a}{2}\right\rceil$. 
+	Let $G'$ have book-embedding $(<, \rho)$. Then place the vertices of $A$ at the very start of $(<)$ and for every edge $u_iv$, $u_i \in A$, $v \in G'$, we colour $\rho(uv) = i$. Then for any edge $e \in E(G')$, we maintain the same colour as before. Then for the edges between vertices in $A$, we have that the number of colours is bounded above by $\left\lceil \frac{a}{2} \right\rceil$ from \cref{thm:Pagenumber_Complete_Graph}. Therefore, we have that $\pn(G) \leq \pn(G') + a + \left\lceil \frac{a}{2} \right\rceil =s + \left\lceil \frac{3a}{2}\right\rceil$. 
 \end{proof}
 
-\chapter{Conclusion}
+\chapter{Conclusion}\label{chap:conclusion}
 We conclude this report by explaining our current progress and our future plans. We have explained the Graph Structure theorem \cite{robertsonGraphMinorsXVI2003} and its application in our particular problem involving $K_t$-minor free graphs. We apply the graph structure theorem to the problem and explain some partial results which prove some components of $K_t$-minor free graphs, which are clique-sums, graphs of bounded treewidth, and graphs embeddable on surfaces. What will be the future area of research are graphs which are almost-embeddable on surfaces. We have to show that adding $p$ vortices of adhesion $k$ to surfaces of genus $g$ still has a bounded pagenumber, with the bounds depending only on $p, k$ and $g$. 
 \printbibliography
 \end{document}

@@ -80,5 +80,65 @@ We can split this integral into two sides.
 \begin{equation}
 	\int_{\mathbb{R}} \left(g(nx) + M\right) \chi_A \, dx = \int_{\mathbb{R}}  g(nx) \chi_A \, dx + \int_{\mathbb{R}} M \chi_A \, dx = \int_{\mathbb{R}}  g(nx) \chi_A \, dx + M \lambda(A)
 \end{equation}
+What remains to show is that
+\begin{equation}
+	\lim_{n \rightarrow \infty} \int_{\mathbb{R}}  g(nx) \chi_A \, dx = 0. 
+\end{equation}
+PROVE HERE
+
+\subsubsection{Extending to integrable functions}
+As we have that $\int_{\mathbb{R}} \tilde{g}(nx) \chi_A \, dx = M \int_{\mathbb{R}} \chi(A) \, dx$, we have that for any $k \in \mathbb{R}$, $\int_{\mathbb{R}}\tilde{g}(nx) k \chi_A \, dx = k M \int_{\mathbb{R}} \chi_A  \, dx $ for any measurable $A$ by the linearity of the integral, and that for any measurable $A, B$, we have that
+\begin{align*}
+	\lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx) (\chi_A + \chi_B) \, dx &= \lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx) \chi_A \, dx + \lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx) \chi_B \, dx\\
+	&= M \int_{\mathbb{R}} \chi_A \, dx + M \int_{\mathbb{R}} \chi_B \, dx\\
+	&= M \int_{\mathbb{R}} \chi_A + \chi_B \, dx 
+\end{align*}
+ by the linearity of the integral as well. So the property holds for any simple integrable function $f$.
+
+Let $f$ be a integrable function and let $\left(  f_k \right)_k$ be a sequence of pointwise increasing simple functions converging to $f$. Then we have that
+\begin{equation}
+	h_k(x) := \lim_{n \rightarrow \infty} \tilde{g}(nx)f_k(x)
+\end{equation}
+is also a monotonically increasing function which converges to $h(x) := \lim_{n \rightarrow \infty} \tilde{g}(nx) f(x)$. Therefore by monotone convergence theorem, we have that:
+\begin{align*}
+	M \int_{\mathbb{R}} f(x) \, dx
+	&= M \lim_{k \rightarrow \infty} \int_{\mathbb{R}} f_k(x) \, dx\\
+	&= \lim_{k \rightarrow \infty} \lim_{n \rightarrow \infty} \int_{\mathbb{R}}  \tilde{g}(nx)f_k(x)\, dx\\
+	&= \lim_{k \rightarrow \infty} \int_{\mathbb{R}}  h_k(x) \, dx\\
+	&= \int_{\mathbb{R}} h(x) \, dx\\
+	&= \int_{\mathbb{R}} \tilde{g}(nx)f_k(x) \, dx
+\end{align*}
+Thus shown.
+
+\section{2}
+
+\section{3}
+Let $\omega = \mu + \nu$. We have that $\mu \leq \omega$ for all $\omega$. Then by Radon-Nicodym, there exists a $(\mu + \nu)$-measurable function $f$ with $0 \leq f \leq 1$ such that
+\begin{equation}
+	\mu(E) = \int_E f \, d\omega \qquad \forall E \in \mathcal{S}.
+\end{equation} 
+We will now use a fact from the proof of Radon-Nicodym that $\int_E f \, d\omega = \int_E f \, d\mu +  \int_E f \, d\nu$. Then we use the fact that $\mu(E) = \int_E 1 d\mu$ to get:
+\begin{equation}
+	\int_E 1 d\mu = \int_E f \, d\mu +  \int_E f \, d\nu \qquad \forall E \in \mathcal{S}.
+\end{equation}
+Then we move the $\int_E f \, d\mu$ term to the left hand side to have that:
+\begin{equation}
+	\int_E \left(1 - f\right) d\mu = \int_E f \, d\nu \qquad \forall E \in \mathcal{S}.
+\end{equation}
+where $f$ is $(\mu + \nu)$-measurable. 
+\section{4}
+
+\subsection{a}
+We have that:
+\begin{equation}
+	\mu([0, \infty)) = \sum_{n = 1}^{\infty} \frac{1}{n^3} \int_{[n, n + 1)} x \, d\lambda \leq \sum_{n = 1}^{\infty} \frac{1}{n^3} (n + 1) = \sum_{n = 1}^{\infty} \frac{1}{n^2} + \sum_{n = 1}^{\infty} \frac{1}{n^3}
+\end{equation}
+However, we have that $\sum_{n = 1}^{\infty} \frac{1}{n^2}$ and $\sum_{n = 1}^{\infty} \frac{1}{n^3}$ are both finite, therefore $\mu([0, \infty)) < \infty$. 
+We additionally have that
+\begin{equation}
+	\nu([1, \infty)) = \int_{[1, \infty)} x^{-2} \, d\lambda
+\end{equation}
+and using Riemannian integration and the fact that Riemannian and Lebesgue integration agree on continuous functions, we have that $\int_{[1, \infty)} x^{-2} \, d\lambda = \left[ -\frac{1}{x} \right]^\infty_{1} = 1$. Thus $\nu([1, \infty)) < \infty$ and $\mu$ and $\nu$ are finite measures. 
+\subsection{b}
 
 \end{document}
