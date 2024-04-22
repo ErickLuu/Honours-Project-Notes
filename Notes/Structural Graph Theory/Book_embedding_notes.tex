@@ -333,7 +333,7 @@ Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embedd
 	For all $t$, there exists $g, p, a \geq 0$, $k \ell \geq 1$, such that every $K_t$-minor-free graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-embeddable. We refer to the family of graphs which satisfy these constants as $\mathcal{G}(g, p, k, a)$. 
 \end{theorem}
 In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-almost embeddable, then $G$ has no $K_t$ minor. Joret and Wood\cite{joretCompleteGraphMinors2013} found that
-\begin{theorem}[Converse of Graph structure theorem\cite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
+\begin{theorem}[Bounds on graph structure theorem\cite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
 	Let $\had(G)$ be the largest $K_t$ minor in $G$. Then 
 	 $\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5$. Moreover, there exists an integer $n \geq a + 1 4 k\sqrt{p + g}$ such that $K_n$ is a minor of some $\mathcal{G}(g, p, k, a)$ graph.
 \end{theorem}
@@ -533,7 +533,8 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 \begin{lemma}\label{lem:planar_nonplanar_nonorientable}
 	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an non-orientable surface $\Sigma$. Then $G$ can be embedded on at most $9g - 1$ pages.
 \end{lemma}
-\begin{proof}
+\begin{proof}[Proof sketch]
+\todo{Flesh out details completely}
 We want to add edges in a controlled way so that the traces that are reversed become unreversed. This is done by adding edges between vertices so that we can invert the ordering on the circle such that we have that the vertices in one homotopy class have a non-crossing page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page where there are finitely many pages wrt to the genus of the surface. Let $\mathcal{C}_{i,j}$ be a chord class when it is the set of chords that go between traces $T_i$ and $T_j$, where $T_i$ and $T_j$ both go clockwise or counterclockwise. Note that the number of chord classes $\mathcal{C}_{i,j}$ is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite. 
 \end{proof}
 
