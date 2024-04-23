@@ -200,5 +200,44 @@ We additionally have that
 \end{equation}
 and using Riemannian integration and the fact that Riemannian and Lebesgue integration agree on continuous functions, we have that $\int_{[1, \infty)} x^{-2} \, d\lambda = \left[ -\frac{1}{x} \right]^\infty_{1} = 1$. Thus $\nu([1, \infty)) < \infty$ and $\mu$ and $\nu$ are finite measures. 
 \subsection{b}
+\paragraph{$\mu <<\lambda$}
 
+We have that $\mu <<\lambda$. Let $A$ be a $\lambda$-null set. Then
+\begin{equation}
+	\mu(A) = \sum_{n = 1}^{\infty} \frac{1}{n^3} \int_{A\cap [n, n + 1)} x \, dx 
+\end{equation}
+but we have that for all $n$, $A\cap [n, n + 1)$ is also a null-set as it is a subset of $A$. Therefore, we can write
+\begin{equation}
+	\mu(A) = \sum_{n = 1}^{\infty} \frac{1}{n^3} \int_{\mathbb{R}} x \chi_{A\cap [n, n + 1)} \, dx 
+\end{equation}
+and we use the fact that $\int_{\mathbb{R}} x \chi_{A\cap [n, n + 1)} \, dx  = 0$ for all $n$ to yield $\mu(A) = 0$. Thus shown.
+
+\paragraph{$\nu <<\lambda$}
+
+Let $A$ be a $\lambda$-null set. Then:
+\begin{equation}
+	\nu(A) = \int_{A \cap [1, \infty)} x^{-2} \, dx
+\end{equation}
+but as $A \cap [1, \infty)$ is also a null-set as it is a subset of $A$, it holds that $\nu(A) = 0$ as well. 
+
+\paragraph{$\lambda << \mu$}
+It does not hold that $\lambda << \mu$. We have that:
+\begin{equation}
+	\mu([0, 1)) = 
+	\sum_{n = 1}^{\infty} \frac{1}{n^3} \int_{[0, 1)\cap [n, n + 1)} x\, dx 
+\end{equation}
+but $[0, 1)\cap [n, n + 1) = \emptyset$ for all $n \geq 1$. Thus $\mu([0, 1)) = 0$, but $\lambda([0, 1)) = 1$. 
+
+\paragraph{$\lambda << \nu$}
+For a similar reason above, we have that
+
+\begin{equation}
+	\nu([0, 1)) = \int_{[0, 1) \cap [1 \infty)} x^{-2} \, dx\int_{\emptyset} x^{-2} \, dx = 0
+\end{equation}
+Thus shown.
+
+\paragraph{$\mu << \nu$:}
+Let $A$ be a null-set with respect to $\mu$. 
+
+\paragraph{$\nu << \mu$:}
 \end{document}
