@@ -12,6 +12,7 @@
 \newcommand{\had}{\text{had}}
 \newcommand{\pw}{\text{pw}}
 \newcommand{\td}{\text{td}}
+\newcommand{\bn}{\text{bn}}
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -505,5 +506,83 @@ Let $T$ be a tree, $(A, B)$ a separation. We say $(A, B)$ is $(w, T)$ spanning i
 	
 	\paragraph{Conclusion}
 	Therefore, there is a $(w, T)$-spanning path separator $(A, B)$ where $|T| = w + 2$. Therefore, we have that $G[A]$ contains a model of $T$, therefore $G$ contains a model of $T$. Thus shown. 
+\end{proof}
+
+\section{Chordal partitions}
+Let $G$, $H$ be graphs. We let a $H$-partition of $G$ be defined as a function $f: V(G) \rightarrow V(H)$ such that for all edges $vw \in E(G)$, we have that either:
+\begin{itemize}
+	\item $f(v) = f(w)$, or
+	\item $f(v) f(w) \in E(H)$.
+\end{itemize}
+We also impose that $f^{-1}(x)$ is connected for all $x \in V(H)$. 
+
+We define the width of a $H$-partition is $width(f) := \max( |f^{-1} (x)| : x \in V(H))$. Therefore if the width is $k$, then we have that $G \subseteq H \boxtimes K_k$, or that $G$ is a subgraph of the $k$-regular inflation of $H$. 
+
+Recall that a chordal graph is one where every induced cycle is a triangle. Alternatively, we say that $H$ is chordal if it has a simplicial vertex $v$ such that $H - v$ is chordal, where a simplicial vertex is one where all its neighbours form a clique. Another definition is iff $\tw(H) = \omega(H) - 1 = \chi(H) - 1 = had(H) - 1$. 
+
+
+\begin{theorem}
+	If $G$ has no $K_t$-minor, $f$ is a chordal $H$-partition of $G$, then $H$ is a minor of $G$ and $H$ has no $K_t$-minor.
+\end{theorem}
+
+This would imply that $\tw(H) + 1 = had(H) \leq t - 1$. 
+
+We shall prove the stronger result below. 
+\begin{theorem}
+	Every $K_t$-minor-free graph $G$ has a chordal $H$-partition such that each part of the partition has:
+	\begin{itemize}
+		\item $\Delta \leq 3t - 10$
+		\item $\pw \leq 2t - 7$
+		\item $bw \leq 2t - 7$
+	\end{itemize}
+\end{theorem}
+
+
+\begin{proof}
+	We say a subgraph $X \subset G$ is "processed" if $X$ has the properties listed above.
+	
+	Take a chordal $H$-partition of $G$ such that:
+	\begin{enumerate}
+		\item each unprocessed part is simplicial in $H$
+		\item the number of vertices of $G$ in a processed part is maximal. 
+	\end{enumerate}
+	Let $A$ be an unprocessed part on a simplicial vertex of $H$. Then we have that the neighbours of $A$ in $H$ can be written as $X_1, ..., X_k$ where $k \leq t - 2$. Then we look at the vertex $r$ in $A$ with a neighbour in $X_1$ and label paths $P_1 ... P_{k - 1}$ where $P_{i + 1}$ is the shortest path from $r$ to a vertex $v_i$ where $v_i$ has a neighbour in $X_i$. Then we have that this is a depth-first subtree, therefore we partition the graph into level sets $L_1, ..., L_m$ where $L_i$ are all the vertices on $P_1, ..., P_{k - 1}$ of distance exactly $i$ from $r$. Then we let the new processed part, $A'$, be the union of all $P_1, ..., P_{k - 1}$. Then we have that $A'$ has the property that every vertex has $\Delta$ at most $3t - 10$ from the fact that edges can only go between level sets $i$, $i-1$ and $i + 1$ and there are at most $k-1$ level sets. We also have that the path-decomposition is the concatenations of levels $i$ and $i + 1$ meaning that each bag is at most $2t - 7$ vertices. Finally, the maximum distance between any two sets is $2t - 7$, thus $bw \leq 2t - 7$.
+\end{proof}
+
+\subsection{Hadwiger's conjecture and simple partial result}
+
+\begin{theorem}
+	For all graphs $G$ which are $K_t$-minor free, there exists a $H \subseteq G$ such that $|V(H)| \geq \frac{1}{2}|V(G)|$ and $\chi(H) \leq t - 1$.
+\end{theorem}
+We will use a simpler lemma.
+
+\begin{lemma}
+	For all connected graphs $X$, there exists an independent set $I$ and a dominating set $D$ such that $|D| = 2 |I| - 1$ for $I \subset D$. 
+\end{lemma}
+\begin{proof}
+	Take $I$ and $D$ to be maximal such that $|D| = 2|I| - 1$ and $I$ independent, $I \subseteq D$. We have that for any single vertex $v$, $\left\lbrace v \right\rbrace = I = D$, satisfying the equation.
+	
+	Now suppose $D$ does not dominate $X$. We find a vertex not dominated by $D$ and find a vertex $x$ on the shortest path such that $x$ is of distance 2 from $D$. Now we take $y$, the neighbour of $D$. We add $y$ to $D$ and $x$ to $I$, which satisfies the induction hypothesis.
+\end{proof}
+
+Now to prove the theorem above.
+
+\begin{proof}
+	Let $G$ be a connected $K_t$-minor free graph and let $I_0$ and $D_0$ be the dominating set and independent set as described above. Now let $G_1 = G - D_0$ and repeat on the connected components of $G_1$ for the sets $G_1, ..., G_k$, and then repeat on the connected components and so on. After exhausting all connected components, we have that $(I, D)$ forms a tree-like structure, and in fact the sets form a closed tree. We have that the depth of this tree is at most $t - 1$ as each path from a leaf to the root is a clique. Therefore, we have that the closed tree is chordal when we contract each $D$, and in fact we can contract each $D$ to the corresponding $I$ to yield a minor $H$ such that $V(H) = \cup I \geq \frac{1}{2} |V(G)|$ and we colour (by colour we mean colouring each vertex in $I$ the same colour) each level set of $I$ the same colour, to yield that $H$ requires at most $t-1$ colours. 
+\end{proof}
+
+\section{Brambles and treewidth}
+We define a bramble $B$ to be a set $B_i \subseteq V(G)$ such that for all $B_i, B_j$, we have that either $B_i \cap B_j \neq \emptyset$ or there exists an edge between $B_i$ and $B_j$ and $G[B_i]$ is connected for all $i$. We define the hitting set of a bramble $B$ to be the the set of vertices $X \subset V$ such that $X \cap B_i \neq \emptyset$ for all $i$. We define the order of a bramble $B$ to be the smallest $|X|$ where $X$ is a hitting set. Then we define $\bn(G)$ to be the maximum order over every bramble. 
+
+For $n \times n$ grids, we take a cross to be the union of a column and a row. Then we have that the set of all crosses forms a bramble, and the hitting set is of size at least $n$, as we must intersect all rows and columns. Therefore, we have that $\bn(n\times n \text{ grid}) \geq n$. 
+
+\begin{theorem}[Seymour and Thomas]
+	\begin{equation}
+		\bn(G) = \tw(G) + 1.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}[$\bn(G) \geq \tw(G) + 1$]
+	We use the same trick that we did previously. We take a tree-decomposition of $G$ $(X_i)_i$ and we use the fact that the intersection set between two neighbouring bags is a separator of $G$. So we have that $X_v \cap X_w$ is a separator for $G$. Let $T_{v:w}$ be the subtree on the end of $X_v$ not including elements in $X_w$. Then we cannot have a bramble with one set in $T_{v:w}$ and $T_{w:v}$, as that would mean that the bags would not touch as they do not include vertices in the separator. Therefore, we have that all brambles either have a vertex in $X_v \cap X_w$, or they all live in either $T_{v: w}$ or $T_{w: v}$. Now orient the edge $vw$ to point towards the side which contains brambles in $T_{v:w}$ or $T_{w:v}$. Then we have a bag $B_x$ such that all arrows point towards $B_x$. Then $B_x$ is a hitting set. Therefore for any bramble, the hitting set is at most $\tw(G) + 1$, therefore we have that $\bn(G) \geq \tw(G) + 1$. 
 \end{proof}
 \end{document}
