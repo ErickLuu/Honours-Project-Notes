@@ -200,7 +200,7 @@ We additionally have that
 \end{equation}
 and using Riemannian integration and the fact that Riemannian and Lebesgue integration agree on continuous functions, we have that $\int_{[1, \infty)} x^{-2} \, d\lambda = \left[ -\frac{1}{x} \right]^\infty_{1} = 1$. Thus $\nu([1, \infty)) < \infty$ and $\mu$ and $\nu$ are finite measures. 
 \subsection{b}
-\paragraph{$\mu <<\lambda$}
+\paragraph{$\mu <<\lambda$:}
 
 We have that $\mu <<\lambda$. Let $A$ be a $\lambda$-null set. Then
 \begin{equation}
@@ -212,7 +212,7 @@ but we have that for all $n$, $A\cap [n, n + 1)$ is also a null-set as it is a s
 \end{equation}
 and we use the fact that $\int_{\mathbb{R}} x \chi_{A\cap [n, n + 1)} \, dx  = 0$ for all $n$ to yield $\mu(A) = 0$. Thus shown.
 
-\paragraph{$\nu <<\lambda$}
+\paragraph{$\nu <<\lambda$:}
 
 Let $A$ be a $\lambda$-null set. Then:
 \begin{equation}
@@ -220,7 +220,7 @@ Let $A$ be a $\lambda$-null set. Then:
 \end{equation}
 but as $A \cap [1, \infty)$ is also a null-set as it is a subset of $A$, it holds that $\nu(A) = 0$ as well. 
 
-\paragraph{$\lambda << \mu$}
+\paragraph{$\lambda << \mu$:}
 It does not hold that $\lambda << \mu$. We have that:
 \begin{equation}
 	\mu([0, 1)) = 
@@ -228,7 +228,7 @@ It does not hold that $\lambda << \mu$. We have that:
 \end{equation}
 but $[0, 1)\cap [n, n + 1) = \emptyset$ for all $n \geq 1$. Thus $\mu([0, 1)) = 0$, but $\lambda([0, 1)) = 1$. 
 
-\paragraph{$\lambda << \nu$}
+\paragraph{$\lambda << \nu$:}
 For a similar reason above, we have that
 
 \begin{equation}
@@ -237,7 +237,46 @@ For a similar reason above, we have that
 Thus shown.
 
 \paragraph{$\mu << \nu$:}
-Let $A$ be a null-set with respect to $\mu$. 
+We have that:
+
+\begin{align*}
+	\mu(A) &= \sum_{n = 1}^{\infty} \frac{1}{n^3} \int_{A\cap [n, n + 1)} x \, dx \\
+	&=\sum_{n = 1}^{\infty} \int_{\mathbb{R}} \frac{x}{n^3} \chi_{A\cap [n, n + 1)} \, dx \\
+\end{align*}
+We have that $g_n(x) = \frac{x}{n^3} \chi_{A\cap [n, n + 1)}$ is a measurable non-negative function, therefore by 2.22, we can pass through the summation to yield:
+\begin{equation}
+		\mu(A) = \int_{\mathbb{R}}\sum_{n = 1}^{\infty} \frac{x}{n^3} \chi_{A\cap [n, n + 1)} \, dx \\
+\end{equation}
+
+Now we have that the support of $\mu$ is $[1, \infty)$, therefore we can restrict $\mathbb{R}$ to only be $[1, \infty)$ to yield:
+\begin{equation}
+	\mu(A) = \int_{[1, \infty)}\sum_{n = 1}^{\infty} \frac{x}{n^3} \chi_{A\cap [n, n + 1)} \, dx \\
+\end{equation}
+
+To show $\mu << \nu$, let $A$ be a null-set in $\nu$, so
+\begin{equation}
+	\int_{A \cap [1, \infty)} x^{-2}\, dx = 0
+\end{equation}
+As $x$ is greater than 0 at every point, this implies that $A$ is a null-set in $\lambda$ restricted to $[1, \infty)$.
+
+Then we have that this implies that $ A \cap [n, n + 1)$ is a $\lambda$-null-set for all $n \in \mathbb{N}$. Therefore, we have that
+\begin{align*}
+	\mu(A) &= \int_{[1, \infty)}\sum_{n = 1}^{\infty} \frac{x}{n^3} \chi_{A\cap [n, n + 1)} \, dx \\
+	&= 0
+\end{align*}
+as integrating over characteristic functions of null-sets yields 0.
+
 
 \paragraph{$\nu << \mu$:}
+
+Suppose $A$ is a null-set of $\mu$. Then we have that:
+
+\begin{equation}
+	\mu(A) = \int_{[1, \infty)}\sum_{n = 1}^{\infty} \frac{x}{n^3} \chi_{A\cap [n, n + 1)} \, dx  = 0
+\end{equation}
+Then as $\frac{x}{n^3}$ is positive for all $x \geq 1$, then we have that $A \cap [n, n + 1)$ is also a $\lambda$-null set for all $n \in \mathbb{N}$. But this means that the union of all these null-sets is also a null-set, meaning that $A \cap [1, \infty)$ is also a $\lambda$-null set. Therefore, 
+
+\begin{equation}
+	\nu(A) = \int_{A \cap [1, \infty)} x^{-2} \, dx = 0
+\end{equation}
 \end{document}
