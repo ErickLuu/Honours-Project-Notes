@@ -6,7 +6,7 @@
 \newcommand{\tr}{\text{tr}}
 \newcommand{\fix}{\text{Fix}}
 %opening
-\title{Representation Theory- Problem sheet 2}
+\title{Representation Theory- Problem sheet 7}
 \author{Eric Luu}
 
 \begin{document}
@@ -17,11 +17,14 @@
 \subsection*{5.1}
 \subsubsection*{a}
 We want to show that if $g_1 \in HxK$, $g_2 \in H y K$, and $z \in Hx K \cap H y K$, then $g_1$ and $g_2$ are in the same coset. We have that $g_1 = h_1 x k_1$, $g_2 = h_2 y k_2$, and $z = h_3 x k_3 = h_4 y k_4$. Then we have that $y = h_4^{-1} h_3 x k_3 k_4^{-1}$, so $g_2 = h_2 h_4^{-1} h_3 x k_3 k_4^{-1} k_2$. But this means that $g_2 \in H x K$ as well. 
-\subsection*{b}
+\subsubsection*{b}
 We have that if $H \unlhd G$, then $H \textbackslash G / H = G/H$. We have that $H x H = x HH = x H$, so $H x H$ corresponds with $xH$. Thus they are the same sets. If $H \textbackslash G / H = G/H$, then this implies that for all $x \in G$, $xH = H x H$, as $xH \subseteq H x H$. Then this implies that $H x H \subseteq x H$, so $Hx \subseteq x H$. But this implies that for all $h_1 \in H$, $h_1 x = x h_2$ for some $h_2 \in H$, but that implies that $h_2 = x^{-1} h_1 x$. Thus $x^{-1} H x \subseteq H$, so $x^{-1} H x = H$ for all $x$. Thus $H$ is a normal subgroup. 
 
-\subsection*{c}
+\subsubsection*{c}
 Consider $H \times K \rightarrow G$ by $(h, k) \cdot g = h g k^{-1}$. Then $Orb(g) = H g K$, and $Stab(g) = \lbrace h \in H, k \in K: hgk^{-1} = g \rbrace = \lbrace h \in H : h \in g K g^{-1} \rbrace \cap \lbrace k \in K: k \in g^{-1} H g\rbrace \subseteq(H \times K)$. Then we have that $|Stab(g)| = |H \cap g K g^{-1}|$, so by the orbit-stabiliser theorem, we have that $|H g K| = \frac{|H| |K|}{|H \cap g K g^{-1}|}$.
+
+\subsection*{5.3}
+Let $hgk \in H g K$ for fixed $g$. Then $hgk \in h g K \subset H g K$. However, we have that $\sigma_h(gK) = (hg)K$, so $hgk \in \sigma_h(gK)$, therefore $H g K \in \sigma_h(gK) \subset Orb_H(gK)$. If $xK \in Orb_H(gK)$, then we have that $x = (hg)$ for some $h$, therefore $x K \subset H g K$. Thus $Orb_H(gK) \subseteq HgK$, thus they are equivalent. 
 
 
 \subsection*{5.5}
@@ -108,6 +111,38 @@ To fill out the final 4 characters, we use column orthogonality. We have that $1
 		$\chi_4$ & 3     & 0          & 0          & -1         \\ \hline
 	\end{tabular}
 \end{table}
-\subsubsection*{d} (HELP)
-We have that 
+\subsubsection*{d} 
+Let $\chi = \tr(Res^{S_4}_{A_4} \rho)$.
+We have that $\chi$ on the conjugacy classes acts in this way:
+\begin{align*}
+	\chi((1)) &= 4\\
+	\chi((123)) &= 1\\
+	\chi((132)) &= 1\\
+	\chi((12)(34)) &= 0
+\end{align*}
+We have that:
+\begin{equation*}
+	\langle \chi, \chi_4 \rangle = \frac{1}{12} \left(1 \times 4 \times 3 + 4 \times 1 \times 0 + 4 \times 1 \times 0 + 3 \times 0 \times -1\right) = 1
+\end{equation*}
+We also have that:
+
+\begin{equation}
+	\langle \chi, \chi_1 \rangle = \frac{1}{12} \left(1 \times 4 \times 1 + 4 \times 1 \times 1 + 4 \times 1 \times 1 + 3 \times 0 \times 1\right) = 1
+\end{equation}
+As we have that $\chi(1) = \chi_4(1) + \chi_1(1)$, then we have a complete decomposition, therefore $\chi = \chi_1 + \chi_4$ and $Res^{S_4}_{A_4} \rho = \rho_1 \oplus \rho_4$. Thus the degree 3 representation is the only nontrivial representation. 
+
+\subsection*{5.8}
+We have that if $G$ is a non-abelian group, and $\rho$ is an irreducible character of the centre, for
+\begin{equation}
+	Ind_{Z(G)}^G \rho
+\end{equation}
+to be irreducible, we want $\rho$ and $\rho^s$ to be inequivalent for $s \notin Z(G)$, where $s$ are coset representatives of $G / H$ by Mackey's criterion. However, we have that $Z(G) = s Z(G) s^{-1}$ for all $s \in G$, therefore we have that $\rho^s(x) = \rho(s^{-1} x s)$ for $x \in s Z(G) s^{-1}$ is the same as saying 
+$\rho^s(x) = \rho(s^{-1} x s)$ for $x \in Z(G)$. But we have that if $x \in Z(G)$, then $s^{-1} x s = x$. Therefore, we have that $\rho = \rho^s$ for all $s$ not in $Z(G)$. Since $G$ is non-abelian, there exists an $s$ not in $Z(G)$, therefore we have that inducing $\rho$ to $G$ is decomposible. 
+\subsection*{5.9}
+Let $\chi_\rho$ be the character associated with $\rho$ and let $\chi$ be the character of the regular representation. We have that $\chi = Ind_{1}^G \chi_1$ where $\chi_1$ is the trivial representation, from the lecture notes. Then we have that:
+
+\begin{equation}
+	\langle Ind_{1}^G \chi_1, \chi_\rho \rangle_{G} = \langle \chi_1, Res_{1}^G \chi_{\rho} \rangle_1 = \chi_1(1)\chi_\rho(1) = \chi_\rho(1)
+\end{equation}
+which is the degree of $\chi_\rho$. 
 \end{document}
