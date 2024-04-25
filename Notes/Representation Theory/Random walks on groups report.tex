@@ -33,10 +33,10 @@
 
 \maketitle
 \section{Introduction}
-In this paper, we introduce the concepts of random walks and specifically a random walk on a finite abelian group. We will define a random walk 
+In this paper, we introduce the concepts of random walks and specifically a random walk on a finite abelian group. We will define a random walk on a finite abelian group and then proceed with some important examples, but without proof as we do not discuss cutoff times in this report. We also discuss how a random walk on a group differs from a random walk on a set, namely the random walk respects the group structure, meaning that evolving a Markov chain through time is also a convolution on the elements of the group. We finally discuss some Fourier analysis to prove an upper bound on how far a limiting distribution is from the uniform distribution, thus proving that we can converge to the uniform distribution. 
 
-\section{Motivation}
 Notes from Steinberg, Representation theory of finite groups, chapter 11. All group multiplication will be done left to right. 
+\section{Motivation}
 In a famous paper " Trailing the dovetail shuffle to its lair", Bayer and Diaconis showed that you had to riffle-shuffle a deck of cards seven times to randomly shuffle the deck. The paper used random walks on $S_n$ to model shuffling the deck.
 
 \section{Definitions}
@@ -58,7 +58,7 @@ We have that $\pi$ satisfies $\pi = \pi P$.
 
 In fact, if $P$ is aperiodic (where the times when $P$ can return back to itself is finite) and ergodic (meaning that all states can be reached from another in finite time), then $P^t$ converges to $P$ in the manner below. We will not prove this result as weaker results can be used for random walks on groups. 
 \subsection{Random walks on groups}
-Suppose $G$ is a finite group and $X$ is a r.v. on $G$. $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$.
+Suppose $G$ is a finite group and $X$ is a r.v. on $G$. $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$. We can treat this as a Markov chain but to go from $g$ to $gh$ is the same probability as going from $1$ to $h$ for all $g$ and all $h$. 
 
 For a set $A \subseteq G$, we have that $P(A) = \sum_{g \in A} P(g)$. We define the support of $P$ as $\supp(P) = \lbrace g \in G : P(g) \neq 0 \rbrace$. 
 
@@ -158,7 +158,7 @@ Let $G$ be a finite abelian group and let $\widehat{G}$ be the set of irreducibl
 \begin{theorem}
 	Let $G$ be a finite abelian group. Then $G \cong \widehat{G}$.
 \end{theorem}
-This is easy to see for cyclic groups. Extend definition using fundamental theorem.
+This is easy to see for cyclic groups $\mathbb{Z}_n$, as for any generator $\langle 1 \rangle$, we send $\rho_a(1) = e^{2 i \pi a / n}$. Now for any finite cyclic group $\mathbb{Z}_{\alpha} \times \mathbb{Z}_{\beta}... $ (we can do this using the characterisation of abelian groups) with generators $\langle 1_{\alpha}, 1_\beta... \rangle$, we look at the irreducible representations on just $\mathbb{Z}_{i}$ and take the tensor product with all the other representations on $\mathbb{Z}_j$ for any different $j$ in the group product to form the character group. 
 
 We have the general definition of Fourier transform. Let $f \in ZL(G)$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
 \begin{equation}
@@ -291,7 +291,18 @@ This result means that all random ergodic walks on groups that respect the group
 In fact, there are similar results for groups that are nonabelian. We can drop some of the assumptions and have similar results for non-abelian groups.
 
 \section{Examples}
+\subsection{Ehrenfest's urn}
+Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
 
+\begin{theorem}
+	Let $c > 0$ be a positive constant. Then there exists a sufficiently large $k$ such that:
+	\begin{equation}
+		\|P^{\ast k} - U\|^2_{TV} \leq \frac{1}{2} (e^{e^{-c}} - 1)
+	\end{equation}
+\end{theorem}
+
+\subsection{Card shuffling}
+Shuffling $n$ cards with a riffle-shuffle has a sharp cutoff at $\frac{3}{2} n \log n$ shuffles. 
 \section{Conclusion}
-We show that 
+We first discussed what a Markov chain is and what a stationary distribution looks like on a Markov chain. We then looked at what a random walk on a group is and how it connected to Markov chains. We also looked at how we could test if two Markov chains are close to each other. We then looked specifically at the case where the group is a finite abelian group. Abelian groups of characters are very easy to compute if you know the basis elements. We used Fourier analysis to prove a series of results on abelian groups of characters, and eventually showed an upper bound of the of the distance between a limiting ergodic distribution and the uniform distribution can get arbitrarily small, thus showing that any ergodic distribution converges to the uniform distribution. This result is much more helpful than the stationary distribution because it required less axioms (distribution does not have to be aperiodic) yet converged to a particular stationary distribution, the uniform distribution. We finally finished by looking at some examples. 
 \end{document}
