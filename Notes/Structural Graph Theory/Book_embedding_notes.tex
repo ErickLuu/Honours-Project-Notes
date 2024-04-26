@@ -7,6 +7,7 @@
 \usepackage[english]{babel}
 \usepackage{url}
 \usepackage{todonotes}
+\usepackage{csquotes}
 
 \usepackage{hyperref}
 \usepackage[noabbrev, capitalise]{cleveref}
@@ -69,24 +70,33 @@ In this report we outline our current progress in proving that $K_t$-minor free 
 \chapter{Introduction}\label{sec:introduction}
 Structural graph theory is a fundamental topic in graph theory and its study has led to a deeper understanding of graphs. Many results from structural graph theory decompose graphs into ones with bounded parameters. One of the most important theorems in structural graph theory is Robertson and Seymour's Graph Minor Theorem \cite{robertsonGraphMinorsXX2004} which states that proper minor-closed families of graphs are characterised by a finite set of forbidden minors. 
 \par
-The concept of the \textit{pagenumber} of a graph was introduced by L. Taylor Ollmann  in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph is a way to arrange the vertices on the "spine" of a book and arrange the edges on "pages" of a book, or half-planes. The \textit{pagenumber} of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
+The concept of the \textit{pagenumber} of a graph was introduced by L. Taylor Ollmann \cite{ollmannBookThicknessVarious1973} in the context of VLSI design and integrated circuitry, but was studied deeply by Bernhardt and Kainen\cite{bernhartBookThicknessGraph1979} in 1979. A \textit{book-embedding} of a graph is a way to arrange the vertices on the ``spine'' of a book and arrange the edges on ``pages'' of a book, or half-planes. The \textit{pagenumber} of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
 
 The driving question of this report is the following: 
 \begin{conjecture}\label{conj:bded_had_pn}
 	Given a graph $G$ with no $K_t$ minor, is the pagenumber of $G$ bounded by a function on $t$, so $\pn(G) \leq f(t)$ for some $t$?
 \end{conjecture}
-Answering this question will yield a link between the pagenumber of a graph and the global structure of the graph. This report currently lays out the literature related to this question. We use a result in one of the papers of the Graph Minor theorem, which is the Graph Structure theorem \cite{robertsonGraphMinorsXVI2003}.
+Answering this question will yield a link between the pagenumber of a graph and the global structure of the graph. This report currently lays out the literature related to this question. We use a result in one of the papers of the Graph Minor Theorem, which is the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}.
 
 In a PhD thesis, Blankenship claimed to have a proof of \cref{conj:bded_had_pn}.\cite{Blankenship-PhD03} However, this result has not been published in any journal and has not been independently verified. We aim to fill this gap in our knowledge. 
 \subsection{Plan for solving the problem}
-We aim to solve the question using the graph structure theorem \cite{robertsonGraphMinorsXVI2003}, which describes the layout of graphs which do not contain a $K_t$ minor. It states that all graphs that do not contain a $K_t$ minor can be built out of \textit{clique sums} with cliques of size $\ell$ of graphs which are $(g, p, k, a)$- almost embeddable, with the \textit{adhesions} of the clique-sums being bounded. $(g, p, k, a)$ are a function of $t$ and Robertson and Seymour proved that for fixed $t$, $(g, p, k, a)$ are constants. These are graphs which can be embedded on a surface of bounded genus $g$, with $p$ \textit{vortices} which cannot be embedded on the surface, but have bounded width $k$. There are also $a$ apex vertices. We have that all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}, all graphs of bounded treewidth have bounded pagenumber \cite{ganleyPagenumberTrees2001}, and finally clique-sums of graphs with bounded pagenumber on cliques of bounded size have bounded pagenumber\cite{hickingbothamStackNumberCliqueSum2023}.
+We aim to solve the question using the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}, which describes the structure of graphs which do not contain a $K_t$ minor.
+\par
+Robertson and Seymour showed that we can build graphs with no $K_t$ minor from smaller building blocks. We first start with a graph $G$ embedded on a genus $g$ surface. Then we add on $p$ \textit{vortices} to $G$, with \textit{pathwidth} at most $k$. Then we add on $a$ \textit{apex vertices} to $G$. We say that $G$ is $(g, p, k, a)$-\textit{almost embeddable}. Robertson and Seymour \cite{robertsonGraphMinorsXVI2003} proved that all graphs with no $K_t$ minor are \textit{clique-sums} of $(g, p, k, a)$ almost-embeddable graphs. For fixed $t$, $(g, p, k, a)$ are constants. 
+\par
+We have some useful results that can be paired with the Graph Minor Structure Theorem to prove this result.
+\begin{itemize}
+	\item From Heath and Istrail, all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}.
+	\item From Ganley and Heath \cite{ganleyPagenumberTrees2001}, and Dujmovic and Wood \cite
+\end{itemize}
+We have that all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}, all graphs of bounded treewidth have bounded pagenumber, from Ganley and Heath\cite{ganleyPagenumberTrees2001}, and finally clique-sums of graphs with bounded pagenumber on cliques of bounded size have bounded pagenumber\cite{hickingbothamStackNumberCliqueSum2023}.
 
 \subsection{Layout of report}
 \begin{itemize}
 	\item \cref{chap:Definitions} formally describes important definitions and concepts that will be used throughout the rest of the report.
 	\item \cref{sec:BoundedPagenumber} formally defines a book-embedding and pagenumber of a graph $G$, and describes some cases where the pagenumber is completely defined for a family of graphs $\mathcal{G}$. Additionally, we describe some related graph parameters to pagenumber.
-	\item \cref{sec:treewidth} describes treewidth and tree-decompositions, which are important concepts in the graph structure theorem. We formally define treewidth and give the treewidth of some family of graphs. 
-	\item \cref{sec:Kt_Minor_Free} describes the graph structure theorem, but we do not discuss the proof.
+	\item \cref{sec:treewidth} describes treewidth and tree-decompositions, which are important concepts in the Graph Minor Structure Theorem. We formally define treewidth and give the treewidth of some family of graphs. 
+	\item \cref{sec:Kt_Minor_Free} describes the Graph Minor Structure Theorem, but we do not discuss the proof.
 	\item \cref{sec:BoundedPagenumber} describes some results of graphs with bounded pagenumber. One of the most important results is Yannakakis's proof that planar graphs have pagenumber at most four\cite{yannakakisEmbeddingPlanarGraphs1989}. We also show that clique-sums of graphs of bounded pagenumber also have bounded pagenumber, and graphs of bounded treewidth have bounded pagenumber.
 \end{itemize}
 
@@ -97,7 +107,7 @@ The reader is expected to be familiar with graph theory, but not necessarily str
 \section{Graph minors}
 We say that a graph $H$ is a \textit{minor} of another graph $G$ if $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges, meaning that to contract an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then the minor $G'$ of $G$ is also in $\mathcal{F}$. 
 \section{Book embedding}\label{ssec:Book Embedding}
-A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the "spine" of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
+A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the ``spine'' of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
 
 We introduce some new notation. Instead of referring to what page the edges are sitting on, we refer to \textit{colouring} the edges such that each monochromatic colouring is planar. We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, ..., v_{|G|})$, we refer to the edges $v_1 v_2, v_2 v_3, ..., v_{|G| - 1}, V_{|G|}$ as \textit{spine edges}.
 \begin{lemma}\label{lem:Pagenumber_1}
@@ -223,7 +233,7 @@ A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a s
 \end{proof}
 
 \subsection{Historical discussion}\label{ssec:tw_historical}
-Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name "dimension". It was then rediscovered by Halin \cite{halinSfunctionsGraphs1976} before most famously used in \cite{robertsonGraphMinorsIII1984}, which was introduced to prove the graph minor theorem\cite{robertsonGraphMinorsXX2004}.
+Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by Halin \cite{halinSfunctionsGraphs1976} before most famously used in \cite{robertsonGraphMinorsIII1984}, which was introduced to prove the Graph Minor Theorem\cite{robertsonGraphMinorsXX2004}.
 
 
 \section{Path-width}
@@ -249,7 +259,7 @@ We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ s
 	The pathwidth of a tree $T$ is $\min_{P \subset T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace $ where $P$ is a path. 
 \end{example}
 
-\begin{theorem}[Graph minor theorem \cite{robertsonGraphMinorsXX2004}]
+\begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
 	Every infinite family of graphs contains two distinct graphs $G$ and $H$ such that $H$ is a minor of $G$.
 \end{theorem}
 
@@ -257,8 +267,8 @@ We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ s
 In this chapter of the report, we outline important known results that will help us solve \cref{conj:bded_had_pn}.
 
 \begin{itemize}
-	\item \cref{sec:Kt_Minor_Free} is the graph structure theorem, and the full explanation of the Graph Structure theorem.
-	\item \cref{sec:BoundedPagenumber} are a series of proofs that can be used with the graph structure theorem to prove that each individual component of the structure theorem has bounded pagenumber.
+	\item \cref{sec:Kt_Minor_Free} is the Graph Minor Structure Theorem, and the full explanation of the Graph Minor Structure Theorem.
+	\item \cref{sec:BoundedPagenumber} are a series of proofs that can be used with the Graph Minor Structure Theorem to prove that each individual component of the structure theorem has bounded pagenumber.
 	\begin{itemize}
 		\item \cref{ssec:Clique_sum_Pagenumber_bound} proves that clique sums of bounded adhesion where each component has bounded pagenumber also has bounded pagenumber.
 		\item \cref{ssec:Bounded_Treewidth} proves that graphs with bounded treewidth also have bounded pagenumber.
@@ -266,7 +276,7 @@ In this chapter of the report, we outline important known results that will help
 	\end{itemize}
 \end{itemize}
 
-\section{Graph Structure Theorem}\label{sec:Kt_Minor_Free}
+\section{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
 What is the structure of $K_t$-minor free graphs? We shall show that we can roughly characterise all $K_t$-minor free graphs as graphs that are products of a series of operations. This classification comes from \cite{robertsonGraphMinorsXVI2003}.
 \subsection{Clique-minor-free minor-closed families}\label{ssec:Kt_Minor_Closed_families}
 We define $\had(G)$ to be the largest $t$ such that $G$ has a $K_t$ minor. 
@@ -329,7 +339,7 @@ Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$
 Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
 
 Vortices were created to solve the problem of grid-like graphs with large treewidth, torsos and adhesion, yet are all $K_t$-free for bounded $t$. 
-\subsection{Robertson-Seymour Graph Structure theorem\cite{robertsonGraphMinorsXVI2003}}\label{ssec:Robertson_Seymour_Graph_Structure}
+\subsection{Robertson-Seymour Graph Minor Structure Theorem\cite{robertsonGraphMinorsXVI2003}}\label{ssec:Robertson_Seymour_Graph_Structure}
 Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embeddable if there exists an $A \subseteq V(G)$ with $|A| \leq a$, and there exists subgraphs $G_0, G_1, ...,  G_{p'}$ of $G$ such that:
 \begin{itemize}
 	\item $G - A = G_0 \cup G_1 \cup G_2 ... G_{p'}$
@@ -339,11 +349,11 @@ Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embedd
 	\item $G_i$ is a $D_i$-vortex of width at most $k$.
 \end{itemize}
 
-\begin{theorem}[Robertson-Seymour graph structure theorem for $K_t$-minor-free graphs]
+\begin{theorem}[Robertson-Seymour Graph Minor Structure Theorem for $K_t$-minor-free graphs]
 	For all $t$, there exists $g, p, a \geq 0$, $k \ell \geq 1$, such that every $K_t$-minor-free graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-embeddable. We refer to the family of graphs which satisfy these constants as $\mathcal{G}(g, p, k, a)$. 
 \end{theorem}
 In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-almost embeddable, then $G$ has no $K_t$ minor. Joret and Wood\cite{joretCompleteGraphMinors2013} found that
-\begin{theorem}[Bounds on graph structure theorem\cite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
+\begin{theorem}[Bounds on Graph Minor Structure Theorem\cite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
 	Let $\had(G)$ be the largest $K_t$ minor in $G$. Then 
 	 $\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5$. Moreover, there exists an integer $n \geq a + 1 4 k\sqrt{p + g}$ such that $K_n$ is a minor of some $\mathcal{G}(g, p, k, a)$ graph.
 \end{theorem}
@@ -442,7 +452,7 @@ Note that this bound extends the one found by Yannakakis \cite{yannakakisEmbeddi
 The best known bound is $\sqrt{g}$, found by Malitz\cite{malitzGenusGraphsHave1994}.
 
 It was shown by Heath and Istrail that the family of graphs of bounded genus have bounded page-number. 
-We refer to the "layout" of the graph as the book-embedding of the graph and "embedding" as the surface-embedding. We refer to orientable surfaces as genus $g$ as a sphere with $g$ handles, and a nonorientable surface of genus $g$ as a sphere with $g$ cross-caps. We define the orientable genus of a graph $G$, denoted $\gamma(G)$, as the minimum orientable surface genus that $G$ can be embedded on. The nonorientable genus of a graph $G$, denoted $\tilde{\gamma}(G)$, is the minimum nonorientable genus surface that $G$ can be embedded on. Mohar\cite{moharOrientableGenusGraphs1998} claims that $\tilde{\gamma}(G) \leq 2 \gamma(G) + 1$ for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that, Auslander et al.\cite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus. 
+We refer to the ``layout'' of the graph as the book-embedding of the graph and ``embedding'' as the surface-embedding. We refer to orientable surfaces as genus $g$ as a sphere with $g$ handles, and a nonorientable surface of genus $g$ as a sphere with $g$ cross-caps. We define the orientable genus of a graph $G$, denoted $\gamma(G)$, as the minimum orientable surface genus that $G$ can be embedded on. The nonorientable genus of a graph $G$, denoted $\tilde{\gamma}(G)$, is the minimum nonorientable genus surface that $G$ can be embedded on. Mohar\cite{moharOrientableGenusGraphs1998} claims that $\tilde{\gamma}(G) \leq 2 \gamma(G) + 1$ for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that, Auslander et al.\cite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus. 
 \paragraph{Proof}
 We say that the embedding is $2$-cell if every face is homeomorphic to an open disc in $\mathbb{R}^2$. Any embedding of $G$ onto an orientable surface is a 2-cell embedding, but this does not hold for nonorientable surfaces, but we assume there exists a $2$-cell embedding.
 Heath and Istrail rely on decomposing the graph $G$ of genus $\gamma(G)$ into a planar spanning subgraph $G_p$ of $G$ such that:
@@ -597,6 +607,6 @@ The real problem are distinguished cliques of size $3$, $uvw$.
 \end{proof}
 
 \chapter{Conclusion}\label{chap:conclusion}
-We conclude this report by explaining our current progress and our future plans. We have explained the Graph Structure theorem \cite{robertsonGraphMinorsXVI2003} and its application in our particular problem involving $K_t$-minor free graphs. We apply the graph structure theorem to the problem and explain some partial results which prove some components of $K_t$-minor free graphs, which are clique-sums, graphs of bounded treewidth, and graphs embeddable on surfaces. What will be the future area of research are graphs which are almost-embeddable on surfaces. We have to show that adding $p$ vortices of adhesion $k$ to surfaces of genus $g$ still has a bounded pagenumber, with the bounds depending only on $p, k$ and $g$. 
+We conclude this report by explaining our current progress and our future plans. We have explained the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003} and its application in our particular problem involving $K_t$-minor free graphs. We apply the Graph Minor Structure Theorem to the problem and explain some partial results which prove some components of $K_t$-minor free graphs, which are clique-sums, graphs of bounded treewidth, and graphs embeddable on surfaces. What will be the future area of research are graphs which are almost-embeddable on surfaces. We have to show that adding $p$ vortices of adhesion $k$ to surfaces of genus $g$ still has a bounded pagenumber, with the bounds depending only on $p, k$ and $g$. 
 \printbibliography
 \end{document}
