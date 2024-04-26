@@ -82,14 +82,14 @@ In a PhD thesis, Blankenship claimed to have a proof of \cref{conj:bded_had_pn}.
 \subsection{Plan for solving the problem}
 We aim to solve the question using the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}, which describes the structure of graphs which do not contain a $K_t$ minor.
 \par
-Robertson and Seymour showed that we can build graphs with no $K_t$ minor from smaller building blocks. We first start with a graph $G$ embedded on a genus $g$ surface. Then we add on $p$ \textit{vortices} to $G$, with \textit{pathwidth} at most $k$. Then we add on $a$ \textit{apex vertices} to $G$. We say that $G$ is $(g, p, k, a)$-\textit{almost embeddable}. Robertson and Seymour \cite{robertsonGraphMinorsXVI2003} proved that all graphs with no $K_t$ minor are \textit{clique-sums} of $(g, p, k, a)$ almost-embeddable graphs. For fixed $t$, $(g, p, k, a)$ are constants. 
+Robertson and Seymour showed that we can build graphs with no $K_t$ minor from smaller building blocks. We first start with a graph $G$ embedded on a genus $g$ surface. Then we add on $p$ \textit{vortices} to $G$, with \textit{pathwidth} at most $k$. Then we add on $a$ \textit{apex vertices} to $G$. We say that $G$ is $(g, p, k, a)$-\textit{almost embeddable}. Robertson and Seymour \cite{robertsonGraphMinorsXVI2003} proved that all graphs with no $K_t$ minor are \textit{clique-sums} of $(g, p, k, a)$ almost-embeddable graphs, with $(g, p, k, a)$ depending on only $k$. 
 \par
 We have some useful results that can be paired with the Graph Minor Structure Theorem to prove this result.
 \begin{itemize}
 	\item From Heath and Istrail, all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}.
-	\item From Ganley and Heath \cite{ganleyPagenumberTrees2001}, and Dujmovic and Wood \cite
+	\item From Ganley and Heath \cite{ganleyPagenumberTrees2001}, and Dujmovic and Wood \cite{dujmovicGraphTreewidthGeometric2007}, all graphs of bounded treewidth have bounded pagenumber.
+	\item From Hickingbotham and Wood\cite{hickingbothamStackNumberCliqueSum2023}, \textit{tree-decompositions} of graphs where every \textit{torso} has bounded pagenumber has bounded pagenumber. 
 \end{itemize}
-We have that all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}, all graphs of bounded treewidth have bounded pagenumber, from Ganley and Heath\cite{ganleyPagenumberTrees2001}, and finally clique-sums of graphs with bounded pagenumber on cliques of bounded size have bounded pagenumber\cite{hickingbothamStackNumberCliqueSum2023}.
 
 \subsection{Layout of report}
 \begin{itemize}
@@ -97,16 +97,25 @@ We have that all graphs of bounded genus have bounded pagenumber \cite{heathPage
 	\item \cref{sec:BoundedPagenumber} formally defines a book-embedding and pagenumber of a graph $G$, and describes some cases where the pagenumber is completely defined for a family of graphs $\mathcal{G}$. Additionally, we describe some related graph parameters to pagenumber.
 	\item \cref{sec:treewidth} describes treewidth and tree-decompositions, which are important concepts in the Graph Minor Structure Theorem. We formally define treewidth and give the treewidth of some family of graphs. 
 	\item \cref{sec:Kt_Minor_Free} describes the Graph Minor Structure Theorem, but we do not discuss the proof.
-	\item \cref{sec:BoundedPagenumber} describes some results of graphs with bounded pagenumber. One of the most important results is Yannakakis's proof that planar graphs have pagenumber at most four\cite{yannakakisEmbeddingPlanarGraphs1989}. We also show that clique-sums of graphs of bounded pagenumber also have bounded pagenumber, and graphs of bounded treewidth have bounded pagenumber.
+	\item \cref{sec:BoundedPagenumber} describes some results about graphs with bounded pagenumber. One of the most important results is Yannakakis's proof that planar graphs have pagenumber at most  4 \cite{yannakakisEmbeddingPlanarGraphs1989}. This proof forms the basis for many other proofs in this paper. We also show that clique-sums of graphs of bounded pagenumber also have bounded pagenumber, and graphs of bounded treewidth have bounded pagenumber.
 \end{itemize}
 
-\paragraph{Reader expectations}
-The reader is expected to be familiar with graph theory, but not necessarily structural graph theory.
-
 \chapter{Definitions}\label{chap:Definitions}
+For a graph $G$, we define the \textit{vertex} and \textit{edge} sets of $G$ to be $V(G)$ and $E(G)$ respectively. For a subset of vertices $A \subseteq V(G)$, we denote the \textit{induced subgraph} on $G$ with vertex set $A$ as $G[A]$. 
+\par
+A \textit{path} in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell- 1}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$, and all the vertices are distinct. 
+A \textit{simple cycle} $C$ in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$ for $1 \leq i \leq \ell - 1$ and $e_\ell = v_\ell v_1$. 
+A \textit{Hamiltonian cycle} in a graph $G$ is a simple cycle $C$ such that all vertices in $G$ appear in $C$.
+\par
+We say that a graph $G$ is \textit{$k$-connected} if between any two vertices $v, w$ in $G$, there are $k$ vertex-disjoint paths between $v$ and $w$. For the case that $k = 2$, the graph is \textit{biconnected}. A graph $G$ with a Hamiltonian cycle is biconnected. 
+\section{Planar graphs}
+We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. A \textit{face} $F$ is a region on $\Sigma$ such that no vertex or edge is on $F$. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
 \section{Graph minors}
-We say that a graph $H$ is a \textit{minor} of another graph $G$ if $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges, meaning that to contract an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then the minor $G'$ of $G$ is also in $\mathcal{F}$. 
+We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
 \section{Book embedding}\label{ssec:Book Embedding}
+A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on the boundary. Books were described by 
+A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the 
+
 A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the ``spine'' of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
 
 We introduce some new notation. Instead of referring to what page the edges are sitting on, we refer to \textit{colouring} the edges such that each monochromatic colouring is planar. We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, ..., v_{|G|})$, we refer to the edges $v_1 v_2, v_2 v_3, ..., v_{|G| - 1}, V_{|G|}$ as \textit{spine edges}.
