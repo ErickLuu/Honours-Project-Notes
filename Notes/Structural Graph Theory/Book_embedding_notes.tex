@@ -347,19 +347,25 @@ We define $\had(G)$ to be the largest $t$ such that $G$ has a $K_t$ minor.
 \end{proof}
 
 \subsubsection{A short discussion of topology}\label{sssec:topology}
-A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. All surfaces are assumed to be closed. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
+A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
+We add a \textit{handle} to a surface $\Sigma$ by removing two disks in $\Sigma$ and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. We add a \textit{crosscap} by removing a disk in $\Sigma$ and identifying opposite points on the boundary. We add a \textit{twisted handle} to a surface $\Sigma$ by removing two disks in $\Sigma$ and identifying the boundaries such that one goes clockwise and the other goes counterclockwise.
+The Euler genus of a surface $\Sigma$ obtained from a sphere by adding $h$ handles, $c$ crosscaps and $t$ twisted handles is $2h + 2t + c$.
 
-We can classify all surfaces as the connected sum $\# $ of tori or projective planes. We say that a surface $\Sigma$ is orientable if it is a connected sum of tori, and $\Sigma$ is non-orientable if it is a connected sum of projective planes. Note that $P \# T = P \# P \# P$, so adding any projective plane or crosscap to any surface immediately forces the surface to be non-orientable. 
+\begin{example}
+	\begin{enumerate}
+		\item The Euler genus of the sphere is $0$.
+		\item The Euler genus of the torus is $2$.
+		\item The Euler genus of the projective plane is $1$. 
+	\end{enumerate}
+\end{example}
 
-We say that the genus $g$ of an non-orientable surface is the number of projective planes, and the Euler characteristic is $\chi := 2 - g$. The Euler characteristic is defined in terms of the homology of the surface.
-We say that the genus $g$ of an orientable surface is twice the number of tori connected together, and the Euler characteristic is $2 - g$. This is different from the regular context of genus, where it is the number of the connected tori. This is because we want to keep the Euler characteristic to be $2-g$. 
+\subsubsection{Euler Genus-g graphs}\label{sssec:Graph_genus}
 
-\subsubsection{Genus-g graphs}\label{sssec:Graph_genus}
+We define the \textit{Euler Genus} of a graph $G$ to be the smallest Euler genus $g$ surface $\Sigma$ such that $G$ can be embedded on $\Sigma$ without crossings (note that $\Sigma$ can be orientable or nonorientable).
 
-We define the \textit{genus} of a graph $G$ to be the smallest genus $g$ surface $\Sigma$ such that $G$ can be embedded on $\Sigma$ without crossings (note that $\Sigma$ can be orientable or nonorientable).
+Let $|F(G)|$ be the number of faces in a graph $G$. Then we have that $|V(G)| - |E(G)| + |F(G)| = \chi = 2 - g$. 
 
- Let $|F(G)|$ be the number of faces in a graph $G$. Then we have that $|V(G)| - |E(G)| + |F(G)| = \chi = 2 - g$. 
-
+For clarity
 \begin{theorem}[Bounded genus]\label{thm:bounded_genus_kt_free}
 	If $G$ is a genus $g$ graph, then $G$ is $K_t$-minor free, where $t > \sqrt{6g} + 4$. 
 \end{theorem}
@@ -426,8 +432,8 @@ Equivalently, this theorem states that
 	Every minor-closed family of graphs can be characterised by a set of forbidden minors.
 \end{theorem}
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors.
-For planar graphs, the two forbidden minors are $K_5$ and $K_{3,3}$. 
-For graphs that can be embedded on a torus, there are at least 17,523 graphs 
+For planar graphs, the two forbidden minors are $K_5$ and $K_{3,3}$. This was proven by Wagner \cite{wagnerUeberEigenschaftEbenen1937}. 
+For graphs that can be embedded on a torus, there are at least 17,523 graphs which are forbidden minors, with a database maintained by Myrvold and Woodcock\cite{myrvoldLargeSetTorus2018}. 
 
 \section{Bounds of pagenumbers of graphs}\label{sec:BoundedPagenumber} 
 \subsection{Tree-decomposition into bounded page number components}\label{ssec:Clique_sum_Pagenumber_bound}
