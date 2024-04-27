@@ -345,4 +345,150 @@ and
 \begin{equation}
 	\varphi \left(\frac{1}{\mu(\Omega)} \int_{\Omega} f \, d\mu \right)\leq \frac{1}{\mu(\Omega)}\int_{\Omega} (\varphi \circ f) \, d\mu 
 \end{equation}
+
+\section{Product measures}
+We define a product measure of the product of a measure triple $(X, \mathcal{X}, \mu)$ and $(Y, \mathcal{Y}, \nu)$ as
+\begin{equation}
+	\pi(A \times B) = \mu(A) \nu(B)
+\end{equation}
+for $(A, B) \in \mathcal{X} \times \mathcal{Y}$. 
+
+This is a measure as we can decompose any rectangle into disjoint unions of rectangles to show additivity. We can extend this to a measure space. We want $\mu$ and $\nu$ to be $\sigma$-finite so that $\pi$ is unique. 
+
+\subsection{Iterated integration}
+\begin{theorem}[Tonelli]
+	Let $(X, \mathcal{X}, \mu)$ and $(Y, \mathcal{Y}, \nu)$ be two $\sigma$-finite measure triples, and let $f: X \times Y \rightarrow \mathbb{R}$ be a non-negative $\pi$-measurable function. Then the functions on $X$ and $Y$ by
+	\begin{equation}
+		f(x) := \int_Y F_x \, d\nu \quad \text{and} \quad g(y) := \int_X F^y \, d\mu
+	\end{equation}
+are measurable, and:
+\begin{equation}
+	\int_X f \, d\mu = \int_{X \times Y} F \, d\pi = \int_Y g \, d\nu.
+\end{equation}
+\end{theorem}
+Fubini's theorem gives an refinement to integrable functions. 
+\begin{theorem}[Tonelli]
+	Let $(X, \mathcal{X}, \mu)$ and $(Y, \mathcal{Y}, \nu)$ be two $\sigma$-finite measure triples, and let $f: X \times Y \rightarrow \mathbb{R}$ be a non-negative $\pi$-integrable function. Then the functions on $X$ and $Y$ by
+	\begin{equation}
+		f(x) := \int_Y F_x \, d\nu \quad \text{and} \quad g(y) := \int_X F^y \, d\mu
+	\end{equation}
+	are integrable, and:
+	\begin{equation}
+		\int_X f \, d\mu = \int_{X \times Y} F \, d\pi = \int_Y g \, d\nu.
+	\end{equation}
+\end{theorem}
+Proof follows from Tonelli's theorem. 
+
+\section{Decomposition of measures}
+
+\begin{lemma}
+	Let $\mu$ and $\nu$ be two finite measures on a $\sigma$-algebra $(X, \mathcal{S})$ such that $0 \leq \nu \leq \mu$ on $\mathcal{S}$. Then there exists a unique (up to null set) $\mu$-measurable function $f_0$ with $0 \leq f \leq 1$ such that:
+	\begin{equation}
+		\nu(E) = \int_E f_0 \, d\mu
+	\end{equation}
+	for all $E \in \mathcal{S}$. 
+\end{lemma}
+
+\begin{theorem}[Radon-Nickodym]
+	Let $\mu$ and $\nu$ be two $\sigma$-finite measures on a $\sigma$-algebra $(X, \mathcal{S})$. Then there is a unique pair $D \in S$ with $\mu(D) = 0$ and a non-negative $\mu$-measurable function $f_0$ (defined up to a null-set) such that:
+	\begin{equation}
+		\nu(E) = \nu(E \cap D) + \int_E f_0 \, d\mu
+	\end{equation}
+\end{theorem}
+
+\section{Radon-Nickodym implications}
+We say that two measures $\mu$ and $\nu$ are mutually singular if there exists sets $A, B \in \mathcal{S}$ such that $X = A \cup B$, $\emptyset = A \cap B$ and $\mu(A) = 0 = \nu(B)$. Denoted as $\mu \perp \nu$.
+We say that $\nu$ is absolutely continuous wrt $\mu$, denoted $\nu \ll \mu$ if whenever $\mu(D) = 0$, then $\nu(D) = 0$. 
+
+\begin{theorem}[Lebesgue decomposition theorem]
+	Let $\mu$, $\nu$ be $\sigma$-finite measures. Then we can decompose $\nu$ to $\nu = \nu_1 + \nu_2$ where $\nu_1$ is mutually singular and $\nu_2$ is absolutely continuous wrt $\mu$. 
+\end{theorem}
+\begin{proof}
+	According to Radon- Nickodym, we have $D \in \mathcal{S}$ with $\mu(D) = 0$ and a unique function $f_0$ such that:
+	\begin{equation}
+		\nu(E) = \nu(E \cap D) + \int_E f_0 \, d\mu \quad \forall E \in \mathcal{S}.
+	\end{equation}
+	Then let $\nu_1(E) = \nu(E \cap D)$ and $\nu_2(E) = \int_E f_0 \, d\mu$. Then $\nu_2 \ll \mu$. Letting $A = D$, $B = D^c$, we have that $v_1 \perp \mu$. 
+\end{proof}
+
+\subsection{Radon-Nickodym derivative}
+Let $\nu \ll \mu$. Then we have that $\nu(E) = \int_E f_0 \, d\mu$. Then $\dfrac{d\nu}{d\mu} := f_0$ be the Radon-Nickodym derivative. It shares many properties with a standard Riemannian derivative.
+
+\begin{theorem}
+	Let $\mu, \nu$, and $\omega$ be $\sigma$-finite measures on $(X, \mathcal{S})$.
+	\begin{enumerate}
+		\item Then if $\mu \ll \nu$ and $f$ ins $\mu$-measurable, then
+		\begin{equation}
+			\int_X f \, d\nu = \int_X (\dfrac{d\nu}{d\mu}) f d\mu
+		\end{equation}
+		\item If $\nu \ll \mu$ and $\omega \ll \mu$, then
+		\begin{equation}
+			\dfrac{d(\nu + \omega)}{d\mu} = \dfrac{d\nu}{d\mu} + \dfrac{d\omega}{d\mu}
+		\end{equation}
+		\item If $\nu \ll \mu \ll \omega$, then
+		\begin{equation}
+			\dfrac{d\nu}{d\omega} = \dfrac{d\nu}{d\mu} \dfrac{d\mu}{d\omega}
+		\end{equation}
+		Finally, if $\nu \ll \mu$ and $\mu \ll \nu$, then
+		\begin{equation}
+			\dfrac{d\nu}{d\mu} \dfrac{d\mu}{d\nu} = 1
+		\end{equation}
+	\end{enumerate}
+\end{theorem}
+
+\section{Lebesgue measure approximation}
+We denote all continuous functions with compact support on an open set $V$ as $C^0_c(V)$ and the collection of smooth functions with compact support as $C^\infty_c(V)$. 
+\begin{theorem}[Urysohn]
+	Let $K \subset V$ be two subsets of $\mathbb{R}^d$ with $K$ compact and $V$ open. Then there exists a continuous function $u: \mathbb{R}^d  \rightarrow [0, 1]$ such that $u|_K = 1$ and $supp(u) \subset V$. 
+\end{theorem}
+
+We have that $C^0_c(\mathbb{R}^d)$ is dense in $L^p(\mathbb{R}^d)$. 
+
+\begin{proposition}
+	Let $\tilde{f} \in L^p(\mathbb{R}^d)$ for some $p \in [1, \infty)$. For $y \in \mathbb{R}^d$ and $\varepsilon > 0$, consider
+	\begin{equation}
+		F(\tilde{f}, \varepsilon, y) := \int_{\mathbb{R}^d} |\tilde{f}(x - \varepsilon y) - \tilde{f}(x)|^p \, dx.
+	\end{equation}
+	Then $\lim_{x \searrow 0} F(\tilde{f} \varepsilon, y) = 0$. 
+\end{proposition}
+Any non-negative function $\eta \in C^\infty_c(\mathbb{R}^d)$ satisfying $\int_{\mathbb{R}^d} \eta \, dx = 1$ is a mollifier. If $\eta$ is a mollifier, then $n_\varepsilon := \varepsilon^{-d} \eta(x/\varepsilon)$ is also a mollifier and $\left\{\eta_\varepsilon \right\}_{\varepsilon > 0}$ is known as a mollifying sequence. 
+\begin{example}
+	Let $\alpha := \int_{\mathbb{R}^d}\exp(\frac{-1}{(1 - |x|^2)})\, dx$ and let 
+		\begin{equation}
+			\eta(x) := \frac{1}{\eta}\begin{cases}
+				\exp(\frac{-1}{(1 - |x|^2)}) &, |x| < 1\\
+				0 &, |x| \geq 1
+			\end{cases}
+		\end{equation}
+\end{example} 
+$\eta$ is a mollifier. 
+
+\begin{definition}
+	Any function $f \in L^p(V)$ can be extended outside of $V$ by setting $f$ to be zeros outside. Define this function $\tilde{f}$. We then define the convolution product with any mollifier
+	\begin{equation}
+		f_\varepsilon := (\eta_\varepsilon \ast f )(x) := \int_{\mathbb{R}^d} \eta_\varepsilon(y) \tilde{f}(x - y) \, dy
+	\end{equation}
+\end{definition}
+
+\begin{lemma}
+	$f_\varepsilon(x)$ is bounded and smooth. 
+\end{lemma}
+
+\begin{lemma}
+	Let $V \subset \mathbb{R}^d$ be open. Then $\left\{f_\varepsilon \right\}_{\varepsilon > 0}$ converges to $f$ in $L^p(V)$ as $\varepsilon \searrow 0$. 
+\end{lemma}
+
+We have that $C^\infty_c(V)$ is dense in $L^p(V)$ for all $v \in [1, \infty)$. 
+
+\begin{theorem}[Young's inequality]
+	Let $ f \in L^p(\mathbb{R}^d)$ and $g \in L^q(\mathbb{R}^d)$ for $1 \leq p , q < \infty$ and $\frac{1}{p} + \frac{1}{q} \geq 1$. Then:
+	\begin{equation}
+		\| f \ast g \|_{L^r}(\mathbb{R}^d) \leq \| f \|_{\L^p(\mathbb{R}^d)}\| g \|_{\L^q(\mathbb{R}^d)}
+	\end{equation}
+	for 
+	\begin{equation}
+		\frac{1}{r} = \frac{1}{p} + \frac{1}{q} - 1.
+	\end{equation}
+	
+\end{theorem}
 \end{document}
