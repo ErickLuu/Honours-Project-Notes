@@ -288,35 +288,44 @@ Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with a
 \section{Path-width}
 Similarly to treewidth, the pathwidth of a graph $G$ is how far a graph is from being a path. 
 
-We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ such that the subsequence of bags containing a vertex $v$ induces a subpath and each edge $vw$ is in a bag $B_i$. Then we define the width of a path-decomposition as $\max_i \lbrace |B_i| \rbrace -1$, same as treewidth. The pathwidth of a graph $G$ is the minimum treewidth.
+We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ such that the subsequence of bags containing a vertex $v$ induces a nontrivial subpath and each edge $vw$ is in a bag $B_i$. Then we define the width of a path-decomposition as $\max_i \lbrace |B_i| \rbrace -1$, same as treewidth.
 
-We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is adjacent to a vertex on the path $P$. Alternatively, $G$ is a caterpillar if removing every leaf yields a path.  
+If a graph has a path-decomposition $(B_i)_i$, then it has a tree-decomposition $\left((B_i)_i, P\right)$. Therefore,
+\begin{equation}
+	\pw(G) \geq \tw(G).
+\end{equation}
+
+Similarly to treewidth, we have the following observation.
+\begin{lemma}
+	The pathwidth of $G$ is the largest pathwidth over all connected components.
+\end{lemma}
+We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is adjacent to a vertex on the path $P$. Alternatively, $G$ is a caterpillar if removing every leaf yields a path.
 \begin{theorem}[Caterpillars]
 	Graphs have pathwidth at most 11 iff every connected component is a caterpillar.
 \end{theorem}
 \begin{proof}[Caterpillars]
-	Suppose $G$ is a caterpillar. Denote $P =\left( p_1, p_2, ..., p_n\right)$ as the central path, and the leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Then have the bags $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1. If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
+	\par($\Leftarrow$)
+	Suppose $G$ is a caterpillar. Denote $P =\left( p_1, p_2, ..., p_n\right)$ as the central path. The leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Define the bags as $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1.
+	\paragraph{$\Rightarrow$}
+	If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
 \end{proof}
-	
-\begin{example}
-	If a graph $F$ is a forest, then the pathwidth of $F$ is the largest pathwidth over all connected components.
+\begin{example}[Complete graphs]
+	$\pw(K_n) = \tw(K_n) = n - 1$. 
 \end{example}
-\begin{example}
-	The pathwidth of a single vertex is 0.
-\end{example}
+\begin{proof}
+	We have that the pathwidth of $K_n$ is at least the treewidth of $K_n$. But we have that the pathwidth is at most $n- 1$ (where all the vertices are in the same bag), but the treewidth of $K_n$ is $n - 1$. Therefore, $\pw(K_n) = n - 1$. 
+\end{proof}
+
 \begin{example}
 	The pathwidth of a tree $T$ is $\min_{P \subset T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace $ where $P$ is a path. 
 \end{example}
-
-\begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
-	Every infinite family of graphs contains two distinct graphs $G$ and $H$ such that $H$ is a minor of $G$.
-\end{theorem}
 
 \chapter{Known results from structural graph theory}\label{chap:Known results}
 In this chapter of the report, we outline important known results that will help us solve \cref{conj:bded_had_pn}.
 
 \begin{itemize}
 	\item \cref{sec:Kt_Minor_Free} is the Graph Minor Structure Theorem, and the full explanation of the Graph Minor Structure Theorem.
+	\item \cref{sec}
 	\item \cref{sec:BoundedPagenumber} are a series of proofs that can be used with the Graph Minor Structure Theorem to prove that each individual component of the structure theorem has bounded pagenumber.
 	\begin{itemize}
 		\item \cref{ssec:Clique_sum_Pagenumber_bound} proves that clique sums of bounded adhesion where each component has bounded pagenumber also has bounded pagenumber.
@@ -407,6 +416,18 @@ In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree
 	 $\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5$. Moreover, there exists an integer $n \geq a + 1 4 k\sqrt{p + g}$ such that $K_n$ is a minor of some $\mathcal{G}(g, p, k, a)$ graph.
 \end{theorem}
 
+\section{Graph Minor Theorem}
+We move on to the most important and deepest theorem in structural graph theory, the Graph Minor Theorem. This proof was proven in a series of 20 papers by Robertson and Seymour, from 1983 to 2004. As part of the proof, the Graph Minor Structure Theorem was developed, as we have outlined above. 
+\begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
+	Every infinite family of graphs contains two distinct graphs $G$ and $H$ such that $H$ is a minor of $G$.
+\end{theorem}
+Equivalently, this theorem states that
+\begin{theorem}
+	Every minor-closed family of graphs can be characterised by a set of forbidden minors.
+\end{theorem}
+Importantly, graphs of bounded genus can be characterised as a set of forbidden minors.
+For planar graphs, the two forbidden minors are $K_5$ and $K_{3,3}$. 
+For graphs that can be embedded on a torus, there are at least 17,523 graphs 
 
 \section{Bounds of pagenumbers of graphs}\label{sec:BoundedPagenumber} 
 \subsection{Tree-decomposition into bounded page number components}\label{ssec:Clique_sum_Pagenumber_bound}
