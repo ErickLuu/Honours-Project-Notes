@@ -55,9 +55,10 @@ Therefore, we have that $g(n) = n^{A(n)}e^{B(n)}$ where $A(n) = n^2$ and $B(n) =
 \subsection{Part b}
 We have that $f(n) - g(n) = (n + 1)^{n^2} - n^{n^2}e^{n - \frac{1}{2}} = n^{n^2}(1 + \frac{1}{n})^{n^2} - n^{n^2}e^{n - \frac{1}{2}}$. Factoring out the $n^{n^2}$ term, we have that $f(n) - g(n) = n^{n^2}\left((1 + \frac{1}{n})^{n^2} - e^{n - \frac{1}{2}} \right)$.
 
+DO LATER, use more terms
 
 \section{Question 3}
-We can write the LHS as $\exp(f(n) \log(1 + o(1)))$. However, we have that $\log(1 + o(1)) = o(1)$, therefore we want that $\exp(f(n) o(1)) \sim 1$. Therefore, we want $f(n) o(1) = o(1)$, meaning that $f(n) = O(1)$. 
+We can write the LHS as $\exp(f(n) \log(1 + o(1)))$. However, we have that $\log(1 + o(1)) = o(1)$, therefore we want that $\exp(f(n) o(1)) \sim 1$. Therefore, we want $f(n) o(1) = o(1)$, meaning that if we have $(1 + g(n))^{f(n)} \sim 1$, then $f(n)g(n) \sim 0$.  
 
 \section{4}
 \subsection{a}
