@@ -144,7 +144,7 @@ We can use this result to bound the number of edges in an outerplanar graph.
 We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
 
 \subsection{Minors and models}
-A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assigns to $H$ vertex disjoint connected subgraphs of $G$, such that if $uv \in E(H)$, then some edge in $G$ connects a vertex in $\rho(u)$ to $\rho(v)$. This definition comes from Sergey Norin \cite{
+A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assigns to $H$ vertex disjoint connected subgraphs of $G$, such that if $uv \in E(H)$, then some edge in $G$ connects a vertex in $\rho(u)$ to $\rho(v)$. This definition comes from Sergey Norin in his notes on graph minors \cite{norinMath599GraphMinors2017}. 
 
 \begin{theorem}
 	$H$ is a model of $G$ iff $H$ is a minor of $G$. 
@@ -392,8 +392,10 @@ We can show that if $G$ has genus $g$, then if $G$ has $n$ vertices and $m$ edge
 An apex vertex $a$ is added to a graph $G$ such that it has arbitrary edges. As such, $a$ can dominate all other vertices in $G$.
 \begin{theorem}
 	If $G$ is $K_t$-minor free, $G$ with the apex vertex $a$ is $K_{t+1}$- minor free. 
-	We shall prove the contrapositive. Suppose $G + a$ has a $K_{t + 1}$ minor. Then $K_{t + 1}$ has a model in $G + a$ and denote the model function as $\rho$. Now let $v$ be the vertex in $K_{t + 1}$ such that $\rho(v)$ contains $a$.
 \end{theorem}
+\begin{proof}
+	We shall prove the contrapositive. Suppose $G + a$ has a $K_{t + 1}$ minor. Then $K_{t + 1}$ has a model in $G + a$ and denote the model function as $\rho$. Now let $v$ be the vertex in $K_{t + 1}$ such that $\rho(v)$ contains $a$. Then if we delete $v$ from $K_{t + 1}$ and delete all the vertices in $\rho(v)$, then we have that $K_t$ is a minor of $G'$, where $G'$ is $G + a - \rho(v)$. But $G'$ is a minor of $G$, as $G'$ does not contain $A$. But this means that $G$ has a $K_t$ minor. 
+\end{proof}
 \subsubsection{Clique-sums}\label{sssec:Clique_Sums}
 The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is the graph obtained by performing a series of operation on the cliques of $G$ and $H$. We find cliques in $G$ and $H$, $C_G$ and $C_H$ respectively, such that $C_G$ and $C_H$ have size $k$. Then we identify the vertices in $C_G$ and $C_H$ so that $G$ and $H$ are connected to each other on this clique. 
 
@@ -402,12 +404,15 @@ The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is t
 \end{lemma}
 
 \begin{example}\label{ex:clique_sum_genus}
-	If $G$ is the clique-sum of Euler genus $g$ graphs, then $G$ is $K_{\sqrt{6g} + 5}$-minor-free, but has unbounded genus.
+	If $G$ is the clique-sum of Euler genus $g$ graphs, then $G$ is $K_{\sqrt{6g} + 5}$-minor-free, but $G$ possibly has unbounded genus.
 \end{example}
 
 \begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
-	If $G$ is $K_5$-minor-free, then $G$ can be obtained from $(\leq 3)$-clique-sums of planar graphs and the Wagner graph $W_8$.
+	If $G$ is $K_5$-minor-free, then $G$ can be obtained from $(\leq 3)$-clique-sums of planar graphs and the Wagner graph $V_8$.
 \end{theorem}
+
+The Wagner graph is given below.
+\todo{Draw picture of Wagner graph.}
 
 
 \subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
