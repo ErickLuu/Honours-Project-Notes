@@ -140,7 +140,7 @@ is also a monotonically increasing function which converges to $h(x) := \lim_{n 
 	&= \lim_{k \rightarrow \infty} \lim_{n \rightarrow \infty} \int_{\mathbb{R}}  \tilde{g}(nx)f_k(x)\, dx\\
 	&= \lim_{k \rightarrow \infty} \int_{\mathbb{R}}  h_k(x) \, dx\\
 	&= \int_{\mathbb{R}} h(x) \, dx\\
-	&= \int_{\mathbb{R}} \tilde{g}(nx)f_k(x) \, dx
+	&= \lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx)f_k(x) \, dx
 \end{align*}
 Thus shown.
 
@@ -170,7 +170,7 @@ As $g$ and $h$ are resp. $\mu$ and $\nu$-interable, it holds that all of these i
 	\int_{X \times Y} f_- \, d(\mu \times d\nu) = \int_X g_+ \, d\mu \int_Y h_- \, d\nu +  \int_X g_- \, d\mu \int_Y h_+ \, d\nu < \infty
 \end{equation}
 
-Thus $f$ is $(\mu + \nu)$-integrable. 
+Thus $f$ is $(\mu \times \nu)$-integrable. 
 
 \section{3}
 Let $\omega = \mu + \nu$. We have that $\mu \leq \omega$ for all $\omega$. Then by Radon-Nicodym, there exists a $(\mu + \nu)$-measurable function $f$ with $0 \leq f \leq 1$ such that
@@ -265,6 +265,7 @@ Then we have that this implies that $ A \cap [n, n + 1)$ is a $\lambda$-null-set
 	&= 0
 \end{align*}
 as integrating over characteristic functions of null-sets yields 0.
+Therefore, $\mu << \nu$. 
 
 
 \paragraph{$\nu << \mu$:}
@@ -279,4 +280,5 @@ Then as $\frac{x}{n^3}$ is positive for all $x \geq 1$, then we have that $A \ca
 \begin{equation}
 	\nu(A) = \int_{A \cap [1, \infty)} x^{-2} \, dx = 0
 \end{equation}
+and therefore, $\nu << \mu$.
 \end{document}
