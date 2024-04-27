@@ -101,7 +101,9 @@ We have some useful results that can be paired with the Graph Minor Structure Th
 \end{itemize}
 
 \chapter{Definitions}\label{chap:Definitions}
-For a graph $G$, we define the \textit{vertex} and \textit{edge} sets of $G$ to be $V(G)$ and $E(G)$ respectively. For a subset of vertices $A \subseteq V(G)$, we denote the \textit{induced subgraph} on $G$ with vertex set $A$ as $G[A]$. 
+For a graph $G$, we define the \textit{vertex} and \textit{edge} sets of $G$ to be $V(G)$ and $E(G)$ respectively.
+
+For a subset of vertices $A \subseteq V(G)$, we denote the \textit{induced subgraph} on $G$ with vertex set $A$ as $G[A]$. 
 \par
 A \textit{path} in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell- 1}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$, and all the vertices are distinct. 
 A \textit{simple cycle} $C$ in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$ for $1 \leq i \leq \ell - 1$ and $e_\ell = v_\ell v_1$. 
@@ -109,18 +111,52 @@ A \textit{Hamiltonian cycle} in a graph $G$ is a simple cycle $C$ such that all 
 \par
 We say that a graph $G$ is \textit{$k$-connected} if between any two vertices $v, w$ in $G$, there are $k$ vertex-disjoint paths between $v$ and $w$. For the case that $k = 2$, the graph is \textit{biconnected}. A graph $G$ with a Hamiltonian cycle is biconnected. 
 \section{Planar graphs}
-We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. A \textit{face} $F$ is a region on $\Sigma$ such that no vertex or edge is on $F$. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
+We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. If $G$ is embedded on $\Sigma$, then $\Sigma$ is divided into regions where no edges cross. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. We also say that the vertices \textit{bound} a face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
+Let $F(G)$ be the set of faces of $G$ embedded on $\Sigma$. Then we have that:
+\begin{theorem}[Euler's formula]\label{thm:Euler_planar}
+	\begin{equation}
+		|V(G)| - |E(G)| + |F(G)| = 2
+	\end{equation}
+\end{theorem}
+
+We can use this result to bound the number of edges in an outerplanar graph.
+\begin{theorem}\label{thm:outerplanar_bound}
+	If $G$ is outerplanar with $n$ vertices and $m$ edges, then $m \leq 2n - 3$.
+\end{theorem}
+
+\begin{proof}[Proof of theorem]
+	Suppose $G$ is maximal outerplanar, meaning adding any edge will break the outerplanar property. Let the internal faces be all the faces which are not the outerface, and let there be $f$ faces. Then the outerface has $n$ edges on the boundary, but each internal face will have exactly $3$ edges on the boundary. However, each edge is touching two distinct faces. Therefore we have that
+	\begin{equation}
+		3 f - 3 + n = 2m
+	\end{equation}
+	Combining with \cref{thm:Euler_planar} given by
+	\begin{equation}
+		n - m + f = 2
+	\end{equation}
+	
+	we have, after some rearrangment, 
+	\begin{equation}
+		2n = 3 + m
+	\end{equation}
+	Therefore, $m = 2n - 3$. As every outerplanar graph is a subgraph of a maximal planar graph, then we have that $m \leq 2n - 3$. 
+\end{proof}
 \section{Graph minors}
 We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
+
 \section{Book embedding}\label{ssec:Book Embedding}
-A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on the boundary. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966}
-A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the 
+A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-pages. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966} \cite{atneosenOnedimensionalNleavedContinua1972}. 
+A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
 
-A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in an ordered sequence $v_1, v_2, ..., v_n$ and a colouring of the edges of $G$ into partitions such that each edge $v_av_b, v_c v_d$ (where $a < b$ and $c < d$), if they are assigned the same colour, does not have the property that $v_a < v_c < v_b < v_d$ or $v_c < v_a < v_d < v_b$, i.e. the edges $v_a v_b$ and $v_c v_d$ do not cross. Equivalently, we can treat the vertices as lying on the ``spine'' of a series of half-planes in $\mathbb{R}$ and each edge is drawn on the half plane such that no two edges cross on each sheet. There is also an alternative definition where we think about a \textit{circular ordering} of the vertices rather than a linear ordering, so each vertex lies on a cycle. Then we can view the page-embedding as stacking discs on top of each other such that the edges on each disc is a planar subgraph. We wish to minimise the number of pages used given a particular graph embedding. We refer to the minimum number of pages necessary to draw a graph $G$ in this way as the \textit{page-number} of $G$, or alternatively the \textit{book-thickness}, or \textit{stack-number} of the graph $G$. We denote the page-number of a graph $G$ as $\pn(G)$. Page-numbers were introduced by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}.
+The \textit{pagenumber} of a graph $G$ is the minimum number of pages required to embed $G$ on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. 
 
-We introduce some new notation. Instead of referring to what page the edges are sitting on, we refer to \textit{colouring} the edges such that each monochromatic colouring is planar. We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, ..., v_{|G|})$, we refer to the edges $v_1 v_2, v_2 v_3, ..., v_{|G| - 1}, V_{|G|}$ as \textit{spine edges}.
+We have another, more combinatorial definition, which abstracts the underlying topology and focuses on the graph.
+A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in a total ordering $v_1 < v_2 < ... < v_n$. We then colour the edges $E(G)$ such that if we have $v_a < v_b < v_c < v_d$ and edges $v_a v_c$ and $v_b v_d$, then they are each assigned different colours.
+We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, ..., v_{|G|})$, we refer to the edges $\left\{v_1 v_2, v_2 v_3, ..., v_{|G| - 1}, v_{|G|}v_{1}\right\}$ as \textit{spine edges}.
+We may use a \textit{circular ordering} of the vertices rather than a linear ordering, so we ignore the start and end vertices.
+
+Book-embeddings were introduced by Kainen and Ollmann in the 1970s. \cite{kainenRecentResultsTopological1974} \cite{ollmannBookThicknessVarious1973}. It was developed further in a paper by \cite{bernhartBookThicknessGraph1979}. 
 \begin{lemma}\label{lem:Pagenumber_1}
-	A graph $G$ has page-number at most 1 iff $G$ is an outerplanar graph.
+	A graph $G$ has page-number at most 1 iff $G$ is outerplanar.
 \end{lemma}
 \begin{proof}
 	We can choose an ordering of the vertices $V(G)$ to go anticlockwise around the outer face. Suppose we have two edges $uv$, $xy$ that cross, so that $u < x < v < y$. Then in the original graph embedding, we will have that $uv$ and $xy$ will cross inside the circle, thus $G$ is not outerplanar. 
@@ -133,9 +169,9 @@ This is because we can embed the graph on a sphere with the vertices and Hamilto
 \subsection{Pagenumber of complete graphs}\label{ssec:Pagenumber_Complete_Graphs}
 This is an upper bound of any graph $G$ with vertices $n$. 
 \begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
-	The complete graph $K_n$ on $n$ vertices can be embedded on $\lceil n/2 \rceil$.
+	The complete graph $K_n$ on $n$ vertices, $n \geq 4$, has pagenumber $\lceil n/2 \rceil$. 
 \end{theorem}
- Therefore for any graph $G$ on $n$ vertices, $\pn(G) \leq \lceil n/2 \rceil$. 
+ Therefore for any graph $G$ on $n$ vertices, $n \geq 4$, $\pn(G) \leq \lceil n/2 \rceil$. 
 \todo{Add picture of proof}
 \subsection{Related graph properties}\label{ssec:Related_Properties}
 
@@ -143,16 +179,19 @@ This is an upper bound of any graph $G$ with vertices $n$.
 	If an $n$-vertex graph $G$ has $\pn(G) = k$, then $G$ has at most $n + k(n-3)$ edges.
 \end{lemma}
 \begin{proof}
-	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the edges $v_i v_i+1$, $v_1 v_n$ (we refer to this cycle as the outer-cycle) can appear on any page. Furthermore we have that there must be at most $n-3$ non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is $2n - 3$, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
+	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the spine edges $v_i v_i+1$, $v_1 v_n$  can appear on any page. Furthermore we have there are at most $n-3$ non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is $2n - 3$ from \cref{thm:outerplanar_bound}, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
 \end{proof}
 \begin{theorem}[Chromatic number bound\cite{bernhartBookThicknessGraph1979}]\label{thm:Colouring_Bound}
 	For all graphs $G$, $\chi(G) \leq 2 \pn(G) + 2$.
 \end{theorem}
-Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
+\begin{proof}
+	Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
+\end{proof}
+We may note that this bound is not tight. \todo{Find example of graph where this is not tight. Not $K_t$.}
 
 \subsection{Historical interest}\label{ssec:Pagenumber_History}
 Pagenumbers were developed for processor designs, but more recently have been used in bioinformatics and the like. 
-The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. It was conjectured by Yannakakis that there exist planar graphs with pagenumber 4, but only recently were planar graphs found with pagenumber 4\cite{yannakakisPlanarGraphsThat2020}\cite{kaufmannFourPagesAre2020}. 
+The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. However in 2020, Yannanakis published his full proof. \cite{yannakakisPlanarGraphsThat2020} At around the same time, Kaufmann, Bekos, Klute, Pupyrev, Raftopoulu and Ueckerdt published a similar result\cite{kaufmannFourPagesAre2020}. 
 
 \section{Treewidth}\label{sec:treewidth}
 
@@ -161,6 +200,7 @@ The \textit{treewidth} of a graph $G$ measures how far $G$ is from being a fores
 \begin{definition}[Tree-decomposition]\label{def:tree-decomposition}
 	The tree-decomposition $\tree$ of a graph $G$ is defined as a tree $T$ with associated \textit{bags} $\lbrace B_x : x \in V(T) \rbrace$ such that:
 	\begin{itemize}
+		\item $\bigcup_{x \in V(T)} B_x = V(G)$
 		\item for all $v \in V(G)$, the subset of vertices $\lbrace x \in V(T): v \in B_x \rbrace$ in $V(T)$ induces a connected subtree in $V(T)$.
 		\item For all edges $vw \in E(G)$, there exists a bag $B_x$ such that both $v$ and $w$ are in the bag $B_x$.
 	\end{itemize}
@@ -249,15 +289,15 @@ Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with a
 Similarly to treewidth, the pathwidth of a graph $G$ is how far a graph is from being a path. 
 
 We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ such that the subsequence of bags containing a vertex $v$ induces a subpath and each edge $vw$ is in a bag $B_i$. Then we define the width of a path-decomposition as $\max_i \lbrace |B_i| \rbrace -1$, same as treewidth. The pathwidth of a graph $G$ is the minimum treewidth.
-\begin{example}
-	\begin{theorem}[Caterpillars]
-		Graphs have pathwidth at most 11 iff every connected component is a caterpillar (graphs where removing every leaf yields a path).
-	\end{theorem}
-	\begin{proof}[Caterpillars]
-		Suppose $G$ is a caterpillar graph and $p_1, p_2, ..., p_n$ is the central path, and the leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Then have the bags $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1. If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
-	\end{proof}
+
+We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is adjacent to a vertex on the path $P$. Alternatively, $G$ is a caterpillar if removing every leaf yields a path.  
+\begin{theorem}[Caterpillars]
+	Graphs have pathwidth at most 11 iff every connected component is a caterpillar.
+\end{theorem}
+\begin{proof}[Caterpillars]
+	Suppose $G$ is a caterpillar. Denote $P =\left( p_1, p_2, ..., p_n\right)$ as the central path, and the leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Then have the bags $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1. If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
+\end{proof}
 	
-\end{example}
 \begin{example}
 	If a graph $F$ is a forest, then the pathwidth of $F$ is the largest pathwidth over all connected components.
 \end{example}
