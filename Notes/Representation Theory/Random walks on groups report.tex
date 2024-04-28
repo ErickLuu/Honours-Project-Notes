@@ -58,7 +58,7 @@ maxbibnames=99
 \section{Introduction}
 
 \section{Definitions}
-In this section, we will outline some definitions of Markov chains and walks. This section is based on Steinberg's \cite{steinbergProbabilityRandomWalks2012}.
+In this section, we will outline some definitions of Markov chains and walks. This section is based on Steinberg's chapter on random walks\cite{steinbergProbabilityRandomWalks2012}.
 
 \subsection{Random walks on groups}
 Suppose $G$ is a finite group and $X$ is a r.v. on $G$. $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$. We can treat this as a Markov chain but to go from $g$ to $gh$ is the same probability as going from $1$ to $h$ for all $g$ and all $h$. 
@@ -156,17 +156,19 @@ We say a sequence of random variables $(X_0, X_1, ...)$ is a Markov chain with s
 
 We will denote the Markov probability as $P$ where $P(x, y) = P_x(y)$. Typically $P$ is represented as a matrix where $[P]_{i,j} = P(i, j)$. 
 
-\subsubsection{Stationary distributions}
-We wish to see what the stationary distribution converges to in the long-run. This means that after a set time $N$, we wish to see the proportion of time the variable stays in state $x \in \mathcal{X}$. This is given by the state distribution $\pi$. 
-
-We have that $\pi$ satisfies $\pi = \pi P$. 
-
-\subsubsection{Markov chains, in general}
+\subsubsection{Definitions}
 In standard Markov chain language, we say that a Markov chain is \textit{irreducible} if we can reach one state from another. A state $i$ has \textit{period} $k$ if $k$ is the gcd of all times that you can take to go back to $i$ if you were at $i$ at time $t = 0$. If $k = 1$, then we say $i$ is \textit{aperiodic}. 
 
 A state $i$ is \textit{transient} if there is a nonzero probability that we will never reach $i$, and \textit{recurrent} otherwise. A state $i$ is \textit{positive recurrent} if the expected time to reach $i$ is finite.
 
 We say a Markov chain is \textit{ergodic} if it is both \textit{aperiodic} and \textit{positive recurrent}. 
+\subsubsection{Stationary distributions}
+We wish to see what the distribution converges to in the long-run. We define a stationary distribution $\pi$ tgo be a vector on a transition matrix $P$ such that $\pi P = \pi$. 
+
+\begin{theorem}
+	If a Markov chain is irreducible and aperiodic, then there exists a unique stationary distribution $\pi$. 
+\end{theorem}
+
 
 
 \begin{proposition}
