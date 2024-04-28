@@ -94,42 +94,6 @@ So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
 \end{proof}
 Thus this is a probability distribution. Obviously, the support is of the form $\left\{ xy : x \in \supp(P), y \in \supp(Q) \right\}$. 
 
-\section{Notion of difference between probabilities}
-We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. The $L^1$-norm is a metric and also $\|a \ast b\|_1 \leq \|a\|_1 \cdot \|b\|_1$. 
-
-Proof in notes.
-
-We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. 
-
-\begin{lemma}
-	Let $P$ and $Q$ be probabilities on $G$, and let $B = \lbrace g \in G : P(g) \geq Q(g) \rbrace$, $C = \lbrace g \in G : Q(g) \geq P(g) \rbrace$.
-	Then $\|P - Q \|_{TV} = P(B) - Q(B) = Q(C) - P(C)$.
-\end{lemma}
-\begin{proof}[heading]
-	We have that as $\sum_{g \in G} P(g) = \sum_{g \in G} Q(g) = 1$. 
-	
-	
-	By definition, $\|P - Q\|_{TV} \geq |P(B) - Q(B)| = P(B) - Q(B)$.
-	Let $A$ be a set such that $\|P - Q\|_{TV} = |P(A) - Q(A)|.$ Then $|P(A^c) - Q(A^c)| = |1 - P(A) - (1 - Q(A))| = |Q(A) - P(A)| = \|P - Q \|_{TV}$. Therefore, this is closed under complement. It is trivial to show that $P(B) - Q(B) = |Q(A) - P(A)|$. 
-\end{proof}
-Finally, we have that $\|P - Q \|_{TV}$ is a metric:
-\begin{proposition}
-	\label{prop:distribution difference equality}
-	$\|P - Q\|_{TV} = \frac{1}{2} \|P - Q \|_1$. 
-\end{proposition}
-
-\begin{proof}
-	\begin{align*}
-		\|P - Q\|_{TV} &= \frac{1}{2}[P(B) - Q(B) + Q(C) - P(C)]\\
-		&=\frac{1}{2}\left[ \sum_{g \in G : P(g) \geq Q(g)} (P(g) - Q(g)) + \sum_{g \in G : Q(g) \geq P(g)} (Q(g) - P(g)) \right]\\
-		&= \frac{1}{2}\left[ \sum_{g \in G}|P(g) - Q(g)| \right]\\
-		&= \frac{1}{2}\|P - Q\|_1
-	\end{align*}
-\end{proof}
-
-The total variation distance is of much interest in stochastic analysis, but for ease of clarity in this report, we will use $\|P - Q\|_1$ as the canonical measure of distance between probabilities. 
-
-We say that a sequence of probabilities $\lbrace P_n \rbrace_{n \in \mathbb{N}}$ converges to $P$ if for all $\varepsilon > 0$, there exists $N > 0$ such that $\|P_n - P \|_1 < \varepsilon$ when $n \geq N$. 
 \section{Random walks}
 We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{times}}$. 
 The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
@@ -181,9 +145,95 @@ For probability distributions on groups, we have some stronger statements. In fa
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
 
+\section{Notion of difference between probabilities}
+We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. The $L^1$-norm is a metric and also $\|a \ast b\|_1 \leq \|a\|_1 \cdot \|b\|_1$. 
 
+Proof in notes.
+
+We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. 
+
+\begin{lemma}
+	Let $P$ and $Q$ be probabilities on $G$, and let $B = \lbrace g \in G : P(g) \geq Q(g) \rbrace$, $C = \lbrace g \in G : Q(g) \geq P(g) \rbrace$.
+	Then $\|P - Q \|_{TV} = P(B) - Q(B) = Q(C) - P(C)$.
+\end{lemma}
+\begin{proof}[heading]
+	We have that as $\sum_{g \in G} P(g) = \sum_{g \in G} Q(g) = 1$. 
+	
+	
+	By definition, $\|P - Q\|_{TV} \geq |P(B) - Q(B)| = P(B) - Q(B)$.
+	Let $A$ be a set such that $\|P - Q\|_{TV} = |P(A) - Q(A)|.$ Then $|P(A^c) - Q(A^c)| = |1 - P(A) - (1 - Q(A))| = |Q(A) - P(A)| = \|P - Q \|_{TV}$. Therefore, this is closed under complement. It is trivial to show that $P(B) - Q(B) = |Q(A) - P(A)|$. 
+\end{proof}
+Finally, we have that $\|P - Q \|_{TV}$ is a metric:
+\begin{proposition}
+	\label{prop:distribution difference equality}
+	$\|P - Q\|_{TV} = \frac{1}{2} \|P - Q \|_1$. 
+\end{proposition}
+
+\begin{proof}
+	\begin{align*}
+		\|P - Q\|_{TV} &= \frac{1}{2}[P(B) - Q(B) + Q(C) - P(C)]\\
+		&=\frac{1}{2}\left[ \sum_{g \in G : P(g) \geq Q(g)} (P(g) - Q(g)) + \sum_{g \in G : Q(g) \geq P(g)} (Q(g) - P(g)) \right]\\
+		&= \frac{1}{2}\left[ \sum_{g \in G}|P(g) - Q(g)| \right]\\
+		&= \frac{1}{2}\|P - Q\|_1
+	\end{align*}
+\end{proof}
+
+The total variation distance is of much interest in stochastic analysis, but for ease of clarity in this report, we will use $\|P - Q\|_1$ as the canonical measure of distance between probabilities. 
+
+We say that a sequence of probabilities $\lbrace P_n \rbrace_{n \in \mathbb{N}}$ converges to $P$ if for all $\varepsilon > 0$, there exists $N > 0$ such that $\|P_n - P \|_1 < \varepsilon$ when $n \geq N$. 
 
 \section{Fourier analysis on finite groups}
+In this section, we will prove some important ideas about Fourier analysis and finite groups. We will mainly be using Steinberg \cite{steinbergProbabilityRandomWalks2012} for finite abelian groups, but we will be using a paper from Diaconis and Shahshahani's paper on random groups \cite{diaconisGeneratingRandomPermutation1981} for some results on all finite groups. 
+
+\begin{definition}
+	If $\rho$ is a representation and $P$ is a function on $G$, then
+	\begin{equation}
+		\rho(P) = \sum_{g \in G} P(g) \rho(g)
+	\end{equation}
+\end{definition}
+
+This is like a Fourier transform. It converts the convolution operator into multiplication.
+
+\begin{lemma}
+	If $P, Q$ are functions on $G$ and $\rho$ is a representation, then $\rho(P \ast Q) = \rho(P) \rho(Q)$.
+\end{lemma}
+
+\begin{proof}
+	We have that:
+	\begin{align*}
+		\rho(P \ast Q) &= \sum_{g \in G} \rho(g) (P \ast Q)(g)\\
+		&= \sum_{g \in G} \rho(g) \sum_{h \in G} P(g h^{-1}) Q(h)\\
+		&= \sum_{g \in G}\sum_{h \in G} \rho(gh^{1}) \rho(h)  P(g h^{-1}) Q(h)\\
+		&= \left(\sum_{h \in G}  \rho(h) Q(h)\right) \sum_{g \in G} \rho(gh^{1})P(g h^{-1}) \quad \text{ Let } x = gh^{-1} \\
+		&= \rho(Q) \sum_{x \in G} \rho(x) P(x)\\
+		&= \rho(Q) \rho(P)
+	\end{align*}
+	As shown. 
+\end{proof}
+
+For class functions, we have a stronger result.
+
+\begin{theorem}
+	Let $G$ be a finite group and $\rho$ an irrep of $G$. let $P$ be a class function and let $C = \lbrace C_1... C_n \rbrace$ be the conjugacy classes with $\lbrace c_1, ..., c_n \rbrace$ the associated representatives in $G$. Then:
+	\begin{equation}
+		\rho(P) = C \times Id \qquad \text{where} \qquad C = \frac{1}{deg(\rho)}  \sum_{i = 1}^n\left(|C_i|\right) P(c_i) \chi_\rho(c_i).
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	We will use Schur's lemma to prove this result. 
+	Let $M_i = \sum_{c \in C_i} \rho(c)$. Then we have that:
+	\begin{equation}
+		\rho(P) = \sum_{g \in G} P(g) \rho(g) = \sum_{i = 1}^n P(c_i) M_i
+	\end{equation}
+	We have that $\rho(g) \left(\sum_{c \in C_i} \rho(c)\right) \rho(g^{-1}) = M_i$ for all $g \in G$. Therefore, we use Schur's lemma to say that $M_i = K_i I$ for some real number $K_i$. Then by taking the trace, we have that:
+	\begin{equation}
+		Tr(M_i) = |C_i| \chi_\rho(c_i) = K_i deg(\rho). Thus shown
+	\end{equation}
+\end{proof}
+
+\begin{example}
+	Let $T$ be a measure 
+\end{example}
 \subsection{Dual groups}
 Let $G$ be a finite group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. If $G$ is also abelian, then we have a stronger result. 
 \begin{theorem}
@@ -191,9 +241,9 @@ Let $G$ be a finite group and let $\widehat{G}$ be the set of irreducible charac
 \end{theorem}
 \begin{proof}
 	We have that $\widehat{G}$ are characters of degree 1.
-	 We have that for $\chi_a \in \widehat{G}$, $\chi_a(g)$ is a root of unity of $|g|$. Then multiplying two characters also yields a root of unity. To show that the multiplication of two elements in $\widehat{G}$ yields another character, recall that $\rho_{ab} = \rho_a \otimes \rho_b$ implies that $\chi_{ab} = \chi_a \times \chi_b$. But as characters are representations in the 1 dimensional case, then multiplying elements is the same as adding elements in this case. 
+	 We have that for $\chi_a \in \widehat{G}$, $\chi_a(g)$ is a root of unity of $|g|$. Then multiplying two characters also yields a root of unity. To show that the multiplication of two elements in $\widehat{G}$ yields another character, recall that $\rho_{ab} = \rho_a \otimes \rho_b$ implies that $\chi_{ab} = \chi_a \times \chi_b$. But as these characters are representations of degree 1, then multiplying elements is the same as taking the tensor products of their respective representations. But since the tensor products are also of degree 1, then they must also be characters in $\widehat{G}$. 
 \end{proof}
-What is the most important part about $G$ being abelian is that the representations of $G$ are all of degree $1$. We also use the fact that characters = representations and we can 
+What is the most important part about $G$ being abelian is that the representations of $G$ are all of degree $1$, so characters are representations. 
 
 \begin{theorem}
 	Let $G$ be a finite abelian group. Then $G \cong \widehat{G}$.
@@ -347,4 +397,6 @@ Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls a
 Shuffling $n$ cards with a riffle-shuffle has a sharp cutoff at $\frac{3}{2} n \log n$ shuffles. 
 \section{Conclusion}
 We first discussed what a Markov chain is and what a stationary distribution looks like on a Markov chain. We then looked at what a random walk on a group is and how it connected to Markov chains. We also looked at how we could test if two Markov chains are close to each other. We then looked specifically at the case where the group is a finite abelian group. Abelian groups of characters are very easy to compute if you know the basis elements. We used Fourier analysis to prove a series of results on abelian groups of characters, and eventually showed an upper bound of the of the distance between a limiting ergodic distribution and the uniform distribution can get arbitrarily small, thus showing that any ergodic distribution converges to the uniform distribution. This result is much more helpful than the stationary distribution because it required less axioms (distribution does not have to be aperiodic) yet converged to a particular stationary distribution, the uniform distribution. We finally finished by looking at some examples. 
+
+\printbibliography
 \end{document}
