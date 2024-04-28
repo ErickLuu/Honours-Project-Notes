@@ -159,18 +159,19 @@ We will denote the Markov probability as $P$ where $P(x, y) = P_x(y)$. Typically
 \subsubsection{Definitions}
 In standard Markov chain language, we say that a Markov chain is \textit{irreducible} if we can reach one state from another. A state $i$ has \textit{period} $k$ if $k$ is the gcd of all times that you can take to go back to $i$ if you were at $i$ at time $t = 0$. If $k = 1$, then we say $i$ is \textit{aperiodic}. 
 
-A state $i$ is \textit{transient} if there is a nonzero probability that we will never reach $i$, and \textit{recurrent} otherwise. A state $i$ is \textit{positive recurrent} if the expected time to reach $i$ is finite.
+A state $i$ is \textit{transient} if there is a nonzero probability that we will never reach $i$, and \textit{recurrent} otherwise. A state $i$ is \textit{positive recurrent} if the expected time to reach $i$ is finite. On a finite set $X$, recurrent implies positive recurrent. 
 
-We say a Markov chain is \textit{ergodic} if it is both \textit{aperiodic} and \textit{positive recurrent}. 
+We say a Markov chain is \textit{ergodic} if every state is \textit{positive recurrent}. 
 \subsubsection{Stationary distributions}
-We wish to see what the distribution converges to in the long-run. We define a stationary distribution $\pi$ tgo be a vector on a transition matrix $P$ such that $\pi P = \pi$. 
+We wish to see what the distribution converges to in the long-run. We define a stationary distribution $\pi$ to be a vector on a transition matrix $P$ such that $\pi P = \pi$. 
 
 \begin{theorem}
-	If a Markov chain is irreducible and aperiodic, then there exists a unique stationary distribution $\pi$. 
+	If a Markov chain is irreducible and aperiodic, then there exists a unique stationary distribution $\pi$, and $P^{*k}$ converges to a rank one matrix where every row is $\pi$. 
 \end{theorem}
 
 
-
+\subsection{Results for finite groups}
+For probability distributions on groups, we have some stronger statements. In fact, we will show that $\pi$ is uniform, and in fact the ergodicity of the walk is easier to show with a group. 
 \begin{proposition}
 	Let $P$ be a probability on a finite group $G$ and suppose $P(1) > 0$ and $Supp(P)$ generates the group $G$. Then the random walk driven by $P$ is ergodic.
 \end{proposition}
