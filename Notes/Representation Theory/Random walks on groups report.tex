@@ -179,9 +179,19 @@ For probability distributions on groups, we have some stronger statements. In fa
 \begin{proof}
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
+
+
+
 \section{Fourier analysis on finite groups}
 \subsection{Dual groups}
-Let $G$ be a finite abelian group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. Note all characters are of degree 1, so they are representations of degree 1.We will use the dual character/representation multiple times. $\widehat{G}$ is the dual group of $G$, where multiplication is defined as $(\chi_{ab})(g) = \chi_a(g)\chi_b(g)$, inverses are defined as $\chi_a^{-1} = \overline{\chi_a}$, and $\chi_1$, the trivial group, is the identity. (Prove later!).
+Let $G$ be a finite  group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. If $G$ is also abelian, then we have a stronger result. 
+
+\begin{theorem}
+	If $g$ is abelian, then $\widehat{G}$ is a group where multiplication is defined as $(\chi_{ab})(g) = \chi_a(g)\chi_b(g)$, inverses are defined as $\chi_a^{-1} = \overline{\chi_a}$, and $\chi_1$, the trivial group, is the identity. 
+\end{theorem}
+\begin{proof}
+	content...
+\end{proof}
 
 \begin{theorem}
 	Let $G$ be a finite abelian group. Then $G \cong \widehat{G}$.
