@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{url}
+\usepackage{todonotes}
 \usepackage{hyperref}
 \usepackage[noabbrev, capitalise]{cleveref}
 
@@ -184,19 +185,22 @@ For probability distributions on groups, we have some stronger statements. In fa
 
 \section{Fourier analysis on finite groups}
 \subsection{Dual groups}
-Let $G$ be a finite  group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. If $G$ is also abelian, then we have a stronger result. 
-
+Let $G$ be a finite group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. If $G$ is also abelian, then we have a stronger result. 
 \begin{theorem}
-	If $g$ is abelian, then $\widehat{G}$ is a group where multiplication is defined as $(\chi_{ab})(g) = \chi_a(g)\chi_b(g)$, inverses are defined as $\chi_a^{-1} = \overline{\chi_a}$, and $\chi_1$, the trivial group, is the identity. 
+	If $G$ is abelian, then $\widehat{G}$ is a group where multiplication is defined as $(\chi_{ab})(g) = \chi_a(g)\chi_b(g)$, inverses are defined as $\chi_a^{-1} = \overline{\chi_a}$, and $\chi_1$, the trivial group, is the identity. 
 \end{theorem}
 \begin{proof}
-	content...
+	We have that $\widehat{G}$ are characters of degree 1.
+	 We have that for $\chi_a \in \widehat{G}$, $\chi_a(g)$ is a root of unity of $|g|$. Then multiplying two characters also yields a root of unity. To show that the multiplication of two elements in $\widehat{G}$ yields another character, recall that $\rho_{ab} = \rho_a \otimes \rho_b$ implies that $\chi_{ab} = \chi_a \times \chi_b$. But as characters are representations in the 1 dimensional case, then multiplying elements is the same as adding elements in this case. 
 \end{proof}
+What is the most important part about $G$ being abelian is that the representations of $G$ are all of degree $1$. We also use the fact that characters = representations and we can 
 
 \begin{theorem}
 	Let $G$ be a finite abelian group. Then $G \cong \widehat{G}$.
 \end{theorem}
-This is easy to see for cyclic groups $\mathbb{Z}_n$, as for any generator $\langle 1 \rangle$, we send $\rho_a(1) = e^{2 i \pi a / n}$. Now for any finite cyclic group $\mathbb{Z}_{\alpha} \times \mathbb{Z}_{\beta}... $ (we can do this using the characterisation of abelian groups) with generators $\langle 1_{\alpha}, 1_\beta... \rangle$, we look at the irreducible representations on just $\mathbb{Z}_{i}$ and take the tensor product with all the other representations on $\mathbb{Z}_j$ for any different $j$ in the group product to form the character group. 
+\begin{proof}
+	This is easy to see for cyclic groups $\mathbb{Z}_n$, as for any generator $\langle k \rangle$, we send $\rho_a(k) = e^{2 i \pi a / n}$. Now for any finite cyclic group $\mathbb{Z}_{\alpha} \times \mathbb{Z}_{\beta}... $ (we can do this using the characterisation of abelian groups) with generators $\langle 1_{\alpha}, 1_\beta... \rangle$, we look at the irreducible representations on just $\mathbb{Z}_{i}$ and take the tensor product with all the other representations on $\mathbb{Z}_j$ for any different $j$ in the group product to form the character group. 
+\end{proof}
 
 We have the general definition of Fourier transform. Let $f \in ZL(G)$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
 \begin{equation}
