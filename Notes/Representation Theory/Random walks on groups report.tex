@@ -60,22 +60,6 @@ maxbibnames=99
 \section{Definitions}
 In this section, we will outline some definitions of Markov chains and walks. This section is based on Steinberg's \cite{steinbergProbabilityRandomWalks2012}.
 
-\subsection{Random walks}
-We define a Markov chain on a set $\mathcal{X}$ in the following manner. We have a fixed probability distribution at each fixed point in $x$, so $P_x : \mathcal{X} \rightarrow [0, 1]$ is a probability distribution. 
-
-We say a sequence of random variables $(X_0, X_1, ...)$ is a Markov chain with state space $\mathcal{X}$ and distribution $P$ if 
-\begin{equation}
-	P_x(y) = P(X_{t + 1} = y | X_t = x)
-\end{equation}
-
-We will denote the Markov probability as $P$ where $P(x, y) = P_x(y)$. Typically $P$ is represented as a matrix where $[P]_{i,j} = P(i, j)$. 
-
-\subsubsection{Stationary distributions}
-We wish to see what the stationary distribution converges to in the long-run. This means that after a set time $N$, we wish to see the proportion of time the variable stays in state $x \in \mathcal{X}$. This is given by the state distribution $\pi$. 
-
-We have that $\pi$ satisfies $\pi = \pi P$. 
-
-In fact, if $P$ is aperiodic (where the times when $P$ can return back to itself is finite) and ergodic (meaning that all states can be reached from another in finite time), then $P^t$ converges to $P$ in the manner below. We will not prove this result as weaker results can be used for random walks on groups. 
 \subsection{Random walks on groups}
 Suppose $G$ is a finite group and $X$ is a r.v. on $G$. $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$. We can treat this as a Markov chain but to go from $g$ to $gh$ is the same probability as going from $1$ to $h$ for all $g$ and all $h$. 
 
@@ -150,7 +134,9 @@ We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{times}
 The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
 
 This forms a Markov chain. 
+
 \begin{example}
+	Examples of random walks on graphs
 	\begin{itemize}
 		\item Let $G$ be a group and $R$ be the generators and their inverses. Let $\Gamma$ be the Cayley graph of $G$. The simple random walk is to choose a random element $s \in R$ with uniform distribution and move to the vertex $gs$. By construction, the vertices adjacent to $\Gamma$ on $g$ are $gs$ with $s \in R$.
 		\item Let $G = \mathbb{Z}_n$. Let us walk  $p, q \geq 0$, $p + q = 1$. Suppose we have that $P[X = 1] = p$, $P[x = -1] = q$ Then we go one step clockwise with probability $p$ and one step back with probability $q$. Then the probability distribution is $p \delta_1 + q \delta_{-1}$. 
@@ -160,6 +146,29 @@ This forms a Markov chain.
 \subsection{Ergodicity}
 A random walk on a group $G$ driven by a probability $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast N}(g) > 0$ for all $g \in G$, so every event can be reached from $P$. 
 
+\subsection{Random walks}
+We define a Markov chain on a set $\mathcal{X}$ in the following manner. We have a fixed probability distribution at each fixed point in $x$, so $P_x : \mathcal{X} \rightarrow [0, 1]$ is a probability distribution. 
+
+We say a sequence of random variables $(X_0, X_1, ...)$ is a Markov chain with state space $\mathcal{X}$ and distribution $P$ if 
+\begin{equation}
+	P_x(y) = P(X_{t + 1} = y | X_t = x)
+\end{equation}
+
+We will denote the Markov probability as $P$ where $P(x, y) = P_x(y)$. Typically $P$ is represented as a matrix where $[P]_{i,j} = P(i, j)$. 
+
+\subsubsection{Stationary distributions}
+We wish to see what the stationary distribution converges to in the long-run. This means that after a set time $N$, we wish to see the proportion of time the variable stays in state $x \in \mathcal{X}$. This is given by the state distribution $\pi$. 
+
+We have that $\pi$ satisfies $\pi = \pi P$. 
+
+\subsubsection{Markov chains, in general}
+In standard Markov chain language, we say that a Markov chain is \textit{irreducible} if we can reach one state from another. A state $i$ has \textit{period} $k$ if $k$ is the gcd of all times that you can take to go back to $i$ if you were at $i$ at time $t = 0$. If $k = 1$, then we say $i$ is \textit{aperiodic}. 
+
+A state $i$ is \textit{transient} if there is a nonzero probability that we will never reach $i$, and \textit{recurrent} otherwise. A state $i$ is \textit{positive recurrent} if the expected time to reach $i$ is finite.
+
+We say a Markov chain is \textit{ergodic} if it is both \textit{aperiodic} and \textit{positive recurrent}. 
+
+
 \begin{proposition}
 	Let $P$ be a probability on a finite group $G$ and suppose $P(1) > 0$ and $Supp(P)$ generates the group $G$. Then the random walk driven by $P$ is ergodic.
 \end{proposition}
@@ -167,9 +176,6 @@ A random walk on a group $G$ driven by a probability $P$ is said to be ergodic i
 \begin{proof}
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
-
-With regular Markov chains, we have reccurrent, hitting times, ergodicity, stationary distributions, etc. For walks on finite abelian groups, if the walk is ergodic, then the stationary distribution is uniform
-
 \section{Fourier analysis on finite groups}
 \subsection{Dual groups}
 Let $G$ be a finite abelian group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. Note all characters are of degree 1, so they are representations of degree 1.We will use the dual character/representation multiple times. $\widehat{G}$ is the dual group of $G$, where multiplication is defined as $(\chi_{ab})(g) = \chi_a(g)\chi_b(g)$, inverses are defined as $\chi_a^{-1} = \overline{\chi_a}$, and $\chi_1$, the trivial group, is the identity. (Prove later!).
