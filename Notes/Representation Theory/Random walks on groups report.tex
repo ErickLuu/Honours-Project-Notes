@@ -6,8 +6,31 @@
 \usepackage{amsthm}
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{cleveref}
+\usepackage[noabbrev, capitalise]{cleveref}
 
+\usepackage[style = numeric,
+isbn=false,
+url=false,
+eprint = false,
+maxbibnames=99
+]{biblatex}
+\renewbibmacro{in:}{}
+\DeclareSourcemap{
+	\maps[datatype=bibtex]{
+		\map{
+			\step[fieldset=url, null]
+			\step[fieldset=extra, null]
+			\step[fieldset=urldate, null]
+		}
+	}
+}
+\AtEveryBibitem{%
+	\clearfield{day}%
+	\clearfield{month}%
+	\clearfield{endday}%
+	\clearfield{endmonth}%
+}
+\addbibresource{library.bib}
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -33,13 +56,9 @@
 
 \maketitle
 \section{Introduction}
-In this paper, we introduce the concepts of random walks and specifically a random walk on a finite abelian group. We will define a random walk on a finite abelian group and then proceed with some important examples, but without proof as we do not discuss cutoff times in this report. We also discuss how a random walk on a group differs from a random walk on a set, namely the random walk respects the group structure, meaning that evolving a Markov chain through time is also a convolution on the elements of the group. We finally discuss some Fourier analysis to prove an upper bound on how far a limiting distribution is from the uniform distribution, thus proving that we can converge to the uniform distribution. 
-
-Notes from Steinberg, Representation theory of finite groups, chapter 11. All group multiplication will be done left to right. 
-\section{Motivation}
-In a famous paper " Trailing the dovetail shuffle to its lair", Bayer and Diaconis showed that you had to riffle-shuffle a deck of cards seven times to randomly shuffle the deck. The paper used random walks on $S_n$ to model shuffling the deck.
 
 \section{Definitions}
+In this section, we will outline some definitions of Markov chains and walks. This section is based on Steinberg's \cite
 
 \subsection{Random walks}
 We define a Markov chain on a set $\mathcal{X}$ in the following manner. We have a fixed probability distribution at each fixed point in $x$, so $P_x : \mathcal{X} \rightarrow [0, 1]$ is a probability distribution. 
