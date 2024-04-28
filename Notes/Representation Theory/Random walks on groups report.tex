@@ -235,7 +235,7 @@ For class functions, we have a stronger result.
 \end{proof}
 
 We will finish with an example by Diaconis and Shahshahani. This example involves swapping two cards in the deck with uniform probability, and is possibly the simplest shuffle on any deck. \cite{diaconisGeneratingRandomPermutation1981}
-\begin{example}
+\begin{example}\label{ex:swap two cards}
 	Let $T$ be a probability measure on $S_n$ defined as such:
 	\begin{equation}
 		T(\sigma) = \begin{cases}
@@ -318,7 +318,7 @@ And setting $k = gh^{-1}$, so $g =kh$, we get that:
 	First, we have that $\widehat{a\ast \chi} = \widehat{a} \widehat{\chi} = \widehat{a} |G| \delta_\chi$, and $\widehat{a} |G| \delta_\chi(\psi) = \widehat{a}(\psi) |G|$ if $\psi = \chi$ and 0 else, so $\widehat{a} |G| \delta_\chi = \widehat{a}(\chi) |G| \delta_\chi$. When we apply the inverse of the Fourier transform, we have that $a \ast \chi = \widehat{a}(\chi) \chi$ by the 1st orthogonality, so $A \chi = \widehat{a}(\chi) \chi$. Thus shown. 
 \end{proof}
 
-\section{Spectrums of random walks}
+\section{Spectrums of random walks on finite abelian groups}
 We define a convolution operator on a probability distribution $P$ as $M : \mathbb{C}G \rightarrow \mathbb{C}G$ where $M(a) = P \ast a$, where $(P \ast a) (g) =\sum_{h\in G} P(gh^{-1})a(h)$.
 \begin{definition}
 	The spectrum of a random walk driven by probability distribution $P$ is the set of eigenvalues of $M$. 
@@ -334,7 +334,7 @@ This is a special case of \cref{thm:Eigenvector operators}.
 
 \begin{lemma}
 	\label{lem:Absolute Value Inequality}
-	Define $\|f\| = \sqrt{\langle f, f \rangle}$, where $f \in \mathbb{C}(G)$. Then $\|f \|_1 \leq |G| \|f \|$.
+	Let $G$ be a finite group. Define $\|f\| = \sqrt{\langle f, f \rangle}$, where $f \in \mathbb{C}(G)$. Then $\|f \|_1 \leq |G| \|f \|$.
 \end{lemma}
 \begin{proof}
 	We have that $\|f \|_1 = |G| \langle f, \chi_1 \rangle \leq |G| \|f \| \|\chi_1 \| = |G| \|f \|$, where $\|\chi_1 \| = 1$ and we use the Cauchy-Schwartz inequality. 
@@ -397,9 +397,40 @@ This result means that all random ergodic walks on groups that respect the group
 
 In fact, there are similar results for groups that are nonabelian. We can drop some of the assumptions and have similar results for non-abelian groups.
 
-\section{Examples}
+\section{Examples of walks on finite abelian groups}
 
 \subsection{Swapping two cards}
+Let $T$ be defined as in \cref{ex:swap two cards}. Then we have that:
+
+\begin{lemma}
+	\begin{equation}
+		\| T^{\ast k} - U \|_1 \leq \left\[\sum_\rho d^2_\rho \left(\frac{1}{n} + \frac{n-1}{n} \deg(\rho)\right)^{2k}\right\]^{\frac{1}{2}}
+	\end{equation}
+\end{lemma}
+
+From Cauchy-Schwartz and the triangle inequality, we have that
+
+\begin{equation}
+	\| T^{\ast k} - U \|_1 = \sum_{g \in S_n} \left|T^{\ast k}(g) - \frac{1}{n!}\right| \leq \left[n! \sum_{g \in S_n} \left(T^{*k}(g) - \frac{1}{n!}\right)^2\right]^{\frac{1}{2}}
+\end{equation}
+From \cref{lem:Plancharel formula}, we have that
+\begin{equation}
+	n! \sum_{g \in S_n} \left(T^{*k}(g) - \frac{1}{n!}\right)^2 = \sum_\rho d_\rho Tr\left(\rho^s(T^{*k } - U)\right)
+\end{equation}
+
+Then from \cref{ex:swap two cards}, we have that
+\begin{equation}
+	\rho(T) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right) Id.
+\end{equation}
+By \cref{lem:rep_ast}, we have that:
+
+\begin{equation}
+	\rho(T^{* k}) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right)^k Id.
+\end{equation}
+Therefore,
+\begin{equation}
+	Tr(\rho^2(T^{* k})) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right)^{2k} Id.
+\end{equation}
 \subsection{Ehrenfest's urn}
 Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
 
