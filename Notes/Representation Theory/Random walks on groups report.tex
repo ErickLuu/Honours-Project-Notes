@@ -355,7 +355,7 @@ We have another result by Plancherel, which we lift from Serre.
 \begin{theorem}[Plancherel]\label{lem:Plancharel formula}
 	If $P$ is a function on $G$, then
 	\begin{equation}
-		\sum_{g \in G}|P(g)|^2 = \frac{1}{|G|} \sum_{\rho \in \widehat{G}} \Deg(\rho) \tr(\rho(P) \overline{\rho(P)}) 
+		\sum_{g \in G}|P(g)|^2 = \frac{1}{|G|} \sum_{\rho \in \widehat{G}} \deg(\rho) Tr(\rho(P) \overline{\rho(P)}) 
 	\end{equation}
 \end{theorem}
 \todo{Prove this!}
@@ -411,9 +411,10 @@ In fact, there are similar results for groups that are nonabelian. We can drop s
 \subsection{Swapping two cards}
 Let $T$ be defined as in \cref{ex:swap two cards}. Then we have that:
 
-\begin{lemma}
+\begin{proof}
+	\begin{lemma}
 	\begin{equation}
-		\| T^{\ast k} - U \|_1 \leq \left\[\sum_\rho d^2_\rho \left(\frac{1}{n} + \frac{n-1}{n} \deg(\rho)\right)^{2k}\right\]^{\frac{1}{2}}
+		\| T^{\ast k} - U \|_1 \leq \left[\sum_\rho d^2_\rho \left(\frac{1}{n} + \frac{n-1}{n} \deg(\rho)\right)^{2k}\right]^{\frac{1}{2}}
 	\end{equation}
 \end{lemma}
 
@@ -440,6 +441,11 @@ Therefore,
 \begin{equation}
 	Tr(\rho^2(T^{* k})) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right)^{2k} Id.
 \end{equation}
+
+and the necessary result is given. 
+\end{proof}
+
+In the paper by Diaconis and Shahshahani\cite{diaconisGeneratingRandomPermutation1981}, he bounds this constant above by looking at each cycle length and creating ``zones'' which partition the set of partitions of $n$. However, we can bound it above by a constant which tends to zero as $k$ goes to infinity. 
 \subsection{Ehrenfest's urn}
 Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
 
