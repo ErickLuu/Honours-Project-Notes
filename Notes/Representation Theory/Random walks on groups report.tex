@@ -233,7 +233,6 @@ For class functions, we have a stronger result.
 	\end{equation}
 	Thus shown. 
 \end{proof}
-
 We will finish with an example by Diaconis and Shahshahani. This example involves swapping two cards in the deck with uniform probability, and is possibly the simplest shuffle on any deck. \cite{diaconisGeneratingRandomPermutation1981}
 \begin{example}\label{ex:swap two cards}
 	Let $T$ be a probability measure on $S_n$ defined as such:
@@ -340,6 +339,8 @@ This is a special case of \cref{thm:Eigenvector operators}.
 	We have that $\|f \|_1 = |G| \langle f, \chi_1 \rangle \leq |G| \|f \| \|\chi_1 \| = |G| \|f \|$, where $\|\chi_1 \| = 1$ and we use the Cauchy-Schwartz inequality. 
 \end{proof}
 
+This result by Plancharel will be used to prove an important upper bound. 
+
 \begin{theorem}[Plancherel]
 	\label{thm:Plancherel}
 	Let $G$ be a finite group and let $a, b \in \mathbb{C}(G)$. Then $\langle a, b \rangle = \frac{1}{|G|} \langle \widehat{a}, \widehat{b} \rangle$. 
@@ -350,6 +351,14 @@ This is a special case of \cref{thm:Eigenvector operators}.
 	\end{equation}
 
 \end{proof}
+We have another result by Plancherel, which we lift from Serre.
+\begin{theorem}[Plancherel]\label{lem:Plancharel formula}
+	If $P$ is a function on $G$, then
+	\begin{equation}
+		\sum_{g \in G}|P(g)|^2 = \frac{1}{|G|} \sum_{\rho \in \widehat{G}} \Deg(\rho) \tr(\rho(P) \overline{\rho(P)}) 
+	\end{equation}
+\end{theorem}
+\todo{Prove this!}
 
 \begin{lemma}[Diaconis–Shahshahan Upper bound lemma]
 	\label{lem:Upper bound lemma}
