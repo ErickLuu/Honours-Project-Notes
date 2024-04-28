@@ -196,7 +196,7 @@ In this section, we will prove some important ideas about Fourier analysis and f
 
 This is like a Fourier transform. It converts the convolution operator into multiplication.
 
-\begin{lemma}
+\begin{lemma}\label{lem:rep_ast}
 	If $P, Q$ are functions on $G$ and $\rho$ is a representation, then $\rho(P \ast Q) = \rho(P) \rho(Q)$.
 \end{lemma}
 
@@ -215,10 +215,10 @@ This is like a Fourier transform. It converts the convolution operator into mult
 
 For class functions, we have a stronger result.
 
-\begin{theorem}
+\begin{theorem}\label{thm:class_fns}
 	Let $G$ be a finite group and $\rho$ an irrep of $G$. let $P$ be a class function and let $C = \lbrace C_1... C_n \rbrace$ be the conjugacy classes with $\lbrace c_1, ..., c_n \rbrace$ the associated representatives in $G$. Then:
 	\begin{equation}
-		\rho(P) = C \times Id \qquad \text{where} \qquad C = \frac{1}{deg(\rho)}  \sum_{i = 1}^n\left(|C_i|\right) P(c_i) \chi_\rho(c_i).
+		\rho(P) = C \times Id \qquad \text{where} \qquad C = \frac{1}{\deg(\rho)}  \sum_{i = 1}^n\left(|C_i|\right) P(c_i) \chi_\rho(c_i).
 	\end{equation}
 \end{theorem}
 \begin{proof}
@@ -229,13 +229,27 @@ For class functions, we have a stronger result.
 	\end{equation}
 	We have that $\rho(g) \left(\sum_{c \in C_i} \rho(c)\right) \rho(g^{-1}) = M_i$ for all $g \in G$. Therefore, we use Schur's lemma to say that $M_i = K_i I$ for some real number $K_i$. Then by taking the trace, we have that:
 	\begin{equation}
-		Tr(M_i) = |C_i| \chi_\rho(c_i) = K_i deg(\rho). Thus shown
+		Tr(M_i) = |C_i| \chi_\rho(c_i) = K_i \deg(\rho).
 	\end{equation}
+	Thus shown. 
 \end{proof}
 
+We will finish with an example by Diaconis and Shahshahani. This example involves swapping two cards in the deck with uniform probability, and is possibly the simplest shuffle on any deck. \cite{diaconisGeneratingRandomPermutation1981}
 \begin{example}
-	Let $T$ be a measure 
+	Let $T$ be a probability measure on $S_n$ defined as such:
+	\begin{equation}
+		T(\sigma) = \begin{cases}
+			\frac{1}{n} &, \sigma = 1\\
+			\frac{2}{n^2} &, \sigma = \text{ transposition}\\
+			0 &, \text{else}
+		\end{cases}
+	\end{equation}
+	Then $T$ is a class function, and from \cref{thm:class_fns}, we have that for $\rho \in S_n$:
+	\begin{equation}
+		\rho(T) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right) Id.
+	\end{equation}
 \end{example}
+We have that $\chi(1) = \deg(\rho)$, so this pops the first one out. Next, we have $|C_{\text{transpositions}}| = \binom{n}{2} = \frac{n(n-1)}{2}$, so we have the result above.
 \subsection{Dual groups}
 Let $G$ be a finite group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. If $G$ is also abelian, then we have a stronger result. 
 \begin{theorem}
@@ -246,7 +260,6 @@ Let $G$ be a finite group and let $\widehat{G}$ be the set of irreducible charac
 	 We have that for $\chi_a \in \widehat{G}$, $\chi_a(g)$ is a root of unity of $|g|$. Then multiplying two characters also yields a root of unity. To show that the multiplication of two elements in $\widehat{G}$ yields another character, recall that $\rho_{ab} = \rho_a \otimes \rho_b$ implies that $\chi_{ab} = \chi_a \times \chi_b$. But as these characters are representations of degree 1, then multiplying elements is the same as taking the tensor products of their respective representations. But since the tensor products are also of degree 1, then they must also be characters in $\widehat{G}$. 
 \end{proof}
 What is the most important part about $G$ being abelian is that the representations of $G$ are all of degree $1$, so characters are representations. 
-
 \begin{theorem}
 	Let $G$ be a finite abelian group. Then $G \cong \widehat{G}$.
 \end{theorem}
