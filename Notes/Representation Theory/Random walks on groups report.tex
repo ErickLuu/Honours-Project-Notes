@@ -249,7 +249,7 @@ We will finish with an example by Diaconis and Shahshahani. This example involve
 	\end{equation}
 \end{example}
 We have that $\chi(1) = \deg(\rho)$, so this pops the first one out. Next, we have $|C_{\text{transpositions}}| = \binom{n}{2} = \frac{n(n-1)}{2}$, so we have the result above.
-\subsection{Dual groups}
+\subsection{Dual groups of abelian groups}
 Let $G$ be a finite group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. If $G$ is also abelian, then we have a stronger result. 
 \begin{theorem}
 	If $G$ is abelian, then $\widehat{G}$ is a group where multiplication is defined as $(\chi_{ab})(g) = \chi_a(g)\chi_b(g)$, inverses are defined as $\chi_a^{-1} = \overline{\chi_a}$, and $\chi_1$, the trivial group, is the identity. 
@@ -266,10 +266,12 @@ What is the most important part about $G$ being abelian is that the representati
 	This is easy to see for cyclic groups $\mathbb{Z}_n$, as for any generator $\langle k \rangle$, we send $\rho_a(k) = e^{2 i \pi a / n}$. Now for any finite cyclic group $\mathbb{Z}_{\alpha} \times \mathbb{Z}_{\beta}... $ (we can do this using the characterisation of abelian groups) with generators $\langle 1_{\alpha}, 1_\beta... \rangle$, we look at the irreducible representations on just $\mathbb{Z}_{i}$ and take the tensor product with all the other representations on $\mathbb{Z}_j$ for any different $j$ in the group product to form the character group. 
 \end{proof}
 
-We have the general definition of Fourier transform. Let $f \in ZL(G)$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
+We have the general definition of Fourier transform. Let $f \in \mathbb{C}G$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
 \begin{equation}
 	\widehat{f}(\chi) = |G| \langle f, \chi \rangle = \sum_{g \in G} f(g) \overline{\chi(g)}
 \end{equation}
+
+We have that for finite abelian groups, $\widehat{f}(\chi) = \overline{\chi}(f)$. 
 
 The Fourier inverse is defined as:
 
@@ -351,7 +353,7 @@ This result by Plancharel will be used to prove an important upper bound.
 	\end{equation}
 
 \end{proof}
-We have another result by Plancherel, which we lift from Serre.
+We have another result by Plancherel, which we lift from Serre \cite{serreExamples1977}
 \begin{theorem}[Plancherel]\label{lem:Plancharel formula}
 	If $P$ is a function on $G$, then
 	\begin{equation}
@@ -360,7 +362,9 @@ We have another result by Plancherel, which we lift from Serre.
 \end{theorem}
 \todo{Prove this!}
 
-\begin{lemma}[Diaconis–Shahshahan Upper bound lemma]
+
+
+\begin{lemma}[Diaconis–Shahshahani Upper bound lemma]
 	\label{lem:Upper bound lemma}
 	Let $G$ be a finite abelian group, and let $F$ be the set of non-trivial irreducible characters of $G$. Let $Q$ be a probability on $G$.  Then:
 	\begin{equation}
@@ -445,10 +449,13 @@ Therefore,
 and the necessary result is given. 
 \end{proof}
 
-In the paper by Diaconis and Shahshahani\cite{diaconisGeneratingRandomPermutation1981}, he bounds this constant above by looking at each cycle length and creating ``zones'' which partition the set of partitions of $n$. However, we can bound it above by a constant which tends to zero as $k$ goes to infinity. 
+In the paper by Diaconis and Shahshahani\cite{diaconisGeneratingRandomPermutation1981}, they bound this constant above by looking at each cycle length and creating ``zones'' which partition the set of partitions of $n$. However, we can bound it above by a constant which tends to zero as $k$ goes to infinity. 
 \subsection{Ehrenfest's urn}
 Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
 
+The probability function is given by $P = \frac{1}{n} \left(\delta_{e_1} ... \delta_{e_n}\right)$
+
+Here is an upper bound of how fast $P$ converges to $U$. 
 \begin{theorem}
 	Let $c > 0$ be a positive constant. Then there exists a sufficiently large $k$ such that:
 	\begin{equation}
@@ -456,6 +463,15 @@ Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls a
 	\end{equation}
 \end{theorem}
 
+We shall not prove this in this example, though we will give an outline of the proof. The full proof is in \cite{steinbergProbabilityRandomWalks2012}. 
+
+\subsubsection{Proof outline}
+We have that every character of $\left(\mathbb{Z}_2\right)^n$ is given by a set $Y \subset [n]$ and a function $\alpha: G \rightarrow 2^{[n]}$ which is defined as $\alpha(v) = \langle i : v_i = 1 \rangle$. Then the character with respect to $Y$ is:
+\begin{equation}
+	\chi_Y(v) = (-1)^{|\alpha(v) \cap Y|}
+\end{equation}
+
+Therefore, we have that $\hat{P}(\chi_Y)$ has the elements $y \in Y$ contribute $ -1/n$ each to $\hat{P}(\chi_Y)$ and the elements not in $Y$ contribute $1/n$ to $\hat{P}(\chi_Y)$. Taking the sums, we have that the spectrum must be $\frac{1}{n}(n - 2 |Y|) = 1 - \frac{2|Y|}{n}$. 
 \subsection{Card shuffling}
 Shuffling $n$ cards with a riffle-shuffle has a sharp cutoff at $\frac{3}{2} n \log n$ shuffles. 
 \section{Conclusion}
