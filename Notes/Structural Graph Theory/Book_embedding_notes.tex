@@ -545,9 +545,9 @@ This theorem also tells us that pagenumbers of planar graphs are bounded.
 \end{theorem}
 
 We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use the fact that all planar graphs are $4$-colourable \todo{add citation} and the fact that all 4-connected planar graphs are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}.
-\begin{theorem}\label{thm:clique_sum_connected}
+\begin{lemma}\label{lem:clique_sum_connected}
 	All graphs are clique-sum trees of $k$-connected subgraphs with adhesion at most $k-1$.
-\end{theorem}
+\end{lemma}
 \begin{proof}
 	We have that from Menger's theorem that if a graph $G$ is not $k$-connected, we can find a separator of size at most $k-1$ such that we have sets $A$ and $B$. Then we repeat this operation on $A$ and $B$ and we can construct a clique-sum tree where every component is $k$-connected and the adhesion size is at most $k-1$. 
 \end{proof}
@@ -557,7 +557,7 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 \end{corollary}
 
 
-\begin{proof}[Proving \cref{thm:Planar Graph Hickingbotham Bound}]
+\begin{proof}[Proof \cref{thm:Planar Graph Hickingbotham Bound}]
 	Let $G$ be planar. Then $G$ has a tree-decomposition of adhesion size at most $3$ with the torsos being $4$-connected. However, this implies that the torsos are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}, thus the number of pages needed for each torso is $2$. Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most $2 \times 4 + 3 = 11$. 
 \end{proof}
 
