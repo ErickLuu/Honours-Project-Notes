@@ -143,6 +143,17 @@ We can use this result to bound the number of edges in an outerplanar graph.
 \section{Graph minors}
 We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
 
+\begin{example}
+	An example of a minor-closed class is the class of planar graphs. 
+\end{example}
+
+An important class of graph families are the $K_t$-minor free graphs. For a graph $G$, we define \textit{Hadwiger's number} $\had(G)$ to be the largest $t$ such that $K_t$ is a minor of $G$. This is named after Hugo Hadwiger and one of his most famous conjectures.
+
+\begin{conjecture}[Hadwiger's conjecture]\todo{Add citation}
+	For all graphs $G$, $\chi(G) \leq \had(G)$.
+\end{conjecture}
+where $\chi(G)$ is the \textit{chromatic number} of $G$. 
+
 \subsection{Minors and models}
 A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assigns to $H$ vertex disjoint connected subgraphs of $G$, such that if $uv \in E(H)$, then some edge in $G$ connects a vertex in $\rho(u)$ to $\rho(v)$. This definition comes from Sergey Norin in his notes on graph minors \cite{norinMath599GraphMinors2017}. 
 
@@ -424,7 +435,9 @@ Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$
 
 Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
 
-Vortices were created to solve the problem of grid-like graphs with large treewidth, torsos and adhesion, yet are all $K_t$-free for bounded $t$. 
+The reason why vortices are important is because of the graph below. 
+
+\todo{Draw graph with large treewidth, torso and adhesion, but with bounded $K_t$.}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem\cite{robertsonGraphMinorsXVI2003}}\label{ssec:Robertson_Seymour_Graph_Structure}
 Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embeddable if there exists an $A \subseteq V(G)$ with $|A| \leq a$, and there exists subgraphs $G_0, G_1, ...,  G_{p'}$ of $G$ such that:
 \begin{itemize}
@@ -436,12 +449,12 @@ Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embedd
 \end{itemize}
 
 \begin{theorem}[Robertson-Seymour Graph Minor Structure Theorem for $K_t$-minor-free graphs]
-	For all $t$, there exists $g, p, a \geq 0$, $k \ell \geq 1$, such that every $K_t$-minor-free graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-embeddable. We refer to the family of graphs which satisfy these constants as $\mathcal{G}(g, p, k, a)$. 
+	For all $t$, there exists $g, p, a \geq 0$, $k, \ell \geq 1$, such that every $K_t$-minor-free graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-embeddable. We refer to the family of graphs which satisfy these constants as $\mathcal{G}(g, p, k, a)$. 
 \end{theorem}
 In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree-decomposition of adhesion $\leq \ell$ and each torso is $(g, p, k, a)$-almost embeddable, then $G$ has no $K_t$ minor. Joret and Wood\cite{joretCompleteGraphMinors2013} found that
 \begin{theorem}[Bounds on Graph Minor Structure Theorem\cite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
-	Let $\had(G)$ be the largest $K_t$ minor in $G$. Then 
-	 $\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5$. Moreover, there exists an integer $n \geq a + 1 4 k\sqrt{p + g}$ such that $K_n$ is a minor of some $\mathcal{G}(g, p, k, a)$ graph.
+	Then 
+	$\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5$. Moreover, there exists an integer $n \geq a + 1 4 k\sqrt{p + g}$ such that $K_n$ is a minor of some $\mathcal{G}(g, p, k, a)$ graph.
 \end{theorem}
 
 \section{Graph Minor Theorem}
@@ -451,7 +464,7 @@ We move on to the most important and deepest theorem in structural graph theory,
 \end{theorem}
 Equivalently, this theorem states that:
 \begin{theorem}
-	Every minor-closed family of graphs can be characterised by a set of forbidden minors.
+	Every minor-closed family of graphs can be characterised by a finite set of forbidden minors.
 \end{theorem}
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors.
 For planar graphs, the two forbidden minors are $K_5$ and $K_{3,3}$. This was proven by Wagner \cite{wagnerUeberEigenschaftEbenen1937}. 
