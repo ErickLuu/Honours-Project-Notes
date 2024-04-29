@@ -108,28 +108,11 @@ However, $|g(x)|$ is bounded, suppose $|g(x)| \leq C$. Therefore we have that
 	\lim_{n \rightarrow \infty} \frac{T}{n} \max_{x \in [0, T/n]} |g(x)| \leq \lim_{n \rightarrow \infty} \frac{TC}{n} = 0.
 \end{equation}
 
-Now let $A$ be measurable with finite Lebesgue measure. Then we can approximate $A$ with a family of compact sets $K_t = \cup_{i \in \mathbb{N}} [p_i, q_i]$ and $K_t \subseteq A$ such that $\lambda(A \setminus K_t) < 1/t, t \in \mathbb{N}$, from 1.30. We can also impose that $K_1 \subseteq K_2 \subseteq K_3 ... \subseteq A$.
-Then we have that from MCT, we have that
-
-\begin{equation}
-	\lim_{t \rightarrow \infty} \lim_{n \rightarrow \infty} \int_{\mathbb{R}} g(nx) \chi_{K_t} \, dx = \lim_{n \rightarrow \infty}  \int_{\mathbb{R}} g(nx) \lim_{t \rightarrow \infty}\chi_{K_t} \, dx = \lim_{n \rightarrow \infty} \int g(nx) \chi_{A} \, dx
-\end{equation}
-However, $\lim_{n \rightarrow \infty} \int_{\mathbb{R}} g(nx) \chi_{K_t} \, dx = 0$ for all $t$, so we have that:
-
-\begin{equation}
-	\lim_{n \rightarrow \infty} \int g(nx) \chi_{A} \, dx = 0.
-\end{equation}
-
 \subsubsection{Extending to integrable functions}
-As we have that $\int_{\mathbb{R}} \tilde{g}(nx) \chi_A \, dx = M \int_{\mathbb{R}} \chi(A) \, dx$, we have that for any $k \in \mathbb{R}$, $\int_{\mathbb{R}}\tilde{g}(nx) k \chi_A \, dx = k M \int_{\mathbb{R}} \chi_A  \, dx $ for any measurable $A$ by the linearity of the integral, and that for any measurable $A, B$, we have that
-\begin{align*}
-	\lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx) (\chi_A + \chi_B) \, dx &= \lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx) \chi_A \, dx + \lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx) \chi_B \, dx\\
-	&= M \int_{\mathbb{R}} \chi_A \, dx + M \int_{\mathbb{R}} \chi_B \, dx\\
-	&= M \int_{\mathbb{R}} \chi_A + \chi_B \, dx 
-\end{align*}
- by the linearity of the integral as well. So the property holds for any simple integrable function $f$ by linearity.
+By linearity, we can show that this holds for finite integral step functions. 
+We can always approximate any simple function with step functions.
 
-Let $f$ be a integrable function and let $\left(  f_k \right)_k$ be a sequence of pointwise increasing simple functions converging to $f$. Then we have that
+Let $f$ be a non-negative integrable function and let $\left(  f_k \right)_k$ be a sequence of pointwise increasing integrable non-negative step functions converging to $f$. As $f$ is measurable, we can have the error be as small as we want. Then 
 \begin{equation}
 	h_k(x) := \lim_{n \rightarrow \infty} \tilde{g}(nx)f_k(x)
 \end{equation}
@@ -143,6 +126,16 @@ is also a monotonically increasing function which converges to $h(x) := \lim_{n 
 	&= \lim_{n \rightarrow \infty} \int_{\mathbb{R}} \tilde{g}(nx)f_k(x) \, dx
 \end{align*}
 Thus shown.
+
+For all integrable functions $f$, we split $f = f^+ - f^-$, and since:
+\begin{equation}
+	\lim_{n \rightarrow \infty} \int_{\mathbb{R}}  g(nx) f^{+} \, dx = \lim_{n \rightarrow \infty} \int_{\mathbb{R}}  g(nx) f^{-} \, dx = 0
+\end{equation}
+then 
+\begin{equation}
+	\lim_{n \rightarrow \infty} \int_{\mathbb{R}}  g(nx) f \, dx = 0.
+\end{equation}
+
 
 \section{2}
 We build up from characteristic functions again to show $f(x, y)$ can be approximated with characteristic functions. Let $A \in \mathcal{X}$ and $B \in \mathcal{Y}$ be respectively two $\mu$-integrable and $\nu$-integrable sets. Then we have that integrating $f(x, y) = \chi_A(x) \times \chi_B(y)$ yields:
@@ -200,9 +193,9 @@ We additionally have that
 \end{equation}
 and using Riemannian integration and the fact that Riemannian and Lebesgue integration agree on continuous functions, we have that $\int_{[1, \infty)} x^{-2} \, d\lambda = \left[ -\frac{1}{x} \right]^\infty_{1} = 1$. Thus $\nu([1, \infty)) < \infty$ and $\mu$ and $\nu$ are finite measures. 
 \subsection{b}
-\paragraph{$\mu <<\lambda$:}
+\paragraph{$\mu \ll\lambda$:}
 
-We have that $\mu <<\lambda$. Let $A$ be a $\lambda$-null set. Then
+We have that $\mu \ll\lambda$. Let $A$ be a $\lambda$-null set. Then
 \begin{equation}
 	\mu(A) = \sum_{n = 1}^{\infty} \frac{1}{n^3} \int_{A\cap [n, n + 1)} x \, dx 
 \end{equation}
@@ -212,7 +205,7 @@ but we have that for all $n$, $A\cap [n, n + 1)$ is also a null-set as it is a s
 \end{equation}
 and we use the fact that $\int_{\mathbb{R}} x \chi_{A\cap [n, n + 1)} \, dx  = 0$ for all $n$ to yield $\mu(A) = 0$. Thus shown.
 
-\paragraph{$\nu <<\lambda$:}
+\paragraph{$\nu \ll\lambda$:}
 
 Let $A$ be a $\lambda$-null set. Then:
 \begin{equation}
@@ -220,23 +213,23 @@ Let $A$ be a $\lambda$-null set. Then:
 \end{equation}
 but as $A \cap [1, \infty)$ is also a null-set as it is a subset of $A$, it holds that $\nu(A) = 0$ as well. 
 
-\paragraph{$\lambda << \mu$:}
-It does not hold that $\lambda << \mu$. We have that:
+\paragraph{$\lambda \ll \mu$:}
+It does not hold that $\lambda \ll \mu$. We have that:
 \begin{equation}
 	\mu([0, 1)) = 
 	\sum_{n = 1}^{\infty} \frac{1}{n^3} \int_{[0, 1)\cap [n, n + 1)} x\, dx 
 \end{equation}
 but $[0, 1)\cap [n, n + 1) = \emptyset$ for all $n \geq 1$. Thus $\mu([0, 1)) = 0$, but $\lambda([0, 1)) = 1$. 
 
-\paragraph{$\lambda << \nu$:}
+\paragraph{$\lambda \ll \nu$:}
 For a similar reason above, we have that
 
 \begin{equation}
 	\nu([0, 1)) = \int_{[0, 1) \cap [1 \infty)} x^{-2} \, dx\int_{\emptyset} x^{-2} \, dx = 0
 \end{equation}
-Thus shown.
+Therefore, it does not hold that $\lambda \ll \nu$. 
 
-\paragraph{$\mu << \nu$:}
+\paragraph{$\mu \ll \nu$:}
 We have that:
 
 \begin{align*}
@@ -253,7 +246,7 @@ Now we have that the support of $\mu$ is $[1, \infty)$, therefore we can restric
 	\mu(A) = \int_{[1, \infty)}\sum_{n = 1}^{\infty} \frac{x}{n^3} \chi_{A\cap [n, n + 1)} \, dx \\
 \end{equation}
 
-To show $\mu << \nu$, let $A$ be a null-set in $\nu$, so
+To show $\mu \ll \nu$, let $A$ be a null-set in $\nu$, so
 \begin{equation}
 	\int_{A \cap [1, \infty)} x^{-2}\, dx = 0
 \end{equation}
@@ -265,10 +258,10 @@ Then we have that this implies that $ A \cap [n, n + 1)$ is a $\lambda$-null-set
 	&= 0
 \end{align*}
 as integrating over characteristic functions of null-sets yields 0.
-Therefore, $\mu << \nu$. 
+Therefore, $\mu \ll \nu$. 
 
 
-\paragraph{$\nu << \mu$:}
+\paragraph{$\nu \ll \mu$:}
 
 Suppose $A$ is a null-set of $\mu$. Then we have that:
 
@@ -280,5 +273,5 @@ Then as $\frac{x}{n^3}$ is positive for all $x \geq 1$, then we have that $A \ca
 \begin{equation}
 	\nu(A) = \int_{A \cap [1, \infty)} x^{-2} \, dx = 0
 \end{equation}
-and therefore, $\nu << \mu$.
+and therefore, $\nu \ll \mu$.
 \end{document}
