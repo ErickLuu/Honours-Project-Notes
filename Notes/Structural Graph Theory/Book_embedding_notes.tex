@@ -94,13 +94,24 @@ We have some useful results that can be paired with the Graph Minor Structure Th
 \subsection{Layout of report}
 \begin{itemize}
 	\item \cref{chap:Definitions} formally describes important definitions and concepts that will be used throughout the rest of the report.
-	\item \cref{sec:BoundedPagenumber} formally defines a book-embedding and pagenumber of a graph $G$, and describes some cases where the pagenumber is completely defined for a family of graphs $\mathcal{G}$. A
-	\item \cref{sec:treewidth} describes treewidth and tree-decompositions, which are important concepts in the Graph Minor Structure Theorem. We formally define treewidth and give the treewidth of some family of graphs. 
-	\item \cref{sec:Kt_Minor_Free} describes the Graph Minor Structure Theorem, but we do not discuss the proof. We also discuss its relationship to the Graph Minor theorem.
-	\item \cref{sec:BoundedPagenumber} describes some results about graphs with bounded pagenumber. One of the most important results is Yannakakis's proof that planar graphs have pagenumber at most  4 \cite{yannakakisEmbeddingPlanarGraphs1989}. This proof forms the basis for many other proofs in this paper. We also show that clique-sums of graphs of bounded pagenumber also have bounded pagenumber, and graphs of bounded treewidth have bounded pagenumber.
+	\item \cref{chap:Known results} discusses some known results from graph theory, including the Graph Minor Structure Theorem. We discuss some proofs related to bounded pagenumber that can be used to prove \cref{conj:bded_had_pn}.
+	
+	\item \cref{chap:Proving_The_Theorem} discusses some new avenues towards proving \cref{conj:bded_had_pn} and some relatively easy proofs of some aspects of the conjecture. 
 \end{itemize}
 
 \chapter{Definitions}\label{chap:Definitions}
+We lay out this chapter to build towards important notions in structural graph theory.
+
+\begin{itemize}
+	\item \cref{sec: Basic definitions} defines the basics of graph theory and introduce useful notation.
+	\item \cref{sec:Planar graphs} discusses important information involving planar graphs. 
+	\item \cref{sec:Graph Minors} discusses graph minors and Hadwiger's conjecture.
+	\item \cref{sec:Book Embedding} defines what a book-embedding is and its importance. 
+	\item \cref{sec:treewidth} defines the \textit{treewidth}.
+	\item \cref{sec:Pathwidth} defines a related notion, the \textit{pathwidth}.
+\end{itemize}
+\section{Basic definitions}\label{sec: Basic definitions}
+Throughout this report, we use as shorthand $[n] = \langle 1... n \rangle$. 
 For a graph $G$, we define the \textit{vertex} and \textit{edge} sets of $G$ to be $V(G)$ and $E(G)$ respectively.
 
 For a subset of vertices $A \subseteq V(G)$, we denote the \textit{induced subgraph} on $G$ with vertex set $A$ as $G[A]$. 
@@ -110,7 +121,11 @@ A \textit{simple cycle} $C$ in a graph $G$ is a sequence of edges $e_1, e_2, ...
 A \textit{Hamiltonian cycle} in a graph $G$ is a simple cycle $C$ such that all vertices in $G$ appear in $C$.
 \par
 We say that a graph $G$ is \textit{$k$-connected} if between any two vertices $v, w$ in $G$, there are $k$ vertex-disjoint paths between $v$ and $w$. For the case that $k = 2$, the graph is \textit{biconnected}. A graph $G$ with a Hamiltonian cycle is biconnected. 
-\section{Planar graphs}
+
+We say a graph $G$ is $k$-colourable if there exists a function $f: V(G) \rightarrow [k]$ such that for all $vw \in E(G)$, $f(v)$ and $f(w)$ are assigned different colours. The chromatic number $\chi(G)$ is the smallest $k$ such that $G$ is $k$-colourable. 
+
+
+\section{Planar graphs}\label{sec:Planar graphs}
 We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. If $G$ is embedded on $\Sigma$, then $\Sigma$ is divided into regions where no edges cross. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. We also say that the vertices \textit{bound} a face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
 Let $F(G)$ be the set of faces of $G$ embedded on $\Sigma$. Then we have that:
 \begin{theorem}[Euler's formula]\label{thm:Euler_planar}
@@ -140,7 +155,7 @@ We can use this result to bound the number of edges in an outerplanar graph.
 	\end{equation}
 	Therefore, $m = 2n - 3$. As every outerplanar graph is a subgraph of a maximal planar graph, then we have that $m \leq 2n - 3$. 
 \end{proof}
-\section{Graph minors}
+\section{Graph minors}\label{sec:Graph Minors}
 We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
 
 \begin{example}
@@ -161,7 +176,7 @@ A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assign
 	$H$ is a model of $G$ iff $H$ is a minor of $G$. 
 \end{theorem}
 \todo{Prove this!}
-\section{Book embedding}\label{ssec:Book Embedding}
+\section{Book embedding}\label{sec:Book Embedding}
 A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-pages. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966} \cite{atneosenOnedimensionalNleavedContinua1972}. 
 A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
 
@@ -225,7 +240,6 @@ The \textit{treewidth} of a graph $G$ measures how far $G$ is from being a fores
 \end{definition}
 We refer to the vertices of the tree $T$ as \textit{nodes}. 
 The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace |B_x| - 1 : x \in V(T) \rbrace$. We define the \textit{treewidth} of a graph $G$ as such:
-
 
 \begin{definition}\label{def:treewidth}
 	The treewidth of a graph $G$, denoted as $\tw(G)$, is defined to be the smallest width for all tree decompositions of the graph $G$.
@@ -303,7 +317,7 @@ A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a s
 Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by Halin \cite{halinSfunctionsGraphs1976} before most famously used in \cite{robertsonGraphMinorsIII1984}, which was introduced to prove the Graph Minor Theorem\cite{robertsonGraphMinorsXX2004}.
 
 
-\section{Path-width}
+\section{Path-width}\label{sec:Pathwidth}
 Similarly to treewidth, the pathwidth of a graph $G$ is how far a graph is from being a path. 
 
 We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ such that the subsequence of bags containing a vertex $v$ induces a nontrivial subpath and each edge $vw$ is in a bag $B_i$. Then we define the width of a path-decomposition as $\max_i \lbrace |B_i| \rbrace -1$, same as treewidth.
@@ -343,7 +357,7 @@ In this chapter of the report, we outline important known results that will help
 
 \begin{itemize}
 	\item \cref{sec:Kt_Minor_Free} is the Graph Minor Structure Theorem, and the full explanation of the Graph Minor Structure Theorem.
-	\item \cref{sec}
+	\item \cref{sec:Graph Minor Theorem} discusses the Graph Minor Theorem. 
 	\item \cref{sec:BoundedPagenumber} are a series of proofs that can be used with the Graph Minor Structure Theorem to prove that each individual component of the structure theorem has bounded pagenumber.
 	\begin{itemize}
 		\item \cref{ssec:Clique_sum_Pagenumber_bound} proves that clique sums of bounded adhesion where each component has bounded pagenumber also has bounded pagenumber.
@@ -462,7 +476,7 @@ In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree
 	$\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5$. Moreover, there exists an integer $n \geq a + 1 4 k\sqrt{p + g}$ such that $K_n$ is a minor of some $\mathcal{G}(g, p, k, a)$ graph.
 \end{theorem}
 
-\section{Graph Minor Theorem}
+\section{Graph Minor Theorem}\label{sec:Graph Minor Theorem}
 We move on to the most important and deepest theorem in structural graph theory, the Graph Minor Theorem. This proof was proven in a series of 20 papers by Robertson and Seymour, from 1983 to 2004. As part of the proof, the Graph Minor Structure Theorem was developed, as we have outlined above. 
 \begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
 	Every infinite family of graphs contains two distinct graphs $G$ and $H$ such that $H$ is a minor of $G$.
