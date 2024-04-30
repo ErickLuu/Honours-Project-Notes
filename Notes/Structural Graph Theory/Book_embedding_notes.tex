@@ -66,7 +66,7 @@ maxbibnames=99
 
 \maketitle
 \chapter{Abstract}\label{abstract}
-In this report we outline our current progress in proving that $K_t$-minor free graphs have bounded pagenumber. Proving this bound will connect two important concepts in structural graph theory that have been studied extensively for the past 40 years. In this report we will outline the most important theorem in structural graph theory related to $K_t$-minor free graphs, the Graph Minor Structure Theorem. We will also introduce some other proofs which will be of use proving this bounded pagenumber conjecture. 
+In this report we outline our current progress in proving that $K_t$-minor free graphs have bounded pagenumber. Proving this bound will connect two important concepts in structural graph theory that have been studied extensively for the past 40 years. We will outline the most important theorem in structural graph theory related to $K_t$-minor free graphs, the Graph Minor Structure Theorem. We will also introduce some other proofs which will be of use proving this bounded pagenumber conjecture. 
 \chapter{Introduction}\label{sec:introduction}
 Structural graph theory is a fundamental topic in graph theory and its study has led to a deeper understanding of graphs. Many results from structural graph theory decompose graphs into ones with bounded parameters. One of the most important theorems in structural graph theory is Robertson and Seymour's Graph Minor Theorem \cite{robertsonGraphMinorsXX2004} which states that proper minor-closed families of graphs are characterised by a finite set of forbidden minors. 
 \par
@@ -536,8 +536,8 @@ We have some bounds in terms of pagenumber on some of these constants, however t
 	If $G$ has a clique of size $k$, then embedding the clique of size $k$ and therefore $G$ requires at least $\lfloor \frac{k}{2} \rfloor$ pages, from \cref{thm:Pagenumber_Complete_Graph}. Therefore, if we can embed $G$ in $s$ pages, then the largest clique of $G$ is at most $2s + 1$. Therefore, $\ell \leq 2s + 1$. 
 \end{proof}
 As we have the bound of $\chi(G) \leq 2 \pn(G) + 2$, from \cref{thm:Colouring_Bound}, we have a bound that does not depend on the chromatic number of $G$. 
-\begin{corollary}[Bound on pagenumber of graphs with tree-decompositions with bounded pagenumber ]\cref{thm:clique_sum_pagenumber_bound}
-	Let $G$ be a graph with a tree-decomposition $(B_x: x \in V(T))$ where each torso $G \langle B_x \rangle$ has pagenumber $\leq s$. Then $G$ has pagenumber at most $s^2 + 4s + 1$. 
+\begin{corollary}[Bounded pagenumber of tree-decompositions]
+	Let $G$ be a graph with a tree-decomposition $(B_x: x \in V(T))$ where each torso $G \langle B_x \rangle$ has pagenumber $\leq s$. Then from \cref{thm:clique_sum_pagenumber_bound}, $G$ has pagenumber at most $2s^2 + 4s + 1$. 
 \end{corollary}
 
 \subsubsection{Bounds on pagenumbers of planar graphs}
