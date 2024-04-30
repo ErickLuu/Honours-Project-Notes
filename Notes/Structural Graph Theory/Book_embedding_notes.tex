@@ -156,7 +156,7 @@ We can use this result to bound the number of edges in an outerplanar graph.
 	Therefore, $m = 2n - 3$. As every outerplanar graph is a subgraph of a maximal planar graph, then we have that $m \leq 2n - 3$. 
 \end{proof}
 \section{Graph minors}\label{sec:Graph Minors}
-We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$.
+We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We notate an edge contraction on $uv$ as $G\setminus uv$
 We notate the statement `` $H$ is a minor of $G$'' as $H \leq G$. 
 We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
 
@@ -178,23 +178,24 @@ A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assign
 	$H$ is a model of $G$ iff $ H \leq G$. 
 \end{theorem}
 
-\begin{proof}
-	Suppose $H$ is a model of $G$. Then for all $x$ in $V(H)$, we contract$\rho^{-1}(x)$ in $G$ to a single vertex. We can do this as each preimages are disjoint and connected. Then we delete edges to form $H$. 
+\begin{proof}[From Norin \cite{norinMath599GraphMinors2017}]
+	Suppose $H$ is a model of $G$. Then for all $x$ in $V(H)$, we contract $\rho^{-1}(x)$ in $G$ to a single vertex. We can do this as each preimages are disjoint and connected. Then we delete edges to form $H$. 
 	
-	Suppose $H \leq G$. 
+	Suppose $H \leq G$. We will use induction to show that $H$ has a model in $G$. Suppose $H$ is obtained from $G$ by contraction operations only. We can assume this by taking a subgraph of $G$ if necessary. Let $uv$ be the edge that is contracted first and let $G' = G \setminus uv$. Let $w$ be the vertex obtained after contracting $uv$. Then by induction, there is a model $\mu'$ of $H$ in $G'$. Then we look at the block $B$ where $H$ lives in, and we delete $w$ from $H$ and add back in $u$, $v$, and $uv$. Then this is a model of $H$ in $G$. 
 \end{proof}
+\todo{Add pictures}
 \section{Book embedding}\label{sec:Book Embedding}
-A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-pages. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966} \cite{atneosenOnedimensionalNleavedContinua1972}. 
+A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966} \cite{atneosenOnedimensionalNleavedContinua1972}. 
 A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
 
 The \textit{pagenumber} of a graph $G$ is the minimum number of pages required to embed $G$ on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. 
 
-We have another, more combinatorial definition, which abstracts the underlying topology and focuses on the graph.
+We have another definition which abstracts the underlying topology and focuses on the graph. This definition is more combinatorial in nature. 
 A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in a total ordering $v_1 < v_2 < ... < v_n$. We then colour the edges $E(G)$ such that if we have $v_a < v_b < v_c < v_d$ and edges $v_a v_c$ and $v_b v_d$, then they are each assigned different colours.
 We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, ..., v_{|G|})$, we refer to the edges $\left\{v_1 v_2, v_2 v_3, ..., v_{|G| - 1}, v_{|G|}v_{1}\right\}$ as \textit{spine edges}.
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering, so we ignore the start and end vertices.
 
-Book-embeddings were introduced by Kainen and Ollmann in the 1970s. \cite{kainenRecentResultsTopological1974} \cite{ollmannBookThicknessVarious1973}. It was developed further in a paper by \cite{bernhartBookThicknessGraph1979}. 
+Book-embeddings were introduced by Kainen and Ollmann in the 1970s. \cite{kainenRecentResultsTopological1974} \cite{ollmannBookThicknessVarious1973}. It was developed further in a paper by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}. 
 \begin{lemma}\label{lem:Pagenumber_1}
 	A graph $G$ has page-number at most 1 iff $G$ is outerplanar.
 \end{lemma}
