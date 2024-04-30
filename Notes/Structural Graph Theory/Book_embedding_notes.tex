@@ -94,9 +94,9 @@ We have some useful results that can be paired with the Graph Minor Structure Th
 \subsection{Layout of report}
 \begin{itemize}
 	\item \cref{chap:Definitions} formally describes important definitions and concepts that will be used throughout the rest of the report.
-	\item \cref{sec:BoundedPagenumber} formally defines a book-embedding and pagenumber of a graph $G$, and describes some cases where the pagenumber is completely defined for a family of graphs $\mathcal{G}$. Additionally, we describe some related graph parameters to pagenumber.
+	\item \cref{sec:BoundedPagenumber} formally defines a book-embedding and pagenumber of a graph $G$, and describes some cases where the pagenumber is completely defined for a family of graphs $\mathcal{G}$. A
 	\item \cref{sec:treewidth} describes treewidth and tree-decompositions, which are important concepts in the Graph Minor Structure Theorem. We formally define treewidth and give the treewidth of some family of graphs. 
-	\item \cref{sec:Kt_Minor_Free} describes the Graph Minor Structure Theorem, but we do not discuss the proof.
+	\item \cref{sec:Kt_Minor_Free} describes the Graph Minor Structure Theorem, but we do not discuss the proof. We also discuss its relationship to the Graph Minor theorem.
 	\item \cref{sec:BoundedPagenumber} describes some results about graphs with bounded pagenumber. One of the most important results is Yannakakis's proof that planar graphs have pagenumber at most  4 \cite{yannakakisEmbeddingPlanarGraphs1989}. This proof forms the basis for many other proofs in this paper. We also show that clique-sums of graphs of bounded pagenumber also have bounded pagenumber, and graphs of bounded treewidth have bounded pagenumber.
 \end{itemize}
 
@@ -410,6 +410,7 @@ An apex vertex $a$ is added to a graph $G$ such that it has arbitrary edges. As 
 \subsubsection{Clique-sums}\label{sssec:Clique_Sums}
 The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is the graph obtained by performing a series of operation on the cliques of $G$ and $H$. We find cliques in $G$ and $H$, $C_G$ and $C_H$ respectively, such that $C_G$ and $C_H$ have size $k$. Then we identify the vertices in $C_G$ and $C_H$ so that $G$ and $H$ are connected to each other on this clique. 
 
+
 \begin{lemma}
 	If $G = G_1 \# G_2$,then $\had(G) = \max(\had(G_1), \had(G_2))$ and $\tw(G) = \max(\tw(G_1), \tw(G_2))$.
 \end{lemma}
@@ -427,8 +428,12 @@ The Wagner graph is given below.
 
 
 \subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
-Given a graph $G$ and a tree-decomposition $\tree$, the \textit{torso} of a bag $B_x$ of $T$ is the graph $G\langle B_x \rangle$, obtained from $G[B_x]$ where $vw$ is a vertex in $G\langle B_x \rangle$ iff $v,w \in B_x \cap B_y$, where $y$ is any neighbour of $x$ in $T$. So the set $B_x \cap B_y$ for all neighbours $y$ of $x$ in $T$ is a clique in $G\langle B_x \rangle$. 
-The \textit{adhesion} of a tree is defined as $\max(|B_x \cap B_y|)$ where $xy$ is an edge in $T$. Intuitively, it is the largest overlap between bags of a tree-decomposition
+Given a graph $G$ and a tree-decomposition $\tree$, the \textit{torso} of a bag $B_x$ of $T$ is the graph $G\langle B_x \rangle$, obtained from $G[B_x]$ where $vw$ is a vertex in $G\langle B_x \rangle$ iff $v,w \in B_x \cap B_y$, where $y$ is any neighbour of $x$ in $T$. So the set $B_x \cap B_y$ for all neighbours $y$ of $x$ in $T$ is a clique in $G\langle B_x \rangle$.
+We refer to the \textit{adhesion set} as the set $B_x \cap B_y$. 
+The \textit{adhesion} of a tree is defined as $\max(|B_x \cap B_y|)$ where $xy$ is an edge in $T$.
+
+\subsubsection{Relationship between clique-sums and treewidth}
+Given $G$ and a tree-decomposition $\tree$, we can say that $G$ is a clique-sum of the torsos $G\langle B_x \rangle$ where the size of the cliques that we paste over is at most the adhesion.
 
 \subsubsection{Vortices}\label{sssec:vortices}
 Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$ be a disc in $\Sigma$ such that $D$ only intersects $G$ only on vertices on the boundary of $F$. We denote these discs as $G$-clean. 
