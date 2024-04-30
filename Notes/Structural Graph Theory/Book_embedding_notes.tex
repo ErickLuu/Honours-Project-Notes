@@ -122,7 +122,7 @@ A \textit{Hamiltonian cycle} in a graph $G$ is a simple cycle $C$ such that all 
 \par
 We say that a graph $G$ is \textit{$k$-connected} if between any two vertices $v, w$ in $G$, there are $k$ vertex-disjoint paths between $v$ and $w$. For the case that $k = 2$, the graph is \textit{biconnected}. A graph $G$ with a Hamiltonian cycle is biconnected. 
 
-We say a graph $G$ is $k$-colourable if there exists a function $f: V(G) \rightarrow [k]$ such that for all $vw \in E(G)$, $f(v)$ and $f(w)$ are assigned different colours. The chromatic number $\chi(G)$ is the smallest $k$ such that $G$ is $k$-colourable. 
+We say a graph $G$ is $k$-colourable if there exists a function $f: V(G) \rightarrow [k]$ such that for all $vw \in E(G)$, $f(v)$ and $f(w)$ are assigned different colours. The \textit{chromatic number} $\chi(G)$ is the smallest $k$ such that $G$ is $k$-colourable. 
 
 
 \section{Planar graphs}\label{sec:Planar graphs}
@@ -156,7 +156,9 @@ We can use this result to bound the number of edges in an outerplanar graph.
 	Therefore, $m = 2n - 3$. As every outerplanar graph is a subgraph of a maximal planar graph, then we have that $m \leq 2n - 3$. 
 \end{proof}
 \section{Graph minors}\label{sec:Graph Minors}
-We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
+We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$.
+We notate the statement `` $H$ is a minor of $G$'' as $H \leq G$. 
+We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
 
 \begin{example}
 	An example of a minor-closed class is the class of planar graphs. 
@@ -175,7 +177,12 @@ A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assign
 \begin{theorem}
 	$H$ is a model of $G$ iff $H$ is a minor of $G$. 
 \end{theorem}
-\todo{Prove this!}
+
+\begin{proof}
+	Suppose $H$ is a model of $G$. Then for all $x$ in $V(H)$, we contract$\rho^{-1}(x)$ in $G$ to a single vertex. We can do this as each preimages are disjoint and connected. Then we delete edges to form $H$. 
+	
+	Suppose $H \leq G$. 
+\end{proof}
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-pages. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966} \cite{atneosenOnedimensionalNleavedContinua1972}. 
 A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
