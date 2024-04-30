@@ -205,12 +205,12 @@ Book-embeddings were introduced by Kainen and Ollmann in the 1970s. \cite{kainen
 \begin{lemma}\label{lem:Pagenumber_2}
 	A graph $G$ has pagenumber at most 2 iff $G$ is a subgraph of a planar graph with a Hamiltonian cycle.
 \end{lemma}
-This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and the edges forming the interior and exterior edges of the cycle respectively.
+This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and edges on each hemisphere forms the interior and exterior edges of the cycle respectively.
 
 \subsection{Pagenumber of complete graphs}\label{ssec:Pagenumber_Complete_Graphs}
 This is an upper bound of any graph $G$ with vertices $n$. 
 \begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
-	The complete graph $K_n$ on $n$ vertices, $n \geq 4$, has pagenumber $\lceil n/2 \rceil$. 
+	The complete graph $K_n$ on $n$ vertices where $n \geq 4$, has pagenumber $\lceil n/2 \rceil$. 
 \end{theorem}
  Therefore for any graph $G$ on $n$ vertices, $n \geq 4$, $\pn(G) \leq \lceil n/2 \rceil$. 
 \todo{Add picture of proof}
@@ -228,7 +228,7 @@ This is an upper bound of any graph $G$ with vertices $n$.
 \begin{proof}
 	Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
 \end{proof}
-We may note that this bound is not tight. \todo{Find example of graph where this is not tight. Not $K_t$.}
+We may note that this bound is not tight. \todo{Find example of graph where this is tight. Not $K_t$.}
 
 \subsection{Historical interest}\label{ssec:Pagenumber_History}
 Pagenumbers were developed for processor designs, but more recently have been used in bioinformatics and the like. 
