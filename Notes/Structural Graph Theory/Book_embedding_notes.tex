@@ -524,27 +524,35 @@ Recall that for a breadth-first search, we maintain the property that for all $i
 	Let $J$ be a clique in $G$, and $w$ is its final vertex. Then if $J$ is in $G'$, then $w$ is a rainbow-vertex. Otherwise, the last vertex is contained in $G_n$. By the above lemma, $w$ must also be a rainbow vertex. Thus shown.
 \end{proof}
 
+\subsubsection{Bounds on pagenumber of $\ell$ and $c$}
+
 We have some bounds in terms of pagenumber on some of these constants, however these constants are not always tight. In particular, we can get better bounds for planar graphs. 
+
 \begin{lemma}[Bounded pagenumber implies bounded clique-number]
 	If $pn(G) \leq s$, then $G$ does not contain any cliques on more than $2s+1$ vertices.
 \end{lemma}
 
 \begin{proof}
-	If $G$ has a clique of size $k$, then embedding the clique of size $k$ and therefore $G$ requires at least $\lfloor \frac{k}{2} \rfloor$ pages, from \cref{thm:Pagenumber_Complete_Graph}. Therefore, if we can embed $G$ in $s$ pages, then the largest clique of $G$ is at most $2s + 1$. 
+	If $G$ has a clique of size $k$, then embedding the clique of size $k$ and therefore $G$ requires at least $\lfloor \frac{k}{2} \rfloor$ pages, from \cref{thm:Pagenumber_Complete_Graph}. Therefore, if we can embed $G$ in $s$ pages, then the largest clique of $G$ is at most $2s + 1$. Therefore, $\ell \leq 2s + 1$. 
 \end{proof}
-Therefore, $\ell \leq 2s + 1$. 
-
 As we have the bound of $\chi(G) \leq 2 \pn(G) + 2$, from \cref{thm:Colouring_Bound}, we have a bound that does not depend on the chromatic number of $G$. 
 \begin{corollary}[Bound on pagenumber of graphs with tree-decompositions with bounded pagenumber ]\cref{thm:clique_sum_pagenumber_bound}
 	Let $G$ be a graph with a tree-decomposition $(B_x: x \in V(T))$ where each torso $G \langle B_x \rangle$ has pagenumber $\leq s$. Then $G$ has pagenumber at most $s^2 + 4s + 1$. 
 \end{corollary}
 
+\subsubsection{Bounds on pagenumbers of planar graphs}
 This theorem also tells us that pagenumbers of planar graphs are bounded.
+
 \begin{theorem}\label{thm:Planar Graph Hickingbotham Bound}
 	Let $G$ be a planar graph. Then $\pn(G) \leq 11$.
 \end{theorem}
 
-We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use the fact that all planar graphs are $4$-colourable \todo{add citation} and the fact that all 4-connected planar graphs are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}.
+We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use the fact that all planar graphs are $4$-colourable \cite{appelEveryPlanarMap1989} and the fact that all 4-connected planar graphs are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}.
+
+\begin{theorem}[Tutte\cite{tutteTheoremPlanarGraphs1956}]\label{thm:4-connected_planar_ham_cycle}
+	All 4-connected planar graphs are Hamiltonian.
+\end{theorem}
+
 \begin{lemma}\label{lem:clique_sum_connected}
 	All graphs are clique-sum trees of $k$-connected subgraphs with adhesion at most $k-1$.
 \end{lemma}
@@ -721,9 +729,6 @@ We wish to prove the following:
 	For all 4-connected planar graphs $G$ with an embedding $\Sigma$, with $i$ distinguished faces $\left\lbrace F_1, ..., F_i \right\rbrace$ and a distinguished clique $C$ of size at most $3$, there exists a book-embedding $(<, \psi)$ such that all edges bounding the faces $F$ are almost monochromatic and $C$ is at the start of the embedding with pagenumber at most $f(i)$.
 \end{conjecture}
 We plan to use a classic result from Tutte.
-\begin{theorem}[Tutte\cite{tutteTheoremPlanarGraphs1956}]\label{thm:4-connected_planar_ham_cycle}
-	All 4-connected planar graphs are Hamiltonian.
-\end{theorem}
 
 We also have a result by Thommassen, which strengthens Tutte's theorem. A graph $G$ is Hamiltonian-connected if for any distinct $x, y \in V(G)$, there exists a Hamiltonian path between $x$ and $y$.
 \begin{theorem}[Thomassen \cite{thomassenTheoremPathsPlanar1983}]\label{thm:4 Connected Planar Ham-Connected}
