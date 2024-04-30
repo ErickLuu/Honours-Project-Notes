@@ -585,8 +585,39 @@ For $n \times n$ grids, we take a cross to be the union of a column and a row. T
 \begin{proof}[$\bn(G) \leq \tw(G) + 1$]
 	We use the same trick that we did previously. We take a tree-decomposition of $G$ $(X_i)_i$ and we use the fact that the intersection set between two neighbouring bags is a separator of $G$. So we have that $X_v \cap X_w$ is a separator for $G$. Let $T_{v:w}$ be the subtree on the end of $X_v$ not including elements in $X_w$. Then we cannot have a bramble with one set in $T_{v:w}$ and $T_{w:v}$, as that would mean that the bags would not touch as they do not include vertices in the separator. Therefore, we have that all brambles either have a vertex in $X_v \cap X_w$, or they all live in either $T_{v: w}$ or $T_{w: v}$. Now orient the edge $vw$ to point towards the side which contains brambles in $T_{v:w}$ or $T_{w:v}$. Then we have a bag $B_x$ such that all arrows point towards $B_x$. Then $B_x$ is a hitting set. Therefore for any bramble, the hitting set is at most $\tw(G) + 1$, therefore we have that $\bn(G) \leq \tw(G) + 1$. 
 \end{proof}
-To prove the reverse direction, we wish to construct a bramble such that the smallest hitting set is at least $\tw(G) + 1$. As we are taking this over maximal hitting sets, then proving an upper bound. 
+To prove the reverse direction, we wish to construct a bramble such that the smallest hitting set is at least $\tw(G) + 1$. As we are taking this over maximal hitting sets, then proving an upper bound. Proof by Mazoit.  
 \begin{theorem}
 	If $G$ has $\tw(G) = k + 1$, then $G$ has a bramble of size $k$. Thus, $\bn(G) \geq \tw(G) + 1$. 
 \end{theorem}
+
+To prove this statement, let us define some terms. Let $G$ be a graph. Fix $k$ as an integer and $(B, \tree)$ be a tree-decomposition of $G$. We say a bag $B_x$ is \textit{small} if $|B_x| \leq k$ and \textit{big} if $|B_x| \geq k + 1$. Suppose $B_x$ is a big leaf bag with neighbour $B_y$. Then define $B_x - B_y$ as a $k$-flap of $\tree$. We say a tree-decomposition is $k$-partial if every non-leaf bag is small, and $\geq 1$ bag is small. 
+
+We shall use a technical lemma to build new tree-decompositions in a ``correct '' way.
+
+\begin{lemma}
+	Let $G$ be a graph, $k$ integer and fixed. Then suppose we have a $k$-partite tree-decomposition $\tree_X$ of $G$ and a $k$-partite $\tree_Y$ of $G$. Let $X$ be a $k$-flap of $\tree_X$ and $Y$ be a $k$-flap of $\tree_Y$. Then there is a tree-decomposition $\tree$ such that for all $k$-flaps $Z$ in $\tree$, we have that there is a $k$-flap $Z'$ in $\tree_X$ or $\tree_Y$ such that $Z' \neq X$ and $Z' \neq Y$ and $Z \in Z'$.  
+\end{lemma}
+
+We shall put off the proof of lemma until later. For now, we shall assume the lemma as given and prove the theorem. 
+
+\begin{proof}
+	Set $k = \tw(G)$.
+	Let $\beta_0$ be the set of all $k$-flaps over all $k$-partial tree-decompositions of $G$. We say a set $\beta$ is \textit{upwards-closed} with respect to $k$-flaps if $C \in \beta$, $D$ is a $k$-flap, and $C \subseteq D$, then $D$ is a $k$-flap. Obviously, $\beta_0$ is minor closed. 
+	
+	Then let $\beta$ be a set of $k$-flaps in $G$ such that:
+	\begin{enumerate}
+		\item $\beta$ contains $\geq 1$ $k$-flap from every $k$-partite tree-decomposition of $G$
+		\item $\beta$ is upwards-closed
+		\item For all $X \in \beta$, $\beta - \langle X \rangle$ violates at least one of the conditions above. This is referred to as inclusion-wise minimal.
+	\end{enumerate}
+	We have that $\beta$ is nonempty as we remove elements from $\beta_0$ until the conditions above hold. 
+	
+	\begin{lemma}
+		For all $X, Y \in \beta$, $X$ and $Y$ touch.
+	\end{lemma}
+	\begin{proof}
+	Suppose not. Then we take a minimal $X, Y$ contained in the original such that $\beta - X$ and $\beta - Y$ does not violate (2). Then $\beta - X$ and $\beta - Y$ fails (1), so there exists $\tree_X$ and $\tree_Y$ such that the only $k$-flap in $\beta$ is $X$ and $Y$ respectively. Then we use the lemma above to create a tree-decomposition $\tree$. $\tree$ is $k$-partial, meaning that none of its internal nodes have at least $k$ elements. But this implies from treewidth that $\tree$ has a leaf node with at least $k + 1$ elements, which is big. But none of these leaf nodes are in $\beta$. They cannot be a subset of another $k$-flap, because there are no others apart from $X$ and $Y$. But they cannot be a subset of $X$ or $Y$ as $X$ and $Y$ are minimal in $\beta$. Thus shown.
+	\end{proof}
+	
+\end{proof}
 \end{document}
