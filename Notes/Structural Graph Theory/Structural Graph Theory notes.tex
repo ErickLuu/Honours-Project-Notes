@@ -582,7 +582,11 @@ For $n \times n$ grids, we take a cross to be the union of a column and a row. T
 	\end{equation}
 \end{theorem}
 
-\begin{proof}[$\bn(G) \geq \tw(G) + 1$]
-	We use the same trick that we did previously. We take a tree-decomposition of $G$ $(X_i)_i$ and we use the fact that the intersection set between two neighbouring bags is a separator of $G$. So we have that $X_v \cap X_w$ is a separator for $G$. Let $T_{v:w}$ be the subtree on the end of $X_v$ not including elements in $X_w$. Then we cannot have a bramble with one set in $T_{v:w}$ and $T_{w:v}$, as that would mean that the bags would not touch as they do not include vertices in the separator. Therefore, we have that all brambles either have a vertex in $X_v \cap X_w$, or they all live in either $T_{v: w}$ or $T_{w: v}$. Now orient the edge $vw$ to point towards the side which contains brambles in $T_{v:w}$ or $T_{w:v}$. Then we have a bag $B_x$ such that all arrows point towards $B_x$. Then $B_x$ is a hitting set. Therefore for any bramble, the hitting set is at most $\tw(G) + 1$, therefore we have that $\bn(G) \geq \tw(G) + 1$. 
+\begin{proof}[$\bn(G) \leq \tw(G) + 1$]
+	We use the same trick that we did previously. We take a tree-decomposition of $G$ $(X_i)_i$ and we use the fact that the intersection set between two neighbouring bags is a separator of $G$. So we have that $X_v \cap X_w$ is a separator for $G$. Let $T_{v:w}$ be the subtree on the end of $X_v$ not including elements in $X_w$. Then we cannot have a bramble with one set in $T_{v:w}$ and $T_{w:v}$, as that would mean that the bags would not touch as they do not include vertices in the separator. Therefore, we have that all brambles either have a vertex in $X_v \cap X_w$, or they all live in either $T_{v: w}$ or $T_{w: v}$. Now orient the edge $vw$ to point towards the side which contains brambles in $T_{v:w}$ or $T_{w:v}$. Then we have a bag $B_x$ such that all arrows point towards $B_x$. Then $B_x$ is a hitting set. Therefore for any bramble, the hitting set is at most $\tw(G) + 1$, therefore we have that $\bn(G) \leq \tw(G) + 1$. 
 \end{proof}
+To prove the reverse direction, we wish to construct a bramble such that the smallest hitting set is at least $\tw(G) + 1$. As we are taking this over maximal hitting sets, then proving an upper bound. 
+\begin{theorem}
+	If $G$ has $\tw(G) = k + 1$, then $G$ has a bramble of size $k$. Thus, $\bn(G) \geq \tw(G) + 1$. 
+\end{theorem}
 \end{document}
