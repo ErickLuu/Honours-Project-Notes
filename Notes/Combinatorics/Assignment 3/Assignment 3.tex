@@ -55,7 +55,16 @@ Therefore, we have that $g(n) = n^{A(n)}e^{B(n)}$ where $A(n) = n^2$ and $B(n) =
 \subsection{Part b}
 We have that $f(n) - g(n) = (n + 1)^{n^2} - n^{n^2}e^{n - \frac{1}{2}} = n^{n^2}(1 + \frac{1}{n})^{n^2} - n^{n^2}e^{n - \frac{1}{2}}$. Factoring out the $n^{n^2}$ term, we have that $f(n) - g(n) = n^{n^2}\left((1 + \frac{1}{n})^{n^2} - e^{n - \frac{1}{2}} \right)$.
 
-DO LATER, use more terms
+We can write $(1 + \frac{1}{n})^{n^2} = e^{\log(1 + \frac{1}{n})^{n^2})}$. Write $\log(1 + \frac{1}{n}) = \frac{1}{n} - \frac{1}{2 n^2} + \frac{1}{3 n^3} + O(\frac{1}{n^4})$. Then we can say:
+\begin{equation}
+	(1 + \frac{1}{n})^{n^2} = \exp(n - \frac{1}{2} + \frac{1}{3n} + O(\frac{1}{n^2}))
+\end{equation}
+
+Therefore we have that:
+\begin{equation}
+	f(n) - g(n) =  n^{n^2}e^{n - \frac{1}{2}} \left(\exp(\frac{1}{3n} + o(1)) - 1\right)
+\end{equation}
+So we have that $f(n) - g(n) \sim n^{n^2}e^{n - \frac{1}{2}} \left(\exp(\frac{1}{3n}) - 1\right)$ as the $o(1)$ term goes to 0 very fast, faster than the other terms. 
 
 \section{Question 3}
 We can write the LHS as $\exp(f(n) \log(1 + o(1)))$. However, we have that $\log(1 + o(1)) = o(1)$, therefore we want that $\exp(f(n) o(1)) \sim 1$. Therefore, we want $f(n) o(1) = o(1)$, meaning that if we have $(1 + g(n))^{f(n)} \sim 1$, then $f(n)g(n) \sim 0$.  
@@ -66,4 +75,45 @@ We have that:
 \begin{equation}
 	\sum_{k = 0}^{J} \frac{n! n^k }{(n + k)! 2^k} = 
 \end{equation}
+
+\section{5}
+\subsection{a}
+We can choose $(n - 1)(n - 2) ... (n-k + 1)$ ways to choose $k - 1$ vertices on the tail, which is denoted as $[n - 1]_{k - 1}$. Then we have that the number of trees that do not contain vertices in the  $(n - k)^{n - k - 2}$. We can finally choose which vertex to attach the tail to, where we have $(n - k)$ tails. Therefore, we have that the number of tails is:
+\begin{equation}
+	[n - 1]_{k - 1} (n - k)^{n - k - 1}
+\end{equation}
+
+\subsection{b}
+\subsection{c}
+We can write $\frac{(n - k)^{n - 2}}{n^{n - 2}} = (1 - \frac{k}{n})^{n - 2}$. Then we can write $(1 - \frac{k}{n})^{n - 2} = \exp(\log((1 - \frac{k}{n})^{n - 2})) = \exp((n - 2) \log( 1 - \frac{k}{n}))$. We can write $\log( 1 - \frac{k}{n}) = - \frac{k}{n} + O(\frac{k^2}{n^2})$, so $(n -2)\log( 1 - \frac{k}{n}) = - k - \frac{2k}{n} + O(\frac{k^2}{n})$. Therefore, we have that $\exp((n - 2) \log( 1 - \frac{k}{n})) = e^{-k + o(1)}$, therefore we have $e^{-k}$. 
+
+\subsection{d}
+
+We have that we have $[n - 1]_{2k - 2}$ ways to choose the tails of $1$ and $2$. Then we have that there are $(n- 2k)^{n - 2k - 2}$ ways to choose the tree to attach the tails to. Then we have $(n - 2k)^2$ vertices that we can attach $1 $ and $2$ to. Then we have that the number of graphs with $1$ and $2$ as ends of $k$-tails is:
+\begin{equation}
+	[n - 1]_{2k - 2} (n - 2k)^{n - 2k - 2}(n - 2k)^2 = [n - 1]_{2k - 2} (n - 2k)^{n - 2k}
+\end{equation}
+Asymptotically, we have that $[n - 1]_{2k - 2} \sim (n - 2k)^{2k - 2}$. Therefore, we have that the number of trees with $1$ and $2$ on the ends of $k$-tails is:
+\begin{equation}
+	(n - 2k)^{n - 2}
+\end{equation}
+
+Therefore, we have that the proportion of trees with $k$ tails is:
+\begin{equation}
+	\frac{(n - 2k)^{n - 2}}{n^{n - 2}} = e^{-2k}
+\end{equation}
+
+We have the proportion is $e^{-2k}$. 
+
+\subsection{e}
+We will use PIE. Let $A$ be the set of all labelled trees on $[n]$ vertices. $|A| = n^{n - 2}$. Let $P_i$ be the property that vertex $i$ is at the end of a $k$-tail, and let $S$ be the set of all properties. Let $Y \subseteq S$ where $|Y| = \ell$ for some fixed $\ell = o(\sqrt{n}) $. Then the proportion of these trees is $e^{-\ell k}$. The number of each $Y$ with $\ell$ properties is $\frac{[n - \ell]_{\ell + 1}}{\ell!} \sim \frac{(n - \ell)^\ell}{\ell!}$. Then we can say that from the Poisson Paradigm that:
+\begin{equation}
+	\frac{1}{N}\sum_{|Y| = \ell}N_\geq(Y) = \frac{(n - \ell)^\ell}{\ell!} e^{-2k}.
+\end{equation}
+So we have that in the Poisson paradigm,
+\begin{equation}
+	k = \ell
+	
+\end{equation}
+
 \end{document}
