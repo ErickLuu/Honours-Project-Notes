@@ -144,7 +144,7 @@ We build up from characteristic functions again to show $f(x, y)$ can be approxi
 \end{equation}
 from the definition of the product measure on measurable sets. Then we extend this identity linearly to simple integrable functions.
 
-Now let $g$ be a $\mu$-integrable function and $h$ be a $\nu$-integrable function. Let $(g_n)_n$ be a family of simple pointwise-increasing $\mu$-integrable functions converging to $g$ and let  $(h_n)_n$ be a family of simple pointwise-increasing $\nu$-integrable functions converging to $h$. Then let $f_n(x, y) := g_n(x) h_n(y)$. We have that $f_n(x, y)$ is also simple, monotone increasing and $\mu \times \nu$-integrable. We also have, from the MCT:
+Now let $g$ be a non-negative $\mu$-integrable function and $h$ be a non-negative $\nu$-integrable function. Let $(g_n)_n$ be a family of simple pointwise-increasing $\mu$-integrable functions converging to $g$ and let  $(h_n)_n$ be a family of simple pointwise-increasing $\nu$-integrable functions converging to $h$. Then let $f_n(x, y) := g_n(x) h_n(y)$. We have that $f_n(x, y)$ is also simple, monotone increasing and $\mu \times \nu$-integrable. We also have, from the MCT:
 
 \begin{align*}
 	\int_{X \times Y} f \, d(\mu \times \nu) &= \lim_{n \rightarrow \infty} \int_{X \times Y} f_n \, d(\mu \times \nu)\\
@@ -154,11 +154,13 @@ Now let $g$ be a $\mu$-integrable function and $h$ be a $\nu$-integrable functio
 	&= \int_X g \, d\mu \int_Y h \, d\nu
 \end{align*}
 
+If $g$ and $h$ are integrable, then we have that the above result holds by breaking up $g$ and $h$ into $g^+$, $g^-$, $h^+$, $h^-$ and concatenating the results. 
+
 To show $f$ is integrable, we have that $f_+ = g_+ h_+ + g_- h_-$. Then we have that 
 \begin{equation}
 	\int_{X \times Y} f_+ \, d(\mu \times d\nu) = \int_X g_+ \, d\mu \int_Y h_+ \, d\nu +  \int_X g_- \, d\mu \int_Y h_- \, d\nu.
 \end{equation}
-As $g$ and $h$ are resp. $\mu$ and $\nu$-interable, it holds that all of these integrals are finite and thus their product is also finite. Thus $\int_{X \times Y} f_+ \, d(\mu \times d\nu) < \infty$. Then we have that $f_- = g_+ h_- + g_- h_+$. Then we have that
+As $g$ and $h$ are resp. $\mu$ and $\nu$-integrable, it holds that all of these integrals are finite and thus their product is also finite. Thus $\int_{X \times Y} f_+ \, d(\mu \times d\nu) < \infty$. Then we have that $f_- = g_+ h_- + g_- h_+$. Then we have that
 \begin{equation}
 	\int_{X \times Y} f_- \, d(\mu \times d\nu) = \int_X g_+ \, d\mu \int_Y h_- \, d\nu +  \int_X g_- \, d\mu \int_Y h_+ \, d\nu < \infty
 \end{equation}

@@ -88,7 +88,7 @@ We have some useful results that can be paired with the Graph Minor Structure Th
 \begin{itemize}
 	\item From Heath and Istrail, all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}.
 	\item From Ganley and Heath \cite{ganleyPagenumberTrees2001}, and Dujmovic and Wood \cite{dujmovicGraphTreewidthGeometric2007}, all graphs of bounded treewidth have bounded pagenumber.
-	\item From Hickingbotham and Wood\cite{hickingbothamStackNumberCliqueSum2023}, \textit{tree-decompositions} of graphs where every \textit{torso} has bounded pagenumber has bounded pagenumber. 
+	\item From Hickingbotham and Wood\cite{hickingbothamStackNumberCliqueSum2023}, if a graph $G$ has a \textit{tree-decomposition} where every \textit{torso} has bounded pagenumber, then $G$ has bounded pagenumber. 
 \end{itemize}
 
 \subsection{Layout of report}
@@ -344,7 +344,6 @@ We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is ad
 	Graphs have pathwidth at most 11 iff every connected component is a caterpillar.
 \end{theorem}
 \begin{proof}[Caterpillars]
-	\par($\Leftarrow$)
 	Suppose $G$ is a caterpillar. Denote $P =\left( p_1, p_2, ..., p_n\right)$ as the central path. The leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Define the bags as $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1.
 	\paragraph{$\Rightarrow$}
 	If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 

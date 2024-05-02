@@ -592,7 +592,7 @@ To prove the reverse direction, we wish to construct a bramble such that the sma
 
 To prove this statement, let us define some terms. Let $G$ be a graph. Fix $k$ as an integer and $(B, \tree)$ be a tree-decomposition of $G$. We say a bag $B_x$ is \textit{small} if $|B_x| \leq k$ and \textit{big} if $|B_x| \geq k + 1$. Suppose $B_x$ is a big leaf bag with neighbour $B_y$. Then define $B_x - B_y$ as a $k$-flap of $\tree$. We say a tree-decomposition is $k$-partial if every non-leaf bag is small, and $\geq 1$ bag is small. 
 
-We shall use a technical lemma to build new tree-decompositions in a ``correct '' way.
+We shall use a technical lemma to build new tree-decompositions in a ``correct'' way.
 
 \begin{lemma}
 	Let $G$ be a graph, $k$ integer and fixed. Then suppose we have a $k$-partite tree-decomposition $\tree_X$ of $G$ and a $k$-partite $\tree_Y$ of $G$. Let $X$ be a $k$-flap of $\tree_X$ and $Y$ be a $k$-flap of $\tree_Y$. Then there is a tree-decomposition $\tree$ such that for all $k$-flaps $Z$ in $\tree$, we have that there is a $k$-flap $Z'$ in $\tree_X$ or $\tree_Y$ such that $Z' \neq X$ and $Z' \neq Y$ and $Z \in Z'$.  
@@ -618,6 +618,30 @@ We shall put off the proof of lemma until later. For now, we shall assume the le
 	\begin{proof}
 	Suppose not. Then we take a minimal $X, Y$ contained in the original such that $\beta - X$ and $\beta - Y$ does not violate (2). Then $\beta - X$ and $\beta - Y$ fails (1), so there exists $\tree_X$ and $\tree_Y$ such that the only $k$-flap in $\beta$ is $X$ and $Y$ respectively. Then we use the lemma above to create a tree-decomposition $\tree$. $\tree$ is $k$-partial, meaning that none of its internal nodes have at least $k$ elements. But this implies from treewidth that $\tree$ has a leaf node with at least $k + 1$ elements, which is big. But none of these leaf nodes are in $\beta$. They cannot be a subset of another $k$-flap, because there are no others apart from $X$ and $Y$. But they cannot be a subset of $X$ or $Y$ as $X$ and $Y$ are minimal in $\beta$. Thus shown.
 	\end{proof}
+	Now let us take $\beta'$ to be the set of connected subsets in $\beta$. Now $\beta'$ is a bramble. Let $S$ be a hitting set in $\beta'$, and suppose $|S| \leq k$. Then we think about the connected components of $G - S$, call them $C_1 ... C_p$. For each $i$, define $N_i = C_i \cup N(C_i)$. Then $N_1 ... N_p \cup C$ is a tree-decomposition, with $C$ as a star. But this is a $k$-partial decomposition, as $C$ is small. Furthermore, as $\tw(G) \geq k + 1$, then there is an $N_i$ which is big. But this implies that $C_i$ is a connected $k$-flap. Therefore, $C_i \in \beta'$. But $C_i$ is not hit by $S$, thus $S$ is not a hitting set.
 	
+	Therefore, all hitting sets of this bramble are of size $\geq k + 1$, thus $\bn(G) = \tw(G) + 1$. 
 \end{proof}
+
+Now to prove the technical lemma.
+
+\begin{proof}
+	Suppose $G$ is a graph. Let $k$ be a fixed integer. Then define $\tree_X$ and $\tree_Y$ as above, define $X$ and $Y$ as above.
+	
+	As $X$ and $Y$ are not touching, suppose we have a minimal separator $Z$. Let $U_X$, the bag containing $X$, neighbour $U_q$. Then $U_q$ is a separator of $X$ from the rest of $G$, therefore $U_q$ is also a separator of $X$ from $Y$. As $|U_q| \leq k$ as $U_q$ is either an internal node or a leaf of $K_t$, then $X$ has a separator of size at most $k$. 
+	
+	Let $S$ be a minimal separator of $A$ and $B$. By Menger's theorem, there exists $|S|$ disjoint paths from $A$ to $S$. Let $A = S \cup$ all connected components that lie on the path from $S$ to $X$ and let $B$ be $G - A + S$. 
+	
+	We claim that there exists a $k$-partial tree-decomposition $\tree_B$ of $G[B]$ with $S$ a leaf bag and for all $k$-flaps $Z$ of $\tree_B$, there exists a $k$-flap $Z'$ in $\tree_A$ such that $Z \subseteq Z'$ and $Z' \neq X$. 
+	
+	For all $s \in S$, let $w_s$ be a node of the tree of $\tree_X$ such that $s$ is in the bag $U_{w_s}$. 
+	For all $v$ in the tree of $\tree_X$, let $D_v' = (D_v \cap B) \cup \lbrace s \in S : v \text{ is in the } w_s \text{x-path in the tree-decomposition } \tree_X \rbrace$. 
+	
+	Then $|D_v'| \leq |D_v|$ as when we add elements back to $D_v'$ we removed them already from $B$, so the size does not increase.
+	Furthermore, we have that $S$ is its own bag and since it is a subset of $U_q$ then it is a leaf of $\tree_A$. Furthermore, $S$ is also small.
+	
+	We then do the same procedure with the set $B$. We then have $\tree_B$ as the tree, with $S$ being a small bag. Then we attach $\tree_A$ and $\tree_B$ by taking the disjoint union and adding an edge between both bags containing $S$. This is a tree-decomposition which satisfies the above properties. 
+\end{proof}
+
+
 \end{document}
