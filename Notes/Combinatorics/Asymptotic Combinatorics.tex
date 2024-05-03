@@ -1,0 +1,102 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
+
+%opening
+\title{Combinatorics Notes}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Asymptotics}
+
+We like counting things! But what about big things? How can we estimate what happens when numbers go big?
+
+We say $a_n \sim b_n (n \rightarrow \infty)$ if $\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = 1$. 
+Example: $n! \sim \left(\frac{n}{e}\right)^n \sqrt{2 \pi n}$. 
+
+We say $a_n = O(b_n)$ if there is $c$ such that $|a_n| \leq c |b_n|$ when $n$ is sufficiently large. 
+
+We say $a_n = o(b_n)$ if $\frac{a_n}{b_n} \rightarrow 0$ as $n \rightarrow \infty$. 
+
+Note that $=$ is not the same ``equals'' that we're used to.
+
+Simple case:
+Let $c_n = n - o(n)$, which says ``there exists a function $g(n)$ where $g(n) = o(n)$ such that $c_n = n - g(n)$''.
+
+\begin{lemma}[Reciprocals lemma]
+	If $f(n) \rightarrow 0$ then $\frac{1}{1 + f(n)} = 1 + O(f(n))$. 
+\end{lemma}
+
+This brings us to the most important rule:
+\begin{theorem}[Asymptotic equivalence]
+	$f(n) \sim g(n)$ iff $f(n) = g(n)(1 + o(1))$.
+\end{theorem}
+
+\subsection{Rules for $O$}
+\begin{enumerate}
+	\item $O(f(n)) + O(f(n)) = O(f(n))$ and $o(f(n)) + o(f(n)) = o(f(n))$
+	\item $a O(f(n)) = O(f(n))$ and $a o(f(n)) = o(f(n))$ when $a$ is constant. 
+	\item Functions distribute, so $g(n) O(f(n)) = O(g(n) f(n))$ and $g(n) o(f(n)) = o(g(n) f(n))$. Furthermore, $O(g(n) f(n)) = g(n) O(f(n))$ and  $o(g(n) f(n)) = g(n) o(f(n))$. 
+	\item $o(f(n)) = O(f(n))$, $o(O(f(n))) = o(f(n))$, $O(o(f(n))) = o(f(n))$. 
+	\item If $f(n) \sim g(n)$ and $g(n) \sim h(n)$ then $f(n) \sim h(n)$. 
+	\item If $f= O(g)$ then for all functions $h$, $h(f) = h(O(g))$. 
+	\item If $f= o(g)$ then for all functions $h$, $h(f) = h(o(g))$. 
+\end{enumerate}
+
+Very important! $f_1 \sim g_1$ and $f_2 \sim g_2$ does not imply $f_1 + f_2 \sim g_1 + g_2$. 
+\subsection{Taylor's theorem}
+Suppose $f^{(k)}$ exists on $[0, x]$ where $x > 0$. Then:
+\begin{equation}
+	f(x) = \sum_{i = 0}^{k - 1} \frac{1}{i!}f^{(i)}(0) x^i + \frac{1}{k!} f^{(k)}(\eta) x^k
+\end{equation}
+
+where $0 \leq \eta \leq x$. Then if $f^(k)$ is bounded around $[0, x_1]$ for some $x_1 > 0$ then:
+\begin{equation}
+	f(x) = \sum_{i = 0}^{k - 1} \frac{1}{i!}f^{(i)}(0) x^i + O(x^k) \quad \text{for} \, x \in [0, x_1]
+\end{equation}
+
+\subsubsection{Special cases:}
+
+\begin{equation}
+	\frac{1}{1-x} = 1 + x + x^2 + O(x^3) \quad \text{on } [-1/2, 1/2]
+\end{equation}
+For $f(n) = o(1)$, $f(n) \in [-1/2, 1/2]$ for large $n$, we have that:
+\begin{equation}
+	\frac{1}{1-f(n)} = 1 + f(n) + f(n)^2 + O(f(n)^3) \quad \text{on } [-1/2, 1/2]
+\end{equation}
+or we can go to higher precision. 
+
+Similarly:
+\begin{equation}
+	\log( 1 + f(n)) = f(n) - \frac{1}{2} f(n)^2 + O(f(n)^3)
+\end{equation}
+So $\log(1 + o(1)) = o(1)$
+
+We also have that $e^{o(1)} = 1 + o(1)$. 
+
+Therefore, $1 + o(1) = e^{o(1)} = 1 + o(1)$. 
+
+\end{document}
