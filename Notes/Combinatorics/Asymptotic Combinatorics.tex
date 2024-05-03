@@ -99,4 +99,89 @@ We also have that $e^{o(1)} = 1 + o(1)$.
 
 Therefore, $1 + o(1) = e^{o(1)} = 1 + o(1)$. 
 
+Take care with unbounded sums! we want to have that the summations aer bounded above to go to 1. 
+
+\subsection{Uniformity}
+We say $f_i(n) = O(g(n))$ uniformly for $i \in S_n$ if there is a $c$ and $n_0$ such that $|f_i(n)| \leq c |g(n)|$ for all $i \in S_n$ when $n \geq n_0$. 
+Alternatively, we could replace $c$ with a function $h(n)$ where $h(n) \rightarrow 0$. 
+
+\section{Example: Extracting binomial coefficients}
+Let us estimate $\binom{n}{\lfloor \frac{n}{2} \rfloor}$. Suppose $a = \lfloor \frac{n}{2} \rfloor = \frac{a}{2} + O(1)$. 
+We can compare $\binom{n}{a}$ with $\binom{n}{a + b}$. We have that:
+
+\begin{equation}
+	\binom{n}{a + i} = \binom{n}{a + i - 1} \frac{n - (a + i - 1)}{a + i}
+\end{equation}
+Let $R_i = \binom{n}{a + i}/ \binom{n}{a + i - 1} = \frac{n - (a + i - 1)}{a + i}$.
+
+Then for $b > 0$, we have that:
+\begin{equation}
+	\binom{n}{a + b}/ \binom{n}{a } = \prod_{i = 1}^b R_i
+\end{equation}
+From above, we have that:
+\begin{align*}
+	R_i = \frac{n - a - i + 1}{a + i}\\
+	&= \frac{n - n/2 + O(1) - i}{n/2 + O(1) + i}\\
+	&= \frac{n/2 + O(1) - i}{n/2 + O(1) + i}\\
+	&= \frac{1 + O(1/n) - 2i/n}{1 + O(1/n) + 2i/n}
+\end{align*}
+Now let $b = o(n^{2/3})$, and we have that $1 \leq 1 \leq b$. Then $2i/n + O(1/n) \rightarrow 0$ as $n \rightarrow \infty$. Using Taylor, we have that $\log(1 + x) = x + O(x^2)$, so taking the log of $R_i$ we get:
+\begin{align*}
+	\log R_i &= \log(1 - 2i/n + O(1/n))- \log(1 + O(1/n) + 2i/n)\\
+	&= -2i/n + O(1/n) + O(i^2/n^2) - 2i/n + O(1/n) + O(i^2/n^2)\\
+	&= -\frac{4i}{n} + O(1/n + i^2/n^2)\\
+	&= -\frac{4i}{n} + O(1/n + b^2/n^2)\\
+\end{align*}
+
+Therefore, taking the sum of logs yields:
+\begin{align*}
+\sum_{i = 1}^b \log R_i &= 	\sum_{i = 1}^{b} - 4i/n + O(1/n + b^2/n^2)\\
+&= \left(..\sum_{i = 1}^{b} - 4i/n\right) + O(b/n + b^3/n^2)\\
+&= \frac{-2b^2 + O(b)}{n} + O(b/n + b^3/n^2)\\
+&= \frac{-2b^2 + O(b)}{n} + o(1)
+\end{align*}
+Then $\binom{n}{a + b}/ \binom{n}{a} = \exp(-2b^2/n + o(1)) \sim e^{-2b^2/n}$. 
+This gives us a uniform bound over $b$. 
+
+\section{Asymptotics of summations}
+
+Suppose we select a subset $T$ of $[n]$ with uniform probability. How many elements will we get?
+
+$\mathbb{P}(|T| = k) = \frac{1}{2^n} \binom{n}{k}$ So expected number is $\mathbb{E}(|T|) = \frac{1}{2^n} \sum_{k = 0}^{n} k \binom{n}{k}$.
+
+Let $S_n = \sum_{k = 0}^{n} k \binom{n}{k}$. Then $\sum_{k = 0} \binom{n}{k} x^k = (1 + x)^n$. Differentiating wrt with $x$, we get $\sum_{k = 1}^{n} \binom{n}{k} k x^{k - 1} = n (1 + x)^{n - 1}$. Set $x = 1$, we get $S_n = n 2^{n - 1}$, so the expected size of $|T| = n/2$. 
+
+\subsection{Exercise}
+Find
+$\sum_{k = 0}^{\infty} \frac{k^2}{2^k}$.
+\subsection{Number of derangements}
+We have that $D_n = n! \sum_{i = 0}^{n} (-1)^i/i!$. We know $\sum_{i = 0}^{n} (-1)^i/i! = e^{-1}$ as $n \rightarrow \infty$, so $D_n = n!/e(1 + o(1))$. so $D_n \sim n!/e$. 
+
+
+\section{Bonferroni inequalities}
+Recall $N_=(T)$ is the number of elements with exactly $T$ properties. Then we have that for any integer $m \geq 0$:
+\begin{equation}
+	N_=(T) \leq \sum_{\substack{Y \supseteq T \\ |Y| \leq |T| + 2m}} (-1)^{|Y - T|}N_{\geq }(Y)
+\end{equation}
+and 
+\begin{equation}
+	N_=(T) \geq \sum_{\substack{Y \supseteq T \\ |Y| \leq |T| + 2m + 1}} (-1)^{|Y - T|}N_{\geq }(Y)
+\end{equation}
+Essentialy, the Main Bonneferoni Implication is:
+\begin{equation}
+	\left| N_=(T) - \sum_{\substack{Y \supseteq T \\ |Y| \leq |T| + k}} (-1)^{|Y - T|}N_{\geq }(Y) \right|  \leq  \sum_{\substack{Y \supseteq T \\ |Y| \leq |T| + k + 1}}N_{\geq }(Y)
+\end{equation}
+
+\subsection{Proof}
+We look at the contribution that each individual element has on the system. 
+The proof relies on the fact that:
+$R_a = \sum_{k = 0}^{2m} (-1)^k \binom{q}{k} \geq L_a$. 
+
+We have that when $L_a = 1$, then $R_a = 1$. When $L_a = 0$, we want $R_a \geq 0$. 
+
+What happens if $2m \leq q/2$? Since it is increasing then this is $\geq 1$.
+
+If $q/2 \geq 2m \geq q$, then we pair up the $2m + k$ terms with a $k$ term to get something that is bigger than 0.
+
+Thus the proof falls 
 \end{document}
