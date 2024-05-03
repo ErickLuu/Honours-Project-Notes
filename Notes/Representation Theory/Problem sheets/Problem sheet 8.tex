@@ -28,16 +28,33 @@ We have that $G/B$ is infinite by showing the number of cosets are infinite. Con
 
 We have that 
 \begin{equation}
-	\begin{bmatrix}^{-1}
+	\begin{bmatrix}
 		1 & 0\\
 		k & 1\\
-	\end{bmatrix}
+	\end{bmatrix}^{-1}
 	=
 	\begin{bmatrix}
 		1 & 0\\
 		-k & 1\\
 	\end{bmatrix}
-\end{equation},
+\end{equation}
+and
+
+\begin{equation}
+	\begin{bmatrix}
+		1 & 0\\
+		a & 1\\
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 0\\
+		b & 1\\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 0\\
+		a + b & 1\\
+	\end{bmatrix}
+\end{equation}
 therefore we have that for any two matrices $A = \begin{bmatrix}
 	1 & 0\\
 	a & 1\\
@@ -117,6 +134,66 @@ We have that $c$ is nonzero, so these matrices are in $B$. Then multiplying this
 
 Now we can multiply one of these matrices by $c$ to get $A$.
 We have these two matrices are in $B$ as $b' - a' d' $ is nonzero as this is the determinant of $A'$, which is in $GL_2(\mathbb{C})$. 
+
+\subsection{5.4}
+We will use the pullback of $Z(D_4)$ to $D_4$ through the map 
+\begin{equation}
+	\rho : S_4 \xrightarrow{\pi} S_4/Z(D_4) \xrightarrow{\phi} GL_1(\mathbb{C})
+\end{equation}
+where the map $H$ is defined as above.
+We have that the pullback of $S_4 /Z(D_4) \cong \mathbb{Z}_2 \times \mathbb{Z}_2$ has cosets
+\begin{equation}
+	\{1, r^2\}, \{r, r^3\}, \{s, r^2 s\}, {rs, r^3 s}
+\end{equation}
+with coset representatives the first elements
+
+If we take the pullback of the map:
+
+\begin{align*}
+	\phi(1) &= 1\\
+	\phi(r) &= 1\\
+	\phi(s) &= 1\\
+	\phi(rs) &= 1
+\end{align*}
+then we get the trivial representation.
+
+If we take the pullback of the map:
+\begin{align*}
+	\phi(1) &= 1\\
+	\phi(r) &= -1\\
+	\phi(s) &= 1\\
+	\phi(rs) &= -1
+\end{align*},
+the pullback of the map
+\begin{align*}
+	\phi(1) &= 1\\
+	\phi(r) &= 1\\
+	\phi(s) &= -1\\
+	\phi(rs) &= -1
+\end{align*}
+
+and the pullback of
+\begin{align*}
+	\phi(1) &= 1\\
+	\phi(r) &= -1\\
+	\phi(s) &= -1\\
+	\phi(rs) &= 1
+\end{align*}
+
+then we get the table below.
+\begin{table}[]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|}
+		\hline
+		$A_4$    & $\{ 1 \} $ & $\{ r^2 \}$ & $ \{ r, r^3 \}$ & $\{ s, r^2 s \}$ & $\{ rs, r^3 s\}$ \\ \hline
+		$\chi_1$ & 1          & 1           & 1               & 1                & 1                \\ \hline
+		$\chi_2$ & 1          & 1           & -1              & 1                & -1               \\ \hline
+		$\chi_3$ & 1          & 1           & 1               & -1               & -1               \\ \hline
+		$\chi_4$ & 1          & 1           & -1              & -1               & 1                \\ \hline
+		$\chi_5$ & ?          & ?           & ?               & ?                & ?                \\ \hline
+	\end{tabular}
+\end{table}
+
 \subsection*{5.7} (standing in for 5.8)
 
 \subsubsection*{a}
@@ -146,8 +223,6 @@ Let us look at $\rho$ and $\rho^{s_i}$. Suppose $\rho^{s_i} = \rho$ for all $x \
 \section*{6}
 \subsection*{6.4}
 We shall show $\sim$ is an equivalence relation. We have that any Young tableau is similar to itself, by the identity permutation. We have that if $\sigma$ maps Young tableau $X$ to $Y$, then $\sigma^{-1}$ maps $Y$ to $X$, so if $X \sim Y$, then $Y \sim X$. Finally, if $X \sim Y$ through $\sigma$ and $Y \sim Z$ through $\pi$, then $\pi \circ \sigma$ maps $X$ to $Z$. 
-
-
 
 
 \end{document}
