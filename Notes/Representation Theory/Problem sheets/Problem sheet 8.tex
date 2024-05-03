@@ -181,7 +181,7 @@ and the pullback of
 \end{align*}
 
 then we get the table below.
-\begin{table}[]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{|l|l|l|l|l|l|}
 		\hline
@@ -191,6 +191,21 @@ then we get the table below.
 		$\chi_3$ & 1          & 1           & 1               & -1               & -1               \\ \hline
 		$\chi_4$ & 1          & 1           & -1              & -1               & 1                \\ \hline
 		$\chi_5$ & ?          & ?           & ?               & ?                & ?                \\ \hline
+	\end{tabular}
+\end{table}
+
+To fill in $\chi_5$, we have that the sums of squares add to 8, so it is a degree 2 rep. Then we use column orthogonality to get:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|}
+		\hline
+		$A_4$    & $\{ 1 \} $ & $\{ r^2 \}$ & $ \{ r, r^3 \}$ & $\{ s, r^2 s \}$ & $\{ rs, r^3 s\}$ \\ \hline
+		$\chi_1$ & 1          & 1           & 1               & 1                & 1                \\ \hline
+		$\chi_2$ & 1          & 1           & -1              & 1                & -1               \\ \hline
+		$\chi_3$ & 1          & 1           & 1               & -1               & -1               \\ \hline
+		$\chi_4$ & 1          & 1           & -1              & -1               & 1                \\ \hline
+		$\chi_5$ & 2          & -2           & 0               & 0                & 0                \\ \hline
 	\end{tabular}
 \end{table}
 

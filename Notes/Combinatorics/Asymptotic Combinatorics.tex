@@ -173,7 +173,7 @@ Essentialy, the Main Bonneferoni Implication is:
 \end{equation}
 
 \subsection{Proof}
-We look at the contribution that each individual element has on the system. 
+We look at the contribution that each individual element has on the whole. 
 The proof relies on the fact that:
 $R_a = \sum_{k = 0}^{2m} (-1)^k \binom{q}{k} \geq L_a$. 
 
@@ -183,5 +183,17 @@ What happens if $2m \leq q/2$? Since it is increasing then this is $\geq 1$.
 
 If $q/2 \geq 2m \geq q$, then we pair up the $2m + k$ terms with a $k$ term to get something that is bigger than 0.
 
-Thus the proof falls 
+Thus the proof falls into place, and a similar proof can be used for $2m + 1$. 
+
+\subsection{Permutations with no 3-cycles}
+Let $P_{(i,j,k)}$ be the property that a permutation $\sigma$ contains $C_i$. Want no 3-cycles. set $S$ be set of all properties, $T = \emptyset$. By MBI, the estimate is:
+\begin{equation}
+	\sum_{\substack{Y \subseteq S}}^{Y \leq k} (-1)^{|Y|} N_\geq(Y)
+\end{equation}
+
+If we have $j$ 3-cycles which are all disjoint, then $N_\geq(Y) = (n - 3j)!$ and the number of 3-cycles with $F(Y)$ disjoint is $(n - o(n))^3/3 \sim n^3/ 3$. Therefore, step $1$ has $(n - o(n))^3/3^j \sim n^{3j}/3^j$. Thus, 
+
+$\sum_{Y, |Y| = j} N_\geq (Y) \sim n^{3j}/3^j (n - 3j)!/j! \sim n!/3^j j!$
+
+Then by Poisson principle, we have that $N_=(\emptyset)/n! \sim e^{- 1/3}$. 
 \end{document}

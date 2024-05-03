@@ -70,7 +70,7 @@ Therefore, we get that:
 \end{equation}
 Then we simplify to get that:
 \begin{equation}
-	f(n) - g(n) = \frac{1}{3} n^{n^2 - 1}e^{n - \frac{1}{2}} + O(n^{n^2 - 2}e^{n - \frac{1}{2}})
+	f(n) - g(n) = \frac{1}{3} n^{n^2 - 1}e^{n - \frac{1}{2}} + O(n^{n^2 - 2}e^{n - \frac{1}{2}}) = \frac{1}{3} n^{n^2 - 1}e^{n - \frac{1}{2}}( 1 + O(\frac{1}{n})) \sim \frac{1}{3} n^{n^2 - 1}e^{n - \frac{1}{2}}. 
 \end{equation}
 
 \section{Question 3}
@@ -78,11 +78,15 @@ We can write the LHS as $\exp(f(n) \log(1 + o(1)))$. However, we have that $\log
 
 \section{4}
 \subsection{a}
-We have that:
-\begin{equation}
-	\sum_{k = 0}^{J} \frac{n! n^k }{(n + k)! 2^k} = 
-\end{equation}
+For fixed $n$ and $k$ large, we claim that $\frac{n! n^k}{(n + k)! 2^k} = \frac{1}{2^k}  + o(1)$. Let $a_k = \frac{n! n^k}{(n + k)! 2^k}$ and $b_k = \frac{1}{2^k}$. We claim that $c_k \frac{a_k}{b_k} = \frac{n! n^k}{(n + k)!}$ is bounded. We have that $c_0 = 1$ and that $c_{k + 1}/c_k = \frac{n}{n + k + 1}$ which is a decreasing function for fixed $n$ and taking $k$ to infinity. In fact, it decreases to 0. Therefore, we claim that $c_k = 1 + o(1)$, so $a_k = b_k g(k)$ with an above bound of $g(k) = \prod_{i = 1}^k \frac{n}{n + i + 1}$ for all $k$.
 
+However, how big is $g(k)$ asymptotically? We can rewrite the fraction as $\frac{n/i}{n/i + 1/i + 1}$ where the bottom goes to 1 asymptotically, so we can rewrite it as $\frac{n}{i}(1 + 1/i + n/i + O(n^2/i^2))$. Simplifying, we get that this is $n/i + O(n^2/i^2)$. Therefore, the product of $g(k) =  \prod_{i = 1}^k n/i + O(n^2/i^2)$ which goes to 0 very quickly. 
+
+ Thus, $ \sum_{k = 0}^{J} \frac{n! n^k}{(n + k)! 2^k}  \sim 1 + \frac{2^{J} - 1}{2^{J + 1}}$. 
+ 
+ \subsection{b}
+ We have that the largest value of deviation is for the first few terms of $n$ and asymtotically we approach $\frac{1}{2^k}$ when $k$ is much larger than $n$. Therefore, we have that:
+ $ \sum_{k = 0}^{\infty} \frac{n! n^k}{(n + k)! 2^k}  = 2 + o(1)$. 
 \section{5}
 \subsection{a}
 We can choose $(n - 1)(n - 2) ... (n-k + 1)$ ways to choose $k - 1$ vertices on the tail, which is denoted as $[n - 1]_{k - 1}$. Then we have that the number of trees that do not contain vertices in the  $(n - k)^{n - k - 2}$. We can finally choose which vertex to attach the tail to, where we have $(n - k)$ tails. Therefore, we have that the number of tails is:
@@ -91,6 +95,14 @@ We can choose $(n - 1)(n - 2) ... (n-k + 1)$ ways to choose $k - 1$ vertices on 
 \end{equation}
 
 \subsection{b}
+We wish to show $[n - 1]_{k - 1}(n - k)^{n - k - 1} = (n - k)^{n - 2}( 1 + o(1))$, so we want to show that $[n - 1]_{k - 1} \sim (n - k)^{k - 1}$.
+
+We have that 
+\begin{equation}
+	n - i = (n - k) ( 1 + \frac{k - i}{n - k})
+\end{equation}
+and as $k$ is of $\sqrt n$, we have that $\frac{k - i}{n - k} = \frac{k/n - i/n}{1 - k/n} = (k/n - i/n)( 1 + k/n + O(k^2/n^2)) = 2k/n - i/n + O(k^2/n^2)$. Therefore, the error is bounded by $k/n + O(k^2/n^2)$. Therefore, we have that $[n - 1]_{k - 1} = \exp(O(k^2/n)) \prod_{i = 1}^{k - 1}(n - k)$. But as $k = o(\sqrt{n})$, then $k^2 = o(n)$ so $\exp(O(k^2/n))  = \exp(o(1)) = 1$. Therefore, $[n - 1]_{k - 1}(n - k)^{n - k - 1}  \sim (n - k)^{n - 2}$. Thus shown. 
+
 \subsection{c}
 We can write $\frac{(n - k)^{n - 2}}{n^{n - 2}} = (1 - \frac{k}{n})^{n - 2}$. Then we can write $(1 - \frac{k}{n})^{n - 2} = \exp(\log((1 - \frac{k}{n})^{n - 2})) = \exp((n - 2) \log( 1 - \frac{k}{n}))$. We can write $\log( 1 - \frac{k}{n}) = - \frac{k}{n} + O(\frac{k^2}{n^2})$, so $(n -2)\log( 1 - \frac{k}{n}) = - k - \frac{2k}{n} + O(\frac{k^2}{n})$. Therefore, we have that $\exp((n - 2) \log( 1 - \frac{k}{n})) = e^{-k + o(1)}$, therefore we have $e^{-k}$. 
 
@@ -113,23 +125,28 @@ Therefore, we have that the proportion of trees with $k$ tails is:
 We have the proportion is $e^{-2k}$. 
 
 \subsection{e}
-We will use PIE. Let $A$ be the set of all labelled trees on $[n]$ vertices. $|A| = n^{n - 2}$. Let $P_i$ be the property that vertex $i$ is at the end of a $k$-tail, and let $S$ be the set of all properties. Let $Y \subseteq S$ where $|Y| = \ell$ for some fixed $\ell = o(\sqrt{n}) $. Then the proportion of these trees is $e^{-\ell k}$. The number of each $Y$ with $\ell$ properties is $\frac{[n - \ell]_{\ell + 1}}{\ell!} \sim \frac{(n - \ell)^\ell}{\ell!}$. Then we can say that from the Poisson Paradigm that:
+We will use PIE. Let $A$ be the set of all labelled trees on $[n]$ vertices. $|A| = n^{n - 2}$. Let $P_i$ be the property that vertex $i$ is at the end of a $k$-tail, and let $S$ be the set of all properties. Let $Y \subseteq S$ where $|Y| = \ell$ for some fixed $\ell = o(\sqrt{n}) $. Then the proportion of these trees is $e^{-\ell k}$. The number of each $Y$ with $\ell$ properties is $\binom{n}{\ell} = \frac{[n]_{n - \ell}}{\ell!} \sim \frac{(n - \ell)^{n - \ell}}{\ell!}$. Then we can say that from the Poisson Paradigm that:
 \begin{equation}
-	\frac{1}{N}\sum_{|Y| = \ell}N_\geq(Y) = \frac{(n - \ell)^\ell}{\ell!} e^{-\ell k}.
+	\frac{1}{N}\sum_{|Y| = \ell}N_\geq(Y) = \frac{(n - \ell)^{(n - \ell)}}{\ell!} e^{-\ell k}.
 \end{equation}
-We then write $(n - \ell)^\ell = e^{\ell \log(n - \ell)}$ to get that 
+We then write $(n - \ell)^{n - \ell} = e^{(n - \ell) \log(n - \ell)}$ to get that 
 
 \begin{equation}
-	\frac{1}{N}\sum_{|Y| = \ell}N_\geq(Y) = \frac{(e^{\log(n - \ell) - k)^\ell}}{\ell!}.
+	\frac{1}{N}\sum_{|Y| = \ell}N_\geq(Y) = \frac{(e^{ n/\ell \log(n - \ell) -\log(n - \ell) - k})^\ell}{\ell!}.
 \end{equation}
-Using the Poisson paradigm, we have that $\lambda = e^{\log(n - \ell) - k}$. 
+Using the Poisson paradigm, we have that $\lambda = e^{ n/\ell \log(n - \ell) -\log(n - \ell) - k}$. 
 Then from the Poisson paradigm, we have that:
 
 \begin{equation}
-	\frac{1}{N}N_= (\emptyset) = e^{e^{\log(n - \ell) - k}} = e^{\frac{e^{-k}}{n - \ell}}
+	\frac{1}{N}N_= (\emptyset) = e^{e^{ n/\ell \log(n - \ell) -\log(n - \ell) - k}} = \exp \left(e^{-k} (n - \ell)^{n/ \ell - 1}\right)
 \end{equation}
-Then substituting in a function of $\ell = o(\sqrt{n})$, perhaps $\log n$, then we have that 
+Then substituting in a function of $\ell = o(\sqrt{n})$, perhaps $\log n$, then we have that the proportion is
 \begin{equation}
-	\frac{1}{N}N_= (\emptyset)= e^{\frac{e^{-k}}{n - \log n}}
+	\frac{1}{N}N_= (\emptyset)= \exp \left(e^{-k} (n - \log n)^{n/ \log n - 1}\right)
+\end{equation}
+
+and the number of trees is:
+\begin{equation}
+	N_= (\emptyset)= \exp \left(e^{-k} (n - \log n)^{n/ \log n - 1}\right) n^{n - 2}
 \end{equation}
 \end{document}
