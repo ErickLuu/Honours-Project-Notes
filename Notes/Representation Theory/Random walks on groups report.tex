@@ -57,44 +57,18 @@ maxbibnames=99
 
 \maketitle
 \section{Introduction}
-Random walks on groups was originally motivated by the art of shuffling cards, popularised by mathemagician Persi Diaconis. One of the seminal resuls
-\section{Definitions}
-In this section, we will outline some definitions of Markov chains and walks. This section is based on Steinberg's chapter on random walks\cite{steinbergProbabilityRandomWalks2012}.
-
-\subsection{Random walks on groups}
-Suppose $G$ is a finite group and $X$ is a r.v. on $G$. $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$. We can treat this as a Markov chain but to go from $g$ to $gh$ is the same probability as going from $1$ to $h$ for all $g$ and all $h$. 
-
-For a set $A \subseteq G$, we have that $P(A) = \sum_{g \in A} P(g)$. We define the support of $P$ as $\supp(P) = \lbrace g \in G : P(g) \neq 0 \rbrace$. 
-
-
-\begin{example}
-	These are examples of a random distribution on a group. 
-	\begin{itemize}
-		\item We define the uniform distribution $U$ on $G$ as $U(g) = 1/|G|$ for all $g \in G$. 
-		\item We define the subset distribution $S \subset G$ to be $1/|S|$ for all $ g \in S$ and 0 else.
-	\end{itemize}
-\end{example}
-
-Instead of treating the group as a set, we can treat the elements as functions, specifically the left regular group action. Then we can act on the group and walk around it. The convolution operator encapsulates taking steps around a group.
-Let $P$, $Q$ be probabilities on $G$. Suppose we choose $X$ according to $P$ and $Y$ according to $Q$. Then the probability that $XY = g$ is the probability that $Y = h$ for some $h \in G$ and the probability that $X = gh^{-1}$. 
-So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
-
-\begin{proposition}
-	Let $P$ and $Q$ be probability distributions on $G$. Then $P \ast Q$ is a probability distribution on $G$, with $\supp(P \ast Q) = \supp(P)\supp(Q) = \lbrace xy : x \in \supp(P), y \in \supp Q \rbrace$. 
-\end{proposition}
-\begin{proof}
-	Trivial to show is between 0 and 1.
-	Next, we have that:
-	\begin{align*}
-		\sum_{g \in G} P \ast Q(g) &= \sum_{g \in G} \sum_{h \in G} P(gh^{-1}) Q(h)\\
-		&=\sum_{h \in G} Q(h) \sum_{g \in G} P(gh^{-1})\\
-		&= \sum_{h \in G} Q(h)\\
-		&= 1
-	\end{align*}
-\end{proof}
-Thus this is a probability distribution. Obviously, the support is of the form $\left\{ xy : x \in \supp(P), y \in \supp(Q) \right\}$. 
-
-\section{Random walks}
+Random walks on groups was originally motivated by the art of shuffling cards, popularised by mathemagician Persi Diaconis. One of the seminal results in random walks is the investigation into riffle shuffles, one of the most popular shuffling methods, by Bayer and Diaconis, \cite{bayerTrailingDovetailShuffle1992}. They found that the number of shuffles needed is at most $\frac{3}{2} \log n$ shuffles. Much of the work on random walks and groups have to do with the cutoff, or the time where the distribution is "close enough" to a uniform distribution. This is useful for shuffling cards, because we want that the cards that we shuffle to be uniform in some way.
+\subsection{Outline of report}
+We will outline the report as such.
+\begin{enumerate}
+	\item In \cref{sec:random walks}, we investigate what a random walk is and some important notions involving random walks. 
+	\item In \cref{sec:defns}, we define some important terms specifically for random walks on groups. 
+	\item In \cref{sec:Fourier Analysis}, we discuss the usage of Fourier analysis on finite abelian groups to yield results in the Fourier series.
+	\item In \cref{sec:spectral theory}, we use the Fourier analysis before to build a spectral analysis of the random walks and we eventually show that the most important eigenvalue that appears is the uniform distribution. 
+	\item In \cref{Examples}, we build on the theory developed on some example random walks. 
+\end{enumerate}
+Much of the literature is focused on building bounds of the rate of convergence of some shuffles. There is a lot of representation theory but much of the work of establishing bounds is combinatorial in nature. We do not focus on the combinatorial aspects as much in the report, though we do have a short discussion on using combinatorics in the examples page. 
+\section{Random walks}\label{sec:random walks}
 We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{times}}$. 
 The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
 
@@ -134,6 +108,40 @@ We wish to see what the distribution converges to in the long-run. We define a s
 	If a Markov chain is irreducible and aperiodic, then there exists a unique stationary distribution $\pi$, and $P^{*k}$ converges to a rank one matrix where every row is $\pi$. 
 \end{theorem}
 
+\section{Random walks on groups}\label{sec:defns}
+In this section, we will outline some definitions of Markov chains and walks. This section is based on Steinberg's chapter on random walks\cite{steinbergProbabilityRandomWalks2012}.
+
+Suppose $G$ is a finite group and $X$ is a r.v. on $G$. $P$ is a probability distribution function where $P(g) = \text{Prob}[X = g]$ and $\sum_{g\in G} P(g) = 1$. We can treat this as a Markov chain but to go from $g$ to $gh$ is the same probability as going from $1$ to $h$ for all $g$ and all $h$. 
+
+For a set $A \subseteq G$, we have that $P(A) = \sum_{g \in A} P(g)$. We define the support of $P$ as $\supp(P) = \lbrace g \in G : P(g) \neq 0 \rbrace$. 
+
+
+\begin{example}
+	These are examples of a random distribution on a group. 
+	\begin{itemize}
+		\item We define the uniform distribution $U$ on $G$ as $U(g) = 1/|G|$ for all $g \in G$. 
+		\item We define the subset distribution $S \subset G$ to be $1/|S|$ for all $ g \in S$ and 0 else.
+	\end{itemize}
+\end{example}
+
+Instead of treating the group as a set, we can treat the elements as functions, specifically the left regular group action. Then we can act on the group and walk around it. The convolution operator encapsulates taking steps around a group.
+Let $P$, $Q$ be probabilities on $G$. Suppose we choose $X$ according to $P$ and $Y$ according to $Q$. Then the probability that $XY = g$ is the probability that $Y = h$ for some $h \in G$ and the probability that $X = gh^{-1}$. 
+So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
+
+\begin{proposition}
+	Let $P$ and $Q$ be probability distributions on $G$. Then $P \ast Q$ is a probability distribution on $G$, with $\supp(P \ast Q) = \supp(P)\supp(Q) = \lbrace xy : x \in \supp(P), y \in \supp Q \rbrace$. 
+\end{proposition}
+\begin{proof}
+	Trivial to show is between 0 and 1.
+	Next, we have that:
+	\begin{align*}
+		\sum_{g \in G} P \ast Q(g) &= \sum_{g \in G} \sum_{h \in G} P(gh^{-1}) Q(h)\\
+		&=\sum_{h \in G} Q(h) \sum_{g \in G} P(gh^{-1})\\
+		&= \sum_{h \in G} Q(h)\\
+		&= 1
+	\end{align*}
+\end{proof}
+Thus this is a probability distribution. Obviously, the support is of the form $\left\{ xy : x \in \supp(P), y \in \supp(Q) \right\}$. 
 
 \subsection{Results for finite groups}
 For probability distributions on groups, we have some stronger statements. In fact, we will show that $\pi$ is uniform, and in fact the ergodicity of the walk is easier to show with a group. 
@@ -145,7 +153,7 @@ For probability distributions on groups, we have some stronger statements. In fa
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
 
-\section{Notion of difference between probabilities}
+\subsection{Notion of difference between probabilities}
 We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. This obviously forms a metric of functions on groups. 
 We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. This is also referred to as the Gilbert-Shannon-Reeds probability. 
 
@@ -179,7 +187,7 @@ The total variation distance is of much interest in stochastic analysis, but for
 
 We say that a sequence of probabilities $\lbrace P_n \rbrace_{n \in \mathbb{N}}$ converges to $P$ if for all $\varepsilon > 0$, there exists $N > 0$ such that $\|P_n - P \|_1 < \varepsilon$ when $n \geq N$. 
 
-\section{Fourier analysis on finite groups}
+\section{Fourier analysis on finite groups}\label{sec:Fourier Analysis}
 In this section, we will prove some important ideas about Fourier analysis and finite groups. We will mainly be using Steinberg \cite{steinbergProbabilityRandomWalks2012} for finite abelian groups, but we will be using a paper from Diaconis and Shahshahani's paper on random groups \cite{diaconisGeneratingRandomPermutation1981} for some results on all finite groups. 
 
 \begin{definition}
@@ -314,7 +322,9 @@ And setting $k = gh^{-1}$, so $g =kh$, we get that:
 	First, we have that $\widehat{a\ast \chi} = \widehat{a} \widehat{\chi} = \widehat{a} |G| \delta_\chi$, and $\widehat{a} |G| \delta_\chi(\psi) = \widehat{a}(\psi) |G|$ if $\psi = \chi$ and 0 else, so $\widehat{a} |G| \delta_\chi = \widehat{a}(\chi) |G| \delta_\chi$. When we apply the inverse of the Fourier transform, we have that $a \ast \chi = \widehat{a}(\chi) \chi$ by the 1st orthogonality, so $A \chi = \widehat{a}(\chi) \chi$. Thus shown. 
 \end{proof}
 
-\section{Spectrums of random walks on finite abelian groups}
+\section{Spectrums of random walks on finite abelian groups}\label{sec:spectral theory}
+In this section, we apply spectral theory to convolutions of distribions on groups to see what eigenvalues show up, where the eigenvectors are distributions on groups. We wish to show that the convolutions that come out of the eigenvectors have eigenvalues whose absolute values are strictly less than one, except for the uniform distribution, which has eigenvalue 1.
+
 We define a convolution operator on a probability distribution $P$ as $M : \mathbb{C}G \rightarrow \mathbb{C}G$ where $M(a) = P \ast a$, where $(P \ast a) (g) =\sum_{h\in G} P(gh^{-1})a(h)$.
 \begin{definition}
 	The spectrum of a random walk driven by probability distribution $P$ is the set of eigenvalues of $M$. 
@@ -355,10 +365,8 @@ We have another result by Plancherel, which we lift from Serre \cite{serreExampl
 		\sum_{g \in G}|P(g)|^2 = \frac{1}{|G|} \sum_{\rho \in \widehat{G}} \deg(\rho) Tr(\rho(P) \overline{\rho(P)}) 
 	\end{equation}
 \end{theorem}
-\todo{Prove this!}
 
-
-
+This is one of the most important lemmas to bound the size of a group. 
 \begin{lemma}[Diaconis–Shahshahani Upper bound lemma]
 	\label{lem:Upper bound lemma}
 	Let $G$ be a finite abelian group, and let $F$ be the set of non-trivial irreducible characters of $G$. Let $Q$ be a probability on $G$.  Then:
@@ -387,6 +395,15 @@ We have another result by Plancherel, which we lift from Serre \cite{serreExampl
 	\end{equation}
 \end{proof}
 
+As a corollary, we can show that we can have an upper bound of the total variation. 
+\begin{corollary}
+	Let $G$ be a finite abelian group, and let $F$ be the set of non-trivial irreducible characters of $G$. Let $Q$ be a probability on $G$.  Then:
+\begin{equation}
+	\|Q - U\|^2_{TV} \leq \\frac{1}{4}\sum_{\chi \in F} |\widehat{Q}(\chi)|^2.
+\end{equation}
+\end{corollary}
+This is also referred to as the Upper Bound Lemma in the literature.
+
 \begin{corollary}
 	\label{cor:Convolution Inequality}
 	Let $G$ be a finite abelian group and let $P$ be a probability on $G$. Then 
@@ -405,7 +422,7 @@ This result means that all random ergodic walks on groups that respect the group
 
 In fact, there are similar results for groups that are nonabelian. We can drop some of the assumptions and have similar results for non-abelian groups.
 
-\section{Examples of walks on finite abelian groups}
+\section{Examples}\label{Examples}
 
 \subsection{Swapping two cards}
 Let $T$ be defined as in \cref{ex:swap two cards}. Then we have that:
@@ -492,11 +509,10 @@ Plugging this into the equation. we get that:
 	&\leq \frac{1}{2}\sum_{j = 1}^{\infty}\frac{1}{j!}\left(e^{-c}\right)^j\\
 	&\leq \frac{1}{2}\left(e^{e^{-c}} - 1\right)
 \end{align*}
-This is a simple proof to show that we achieve convergence to a uniform bound with an upper limit on the rate of convergence. This proof is combinatorial in nature, except for the use of the upper bound lemma. However, it illustrates how combinatorics and Fourier analysis may be combined to prove an upper bound of the rate of convergence
+This is a simple proof to show that we achieve convergence to a uniform bound with an upper limit on the rate of convergence. This proof is combinatorial in nature, except for the use of the upper bound lemma. However, it illustrates how combinatorics and Fourier analysis may be combined to prove an upper bound of the rate of convergence.
 
 	\subsection{Riffle-shuffling of a deck of cards}This comes from Bayer and Diaconis \cite{bayerTrailingDovetailShuffle1992}. A riffle-shuffle is when the deck is split into two heaps and cards from each heap are shuffled through either heap with a certain probability. The model that was used was that cards were dropped from the left and right heaps with a probability proportional to the number of cards in each heap, so if there are $A$ and $B$ cards remaining in each heap, the probability of choosing a card from the left heap is $\frac{A}{A + B}$ and the probability of choosing a card from the right heap is $\frac{B}{A + B}$. Then given $n$ cards, the number of these operations that need to be performed is at most $\frac{3}{2} \log n$ to reach a cutoff point where extra shuffles will only slightly increase the rate of convergence. For a deck of 52 cards, the number is around 7 shuffles. 
 \section{Conclusion}
-We first discussed what a Markov chain is and what a stationary distribution looks like on a Markov chain. We then looked at what a random walk on a group is and how it connected to Markov chains. We also looked at how we could test if two Markov chains are close to each other. We then looked specifically at the case where the group is a finite abelian group. Abelian groups of characters are very easy to compute if you know the basis elements. We used Fourier analysis to prove a series of results on abelian groups of characters, and eventually showed an upper bound of the of the distance between a limiting ergodic distribution and the uniform distribution can get arbitrarily small, thus showing that any ergodic distribution converges to the uniform distribution. This result is much more helpful than the stationary distribution because it required less axioms (distribution does not have to be aperiodic) yet converged to a particular stationary distribution, the uniform distribution. We finally finished by looking at some examples. 
-
+Investigating statistical or combinatorial problems such as card shuffling can lead to interesting mathematics. In particular, if the problem space is nice, like on a group, then we can use tools such as representation theory and Fourier analysis on groups to build good bounds on how fast we converge to the uniform distribution. This report mainly focused on the representation theory part on this area of knowledge, though we do discuss the combinatorial aspects as well. 
 \printbibliography
 \end{document}
