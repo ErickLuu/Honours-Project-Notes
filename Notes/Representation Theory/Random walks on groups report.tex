@@ -57,9 +57,7 @@ maxbibnames=99
 
 \maketitle
 \section{Introduction}
-
-
-One of the most famous works on random walks on groups is \cite{bayerTrailingDovetailShuffle1992} by Bayer and Diaconis. 
+Random walks on groups was originally motivated by the art of shuffling cards, popularised by mathemagician Persi Diaconis. One of the seminal resuls
 \section{Definitions}
 In this section, we will outline some definitions of Markov chains and walks. This section is based on Steinberg's chapter on random walks\cite{steinbergProbabilityRandomWalks2012}.
 
@@ -148,11 +146,8 @@ For probability distributions on groups, we have some stronger statements. In fa
 \end{proof}
 
 \section{Notion of difference between probabilities}
-We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. The $L^1$-norm is a metric and also $\|a \ast b\|_1 \leq \|a\|_1 \cdot \|b\|_1$. 
-
-Proof in notes.
-
-We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. 
+We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. This obviously forms a metric of functions on groups. 
+We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. This is also referred to as the Gilbert-Shannon-Reeds probability. 
 
 \begin{lemma}
 	Let $P$ and $Q$ be probabilities on $G$, and let $B = \lbrace g \in G : P(g) \geq Q(g) \rbrace$, $C = \lbrace g \in G : Q(g) \geq P(g) \rbrace$.
@@ -463,19 +458,43 @@ Here is an upper bound of how fast $P$ converges to $U$.
 	\end{equation}
 \end{theorem}
 
-We shall not prove this in this example, though we will give an outline of the proof. The full proof is in \cite{steinbergProbabilityRandomWalks2012}. 
+The proof comes from Steinberg in \cite{steinbergProbabilityRandomWalks2012}. 
 
-\subsubsection{Proof outline}
+\subsubsection{Proof}
 We have that every character of $\left(\mathbb{Z}_2\right)^n$ is given by a set $Y \subset [n]$ and a function $\alpha: G \rightarrow 2^{[n]}$ which is defined as $\alpha(v) = \langle i : v_i = 1 \rangle$. Then the character with respect to $Y$ is:
 \begin{equation}
 	\chi_Y(v) = (-1)^{|\alpha(v) \cap Y|}
 \end{equation}
 
-Therefore, we have that $\hat{P}(\chi_Y)$ has the elements $y \in Y$ contribute $ -1/n$ each to $\hat{P}(\chi_Y)$ and the elements not in $Y$ contribute $1/n$ to $\hat{P}(\chi_Y)$. Taking the sums, we have that the spectrum must be $\frac{1}{n}(n - 2 |Y|) = 1 - \frac{2|Y|}{n}$. 
-Then 
+Therefore, we have that $\hat{P}(\chi_Y)$ has the elements $y \in Y$ contribute $ -1/n$ each to $\hat{P}(\chi_Y)$ and the elements not in $Y$ contribute $1/n$ to $\hat{P}(\chi_Y)$. Taking the sums, we have that the spectrum must be $\frac{1}{n}(n - 2 |Y|) = 1 - \frac{2|Y|}{n}$. As there are $\binom{n}{j}$ subsets $Y$ where $|Y| = j$,
+from \cref{lem:Upper bound lemma} we have that:
 
-\subsection{Card shuffling}
-In the previous section, there is a proof . This comes from \cite{bayerTrailingDovetailShuffle1992}. 
+\begin{equation}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{4} \sum_{j = 1}^{n}\binom{n}{j} \left[1 - \frac{2j}{n+1}\right]^{2k}
+\end{equation}
+
+Now we use the fact for when $j > \left\lfloor \frac{n + 1}{2} \right\rfloor$, we have the exact same numbers, so we exploit this symmetry and only calculate the left half of the summation to yield:
+
+\begin{equation}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n + 1}{2} \right\rfloor}\binom{n}{j} \left[1 - \frac{2j}{n+1}\right]^{2k}
+\end{equation}
+Now we have that $\binom{n}{j} \leq \frac{n^j}{j!}$ trivially and that for large $n$ and large $k$, we have that $\left[1 - \frac{2j}{n+1}\right]^{2k} = e^{2k \log \left(1 - \frac{2j}{n+1}\right)}$. Now we use the fact that $\log(1 - x) < - x $ for $|x| < 1$, to get that $e^{2k \log \left(1 - \frac{2j}{n+1}\right)} < e^{2k(- \frac{2j}{n+1})} = e^{-\frac{4jk}{n+1}}$ asymptotically. 
+Therefore, 
+\begin{equation}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n + 1}{2} \right\rfloor}\frac{n^j}{j!} e^{-\frac{4jk}{n+1}}
+\end{equation}
+
+If we let $k \geq (n + 1)(\log n + c)/4$, then we have that $e^{-\frac{4jk}{n+1}} \leq e^{j \log (n - jc)}= e^{- j c}/ n^j$.
+
+Plugging this into the equation. we get that:
+\begin{align*}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n + 1}{2} \right\rfloor}\frac{1}{j!}e^{-jc}\\
+	&\leq \frac{1}{2}\sum_{j = 1}^{\infty}\frac{1}{j!}\left(e^{-c}\right)^j\\
+	&\leq \frac{1}{2}\left(e^{e^{-c}} - 1\right)
+\end{align*}
+This is a simple proof to show that we achieve convergence to a uniform bound with an upper limit on the rate of convergence. This proof is combinatorial in nature, except for the use of the upper bound lemma. However, it illustrates how combinatorics and Fourier analysis may be combined to prove an upper bound of the rate of convergence
+
+	\subsection{Riffle-shuffling of a deck of cards}This comes from Bayer and Diaconis \cite{bayerTrailingDovetailShuffle1992}. A riffle-shuffle is when the deck is split into two heaps and cards from each heap are shuffled through either heap with a certain probability. The model that was used was that cards were dropped from the left and right heaps with a probability proportional to the number of cards in each heap, so if there are $A$ and $B$ cards remaining in each heap, the probability of choosing a card from the left heap is $\frac{A}{A + B}$ and the probability of choosing a card from the right heap is $\frac{B}{A + B}$. Then given $n$ cards, the number of these operations that need to be performed is at most $\frac{3}{2} \log n$ to reach a cutoff point where extra shuffles will only slightly increase the rate of convergence. For a deck of 52 cards, the number is around 7 shuffles. 
 \section{Conclusion}
 We first discussed what a Markov chain is and what a stationary distribution looks like on a Markov chain. We then looked at what a random walk on a group is and how it connected to Markov chains. We also looked at how we could test if two Markov chains are close to each other. We then looked specifically at the case where the group is a finite abelian group. Abelian groups of characters are very easy to compute if you know the basis elements. We used Fourier analysis to prove a series of results on abelian groups of characters, and eventually showed an upper bound of the of the distance between a limiting ergodic distribution and the uniform distribution can get arbitrarily small, thus showing that any ergodic distribution converges to the uniform distribution. This result is much more helpful than the stationary distribution because it required less axioms (distribution does not have to be aperiodic) yet converged to a particular stationary distribution, the uniform distribution. We finally finished by looking at some examples. 
 
