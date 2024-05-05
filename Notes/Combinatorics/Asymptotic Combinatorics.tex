@@ -198,6 +198,38 @@ $\sum_{Y, |Y| = j} N_\geq (Y) \sim n^{3j}/3^j (n - 3j)!/j! \sim n!/3^j j!$
 Then by Poisson principle, we have that $N_=(\emptyset)/n! \sim e^{- 1/3}$. 
 
 \section{Summations}
+\subsection{Asymptotics of regular summations}
+
+\begin{theorem}[Uniform Summation]
+	Suppose $s_{i, n} \sim t_{i, n}$ for $ 1\geq i \geq I(n)$ where the asymptotics are uniform. So for $1 \leq i \leq I$ we have that:
+\begin{equation}
+	\frac{s_{i, n}}{t_{i, n}} = 1 + o(1)
+\end{equation}
+
+Then:
+\begin{equation}
+	\sum_{i = 1}^{I(n)} s_{i, n} \sim \sum_{i = 1}^{I(n)} t_{i, n}
+\end{equation}
+\end{theorem}
+
+\begin{theorem}[Non-uniform summations]
+	Suppose $s_{i, n} \sim t_{i, n}$ for $ 1\geq i \geq I(n)$ where the asymptotics are not uniform. So for $1 \leq i \leq I$ we have that:
+	\begin{equation}
+		\frac{s_{i, n}}{t_{i, n}} = 1 + O(g(n))
+	\end{equation}
+	
+	Then:
+	\begin{equation}
+		\sum_{i = 1}^{I(n)} s_{i, n} \sim 1 + O(g(n))\sum_{i = 1}^{I(n)} t_{i, n}
+	\end{equation}
+\end{theorem}
+
+\subsection{Union bound}
+Given sets $S_1 ..., S_k$ we have that:
+\begin{equation}
+	|S_1 \cup ... \cup S_k | \leq \sum_{i = 1}^k |S_i
+\end{equation}
+Good bound
 \subsection{Poisson Paradigm}
 
 Recall that $[x]_n = x( x - 1) (x - 2) ... (x - n + 1)$. 
@@ -212,8 +244,63 @@ Recall that $[x]_n = x( x - 1) (x - 2) ... (x - n + 1)$.
 	\end{equation}
 	
 	Then:
-\begin{equation}
-	\sum_{\substack{Y \supseteq T\\ |Y| = |T| + k}} N_{\geq}(Y) = N \frac{\lambda^r}{[M]_r} \left(\frac{\lambda^k}{k!} + o(1)\right)
-\end{equation}
+	\begin{equation}
+		\frac{1}{N}\sum_{|T| = r} N_{\geq}(Y) = \frac{e^{-\lambda}\lambda^r}{r!} + o(1)
+	\end{equation}
+	
 \end{theorem}
+
+\subsection{Approximate Counting Lemma}
+\begin{theorem}
+	Let $N_1, ..., N_k$ be functions of $n$ where $k = k(n)$. Suppose the number of ways of performing ``action'' i is $N_i( 1 + O(\eta_i))$ where $O()$ is uniform. Also assume $N_i(1 + O(\eta_i))$ are strictly positive. Then the number of ways I can perform all actions is:
+	\begin{equation}
+		\exp\left(O\left(\sum_{i = 1}^{k}\eta_i\right)\right) \prod_{i = 1}^k N_i
+	\end{equation}
+	if $\eta_i = o(1)$ uniformly for all $i$, and at most:
+		\begin{equation}
+		\exp\left(O\left(\sum_{i = 1}^{k}\eta_i\right)\right) \prod_{i = 1}^k N_i
+	\end{equation}
+	in all cases. 
+\end{theorem}
+
+\subsection{Estimation using integrals}
+Suppose the asymptotics look something like this
+\begin{equation}
+	f(n) \sim c\sum_{k = -\infty}^{\infty} e^{-g(n) k^2}
+\end{equation}
+where $c$ is constant and $g(n) = o(1)$, say $g = \frac{1}{\log^2 n}$.
+
+When can we replace the sum by an integral?
+
+\subsection{Integral-sum lemma}
+\begin{lemma}
+		Suppose $g'(x)$ is continuous on $[a, b + 1]$. Then
+	\begin{equation}
+		\left| \sum_{n = a}^{b} g(n) - \int_{a}^{b + 1}g(x)\, dx\right| \leq \sum_{k = a}^{b} \max_{k \leq x \leq k + 1} |g'(x)|
+	\end{equation}
+	From triangle estimation of the Riemannian integral. 
+\end{lemma}
+
+\begin{corollary}
+	If $g'(x)$ is continuous on $[a, b + 1]$ then
+	\begin{equation}
+		\sum_{n = a}^{b} g(n)  = \int_{a}^{b + 1}g(x) \, dx+ O\left( \sum_{k = a}^{b} \max_{k \leq x \leq k + 1} |g'(x)| \right)
+	\end{equation}
+\end{corollary}
+
+An important integral for estimating these sums is the Gaussian integral.
+
+\begin{equation}
+	\int_{-\infty}^\infty e^{- \alpha x^2} \, dx = \sqrt{\frac{\pi}{\alpha}}
+\end{equation}
+
+An important lemma with the Gaussian is the exp-sum lemma.
+\begin{lemma}
+	If $\alpha = \alpha(n) = o(1)$, then
+\begin{equation}
+	\sum_{k = -\infty}^\infty e^{- \alpha k^2} = \sqrt{\frac{\pi}{\alpha}}
+\end{equation}
+\end{lemma}
+
+In fact, we can push it
 \end{document}
