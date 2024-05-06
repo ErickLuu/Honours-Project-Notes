@@ -694,12 +694,12 @@ We define a weak triangulation of $G$ to be a triangulation $G'$ such that all f
 
 \subsubsection{Classifying nonplanar edges according to homotopy class}
 
-We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the boundary of $F_0$ appears at least once, and twice if it is an \textit{articulation point}. Each edge on the boundary of $F_0$ is encountered at least once on this cycle. Heath and Istrail refer to a directed subpath of the cycle $C_0$ as a trace, so trace $T = v_1 \rightarrow v_2 \rightarrow ... \rightarrow v_t$. The inverse trace is $T^{-1} = v_t \rightarrow v_{t-1} \rightarrow ... \rightarrow v_1$. We now wish to partition $E_N$ into equivalence classes. Suppose that $u_1v_1, u_2v_2 \in E_N$ are part of the boundary of the same face $F$ on the embedding of $G$. Then $u_1v_1$ and $u_2v_2$ are homotopic (with respect to $F$) if:
+We can then form a directed cycle $C_0$ induced by $F_0$. Each vertex on the boundary of $F_0$ appears at least once, and twice if it is an \textit{articulation point}. Each edge on the boundary of $F_0$ is encountered at least once on this cycle. Heath and Istrail refer to a directed subpath of the cycle $C_0$ as a trace, so trace $T = v_1 \rightarrow v_2 \rightarrow ... \rightarrow v_t$. The inverse trace is $T^{-1} = v_t \rightarrow v_{t-1} \rightarrow ... \rightarrow v_1$. We now wish to partition $E_N$ into equivalence classes. Suppose that $u_1v_1, u_2v_2 \in E_N$ are part of the boundary of the same face $F$ on the embedding of $G$. Then $u_1v_1$ and $u_2v_2$ are \textit{homotopic} (with respect to $F$) if:
 \begin{enumerate}
 	\item $u_1v_1$ and $u_2v_2$ are the only edges of $E_N$ on the boundary of $F$
 	\item There exist traces $T_u = u_1 \rightarrow ... \rightarrow u_2$ and $T_v = v_1 \rightarrow ... \rightarrow v_2$ such that $T_u$ and $T_v$ are on the boundary of $F$.
 \end{enumerate}
-We may think of $G_n$ as living on a locally flat part of $S$ and the homotopy class $u_1v_1$ and $u_2 v_2$ living on a handle (alternatively, passing through a crosscap such that they bound a face) of the surface such that if we take $G_n$ to a point, there exists a homotopy from $u_1v_1$ to $u_2v_2$. These form equivalence classes of the nonplanar edges.
+We may think of $G_n$ as living on a locally flat part of $S$ and the homotopy class $u_1v_1$ and $u_2 v_2$ living on a handle (alternatively, passing through a crosscap such that they bound a face). Then if we take $G_n$ to a point, there exists a \textit{homotopy} (in the topological sense) from $u_1v_1$ to $u_2v_2$. These form equivalence classes of the nonplanar edges.
 
 \begin{lemma}
 	If $C$ is a homotopy class of edges $u_1v_1, ..., u_kv_k$ with a natural order, then we can build traces $T_1$ and $T_2$ by building the trace from $u_1$ to $u_k$ passing through all $u_i$, and $v_1$ to $v_k$ passing through all $v_i$. 
@@ -714,18 +714,12 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 \end{proof}
 
 \begin{lemma}
-	If $G$ is $2$-cell embedded on an orientable surface of genus $g$, then any planar-nonplanar decomposition has at most $6g-3$ homotopy classes. 
+	If $G$ is $2$-cell embedded on a surface of Euler genus $g$, then any planar-nonplanar decomposition has at most $3g-3$ homotopy classes. 
 \end{lemma}
 \begin{proof}
-	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $v - e + f = 2 - 2g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3v = 2e$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $v = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 6 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $6(f-1) + v \leq 2e$, by double counting faces and edges. Thus, we have that $6g - e \geq v/2 = h$ by manipulating the inequalities. 
+	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $v - e + f = 2 - g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3v = 2e$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $v = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 3 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $3(f-1) + v \leq 2e$, by double counting faces and edges. Thus, we have that $3g - 3 \geq v/2 = h$ by manipulating the inequalities. 
 \end{proof}
 
-\begin{lemma}
-	If $G$ is $2$-cell embedded on an non-orientable surface of genus $g$, then any planar-nonplanar decomposition has at most $3g-3$ homotopy classes. 
-\end{lemma}
-\begin{proof}[Similar to above]
-	Use Euler's identity $v - e + f = 2-g$. 
-\end{proof}
 \subsubsection{Proving graphs with bounded number of homotopy classes have bounded pagenumber}\label{sssec:bounded_pagenumber_homotopy}
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
 	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an orientable surface $\Sigma$. Then $G$ can be embedded on at most $18g - 5$ pages.
@@ -756,18 +750,6 @@ We wish to prove the following:
 \begin{conjecture}\label{conj:4-planar graphs}
 	For all 4-connected planar graphs $G$ with an embedding $\Sigma$, with $i$ distinguished faces $\left\lbrace F_1, ..., F_i \right\rbrace$ and a distinguished clique $C$ of size at most $3$, there exists a book-embedding $(<, \psi)$ such that all edges bounding the faces $F$ are almost monochromatic and $C$ is at the start of the embedding with pagenumber at most $f(i)$.
 \end{conjecture}
-We plan to use a classic result from Tutte.
-
-We also have a result by Thommassen, which strengthens Tutte's theorem. A graph $G$ is Hamiltonian-connected if for any distinct $x, y \in V(G)$, there exists a Hamiltonian path between $x$ and $y$.
-\begin{theorem}[Thomassen \cite{thomassenTheoremPathsPlanar1983}]\label{thm:4 Connected Planar Ham-Connected}
-	All 4-connected planar graphs are Hamiltonian connected.
-\end{theorem}
-Distinguished cliques of size 1 are easy to handle, and all faces will be on one page or another page sans the spine edges. If a face $F$ uses an edge $e$ on the spine, then we can put $e$ in its own special face. As there is a finite number of faces, then we have that the number pages needed only depends on $i$, the number of faces.
-
-If we consider a distinguished clique $C$ of size 2 with vertices $uv \in C$, then we can use Thomassen's theorem to find a Hamiltonian path between $u$ and $v$, and we add the edge $uv$ to form a Hamiltonian cycle with the edge $uv$. Then this means that there exists a vertex ordering $<$ such that all faces are monochromatic. By the same argument above, the number of pages needed only depends on $i$.
-
-The real problem are distinguished cliques of size $3$, $uvw$. 
-
 \section{Apex vertices}
 \begin{theorem}
 	If $G$ is a graph with components $G'$ and $A$ apex vertices and $G'$ is a graph with pagenumber $s$, $a = |A|$, then $G$ has pagenumber $s + \left\lceil \frac{3a}{2}\right\rceil$. 
