@@ -543,7 +543,7 @@ Recall that for a breadth-first search, we maintain the property that for all $i
 	
 	\paragraph{Construction  of new book-embedding}
 	Let $w \in V(K)$ be the last vertex of $K$ with respect to $\leq_{n-1}$. Then insert $V(G_n - C)$ between $w$ and its successor in the order of $\leq_{n}$. For the page assignment $\psi$, we have that if $uv \in E(G')$, then $\psi(uv) = \psi_{n-1}(uv)$. For the remaining edges, we can permute the edge assignments of $\psi_n$ such that for all $u \in V(K)$, we have that $\psi(E_u) = \psi_n(uw)$. We can do this as $w$ is a rainbow vertex and the edges $E_u$ are assigned to a unique page in $\psi_n$. Finally, let $\psi(uv) = \psi_n(uv)$ for the remainder of the edges. Denote the new ordering and assignment as $(\leq, \psi)$. 
-	
+	\paragraph{Proof that this is a valid book-embedding}
 	We claim that $(\leq , \psi)$ is a stack layout that satisfies the induction hypothesis. Suppose that $\psi(uv) = \psi(xy)$. If $uv, xy \in E(G')$, then by the induction hypothesis, they do not cross. Similarly, if $uv, xy \in E(G_n)$, then they will not cross, by the above lemma. If $uv$ is in $E(G')$ and $xy \in E(G_n)$, then they will go over each other or be sequential and therefore will not cross. 
 	Finally, if $u, v, x, y \in C$, then by the induction hypothesis on $G'$, they do not cross either. The final case is if $uv \in E(G_{i + 1})$ and $u \in V(C)$, $v \notin V(C)$, $xy \in E(G')$. If $uv$ and $xy$ cross, then we have that $xy$ and $uw$ will cross. But this will contradict the page-embedding of $G'$.
 	
