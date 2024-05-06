@@ -111,22 +111,23 @@ We lay out this chapter to build towards important notions in structural graph t
 	\item \cref{sec:Pathwidth} defines a related notion, the \textit{pathwidth}.
 \end{itemize}
 \section{Basic definitions}\label{sec: Basic definitions}
-Throughout this report, we use as shorthand $[n] = \langle 1... n \rangle$. 
 For a graph $G$, we define the \textit{vertex} and \textit{edge} sets of $G$ to be $V(G)$ and $E(G)$ respectively.
-
 For a subset of vertices $A \subseteq V(G)$, we denote the \textit{induced subgraph} on $G$ with vertex set $A$ as $G[A]$. 
-\par
-A \textit{path} in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell- 1}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$, and all the vertices are distinct. 
-A \textit{simple cycle} $C$ in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$ for $1 \leq i \leq \ell - 1$ and $e_\ell = v_\ell v_1$. 
-A \textit{Hamiltonian cycle} in a graph $G$ is a simple cycle $C$ such that all vertices in $G$ appear in $C$.
-\par
+
+\begin{itemize}
+	\item A \textit{path} in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell- 1}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$, and all the vertices are distinct. 
+	\item A \textit{simple cycle} $C$ in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$ for $1 \leq i \leq \ell - 1$ and $e_\ell = v_\ell v_1$. 
+	\item A \textit{Hamiltonian cycle} in a graph $G$ is a simple cycle $C$ such that all vertices in $G$ appear in $C$.
+\end{itemize}
+
 We say that a graph $G$ is \textit{$k$-connected} if between any two vertices $v, w$ in $G$, there are $k$ vertex-disjoint paths between $v$ and $w$. For the case that $k = 2$, the graph is \textit{biconnected}. A graph $G$ with a Hamiltonian cycle is biconnected. 
 
 We say a graph $G$ is $k$-colourable if there exists a function $f: V(G) \rightarrow [k]$ such that for all $vw \in E(G)$, $f(v)$ and $f(w)$ are assigned different colours. The \textit{chromatic number} $\chi(G)$ is the smallest $k$ such that $G$ is $k$-colourable. 
 
+Throughout this report, we use as shorthand for the set $[n] = \lbrace 1... n \rbrace$. 
 
 \section{Planar graphs}\label{sec:Planar graphs}
-We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. If $G$ is embedded on $\Sigma$, then $\Sigma$ is divided into regions where no edges cross. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. We also say that the vertices \textit{bound} a face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
+We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. If $G$ is embedded on $\Sigma$, then $\Sigma$ is divided into regions where no edges cross. These regions are called \textit{faces}. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. We also say that the vertices and edges \textit{bound} a face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
 Let $F(G)$ be the set of faces of $G$ embedded on $\Sigma$. Then we have that:
 \begin{theorem}[Euler's formula]\label{thm:Euler_planar}
 	\begin{equation}
@@ -140,7 +141,7 @@ We can use this result to bound the number of edges in an outerplanar graph.
 \end{theorem}
 
 \begin{proof}[Proof of theorem]
-	Suppose $G$ is maximal outerplanar, meaning adding any edge will break the outerplanar property. Let the internal faces be all the faces which are not the outerface, and let there be $f$ faces. Then the outerface has $n$ edges on the boundary, but each internal face will have exactly $3$ edges on the boundary. However, each edge is touching two distinct faces. Therefore we have that
+	Suppose $G$ is \textit{maximal outerplanar}, meaning adding any edge will break the outerplanar property. Let the \textit{internal faces} be all the faces which are not the outerface, and let there be $f$ internal faces. Then the outerface has $n$ edges on the boundary, but each internal face will have exactly $3$ edges on the boundary. However, each edge is touching two distinct faces. Therefore we have that
 	\begin{equation}
 		3 f - 3 + n = 2m
 	\end{equation}
@@ -156,9 +157,9 @@ We can use this result to bound the number of edges in an outerplanar graph.
 	Therefore, $m = 2n - 3$. As every outerplanar graph is a subgraph of a maximal planar graph, then we have that $m \leq 2n - 3$. 
 \end{proof}
 \section{Graph minors}\label{sec:Graph Minors}
-We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We notate an edge contraction on $uv$ as $G\setminus uv$
+We say that a graph $H$ is a \textit{minor} of another graph $G$ if a graph isomorphic to $H$ can be obtained from $G$ by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge $uv$, we delete both $u$ and $v$ and create a new vertex $w$ such that $N_G(w) = N_G(u) \cup N_G(v)$, where $N_G(v)$ is the neighbourhood of $v$. We notate an edge contraction on $uv$ as $G\setminus uv$.
 We notate the statement `` $H$ is a minor of $G$'' as $H \leq G$. 
-We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if $G \in \mathcal{F}$, then a graph isomorphic to the minor $G'$ of $G$ is also in $\mathcal{F}$. 
+We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph $G$ is \textit{$H$-minor-free} if there is no sequence of deletions and contractions of $G$ that yield a graph isomorphic to $H$. We say that a family of graphs $\mathcal{F}$ is minor-closed if for all $G \in \mathcal{F}$, all minors of $G$ is also in $\mathcal{F}$. 
 
 \begin{example}
 	An example of a minor-closed class is the class of planar graphs. 
@@ -167,9 +168,8 @@ We define minors up to isomorphism, and we typically omit the isomorphism relati
 An important class of graph families are the $K_t$-minor free graphs. For a graph $G$, we define \textit{Hadwiger's number} $\had(G)$ to be the largest $t$ such that $K_t$ is a minor of $G$. This is named after Hugo Hadwiger and his most famous conjecture.
 
 \begin{conjecture}[Hadwiger's conjecture]\cite{hadwigerUeberKlassifikationStreckenkomplexe1943}
-	For all graphs $G$, $\chi(G) \leq \had(G)$.
+	For all graphs $G$, $\chi(G) \leq \had(G)$, where $\chi(G)$ is the \textit{chromatic number} of $G$. 
 \end{conjecture}
-where $\chi(G)$ is the \textit{chromatic number} of $G$. 
 
 \subsection{Minors and models}
 A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assigns to $H$ vertex disjoint connected subgraphs of $G$, such that if $uv \in E(H)$, then some edge in $G$ connects a vertex in $\rho(u)$ to $\rho(v)$. This definition comes from Sergey Norin in his notes on graph minors \cite{norinMath599GraphMinors2017}. 
@@ -228,10 +228,10 @@ This is an upper bound of any graph $G$ with vertices $n$.
 \begin{proof}
 	Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
 \end{proof}
-We may note that this bound is not tight. \todo{Find example of graph where this is tight. Not $K_t$.}
+We may note that this bound is not tight. Planar graphs are 4-colourable \cite{appelEveryPlanarMap1989}, but there exist planar graphs that require 4 pages \cite{yannakakisPlanarGraphsThat2020}, \cite{kaufmannFourPagesAre2020}. 
 
 \subsection{Historical interest}\label{ssec:Pagenumber_History}
-Pagenumbers were developed for processor designs, but more recently have been used in bioinformatics and the like. 
+Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics.\todo{Add citation}
 The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. However in 2020, Yannanakis published his full proof. \cite{yannakakisPlanarGraphsThat2020} At around the same time, Kaufmann, Bekos, Klute, Pupyrev, Raftopoulu and Ueckerdt published a similar result\cite{kaufmannFourPagesAre2020}. 
 
 \section{Treewidth}\label{sec:treewidth}
@@ -241,8 +241,8 @@ The \textit{treewidth} of a graph $G$ measures how far $G$ is from being a fores
 \begin{definition}[Tree-decomposition]\label{def:tree-decomposition}
 	The tree-decomposition $\tree$ of a graph $G$ is defined as a tree $T$ with associated \textit{bags} $\lbrace B_x : x \in V(T) \rbrace$ such that:
 	\begin{itemize}
-		\item $\bigcup_{x \in V(T)} B_x = V(G)$
-		\item for all $v \in V(G)$, the subset of vertices $\lbrace x \in V(T): v \in B_x \rbrace$ in $V(T)$ induces a connected subtree in $V(T)$.
+		\item Every vertex in $G$ is in at least one bag $B_x$. 
+		\item for all $v \in V(G)$, the subset of vertices $\left\lbrace x \in V(T): v \in B_x \right\rbrace$ in $V(T)$ induces a connected subtree in $V(T)$.
 		\item For all edges $vw \in E(G)$, there exists a bag $B_x$ such that both $v$ and $w$ are in the bag $B_x$.
 	\end{itemize}
 \end{definition}
