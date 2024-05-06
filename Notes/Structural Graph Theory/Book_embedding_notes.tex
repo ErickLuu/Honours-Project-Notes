@@ -247,7 +247,7 @@ The \textit{treewidth} of a graph $G$ measures how far $G$ is from being a fores
 	\end{itemize}
 \end{definition}
 We refer to the vertices of the tree $T$ as \textit{nodes}. 
-The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace |B_x| - 1 : x \in V(T) \rbrace$. We define the \textit{treewidth} of a graph $G$ as such:
+The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace |B_x| - 1 : x \in V(T) \rbrace$. An important tree-decomposition 
 
 \begin{definition}\label{def:treewidth}
 	The treewidth of a graph $G$, denoted as $\tw(G)$, is defined to be the smallest width for all tree decompositions of the graph $G$.
@@ -262,7 +262,7 @@ The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace
 	\begin{proof}
 		Suppose $G$ is a tree. Root the graph $G$ at the vertex $r$. Then let $T = G$ and $B_x:= \lbrace x, p \rbrace$ where $p$ is the parent of $x$. The bag $B_r$ will just contain $r$. Then all edges $vw$ will be between parent $v$ and child $w$, so it will be in bag $B_w$. Finally, the subgraph induced by vertex $x$ in $T$ will be $x$ and the children of $x$, which is a connected subtree.
 		
-		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. 
+		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. \todo{Add pictures!}
 	\end{proof}
 	\begin{lemma}
 		If $\tw(G) = 1$, then $G$ has no cycles.
@@ -341,7 +341,7 @@ Similarly to treewidth, we have the following observation.
 \end{lemma}
 We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is adjacent to a vertex on the path $P$. Alternatively, $G$ is a caterpillar if removing every leaf yields a path.
 \begin{theorem}[Caterpillars]
-	Graphs have pathwidth at most 11 iff every connected component is a caterpillar.
+	Graphs have pathwidth at most 11 iff every connected component is a caterpillar. \todo{Add picture}
 \end{theorem}
 \begin{proof}[Caterpillars]
 	Suppose $G$ is a caterpillar. Denote $P =\left( p_1, p_2, ..., p_n\right)$ as the central path. The leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Define the bags as $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1.
