@@ -541,7 +541,7 @@ Recall that for a breadth-first search, we maintain the property that for all $i
 	
 	Suppose $k = n$. Let $C$ be the adhesion clique between $G_n$ and the rest of $G$, where $G_n$ is a leaf of the tree $T$. Denote the induced subgraph $G[V(G) - V(G_n - C)]$ as $G'$. Then let $(\leq_n, \psi_n)$ be the $cs + \ell$-page-number book-embedding of $G_n$ that starts with $V(C)$, and let $\sigma_C$ be the ordering of $V(C)$ by $\leq_n$. Let $(\leq_{n-1}, \psi_{n-1})$ be the stack-embedding of $G'$. By induction, this has a $cs + \ell$-page book-embedding with the properties described above.
 	
-	\paragraph{Construction  of new book-embedding}
+	\paragraph{Construction of new book-embedding}
 	Let $w \in V(K)$ be the last vertex of $K$ with respect to $\leq_{n-1}$. Then insert $V(G_n - C)$ between $w$ and its successor in the order of $\leq_{n}$. For the page assignment $\psi$, we have that if $uv \in E(G')$, then $\psi(uv) = \psi_{n-1}(uv)$. For the remaining edges, we can permute the edge assignments of $\psi_n$ such that for all $u \in V(K)$, we have that $\psi(E_u) = \psi_n(uw)$. We can do this as $w$ is a rainbow vertex and the edges $E_u$ are assigned to a unique page in $\psi_n$. Finally, let $\psi(uv) = \psi_n(uv)$ for the remainder of the edges. Denote the new ordering and assignment as $(\leq, \psi)$. 
 	\paragraph{Proof that this is a valid book-embedding}
 	We claim that $(\leq , \psi)$ is a stack layout that satisfies the induction hypothesis. Suppose that $\psi(uv) = \psi(xy)$. If $uv, xy \in E(G')$, then by the induction hypothesis, they do not cross. Similarly, if $uv, xy \in E(G_n)$, then they will not cross, by the above lemma. If $uv$ is in $E(G')$ and $xy \in E(G_n)$, then they will go over each other or be sequential and therefore will not cross. 
@@ -596,19 +596,18 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 \end{proof}
 
 
-
+\todo{Rewrite proof in terms of adhesions and torsos. }
 \subsection{Bounded treewidth and page number}\label{ssec:Bounded_Treewidth}
 \begin{theorem}[Ganley + Heath\cite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
 	Every graph $G$ with $\tw(G) \leq k$ has $\pn(G) \leq k + 1$. 
 \end{theorem}
-
-We use the characterisation of treewidth as a subgraph of a $k$-tree. We will show that all $k$-trees have pagenumber at most $k + 1$, which suffices to show the above theorem.
+In the original proof, they considered the case where $G$ is a $k$-tree. We will bypass using $k$-trees and consider a tree-decomposition of $G$ directly. 
 
 \begin{theorem}
-	If $G$ is a $k$-tree, then $\pn(G) \leq k + 1$. 
+	If $G$ has $\tw(G) \leq k$, then $\pn(G) \leq k + 1$. 
 \end{theorem}
 \begin{proof}
-	Consider a tree-decomposition of $G$, $\tree = (B, T)$, and perform a depth-first search on $T$, starting at an arbitrary root $r$. Let the ordering of the book-embedding $\sigma(v)$ of a vertex $v$ in $V(G)$ be determined by the first time $x \in T$ appears, where $v \in B_x$. For the vertices in the root bag $B_r$, we order arbitrarily. By the definition of a $k$-tree, only one vertex will be added in the depth-first search. Now consider the subtree $T_v$ induced by the bags $B_x$ containing $v$. We now consider colouring the subtrees $T_v$ for all $v \in G$ such that no overlapping subtrees have the same colour. Let $H$ be the intersection graph of the subtrees, where $V(H) = \lbrace T_v : v \in G \rbrace$ and $T_u T_v \in E(H)$ if there exists a bag $B_x$ such that $u, b \in B_x$. We have that $H$ is perfect, and thus $\chi(H) = \omega(H)$. Since $|B_x| = k + 1$ for all $x \in V(T)$, then there is a clique of size $k + 1$ in $H$. If there is a clique in $H$ with more than $k+ 1$ vertices, then this implies that there exists some $B_x$ such that $|B_x| > k + 1$. Thus $\chi(H) = k + 1$. 
+	Consider a tree-decomposition of $G$, $\tree = (B, T)$, and perform a depth-first search on $T$, starting at an arbitrary root node $r$. Let the ordering of the book-embedding $\sigma(v)$ of a vertex $v$ in $V(G)$ be determined by the first time $x \in T$ appears, where $v \in B_x$. Within each bag, if two vertices appears in the bag first, then they are ordered arbitrarily in the book-embedding. Now consider the subtree $T_v$ induced by the bags $B_x$ containing $v$. We now consider colouring the subtrees $T_v$ for all $v \in G$ such that no overlapping subtrees have the same colour. Let $H$ be the intersection graph of the subtrees, where $V(H) = \lbrace T_v : v \in G \rbrace$ and $T_u T_v \in E(H)$ if there exists a bag $B_x$ such that $u, b \in B_x$. We have that $H$ is perfect, and thus $\chi(H) = \omega(H)$. Then as $\tw(G) \leq k + 1$, then the size of a clique in $H$ is at most $k + 1$. Thus $H$ is $k + 1$-colourable  
 	\paragraph{}
 	We now use this to assign the edges of $G$ a page. Let $c(T_v)$ be the colour assigned to $T_v$. Colour each edge $uv \in E(G)$ as follows:
 	\begin{equation}
@@ -618,13 +617,16 @@ We use the characterisation of treewidth as a subgraph of a $k$-tree. We will sh
 			c(T_v) &\text{ if } \sigma(v) \leq \sigma(u)
 		\end{cases}
 	\end{equation}
-	Then we claim that this is a proper book-embedding of $G$. Suppose we have that edges $uv$, $xy$ cross, so $\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)$. However, this implies that there exists a bag $B$ such that $u, x, v \in B$, as we have that $uv$ is an edge in $B$ and we do a depth-first search to establish the ordering, meaning that $u, v, x$ are in a clique. Therefore, they are in the same bags. However, this implies that the trees $T_u$ and $T_x$ intersect, meaning that $c(uv) \neq c(xy)$. Finally, the number of pages used is $\chi(H) = k + 1$, so $\pn(G) \leq k + 1$. Thus shown.
+	Then we claim that this is a proper book-embedding of $G$. Suppose we have that edges $uv$, $xy$ cross, so $\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)$. However, this implies that there exists a bag $B$ such that $u, x, v \in B$, as we have that $uv$ is an edge in $B$ and we do a depth-first search to establish the ordering. So $u, x, v$ they are in the same bags. However, this implies that the trees $T_u$ and $T_x$ intersect, meaning that $c(uv) \neq c(xy)$. Finally, the number of pages used is $\chi(H) = k + 1$, so $\pn(G) \leq k + 1$. Thus shown.
 \end{proof}
+
+We have a simpler proof if the tree is a path. We go from one end of the path to the other, and add vertices to the book-embedding in the order of the first time they appear. Then we colour each vertex such that in each bag, no two vertices are assigned the same colour. We can do this as this is the same intersection graph as above. The rest of the proof follows.
 
 \subsection{Planar graphs}\label{ssec:Planar_Graphs}
 \begin{theorem}[Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}] \label{thm:4Pages_Planar}
 	Planar graphs can be embedded on at most four pages.
 \end{theorem}
+We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist graphs with four 
 
 \subsection{Graphs embedded on a surface of bounded genus}\label{ssec:pagenumber_bounded_genus}
 \begin{theorem}[Heath and Istrail\cite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
