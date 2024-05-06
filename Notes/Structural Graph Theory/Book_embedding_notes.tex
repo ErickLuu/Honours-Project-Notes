@@ -356,7 +356,7 @@ We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is ad
 \end{proof}
 
 \begin{example}
-	The pathwidth of a tree $T$ is $\min_{P \subset T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace $ where $P$ is a path. 
+	The pathwidth of a tree $T$ is $\min_{P \subset T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace $ where $P$ is a path. \todo{Add proof}
 \end{example}
 
 \chapter{Known results from structural graph theory}\label{chap:Known results}
@@ -386,7 +386,7 @@ We define $\had(G)$ to be the largest $t$ such that $G$ has a $K_t$ minor.
 \end{proof}
 
 \subsubsection{A short discussion of topology}\label{sssec:topology}
-A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
+This section comes from Mohar and Thomassen\cite{moharOrientableGenusGraphs1998}. A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
 \par
 We \textit{add} a \textit{handle} to a surface $\Sigma$ by removing two disks in $\Sigma$ and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. We add a \textit{crosscap} by removing a disk in $\Sigma$ and identifying opposite points on the boundary. We add a \textit{twisted handle} to a surface $\Sigma$ by removing two disks in $\Sigma$ and identifying the boundaries such that both go clockwise.
 \par
@@ -426,10 +426,10 @@ An apex vertex $a$ is added to a graph $G$ such that it has arbitrary edges. As 
 	If $G$ is $K_t$-minor free, $G$ with the apex vertex $a$ is $K_{t+1}$- minor free. 
 \end{theorem}
 \begin{proof}
-	We shall prove the contrapositive. Suppose $G + a$ has a $K_{t + 1}$ minor. Then $K_{t + 1}$ has a model in $G + a$ and denote the model function as $\rho$. Now let $v$ be the vertex in $K_{t + 1}$ such that $\rho(v)$ contains $a$. Then if we delete $v$ from $K_{t + 1}$ and delete all the vertices in $\rho(v)$, then we have that $K_t$ is a minor of $G'$, where $G'$ is $G + a - \rho(v)$. But $G'$ is a minor of $G$, as $G'$ does not contain $A$. But this means that $G$ has a $K_t$ minor. 
+	We shall prove the contrapositive. Suppose $G + a$ has a $K_{t + 1}$ minor. Then $K_{t + 1}$ has a model in $G + a$ and denote the model function as $\rho$. Now let $v$ be the vertex in $K_{t + 1}$ such that $\rho(v)$ contains $a$. Then if we delete $v$ from $K_{t + 1}$ and delete all the vertices in $\rho(v)$ from $G$, then we have that $K_t$ is a minor of $G'$, where $G'$ is $G - \rho(v)$. But $G'$ is a minor of $G$, as $G'$ does not contain $a$. But this means that $G$ has a $K_t$ minor. 
 \end{proof}
 \subsubsection{Clique-sums}\label{sssec:Clique_Sums}
-The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is the graph obtained by performing a series of operation on the cliques of $G$ and $H$. We find cliques in $G$ and $H$, $C_G$ and $C_H$ respectively, such that $C_G$ and $C_H$ have size $k$. Then we identify the vertices in $C_G$ and $C_H$ so that $G$ and $H$ are connected to each other on this clique. 
+The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is the graph obtained by performing a series of operation on the cliques of $G$ and $H$. We find cliques in $G$ and $H$, $C_G$ and $C_H$ respectively, such that $C_G$ and $C_H$ have size $k$. Then we identify the vertices in $C_G$ and $C_H$ to glue $G$ and $H$ together. Call this new clique $C$. We can delete some edges between vertices in $C$. \todo{Add picture}
 
 
 \begin{lemma}
@@ -508,7 +508,7 @@ This proof has been adapted into the language of tree-decompositions.
 \subsubsection{Proof of above theorem.}
 This proof will involve gluing torsos along adhesion sets, which are cliques. However, the size of these cliques is at most $\ell$. 
 
-Let $C$ be a clique in $G$ and let $\sigma_C = (u_1, ... , u_k)$ be a vertex ordering of $V(C)$. For any arbitrary clique $J$, we define a rainbow-vertex $w \in V(J)$ as a vertex where for any $x, y \in V(J)$, the edges $wx$ and $wy$ are on different pages. We want the book embedding to have the structure $(\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})$. 
+Let $C$ be a clique in $G$ and let $\sigma_C = (u_1, ... , u_k)$ be a vertex ordering of $V(C)$, and let $C \leq \ell$. For any arbitrary clique $J$, we define a rainbow-vertex $w \in V(J)$ as a vertex where for any $x, y \in V(J)$, the edges $wx$ and $wy$ are on different pages. We want the book embedding to have the structure $(\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})$. 
 
 To prove this theorem, we will use a common technique in graph theory. We will strengthen the lemma so that we may use induction to prove the statement.
 \begin{lemma}\label{lem:Hickingbotham_Lemma}
@@ -537,7 +537,7 @@ Recall that for a breadth-first search, we maintain the property that for all $i
 \begin{proof}
 	To prove the statement, we shall prove the stronger statement that there exists a book-embedding with the properties described with the lemma above using induction. In particular, we will have that the last vertex of any clique $J$ is a rainbow vertex.
 	
-	Suppose $k = 0$. Then $G_0$ is a single graph with $\pn(G) \leq s$. Then by the lemma above, there is a book-embedding with pagenumber at most $cs + \ell$ with the property that it starts with $K$ and every last vertex in a clique is a rainbow vertex.
+	Suppose $k = 0$. Then $G_0$ is a single graph with $\pn(G) \leq s$. Choose $C$ to be an arbitrary vertex $v$ in $G_0$. Then by the lemma above, there is a book-embedding with pagenumber at most $cs + 1$ and every last vertex in a clique is a rainbow vertex.
 	
 	Suppose $k = n$. Let $C$ be the clique between $G_n$ and the rest of $G$, where $G_n$ is a leaf of the tree $T$. Denote the induced subgraph $G[V(G) - V(G_n - C)]$ as $G'$. Then let $(\leq_n, \psi_n)$ be the $cs + \ell$-page-number book-embedding of $G_n$ that starts with $V(C)$, and let $\sigma_C$ be the ordering of $V(C)$ by $\leq_n$. Let $(\leq_{n-1}, \psi_{n-1})$ be the stack-embedding of $G'$. By induction, this has a $cs + \ell$-page book-embedding with the properties described above.
 	
