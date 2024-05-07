@@ -448,4 +448,35 @@ Therefore, we have that
 Where the above comes from the fact that $M \sqrt{\frac{2}{n}} \rightarrow \infty$ and the exponential tails lemma.
 
 \subsection{Bootstrapping and asymptotic analysis}
+Consider the equation $w = w(n)$ and $w \log(w + 1) = n$. Suppose further that $w \in [1, n]$. What is the asymptotic growth of $w$?
+
+Is this solution unique? Yes, $\log(w + 1)$ is growing. 
+
+The trick: We rearrange to be:
+
+\begin{equation}
+	w + 1 = \frac{n}{\log( w + 1 )} + 1
+\end{equation}
+
+We first plug in the bounds $\frac{n}{\log 2} \geq \frac{n}{\log(w + 1)} = w \geq \frac{n}{\log(n + 1)}$. 
+
+Then we add 1 and take logs.
+\begin{equation}
+	\log(w + 1) \leq \log(\frac{n}{\log 2} + 1) < \log n + 1
+\end{equation}
+and
+\begin{equation}
+	\log(w + 1) > \log n - \log \log (n + 1)
+\end{equation}
+Therefore, 
+
+$\log(w + 1) = \log n (1 + O(\frac{\log \log n}{\log n}))$
+Plugging into the RHS, we have
+\begin{align*}
+	w + 1 &= \frac{n}{\log n(1 + O(\frac{\log \log n}{\log n}))} + 1\\
+	&= \frac{n}{\log n}\left(1 + O(\frac{\log \log n}{\log n})\right) + 1\\
+\end{align*}
+
+Then taking the logs of both sides, we get more logs! but we get closer asymptotically.
+
 \end{document}
