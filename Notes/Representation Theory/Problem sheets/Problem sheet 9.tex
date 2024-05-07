@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{bm}
 \usepackage{ytableau}
+\usepackage{float}
 \ytableausetup{centertableaux}
 \allowdisplaybreaks
 
@@ -242,10 +243,183 @@ Then we have that:
 	\psi^{(2,1,1)}_{(12)} e_2 &=  t_{21} + t_{42} + t_{14} - t_{12} - t_{24} - t_{41} = - e_2\\
 	\psi^{(2,1,1)}_{(12)} e_3 &=  t_{13} + t_{41} + t_{34} - t_{31} - t_{14} - t_{43} = -e_1 + e_2 + e_3\\
 	\\
-	\psi^{(2,1,1)}_{(123)} e_1 &= t_{32} + t_{13} + t_{21} - t_{12} - t{23} - t_{31} = e_1\\
+	\psi^{(2,1,1)}_{(123)} e_1 &= t_{32} + t_{13} + t_{21} - t_{12} - t_{23} - t_{31} = e_1\\
 	\psi^{(2,1,1)}_{(123)} e_2 &= t_{23} + t_{42} + t_{34} - t_{32} - t_{42} - t_{34} = e_3\\
 	\psi^{(2,1,1)}_{(123)} e_3 &= t_{31} + t_{43} + t_{14} - t_{13} - t_{34} - t_{41} = e_1 - e_2 - e_3\\
 	\\
-	
+	\psi^{(2,1,1)}_{(1234)} e_1 &= t_{23} + t_{42} + t_{34} - t_{32} - t_{24} - t_{42} = e_3\\
+	\psi^{(2,1,1)}_{(1234)} e_2 &= t_{23} + t_{12} + t_{31} - t_{32} - t_{21} - t_{13} = e_1\\
+	\psi^{(2,1,1)}_{(1234)} e_3 &= t_{34} + t_{13} + t_{41} - t_{43} - t_{31} - t_{31} = e_3 + e_2 - e_1\\
+	\\
+	\psi^{(2,1,1)}_{(12)(34)} e_1 &= t_{21} + t_{42} + t_{14} - t_{12} - t_{24} - t_{41} = - e_2\\
+	\psi^{(2,1,1)}_{(12)(34)} e_2 &= t_{21} + t_{32} + t_{13} - t_{12} - t_{23} - t_{31} = - e_1\\
+	\psi^{(2,1,1)}_{(12)(34)} e_3 &= t_{14} + t_{31} + t_{43} - t_{41} - t_{13} - t_{34} = -e_1 - e_2 - e_3\\
 \end{align*} 
+Therefore, we have that the character table is:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|}
+		\hline
+		$S_4$    & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ \\ \hline
+		$\chi_1$ & 1     & 1      & 1       & 1          & 1        \\ \hline
+		$\chi_2$ & 1     & -1     & 1       & 1          & -1       \\ \hline
+		$\chi_3$ & 3     & 1      & 0       & -1         & -1       \\ \hline
+		$\chi_4$ & 2     & 0      & -1      & 2          & 0        \\ \hline
+		$\chi_5$ & 3     & -1     & 0       & -1         & 1        \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsubsection*{c}
+For $S_5$, we have that the table looks something like this, by looking at the trivial, symmetric and standard representations. However, we can always take the pullback of representations of $S_5$. 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|l|l|}
+		\hline
+		$S_4$    & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ & $(12345)$ & $(123)(45)$ \\ \hline
+		$\chi_1$ & 1     & 1      & 1       & 1          & 1        & 1         & 1           \\ \hline
+		$\chi_2$ & 1     & -1     & 1       & 1          & -1       & 1         & -1          \\ \hline
+		$\chi_3$ & 4     & 2      & 1       & 0          & 0        & -1        & -1          \\ \hline
+		$\chi_4$ & 4     & -2     & 1       & 0          & 0        & -1        & 1           \\ \hline
+		$\chi_5$ &       &        &         &            &          &           &             \\ \hline
+		$\chi_6$ &       &        &         &            &          &           &             \\ \hline
+		$\chi_7$ &       &        &         &            &          &           &             \\ \hline
+	\end{tabular}
+\end{table}
+To be continued further.
+
+\newpage
+\subsection*{6.2}
+\subsubsection*{a}
+Obviously, all degree 1 representations remain irreducible after restriction. Since the degree $3$ characters maintain all information with the negative values removed, then the characters must be irreducible as well. This is in the Schur polynomial. Notice how $e_1 = t_{12} + t_{31} + t_{23} - t_{21} - t_{13} - t_{32}$ can be constructed from just knowing the positive values. However the degree 2 character must split. For $e_1 = t_{12} + t_{34} - t_{23} - t_{14}$, we need to know about the negative values to construct the degree 2 characters.
+\subsection*{b}
+We have that $\chi_1 = \chi_2$ as the signs of all values are trivially zero. Therefore, their respective reps are isomorphic. As $\chi_5 = \chi_2 \otimes \chi_3$, then $\chi_5$ must be identified with $\chi_3$ as the information from $\chi_2$ is lost as well. Respective reps are also isomorphic from characters being identical. $\chi_4$ as it splits will have complex values and is not isomorphic to anything. 
+
+Note that representations with Young diagrams which are transposes of each other are identified to each other. If a $\lambda \vdash n$ is self-transpose, then they should split in the alternating group.
+\subsection*{c}
+So the irreps of $A_4$ which arise from restrictions of $S_4$ is the trivial representations, the representation of degree 3, and whatever representations $\chi_4$ splits to. 
+
+\subsection*{6.4}
+We have that $\rho^{(3,2)}$ of $S_5$ has basis $(3,2)$-tabloids that look like this:
+\begin{align*}
+	t_{12} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		1 & 2
+	\end{ytableau}\\
+		t_{13} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		1 & 3
+	\end{ytableau}\\
+		t_{14} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		1 & 4
+	\end{ytableau}\\
+		t_{15} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		1 & 5
+	\end{ytableau}\\
+		t_{23} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		2 & 3
+	\end{ytableau}\\
+			t_{24} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		2 & 4
+	\end{ytableau}\\
+			t_{25} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		2 & 5
+	\end{ytableau}\\
+			t_{34} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		3 & 4
+	\end{ytableau}\\
+	t_{35} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		3 & 5
+	\end{ytableau}\\
+	t_{45} &= 
+	\begin{ytableau}
+		\cdot & \cdot & \cdot\\
+		4 & 5
+	\end{ytableau}\\
+\end{align*}
+Now let us see where $\rho$ comes into play here. So $V^{(3,2)}$ has basis vectors above. We claim that the young diagrams $(5) \vDash 5$ and $(4,1) \vdash 5$ both dominate $(3,2)$, and that they are the only Young diagrams to do so. So the Specht representations $\psi^{(5)}$ and $\psi^{(4,1)}$ appears in $(3,2)$. Now let $\chi^{(3,2)}$ be the associated character of $\rho^{(3,2)}$. 
+
+Now we have that $\chi^{(3,2)}(1) = 10$ as $V^{(3,2)} = 10$. We have that $\chi^{(3,2)}(12) = 4$ as we have that there are 4 tabloids which remain unchanged when applying $(12)$. We have that $\chi^{(3,2)}(12)(34) = 2$ as there are only two eleents in the basis that remain unchanged when they are swapped. Filling in the rest of the table, we have that:
+\begin{align*}
+	\chi^{(3,2)}(1) &= 10\\
+	\chi^{(3,2)}(12) &= 4\\
+	\chi^{(3,2)}(12)(34) &= 2\\
+	\chi^{(3,2)}(123) &= 1\\
+	\chi^{(3,2)}(123)(45) &= 1\\
+	\chi^{(3,2)}(1234) &= 0\\
+	\chi^{(3,2)}(12345) &= 0\\
+\end{align*}
+Now looking at the character table for $S_5$, we have:
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+	\hline
+	$S_4$    & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ & $(12345)$ & $(123)(45)$ \\ \hline
+	$\chi_1$ & 1     & 1      & 1       & 1          & 1        & 1         & 1           \\ \hline
+	$\chi_2$ & 1     & -1     & 1       & 1          & -1       & 1         & -1          \\ \hline
+	$\chi_3$ & 4     & 2      & 1       & 0          & 0        & -1        & -1          \\ \hline
+	$\chi$   & 10    & 4     & 1        & 2          & 0        & 0         &  1          \\ \hline
+\end{tabular}
+\end{table}
+However, we have that $\chi = \chi_1 + \chi_3 + \chi_5$ from $\chi$ above, and another irrep $\chi_5 = \tr(\psi^{(3,2)})$. This comes from looking at the Young diagrams that dominate $(3,2)$. Then we can construct $\chi_5$. 
+We have that:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|l|l|}
+		\hline
+		$S_4$    & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ & $(12345)$ & $(123)(45)$ \\ \hline
+		$\chi_1$ & 1     & 1      & 1       & 1          & 1        & 1         & 1           \\ \hline
+		$\chi_2$ & 1     & -1     & 1       & 1          & -1       & 1         & -1          \\ \hline
+		$\chi_3$ & 4     & 2      & 1       & 0          & 0        & -1        & -1          \\ \hline
+		$\chi_5$ & 5     & 1      & -1      & 1          & -1        & 0        & 1          \\ \hline
+	\end{tabular}
+\end{table}
+\subsubsection*{6.2 c}
+Finishing this question, we have that the table looks like this:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|l|l|}
+		\hline
+		$S_4$                   & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ & $(12345)$ & $(123)(45)$ \\ \hline
+		$\chi_1$                & 1     & 1      & 1       & 1          & 1        & 1         & 1           \\ \hline
+		$\chi_2$                & 1     & -1     & 1       & 1          & -1       & 1         & -1          \\ \hline
+		$\chi_3$                & 4     & 2      & 1       & 0          & 0        & -1        & -1          \\ \hline
+		$\chi_4$                & 4     & -2     & 1       & 0          & 0        & -1        & 1           \\ \hline
+		$\chi_5$                & 5     & 1      & -1      & 1          & -1       & 0         & 1           \\ \hline
+		$\chi_5 \otimes \chi_1$ & 5     & -1     & -1      & 1          & 1        & 0         & -1          \\ \hline
+		$\chi_7$                &       &        &         &            &          &           &             \\ \hline
+	\end{tabular}
+\end{table}
+from part 6. Now we have that the sum must be 120, so the final character must be degree 6. Then we fill in using the second orthogonality relation.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|l|l|}
+		\hline
+		$S_4$                   & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ & $(12345)$ & $(123)(45)$ \\ \hline
+		$\chi_1$                & 1     & 1      & 1       & 1          & 1        & 1         & 1           \\ \hline
+		$\chi_2$                & 1     & -1     & 1       & 1          & -1       & 1         & -1          \\ \hline
+		$\chi_3$                & 4     & 2      & 1       & 0          & 0        & -1        & -1          \\ \hline
+		$\chi_4$                & 4     & -2     & 1       & 0          & 0        & -1        & 1           \\ \hline
+		$\chi_5$                & 5     & 1      & -1      & 1          & -1       & 0         & 1           \\ \hline
+		$\chi_5 \otimes \chi_1$ & 5     & -1     & -1      & 1          & 1        & 0         & -1          \\ \hline
+		$\chi_7$                & 6     & 0      & 0       & -2         & 0        & 1         & 0           \\ \hline
+	\end{tabular}
+\end{table}
+\subsubsection*{My question}
+Related to alternating groups, we wish to show that if $\lambda \vdash n$, then $\chi^\lambda(\sigma) = sgn(\sigma) \chi^{(\lambda^T)}(\sigma)$ where $\chi^{(\lambda)} = \tr(\psi^\lambda)$ and $\lambda^T$ is the transpose of $\lambda$. We have that any column stabiliser of $\lambda$ is a row stabiliser of $\lambda^T$. 
 \end{document}
