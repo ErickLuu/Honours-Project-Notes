@@ -4,6 +4,7 @@
 \usepackage{bm}
 \usepackage{ytableau}
 \ytableausetup{centertableaux}
+\allowdisplaybreaks
 
 \newcommand{\tr}{\text{tr}}
 \newcommand{\fix}{\text{Fix}}
@@ -16,5 +17,235 @@
 \maketitle
 
 \section*{Chapter 6}
+\subsection*{Question 1}
+\subsubsection*{a}
+Recall that the 3 $\lambda$-tableaux of $S_3$ are:
+\ydiagram{3}, \ydiagram{2, 1}, \ydiagram{1, 1, 1}.
 
+Consider $\lambda = (3)$. For any tableau $t$, we have that $e_t = \left[\begin{ytableau}1 & 2 & 3\end{ytableau}\right]$, the unique $\ydiagram{3}$ tabloid. Therefore, $V^{(3)} = span \left\{\left[\begin{ytableau}1 & 2 & 3\end{ytableau}\right]\right\}$. For any $\sigma \in S_3$, we have that $\sigma e_t = e_{\sigma t} = \left[\begin{ytableau}1 & 2 & 3\end{ytableau}\right]$. So $\psi^{(3)} : S_3 \rightarrow GL\left(V^{(3)}\right)$ is the trivial rep. 
+
+Consider $\lambda = (2,1)$. The $(2,1)$-tabloids are:
+
+\begin{align*}
+	t_1 &= \begin{ytableau}
+		\cdot & \cdot \\
+		1
+	\end{ytableau}
+	\\
+	t_2 &= \begin{ytableau}
+		\cdot & \cdot \\
+		2
+	\end{ytableau}
+	\\
+	t_3 &= \begin{ytableau}
+		\cdot & \cdot \\
+		3
+	\end{ytableau}
+\end{align*}
+We have that for any $(2,1)$-tableau $t$, we send it to $t_a - t_b$ for some $a, b \in [1..3]$. The vector space that this spans is $V^{(2,1)} = span \left\{t_1 - t_2, t_2 - t_3\right\}$. Let $v_1 = t_1 - t_2$, $v_2 = t_2 - t_3$. 
+We have that $\psi^{(2, 1)} : S_3 \rightarrow GL(V^{(2,1)})$ has the following property:
+\begin{align*}
+	\psi^{(2, 1)}_{(1)}(v_1) &= v_1\\
+	\psi^{(2, 1)}_{(1)}(v_2) &= v_2\\
+	\\
+	\psi^{(2, 1)}_{(1\, 2)}(v_1) &= - v_1\\
+	\psi^{(2, 1)}_{(1\, 2)}(v_2) &= v_1 + v_2\\
+	\\
+	\psi^{(2, 1)}_{(1\, 2 \, 3)}(v_1) &= - v_2\\
+	\psi^{(2, 1)}_{(1\, 2 \, 3)}(v_2) &= - v_1 - v_2\\
+\end{align*}
+This is the standard representation. 
+
+Now consider $\lambda = (1,1,1)$. We have that \begin{equation}
+	e_t = \sum_{\pi \in C_t} sign(\pi) \pi[t] = \sum_{\pi \in S_3} sign(\pi) \pi(t).
+\end{equation} Then:
+\begin{equation}
+	\psi^{(1,1,1)}_{\sigma} e_t = sgn(\sigma) e_t
+\end{equation}
+Therefore, $\psi^{(1,1,1)}_{\sigma}$ is the sign rep. 
+
+The character table is:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Character table & $(1)$ & $(12)$ & $(123)$ \\ \hline
+		$\chi_1$        & 1     & 1      & 1       \\ \hline
+		$\chi_2$        & 2     & 0      & -1      \\ \hline
+		$\chi_3$        & 1     & -1     & 1       \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsubsection*{b}
+We are working with $S_4$.
+We have the trivial representation corresponding to $\ydiagram{4}$, the standard representation corresponding with $\ydiagram{3, 1}$, and the sign representation corresponding with $\ydiagram{1, 1, 1, 1}$. The procedure is precisely the same as in $S_3$. 
+
+The two representations that have not been discussed yet have representations corresponding to $\ydiagram{2, 2}$ and $\ydiagram{2, 1, 1}$. 
+
+For $\ydiagram{2, 2}$, the $(2, 2)$-tabloids are of the form:
+
+\begin{align*}
+	t_{12} &= \begin{ytableau}
+	1 & 2 \\
+	\cdot & \cdot \\
+	\end{ytableau}\\
+	t_{13} &= \begin{ytableau}
+	1 & 3 \\
+	\cdot & \cdot \\
+	\end{ytableau}\\
+	t_{14} &= \begin{ytableau}
+	1 & 4 \\
+	\cdot & \cdot \\
+\end{ytableau}\\
+	t_{23} &= \begin{ytableau}
+	2 & 3 \\
+	\cdot & \cdot \\
+\end{ytableau}\\
+	t_{24} &= \begin{ytableau}
+	2 & 4 \\
+	\cdot & \cdot \\
+\end{ytableau}\\
+	t_{34} &= \begin{ytableau}
+	3 & 4 \\
+	\cdot & \cdot \\
+\end{ytableau}\\
+\end{align*}
+and every tableau has basis polytabloids $e_1 = t_{12} + t_{34} - t_{23} - t_{14}$ and $e_2 = t_{13} + t_{24} - t_{23} - t_{14}$. 
+We have that $V^{(2,2)} = span\left\{{e_1, e_2}\right\}$. Now let us calculate the characters of $\psi^{(2,2)}: S_4 \rightarrow GL(V^{(2,2)})$.
+
+We have that:
+\begin{align*}
+	\psi^{(2,2)}_{(1)}(e_1) &= e_1\\
+	\psi^{(2,2)}_{(1)}(e_2) &= e_2\\
+	\\
+	\psi^{(2,2)}_{(12)}(e_1) &= t_{12} + t_{34} - t{13} - t{24} = e_1 - e_2\\
+	\psi^{(2,2)}_{(12)}(e_2) &=t_{23} + t_{14} - t_{13} - t_{24}= - e_2\\
+	\\
+	\psi^{(2,2)}_{(123)}(e_1) &=t_{23} + t_{14} - t_{13} - t_{24}= - e_2\\
+	\psi^{(2,2)}_{(123)}(e_2) &= t_{12} + t_{34} - t_{13} - t{24} = e_1 - e_2
+	\\
+	\psi^{(2,2)}_{(1234)}(e_1) &= t_{23} + t_{14} - t_{34} - t_{12} = - e_1\\
+	\psi^{(2,2)}_{(1234)}(e_2) &= t_{24} + t_{13} - t_{34} - t_{12} = e_2 - e_1\\
+	\\
+	\psi^{(2,2)}_{(12)(34)}(e_1) &= t_{12} + t_{34} - t{14} - t{23} = e_1\\
+	\psi^{(2,2)}_{(12)(34)}(e_2) &= t_{24} + t_{13} - t_{14} - t_{23}= e_2
+\end{align*}
+
+
+For $\ydiagram{2, 1, 1}$, we have the following tabloids:
+\begin{align*}
+	t_{12} &= \begin{ytableau}
+	\cdot & \cdot\\
+	1\\
+	2\\
+	\end{ytableau}\\
+	t_{13} &= \begin{ytableau}
+	\cdot & \cdot\\
+	1\\
+	3\\
+\end{ytableau}\\
+	t_{14} &= \begin{ytableau}
+	\cdot & \cdot\\
+	1\\
+	4\\
+\end{ytableau}\\
+	t_{21} &= \begin{ytableau}
+	\cdot & \cdot\\
+	2\\
+	1\\
+\end{ytableau}\\
+	t_{23} &= \begin{ytableau}
+	\cdot & \cdot\\
+	2\\
+	3\\
+\end{ytableau}\\
+	t_{24} &= \begin{ytableau}
+	\cdot & \cdot\\
+	2\\
+	4\\
+\end{ytableau}\\
+	t_{31} &= \begin{ytableau}
+	\cdot & \cdot\\
+	3\\
+	1\\
+\end{ytableau}\\
+	t_{32} &= \begin{ytableau}
+	\cdot & \cdot\\
+	3\\
+	2\\
+\end{ytableau}\\
+	t_{34} &= \begin{ytableau}
+	\cdot & \cdot\\
+	3\\
+	4\\
+\end{ytableau}\\
+	t_{41} &= \begin{ytableau}
+	\cdot & \cdot\\
+	4\\
+	1\\
+\end{ytableau}\\
+	t_{42} &= \begin{ytableau}
+	\cdot & \cdot\\
+	4\\
+	2\\
+\end{ytableau}\\
+	t_{43} &= \begin{ytableau}
+	\cdot & \cdot\\
+	4\\
+	3\\
+\end{ytableau}
+\end{align*}
+We know that $\psi^{(2,1,1)}$ must be a degree 3 representation.
+Consider $e_t$ where $t = 
+\begin{ytableau}
+3 & 4\\
+1\\
+2\\
+\end{ytableau} 
+$
+. We have that $e_t = t_{12} + t_{31} + t_{23} - t_{21} - t_{13} - t_{32} = e_1$. 
+Now consider
+$t = 
+\begin{ytableau}
+	4 & 3\\
+	1\\
+	2\\
+\end{ytableau} 
+$. Then we have that
+$e_t = t_{12} + t_{41} + t_{24} - t_{21} - t_{14} - t_{42} = e_2$. 
+
+Finally consider
+$t = 
+\begin{ytableau}
+	4 & 1\\
+	2\\
+	3\\
+\end{ytableau} 
+$. 
+Then we have that:
+$e_t = t_{23} + t_{42} + t_{34} - t_{32} - t_{24} - t_{43} = e_3$.
+
+Therefore, we have that:
+\begin{align*}
+	e_1 &= t_{12} + t_{31} + t_{23} - t_{21} - t_{13} - t_{32}\\
+	e_2 &= t_{12} + t_{41} + t_{24} - t_{21} - t_{14} - t_{42} \\
+	e_3 &= t_{23} + t_{42} + t_{34} - t_{32} - t_{24} - t_{43}\\
+\end{align*}
+and $V^{(2,1,1)} = span \left\{e_1, e_2, e_3\right\}$. 
+Then we have that:
+\begin{align*}
+	\psi^{(2,1,1)}_{(1)} e_1 &= e_1\\
+	\psi^{(2,1,1)}_{(1)} e_2 &= e_2\\
+	\psi^{(2,1,1)}_{(1)} e_3 &= e_3\\
+	\\
+	\psi^{(2,1,1)}_{(12)} e_1 &=  t_{21} + t_{32} + t_{13} - t_{12} - t_{23} - t_{31} = - e_1\\
+	\psi^{(2,1,1)}_{(12)} e_2 &=  t_{21} + t_{42} + t_{14} - t_{12} - t_{24} - t_{41} = - e_2\\
+	\psi^{(2,1,1)}_{(12)} e_3 &=  t_{13} + t_{41} + t_{34} - t_{31} - t_{14} - t_{43} = -e_1 + e_2 + e_3\\
+	\\
+	\psi^{(2,1,1)}_{(123)} e_1 &= t_{32} + t_{13} + t_{21} - t_{12} - t{23} - t_{31} = e_1\\
+	\psi^{(2,1,1)}_{(123)} e_2 &= t_{23} + t_{42} + t_{34} - t_{32} - t_{42} - t_{34} = e_3\\
+	\psi^{(2,1,1)}_{(123)} e_3 &= t_{31} + t_{43} + t_{14} - t_{13} - t_{34} - t_{41} = e_1 - e_2 - e_3\\
+	\\
+	
+\end{align*} 
 \end{document}
