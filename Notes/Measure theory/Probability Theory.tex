@@ -48,4 +48,65 @@ For $a$ in $K$ $A \in \mathcal{F}$,\begin{equation}
 We have that $\mathcal{F}$ is a vector space with vector addition $\triangle$ and scalar multiplication $.$ over the set $K$. 
 
 Finally, the distributive product $\cap$ makes $\mathcal{F}$ an algebra. 
+
+This is why algebras are called algebras - $\mathcal{F}$ is an algebra in abstract sense if it is also an algebra in the measure sense.
+
+Recall an algebra contains the empty set $\emptyset$, closed under finite disjoint unions and closed under complementation. These definitions are equivalent to the algebra defined above.
+
+\subsection{Intersections of algebras}
+Notation change! Algebras are called $\mathcal{F}$ and the universal set is called $\Omega$. 
+It is obvious that intersections of algebras are also algebras. However, if $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ (family of $\sigma$-algebras) are all $\sigma$-algebras, then
+\begin{equation}
+	\cap_{\lambda \in \Lambda} \mathcal{F}_\lambda
+\end{equation} 
+is also a $\sigma$-algebra. 
+
+Let $\mathcal{C}$ be family of subsets of $\omega$ and let $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ be the family of $\sigma$-algebras that contain $\mathcal{C}$. Then:
+\begin{itemize}
+	\item $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ is nonempty (contains discrete algebra).
+	\item $\cap_{\lambda \in \Lambda} \mathcal{F}_\lambda$ is the smallest $\sigma$-algebra that contains $\mathcal{C}$ (by definition).
+\end{itemize}
+$\cap_{\lambda \in \Lambda} \mathcal{F}_\lambda$ is denoted as $\sigma(\mathcal{C})$. 
+
+If $\mathcal{C}$ are the open sets in $\mathbb{R}$, then this is the Borel algebra, denoted $\mathcal{B}(\mathbb{R})$.
+
+\subsection{$\lambda$, $\pi$ and $d$-systems}
+\begin{definition}[$\pi$-system]
+	A $\pi$-system is a family of sets closed under intersection.
+\end{definition}
+
+\begin{definition}[$\lambda$-system]
+	A $\lambda$-system is a family of sets $\mathcal{F}$ where:
+\begin{itemize}
+	\item $\emptyset \in \mathcal{F}$.
+	\item $\mathcal{F}$ closed under complement.
+	\item $\mathcal{F}$ closed under countable pairwise disjoint union.
+\end{itemize}
+\end{definition}
+
+Algebras are $\pi$-systems. $\sigma$-algebras are algebras which are also $\lambda$-systems.
+\begin{theorem}
+	If $\mathcal{C}$ is a $\lambda$ system and a $\pi$-system, then $\mathcal{C}$ is a $\sigma$-algebra.
+\end{theorem}
+Let $\mathcal{F}$ be an algebra. An event in $\mathcal{F}$ is a measurable set in $\mathcal{F}$. 
+
+\begin{definition}[$d$-system]
+	Let $\mathcal{C}$ be a family of subsets in $\omega$. We say $\mathcal{C}$ is a $d$-system if:
+
+\begin{itemize}
+	\item $\Omega \in \mathcal{C}$
+	\item $A, B \in \mathcal{C}$, $A \subseteq B$, then $B \setminus A \in \mathcal{C}$
+	\item If $(A_n)_n \subset \mathcal{C}$, $A_n \nearrow A$, then $A \in \mathcal{C}$ (upwards monotone closed). 
+\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	$\mathcal{C}$ is a $d$-system iff $\mathcal{C}$ is a $\sigma$-algebra.
+\end{lemma}
+
+\begin{proof}
+	Let $\mathcal{C}$ be a $d$-system. We have that $\Omega \setminus \Omega = \emptyset \in \mathcal{C}$. We have that for all $A \in \mathcal{C}$, $\Omega \setminus A = A^c \in \mathcal{C}$. Finally, suppose we have a set $(A_n)_n \in \mathcal{C}$, $A_n$ p/w disjoint. Then let $B_k = \cup_{i = 1}^{k} A_i$. Then we can show that $B_k \in \mathcal{C}$ for all $k$, so $B_k \nearrow \cup_{n \geq 1} A_n$ so $\mathcal{C}$ is closed under countable unions. 
+	
+	Easy to show other way. 
+\end{proof}
 \end{document}
