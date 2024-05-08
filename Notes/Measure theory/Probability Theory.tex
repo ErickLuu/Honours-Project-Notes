@@ -101,12 +101,76 @@ Let $\mathcal{F}$ be an algebra. An event in $\mathcal{F}$ is a measurable set i
 \end{definition}
 
 \begin{lemma}
-	$\mathcal{C}$ is a $d$-system iff $\mathcal{C}$ is a $\sigma$-algebra.
+	$\mathcal{C}$ is a $d$-system iff $\mathcal{C}$ is a $\lambda$-system
 \end{lemma}
 
 \begin{proof}
 	Let $\mathcal{C}$ be a $d$-system. We have that $\Omega \setminus \Omega = \emptyset \in \mathcal{C}$. We have that for all $A \in \mathcal{C}$, $\Omega \setminus A = A^c \in \mathcal{C}$. Finally, suppose we have a set $(A_n)_n \in \mathcal{C}$, $A_n$ p/w disjoint. Then let $B_k = \cup_{i = 1}^{k} A_i$. Then we can show that $B_k \in \mathcal{C}$ for all $k$, so $B_k \nearrow \cup_{n \geq 1} A_n$ so $\mathcal{C}$ is closed under countable unions. 
 	
-	Easy to show other way. 
+	If $\mathcal{C}$ is a $\lambda$-system then $\Omega \in \mathcal{C}$, $(A \cup B^c)^c = B \setminus A \in \mathcal{C}$, upwards closed comes from splitting $A_n$ into parts. 
 \end{proof}
+
+\begin{corollary}
+	$\mathcal{G}$ is a $\sigma$-algebra iff $\mathcal{G}$ is a $\pi$-system and a $d$-system.  
+\end{corollary}
+
+We denote $d(\mathcal{C})$ as the smallest $d$-system that contains $\mathcal{C}$. If $\mathcal{C}$ is a $\pi$-system, then $d(\mathcal{C}) = \sigma(\mathcal{C})$.
+
+\section{Probability Measures}
+We say $\mathbb{P}: \mathcal{F} \rightarrow [0, 1]$ is a probability measure if $\mathbb{P}$ is a finite measure with $\mathbb{P}(\Omega) = 1$. 
+
+An event is $\mathbb{P}$-null if $\mathbb{P}(A) = 0$. $A$ is a null-set. 
+
+If $\mathbb{P}(A \triangle B) = 0$, then $A = B$ a.e. or almost surely.
+
+\subsection{Basic properties}
+We take $(\Omega, \mathcal{F}, \mathbb{P})$ to be a probability space.
+
+\begin{itemize}
+	\item If $A \subseteq B$ and $A, B \in \mathcal{F}$, then $\mathbb{P}(B \setminus A) = \mathbb{P}(B) - \mathbb{P}(A)$.
+	\item $A_n \nearrow A$ implies $\mathbb{P}(A_n) \nearrow \mathbb{P}(A)$.
+	\item $\mathbb{P}\left(\cup_n A_n\right) \leq \sum_n \mathbb{P}(A_n)$. 
+	\item $\mathbb{P}\left(\cup_n A_n\right) \geq \sup_n \mathbb{P}(A_n)$. 
+	\item For all $n$, $\mathbb{P}(A_n) = 0$ implies $\mathbb{P}(\cup_n A_n) = 0$
+	\item For all $n$, $\mathbb{P}(A_n) = 1$ implies $\mathbb{P}(\cap_n A_n) = 1$
+	\item Inclusion-Exclusion formula:
+	
+	\begin{itemize}
+		\item 	$\mathbb{P}(B \cup A) = \mathbb{P}(B) + \mathbb{P}(A) - \mathbb{P}(B \cap A)$
+		\item\begin{equation}
+			 \mathbb{P}\left(\cup_{i = 1}^k A_i\right) = \sum_{\substack{K \subset \lbrace 1 .. , \rbrace \\ K \neq \emptyset } } (-1)^{|K| + 1} \mathbb{P}\left(\cap_{\ell \in K} A_\ell\right)
+		\end{equation}
+		
+	\end{itemize}
+\end{itemize}
+
+Important theorem!
+\begin{theorem}
+	Two probability measures $\mathbb{P}$ and $\mathbb{Q}$ that coincide on a $\pi$-system are equal on the $\sigma$-algebra it generates.
+\end{theorem}
+
+\begin{corollary}
+	Extending $\mathbb{P}$ from a $\pi$ system $\mathcal{C}$ to the $\sigma$-algebra $\sigma(\mathcal{C})$ it generates is unique.
+\end{corollary}
+
+We can do another extension using Caratheodory to extend $\mathbb{P}$.
+
+\begin{definition}
+	We say that for a family $(A_n)_n$, 
+	\begin{equation}
+		\limsup_n A_n = \cap_n \cup_{m \geq n} A_m
+	\end{equation}
+	is $A_n$ infinitely often (i.o.)
+	and 
+	\begin{equation}
+		\liminf_n A_n = \cup_n \cap_{m \geq n} A_m 
+	\end{equation}
+	is $A_n$ eventually. 
+\end{definition}
+We have that $\liminf_n A_n \subset \limsup_n A_n$. 
+
+\begin{lemma}[Fatou's lemma]
+	$\mathbb{P}(\limsup_n A_n) \geq \limsup_n \mathbb{P}(A_n)$ and $\mathbb{P}(\liminf_n A_n) \leq \liminf_n \mathbb{P}(A_n)$
+\end{lemma}
+
 \end{document}
