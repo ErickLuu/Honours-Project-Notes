@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage[margin=2in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\sig}{\mathcal{S}}
+\newcommand{\mono}{\mathcal{M}}
+\newcommand{\sigmes}{\Lambda_{\mu^*}}
+%opening
+\title{Measures}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{What is an algebra?}
+An algebra is a vector space over a ring with a distributive product. 
+Let $\triangle$ be the symmetric difference of two sets and let $\cap$ be the intersection of two sets. 
+
+Now, let $K = \lbrace 0, 1 \rbrace$. Then $(K, +_2, \times)$ is a field. 
+
+For $a$ in $K$ $A \in \mathcal{F}$,\begin{equation}
+	 a . A = 
+	 \begin{cases}
+	 	\emptyset &\text{ if } a = 0\\
+	 	A &\text{ if } a = 1
+	 \end{cases}
+\end{equation} 
+
+We have that $\mathcal{F}$ is a vector space with vector addition $\triangle$ and scalar multiplication $.$ over the set $K$. 
+
+Finally, the distributive product $\cap$ makes $\mathcal{F}$ an algebra. 
+
+This is why algebras are called algebras - $\mathcal{F}$ is an algebra in abstract sense if it is also an algebra in the measure sense.
+
+Recall an algebra contains the empty set $\emptyset$, closed under finite disjoint unions and closed under complementation. These definitions are equivalent to the algebra defined above.
+
+\subsection{Intersections of algebras}
+Notation change! Algebras are called $\mathcal{F}$ and the universal set is called $\Omega$. 
+It is obvious that intersections of algebras are also algebras. However, if $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ (family of $\sigma$-algebras) are all $\sigma$-algebras, then
+\begin{equation}
+	\cap_{\lambda \in \Lambda} \mathcal{F}_\lambda
+\end{equation} 
+is also a $\sigma$-algebra. 
+
+Let $\mathcal{C}$ be family of subsets of $\omega$ and let $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ be the family of $\sigma$-algebras that contain $\mathcal{C}$. Then:
+\begin{itemize}
+	\item $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ is nonempty (contains discrete algebra).
+	\item $\cap_{\lambda \in \Lambda} \mathcal{F}_\lambda$ is the smallest $\sigma$-algebra that contains $\mathcal{C}$ (by definition).
+\end{itemize}
+$\cap_{\lambda \in \Lambda} \mathcal{F}_\lambda$ is denoted as $\sigma(\mathcal{C})$. 
+
+If $\mathcal{C}$ are the open sets in $\mathbb{R}$, then this is the Borel algebra, denoted $\mathcal{B}(\mathbb{R})$.
+
+\subsection{$\lambda$, $\pi$ and $d$-systems}
+\begin{definition}[$\pi$-system]
+	A $\pi$-system is a family of sets closed under intersection.
+\end{definition}
+
+\begin{definition}[$\lambda$-system]
+	A $\lambda$-system is a family of sets $\mathcal{F}$ where:
+\begin{itemize}
+	\item $\emptyset \in \mathcal{F}$.
+	\item $\mathcal{F}$ closed under complement.
+	\item $\mathcal{F}$ closed under countable pairwise disjoint union.
+\end{itemize}
+\end{definition}
+
+Algebras are $\pi$-systems. $\sigma$-algebras are algebras which are also $\lambda$-systems.
+\begin{theorem}
+	If $\mathcal{C}$ is a $\lambda$ system and a $\pi$-system, then $\mathcal{C}$ is a $\sigma$-algebra.
+\end{theorem}
+Let $\mathcal{F}$ be an algebra. An event in $\mathcal{F}$ is a measurable set in $\mathcal{F}$. 
+
+\begin{definition}[$d$-system]
+	Let $\mathcal{C}$ be a family of subsets in $\omega$. We say $\mathcal{C}$ is a $d$-system if:
+
+\begin{itemize}
+	\item $\Omega \in \mathcal{C}$
+	\item $A, B \in \mathcal{C}$, $A \subseteq B$, then $B \setminus A \in \mathcal{C}$
+	\item If $(A_n)_n \subset \mathcal{C}$, $A_n \nearrow A$, then $A \in \mathcal{C}$ (upwards monotone closed). 
+\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	$\mathcal{C}$ is a $d$-system iff $\mathcal{C}$ is a $\lambda$-system
+\end{lemma}
+
+\begin{proof}
+	Let $\mathcal{C}$ be a $d$-system. We have that $\Omega \setminus \Omega = \emptyset \in \mathcal{C}$. We have that for all $A \in \mathcal{C}$, $\Omega \setminus A = A^c \in \mathcal{C}$. Finally, suppose we have a set $(A_n)_n \in \mathcal{C}$, $A_n$ p/w disjoint. Then let $B_k = \cup_{i = 1}^{k} A_i$. Then we can show that $B_k \in \mathcal{C}$ for all $k$, so $B_k \nearrow \cup_{n \geq 1} A_n$ so $\mathcal{C}$ is closed under countable unions. 
+	
+	If $\mathcal{C}$ is a $\lambda$-system then $\Omega \in \mathcal{C}$, $(A \cup B^c)^c = B \setminus A \in \mathcal{C}$, upwards closed comes from splitting $A_n$ into parts. 
+\end{proof}
+
+\begin{corollary}
+	$\mathcal{G}$ is a $\sigma$-algebra iff $\mathcal{G}$ is a $\pi$-system and a $d$-system.  
+\end{corollary}
+
+We denote $d(\mathcal{C})$ as the smallest $d$-system that contains $\mathcal{C}$. If $\mathcal{C}$ is a $\pi$-system, then $d(\mathcal{C}) = \sigma(\mathcal{C})$.
+
+\section{Probability Measures}
+We say $\mathbb{P}: \mathcal{F} \rightarrow [0, 1]$ is a probability measure if $\mathbb{P}$ is a finite measure with $\mathbb{P}(\Omega) = 1$. 
+
+An event is $\mathbb{P}$-null if $\mathbb{P}(A) = 0$. $A$ is a null-set. 
+
+If $\mathbb{P}(A \triangle B) = 0$, then $A = B$ a.e. or almost surely.
+
+\subsection{Basic properties}
+We take $(\Omega, \mathcal{F}, \mathbb{P})$ to be a probability space.
+
+\begin{itemize}
+	\item If $A \subseteq B$ and $A, B \in \mathcal{F}$, then $\mathbb{P}(B \setminus A) = \mathbb{P}(B) - \mathbb{P}(A)$.
+	\item $A_n \nearrow A$ implies $\mathbb{P}(A_n) \nearrow \mathbb{P}(A)$.
+	\item $\mathbb{P}\left(\cup_n A_n\right) \leq \sum_n \mathbb{P}(A_n)$. 
+	\item $\mathbb{P}\left(\cup_n A_n\right) \geq \sup_n \mathbb{P}(A_n)$. 
+	\item For all $n$, $\mathbb{P}(A_n) = 0$ implies $\mathbb{P}(\cup_n A_n) = 0$
+	\item For all $n$, $\mathbb{P}(A_n) = 1$ implies $\mathbb{P}(\cap_n A_n) = 1$
+	\item Inclusion-Exclusion formula:
+	
+	\begin{itemize}
+		\item 	$\mathbb{P}(B \cup A) = \mathbb{P}(B) + \mathbb{P}(A) - \mathbb{P}(B \cap A)$
+		\item\begin{equation}
+			 \mathbb{P}\left(\cup_{i = 1}^k A_i\right) = \sum_{\substack{K \subset \lbrace 1 .. , \rbrace \\ K \neq \emptyset } } (-1)^{|K| + 1} \mathbb{P}\left(\cap_{\ell \in K} A_\ell\right)
+		\end{equation}
+		
+	\end{itemize}
+\end{itemize}
+
+Important theorem!
+\begin{theorem}
+	Two probability measures $\mathbb{P}$ and $\mathbb{Q}$ that coincide on a $\pi$-system are equal on the $\sigma$-algebra it generates.
+\end{theorem}
+
+\begin{corollary}
+	Extending $\mathbb{P}$ from a $\pi$ system $\mathcal{C}$ to the $\sigma$-algebra $\sigma(\mathcal{C})$ it generates is unique.
+\end{corollary}
+
+We can do another extension using Caratheodory to extend $\mathbb{P}$.
+
+\begin{definition}
+	We say that for a family $(A_n)_n$, 
+	\begin{equation}
+		\limsup_n A_n = \cap_n \cup_{m \geq n} A_m
+	\end{equation}
+	is $A_n$ infinitely often (i.o.)
+	and 
+	\begin{equation}
+		\liminf_n A_n = \cup_n \cap_{m \geq n} A_m 
+	\end{equation}
+	is $A_n$ eventually. 
+\end{definition}
+We have that $\liminf_n A_n \subset \limsup_n A_n$. 
+
+\begin{lemma}[Fatou's lemma]
+	$\mathbb{P}(\limsup_n A_n) \geq \limsup_n \mathbb{P}(A_n)$ and $\mathbb{P}(\liminf_n A_n) \leq \liminf_n \mathbb{P}(A_n)$.
+\end{lemma}
+
+\begin{theorem}
+	Borel-Cantellini
+	Let $(A_n)_n$ be such that $\sum_n \mathbb{P}(A_n) \leq +\infty$. Then $\mathbb{P}(A_n i.o.) = 0$. 
+\end{theorem}
+
+\end{document}
