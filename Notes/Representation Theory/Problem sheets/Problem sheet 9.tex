@@ -298,7 +298,7 @@ Note that representations with Young diagrams which are transposes of each other
 \subsection*{c}
 So the irreps of $A_4$ which arise from restrictions of $S_4$ is the trivial representations, the representation of degree 3, and whatever representations $\chi_4$ splits to. 
 
-\subsection*{6.4}
+\subsection*{6.4 (filling in for 6.3)}
 We have that $\rho^{(3,2)}$ of $S_5$ has basis $(3,2)$-tabloids that look like this:
 \begin{align*}
 	t_{12} &= 
@@ -426,7 +426,7 @@ Consider the linear map $\phi(\sigma) = sgn(\sigma) \sigma$ where $\phi : \mathb
 Now let $R_t$ e the row stabiliser and $C_t$ be the column stabiliser. 
 Let us see what $\phi$ does to the basis elements of $V^\lambda$, and more specifically the stabiliser. 
 \begin{equation}
-	Z(e_t) &= \sum_{\pi \in R_t} sgn(\pi) e_t
+	Z(e_t) = \sum_{\pi \in R_t} sgn(\pi) e_t
 \end{equation}
 \begin{equation}
 	\phi_\sigma(e_t) = sgn(\sigma) e_{\sigma t}
@@ -446,5 +446,15 @@ Now we use the fact that $R_t = C_{\overline{t}}$ and $C_t = R_{\overline{t}}$. 
 	&= Z_(e_{\overline{t}})
 \end{align*}
 
-Therefore, we have that $
+\subsection*{6.5}
+\subsubsection*{a}
+We want to show that $\psi^\mu$ appears in $\rho^\mu$ with multiplicity one. As we have that $Hom(\psi^\mu, \rho^\mu)$ has dimension one, then $\psi^\mu$ has only one free choice on where it can be sent in $\rho^\mu$. This is from the lemma. Therefore, $\psi^\mu$ appears only once in $\rho^\mu$. 
+
+\subsubsection*{b}
+If $\psi^\lambda$ is an irrep in $\rho^\mu$, then $Hom(\psi^\lambda, \rho^\mu) \neq \{ 0 \}$ as we have the map which takes $\psi^\lambda$ to its subspace in $\rho^\mu$ as we can decompose $\rho^\mu$ into $\psi^\lambda$ with other irreps. Therefore $\lambda \unrhd  \mu$. 
+
+\subsection*{6.6}
+Suppose $\lambda \vdash n$. Let $t$ be a $\lambda$-tabloid.
+We have that each polytabloid $e_t$ is the integer sum of tabloids as we give signs to each tabloid and take their sums. Furthermore, $\psi^\lambda_\sigma e_t = e_{\sigma t}$ so the matrix $\left[\psi^\lambda_\sigma\right]$ has integer terms of the span of $\left\{ e_{t}: t \text{ a } \lambda- \text{tabloid}\right\}$. However, this span is overdetermined. Choose a basis of this span, $B$. Then every $e_t$ must be a rational linear combination of polytabloids in $B$. Therefore, we have that $\left[\psi^\lambda_\sigma\right]_B$ also has rational entries. Thus the trace of this matrix has rational entries and so does the character table. 
+
 \end{document}
