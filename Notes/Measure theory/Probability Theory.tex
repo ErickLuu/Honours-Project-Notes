@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=2in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -55,7 +55,7 @@ Recall an algebra contains the empty set $\emptyset$, closed under finite disjoi
 
 \subsection{Intersections of algebras}
 Notation change! Algebras are called $\mathcal{F}$ and the universal set is called $\Omega$. 
-It is obvious that intersections of algebras are also algebras. However, if $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ (family of $\sigma$-algebras) are all $\sigma$-algebras, then
+It is obvious that intersections of algebras are also algebras. However, if $\left(\mathcal{F}_\lambda \right)_{\lambda \in \Lambda}$ are all $\sigma$-algebras, then
 \begin{equation}
 	\cap_{\lambda \in \Lambda} \mathcal{F}_\lambda
 \end{equation} 
@@ -170,7 +170,11 @@ We can do another extension using Caratheodory to extend $\mathbb{P}$.
 We have that $\liminf_n A_n \subset \limsup_n A_n$. 
 
 \begin{lemma}[Fatou's lemma]
-	$\mathbb{P}(\limsup_n A_n) \geq \limsup_n \mathbb{P}(A_n)$ and $\mathbb{P}(\liminf_n A_n) \leq \liminf_n \mathbb{P}(A_n)$.
+	\begin{equation}
+		\mathbb{P}(\limsup_n A_n) \geq \limsup_n \mathbb{P}(A_n)
+	\end{equation} and \begin{equation}
+	\mathbb{P}(\liminf_n A_n) \leq \liminf_n \mathbb{P}(A_n).
+	\end{equation}
 \end{lemma}
 
 \begin{theorem}
