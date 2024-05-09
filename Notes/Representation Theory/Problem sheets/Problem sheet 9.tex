@@ -423,28 +423,9 @@ from part 6. Now we have that the sum must be 120, so the final character must b
 \subsubsection*{My question}
 Related to alternating groups, we wish to show that if $\lambda \vdash n$, then $\rho^\lambda(\sigma) = sgn(\sigma) \rho^{(\overline{\lambda})}(\sigma)$ where $\overline{\lambda}$ is the transpose of $\lambda$.
 Consider the linear map $\phi(\sigma) = sgn(\sigma) \sigma$ where $\phi : \mathbb{C}S_n \rightarrow \mathbb{C} S_n$. Then if $\rho : S_n \rightarrow GL(V)$, we have that $\rho \circ \phi = \rho \otimes \rho_{sgn}$ as we can pass through the sign through $\rho$ with the same result.
-Now let $R_t$ e the row stabiliser and $C_t$ be the column stabiliser. 
-Let us see what $\phi$ does to the basis elements of $V^\lambda$, and more specifically the stabiliser. 
-\begin{equation}
-	Z(e_t) = \sum_{\pi \in R_t} sgn(\pi) e_t
-\end{equation}
-\begin{equation}
-	\phi_\sigma(e_t) = sgn(\sigma) e_{\sigma t}
-\end{equation}
-We can rewrite $Z(e_t)$ as a summation of things in $e_{\overline{t}}$. We have that the row stabilisers do nothing to $[t]$, so we stick them in. 
+Now let $R_t$ be the row stabiliser and $C_t$ be the column stabiliser. 
 
-\begin{align*}
-	Z(e_t) &= \sum_{\pi \in R_t} sgn(\pi) \sum_{\tau \in C_t} sgn(\tau) \tau[t]\\
-	Z(e_t) &= \sum_{\pi \in R_t}  \sum_{\tau \in C_t} sgn(\pi) sgn(\tau) \tau \circ \pi [t]\\
-\end{align*}
-Now we use the fact that $R_t = C_{\overline{t}}$ and $C_t = R_{\overline{t}}$. We have that
-\begin{align*}
-	Z(e_t) &= \sum_{\pi \in C_{\overline{t}}}  \sum_{\tau \in R_{\overline{t}}} sgn(\pi) sgn(\tau) \tau \circ \pi [t]\\
-	&= \sum_{\pi \in C_{\overline{t}}}  \sum_{\tau\in R_{\overline{t}}} sgn(\pi) sgn(\tau) \pi [t]\\
-	&= \sum_{\tau\in R_{\overline{t}}} sgn(\tau) \sum_{\pi \in C_{\overline{t}}}  sgn(\pi)  \pi [t]\\
-	&= \sum_{\tau\in R_{\overline{t}}} sgn(\tau) e_{\overline{t}}\\
-	&= Z_(e_{\overline{t}})
-\end{align*}
+We now pick a new basis for $V^\lambda$. Let $t$ be a $\lambda$-tableau, and let $c_t = \sum_{r \in R_t}^{c \in C_t} sgn(c) r c[t]$. This vector space is $V^\lambda$ 
 
 \subsection*{6.5}
 \subsubsection*{a}
