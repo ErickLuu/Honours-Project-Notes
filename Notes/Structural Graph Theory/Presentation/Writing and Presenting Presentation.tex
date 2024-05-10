@@ -44,13 +44,15 @@
 %\end{frame}
 \begin{frame}[allowframebreaks]{Book-Embedding}
 	\begin{figure}[h]
-		\centering
 		\begin{minipage}{0.5\textwidth}
 			\includestandalone[width = \linewidth]{Drawings/Book_Embedding}
 		\end{minipage}%
 		\begin{minipage}{0.5\textwidth}
 			\begin{block}{Books}
-				A book is an embedding of a graph where the vertices live on the spines and the edges live on pages and do not cross.
+				\begin{itemize}
+					\item A \textit{book} is a collection of pages glued together on a common boundary.
+					\item A \textit{book-embedding} of a graph is where the vertices are on the common boundary and the edges are planar.
+				\end{itemize}
 			\end{block}
 		\end{minipage}
 	\end{figure}
@@ -67,24 +69,24 @@
 
 \begin{frame}
 	\begin{itemize}
-		\item Book-thickness was investigated in 1979
-		\item Applications to chip design, knot theory, abstract algebra
-	\end{itemize}
-	\begin{itemize}
+		\item Pagenumber of $G$ is the least number of pages needed to embed $G$.
 		\item $G$ has pagenumber 1 iff $G$ is outerplanar ( all vertices on one face )
 		\item $G$ has pagenumber 2 iff $G$ is Hamiltonian planar.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\begin{theorem}[Yannikakis] \note{add citation}
-		All planar graphs can be embedded in 4 pages.
-	\end{theorem}
-	\begin{theorem}[Malitz]
-	Graphs of genus $g$ have pagenumber $O(\sqrt{g})$. 
-\end{theorem}
+\begin{frame}{Usage of pagenumber}
+	\begin{itemize}
+		\item Book-thickness was investigated in 1979
+		\item Applications to chip design, knot theory, abstract algebra
+	\end{itemize}
+\end{frame}
 
-Moral: "Global" bounded graph structures generally have bounded pagenumber.
+\begin{frame}[Embedding graph on surfaces]
+	\begin{theorem}[Heath and Istrail]
+		Graphs embedded on surfaces of bounded genus have bounded pagenumber.
+	\end{theorem}
+	\includesvg{Drawings/TorusGridGraph3DEmbeddings_1000}
 \end{frame}
 
 \begin{frame}{Graph minors}
