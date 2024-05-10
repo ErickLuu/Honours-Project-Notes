@@ -78,7 +78,7 @@
 
 \begin{frame}{Usage of pagenumber}
 	\begin{itemize}
-		\item Book-thickness was investigated in 1979
+		\item Book-thickness was investigated in 1970s
 		\item Applications to chip design, knot theory, abstract algebra
 	\end{itemize}
 \end{frame}
@@ -101,6 +101,28 @@
 	\note{Draw picture of a minor on whiteboard}
 \end{frame}
 
+\begin{frame}
+	$K_t$ is the complete graph on $t$ vertices.
+	\begin{definition}[$K_t$-minor free]
+		A graph $G$ is $K_t$-minor free if $K_t$ is not a minor of $G$.
+	\end{definition}
+	\begin{figure}[h]
+		\centering
+		\includestandalone[width=0.4\textwidth]{Drawings/P10}
+		\includestandalone[width=0.4\textwidth]{Drawings/P10_Contraction_To_K5}
+		\caption{The Petersen graph has a $K_5$ minor.}\label{P10contraction}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Research question}
+	\begin{conjecture}
+		Is there a function $f(t)$ such that if $G$ is $K_t$-minor free, $G$ is embeddable on $f(t)$ pages?
+	\end{conjecture}
+	There are reasons to believe the answer is yes!
+	\begin{itemize}
+		\item Graphs which are $K_t$-minor free are almost like graphs with bounded genus.
+	\end{itemize}
+\end{frame}
 
 %\begin{frame}{$K_t$-minor free graphs}
 %	\begin{conjecture}
