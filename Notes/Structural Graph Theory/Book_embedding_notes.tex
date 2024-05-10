@@ -620,7 +620,7 @@ In the original proof, they considered the case where $G$ is a $k$-tree. We will
 			c(T_v) &\text{ if } \sigma(v) \leq \sigma(u)
 		\end{cases}
 	\end{equation}
-	Then we claim that this is a proper book-embedding of $G$. Suppose we have that edges $uv$, $xy$ cross, so $\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)$. However, this implies that there exists a bag $B$ such that $u, x, v \in B$, as we have that $uv$ is an edge in $B$ and we do a depth-first search to establish the ordering. So $u, x, v$ they are in the same bags. However, this implies that the trees $T_u$ and $T_x$ intersect, meaning that $c(uv) \neq c(xy)$. Finally, the number of pages used is $\chi(H) = k + 1$, so $\pn(G) \leq k + 1$. Thus shown.
+	Then we claim that this is a proper book-embedding of $G$. Suppose we have that edges $uv$, $xy$ cross, so $\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)$. However, this implies that there exists a bag $B$ such that $u, x, v \in B$, as we have that $uv$ is an edge in $B$ and we do a depth-first search to establish the ordering. So $u, x, v$ they are in the same bags. However, this implies that the trees $T_u$ and $T_x$ intersect, meaning that $c(uv) \neq c(xy)$. Finally, the number of pages used is $\chi(H) \leq k + 1$, so $\pn(G) \leq k + 1$. Thus shown.
 \end{proof}
 
 We have a simpler proof if the tree is a path. We go from one end of the path to the other, and add vertices to the book-embedding in the order of the first time they appear. Then we colour each vertex such that in each bag, no two vertices are assigned the same colour. We can do this as this is the same intersection graph as above. The rest of the proof follows.
