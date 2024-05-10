@@ -70,7 +70,7 @@ In this report we outline our current progress in proving that $K_t$-minor free 
 \chapter{Introduction}\label{sec:introduction}
 Structural graph theory is a fundamental topic in graph theory and its study has led to a deeper understanding of graphs. Many results from structural graph theory decompose graphs into ones with bounded parameters. One of the most important theorems in structural graph theory is Robertson and Seymour's Graph Minor Theorem \cite{robertsonGraphMinorsXX2004} which states that proper minor-closed families of graphs are characterised by a finite set of forbidden minors. 
 \par
-The concept of the \textit{pagenumber} of a graph was introduced by L. Taylor Ollmann \cite{ollmannBookThicknessVarious1973} in the context of VLSI design and integrated circuitry, but was studied deeply by Bernhardt and Kainen\cite{bernhartBookThicknessGraph1979} in 1979. A \textit{book-embedding} of a graph is a way to arrange the vertices on the ``spine'' of a book and arrange the edges on ``pages'' of a book, or half-planes. The \textit{pagenumber} of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
+The concept of the \textit{pagenumber} of a graph was introduced by Ollmann \cite{ollmannBookThicknessVarious1973} in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph is a way to arrange the vertices on the ``spine'' of a book and arrange the edges on ``pages'' of a book, or half-planes. The \textit{pagenumber} of a graph $G$ is the smallest number of pages necessary in a book-embedding of $G$. 
 
 The driving question of this report is the following: 
 \begin{conjecture}\label{conj:bded_had_pn}
@@ -232,7 +232,7 @@ We may note that this bound is not tight. Planar graphs are 4-colourable \cite{a
 
 \subsection{Historical interest}\label{ssec:Pagenumber_History}
 Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics.\todo{Add citation}
-The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. However in 2020, Yannanakis published his full proof. \cite{yannakakisPlanarGraphsThat2020} At around the same time, Kaufmann, Bekos, Klute, Pupyrev, Raftopoulu and Ueckerdt published a similar result\cite{kaufmannFourPagesAre2020}. 
+The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof. \cite{yannakakisPlanarGraphsThat2020} At around the same time, Kaufmann, Bekos, Klute, Pupyrev, Raftopoulu and Ueckerdt published a similar result\cite{kaufmannFourPagesAre2020}. 
 
 \section{Treewidth}\label{sec:treewidth}
 
@@ -309,7 +309,10 @@ Recall that an outerplanar graph is a planar graph where there exists a face suc
 \subsection{Characteristics of treewidth}\label{ssec:characterising_Treewidth}
 \subsubsection{$k$-trees}\label{sssec:k-trees}
 We define a $k$-tree inductively. We have that the complete graph $K_k$ is a $k$-tree, and if $G$ is a $k$-tree, then we add a new vertex to $G$ that is adjacent to $k$ vertices that form a clique of size $k$ in $G$ results in a $k$-tree. 
-A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a subgraph of a $k$-tree. 
+A $k$-tree is a maximal graph with treewidth $k$. 
+\begin{theorem}[K-tree theorem]
+	$\tw(G) \leq k$ iff $G$ is a subgraph of a $k$-tree. 
+\end{theorem}
 
 
 \subsubsection{Bounded treewidth graphs}\label{sssec:Graph_treewidth_Bounded}
@@ -318,11 +321,11 @@ A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a s
 \end{theorem}
 \begin{proof}
 	We shall prove the contrapositive: If $K_t$ is a minor of $G$, then $\tw(G) \geq t-1$.
-	If $K_t$ is a minor of $G$, then we have that from \cref{thm:tw_minor_closure} that $\tw(K_t) \leq \tw(G)$. As $\tw(K_t) = r-1$, then we have that $\tw(G) \geq t - 1$. 
+	If $K_t$ is a minor of $G$, then we have that from \cref{thm:tw_minor_closure} that $\tw(K_t) \leq \tw(G)$. As $\tw(K_t) = t-1$, then we have that $\tw(G) \geq t - 1$. 
 \end{proof}
 
 \subsection{Historical discussion}\label{ssec:tw_historical}
-Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by Halin \cite{halinSfunctionsGraphs1976} before most famously used in \cite{robertsonGraphMinorsIII1984}, which was introduced to prove the Graph Minor Theorem\cite{robertsonGraphMinorsXX2004}.
+Treewidth was introduced in \cite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by Halin \cite{halinSfunctionsGraphs1976} before being used by Robertson and Seymour in \cite{robertsonGraphMinorsIII1984}, which was introduced to prove the Graph Minor Theorem\cite{robertsonGraphMinorsXX2004}.
 
 
 \section{Path-width}\label{sec:Pathwidth}
@@ -386,11 +389,13 @@ We define $\had(G)$ to be the largest $t$ such that $G$ has a $K_t$ minor.
 \end{proof}
 
 \subsubsection{A short discussion of topology}\label{sssec:topology}
-This section comes from Mohar and Thomassen\cite{moharOrientableGenusGraphs1998}. A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
+This section comes from Mohar and Thomassen's book on Graphs on Surfaces. \cite{moharGraphsSurfaces2001} A surface $\Sigma$ is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere $S^2$, the torus $T$, and the real projective plane $P$.
 \par
 We \textit{add} a \textit{handle} to a surface $\Sigma$ by removing two disks in $\Sigma$ and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. We add a \textit{crosscap} by removing a disk in $\Sigma$ and identifying opposite points on the boundary. We add a \textit{twisted handle} to a surface $\Sigma$ by removing two disks in $\Sigma$ and identifying the boundaries such that both go clockwise.
 \par
-The \textit{Euler genus} of a surface $\Sigma$ obtained from a sphere by adding $h$ handles, $c$ crosscaps and $t$ twisted handles is $2h + 2t + c$.
+\begin{definition}[Euler Genus]
+	The \textit{Euler genus} of a surface $\Sigma$ obtained from a sphere by adding $h$ handles, $c$ crosscaps and $t$ twisted handles is $2h + 2t + c$.
+\end{definition}
 
 \begin{example}
 	Here are the Euler genus of some important surfaces.
@@ -421,7 +426,7 @@ This proof mimics the above proof for planarity, but with higher dimensions.
 We can show that if $G$ has genus $g$, then if $G$ has $n$ vertices and $m$ edges, then $n - m + f = \chi = 2-g$, then as each face has at most 3 vertices and each edge is incident to two faces, we have that $f \leq 2m/3$. Therefore, $m \leq 3(n + g - 2)$, and if $K_t$ is embeddable on a genus $g$ graph, then $\binom{t}{2} \leq 3 (t + g - 2)$. Thus $t \leq \sqrt{6g} + 4$. So if a graph has genus $g$, then it is $K_t$-minor-free, where $t > \sqrt{6g} + 4$. 
 
 \subsubsection{Apex vertices}\label{sssec:Apex_Vertices}
-An apex vertex $a$ is added to a graph $G$ such that it has arbitrary edges. As such, $a$ can dominate all other vertices in $G$.
+An apex vertex $a$ is added to a graph $G$ such that it has arbitrary edges. As such, $a$ can \textit{dominate} all other vertices in $G$, meaning that $a$ can be adjacent to all vertices in $G$. 
 \begin{theorem}
 	If $G$ is $K_t$-minor free, $G$ with the apex vertex $a$ is $K_{t+1}$- minor free. 
 \end{theorem}
@@ -460,8 +465,6 @@ Given $G$ and a tree-decomposition $\tree$, we can say that $G$ is a clique-sum 
 Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$ be a disc in $\Sigma$ such that $D$ only intersects $G$ only on vertices on the boundary of $F$. We denote these discs as $G$-clean. 
 
 Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
-
-The reason why vortices are important is because of the graph below. 
 
 \todo{Draw graph with large treewidth, torso and adhesion, but with bounded $K_t$.}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem\cite{robertsonGraphMinorsXVI2003}}\label{ssec:Robertson_Seymour_Graph_Structure}
@@ -735,7 +738,6 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 \todo{Flesh out details completely}
 We want to add edges in a controlled way so that the traces that are reversed become unreversed. This is done by adding edges between vertices so that we can invert the ordering on the circle such that we have that the vertices in one homotopy class have a non-crossing page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page where there are finitely many pages wrt to the genus of the surface. Let $\mathcal{C}_{i,j}$ be a chord class when it is the set of chords that go between traces $T_i$ and $T_j$, where $T_i$ and $T_j$ both go clockwise or counterclockwise. Note that the number of chord classes $\mathcal{C}_{i,j}$ is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite. 
 \end{proof}
-
 
 \chapter{Potential proof techniques}\label{chap:Proving_The_Theorem}
 Our aim is to show that graphs with bounded genus $g$ containing $p$ vortices of bounded width $k$ have bounded pagenumber $f(g, p, k)$. Thus we can show that for fixed $t$, all $K_t$-minor free graphs have bounded pagenumber $f(g, p, k, a, \ell)$. However, from \cite{hickingbothamStackNumberCliqueSum2023}, we can show that the clique-sums of graphs of bounded genus also have bounded genus.
