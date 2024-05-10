@@ -1,5 +1,5 @@
 \documentclass[]{report}
-\usepackage[margin = 0.5in]{geometry}
+\usepackage[margin = 1in]{geometry}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -333,7 +333,7 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 \begin{theorem}[Ganley + Heath\cite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
 	Every graph $G$ with $\tw(G) \leq k$ has $\pn(G) \leq k + 1$. 
 \end{theorem}
-We have a simpler proof if the tree is a path. We go from one end of the path to the other, and add vertices to the book-embedding in the order of the first time they appear. Then we colour each vertex such that in each bag, no two vertices are assigned the same colour. We can do this as this is the same intersection graph as above. The rest of the proof follows.
+We have a simpler proof if the tree is a path. We go from one end of the path to the other, and add vertices to the book-embedding in the order of the first time they appear. Then we colour each vertex such that in each bag, no two vertices are assigned the same colour. The number of colours necessary is at most $k + 1$ as the clique number of $G$ is at most $k + 1$. Furthermore, the intersection graph of the subpaths are a perfect graph. Therefore, we can colour $G$ with at most $k + 1$ colours. Then we colour $uv$ according to the vertex $u$ or $v$ depending on which comes first. This is a valid book-embedding. If $uv$ and $wx$ cross where $u < w < v < x$, then this means that $u, v, w$ share a bag, and so does $v, w, x$. But this means that $u$ and $w$ are in the the same bag, thus they are assigned different colours. 
 
 \subsection{Planar graphs}\label{ssec:Planar_Graphs}
 \begin{theorem}[Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}] \label{thm:4Pages_Planar}
@@ -342,6 +342,6 @@ We have a simpler proof if the tree is a path. We go from one end of the path to
 We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages \cite{yannakakisPlanarGraphsThat2020} \cite{kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber. 
 
 \section{Conclusion}\label{chap:conclusion}
-We conclude this report by explaining the current literature involving $K_t$-minor free graphs with bounded pagenumber. We define $K_t$-minor free graphs, and what it means for a graph to have bounded pagenumber. We also discuss one of the most important theorems for characterising graphs with $K_t$-minor free graphs and some important results that will be useful in proving that $K_t$-minor free graphs have bounded pagenumber. 
+We conclude this report by explaining the current literature involving $K_t$-minor free graphs with bounded pagenumber. We define $K_t$-minor free graphs, and what it means for a graph to have bounded pagenumber. We also discuss one of the most important theorems for characterising graphs with $K_t$-minor free graphs and some important results that will be useful in proving that $K_t$-minor free graphs have bounded pagenumber. We believe that with the current literature on the topic of both $K_t$-minor free graphs and graphs of bounded pagenumber, we will have a result. We do not  
 \printbibliography
 \end{document}
