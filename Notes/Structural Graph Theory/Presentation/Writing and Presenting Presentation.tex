@@ -4,6 +4,7 @@
 \usepackage{svg}
 \usepackage{todonotes}
 \usepackage{tikz}
+\usepackage{svg}
 
 \newtheorem{conjecture}[theorem]{Conjecture}
 
@@ -82,26 +83,25 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[Embedding graph on surfaces]
+\begin{frame}{Embedding graph on surfaces}
+	Genus of a surface is the number of holes and crosscaps. 
 	\begin{theorem}[Heath and Istrail]
 		Graphs embedded on surfaces of bounded genus have bounded pagenumber.
 	\end{theorem}
-	\includesvg{Drawings/TorusGridGraph3DEmbeddings_1000}
+	\begin{figure}[h]
+		\includesvg{Drawings/TorusGridGraph3DEmbeddings_1000.svg}
+		\caption{Torus graph (Wolfram Mathworld)}
+	\end{figure}
 \end{frame}
 
 \begin{frame}{Graph minors}
 	$H$ is a \textit{graph minor} of $G$ if $H$ can be obtained from $G$ by contracting edges, deleting edges, and deleting vertices.
-	\begin{definition}[$K_t$-minor free]
-		A graph $G$ is $K_t$-minor free if $K_t$ is not a minor of $G$.
-	\end{definition}
-	\begin{figure}[h]
-		\centering
-		\includestandalone[width=0.4\textwidth]{Drawings/P10}
-		\includestandalone[width=0.4\textwidth]{Drawings/P10_Contraction_To_K5}
-		\caption{The Petersen graph has a $K_5$ minor.}\label{P10contraction}
-	\end{figure}
-	\note{The Petersen graph is $K_6$-minor-free as there is no way to contract edges such that there is a $K_6$ minor. Note the Petersen graph has 10 vertices, so if there was a $K_6$ minor, there would have to be a vertex which does not get contracted. But all vertices have degree 3 so it would not be $K_6$.}
+	
+	$G$ is $H$-free if $H$ is not a minor of $G$. 
+	\note{Draw picture of a minor on whiteboard}
 \end{frame}
+
+
 %\begin{frame}{$K_t$-minor free graphs}
 %	\begin{conjecture}
 %		$K_t$-minor free graphs have bounded pagenumber.
