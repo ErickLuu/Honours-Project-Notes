@@ -1,0 +1,97 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{ytableau}
+\usepackage{float}
+\ytableausetup{centertableaux}
+\allowdisplaybreaks
+
+\newcommand{\tr}{\text{tr}}
+\newcommand{\fix}{\text{Fix}}
+%opening
+\title{Representation Theory- Problem sheet 9}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section*{Chapter 6}
+\subsection*{Question 9}
+
+\section*{Chapter 7}
+\subsection*{Question 1}
+
+\subsubsection*{a}
+We have that $SL_n(\mathbb{C})$ is the group of $n \times n$ matrices with nonzero determinant. 
+
+Then we have that $\mathfrak{sl}_n(\mathbb{C})$ is the tangent space around $I$, or the matrices $A$ that satisfy:
+
+\begin{equation}
+	\det \left(I + \varepsilon A\right) \approx 1.
+\end{equation}
+Now we have that the determinant has $\prod_{i = 1}^3 ( 1 + \varepsilon a_{i,i})$ and terms $\prod_{i = 1} \varepsilon A_{\sigma_i}^2$ which disappear. However the terms that disappear are $O(\varepsilon^2)$ and the terms that remain is: $1 + \tr(A) \varepsilon + O(\varepsilon^2) \approx 1$, meaning that we must have that $\tr(A) = 0$. 
+
+Therefore, we have that $\mathfrak{sl}_n(\mathbb{C}) = \left\{A \in \mathbb{C}^{n \times n} | \tr(A) = 0\right\}$.
+This holds for $SL_3$ and $\mathfrak{sl}_3$. 
+
+\subsubsection*{b}
+Consider $O_2(\mathbb{C})$, the orthogonal group. Then we have that the tangent space of $I$ are matrices $\begin{bmatrix}
+	a & b \\
+	c & d
+\end{bmatrix}
+$
+that satisfy 
+\begin{equation}
+	\left(I + \varepsilon \begin{bmatrix}
+		a & b \\
+		c & d
+	\end{bmatrix}\right)^T 
+\left(I + \varepsilon \begin{bmatrix}
+	a & b \\
+	c & d
+\end{bmatrix}\right)
+ = I
+\end{equation}
+Then this implies that:
+\begin{equation}
+	\begin{bmatrix}
+		1 + \varepsilon a & \varepsilon c\\
+		\varepsilon b & (1 + \varepsilon d)
+	\end{bmatrix}
+	\begin{bmatrix}
+	1 + \varepsilon a & \varepsilon b\\
+	\varepsilon c & (1 + \varepsilon d)
+\end{bmatrix}
+= 
+\begin{bmatrix}
+	1 & 0\\
+	0 & 1
+\end{bmatrix}
+\end{equation}
+However, this means that:
+\begin{align*}
+	(1 + \varepsilon a)^2 + \varepsilon^2 c^2 &= 1\\
+	\varepsilon b + \varepsilon^2 ab + \varepsilon c + \varepsilon^2 cd &= 0\\
+	(1 + \varepsilon d)^2 + \varepsilon^2 b &= 1
+\end{align*}
+Expanding this out, we have that:
+\begin{align*}
+	1 + \varepsilon 2a + \varepsilon^2 (c^2 + a^2) &= 1\\
+	\varepsilon (b + c) + \varepsilon^2 (ab + cd) &= 0\\
+	1 + \varepsilon 2d + \varepsilon^2 (b^2 + d^2) &= 1
+\end{align*}
+meaning that $a = d = 0$ and $b = -c$. 
+
+The Lie algebra is called $\mathfrak{so}_n(\mathbb{C})$ 
+\subsection*{Question 2}
+A reducible representation of a Lie algebra is a representation 
+\subsection*{Question 3}
+Let $e_0 = x^d, e_1 = x^{d - 1} y , ... , e_d = y^d$. Then let $E$ be the $d + 1 \times d + 1$ matrix indexed at 0. We have that $E(e_i) = i e_{i - 1}$. Then $F(e_i) = (d - i) e_{i + 1}$. Finally, we have that $H(e_i) = (d - 2i) e_i$. 
+
+Then we have that $E_{i, i - 1} = i$, $F_{i, i + 1} = d - i$ and $H_{i, i} = d - 2i$, and zeroes everywhere else. 
+
+\subsection*{Question 4}
+Consider $\phi: \mathfrak{sl}_2(\mathbb{C}) \rightarrow \mathfrak{gl}(V)$, and consider the eigenvectors of $\phi(h)$ for any $h \in \mathfrak{sl}_2(\mathbb{C})$. 
+\end{document}
