@@ -22,7 +22,6 @@ Firstly, let $a_k = \frac{(n + k)!}{n!(k!)^2}$. Then let us calculate
 	R_k = \frac{a_{k + 1}}{a_k} = \frac{n!(k!)^2}{(n + k)!}\frac{(n + k + 1)^2}{n! (k + 1)!} = \frac{n + k + 1}{(k + 1)^2}. 
 \end{equation}
 Then we have that $R_k = 1$ when $n + k + 1 = (k + 1)^2$. Solving for $k$, we have that $(k + 1)^2 - (k + 1) - n = 0$, therefore $k + 1 = \frac{1 + \sqrt{1 + 4n}}{2}$ by solving the quadratic. Therefore, $k \sim \sqrt{n}$, and around this the function falls off. 
-
 \subsection{Calculating near maximum}
 Let us calculate this equation around $\sqrt{n}$. 
 
@@ -31,34 +30,24 @@ We want to calculate:
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}  \frac{(n + k)!}{n!(k!)^2}.
 \end{equation}
 Now let $y = k - \sqrt{n}$. We will re-index the equation to match what we have.
-\begin{equation}
-	\sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil}  \frac{(n + \sqrt{n} + y)!}{n!(\sqrt{n} + y)!^2}.
-\end{equation}
-Now we use Stirling's approximation.
 
+We use Stirling's approximation.
 \begin{align*}
-	(n + \sqrt{n} + y)! &= \left(\frac{n + \sqrt{n} + y}{e}\right)^{n + \sqrt n + y} \sqrt{2 \pi (n + \sqrt{n} + y)}\\
+	(n + k)! &= \left(\frac{n + k}{e}\right)^{n + k}\sqrt{2\pi (n + k)}\\
 	n! &= \left(\frac{n}{e}\right)^n \sqrt{2 \pi n}\\
-	(\sqrt{n} + y)! &= \left(\frac{\sqrt{n} + y}{e}\right)^{\sqrt{n} + y} \sqrt{(2 \pi)(\sqrt{n} + y)}
+	k! &= \left(\frac{k}{e}\right)^k \sqrt{2 \pi k}\\
 \end{align*}
-Substituting this into the equation above, we get:
-
+Substituting this into the equation, we have that:
 \begin{align*}
-	&\sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil}  \frac{ \left(\frac{n + \sqrt{n} + y}{e}\right)^{n + \sqrt n + y} \sqrt{2 \pi (n + \sqrt{n} + y)}}{\left(\frac{n}{e}\right)^n \sqrt{2 \pi n}\left(\left(\frac{\sqrt{n} + y}{e}\right)^{\sqrt{n} + y} \sqrt{(2 \pi)(\sqrt{n} + y)}\right)^2}\\
-	&= \sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil} \frac{1}{2 \pi e^{\sqrt{n} + y}} 
-	\frac{
-	\left(n + \sqrt{n} + y\right)^{n + \sqrt{n} + y}
-	\sqrt{n + \sqrt{n} + y}
-	}{
-	n^n \sqrt{n} 
-	\left(\sqrt{n} + y\right)^{\sqrt{n} + y}
-	(\sqrt{n} + y)
-	}\\
-	&= \sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil} \frac{1}{2 \pi e^{\sqrt{n} + y}} 
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}  \frac{(n + k)!}{n!(k!)^2}
+	&=
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{\left(\frac{n + k}{e}\right)^{n + k}\sqrt{2\pi (n + k)}}{\left(\frac{n}{e}\right)^n \sqrt{2 \pi n} \left(\frac{k}{e}\right)^{2k} (2 \pi k)}\\
+	&=
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{1}{e^k 2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
 \end{align*}
-Now we use the approximation of $(n + \sqrt{n} + y)^{n + \sqrt{n} + y} = $
+
 \section{2}
-Let
+
 
 \section{3}
 \subsection{a}
