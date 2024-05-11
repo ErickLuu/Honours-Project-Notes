@@ -1,0 +1,103 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
+\newcommand{\egf}{\overset{\text{egf}}{\leftrightarrow}}
+%opening
+\title{Assignment 3}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{1}
+\subsection{Finding maximum of asymptotic}
+Firstly, let $a_k = \frac{(n + k)!}{n!(k!)^2}$. Then let us calculate 
+\begin{equation}
+	R_k = \frac{a_{k + 1}}{a_k} = \frac{n!(k!)^2}{(n + k)!}\frac{(n + k + 1)^2}{n! (k + 1)!} = \frac{n + k + 1}{(k + 1)^2}. 
+\end{equation}
+Then we have that $R_k = 1$ when $n + k + 1 = (k + 1)^2$. Solving for $k$, we have that $(k + 1)^2 - (k + 1) - n = 0$, therefore $k + 1 = \frac{1 + \sqrt{1 + 4n}}{2}$ by solving the quadratic. Therefore, $k \sim \sqrt{n}$, and around this the function falls off. 
+
+\subsection{Calculating near maximum}
+Let us calculate this equation around $\sqrt{n}$. 
+
+We want to calculate:
+\begin{equation}
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}  \frac{(n + k)!}{n!(k!)^2}.
+\end{equation}
+Now let $y = k - \sqrt{n}$. We will re-index the equation to match what we have.
+\begin{equation}
+	\sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil}  \frac{(n + \sqrt{n} + y)!}{n!(\sqrt{n} + y)!^2}.
+\end{equation}
+Now we use Stirling's approximation.
+
+\begin{align*}
+	(n + \sqrt{n} + y)! &= \left(\frac{n + \sqrt{n} + y}{e}\right)^{n + \sqrt n + y} \sqrt{2 \pi (n + \sqrt{n} + y)}\\
+	n! &= \left(\frac{n}{e}\right)^n \sqrt{2 \pi n}\\
+	(\sqrt{n} + y)! &= \left(\frac{\sqrt{n} + y}{e}\right)^{\sqrt{n} + y} \sqrt{(2 \pi)(\sqrt{n} + y)}
+\end{align*}
+Substituting this into the equation above, we get:
+
+\begin{align*}
+	&\sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil}  \frac{ \left(\frac{n + \sqrt{n} + y}{e}\right)^{n + \sqrt n + y} \sqrt{2 \pi (n + \sqrt{n} + y)}}{\left(\frac{n}{e}\right)^n \sqrt{2 \pi n}\left(\left(\frac{\sqrt{n} + y}{e}\right)^{\sqrt{n} + y} \sqrt{(2 \pi)(\sqrt{n} + y)}\right)^2}\\
+	&= \sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil} \frac{1}{2 \pi e^{\sqrt{n} + y}} 
+	\frac{
+	\left(n + \sqrt{n} + y\right)^{n + \sqrt{n} + y}
+	\sqrt{n + \sqrt{n} + y}
+	}{
+	n^n \sqrt{n} 
+	\left(\sqrt{n} + y\right)^{\sqrt{n} + y}
+	(\sqrt{n} + y)
+	}\\
+	&= \sum_{y = \lfloor - M \rfloor }^{ \lceil M \rceil} \frac{1}{2 \pi e^{\sqrt{n} + y}} 
+\end{align*}
+Now we use the approximation of $(n + \sqrt{n} + y)^{n + \sqrt{n} + y} = $
+\section{2}
+Let
+
+\section{3}
+\subsection{a}
+We have the equation:
+\begin{equation}
+	k = n + \sqrt{n + k} \log k.
+\end{equation}
+Now notice that both sides of the equation are strictly increasing with fixed $n$ and $k > 1$. Now if $k = n$, we have that the LHS is $n$ and the RHS is $n + \sqrt{2n} \log n$, which means $RHS > LHS$. Now when $k = 2n$, we have the LHS is $2n$ and the RHS is $n + \sqrt{3n} \log n$ which for large $n$ is less than $2n$. Therefore, $LHS > RHS$. By continuity and the fact that both sides are nondecreasing, we have that $k$ has a solution and it is between $n$ and $2n$. 
+\subsection{b}
+Let $k = \alpha n$ where $\alpha = O(1)$ and $1 < \alpha < 2$. 
+Then we have that 
+$k = n + \sqrt{n + \alpha n} \log (\alpha n) = n + \sqrt{n} \sqrt{\alpha + 1} (\log(\alpha) + \log n)$. Then we distribute and use the fact that $\alpha = O(1)$ to get that
+\begin{align*}
+	k &= n + \sqrt{n} O(1) + \log n \sqrt{n} O(1)\\
+	 &= n + O(\sqrt{n}) + O(\log n \sqrt{n})\\
+	 &= n + O(\log n \sqrt n).
+\end{align*}
+However, we can write the right hand side as $k = n(1 + O(\frac{\log n}{\sqrt{n}}))$ which is $k = n(1 + o(1))$. So $k \sim n$. 
+\subsection{c}
+Let $z = k - n$. From part $a$, we have that $0 < k < n$ and $z =  O(\log n \sqrt n)$. Then we rewrite the above equation in terms of $z$ to yield:
+\begin{equation}
+	z = \sqrt{z + 2n} \log (z + n).
+\end{equation}
+Now we plug in the approximation that $z = O(\log n \sqrt{n})$. We have that:
+
+\begin{align*}
+	z &= \sqrt{(O(\log n \sqrt{n}) + 2n)}\log(n + O(\log n \sqrt n))\\
+	&= \sqrt{2n} \left(\sqrt{1 + O(\frac{\log n}{\sqrt{n}})}\right) \left(\log( n(1 + O(\frac{\log n}{\sqrt{n}} )) \right)\\
+	&= \sqrt{2n}\left(\sqrt{1 + O(\frac{\log n}{\sqrt{n}})}\right) \log(n) + \sqrt{2n}\left(\sqrt{1 + O(\frac{\log n}{\sqrt{n}})}\right) \log((1 + O(\frac{\log n}{\sqrt{n}}))
+	\end{align*}
+Now we have that from doing a Taylor expansion that $\sqrt{1 + x} = 1 + O(x)$ when $x = o(1)$. We also have that $\log(1 + x) = O(x)$ when $x = o(1)$. Plugging this both into the equation, we have that:
+\begin{align*}
+	z &= \sqrt{2n}(1 + O(\frac{\log n}{\sqrt{n}})) \log(n) + \sqrt{2n}(1 + O(\frac{\log n}{\sqrt{n}}))O(\frac{\log n}{\sqrt{n}})\\
+	&= \sqrt{2n} \log n + O(\log n) + O(\log n) + O(\frac{\log^2 n}{\sqrt{n}})\\
+	&= \sqrt{2n} \log n + O(\log n)
+\end{align*}
+as we have that $\log^2(n) = o(\sqrt{n})$. Finally, we have that:
+\begin{equation}
+	z = \sqrt{2n} \log n ( 1 + O(\frac{1}{\sqrt{n}})) = \sqrt{2n} \log n (1 + o(1)).
+\end{equation}
+So $z \sim \sqrt{2n} \log n$.
+\end{document}
