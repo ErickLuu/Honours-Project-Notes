@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\sig}{\mathcal{S}}
+\newcommand{\mono}{\mathcal{M}}
+\newcommand{\sigmes}{\Lambda_{\mu^*}}
+\newcommand{\salg}{$\sigma$-algebra}
+\newcommand{\intd}{\, d}
+%opening
+\title{Assignment 1}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Question 1}
+Let $A \in \sigma(\mathcal{C}_1 \cup \mathcal{C}_2)$. Then $A$ is in the intersection of all $\sigma$-algebras that contain $C_1$ and $C_2$. However, we have that $\sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2) = \sigma(\sigma(\mathcal{C}_1) \cup \sigma(\mathcal{C}_2))$. But this set contains both $\mathcal{C}_1$ and $\mathcal{C}_2$ and is a $\sigma$-algebra, therefore $A \in \sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2)$. 
+\end{document}
