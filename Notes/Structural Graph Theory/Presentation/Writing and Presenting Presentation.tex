@@ -32,8 +32,6 @@
 \newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
 \begin{document}
 
-\frame{\titlepage}
-
 %\begin{frame}{$K_t$-minor-free graphs, $ 1 \leq t \leq 5$}
 %	\begin{itemize}
 %		\item $K_1$-minor-free graph is the empty graph
@@ -43,6 +41,18 @@
 %		\item $K_5$-minor-free graphs are almost planar graphs.
 %	\end{itemize}
 %\end{frame}
+
+\begin{frame}{Embedding graph on surfaces}
+	Euler genus of a surface is $2\times$ number of holes $+$ number of crosscaps. 
+	\pause 
+	\par
+	Genus of graph $G$ is the smallest Euler genus surface $\Sigma$ such that you can \textit{embed} $G$ on $\Sigma$. 
+	\begin{figure}[h]
+		\includesvg{Drawings/TorusGridGraph3DEmbeddings_1000.svg}
+		\caption{Torus graph (Wolfram Mathworld)}
+	\end{figure}
+\end{frame}
+
 \begin{frame}[allowframebreaks]{Book-Embedding}
 	\begin{figure}[h]
 		\begin{minipage}{0.5\textwidth}
@@ -52,7 +62,7 @@
 			\begin{block}{Books}
 				\begin{itemize}
 					\item A \textit{book} is a collection of pages glued together on a common boundary.
-					\item A \textit{book-embedding} of a graph is where the vertices are on the common boundary and the edges are planar.
+					\item A \textit{book-embedding} of a graph is where the vertices are on the common boundary and the edges do not cross.
 				\end{itemize}
 			\end{block}
 		\end{minipage}
@@ -72,8 +82,12 @@
 	\begin{itemize}
 		\item Pagenumber of $G$ is the least number of pages needed to embed $G$.
 		\item $G$ has pagenumber 1 iff $G$ is outerplanar ( all vertices on one face )
-		\item $G$ has pagenumber 2 iff $G$ is Hamiltonian planar.
+		\item $G$ has pagenumber $\leq 2$ iff $G$ is Hamiltonian planar.
 	\end{itemize}
+
+	\begin{theorem}[Heath and Istrail]
+		Graphs embedded on surfaces of bounded genus have bounded pagenumber.
+	\end{theorem}
 \end{frame}
 
 \begin{frame}{Usage of pagenumber}
@@ -81,17 +95,6 @@
 		\item Book-thickness was investigated in 1970s
 		\item Applications to chip design, knot theory, abstract algebra
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{Embedding graph on surfaces}
-	Genus of a surface is the number of holes and crosscaps. 
-	\begin{theorem}[Heath and Istrail]
-		Graphs embedded on surfaces of bounded genus have bounded pagenumber.
-	\end{theorem}
-	\begin{figure}[h]
-		\includesvg{Drawings/TorusGridGraph3DEmbeddings_1000.svg}
-		\caption{Torus graph (Wolfram Mathworld)}
-	\end{figure}
 \end{frame}
 
 \begin{frame}{Graph minors}
