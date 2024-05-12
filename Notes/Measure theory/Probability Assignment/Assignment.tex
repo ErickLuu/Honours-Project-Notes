@@ -34,5 +34,17 @@
 
 \maketitle
 \section{Question 1}
-Let $A \in \sigma(\mathcal{C}_1 \cup \mathcal{C}_2)$. Then $A$ is in the intersection of all $\sigma$-algebras that contain $C_1$ and $C_2$. However, we have that $\sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2) = \sigma(\sigma(\mathcal{C}_1) \cup \sigma(\mathcal{C}_2))$. But this set contains both $\mathcal{C}_1$ and $\mathcal{C}_2$ and is a $\sigma$-algebra, therefore $A \in \sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2)$. 
+\subsection{a}
+Let $A \in \sigma(\mathcal{C}_1 \cup \mathcal{C}_2)$. Then $A$ is in the intersection of all $\sigma$-algebras that contain $C_1$ and $C_2$. However, we have that $\sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2) = \sigma(\sigma(\mathcal{C}_1) \cup \sigma(\mathcal{C}_2))$. But this set contains both $\mathcal{C}_1$ and $\mathcal{C}_2$ and is a $\sigma$-algebra, therefore $A \in \sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2)$. So $ \sigma(\mathcal{C}_1 \cup \mathcal{C}_2) \subseteq \sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2)$.
+
+Now suppose $A \in \sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2)$. Then $A$ is in the intersection of all $\sigma$-algebras that contain $\sigma(\mathcal{C}_1)$ and $\sigma(\mathcal{C}_2)$. But we have that $\sigma(\mathcal{C}_1 \cup \mathcal{C}_2)$ is a $\sigma$-algebra that contains $\mathcal{C}_1$, so it necessarily also contains $\sigma(\mathcal{C}_1)$. By symmetry, $\sigma(\mathcal{C}_1 \cup \mathcal{C}_2)$ contains $\sigma(\mathcal{C}_2)$ as well. Therefore, $A \in \sigma(\mathcal{C}_1 \cup \mathcal{C}_2)$. Thus $\sigma(\mathcal{C}_1) \vee \sigma(\mathcal{C}_2) \subseteq \sigma(\mathcal{C}_1 \cup \mathcal{C}_2)$. 
+
+\subsection{b}
+We shall show $\mathcal{H}$ is both a $\pi$-system and a $\lambda$-system, and thus a $\sigma$-algebra. Suppose $A_1, A_2 \in \mathcal{H}$, with associated $B_1, B_2 \in \mathcal{G}$ such that $\mathbb{P}(A_i \triangle B_i) = 0$ for all $i$. 
+Then let $A = A_1 \cap A_2$. We claim that $A \in \mathcal{H}$ as $P(A \triangle (B_1 \cap B_2)) = 0$, where $B_1 \cap B_2 \in \mathcal{G}$ as $\mathcal{G}$ is a $\sigma$-algebra.
+\paragraph{$\mathcal{H}$ is a $\pi$-system:}
+We have that $A_i \triangle B_i$ is a null-set. Write $A \triangle (B_1 \cap B_2)$ as $\left(A \setminus (B_1 \cap B_2)\right) \cup \left((B_1 \cap B_2) \triangle A\right)$. Then we have that $A \setminus B_1 \cap B_2$ is a subset of $(A_1 \setminus B_1) \cup (A_2 \setminus B_2)$. Let $x \in A \setminus B_1 \cap B_2$. Then $x \in A_1 \cap A_2$. Suppose $x$ is in neither $B_1$ nor $B_2$. Then $x \in A_1 \setminus B_1$. If $x$ is in $B_1$ but not in $B_2$, then $x$ is in $A_2 \setminus B_2$. By symmetry, this means that $\left((B_1 \cap B_2) \triangle A$ is a subset of $(B_1 \setminus A_1) \cup (B_2 \setminus A_2)$. But we have that $(B_1 \setminus A_1) \cup (B_2 \setminus A_2) \cup (A_1 \setminus B_1) \cup (A_2 \setminus B_2)$ is the union of $A_1 \triangle B_1$ and $A_2 \triangle B_2$. But these are both $\mathbb{P}$-null sets, meaning that the union is a $\mathbb{P}$-null set. As $\mathbb{F}$ is a $\sigma$-algebra, then this means that all subsets of $\mathbb{P}$-null sets are null sets, meaning that $A \triangle (B_1 \cap B_2)$ is also a $\mathbb{P}$-null set. Thus $\mathcal{H}$ is a $\pi$-system.
+
+\paragraph{$\mathcal{H}$ is a $\lambda$-system}
+We have that $\emptyset$ is in $\mathcal{H}$. As we have that $\emptyset \in \mathcal{G}$ as $\mathcal{G}$ is a $\sigma$-algebra, then $\mathbb{P}(\emptyset \triangle \emptyset) = \mathbb{P}(\emptyset) = 0$. 
 \end{document}
