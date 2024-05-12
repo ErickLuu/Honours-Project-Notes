@@ -143,7 +143,7 @@ This forms a Markov chain.
 
 \subsection{Ergodicity}
 We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{ times}}$. 
-A random walk on a group $G$ driven by a probability $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast N}(g) > 0$ for all $g \in G$, so every event can be reached from $P$. 
+A random walk on a group $G$ driven by $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast n}(g) > 0$ for all $n > N$ and $g \in G$. This means that after some point in time, the probability of reaching all states is nonzero after a certain burn-in period.
 
 \subsection{Results for finite groups}
 For probability distributions on groups, we have some stronger statements. In fact, we will show that $\pi$ is uniform, and in fact the ergodicity of the walk is easier to show with a group. 
@@ -157,18 +157,21 @@ For probability distributions on groups, we have some stronger statements. In fa
 
 
 \subsection{Notion of difference between probabilities}
-We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. This obviously forms a metric of functions on groups. 
-We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. This is also referred to as the Gilbert-Shannon-Reeds probability. 
+We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. This forms a metric of functions on groups. 
+We define the total variation distance between probabilities $P$ and $Q$ on a group $G$ as $\| P - Q\|_{TV} = \sup_{A \subseteq G} |P(A) - Q(A)|$. This is also referred to as the Gilbert-Shannon-Reeds metric. \cite{diaconisGeneratingRandomPermutation1981} 
 
 \begin{lemma}
 	Let $P$ and $Q$ be probabilities on $G$, and let $B = \lbrace g \in G : P(g) \geq Q(g) \rbrace$, $C = \lbrace g \in G : Q(g) \geq P(g) \rbrace$.
 	Then $\|P - Q \|_{TV} = P(B) - Q(B) = Q(C) - P(C)$.
 \end{lemma}
-\begin{proof}[heading]
+\begin{proof}
 	We have that as $\sum_{g \in G} P(g) = \sum_{g \in G} Q(g) = 1$. 
 	
 	
-	By definition, $\|P - Q\|_{TV} \geq |P(B) - Q(B)| = P(B) - Q(B)$.
+	By definition, 
+	\begin{equation}*
+		\|P - Q\|_{TV} \geq |P(B) - Q(B)| = P(B) - Q(B).
+	\end{equation}
 	Let $A$ be a set such that $\|P - Q\|_{TV} = |P(A) - Q(A)|.$ Then $|P(A^c) - Q(A^c)| = |1 - P(A) - (1 - Q(A))| = |Q(A) - P(A)| = \|P - Q \|_{TV}$. Therefore, this is closed under complement. It is trivial to show that $P(B) - Q(B) = |Q(A) - P(A)|$. 
 \end{proof}
 Finally, we have that $\|P - Q \|_{TV}$ is a metric:
@@ -176,7 +179,6 @@ Finally, we have that $\|P - Q \|_{TV}$ is a metric:
 	\label{prop:distribution difference equality}
 	$\|P - Q\|_{TV} = \frac{1}{2} \|P - Q \|_1$. 
 \end{proposition}
-
 \begin{proof}
 	\begin{align*}
 		\|P - Q\|_{TV} &= \frac{1}{2}[P(B) - Q(B) + Q(C) - P(C)]\\
@@ -185,13 +187,12 @@ Finally, we have that $\|P - Q \|_{TV}$ is a metric:
 		&= \frac{1}{2}\|P - Q\|_1
 	\end{align*}
 \end{proof}
+Total variation is more commonly used in the literature.
 
-The total variation distance is of much interest in stochastic analysis, but for ease of clarity in this report, we will use $\|P - Q\|_1$ as the canonical measure of distance between probabilities. 
-
-We say that a sequence of probabilities $\lbrace P_n \rbrace_{n \in \mathbb{N}}$ converges to $P$ if for all $\varepsilon > 0$, there exists $N > 0$ such that $\|P_n - P \|_1 < \varepsilon$ when $n \geq N$. 
+We say that $P$ converges to $Q$ if for all $\varepsilon > 0$, there exists $N > 0$ such that $\|P^{*n}- Q \|_{TV} < \varepsilon$ when $n \geq N$. 
 
 \section{Fourier analysis on finite groups}\label{sec:Fourier Analysis}
-In this section, we will prove some important ideas about Fourier analysis and finite groups. We will mainly be using Steinberg \cite{steinbergProbabilityRandomWalks2012} for finite abelian groups, but we will be using a paper from Diaconis and Shahshahani's paper on random groups \cite{diaconisGeneratingRandomPermutation1981} for some results on all finite groups. 
+In this section, we will prove some important ideas about Fourier analysis and finite groups. We will mainly be using Steinberg \cite{steinbergProbabilityRandomWalks2012} for finite abelian groups, but we will be using a paper from Diaconis and Shahshahani's paper on random groups \cite{diaconisGeneratingRandomPermutation1981} for some results on symmetric groups. Below is an example from their paper \cite{diaconisGeneratingRandomPermutation1981}.
 
 \begin{definition}
 	If $\rho$ is a representation and $P$ is a function on $G$, then
@@ -199,9 +200,7 @@ In this section, we will prove some important ideas about Fourier analysis and f
 		\rho(P) = \sum_{g \in G} P(g) \rho(g)
 	\end{equation}
 \end{definition}
-
-This is like a Fourier transform. It converts the convolution operator into multiplication.
-
+This is almost the Fourier transform, which we will see later. Like the Fourier transform, it converts convolutions to multiplication.
 \begin{lemma}\label{lem:rep_ast}
 	If $P, Q$ are functions on $G$ and $\rho$ is a representation, then $\rho(P \ast Q) = \rho(P) \rho(Q)$.
 \end{lemma}
@@ -239,14 +238,14 @@ For class functions, we have a stronger result.
 	\end{equation}
 	Thus shown. 
 \end{proof}
-We will finish with an example by Diaconis and Shahshahani. This example involves swapping two cards in the deck with uniform probability, and is possibly the simplest shuffle on any deck. \cite{diaconisGeneratingRandomPermutation1981}
+We will finish with an example by Diaconis and Shahshahani. This example involves swapping two cards in the deck with uniform probability. There is also a probability that you do nothing. \cite{diaconisGeneratingRandomPermutation1981}
 \begin{example}\label{ex:swap two cards}
 	Let $T$ be a probability measure on $S_n$ defined as such:
 	\begin{equation}
 		T(\sigma) = \begin{cases}
-			\frac{1}{n} &, \sigma = 1\\
-			\frac{2}{n^2} &, \sigma = \text{ transposition}\\
-			0 &, \text{else}
+			\frac{1}{n} , &\sigma = 1\\
+			\frac{2}{n^2} , &\sigma = \text{ transposition}\\
+			0 , &\text{else}
 		\end{cases}
 	\end{equation}
 	Then $T$ is a class function, and from \cref{thm:class_fns}, we have that for $\rho \in S_n$:
@@ -282,16 +281,15 @@ The Fourier inverse is defined as:
 \begin{equation}
 	f(x) = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{f}(\chi) \chi(x)
 \end{equation}
-
-Note that $ZL(G) = L(G)$, but we will use the former more often than not to generalise to non-abelian groups.
+Abelian groups are nice as all irreducible characters are degree 1 characters and also representations. Also, the number of characters is the number of elements in $G$. Finally, $ZL(G) = \mathbb{C}(G)$ for abelian groups. 
 
 Furthermore, we have that if $\chi, \psi \in \widehat{G}$, then $\widehat{\chi}(\psi) = \langle \chi, \psi \rangle = |G|\delta_{\chi, \psi}$. So $\widehat{\chi} = |G| \delta_{\chi}$, where $\delta_{\chi}(\psi) = 1$ if $\psi = \chi$ and 0 else. 
 
 \begin{theorem}
 	\label{thm:abelian dual commutation}
-	Let $G$ be an abelian group, and $a, b \in ZL(G)$. Then $ \widehat{a \ast b} = \widehat{a} \widehat{b}$. 
+	Let $G$ be an abelian group, and $a, b \in \mathbb{C}(G)$. Then $ \widehat{a \ast b} = \widehat{a} \widehat{b}$. 
 \end{theorem}
-
+The proof given below is essentially the same proof from \cref{lem:rep_ast}.
 \begin{proof}
 	We have that:
 \begin{align*}
@@ -344,30 +342,32 @@ This is a special case of \cref{thm:Eigenvector operators}.
 	Let $G$ be a finite group. Define $\|f\| = \sqrt{\langle f, f \rangle}$, where $f \in \mathbb{C}(G)$. Then $\|f \|_1 \leq |G| \|f \|$.
 \end{lemma}
 \begin{proof}
-	We have that $\|f \|_1 = |G| \langle f, \chi_1 \rangle \leq |G| \|f \| \|\chi_1 \| = |G| \|f \|$, where $\|\chi_1 \| = 1$ and we use the Cauchy-Schwartz inequality. 
+	This comes from the Cauchy-Schwartz inequality. We have that \begin{equation}
+		\| f \|_1^2 = \left(\sum_{g \in G} |f(g)|\right)^2 \leq \sum_{g \in G} |f(g)|^2 = |G| \| f\|.
+	\end{equation}
 \end{proof}
-
 This result by Plancharel will be used to prove an important upper bound. 
 
 \begin{theorem}[Plancherel]
 	\label{thm:Plancherel}
 	Let $G$ be a finite group and let $a, b \in \mathbb{C}(G)$. Then $\langle a, b \rangle = \frac{1}{|G|} \langle \widehat{a}, \widehat{b} \rangle$. 
 \end{theorem}
+Recall that $\langle \widehat{a}, \widehat{b} \rangle = \frac{1}{|\widehat{G}|} \sum_{\chi \in \widehat{G}} \widehat{a}(\chi) \overline{\widehat{b}(\chi)}$. 
 \begin{proof}
-	We have that $a =\frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{a}(\chi) \chi$, and $b = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{b}(\chi) \chi$. Thus \begin{equation}
+	We have that $a =\frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{a}(\chi) \chi$, and $b = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{b}(\chi) \chi$. By the first orthogonality relation, the inner product of irreducible characters $\chi$ and $\psi$ is $1$ if $\chi = \psi$ and 0 else.
+	
+	\begin{equation}
 		\langle a, b \rangle = \left(\frac{1}{|G|}\right)^2 \langle \widehat{a}(\chi), \widehat{b}(\chi) \rangle \delta_{\chi, \chi} = \frac{1}{|G|} \langle \widehat{a}, \widehat{b} \rangle.
 	\end{equation}
 
 \end{proof}
-We have another result by Plancherel, which we lift from Serre \cite{serreExamples1977}
+We have another result by Plancherel, which we lift from Serre \cite{serreExamples1977}. This example is used to bound above the rate of convergence.
 \begin{theorem}[Plancherel]\label{lem:Plancharel formula}
 	If $P$ is a function on $G$, then
 	\begin{equation}
 		\sum_{g \in G}|P(g)|^2 = \frac{1}{|G|} \sum_{\rho \in \widehat{G}} \deg(\rho) Tr(\rho(P) \overline{\rho(P)}) 
 	\end{equation}
 \end{theorem}
-
-This is one of the most important lemmas to bound the size of a group. 
 \begin{lemma}[Diaconis–Shahshahani Upper bound lemma]
 	\label{lem:Upper bound lemma}
 	Let $G$ be a finite abelian group, and let $F$ be the set of non-trivial irreducible characters of $G$. Let $Q$ be a probability on $G$.  Then:
@@ -379,14 +379,13 @@ This is one of the most important lemmas to bound the size of a group.
 
 	and from \cref{lem:Absolute Value Inequality}, we have that:
 	\begin{equation}
-		 \| P - Q\|_1^2 \leq |G|^2 \| Q - U \|^2
+		 \| Q - U\|_1^2 \leq |G|^2 \| Q - U \|^2
 	\end{equation}
 	Then by \cref{thm:Plancherel},
 	\begin{equation}
 		|G|^2 \|Q - U \|^2 = |G| \left[ \langle \widehat{Q}, \widehat{Q} \rangle - 2 \langle \widehat{Q}, \widehat{U} \rangle + \langle \widehat{U}, \widehat{U} \rangle \right]
 	\end{equation}
-	As $\widehat{U} = \delta_{\chi_1}$, then $\widehat{U}(\chi) = \langle \chi_1, \chi \rangle$. 
-	Therefore, $\langle \chi_1, \chi_1 \rangle = \frac{1}{|G|}$, and $\langle \widehat{Q}, \widehat{U} = \widehat{Q}(\chi_1) = 1/|G|$, and
+	As $\widehat{U}$ is $1$ when we put in the trivial character and $0$ everywhere else, then $\langle \widehat{U}, \widehat{U} \rangle = \frac{1}{|G|}$. $\langle \widehat{Q}, \widehat{U} \rangle = \widehat{Q}(\chi_1) = 1/|G|$, and
 	\begin{equation}
 		\langle \widehat{Q}, \widehat{Q} \rangle =\frac{1}{|G|} + \frac{1}{|G|} \sum_{\chi \in F} \widehat{Q}(\chi) \overline{\widehat{Q}(\chi)}.
 	\end{equation}
@@ -416,7 +415,7 @@ This is also referred to as the Upper Bound Lemma in the literature.
 \begin{theorem}
 	If $P$ is a probability on a finite abelian group $G$ and $P$ is ergodic, then $P^{\ast n}$ converges to $U$.
 \end{theorem}
-It suffices to show that $|\widehat{P}(\chi)| < 1$ for all nontrivial characters $\chi$ of $G$. Assume that $P(g) > 0$ with ergodicity. Recall that $|\widehat{P}(\chi)| = |\sum_{g \in G} P(G) \overline{\chi(g)}| \leq \sum_{g \in G} P(G) |\overline{\chi(g)}| = 1$ But we have that if $|\widehat{P}(\chi)| = 1$, then $P(g) \overline{\chi(g)}$ are non-negative multiples of a common complex number. But $P(1) \geq 0$ and $\overline{\chi(1)} = 1$. Therefore, $P(1) \overline{\chi(1)} = P(1)$, but we have that there is a $\overline{\chi(g)} \neq 1$ for some $g \in G$. Thus we have that equality does not hold, so $|\widehat{P}(\chi)| < 1$. 
+It suffices to show that $|\widehat{P}(\chi)| < 1$ for all nontrivial characters $\chi$ of $G$. Assume that $P(g) > 0$ with ergodicity. Recall that $|\widehat{P}(\chi)| = |\sum_{g \in G} P(G) \overline{\chi(g)}| \leq \sum_{g \in G} P(G) |\overline{\chi(g)}| = 1$. But we have that if $|\widehat{P}(\chi)| = 1$, then $P(g) \overline{\chi(g)}$ are non-negative multiples of a common complex number. But $P(1) \geq 0$ and $\overline{\chi(1)} = 1$. Therefore, $P(1) \overline{\chi(1)} = P(1)$, but we have that there is a $\overline{\chi(g)} \neq 1$ for some $g \in G$. Thus we have that equality does not hold, so $|\widehat{P}(\chi)| < 1$. 
 
 \subsection{Discussion}
 This result means that all random ergodic walks on groups that respect the group operation converge to a uniform distribution. Note that we have for any general Markov chain, then aperiodic and irreducible walks converge to some distribution, rather than a uniform distribution. This assumption is much weaker than on any set as we do not need aperiodicity to show convergence, but we do need the walk to respect the fact that groups are transitive. We use the fact that the group is finite abelian because the characters are very well defined: they are degree 1 and we can take tensor products to make characters for every element of the group in the natural way. 
@@ -484,7 +483,7 @@ We have that every character of $\left(\mathbb{Z}_2\right)^n$ is given by a set 
 	\chi_Y(v) = (-1)^{|\alpha(v) \cap Y|}
 \end{equation}
 
-Therefore, we have that $\hat{P}(\chi_Y)$ has the elements $y \in Y$ contribute $ -1/n$ each to $\hat{P}(\chi_Y)$ and the elements not in $Y$ contribute $1/n$ to $\hat{P}(\chi_Y)$. Taking the sums, we have that the spectrum must be $\frac{1}{n}(n - 2 |Y|) = 1 - \frac{2|Y|}{n}$. As there are $\binom{n}{j}$ subsets $Y$ where $|Y| = j$,
+Therefore, we have that $\widehat{P}(\chi_Y)$ has the elements $y \in Y$ contribute $ -1/n$ each to $\widehat{P}(\chi_Y)$ and the elements not in $Y$ contribute $1/n$ to $\widehat{P}(\chi_Y)$. Taking the sums, we have that the spectrum must be $\frac{1}{n}(n - 2 |Y|) = 1 - \frac{2|Y|}{n}$. As there are $\binom{n}{j}$ subsets $Y$ where $|Y| = j$,
 from \cref{lem:Upper bound lemma} we have that:
 
 \begin{equation}
