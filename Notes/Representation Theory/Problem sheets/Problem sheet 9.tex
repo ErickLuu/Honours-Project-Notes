@@ -352,7 +352,7 @@ We have that $\rho^{(3,2)}$ of $S_5$ has basis $(3,2)$-tabloids that look like t
 		4 & 5
 	\end{ytableau}\\
 \end{align*}
-Now let us see where $\rho$ comes into play here. So $V^{(3,2)}$ has basis vectors above. We claim that the young diagrams $(5) \vDash 5$ and $(4,1) \vdash 5$ both dominate $(3,2)$, and that they are the only Young diagrams to do so. So the Specht representations $\psi^{(5)}$ and $\psi^{(4,1)}$ appears in $(3,2)$. Now let $\chi^{(3,2)}$ be the associated character of $\rho^{(3,2)}$. 
+Now let us see where $\rho$ comes into play here. So $V^{(3,2)}$ has basis vectors above. We claim that the young diagrams $(5) \vdash 5$ and $(4,1) \vdash 5$ both dominate $(3,2)$, and that they are the only Young diagrams to do so. So the Specht representations $\psi^{(5)}$ and $\psi^{(4,1)}$ appears in $(3,2)$. Now let $\chi^{(3,2)}$ be the associated character of $\rho^{(3,2)}$. 
 
 Now we have that $\chi^{(3,2)}(1) = 10$ as $V^{(3,2)} = 10$. We have that $\chi^{(3,2)}(12) = 4$ as we have that there are 4 tabloids which remain unchanged when applying $(12)$. We have that $\chi^{(3,2)}(12)(34) = 2$ as there are only two eleents in the basis that remain unchanged when they are swapped. Filling in the rest of the table, we have that:
 \begin{align*}
@@ -423,9 +423,19 @@ from part 6. Now we have that the sum must be 120, so the final character must b
 \subsubsection*{My question}
 Related to alternating groups, we wish to show that if $\lambda \vdash n$, then $\rho^\lambda(\sigma) = sgn(\sigma) \rho^{(\overline{\lambda})}(\sigma)$ where $\overline{\lambda}$ is the transpose of $\lambda$.
 Consider the linear map $\phi(\sigma) = sgn(\sigma) \sigma$ where $\phi : \mathbb{C}S_n \rightarrow \mathbb{C} S_n$. Then if $\rho : S_n \rightarrow GL(V)$, we have that $\rho \circ \phi = \rho \otimes \rho_{sgn}$ as we can pass through the sign through $\rho$ with the same result.
-Now let $R_t$ be the row stabiliser and $C_t$ be the column stabiliser. 
+Now let $R_t$ be the row stabiliser and $C_t$ be the column stabiliser. Note that taking the transpose swaps these two around, so if $r$ is a row stabiliser for $t$ then it is a column stabiliser for $\overline{t}$ and so on. 
 
-We now pick a new basis for $V^\lambda$. Let $t$ be a $\lambda$-tableau, and let $c_t = \sum_{r \in R_t}^{c \in C_t} sgn(c) r c[t]$. This vector space is $V^\lambda$ 
+We now pick a new basis for $V^\lambda$. Let $t$ be a $\lambda$-tableau, and let $c_t = \sum_{r \in R_t} \sum_{c \in C_t} sgn(c) r c[t]$. This vector space created by the span lives in $V^\lambda$ and is in fact spanned by $e_t$. 
+
+Then we consider what happens when we put $c_t$ in $\rho \circ \phi$. We have that:
+\begin{align*}
+	\phi c_t &= \sum_{r \in R_t} \sum_{c \in C_t} sgn(c) \phi(r) \phi(c) [t]\\
+	&= \sum_{r \in R_t} \sum_{c \in C_t} sgn(c) sgn(c) sgn(r) r c [t]\\
+	&= \sum_{r \in R_t} \sum_{c \in C_t} sgn(r) r c [t]\\
+	&= \sum_{r \in C_{\overline{t}}} \sum_{c \in R_{\overline{t}}} sgn(r) r c [t]\\
+	&= c_{\overline{t}}
+\end{align*}
+Therefore, $\rho \otimes \rho_{sgn}$ acts on $V^{\overline{\lambda}}$, and as $C_{\overline{t}}$ is a basis then we have the desired result above. 
 
 \subsection*{6.5}
 \subsubsection*{a}

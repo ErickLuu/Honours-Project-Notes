@@ -341,7 +341,14 @@ We have a simpler proof if the tree is a path. We go from one end of the path to
 \end{theorem}
 We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages \cite{yannakakisPlanarGraphsThat2020} \cite{kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber. 
 
+\subsection{Graphs embedded on a surface of bounded genus}\label{ssec:pagenumber_bounded_genus}
+\begin{theorem}[Heath and Istrail\cite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
+	Let $g$ be the genus of a graph $G$. We have that for all graphs $G$, $\pn(G) \leq O(g)$ for some $g$.
+\end{theorem}
+Note that this bound extends the one found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus. 
+The best known bound is $O(\sqrt{g})$, found by Malitz\cite{malitzGenusGraphsHave1994}.
+
 \section{Conclusion}\label{chap:conclusion}
-We conclude this report by explaining the current literature involving $K_t$-minor free graphs with bounded pagenumber. We define $K_t$-minor free graphs, and what it means for a graph to have bounded pagenumber. We also discuss one of the most important theorems for characterising graphs with $K_t$-minor free graphs and some important results that will be useful in proving that $K_t$-minor free graphs have bounded pagenumber. We believe that with the current literature on the topic of both $K_t$-minor free graphs and graphs of bounded pagenumber, we will have a result. We do not  
+We conclude this report by explaining the current literature involving $K_t$-minor free graphs with bounded pagenumber. We define $K_t$-minor free graphs, and what it means for a graph to have bounded pagenumber. We also discuss one of the most important theorems for characterising graphs with $K_t$-minor free graphs and some important results that will be useful in proving that $K_t$-minor free graphs have bounded pagenumber. We believe that with the current literature on the topic of both $K_t$-minor free graphs and graphs of bounded pagenumber, we will have a result. 
 \printbibliography
 \end{document}

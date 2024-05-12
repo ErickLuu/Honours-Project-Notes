@@ -69,21 +69,6 @@ We will outline the report as such.
 \end{enumerate}
 Much of the literature is focused on building bounds of the rate of convergence of some shuffles. There is a lot of representation theory but much of the work of establishing bounds is combinatorial in nature. We do not focus on the combinatorial aspects as much in the report, though we do have a short discussion on using combinatorics in the examples page. 
 \section{Random walks}\label{sec:random walks}
-We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{times}}$. 
-The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
-
-This forms a Markov chain. 
-
-\begin{example}
-	Examples of random walks on graphs
-	\begin{itemize}
-		\item Let $G$ be a group and $R$ be the generators and their inverses. Let $\Gamma$ be the Cayley graph of $G$. The simple random walk is to choose a random element $s \in R$ with uniform distribution and move to the vertex $gs$. By construction, the vertices adjacent to $\Gamma$ on $g$ are $gs$ with $s \in R$.
-		\item Let $G = \mathbb{Z}_n$. Let us walk  $p, q \geq 0$, $p + q = 1$. Suppose we have that $P[X = 1] = p$, $P[x = -1] = q$ Then we go one step clockwise with probability $p$ and one step back with probability $q$. Then the probability distribution is $p \delta_1 + q \delta_{-1}$. 
-	\end{itemize}
-\end{example}
-
-\subsection{Ergodicity}
-A random walk on a group $G$ driven by a probability $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast N}(g) > 0$ for all $g \in G$, so every event can be reached from $P$. 
 
 \subsection{Random walks}
 We define a Markov chain on a set $\mathcal{X}$ in the following manner. We have a fixed probability distribution at each fixed point in $x$, so $P_x : \mathcal{X} \rightarrow [0, 1]$ is a probability distribution. 
@@ -143,6 +128,23 @@ So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
 \end{proof}
 Thus this is a probability distribution. Obviously, the support is of the form $\left\{ xy : x \in \supp(P), y \in \supp(Q) \right\}$. 
 
+The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
+
+This forms a Markov chain. 
+
+\begin{example}
+	Examples of random walks
+	\begin{itemize}
+		\item Let $G$ be a group and $R$ be the generators and their inverses. Let $\Gamma$ be the Cayley graph of $G$. The simple random walk is to choose a random element $s \in R$ with uniform distribution and move to the vertex $gs$. By construction, the vertices adjacent to $\Gamma$ on $g$ are $gs$ with $s \in R$.
+		\item Let $G = \mathbb{Z}_n$. Let us walk  $p, q \geq 0$, $p + q = 1$. Suppose we have that $P[X = 1] = p$, $P[x = -1] = q$ Then we go one step clockwise with probability $p$ and one step back with probability $q$. Then the probability distribution is $p \delta_1 + q \delta_{-1}$. 
+	\end{itemize}
+\end{example}
+
+
+\subsection{Ergodicity}
+We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{ times}}$. 
+A random walk on a group $G$ driven by a probability $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast N}(g) > 0$ for all $g \in G$, so every event can be reached from $P$. 
+
 \subsection{Results for finite groups}
 For probability distributions on groups, we have some stronger statements. In fact, we will show that $\pi$ is uniform, and in fact the ergodicity of the walk is easier to show with a group. 
 \begin{proposition}
@@ -152,6 +154,7 @@ For probability distributions on groups, we have some stronger statements. In fa
 \begin{proof}
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
+
 
 \subsection{Notion of difference between probabilities}
 We want to quantify how far a distribution is away from being uniform. We define the $L^1$ norm as $\|f\|_1 = \sum_{g \in G} |f(g)|$ for $f : G \rightarrow \mathbb{C}$. This obviously forms a metric of functions on groups. 
@@ -273,8 +276,6 @@ We have the general definition of Fourier transform. Let $f \in \mathbb{C}G$. Th
 \begin{equation}
 	\widehat{f}(\chi) = |G| \langle f, \chi \rangle = \sum_{g \in G} f(g) \overline{\chi(g)}
 \end{equation}
-
-We have that for finite abelian groups, $\widehat{f}(\chi) = \overline{\chi}(f)$. 
 
 The Fourier inverse is defined as:
 
@@ -399,7 +400,7 @@ As a corollary, we can show that we can have an upper bound of the total variati
 \begin{corollary}
 	Let $G$ be a finite abelian group, and let $F$ be the set of non-trivial irreducible characters of $G$. Let $Q$ be a probability on $G$.  Then:
 \begin{equation}
-	\|Q - U\|^2_{TV} \leq \\frac{1}{4}\sum_{\chi \in F} |\widehat{Q}(\chi)|^2.
+	\|Q - U\|^2_{TV} \leq \frac{1}{4}\sum_{\chi \in F} |\widehat{Q}(\chi)|^2.
 \end{equation}
 \end{corollary}
 This is also referred to as the Upper Bound Lemma in the literature.
