@@ -274,6 +274,39 @@ Have that $\lambda = 2 + 2$.
 \subsection*{Question 1}
 
 \subsubsection*{a}
+We have that $S_3(\mathbb{C})$ is the set of $3 \times 3$ matrices with nonzero determinant. 
+Then we have that $\mathfrak{sl}_n(\mathbb{C})$ is the tangent space around $I$, or the matrices 
+\begin{equation}
+	A = 
+\begin{bmatrix}
+	a & b & c\\
+	d & e & f\\
+	g & h & i\\
+\end{bmatrix}
+\end{equation}
+ that satisfy:
+\begin{equation}
+	\det \left(I + \varepsilon A\right) \approx 1.
+\end{equation}
+
+Then this implies that:
+\begin{equation}
+	\det
+	\left(
+	\begin{bmatrix}
+		1 + \varepsilon a & \varepsilon b & \varepsilon c \\
+		\varepsilon d & 1 + \varepsilon e & \varepsilon f \\
+		\varepsilon g & \varepsilon h     & 1 + \varepsilon i\\
+	\end{bmatrix}
+	\right)
+	= 1
+\end{equation}
+Expanding this out, we have:
+\begin{equation}
+	1 + (a + e + i)\varepsilon + O(\varepsilon^2) = 1
+\end{equation}
+so $a + e + i = 0$. So the tangent space are $3 \times 3$ matrices whose trace is 0.
+
 We have that $SL_n(\mathbb{C})$ is the group of $n \times n$ matrices with nonzero determinant. 
 
 Then we have that $\mathfrak{sl}_n(\mathbb{C})$ is the tangent space around $I$, or the matrices $A$ that satisfy:
@@ -333,15 +366,26 @@ Expanding this out, we have that:
 	1 + \varepsilon 2d + \varepsilon^2 (b^2 + d^2) &= 1
 \end{align*}
 meaning that $a = d = 0$ and $b = -c$. 
+So $\mathfrak{so}_2(\mathbb{C})$ is the set of $2 \times 2$ skew-symmetric matrices. 
 
-The Lie algebra is called $\mathfrak{so}_n(\mathbb{C})$ 
+Now let $\mathfrak{so}_n(\mathbb{C})$ on $O(n)\mathbb{C}$. Let $A$ be a matrix in $\mathfrak{so}_n(\mathbb{C})$.
+\begin{align*}
+	(I + \varepsilon A)(I + \varepsilon A)^T &= I\\
+	(I + \varepsilon A)(I + \varepsilon A^T) &= I\\
+	I + \varepsilon A^T + \varepsilon A + \varepsilon^2 A A^T &= I\\
+	\varepsilon (A + A^T) + O(\varepsilon^2) &= 0
+\end{align*}
+So this implies that $A = - A^T$, or that $A$ is skew-symmetric. However, we have that $O(n)$ has two connected components topologically, and in fact $SO(n)$ is the component that $I$ lives in. So we call it $\mathfrak{so}_n$ because we only deal with the connected component that $I$ lives in. 
+
+
+
 \subsection*{Question 2}
-A reducible representation of a Lie algebra is a representation which can be divided into $\rho_1 \oplus \rho_2$ ... 
+An irreducible representation of a Lie algebra $\mathfrak{gl}(V)$ is one where the only invariant subspace is $\left\{ 0 \right\}$ or $V$. Consider the representation $\mathfrak{sl}_2(\mathbb{C}) \rightarrow \mathfrak{sl}(V_d)$. Now consider the eigenvectors of $E, F, H$. We have that every basis vector is an eigenvector of $H$ but with different eigenvalues, so we cannot take summations to produce a different eigenspace of $H$. But note that $E$ and $F$ have one different eigenvector each, but they send that one to the zero vector. Therefore the invariant subspace of $\mathfrak{sl}_2(\mathbb{C})$ must be either $0$ or $V_d$ itself. Thus $\mathfrak{sl}(V_d)$ is irreducible. 
 \subsection*{Question 3}
 Let $e_0 = x^d, e_1 = x^{d - 1} y , ... , e_d = y^d$. Then let $E$ be the $d + 1 \times d + 1$ matrix indexed at 0. We have that $E(e_i) = i e_{i - 1}$. Then $F(e_i) = (d - i) e_{i + 1}$. Finally, we have that $H(e_i) = (d - 2i) e_i$. 
 
 Then we have that $E_{i, i - 1} = i$, $F_{i, i + 1} = d - i$ and $H_{i, i} = d - 2i$, and zeroes everywhere else. 
 
 \subsection*{Question 4}
-Consider $\phi: \mathfrak{sl}_2(\mathbb{C}) \rightarrow \mathfrak{gl}(V)$, and consider the eigenvectors of $\phi(h)$ for any $h \in \mathfrak{sl}_2(\mathbb{C})$. 
+Consider $\phi: \mathfrak{sl}_2(\mathbb{C}) \rightarrow \mathfrak{gl}(V)$, and consider the eigenvectors of $\phi(H)$. We have that $\phi(H) = x \dfrac{d}{dx} - y \dfrac{d}{dy}$ on $V$. Now we look at the eigenvectors of $H$. Now we have that if we can decompose $H$ to $m_0 V_0 \oplus m_1 V_1 \oplus m_2 V_2 \oplus ... $, then the eigenvectors that come out must be the basis vectors of $V_i$ for some $V_i$. In fact, all eigenvectors of $V_i$ of the form $x^{i - j} y^{j}$ have eigenvector $m_i \times (i - 2j)$ for some constant $m_i$. Then $V$ will have $m_i V_i$ in its decomposition. This is how we can decompose $\mathfrak{gl}(V)$. 
 \end{document}
