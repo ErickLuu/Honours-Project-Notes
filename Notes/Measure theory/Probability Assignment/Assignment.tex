@@ -49,4 +49,8 @@ We have that $A_i \triangle B_i$ is a null-set. Write $A \triangle (B_1 \cap B_2
 We have that $\emptyset$ is in $\mathcal{H}$. As we have that $\emptyset \in \mathcal{G}$ as $\mathcal{G}$ is a $\sigma$-algebra, then $\mathbb{P}(\emptyset \triangle \emptyset) = \mathbb{P}(\emptyset) = 0$. If $A \in \mathcal{H}$, then $\Omega \setminus A$ is also in $\mathcal{H}$. Suppose $B \in \mathcal{G}$ such that $\mathbb{P}(A \triangle B) = 0$. Then $B^c \in \mathcal{G}$ as $\mathcal{G}$ is a $\sigma$-algebra. But we have that $A \triangle B = A^c \triangle B^c$. Therefore, $\mathbb{P}(A^c \triangle B^c) = \mathbb{P}(A \triangle B) = 0$. Thus $A^c \in \mathcal{H}$. Finally, let $(A_n)_n$ be a sequence of pairwise disjoint sets in $\mathcal{H}$. Suppose further there is a sequence of sets $(B_n)_n$ in $\mathcal{G}$ such that $\mathbb{P}(A_n \cap B_n) = 0$. Then let $A = \bigcup_{n = 1}^\infty A_n$, and let $B = \bigcup_{n = 1}^\infty B_n$. We claim that $\mathbb{P}(A \triangle B) = 0$. We have that $(A \triangle B)$ is contained in $\bigcup_{n = 1}^\infty A_i \triangle B_i$ as all of the $A_i$ are pairwise disjoint. Now we have that $\mathbb{P}(A \triangle B) \leq \mathbb{P}(\bigcup_{n = 1}^\infty A_i \triangle B_i) \leq \sum_{n = 1}^{\infty}\mathbb{P}(A_i \triangle B_i) = 0$. As $B \in \mathcal{G}$, then $A \in \mathcal{H}$. Thus $\mathcal{H}$ is a $\lambda$-system.
 \paragraph{Conclusion}
 As $\mathcal{H}$ is a $\pi$ and $\lambda$-system, $\mathcal{H}$ is also a $\sigma$-algebra. 
+
+\subsection{c}
+We have that $\sigma(\mathcal{G}) = \mathcal{G}$. 
+Let $x \in \sigma(\mathcal{G} \cup \mathcal{N})$. Then this means that $x$ is in all $\sigma$-algebras containing $\mathcal{G}$ and $\sigma(\mathcal{N})$.
 \end{document}
