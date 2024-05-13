@@ -658,7 +658,8 @@ We shall prove this auxillary lemma for each $l$.
 	
 	Now for all $i$, place $b^{-1}(i)$ immediately clockwise from $x_i$. We claim that this is a book-embedding. 
 	
-	Suppose edges $uv$ and $xy$ are assigned the same colour, $u < v$, $u \leq x$ and $x \leq y$. Suppose $h(v) = i$. Then we have that 
+	Suppose edges $uv$ and $xy$ are assigned the same colour, $u < v$, $u \leq x$ and $x \leq y$. Suppose $h(v) = i$. Then we can draw a line such that $B_i, B_1$ and $x_1$ is on one side and $B_{i + 1}, B_{i + 2}, ..., B_k$ from the fact that $x_1$ form a planar partition of the graph $G$. This is possible from the Jordan curve theorem and the fact that the line that goes through $x_1 ... x_k$ is planar. Then this implies that $uv$ and $xy$ do not cross. 
+	If $u = x$, then we can follow the path $P$ from $x_1$ to $x_k$ to reach $u$ with no crossings. \todo{Draw picture!}
 \end{proof}
 
 
