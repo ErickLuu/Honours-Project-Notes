@@ -268,7 +268,58 @@ So $S_4$ character table is:
 \end{table}
 
 \subsection*{b}
-Have that $\lambda = 2 + 2$. 
+Consider $\lambda = (4)$ and $\mu = (4)$.
+We have that:
+
+\begin{align*}
+	\chi^{(4)}_{(4)} &= [x_1^{4}] 1 \times (x_1^4) = 1\\
+	\chi^{(4)}_{(3,1)} &= [x_1^{4}] 1 \times (x_1^3 + x_2^3)(x_1^1 + x_2^1) = 1
+\end{align*}
+For all $\lambda = (4)$, then this will be 1.
+
+Let $\lambda = (3,1)$. We have that:
+\begin{align*}
+	\chi^{(3,1)}_{(4)} &= [x_1^4 x_2^1] (x_1 - x_2) (x_1^4 + x_2^4) = -1\\
+	\chi^{(3,1)}_{(3,1)}&= [x_1^4 x_2^1] (x_1 - x_2) (x_1^3 + x_2^3)(x_1^1 + x_2^1) = 0\\
+	\chi^{(3,1)}_{(2,1,1)}&= [x_1^4 x_2^1] (x_1 - x_2) (x_1^2 + x_2 ^2)(x_1 + x_2) (x_1 + x_2 ) = 1\\
+	\chi^{(3,1)}_{(2,2)}&= [x_1^4 x_2^1] (x_1 - x_2) (x_1^2 + x_2 ^2)(x_1^2 + x_2^2 )  = -1\\
+	\chi^{(3,1)}_{(1,1,1,1)}&= [x_1^4 x_2^1] (x_1 - x_2) (x_1 + x_2)^4 = 3
+\end{align*}
+
+Let $\lambda = (2,1,1)$. We have that:
+\begin{align*}
+	\chi^{(2,1,1)}_{(4)} &= [x_1^4 x_2^2 x_3^1](x_1 - x_2)(x_2 - x_3)(x_1 - x_3) (x_1^4 + x_2^4 + x_3^4) = 1
+	\\
+	\chi^{(2,1,1)}_{(3,1)} &= [x_1^4 x_2^2 x_3^1](x_1 - x_2)(x_2 - x_3)(x_1 - x_3) (x_1^3 + x_2^3 + x_3^3)(x_1^1 + x_2^1 + x_3^1) = 0\\
+	\chi^{(2,1,1)}_{(2,1,1)} &= [x_1^4 x_2^2 x_3^1](x_1 - x_2)(x_2 - x_3)(x_1 - x_3) (x_1^2 + x_2^2 + x_3^2)(x_1 + x_2 + x_3)^2 = -1\\
+	\chi^{(2,1,1)}_{(2,1,1)} &= [x_1^4 x_2^2 x_3^1](x_1 - x_2)(x_2 - x_3)(x_1 - x_3) (x_1^2 + x_2^2 + x_3^2)^2 = -1\\
+	\chi^{(2,1,1)}_{(1,1,1,1)} &= [x_1^4 x_2^2 x_3^1](x_1 - x_2)(x_2 - x_3)(x_1 - x_3) (x_1 + x_2 + x_3)^4 = 3
+\end{align*}
+
+Let $\lambda = (2,2)$. We have that:
+\begin{align*}
+	\chi^{(2,2)}_{(4)} = [x_1^3 x_2^2]( x_1 - x_2) (x_1^4 + x_2^4) = 0\\
+	\chi^{(2,2)}_{(3,1)} = [x_1^3 x_2^2]( x_1 - x_2) (x_1^3 + x_2^3)(x_1 + x_2) = -1\\
+	\chi^{(2,2)}_{(2,1,1)} = [x_1^3 x_2^2]( x_1 - x_2) (x_1^2 + x_2^2)(x_1 + x_2)^2 = 0\\
+	\chi^{(2,2)}_{(2,2)} = [x_1^3 x_2^2]( x_1 - x_2) (x_1^2 + x_2^2)^2 = 2\\
+	\chi^{(2,2)}_{(1,1,1,1)} = [x_1^3 x_2^2]( x_1 - x_2) (x_1 + x_2)^4 = 2\\
+\end{align*}
+
+For $\lambda = (1,1,1,1)$, this is trivial. 
+Therefore, we have the character table above is:
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|}
+		\hline
+		$S_4$    & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ \\ \hline
+		$\chi_1$ & 1     & 1      & 1       & 1          & 1        \\ \hline
+		$\chi_2$ & 1     & -1     & 1       & 1          & -1       \\ \hline
+		$\chi_3$ & 3     & 1      & 0       & -1         & -1       \\ \hline
+		$\chi_4$ & 2     & 0      & -1      & 2          & 0        \\ \hline
+		$\chi_5$ & 3     & -1     & 0       & -1         & 1        \\ \hline
+	\end{tabular}
+\end{table}
+
 
 \section*{Chapter 7}
 \subsection*{Question 1}

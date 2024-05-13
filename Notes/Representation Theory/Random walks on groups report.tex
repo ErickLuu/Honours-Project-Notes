@@ -487,25 +487,25 @@ Therefore, we have that $\widehat{P}(\chi_Y)$ has the elements $y \in Y$ contrib
 from \cref{lem:Upper bound lemma} we have that:
 
 \begin{equation}
-	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{4} \sum_{j = 1}^{n}\binom{n}{j} \left[1 - \frac{2j}{n+1}\right]^{2k}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{4} \sum_{j = 1}^{n}\binom{n}{j} \left[1 - \frac{2j}{n}\right]^{2k}
 \end{equation}
 
-Now we use the fact for when $j > \left\lfloor \frac{n + 1}{2} \right\rfloor$, we have the exact same numbers, so we exploit this symmetry and only calculate the left half of the summation to yield:
+Now we use the fact for when $j > \left\lfloor \frac{n}{2} \right\rfloor$, we have the exact same numbers, so we exploit this symmetry and only calculate the left half of the summation to yield:
 
 \begin{equation}
-	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n + 1}{2} \right\rfloor}\binom{n}{j} \left[1 - \frac{2j}{n+1}\right]^{2k}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n}{2} \right\rfloor}\binom{n}{j} \left[1 - \frac{2j}{n}\right]^{2k}
 \end{equation}
-Now we have that $\binom{n}{j} \leq \frac{n^j}{j!}$ trivially and that for large $n$ and large $k$, we have that $\left[1 - \frac{2j}{n+1}\right]^{2k} = e^{2k \log \left(1 - \frac{2j}{n+1}\right)}$. Now we use the fact that $\log(1 - x) < - x $ for $|x| < 1$, to get that $e^{2k \log \left(1 - \frac{2j}{n+1}\right)} < e^{2k(- \frac{2j}{n+1})} = e^{-\frac{4jk}{n+1}}$ asymptotically. 
+Now we have that $\binom{n}{j} \leq \frac{n^j}{j!}$ trivially and that $\left[1 - \frac{2j}{n}\right]^{2k} = e^{2k \log \left(1 - \frac{2j}{n}\right)}$. Now we use the fact that $\log(1 - x) < - x $ for $|x| < 1$, to get that $e^{2k \log \left(1 - \frac{2j}{n}\right)} < e^{2k(- \frac{2j}{n})} = e^{-\frac{4jk}{n}}$ asymptotically. 
 Therefore, 
 \begin{equation}
-	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n + 1}{2} \right\rfloor}\frac{n^j}{j!} e^{-\frac{4jk}{n+1}}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n}{2} \right\rfloor}\frac{n^j}{j!} e^{-\frac{4jk}{n}}
 \end{equation}
 
-If we let $k \geq (n + 1)(\log n + c)/4$, then we have that $e^{-\frac{4jk}{n+1}} \leq e^{j \log (n - jc)}= e^{- j c}/ n^j$.
+If we let $k \geq (n)(\log n + c)/4$, then we have that $e^{-\frac{4jk}{n}} \leq e^{j \log (n - jc)}= e^{- j c}/ n^j$.
 
 Plugging this into the equation. we get that:
 \begin{align*}
-	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n + 1}{2} \right\rfloor}\frac{1}{j!}e^{-jc}\\
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n}{2} \right\rfloor}\frac{1}{j!}e^{-jc}\\
 	&\leq \frac{1}{2}\sum_{j = 1}^{\infty}\frac{1}{j!}\left(e^{-c}\right)^j\\
 	&\leq \frac{1}{2}\left(e^{e^{-c}} - 1\right)
 \end{align*}
