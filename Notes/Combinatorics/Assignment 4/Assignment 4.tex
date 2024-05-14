@@ -47,7 +47,48 @@ Substituting this into the equation, we have that:
 \end{align*}
 
 \section{2}
+We have that $w \log (w + 1) = n$. 
+From bounds, we have that when $w = 0$, the left hand side is $0$. When $w = n$, we have that the left hand side is $n \log(n + 1) > n$. Therefore as the function is increasing, $0 < w < n$. 
 
+Rearrange so that we have that $w = \frac{n}{\log(w + 1)}$. Now suppose $w = \alpha n$ for some $\alpha$ in $O(1)$. Then we have that:
+\begin{align*}
+	w &= \frac{n}{\log(\alpha n + 1)}\\
+	&= \frac{n}{\log(\alpha n) (1 + \frac{1}{\alpha n})}\\
+	&=\frac{n}{\log(\alpha) + \log(n) - \log(1 + \frac{1}{\alpha n})}
+\end{align*}
+We use the fact that $\log(1 + x) = O(x)$ when $x = o(1)$, so we have that:
+
+\begin{align*}
+	w &=\frac{n}{\log(\alpha) + \log(n) - \log(1 + \frac{1}{\alpha n})}\\
+	&= \frac{n}{
+		\log(\alpha) + \log(n) - O(\frac{1}{n})
+		}\\
+	&= \frac{\frac{n}{\log n}}{
+	1 + \log(\alpha)/\log(n) - O(\frac{1}{n \log n})
+	}
+\end{align*}
+Recall that $\frac{1}{1 + x} = 1 + O(x)$ when $x = o(1)$. Then we have that:
+\begin{align*}
+	w &= \frac{n}{\log n} ( 1 + O(\frac{1}{\log n}) + O(\frac{1}{n \log n}))\\
+	&= \frac{n}{\log n} + O(\frac{n}{\log^2 n})
+\end{align*}
+
+Now we boostrap again.
+\begin{align*}
+	w = \frac{n}{
+	\log(
+	\frac{n}{\log n}( 1 + O(\frac{1}{\log n}))
+	+ 1
+	)
+	}
+	\\
+	&=
+	\frac{n}{
+	\log(\frac{n}{\log n}
+	(1 + \frac{\log n}{n} + O(\frac{1}{\log n}))
+	)
+	}
+\end{align*}
 
 \section{3}
 \subsection{a}
