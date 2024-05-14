@@ -73,9 +73,9 @@ Recall that $\frac{1}{1 + x} = 1 + O(x)$ when $x = o(1)$. Then we have that:
 	&= \frac{n}{\log n} + O(\frac{n}{\log^2 n})
 \end{align*}
 
-Now we boostrap again.
+Now we bootstrap again.
 \begin{align*}
-	w = \frac{n}{
+	w &= \frac{n}{
 	\log(
 	\frac{n}{\log n}( 1 + O(\frac{1}{\log n}))
 	+ 1
@@ -87,8 +87,13 @@ Now we boostrap again.
 	\log(\frac{n}{\log n}
 	(1 + \frac{\log n}{n} + O(\frac{1}{\log n}))
 	)
+	}\\
+	&=
+	\frac{n}{
+	\log(n) - \log \log n + \log(1 + \frac{\log n}{n} + O(\frac{1}{\log n}))
 	}
 \end{align*}
+We have that $\log(1 + \frac{\log n}{n} + O(\frac{1}{\log n}) = O(\frac{\log n}{n}) + O(\frac{1}{\log n})$.
 
 \section{3}
 \subsection{a}
