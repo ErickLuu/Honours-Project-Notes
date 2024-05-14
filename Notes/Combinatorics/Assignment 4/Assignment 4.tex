@@ -9,7 +9,7 @@
 \newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
 \newcommand{\egf}{\overset{\text{egf}}{\leftrightarrow}}
 %opening
-\title{Assignment 3}
+\title{Assignment 4}
 \author{Eric Luu}
 
 \begin{document}
@@ -46,6 +46,8 @@ Substituting this into the equation, we have that:
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{1}{e^k 2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
 \end{align*}
 
+Now suppose $M = 
+
 \section{2}
 We have that $w \log (w + 1) = n$. 
 From bounds, we have that when $w = 0$, the left hand side is $0$. When $w = n$, we have that the left hand side is $n \log(n + 1) > n$. Therefore as the function is increasing, $0 < w < n$. 
@@ -73,6 +75,40 @@ Recall that $\frac{1}{1 + x} = 1 + O(x)$ when $x = o(1)$. Then we have that:
 	&= \frac{n}{\log n} + O(\frac{n}{\log^2 n})
 \end{align*}
 
+Now we bootstrap again.
+\begin{align*}
+	w &= \frac{n}{
+	\log(
+	\frac{n}{\log n}( 1 + O(\frac{1}{\log n}))
+	+ 1
+	)
+	}
+	\\
+	&=
+	\frac{n}{
+	\log(\frac{n}{\log n}
+	(1 + \frac{\log n}{n} + O(\frac{1}{\log n}))
+	)
+	}\\
+	&=
+	\frac{n}{
+	\log(n) - \log \log n + \log(1 + \frac{\log n}{n} + O(\frac{1}{\log n}))
+	}
+\end{align*}
+We have that $\log(1 + \frac{\log n}{n} + O(\frac{1}{\log n})) = O(\frac{\log n}{n}) + O(\frac{1}{\log n})$.
+So we have that:
+\begin{align*}
+		w &=
+	\frac{n}{
+		\log(n) - \log \log n + O(\frac{\log n}{n}) + O(\frac{1}{\log n})
+	}\\
+	&=
+	\frac{n/\log n}{
+	1 - \frac{\log \log n}{\log n} + O(\frac{1}{n}) + O(\frac{1}{\log^2 n})
+	}\\
+	&=
+	\frac{n}{\log n}( 1 + O(\frac{\log \log n}{\log n}) + O(\frac{1}{n}) + O(\frac{1}{\log^2 n}))
+\end{align*}
 \section{3}
 \subsection{a}
 We have the equation:
@@ -113,4 +149,6 @@ as we have that $\log^2(n) = o(\sqrt{n})$. Finally, we have that:
 	z = \sqrt{2n} \log n ( 1 + O(\frac{1}{\sqrt{n}})) = \sqrt{2n} \log n (1 + o(1)).
 \end{equation}
 So $z \sim \sqrt{2n} \log n$.
+
+
 \end{document}
