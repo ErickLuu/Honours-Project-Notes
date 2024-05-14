@@ -674,6 +674,27 @@ Consider the family of $1$-planar graphs $\mathcal{F}$. $G$ is $1$-planar if the
 \end{lemma}
 $\mathcal{F}$ contains graphs $K'_t$ such that $K_t$ is a minor of $K'_t$. Consider $K_t$ drawn on the plane with straight edges. For each edge, subdivide it such that the edge crosses over once. Then $K_t$ is a minor of this graph as we can unsubdivide.
 
+Note that every $1$-planar graph is almost planar! We can construct every 1-planar graph from a 2-connected planar graph (with faces of size 3 or 4) and adding 2 crossing edges to each face of size 4.
 \subsection{Shallow minors}
+We say that $H$ is an $r$-shallow minor if $H$ is isomorphic to a graph obtained from $G$ by contracting disjoint subgraphs of radius $\leq r$, deleting vertices or edges. Another wy to state this is that $H$ is a model of $G$ where each preimage of the model has radius $\leq r$. 
 
+We say $\nabla_r(G) :=$ the maximum average degree of an $r$-shallow minor of $G$. 
+We define $\nabla(G)$ to be the maximum average degree of any minor of $G$. 
+
+\begin{theorem}
+	Let $\mathcal{G}$ be a class such that there exists a $c$ such that for all $G \in \mathcal{G}$, for all $r \in \mathbb{N}$, $\nabla_r(G) \leq c$. Then $\mathcal{G}$ is contained in a proper minor-closed class. 
+\end{theorem}
+This is because there exists a $t = c + 2$ such that for all $g \in \mathcal{G}$, $G$ is $K_t$-minor free. 
+Then $\nabla_r(G) \leq c$, as $\nabla(G) \leq c$. 
+Thus $\mathcal{G}$ is inside a proper minor-closed class. 
+
+\subsection{Linear expansion}
+We say a graph family $\mathcal{F}$ has linear expansion if $\nabla_r(G) \leq cr$ for all $G \in \mathcal{F}$ and for all $r$. 
+
+Alternatively, $\nabla_r(G) = O(r)$. 
+This set of families include all those contained in proper minor-closed classes, from the lemma above. 
+
+We claim that 1-planar graphs have $\nabla_r(G) \leq cr$. 
+
+\subsection{Proof of linear expansion of 1-planar graphs}
 \end{document}
