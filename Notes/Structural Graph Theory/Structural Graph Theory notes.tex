@@ -662,5 +662,18 @@ We shall prove this auxillary lemma for each $l$.
 	If $u = x$, then we can follow the path $P$ from $x_1$ to $x_k$ to reach $u$ with no crossings. (Draw picture!)
 \end{proof}
 
+\section{A bird-eye's view}
+Consider the world of graph families that are not minor-closed. This is a much stranger world than the ones that we deal with, though we do understand it rather well.
+
+The most interesting graph families are graphs where the number of edges is sparse in some way. We will define the notion of sparsity further. 
+
+\subsection{1-planar graphs} 
+Consider the family of $1$-planar graphs $\mathcal{F}$. $G$ is $1$-planar if there exists an embedding such that each edge of $G$ has at most one crossing. 
+\begin{lemma}
+	$\mathcal{F}$ is not minor closed.
+\end{lemma}
+$\mathcal{F}$ contains graphs $K'_t$ such that $K_t$ is a minor of $K'_t$. Consider $K_t$ drawn on the plane with straight edges. For each edge, subdivide it such that the edge crosses over once. Then $K_t$ is a minor of this graph as we can unsubdivide.
+
+\subsection{Shallow minors}
 
 \end{document}
