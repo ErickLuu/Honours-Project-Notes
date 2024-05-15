@@ -713,9 +713,36 @@ Let $G$ be a graph with layering $(L_k)_k$ and book-embedding $(B_x)_x$ such tha
 By removing $q$ and repeating this operation, we can iterate through the entire graph. Therefore, the number of edges is at most $3n \ltw(G)$. But this implies that $2m/n = 6 \ltw(G)$, so the average degree is $ \leq 6 \ltw(G)$. 
 
 \begin{corollary}
-	$\nabla_r(G) \leq 12 r \ltw(G)$.
+	For all $G$, $\nabla_r(G) \leq 12 r \ltw(G)$.
 \end{corollary}
-Let $H$ be an $r$-shallow minor o $G$. We have that the average degree of $H$ is $\leq 6 \ltw(H)$, and $\ltw(H)$ is $\leq 2r \ltw(G)$. Therefore, $\nabla_r(G) \leq 12r \ltw(G)$.
+Let $H$ be an $r$-shallow minor of $G$. We have that the average degree of $H$ is $\leq 6 \ltw(H)$, and $\ltw(H)$ is $\leq 2r \ltw(G)$. Therefore, $\nabla_r(G) \leq 12r \ltw(G)$.
 
+Recall that if $G$ is planar, then $\ltw(G) \leq 3$. We claim that if $G$ is $1$-planar, then $\ltw(G)$ is at most 24.
 
+\begin{proof}
+	Place a vertex at every crossing of $G$ where $G$ crosses once to form the planar graph $G'$. Then $G'$ has layering $(L_i)_i$ and book-embedding $(B_x)_x$ with $\ltw(G) \leq 3$. Then we replace each crossing vertex with the four vertices on either endpoints of $G$ in the book-embedding and merge every two layer in the layering. Then $\ltw(G) \leq 3 \times 4 \times 2 = 24$ so $\nabla_r(G) \leq 288 r$. 
+\end{proof}
+As a corollary,
+	For $k$-planar graphs, where each edge is allowed to cross at most $k$ times, we have that $\nabla_r(G) \leq 144 (k + 1) r$. 
+	
+Therefore, the class of $1$-planar graphs has linear expansion.
+\subsection{Bounded expansion}
+We say a class $\mathcal{G}$ has bounded expansion if there exists a factor $f$ such that for all $r$ and for all $G$ in $\mathcal{G}$ $\nabla_r(G) \leq f(r)$. 
+\subsubsection{1-subdivisions of complete graphs}
+$1$-subdivisions of $K_n$ have $n(n-1)$ edges and $n + \frac{n(n - 1)}{2}$ vertices. The average degree is at most $4$ but is a $1$-shallow minor of $K_n$. So $\nabla_1(K_n') \geq n + 1$. 
+
+If $G$ is a graph of max degree $3$, then $\nabla_r(G) \leq 2^{r + 2}$. 
+
+Graphs of bounded maximum degree have bounded expansion of roughly $(\Delta - 1)^{r + 2}$. But these graphs are exponential expansion, and there exist graphs with exponential expansion in $r$. 
+
+\subsection{Polynomial expansion}
+We say that $\mathcal{G}$ has degree $d$ polynomial expansion if there exists a $c$ such that for all $r $ and for all $G \in \mathcal{G}$ if $\nabla_r(G) \leq cr^d$. 
+
+This encompasses $k$-planar graphs, but also quadratic expansions, and so on.
+
+Why is polynomial expansion interesting?
+
+\begin{theorem}
+	If $G$ is a graph and for all $r$ $\nabla_r(G) \leq c r^d$. then every $n$-vertex subgraph of $G$ has a balanced separator of order $\leq c' n^{1 - \varepsilon}$ where $\varepsilon = \varepsilon(d) > 0$ and is roughly $1/d$. Therefore, $\tw(G) \leq O(n^{1- \varepsilon})$ and we say that $\tw(G)$ has a strongly sublinear separator. 
+\end{theorem}
 \end{document}
