@@ -607,8 +607,7 @@ We shall put off the proof of lemma until later. For now, we shall assume the le
 	Then let $\beta$ be a set of $k$-flaps in $G$ such that:
 	\begin{enumerate}
 		\item $\beta$ contains $\geq 1$ $k$-flap from every $k$-partite tree-decomposition of $G$
-		\item $\beta$ is upwards-closed
-		\item For all $X \in \beta$, $\beta - \langle X \rangle$ violates at least one of the conditions above. This is referred to as inclusion-wise minimal.
+		\item For all $X \in \beta$, $\beta - \langle X \rangle$ violates the condition above. This is referred to as inclusion-wise minimal.
 	\end{enumerate}
 	We have that $\beta$ is nonempty as we remove elements from $\beta_0$ until the conditions above hold. 
 	
@@ -711,9 +710,12 @@ Let $H$ be a $r$-shallow minor of $G$. Let $(B_x)_x$ be a tree-decomposition of 
 \end{lemma}
 Let $G$ be a graph with layering $(L_k)_k$ and book-embedding $(B_x)_x$ such that the intersections is at most $\ltw(G)$. Then let $B_s$ be a leaf-bag. If $B_s$ is a subset of its neighbouring bag, then combine $B_s$ and repeat. Then there exists a leaf bag $B_s$ such that $B_s$ contains a vertex $q$ not in the neighbouring bag. But $q$ lives in a layer $L_i$, and all of its neighbours must be in $B_s$. But this means that $q$ must only have neighbours that are in $B_s$ and in either $L_i$, $L_{i - 1}$ or $L_{i + 1}$. But this means that $q$ has at most $3 \ltw(G)$ neighbours. Thus shown.
 
-By removing $q$ and repeating this operation, we can iterate through the entire graph. Therefore, the number of edges is at most $3n \ltw(G)$. But this implies that $2m/n = 6 \ltw(G)$, so the average degree is at most $6 \ltw(G)$. 
+By removing $q$ and repeating this operation, we can iterate through the entire graph. Therefore, the number of edges is at most $3n \ltw(G)$. But this implies that $2m/n = 6 \ltw(G)$, so the average degree is $ \leq 6 \ltw(G)$. 
 
-\begin{theorem}
-	Average degree of $r$-shallow minor $H$ is at most
-\end{theorem}
+\begin{corollary}
+	$\nabla_r(G) \leq 12 r \ltw(G)$.
+\end{corollary}
+Let $H$ be an $r$-shallow minor o $G$. We have that the average degree of $H$ is $\leq 6 \ltw(H)$, and $\ltw(H)$ is $\leq 2r \ltw(G)$. Therefore, $\nabla_r(G) \leq 12r \ltw(G)$.
+
+
 \end{document}
