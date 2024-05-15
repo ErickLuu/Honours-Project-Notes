@@ -13,6 +13,7 @@
 \newcommand{\pw}{\text{pw}}
 \newcommand{\td}{\text{td}}
 \newcommand{\bn}{\text{bn}}
+\newcommand{\ltw}{\text{ltw}}
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -171,7 +172,6 @@ For a graph $G$, a \textit{tree-partition} of $G$ is a tree $T$ with associated 
 \end{proof}
 
 \section{$O(\sqrt{n})$-bounded treewidth}
-\newcommand{\ltw}{\textit{ltw}}
 A family of graphs $\mathcal{G}$ has $O(\sqrt{n})$ bounded treewidth if, as the number of vertices increases in $\mathcal{G}$, the treewidth is bounded above by a constant times $\sqrt{n}$. We shall show that all planar graphs have bounded treewidth, and can extend this definition to graph families of bounded genus and crossings. [Dujmovic, Morin, Wood] 
 
 \subsection{Layered treewidth}
@@ -712,4 +712,6 @@ Let $H$ be a $r$-shallow minor of $G$. Let $(B_x)_x$ be a tree-decomposition of 
 Let $G$ be a graph with layering $(L_k)_k$ and book-embedding $(B_x)_x$ such that the intersections is at most $\ltw(G)$. Then let $B_s$ be a leaf-bag. If $B_s$ is a subset of its neighbouring bag, then combine $B_s$ and repeat. Then there exists a leaf bag $B_s$ such that $B_s$ contains a vertex $q$ not in the neighbouring bag. But $q$ lives in a layer $L_i$, and all of its neighbours must be in $B_s$. But this means that $q$ must only have neighbours that are in $B_s$ and in either $L_i$, $L_{i - 1}$ or $L_{i + 1}$. But this means that $q$ has at most $3 \ltw(G)$ neighbours. Thus shown.
 
 By removing $q$ and repeating this operation, we can iterate through the entire graph. Therefore, the number of edges is at most $3n \ltw(G)$. But this implies that $2m/n = 6 \ltw(G)$, so the average degree is at most $6 \ltw(G)$. 
+
+
 \end{document}
