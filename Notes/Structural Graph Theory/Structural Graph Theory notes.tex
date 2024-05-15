@@ -701,6 +701,15 @@ We claim that 1-planar graphs have $\nabla_r(G) \leq cr$.
 We will use a small lemma to prove this statement. Recall that the ltw of $G$ is the minimum $k$ such that there exists a layering $(L_1, ..., L_k)$ and a tree-decomposition $(B_x)_{x \in V(T)}$ such that for all $i, 1 \leq i \leq k$ and $j \in V(T)$, $|L_i \cap B_x | \leq k$. 
 
 \begin{lemma}
-	If $H$ is an 
+	If $H$ is an r-shallow minor of $G$, then $\ltw(H) \leq 2 r \ltw(G)$. 
 \end{lemma}
+
+Let $H$ be a $r$-shallow minor of $G$. Let $(B_x)_x$ be a tree-decomposition of $G$. Then contracting every $r$-radius subgraph in $G$ to form $H$ means replacing all of the vertices in the $r$-radius subgraph in $(B_x)_x$ with a new vertex. Furthermore, let $a$ and $b$ be two distinct subgraphs in $G$ which are contracted to form $H$. Then if $a$ and $b$ are adjacent in $H$, then the distance between the centre of $a$ and the centre of $b$ is at most $2r + 1$. Therefore if we look at the layering $(L_1, ..., L_k)$ of $G$, then combining $(L_1, ..., L_{2r})$, $(L_{2r + 1}, ... , L_{4r})$ and so on will be a layering of $H$. Then we have that $\ltw(H) \leq 2r \ltw(G)$ as the size of each bag remains the same but the size of each layer grows by at most $2r$. 
+
+\begin{lemma}
+	For all graphs $G$, the minimum degree $\delta(G)$ is at most $3 \ltw(G)$.
+\end{lemma}
+Let $G$ be a graph with layering $(L_k)_k$ and book-embedding $(B_x)_x$ such that the intersections is at most $\ltw(G)$. Then let $B_s$ be a leaf-bag. If $B_s$ is a subset of its neighbouring bag, then combine $B_s$ and repeat. Then there exists a leaf bag $B_s$ such that $B_s$ contains a vertex $q$ not in the neighbouring bag. But $q$ lives in a layer $L_i$, and all of its neighbours must be in $B_s$. But this means that $q$ must only have neighbours that are in $B_s$ and in either $L_i$, $L_{i - 1}$ or $L_{i + 1}$. But this means that $q$ has at most $3 \ltw(G)$ neighbours. Thus shown.
+
+By removing $q$ and repeating this operation, we can iterate through the entire graph. Therefore, the number of edges is at most $3n \ltw(G)$. But this implies that $2m/n = 6 \ltw(G)$, so the average degree is at most $6 \ltw(G)$. 
 \end{document}
