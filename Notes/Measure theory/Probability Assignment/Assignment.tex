@@ -61,9 +61,9 @@ Suppose $X$ is in $\mathcal{F}$ such that there exists a $B \in \mathcal{G}$ suc
 Consider $\mathcal{H} = \left\{ B \in \mathcal{F}: \forall \varepsilon > 0, \text{ there exists a } A \in \mathcal{A} \text{ such that } \mathbb{P}(A \triangle B) < \varepsilon \right\}$. We wish to show $\mathcal{H}$ is a $\sigma$-algebra, and that $A$ is in $\mathcal{H}$. If these two conditions hold, then $\sigma(A) = \mathcal{F} \subseteq \mathcal{H}$, so the above conditions hold. 
 
 Let $A \in \mathcal{H}$. Then $\mathbb{P}(A \triangle A) = \mathbb{P}(\emptyset) = 0$ so $\mathcal{A} \subseteq \mathcal{H}$.
-We have that $\Omega$ is in $\mathcal{H}$ as we have that as $\mathcal{A}$ is an algebra, then $\Omega$ is in $\mathcal{A}$. Now suppose $B \in \mathcal{H}$. Then we have that there is a sequence $(A_n)_n$ such that for all $n \rightarrow \infty$, $\mathbb{P}(B \triangle A_n) < \frac{1}{n}$. 
+We have that $\Omega$ is in $\mathcal{H}$ as we have that as $\mathcal{A}$ is an algebra, then $\Omega$ is in $\mathcal{A}$. Now suppose $B \in \mathcal{H}$. Then we have that there is a sequence $(A_n)_n \subset \mathcal{A}$ such that for all $n \rightarrow \infty$, $\mathbb{P}(B \triangle A_n) < \frac{1}{n}$. 
 Now consider $B^c$ and the sequence $(A_n^c)_n$. We have that $P(B^c \triangle A^c) = P(B \triangle A^c) < \frac{1}{n}$. Then $B^c$ is in $\mathcal{H}$. 
-Finally consider a sequence of $(B_n)_n$ which is pairwise disjoint. Fix $\varepsilon > 0$. Consider a sequence $(A_n)_n \in \mathcal{A}$ such that $P(A_i \triangle B_i) < \varepsilon/2^i. 
+Finally consider a sequence of $(B_n)_n \subset \mathbb{F}$ which is pairwise disjoint, such that $P(B_i) \geq P(B_{i + 1})$ for all $i$. Fix $\varepsilon > 0$. Then since $B_i$ is pairwise disjoint then $P()
 
 \section{Question 3}
 Let $A_i$ be the event that $\xi_i= 1$. From the question, we have that $\sum_{i = 1}^{\infty}\mathbb{P}(A_i) < \infty$. But from Borel-Cantellini, this implies that $\mathbb{P}(A_i i.o) = 0$. Therefore, we have that $\xi_i = 1$ i.o. almost never, so $\xi_i = 1$ finitely often. Thus, $\mathbb{P}\left(\sum_{i = 1}^{\infty} \xi_i = - \infty \right) = 1$, so for all $a > 0$, $\mathbb{P}\left(\sum_{i = 1}^{\infty} \xi_i = - a \right) = 1$. 
