@@ -50,7 +50,7 @@ maxbibnames=99
 \newcommand{\supp}{\text{Supp}}
 
 %opening
-\title{Random walks on groups Report}
+\title{Random walks on groups report}
 \author{Eric Luu}
 
 \begin{document}
@@ -130,13 +130,14 @@ Thus this is a probability distribution. Obviously, the support is of the form $
 
 The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
 
-This forms a Markov chain. 
+This forms a Markov chain, and is an example of a random walk.
 
 \begin{example}
-	Examples of random walks
+	Examples of random walks on groups:
 	\begin{itemize}
 		\item Let $G$ be a group and $R$ be the generators and their inverses. Let $\Gamma$ be the Cayley graph of $G$. The simple random walk is to choose a random element $s \in R$ with uniform distribution and move to the vertex $gs$. By construction, the vertices adjacent to $\Gamma$ on $g$ are $gs$ with $s \in R$.
 		\item Let $G = \mathbb{Z}_n$. Let us walk  $p, q \geq 0$, $p + q = 1$. Suppose we have that $P[X = 1] = p$, $P[x = -1] = q$ Then we go one step clockwise with probability $p$ and one step back with probability $q$. Then the probability distribution is $p \delta_1 + q \delta_{-1}$. 
+		\item Visit every element on the group uniformly. 
 	\end{itemize}
 \end{example}
 
@@ -318,13 +319,22 @@ And setting $k = gh^{-1}$, so $g =kh$, we get that:
 \end{theorem}
 
 \begin{proof}
-	First, we have that $\widehat{a\ast \chi} = \widehat{a} \widehat{\chi} = \widehat{a} |G| \delta_\chi$, and $\widehat{a} |G| \delta_\chi(\psi) = \widehat{a}(\psi) |G|$ if $\psi = \chi$ and 0 else, so $\widehat{a} |G| \delta_\chi = \widehat{a}(\chi) |G| \delta_\chi$. When we apply the inverse of the Fourier transform, we have that $a \ast \chi = \widehat{a}(\chi) \chi$ by the 1st orthogonality, so $A \chi = \widehat{a}(\chi) \chi$. Thus shown. 
+	First, we have that $\widehat{a\ast \chi} = \widehat{a} \widehat{\chi} = \widehat{a} |G| \delta_\chi$, and $\widehat{a} |G| \delta_\chi(\psi) = \widehat{a}(\psi) |G|$ if $\psi = \chi$ and 0 else, so $\widehat{a} |G| \delta_\chi = \widehat{a}(\chi) |G| \delta_\chi$. When we apply the inverse of the Fourier transform, we have that:
+	\begin{align*}
+		a \ast \chi &= \frac{1}{|G|}\sum_{\psi \in \widehat{G}} \widehat{a \ast \chi}(\psi) \psi\\
+		&=
+		\frac{1}{|G|}\sum_{\chi \in \widehat{G}} \widehat{a}(\psi) |G| \widehat{\chi}(\psi) \psi\\
+		&= \widehat{a}(\chi) \chi
+	\end{align*}
+	from the first orthogonality. So $A \chi = \widehat{a}(\chi) \chi$. Thus shown. 
 \end{proof}
+
+As an example of $\widehat{a}$, we have that for $U$, the uniform distribution, we have that $\widehat{U}(\chi) = |G|\langle U, \chi \rangle = \langle \chi_1, \chi \rangle $. So $\widehat{U} = \delta_{\chi_1}$. 
 
 \section{Spectrums of random walks on finite abelian groups}\label{sec:spectral theory}
 In this section, we apply spectral theory to convolutions of distribions on groups to see what eigenvalues show up, where the eigenvectors are distributions on groups. We wish to show that the convolutions that come out of the eigenvectors have eigenvalues whose absolute values are strictly less than one, except for the uniform distribution, which has eigenvalue 1.
 
-We define a convolution operator on a probability distribution $P$ as $M : \mathbb{C}G \rightarrow \mathbb{C}G$ where $M(a) = P \ast a$, where $(P \ast a) (g) =\sum_{h\in G} P(gh^{-1})a(h)$.
+Define a convolution operator on a probability distribution $P$ as $M : \mathbb{C}G \rightarrow \mathbb{C}G$ where $M(a) = P \ast a$, where $(P \ast a) (g) =\sum_{h\in G} P(gh^{-1})a(h)$.
 \begin{definition}
 	The spectrum of a random walk driven by probability distribution $P$ is the set of eigenvalues of $M$. 
 \end{definition} 
@@ -463,7 +473,7 @@ and the necessary result is given.
 
 In the paper by Diaconis and Shahshahani\cite{diaconisGeneratingRandomPermutation1981}, they bound this constant above by looking at each cycle length and creating ``zones'' which partition the set of partitions of $n$. However, we can bound it above by a constant which tends to zero as $k$ goes to infinity. 
 \subsection{Ehrenfest's urn}
-Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
+Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. In statistical mechanics, this is a very simple model of heat transfer or particle exchange. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
 
 The probability function is given by $P = \frac{1}{n} \left(\delta_{e_1} ... \delta_{e_n}\right)$
 
@@ -471,43 +481,41 @@ Here is an upper bound of how fast $P$ converges to $U$.
 \begin{theorem}
 	Let $c > 0$ be a positive constant. Then there exists a sufficiently large $k$ such that:
 	\begin{equation}
-		\|P^{\ast k} - U\|^2_{TV} \leq \frac{1}{2} (e^{e^{-c}} - 1)
+		\|P^{\ast k} - U\|^2_{TV} \leq \frac{1}{4} (e^{e^{-c}} - 1)
 	\end{equation}
 \end{theorem}
-
 The proof comes from Steinberg in \cite{steinbergProbabilityRandomWalks2012}. 
 
 \subsubsection{Proof}
-We have that every character of $\left(\mathbb{Z}_2\right)^n$ is given by a set $Y \subset [n]$ and a function $\alpha: G \rightarrow 2^{[n]}$ which is defined as $\alpha(v) = \langle i : v_i = 1 \rangle$. Then the character with respect to $Y$ is:
+Let $e_i$ be the state with all zeroes except for $1$ in the $i$-th column. We have that $P(e_i) = \frac{1}{n}$ for all $n$. 
+Every character of $\left(\mathbb{Z}_2\right)^n$ is given by a set $Y \subset [n]$. Thereis also a function $\alpha: G \rightarrow 2^{[n]}$ which is defined as $\alpha(v) = \langle i : v_i = 1 \rangle$. Then the character with respect to $Y$ is:
 \begin{equation}
 	\chi_Y(v) = (-1)^{|\alpha(v) \cap Y|}
 \end{equation}
 
-Therefore, we have that $\widehat{P}(\chi_Y)$ has the elements $y \in Y$ contribute $ -1/n$ each to $\widehat{P}(\chi_Y)$ and the elements not in $Y$ contribute $1/n$ to $\widehat{P}(\chi_Y)$. Taking the sums, we have that the spectrum must be $\frac{1}{n}(n - 2 |Y|) = 1 - \frac{2|Y|}{n}$. As there are $\binom{n}{j}$ subsets $Y$ where $|Y| = j$,
+Therefore, we have that $\widehat{P}(\chi_Y)$ has the elements $y \in Y$ contribute $ -1/n$ each to $\widehat{P}(\chi_Y)$. This is because $\widehat{P}(\chi_Y) = \sum_{1 \leq i \leq n} P(e_i) \chi_Y(e_i)$. By the same calculation, the elements not in $Y$ contribute $1/n$ to $\widehat{P}(\chi_Y)$. Taking the sums, we have that the spectrum must be $\frac{1}{n}(n - 2 |Y|) = 1 - \frac{2|Y|}{n}$. As there are $\binom{n}{j}$ subsets $Y$ where $|Y| = j$,
 from \cref{lem:Upper bound lemma} we have that:
 
 \begin{equation}
 	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{4} \sum_{j = 1}^{n}\binom{n}{j} \left[1 - \frac{2j}{n}\right]^{2k}
 \end{equation}
 
-Now we use the fact for when $j > \left\lfloor \frac{n}{2} \right\rfloor$, we have the exact same numbers, so we exploit this symmetry and only calculate the left half of the summation to yield:
-
 \begin{equation}
-	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n}{2} \right\rfloor}\binom{n}{j} \left[1 - \frac{2j}{n}\right]^{2k}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{4} \sum_{j = 1}^{n}\binom{n}{j} \left[1 - \frac{2j}{n}\right]^{2k}
 \end{equation}
-Now we have that $\binom{n}{j} \leq \frac{n^j}{j!}$ trivially and that $\left[1 - \frac{2j}{n}\right]^{2k} = e^{2k \log \left(1 - \frac{2j}{n}\right)}$. Now we use the fact that $\log(1 - x) < - x $ for $|x| < 1$, to get that $e^{2k \log \left(1 - \frac{2j}{n}\right)} < e^{2k(- \frac{2j}{n})} = e^{-\frac{4jk}{n}}$ asymptotically. 
+Now we have that $\binom{n}{j} \leq \frac{n^j}{j!}$ trivially and that $\left[1 - \frac{2j}{n}\right]^{2k} < e^{2k(- \frac{2j}{n})} = e^{-\frac{4jk}{n}}$ asymptotically. 
 Therefore, 
 \begin{equation}
-	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n}{2} \right\rfloor}\frac{n^j}{j!} e^{-\frac{4jk}{n}}
+	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{4} \sum_{j = 1}^{n}\frac{n^j}{j!} e^{-\frac{4jk}{n}}
 \end{equation}
 
 If we let $k \geq (n)(\log n + c)/4$, then we have that $e^{-\frac{4jk}{n}} \leq e^{j \log (n - jc)}= e^{- j c}/ n^j$.
 
 Plugging this into the equation. we get that:
 \begin{align*}
-	\left\| P^{\ast k} - U \right\|_{TV}^2 \leq \frac{1}{2} \sum_{j = 1}^{\left\lfloor \frac{n}{2} \right\rfloor}\frac{1}{j!}e^{-jc}\\
-	&\leq \frac{1}{2}\sum_{j = 1}^{\infty}\frac{1}{j!}\left(e^{-c}\right)^j\\
-	&\leq \frac{1}{2}\left(e^{e^{-c}} - 1\right)
+	\left\| P^{\ast k} - U \right\|_{TV}^2 &\leq \frac{1}{4} \sum_{j = 1}^{n}\frac{1}{j!}e^{-jc}\\	
+	&\leq \frac{1}{4}\sum_{j = 1}^{\infty}\frac{1}{j!}\left(e^{-c}\right)^j\\
+	&\leq \frac{1}{4}\left(e^{e^{-c}} - 1\right)
 \end{align*}
 This is a simple proof to show that we achieve convergence to a uniform bound with an upper limit on the rate of convergence. This proof is combinatorial in nature, except for the use of the upper bound lemma. However, it illustrates how combinatorics and Fourier analysis may be combined to prove an upper bound of the rate of convergence.
 
