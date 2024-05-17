@@ -1,4 +1,5 @@
-\documentclass[Frankfurt]{beamer}
+\documentclass[]{beamer}
+\usetheme{Metropolis}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{svg}
@@ -77,23 +78,20 @@
 	Can use cyclic ordering to not worry about the first vertex. Many proofs are agnostic to the first starting vertex.}
 \end{frame}
 
-\begin{frame}
-	\begin{itemize}
-		\item Pagenumber of $G$ is the least number of pages needed to embed $G$.
-		\item $G$ has pagenumber 1 iff $G$ is outerplanar ( all vertices on one face )
-		\item $G$ has pagenumber $\leq 2$ iff $G$ is Hamiltonian planar.
-	\end{itemize}
-
-	\begin{theorem}[Heath and Istrail]
-		Graphs embedded on surfaces of bounded genus have bounded pagenumber.
-	\end{theorem}
-\end{frame}
-
 \begin{frame}{Usage of pagenumber}
 	\begin{itemize}
 		\item Book-thickness was investigated in 1970s
 		\item Applications to chip design, knot theory, abstract algebra
 	\end{itemize}
+	\begin{itemize}
+		\item Pagenumber of $G$ is the least number of pages needed to embed $G$.
+		\item $G$ has pagenumber 1 iff $G$ is outerplanar ( all vertices on one face )
+		\item $G$ has pagenumber $\leq 2$ iff $G$ is Hamiltonian planar.
+	\end{itemize}
+	
+	\begin{theorem}[Heath and Istrail]
+		Graphs embedded on surfaces of bounded genus have bounded pagenumber.
+	\end{theorem}
 \end{frame}
 
 \begin{frame}{Graph minors}
