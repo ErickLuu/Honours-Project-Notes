@@ -666,8 +666,11 @@ We want to maintain the property that if $v \in G_P$, and edge $vw \in E_n$, the
 \paragraph{Adding vertices to biconnected block}
 For a current boundary of the outerface of $G_P$, if $v_i \rightarrow v_j \rightarrow v_k$ is trace with no edge of $E_N$ incident to $v_j$, then $v_iv_k \in E(G_T)$ is called a safe edge. If $v_i \rightarrow v_j$ is on the boundary of $G_P$, and $v_k \notin V(G_P)$, and $v_i,v_j,v_k$ is the boundary of a face, then $v_k$ is a safe vertex and we can add it to $G_P$. 
 \paragraph{Creating new biconnected block}
-If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex not in $V(G_P)$. We have that there exists a triangle $(x, w', z)$ on the boundary of $G_P$. Then we have that $z$ is unsafe and $xz$ and $w'z$ are essentially nonplanar. Then we let $w'w$ be the edge such that $w$ is not in $V(G_P)$ and we let $(w', y)$ be the next nonplanar edge encountered. 
-We then add all safe edges to the picture, as we are finished with the edges inside.
+If no $v_k$ exists, then we find a $w'$ which is the newest vertex in $V(G_P)$ adjacent to a vertex $w$ not in $V(G_P)$. We then add the vertex $w$ and the edge $w w'$ to $G_P$. Then we add all safe edges. This is so that every edge in $E_p$ maintains the property that both endpoints are on the boundary.
+
+We claim that after repeating this operation, then we have that every edge in $E_N$ (edges not in $G_P$) satisfy the two properties above. If we have that an edge $vw$ has $v$ added, then we should be able to add $w$ as a safe vertex or biconnected block. If an edge $vw$ has neither $v$ or $w$ added to $G_P$, then the algorithm has not finished yet. By connectivity, we can add $v$ and $w$ at some stage and therefore go to part 1. This has the corollary that every vertex is in $G_P$.
+
+Now we have that $E_N$ has every edge which cannot be added to $G_P$ without crossing over another edge, and that $G_P$ is maximal. Then we have that all edges in $E_N$ satisfy the conditions lised above. 
 \todo{Add pictures! this proof needs lots of pictures}
 
 \subsubsection{Level sets and cycles}
