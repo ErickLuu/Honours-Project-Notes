@@ -70,7 +70,7 @@ Now we have that $k = w + y$ for $y = O(1)$. We input this in and rearrange.
 \begin{equation}
 	e^{y} \frac{w^w}{k^k} \frac{k^n}{w^n} 
 \end{equation}
-We use the fact that when $y = O(1)$, we have that $(w + y)^{w + y} = \exp((w + y) \log(w + y))$. But $\log(w + y) = \log(w) + \log(1 + y/w) = \log(w) + 1 + y/w + O(y^2/w^2)$. Then we have that $(w + y)^{w + y}  = \exp((w + y) \log(w) + (w + y) (1 + y/w + O(y^2/w^2)) = w^{w + y} \exp(w + 2y + O(\frac{1}{w}))$ But we have that $w$ is increasing, so $O(\frac{1}{w}) = o(1)$. So:
+We use the fact that when $y = O(1)$, we have that $k^k = (w + y)^{w + y} = \exp((w + y) \log(w + y))$. But $\log(w + y) = \log(w) + \log(1 + y/w) = \log(w) + 1 + y/w + O(y^2/w^2)$. Then we have that $(w + y)^{w + y}  = \exp((w + y) \log(w) + (w + y) (1 + y/w + O(y^2/w^2)) = w^{w + y} \exp(w + 2y + O(\frac{1}{w}))$ But we have that $w$ is increasing, so $O(\frac{1}{w}) = o(1)$. So:
 \begin{equation}
 	(w + y)^{w + y}  = w^{w + y} \exp(w + 2y).
 \end{equation}
