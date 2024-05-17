@@ -45,6 +45,16 @@ Substituting this into the equation, we have that:
 	&=
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{1}{e^k 2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
 \end{align*}
+We have that when $y = o(\sqrt{n})$, then:
+\begin{align*}
+	(n + \sqrt{n} + y)^{n + \sqrt{n} + y} &= \exp\left((n + \sqrt{n} + y) \log(n + \sqrt{n} + y)\right)\\
+	&=
+	\exp\left((n + \sqrt{n} + y) \log(n) +  (n + \sqrt{n} + y) \log (1 + \frac{1}{\sqrt{n}} + \frac{y}{n})\right)\\
+	&=
+	n^{n + \sqrt{n} + y} \exp\left((n + \sqrt{n} + y) \log(1 + \frac{1}{\sqrt{n}} + \frac{y}{n})
+	\right)
+\end{align*}
+Now we have that $\log(1 + \frac{1}{\sqrt{n}} + \frac{y}{n}) = \frac{1}{\sqrt{n}} + \frac{y}{n} + O(\frac{y^2 + 2yn + n}{n^2})$. But we have that $y = o(\sqrt{n}$, so $O(\frac{y^2 + 2yn + n}{n^2}) = o(1)$. Then we have that 
 
 Now suppose 
 \section{2}
