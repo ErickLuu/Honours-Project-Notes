@@ -51,10 +51,13 @@ We have that $\emptyset$ is in $\mathcal{H}$. As we have that $\emptyset \in \ma
 As $\mathcal{H}$ is a $\pi$ and $\lambda$-system, $\mathcal{H}$ is also a $\sigma$-algebra. 
 
 \subsection{c}
-We have that $\sigma(\mathcal{G}) = \mathcal{G}$. 
-Let $X \in \sigma(\mathcal{G} \cup \mathcal{N})$. Then this means that $X$ is in all $\sigma$-algebras containing $\mathcal{G}$ and $\sigma(\mathcal{N})$. Then this implies that $X \in \mathcal{F}$ as this is a subset of two sigma-algebras of $\mathcal{F}$. ...
+\subsubsection{Showing $ \sigma(\mathcal{G} \cup \mathcal{N}) \subseteq \mathcal{H}$}
+We have that $\mathcal{H}$ is a $\sigma$-algebra. Therefore, we want to show that $\mathcal{G}$ and $\mathcal{N}$ are in $\mathcal{H}$. 
 
-Suppose $X$ is in $\mathcal{F}$ such that there exists a $B \in \mathcal{G}$ such that $\mathbb{P}(X \triangle B) = 0$. Then this implies that 
+Suppose $X \in \mathcal{G}$. Then $P(X \triangle X) = P(\emptyset) = 0$, so $X \in \mathcal{H}$ by definition. Now suppose $Y \in \mathcal{N}$. Then we have that $\emptyset$ is in $G$, so $P(Y \triangle \emptyset)  = P(Y) = 0$, so $Y \in \mathcal{H}$. Therefore, $\mathcal{N}$ and $\mathcal{G}$ are both subsets of $\mathcal{H}$. As $\mathcal{H}$ is a $\sigma$-algebra, we have that $ \sigma(\mathcal{G} \cup \mathcal{N}) \subset \mathcal{H}$. 
+
+\subsubsection{Showing $\mathcal{H} \subseteq \sigma(\mathcal{G} \cup \mathcal{N})$}
+Suppose $X$ is in $\mathcal{H}$, so there is a $B$ in $\mathcal{G}$ such that $P(X \triangle B) = 0$. By subadditivity, this implies that $P(B \setminus A)$ and $P(A \setminus B) = 0$, so $B \setminus A$ and $A \setminus B$ are in $\mathcal{N}$. But this means that $B \setminus A$ is in $\sigma(\mathcal{G} \cup \mathcal{N})$, so this means that $B \setminus (B \setminus A)$ is also in $\sigma(\mathcal{G} \cup \mathcal{N})$ as $\sigma$-algebras are closed under set difference. But $B \cap A = B \setminus (B \setminus A)$, and $A \setminus B$ is in $\mathcal{N}$. As $\sigma$-algebras are closed under countable unions, then $(A \setminus B) \cup (B \cap A) = A$ must be in $\sigma(\mathcal{G} \cup \mathcal{N})$. Thus shown that $\mathcal{H}$ is a subset of $\sigma(\mathcal{G} \cup \mathcal{N})$. 
 
 
 \section{Question 2}
