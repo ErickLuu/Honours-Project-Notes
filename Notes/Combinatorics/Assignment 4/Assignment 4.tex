@@ -166,4 +166,71 @@ But we have that $\frac{1}{\sqrt{1 + x}} = 1 + O(x)$ when $x = o(1)$. Therefore,
 	k &=\frac{n}{\sqrt{\log n}} (1 + o(1))\\
 	k &\sim \frac{n}{\sqrt{\log n}}.
 \end{align*}
+
+\section{4}
+\subsection{a}
+We have that $b_n = \sum_{i = 1}^n a_i b_{n - i}$ by the recurrence of the strings. So we have that $b_n = \sum_{i = 1}^{b_{n - i}} 
+
+\section{5}
+
+\subsection{a}
+We will prove this using deck and hands
+We have that the deck that we are dealing with are $n$-cycles which are even. In other words, we want that every connected component has an even number of vertices. We know that the deck enumerator for connected $2$-regular graphs is:
+\begin{equation}
+	D(x) = \frac{1}{2}\left(\log\left(\frac{1}{1 - x}\right) - x - \frac{x^2}{2}\right)
+\end{equation}
+Therefore, the deck enumerator for connected $2$-regular graphs of even cycle length is:
+\begin{align}
+	E(x) = \frac{1}{2} \left(D(x) + D(-x)\right) &= \frac{1}{4} \left[ \left(\log\left(\frac{1}{1 - x}\right) - x - \frac{x^2}{2}\right) + \left(\log\left(\frac{1}{1 + x}\right) + x - \frac{x^2}{2}\right) \right]\\
+	&=\frac{1}{4} \left(\log\left(\frac{1}{(1 - x)(1 + x)}\right) - x^2\right) \\
+	&=\frac{1}{4} \left(\log\left(\frac{1}{1 - x^2}\right)- x^2\right) 
+\end{align}
+Then the egf for the number of $2$-regular bipartite graphs is:
+\begin{equation}
+	e^{E(x)} = \exp\left(\log\left(\frac{1}{(1 - x^2)^{1/4}}\right)- \frac{x^2}{4}\right)  = \frac{e^{-x^2/4}}{(1 - x^2)^{1/4}}
+\end{equation}
+
+\subsection{b}
+We have that $x$ is analytic in $\left\{ z: |z| < 1 + \varepsilon \right\} \setminus \left\{ -1, 1 \right\}$. Fix a $\delta > 0$. Let $C_1$ be the curve $|z| = 1 + \delta$ moving counterclockwise  and let $C_2$ be the curve $|z - 1| = \delta$ going clockwise. Let $C_3$ be the curve $|z + 1| = \delta$ moving clockwise. We will use a variant of Darboux's theorem to find the asymptotics.
+\section{6}
+\subsection{a}
+We shall think about this in the form of decks. Let a card be a connected digraph where no two edges share a vertex. We have that $d_1 = 1$ as there is only one standard card of size 1, which is the singleton vertex with label $1$. We have $d_2 = 2$ as there are two cards, the vertex $1$ pointing to the vertex $2$, and the vertex $2$ pointing to the vertex $1$. Then the deck enumerator is $x + \frac{1}{2} (2) x^2 = x + x^2$, so the egf for $\left\{ c_n\right\}_{n \geq 0}$ is $f(x) := e^{x + x^2}$.
+
+\subsection{b}
+We have that $f$ is entire on $\mathbb{C}$. Therefore, the radius of convergence is infinite. Thus, we can evaluate $f$ everywhere. We have that from the saddlepoint bound for egfs that
+\begin{equation}
+	[x^n] f(n) \leq x_0^{-n} f(x_0)
+\end{equation}
+so substituting this in, we have that:
+\begin{equation}
+	c_n \leq r^{-n} e^{r + r^2}.
+\end{equation}
+To find when $r$ is minimised, we take the derivative. So we get that:
+\begin{align*}
+	 r^{-n} e^{r + r^2} &= e^{-n \log r + r + r^2}\\
+	 0 &= \dfrac{d}{dr}(e^{-n \log r + r + r^2}) \\
+	 0 &= \left(2r + 1 - \frac{n}{r}\right) e^{-n \log r + r + r^2}\\
+	 0 &= 2r + 1 - \frac{n}{r}\\
+	 0 &= 2r^2 + r - n\\
+\end{align*}
+From the quadratic equation, we have that $r = \frac{-1 \pm \sqrt{1 + 8n}}{4}$, so taking the smaller of the two in absolute magnitude, we have that:
+\begin{equation}
+	r = \frac{\sqrt{1 + 8n} - 1}{4}
+\end{equation}
+
+\subsection{c}
+We rewrite $r$ as:
+\begin{equation}
+	r = \frac{\sqrt{8n + 1}}{4} - \frac{1}{4}
+\end{equation}
+and then take a factor of $8n$ out of the square root. So we have that:
+\begin{equation}
+	r = \frac{\sqrt{8n}\sqrt{1+ 1/8n}}{4} - \frac{1}{4}
+\end{equation}
+Now we have that $\sqrt{1 + x} = 1 + x/2 + O(x^2)$ so we have that:
+\begin{align*}
+	r &= \frac{\sqrt{8n}\left(1 + \frac{1}{16n} + O(\frac{1/n^2}{den})\right)}{4} - \frac{1}{4}\\
+	&= \sqrt{\frac{n}{2}} + \frac{1}{8 \sqrt{2 n}} - \frac{1}{4} + O(\frac{1}{n^{3/2}})
+\end{align*}
+which has additive error $o(\frac{1}{n})$. 
 \end{document}
