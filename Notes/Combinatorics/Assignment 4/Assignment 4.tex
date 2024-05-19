@@ -169,7 +169,15 @@ But we have that $\frac{1}{\sqrt{1 + x}} = 1 + O(x)$ when $x = o(1)$. Therefore,
 
 \section{4}
 \subsection{a}
-We have that $b_n = \sum_{i = 1}^n a_i b_{n - i}$ by the recurrence of the strings. So we have that $b_n = \sum_{i = 1}^{b_{n - i}} 
+We have that $b_0 = 0$, $b_1 = a_1$. We have that $a_0 = 0$ as well. For the recurrence, we have that $b_n = \sum_{i = 1}^{n} a_i b_{n - i} = \sum_{i = 0}^{n} a_i b_i + a_n$. We have that $[x^n]a(x) b(x) = \sum_{i = 0}^{n} a_i b_{n - i}$.  Therefore, we have that $b(x) =  a(x)(b(x) + 1) = a(x) b(x) + a(x)$. Shuffling around, we have that:
+\begin{equation}
+	b(x) = \frac{a(x)}{1 - a(x)}.
+\end{equation}
+\subsection{b}
+Let $S$ be the radius of convergence of $a$. We have that $A > 1/S$ as $|a_n|^{1/n} \leq A$ i.o. Therefore, we have that $1/A < S$. As $a(x)$ is strictly increasing on $0$ to $S$, we have that $a(x) < a(1/A)$ when $x < 1/A$ on the boundary. We have that the only singularity of $b$ occurs when $a(x) = 1$. Note that we have that $a(x e^{i\theta}) \leq a(x)$ for all $x> 0$, so we have that $b$ converges on a radius smaller than $1/A$, as $a(1/A - \varepsilon) < 1$ by the argument above. Therefore, we have that $b(x)$ has a radius of convergence which includes $|z| = 1/A$. Therefore, we have that $b_n < \left(A + \varepsilon \right)^n$ eventually. 
+
+\subsection{c}
+Firstly, we have that we have that $a(x e^{i\theta}) \leq a(x)$ for all $x > 0$. We also have that $a(x)$ is increasing between $0$ and $1/A$. Therefore, if $a(C) = 1$ and $C$ is the minimum positive real satisfying this equation, then for all $z$ where $|z| < C$, we have that $b$ converges. Therefore, radius of convergence of $b$ is $C$. Therefore, $b_n > \left(1/C - \varepsilon \right)^n$ i.o. 
 
 \section{5}
 
@@ -233,4 +241,8 @@ Now we have that $\sqrt{1 + x} = 1 + x/2 + O(x^2)$ so we have that:
 	&= \sqrt{\frac{n}{2}} + \frac{1}{8 \sqrt{2 n}} - \frac{1}{4} + O(\frac{1}{n^{3/2}})
 \end{align*}
 which has additive error $o(\frac{1}{n})$. 
+
+\subsection{d}
+
+\subsection{e}
 \end{document}
