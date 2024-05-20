@@ -721,7 +721,18 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	If $G$ is $2$-cell embedded on a surface of Euler genus $g$, then any planar-nonplanar decomposition has at most $3g-3$ homotopy classes. 
 \end{lemma}
 \begin{proof}
-	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $v - e + f = 2 - g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3v = 2e$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $v = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 3 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $3(f-1) + v \leq 2e$, by double counting faces and edges. Thus, we have that $3g - 3 \geq v/2 = h$ by manipulating the inequalities. 
+	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $n - m + f = 2 - g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3n = 2m$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $n = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 3 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $3(f-1) + n \leq 2m$, by double counting faces and edges. Thus, we have that
+	\begin{align*}
+	3n &\geq 6(f - 1) + n\\
+	2n &\geq 6f + 6\\
+	4h &\geq 5 f - 6\\
+	4h &\geq 5(2 - g + m - n) - 6\\
+	4h &\geq 6 - 6g + 3n\\
+	4h &\geq 6 - 6g + 6h\\
+	-2h &\geq 6 - 6g\\
+	h &\leq 3g - 3
+	\end{align*}
+	$3g - 3 \geq h$ by manipulating the inequalities. 
 \end{proof}
 
 \subsubsection{Proving graphs with bounded number of homotopy classes have bounded pagenumber}\label{sssec:bounded_pagenumber_homotopy}
