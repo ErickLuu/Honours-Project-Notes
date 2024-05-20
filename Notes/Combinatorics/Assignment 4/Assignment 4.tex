@@ -29,7 +29,6 @@ We want to calculate:
 \begin{equation}
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}  \frac{(n + k)!}{n!(k!)^2}.
 \end{equation}
-Now let $y = k - \sqrt{n}$. We will re-index the equation to match what we have.
 
 We use Stirling's approximation.
 \begin{align*}
@@ -79,11 +78,11 @@ Now we let $y = k - \sqrt{n}$, or that $k = \sqrt{n} + y$. Then we have that:
 	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
 	{ \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)}(\sqrt{n} + y) }\\
 \end{equation*}
-Now we have that if $y = o(n^1/3)$, then we have that
+Now we have that if $y = o(n^{1/3})$, then we have that
 \begin{equation}
-	 \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)} = \sqrt{n}^{2 \sqrt{n + y}} \exp(2y + \frac{y^2}{n} + O(y^3/n^2))
+	 \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)} = \sqrt{n}^{2 (\sqrt{n} + y)} \exp(2y + \frac{y^2}{n} + O(y^3/n^2))
 \end{equation}
-But we have that $\sqrt{n}^{2 \sqrt{n + y}}  = n^{\sqrt{n} + y}$. So we have that:
+But we have that $\sqrt{n}^{2 (\sqrt{n} + y)}  = n^{\sqrt{n} + y}$. So we have that:
 \begin{align*}
 	&\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
 	\frac{e^{\sqrt{n} + y}}{2\pi}
@@ -105,11 +104,28 @@ Expanding out and completing the square, we get:
 	\frac{ e^{ - \frac{1}{2} (y/\sqrt{n} - 1)^2 + 2 \sqrt{n} +1 }}
 	{2 \pi(\sqrt{n} + y) }\\
 \end{align*}
-As $y = o(\sqrt{n})$, we have that $\frac{1}{2 \pi(\sqrt{n} + y) }$ is basically $\frac{1}{2 \pi \sqrt{n}}$ so we can take it and $e^{2 \sqrt{n} + 1}$ out of the equation. Now let $z = y/\sqrt{n}$, so $y =z \sqrt{n}$.  
+As $y = o(\sqrt{n})$, we have that $\frac{1}{2 \pi(\sqrt{n} + y) }$ is basically $\frac{1}{2 \pi \sqrt{n}}$ so we can take it and $e^{2 \sqrt{n} + 1}$ out of the equation. Now let $z = y/\sqrt{n}$, so $y =z \sqrt{n}$. Rescale by $\sqrt{n}$ as well on the inside. 
 
 \begin{equation}
-	\frac{e^{2\sqrt{n} - 1}}{2 \pi \sqrt{n}}\sum_{- M \sqrt{n}}^{M \sqrt{n}} e^{-(y/\sqrt{n} - 1/2)^2}
+	\frac{e^{2\sqrt{n} - 1}}{2 \pi \sqrt{n}} (\sqrt{n})\sum_{- M \sqrt{n}}^{M \sqrt{n}} e^{-1/2 (z - 1)^2}
 \end{equation}
+
+Now we have that the tails of $M$ are negligible, when $M > o(n^{1/3})$. We will show this later. But we will have that 
+
+\begin{equation}
+	\sum_{- M \sqrt{n}}^{M \sqrt{n}} e^{-1/2 (z - 1)^2} = \sqrt{2 \pi}
+\end{equation}
+so we have at the end that the summation becomes:
+
+\begin{equation}
+	\frac{e^{2\sqrt{n} - 1}}{2 \pi \sqrt{n}} (\sqrt{n}) \sqrt{2 \pi} = 
+	\frac{e^{2 \sqrt{n} - 1}}{\sqrt{2 \pi}}
+\end{equation}
+
+
+\subsection{Showin tails are negligible}
+
+When $M  = n^{1/5}$, consider
 
 \section{2}
 Let $k = w + y$ for some $y = O(1)$. Then we have that:
@@ -280,7 +296,10 @@ We have that $x$ is analytic in $\left\{ z: |z| < 1 + \varepsilon \right\} \setm
 
 We want to write $f(z) =\frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ as a summation $\sum_{i = 0}^{J'} c_j (1 - z)^{\alpha + j \beta} + \sum_{i = 0}^{J'} c_j (1 + z)^{\alpha + j \beta}$.
 
-We can do this by writing $f(z) = \frac{1}{2}(g(z) + h(z))$ where $g(z)$ is $\frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = 1$ and $h(z) = \frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = -1$.
+We can do this by evaluating $f$ on a series of curves $C_1 := \left\{z : |z| = 1 + \delta\right\}$ counterclockwise, $C_2 := \left\{z : |1 - z| = \delta\right\}$ clockwise, and $C_3 := \left\{z : |1 + z| = \delta\right\}$ clockwise. From the proof of Darboux's method, $C_1$ is negligible, and $C_2$ and $C_3$ are the most important curves. Now we have to evaluate $f$ around these curves. 
+
+
+We can do this by writing $f(z) = g(z) + h(z)$ where $g(z)$ is $\frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = 1$ and $h(z) = \frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = -1$.
 
 \subsubsection{Evaluating near $z = 1$}
  We have that when $z$ is near $1$, then we can write
@@ -298,7 +317,7 @@ Therefore, by Darboux' method, we have that
 	[z^n]g(z) = \frac{1}{e^{1/4} 2^{1/4}} \left( \binom{-1/4}{n}(-1)^{-n} +  \frac{1}{2}\binom{3/4}{n}(-1)^{-n} - \frac{1}{8} \binom{7/4}{n} (-1)^{-n} + O(n^{-15/4} \right).
 \end{equation}
 
-With the approximation that $\binom{q}{n}(-1)^n = \binom{n^{-q - 1}}{\Gamma(-q)}$, we have that $\binom{-1/4}{n}(-1)^{-n} \sim \frac{n^{-3/4}}{\Gamma(1/4)}$.
+With the approximation that $\binom{q}{n}(-1)^n = \frac{n^{-q - 1}}{\Gamma(-q)}$, we have that $\binom{-1/4}{n}(-1)^{-n} \sim \frac{n^{-3/4}}{\Gamma(1/4)}$.
 
 We have that:
 \begin{equation}
@@ -353,11 +372,11 @@ Therefore, we have that
 
 Now we put these two sums together to get that:
 \begin{align*}
-	[z^n] f(z) &= [z^n] \frac{1}{2} \left(g(z) + h(z)\right)\\
+	[z^n] f(z) &= [z^n] \left(g(z) + h(z)\right)\\
 	&=
-	\frac{1}{\Gamma(1/4) e^{1/4} 2^{1/4} \cdot 2}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
+	\frac{1}{\Gamma(1/4) e^{1/4} 2^{1/4} }\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
 	&+
-	\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} n! \Gamma(-1/4 - n) \cdot 2} \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
+	\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} n! \Gamma(-1/4 - n)} \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
 \end{align*}
 
 
@@ -365,10 +384,12 @@ Therefore, we have that the number of labelled $2$-regular bipartite graphs is:
 
 \begin{align}
 	n! [z^n] f(z)&=
-\frac{n!}{\Gamma(1/4) e^{1/4} 2^{1/4} \cdot 2}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
+\frac{n!}{\Gamma(1/4) e^{1/4} 2^{1/4}}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
 &+
-\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n) \cdot 2}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
+\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
 \end{align}
+
+Finally, we have that $\Gamma(3/4)/  \Gamma(-1/4 - n)$ is the falling factorial $[-1/4]_n$. 
 
 \section{6}
 \subsection{a}
@@ -407,12 +428,17 @@ and then take a factor of $8n$ out of the square root. So we have that:
 \end{equation}
 Now we have that $\sqrt{1 + x} = 1 + x/2 + O(x^2)$ so we have that:
 \begin{align*}
-	r &= \frac{\sqrt{8n}\left(1 + \frac{1}{16n} + O(\frac{1/n^2}{den})\right)}{4} - \frac{1}{4}\\
-	&= \sqrt{\frac{n}{2}} + \frac{1}{8 \sqrt{2 n}} - \frac{1}{4} + O(\frac{1}{n^{3/2}})
+	r &= \frac{\sqrt{8n}\left(1 + \frac{1}{16n} + O(\frac{1}{n^2})\right)}{4} - \frac{1}{4}\\
+	&= \sqrt{\frac{n}{2}} + \frac{1}{16 \sqrt{2 n}} - \frac{1}{4} + O(\frac{1}{n^{3/2}})
 \end{align*}
 which has additive error $o(\frac{1}{n})$. 
 
 \subsection{d}
+Let $g(\theta) = \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$. Then we have that:
+\begin{equation}
+	g(\theta) = \frac{ e^{r e^{i \theta} + r^2 e^{2 i \theta}}}{r^n e^{i n \theta}}
+\end{equation}
+We have that:
 
 \subsection{e}
 \end{document}
