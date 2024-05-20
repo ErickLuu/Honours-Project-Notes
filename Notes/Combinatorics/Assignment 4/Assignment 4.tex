@@ -43,60 +43,130 @@ Substituting this into the equation, we have that:
 	&=
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{\left(\frac{n + k}{e}\right)^{n + k}\sqrt{2\pi (n + k)}}{\left(\frac{n}{e}\right)^n \sqrt{2 \pi n} \left(\frac{k}{e}\right)^{2k} (2 \pi k)}\\
 	&=
-	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{1}{e^k 2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{e^{k}}{2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
 \end{align*}
-We have that when $y = o(\sqrt{n})$, then:
-\begin{align*}
-	(n + \sqrt{n} + y)^{n + \sqrt{n} + y} &= \exp\left((n + \sqrt{n} + y) \log(n + \sqrt{n} + y)\right)\\
-	&=
-	\exp\left((n + \sqrt{n} + y) \log(n) +  (n + \sqrt{n} + y) \log (1 + \frac{1}{\sqrt{n}} + \frac{y}{n})\right)\\
-	&=
-	n^{n + \sqrt{n} + y} \exp\left((n + \sqrt{n} + y) \log(1 + \frac{1}{\sqrt{n}} + \frac{y}{n})
-	\right)
-\end{align*}
-Now we have that $\log(1 + \frac{1}{\sqrt{n}} + \frac{y}{n}) = \frac{1}{\sqrt{n}} + \frac{y}{n} + O(\frac{y^2 + 2yn + n}{n^2})$. But we have that $y = o(\sqrt{n}$, so $O(\frac{y^2 + 2yn + n}{n^2}) = o(1)$. Then we have that 
 
-Now suppose 
+We have that as $k = \sqrt{n} + M = o(n^{2/3})$, we have that:
+\begin{equation}
+	\left(n + k\right)^{n + k} = n^{n + k} e^{k + \frac{k^2}{2n} + O(k^3/n^2)}
+\end{equation}
+which as $k = O(n^{2/3})$, the $O(k^3/n^2) = o(1)$. Therefore, we have that:
+
+\begin{align*}
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{e^{k}}{2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k } &= 
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{e^{k}}{2\pi} \frac{n^{n + k} e^{k + \frac{k^2}{2n}}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
+	&=
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}
+	\frac{e^{k}}{2\pi}
+	\frac{n^{k} e^{k + \frac{k^2}{2n}}\sqrt{(n + k)}}
+	{\sqrt{n} \left(k\right)^{2k}k }\\
+\end{align*}
+
+
+We can note that $\sqrt{\frac{n + k}{n}}= \sqrt{1 + \frac{k}{n}} = 1 + O(k^2/n^2) = 1 + o(1)$. Therefore, this is negligible. Then we have that:
+
+\begin{equation*}
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}
+	\frac{e^{k}}{2\pi}
+	\frac{n^{k} e^{k + \frac{k^2}{2n}}}
+	{ \left(k\right)^{2k}k }\\
+\end{equation*}
+Now we let $y = k - \sqrt{n}$, or that $k = \sqrt{n} + y$. Then we have that:
+\begin{equation*}
+	=
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{e^{\sqrt{n} + y}}{2\pi}
+	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
+	{ \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)}(\sqrt{n} + y) }\\
+\end{equation*}
+Now we have that if $y = o(n^1/3)$, then we have that
+\begin{equation}
+	 \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)} = \sqrt{n}^{2 \sqrt{n + y}} \exp(2y + \frac{y^2}{n} + O(y^3/n^2))
+\end{equation}
+But we have that $\sqrt{n}^{2 \sqrt{n + y}}  = n^{\sqrt{n} + y}$. So we have that:
+\begin{align*}
+	&\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{e^{\sqrt{n} + y}}{2\pi}
+	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
+	{ n^{\sqrt{n} + y}\exp(2y + \frac{y^2}{n} + O(y^3/n^2)) (\sqrt{n} + y) }\\
+	&=
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{e^{\sqrt{n} + y}}{2\pi}
+	\frac{ e^{\sqrt{n} - y + \frac{(\sqrt{n} + y)^2}{2n} - \frac{y^2}{n}}}
+	{(\sqrt{n} + y) }\\
+	&=
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{ e^{2\sqrt{n} + \frac{(\sqrt{n} + y)^2}{2n} - \frac{y^2}{n}}}
+	{2 \pi(\sqrt{n} + y) }\\
+\end{align*}
+Expanding out and completing the square, we get:
+\begin{align*}
+		\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{ e^{ - \frac{1}{2} (y/\sqrt{n} - 1)^2 + 2 \sqrt{n} +1 }}
+	{2 \pi(\sqrt{n} + y) }\\
+\end{align*}
+As $y = o(\sqrt{n})$, we have that $\frac{1}{2 \pi(\sqrt{n} + y) }$ is basically $\frac{1}{2 \pi \sqrt{n}}$ so we can take it and $e^{2 \sqrt{n} + 1}$ out of the equation. Now let $z = y/\sqrt{n}$, so $y =z \sqrt{n}$.  
+
+\begin{equation}
+	\frac{e^{2\sqrt{n} - 1}}{2 \pi \sqrt{n}}\sum_{- M \sqrt{n}}^{M \sqrt{n}} e^{-(y/\sqrt{n} - 1/2)^2}
+\end{equation}
+
 \section{2}
-We wish to show that $e^k k^{n - k} \sim e^w w^{n - w}$. This is equivalent to showing that:
+Let $k = w + y$ for some $y = O(1)$. Then we have that:
 \begin{equation}
-	\frac{e^k k^{n - k}}{e^w w^{n - w}} \sim 1.
+	e^{k} k^{n - k} = e^{w + y} (w + y)^{n - w - y}
 \end{equation}
-We can rewrite this as:
+Now we have that:
 \begin{equation}
-	e^{k - w} \frac{k^{n - k}}{w^{n - w}}.
+	(w + y)^{-w} = w^{-w} \left(1 + \frac{y}{w}\right)^{-w}
 \end{equation}
-Now we have that $k = w + y$ for $y = O(1)$. We input this in and rearrange.
+
+But we have that $w \rightarrow \infty$ as $n \rightarrow \infty$, to be proven later. So we have that: 
+
 \begin{equation}
-	e^{y} \frac{w^w}{k^k} \frac{k^n}{w^n} 
+	\left(1 + \frac{y}{w}\right)^{-w} = \left(\left(1 + \frac{y}{w}\right)^{w}\right)^{-1} \sim \left(e^{y}\right)^{-1} = e^{-y}
 \end{equation}
-We use the fact that when $y = O(1)$, we have that $k^k = (w + y)^{w + y} = \exp((w + y) \log(w + y))$. But $\log(w + y) = \log(w) + \log(1 + y/w) = \log(w) + 1 + y/w + O(y^2/w^2)$. Then we have that $(w + y)^{w + y}  = \exp((w + y) \log(w) + (w + y) (1 + y/w + O(y^2/w^2)) = w^{w + y} \exp(w + 2y + O(\frac{1}{w}))$. But we have that $w$ is increasing and unbounded, so $O(\frac{1}{w}) = o(1)$. So:
-\begin{equation}
-	k^k = (w + y)^{w + y}  = w^{w + y} \exp(w + 2y).
-\end{equation}
+
 Therefore, we have that:
 \begin{equation}
-	e^{y} \frac{w^w}{w^{w + y}\exp(w + 2y)} \frac{k^n}{w^n} = \frac{1}{w^y \exp(w + y)} \frac{k^n}{w^n} = \frac{k^n}{w^{n + y} \exp(w + y)}.
+	(w + y)^{-w} = w^{-w} e^{-y}.
 \end{equation}
-What remains to show is that 
 
-\subsection{$w$ as a bound of $n$}
-We have that $w \log (w + 1) = n$. 
-From bounds, we have that when $w = 0$, the left hand side is $0$. When $w = n$, we have that the left hand side is $n \log(n + 1) > n$. Therefore as the function is increasing, $0 < w < n$. 
-
-Rearrange so that we have that $w = \frac{n}{\log(w + 1)}$. Now suppose $w = \alpha n$ for some $\alpha$ in $O(1)$. Then we have that:
+Now consider
+\begin{equation}
+	(w + y)^{n - y}.
+\end{equation}
+We first take out $w$ to get:
+\begin{equation}
+	(w + y)^{n - y} = w^{n - y} \left(1 + \frac{y}{w}\right)^{n - y}
+\end{equation}
+We have that $n = w \log (w + 1)$. We then substitute this into the equation above to get:
+\begin{equation}
+	\left(1 + \frac{y}{w}\right)^{n - y} = \left(1 + \frac{y}{w}\right)^{w \log(w + 1) - y}.
+\end{equation}
+Now we have that this is equal to:
+\begin{equation}
+	\exp((w \log(w + 1) - y) \log\left(1 + \frac{y}{w}\right)).
+\end{equation}
+But we have that $\log\left(1 + \frac{y}{w}\right) = \frac{y}{w} + O(y^2/w^2)$. Substituting this into the equation above, and using the fact that $y = O(1)$, we get that:
 \begin{align*}
-	w &= \frac{n}{\log(\alpha n + 1)}\\
-	&= \frac{n}{\log(\alpha n) (1 + \frac{1}{\alpha n})}\\
-	&=\frac{n}{\log(\alpha) + \log(n) - \log(1 + \frac{1}{\alpha n})}\\
-	&= \frac{n/ \log n}{\log(\alpha)/\log n + 1 - \log(1 + 1/\alpha n)/\log n}\\
+	&(w \log(w + 1) - y)(\frac{y}{w} + O(y^2/w^2))\\ 
+	&= y \log(w + 1) - O(1/w) + O(y \log w/w) + O(y^3/w^2)\\ 
+	&=  y \log(w + 1) + O(\log w / w).
 \end{align*}
-We then can use the fact that $1/(1 + o(1)) = (1 + o(1))$ to show that:
-\begin{align*}
-	w &= n / \log n (1 + O(\log n))
-\end{align*}
-so $w \sim n / \log n$. 
+Therefore, we have that:
+$\left(1 + \frac{y}{w}\right)^{n - y} = \exp(y \log(w + 1) + o(1)) = (w + 1)^y$. 
+Finally, we have that $(w + 1)^y = w^y (1 + 1/w)^y \sim w^y$ as $(1 + 1/w)^y$ is bounded above and goes to 1 very quickly. 
+Therefore, we have that:
 
+\begin{align*}
+	e^k k^{n - k} &= e^{w + y}(w + y)^{n - w - y}\\
+	&=e^w e^y (w + y)^{-w} (w + y)^{n - y}\\
+	&= e^w e^y w^{-w} \left(1 + \frac{y}{w}\right)^{- w}  w^{n - y}   \left(1 + \frac{y}{w}\right)^{n - y}\\
+	&\sim e^w e^y w^{-w} e^{-y}  w^{n - y} w^y\\
+	&= e^w w^{n - w}
+\end{align*}
+which is what we wanted. 
 \section{3}
 \subsection{a}
 We have the equation:
@@ -169,7 +239,11 @@ But we have that $\frac{1}{\sqrt{1 + x}} = 1 + O(x)$ when $x = o(1)$. Therefore,
 
 \section{4}
 \subsection{a}
-We have that $b_0 = 0$, $b_1 = a_1$. We have that $a_0 = 0$ as well. For the recurrence, we have that $b_n = \sum_{i = 1}^{n} a_i b_{n - i} = \sum_{i = 0}^{n} a_i b_i + a_n$. We have that $[x^n]a(x) b(x) = \sum_{i = 0}^{n} a_i b_{n - i}$.  Therefore, we have that $b(x) =  a(x)(b(x) + 1) = a(x) b(x) + a(x)$. Shuffling around, we have that:
+We have that $b_0 = 0$, $b_1 = a_1$. We have that $a_0 = 0$ as well. For the recurrence, we have that $b_n = \sum_{i = 1}^{n} a_i b_{n - i} = \sum_{i = 0}^{n} a_i b_i + a_n$. We have that $[x^n]a(x) b(x) = \sum_{i = 0}^{n} a_i b_{n - i}$.  Therefore, we have that
+\begin{equation}
+	b(x) =  a(x)(b(x) + 1) = a(x) b(x) + a(x). 
+\end{equation}
+Shuffling around, we have that:
 \begin{equation}
 	b(x) = \frac{a(x)}{1 - a(x)}.
 \end{equation}
@@ -182,7 +256,7 @@ Firstly, we have that we have that $a(x e^{i\theta}) \leq a(x)$ for all $x > 0$.
 \section{5}
 
 \subsection{a}
-We will prove this using deck and hands
+We will prove this using deck and hands.
 We have that the deck that we are dealing with are $n$-cycles which are even. In other words, we want that every connected component has an even number of vertices. We know that the deck enumerator for connected $2$-regular graphs is:
 \begin{equation}
 	D(x) = \frac{1}{2}\left(\log\left(\frac{1}{1 - x}\right) - x - \frac{x^2}{2}\right)
@@ -307,7 +381,7 @@ We have that $f$ is entire on $\mathbb{C}$. Therefore, the radius of convergence
 \end{equation}
 so substituting this in, we have that:
 \begin{equation}
-	c_n \leq r^{-n} e^{r + r^2}.
+	c_n/n! \leq r^{-n} e^{r + r^2}.
 \end{equation}
 To find when $r$ is minimised, we take the derivative. So we get that:
 \begin{align*}
