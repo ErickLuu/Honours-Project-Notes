@@ -434,11 +434,33 @@ Now we have that $\sqrt{1 + x} = 1 + x/2 + O(x^2)$ so we have that:
 which has additive error $o(\frac{1}{n})$. 
 
 \subsection{d}
+We have that $|f(r e^{i \theta})| = |\exp\left(r e^{i \theta} + r^2 e^{2 i \theta}\right)|$. Now we have that $e^{i \theta} = \cos(\theta) + i \sin (\theta)$, but $|e^{a + ib}| = e^a$. Therefore, the $i \sin \theta$ terms disappear in the magnitude, so we have that 
+\begin{equation}
+	|f(r e^{i \theta})| = e^{r \cos (\theta) + r^2 \cos (2 \theta)}. 
+\end{equation}
+
+Now we have that $\cos \theta = 1 - \theta^2/2 + O(\theta^4)$. 
+
+We want that:
+\begin{equation}
+	\exp(r (1 - \theta^2/2 + O(\theta^4)) + r^2 (1 - 2 \theta^2 + O(\theta^4)) - r - r^2) = o(1/n)
+\end{equation}
+We have that the above equation evaluates to:
+\begin{equation}
+	\exp(
+	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
+	)
+\end{equation}
+meaning that if $t = n^{1/4 - \epsilon}$ for any $\epsilon > 0$, then we have that 
+
+\subsection{e}
+
 Let $g(\theta) = \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$. Then we have that:
 \begin{equation}
 	g(\theta) = \frac{ e^{r e^{i \theta} + r^2 e^{2 i \theta}}}{r^n e^{i n \theta}}
 \end{equation}
-We have that:
 
-\subsection{e}
+
+
+As an addendum, we will also use Hayman's method to calculate $c_n/n!$. 
 \end{document}
