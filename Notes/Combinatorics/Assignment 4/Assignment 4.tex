@@ -21,7 +21,10 @@ Firstly, let $a_k = \frac{(n + k)!}{n!(k!)^2}$. Then let us calculate
 \begin{equation}
 	R_k = \frac{a_{k + 1}}{a_k} = \frac{n!(k!)^2}{(n + k)!}\frac{(n + k + 1)^2}{n! (k + 1)!} = \frac{n + k + 1}{(k + 1)^2}. 
 \end{equation}
-Then we have that $R_k = 1$ when $n + k + 1 = (k + 1)^2$. Solving for $k$, we have that $(k + 1)^2 - (k + 1) - n = 0$, therefore $k + 1 = \frac{1 + \sqrt{1 + 4n}}{2}$ by solving the quadratic. Therefore, $k \sim \sqrt{n}$, and around this the function falls off. 
+Then we have that $R_k = 1$ when $n + k + 1 = (k + 1)^2$. Solving for $k$, we have that $(k + 1)^2 - (k + 1) - n = 0$, therefore $k + 1 = \frac{1 + \sqrt{1 + 4n}}{2}$ by solving the quadratic.
+
+This means that $k \sim \sqrt{n}$ multiplicatively. 
+
 \subsection{Calculating near maximum}
 Let us calculate this equation around $\sqrt{n}$. 
 
@@ -49,7 +52,7 @@ We have that as $k = \sqrt{n} + M = o(n^{2/3})$, we have that:
 \begin{equation}
 	\left(n + k\right)^{n + k} = n^{n + k} e^{k + \frac{k^2}{2n} + O(k^3/n^2)}
 \end{equation}
-which as $k = O(n^{2/3})$, the $O(k^3/n^2) = o(1)$. Therefore, we have that:
+which as $k = O(n^{1/3})$, the $O(k^3/n^2) = o(1)$. Therefore, we have that:
 
 \begin{align*}
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{e^{k}}{2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k } &= 
@@ -62,7 +65,7 @@ which as $k = O(n^{2/3})$, the $O(k^3/n^2) = o(1)$. Therefore, we have that:
 \end{align*}
 
 
-We can note that $\sqrt{\frac{n + k}{n}}= \sqrt{1 + \frac{k}{n}} = 1 + O(k^2/n^2) = 1 + o(1)$. Therefore, this is negligible. Then we have that:
+We can note that $\sqrt{\frac{n + k}{n}}= \sqrt{1 + \frac{k}{n}} = 1 + O(k^2/n^2) = 1 + o(1)$. Therefore, this is negligible around $k = \sqrt{1/n}$. Then we have that:
 
 \begin{equation*}
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}
@@ -78,7 +81,7 @@ Now we let $y = k - \sqrt{n}$, or that $k = \sqrt{n} + y$. Then we have that:
 	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
 	{ \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)}(\sqrt{n} + y) }\\
 \end{equation*}
-Now we have that if $y = o(n^{1/3})$, then we have that
+Now we have that if $y = o(n^{2/3})$, then we have that
 \begin{equation}
 	 \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)} = \sqrt{n}^{2 (\sqrt{n} + y)} \exp(2y + \frac{y^2}{n} + O(y^3/n^2))
 \end{equation}
@@ -98,22 +101,26 @@ But we have that $\sqrt{n}^{2 (\sqrt{n} + y)}  = n^{\sqrt{n} + y}$. So we have t
 	\frac{ e^{2\sqrt{n} + \frac{(\sqrt{n} + y)^2}{2n} - \frac{y^2}{n}}}
 	{2 \pi(\sqrt{n} + y) }\\
 \end{align*}
-Expanding out and completing the square, we get:
-\begin{align*}
-		\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	\frac{ e^{ - \frac{1}{2} (y/\sqrt{n} - 1)^2 + 2 \sqrt{n} +1 }}
+Expanding out, we get:
+
+\begin{equation}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{\exp\left(2 \sqrt{n} + 1/2 + \frac{y}{\sqrt{n}} - y^2/2n\right)}
 	{2 \pi(\sqrt{n} + y) }\\
-\end{align*}
-As $y = o(\sqrt{n})$, we have that $\frac{1}{2 \pi(\sqrt{n} + y) }$ is basically $\frac{1}{2 \pi \sqrt{n}}$ so we can take it and $e^{2 \sqrt{n} + 1}$ out of the equation. Now let $z = y/\sqrt{n}$, so $y =z \sqrt{n}$. Rescale by $\sqrt{n}$ as well on the inside. 
-
-\begin{equation}
-	\frac{e^{2\sqrt{n} - 1}}{2 \pi \sqrt{n}} (\sqrt{n})\sum_{- M \sqrt{n}}^{M \sqrt{n}} e^{-1/2 (z - 1)^2}
 \end{equation}
-
-Now we have that the tails of $M$ are negligible, when $M > o(n^{1/3})$. We will show this later. But we will have that 
+We have that $2 \pi (\sqrt{n} + y)$ becomes $2 \pi \sqrt{n}$ 
+But we have that $y/\sqrt{n}$ is negligible, so the only terms that matter is $2 \sqrt{n} + 1/2 - y^2/(2n)$. Therefore, we have that:
+\begin{equation}
+	=
+	\frac{e^{2 \sqrt{n} + 1/2}}{2 \pi \sqrt{n}}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	e^{-y^2/2n}
+\end{equation}
+We have that $M \rightarrow \infty$, $M / \sqrt{n} \rightarrow 0$. So we use the integral lemma to get that:
 
 \begin{equation}
-	\sum_{- M \sqrt{n}}^{M \sqrt{n}} e^{-1/2 (z - 1)^2} = \sqrt{2 \pi}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	e^{ y^2/2n} = \sqrt{2 \pi n}.
 \end{equation}
 so we have at the end that the summation becomes:
 
@@ -123,9 +130,9 @@ so we have at the end that the summation becomes:
 \end{equation}
 
 
-\subsection{Showin tails are negligible}
+\subsection{Showing tails are negligible}
 
-When $M  = n^{1/5}$, consider
+When $M  = n^{3/10}$, consider
 
 \section{2}
 Let $k = w + y$ for some $y = O(1)$. Then we have that:
@@ -389,8 +396,13 @@ Therefore, we have that the number of labelled $2$-regular bipartite graphs is:
 \frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
 \end{align}
 
-Finally, we have that $\Gamma(3/4)/  \Gamma(-1/4 - n)$ is the falling factorial $[-1/4]_n$. 
-
+Finally, we can say $n! \sim (n/e)^n\sqrt{2 \pi n}$ and approximate. 
+\begin{align}
+	n! [z^n] f(z)&=
+	\frac{n^n \sqrt{2 \pi n}}{\Gamma(1/4) e^{1/4 + n} 2^{1/4}}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
+	&+
+	\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
+\end{align}
 \section{6}
 \subsection{a}
 We shall think about this in the form of decks. Let a card be a connected digraph where no two edges share a vertex. We have that $d_1 = 1$ as there is only one standard card of size 1, which is the singleton vertex with label $1$. We have $d_2 = 2$ as there are two cards, the vertex $1$ pointing to the vertex $2$, and the vertex $2$ pointing to the vertex $1$. Then the deck enumerator is $x + \frac{1}{2} (2) x^2 = x + x^2$, so the egf for $\left\{ c_n\right\}_{n \geq 0}$ is $f(x) := e^{x + x^2}$.
@@ -451,7 +463,7 @@ We have that the above equation evaluates to:
 	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
 	)
 \end{equation}
-meaning that if $t = n^{1/4 - \epsilon}$ for any $\epsilon > 0$, then we have that 
+meaning that if $t = n^{-1/4 - \epsilon}$ for any $\epsilon > 0$, then we have that the $O(\theta^4 n)$ goes to 0. But we want that $\exp^{- n \theta^2} = o(-n)$ so we want that $\theta^2 n = n^\varepsilon$. Therefore, we want that $\theta = n^{-1/2 + \varepsilon}$ for some $\varepsilon > 0$. Therefore, if we set $\theta = n^{-2/5}$, then we have that $\exp(-n^{1/5}) = o(1/n)$.
 
 \subsection{e}
 
@@ -463,4 +475,52 @@ Let $g(\theta) = \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$. Then we have tha
 
 
 As an addendum, we will also use Hayman's method to calculate $c_n/n!$. 
+
+
+We have that $a(n) = r f'(x)/f(r) = r(2r + 1)$. Then we get that 
+\begin{equation}
+	r_n = \frac{-1 + \sqrt{1 + 8n}}{4} = \sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right)
+\end{equation}
+which agrees with above. 
+
+Now we have that:
+\begin{align*}
+	f(r_n) = e^{r_n + r_n^2} &= \exp\left(\sqrt{\frac{n}{2}} - 1/4 + o(1) + (n/2)\left(\frac{n}{2} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n}\right) ^2 \right)\right)\\
+	&=
+	\exp \left(
+	\sqrt{\frac{n}{2}} - 1/4 + n/2 - 1/4\sqrt{\frac{n}{2}} + 1/32 - 1/4\sqrt{\frac{n}{2}} + 1/16 + 1/32 + o(1)
+	\right)\\
+	&=
+	\exp \left(
+	\frac{n}{2} + \frac{1}{2} \sqrt{\frac{n}{2}} - 1/8 + o(1)
+	\right)
+\end{align*}
+We have that $b(r_n) = r_n + 4 r_n^2 \sim 2n$ as $r_n \sim \sqrt{n/2}$. Finally, we have that:
+\begin{equation}
+	r_n^n = \left(\sqrt{\frac{n}{2}}\right)^n  \exp( n  \log(r_n/ \sqrt{n/2}))
+\end{equation}
+We have that 
+\begin{align*}
+	\log(r_n/\sqrt{n/2}) &= \log(1 - 1/(2 \sqrt{2n}) + 1/16n + o(1/n))\\
+	& -\frac{1}{2 \sqrt{2n}} + \frac{1}{16n} - 1/2 \frac{1}{8n} + o(1/n)\\
+	&= - \frac{1}{2 \sqrt{2n}} + o(1/n)
+\end{align*}
+So $r_n^n \sim \left(\sqrt{\frac{n}{2}}\right)^n e^{n \left(- \frac{1}{2 \sqrt{2n}} + o(1/n)\right)}$, so $r_n^n = n^{n/2} 2^{-n/2} e^{-\frac{\sqrt{n}}{2\sqrt{2}}}$. 
+
+From Hayman's method, we have that:
+\begin{equation}
+	c_n/n! \sim \frac{f(r_n)}{r_n^n \sqrt{2 \pi b(r_n)}}
+\end{equation}
+so we input in what we have to get:
+\begin{align}
+	c_n/n! &\sim \frac{e^{n/2 + 1/2 \sqrt{n/2} - 1/8}}{n^{n/2} 2^{-1/2} e^{-1/2 \sqrt{n/2}} \sqrt{2 \pi (2n)}}\\
+	&\sim 
+	\frac{e^{n/2 + \sqrt{n/2} - 1/8} 2^{n/2}}{n^{n/2} \sqrt{4 \pi n}}
+\end{align}
+Now we have that $n! \sim (n/e)^n \sqrt{2 \pi n}$ so we have that:
+\begin{align}
+	c_n &\sim n^n e^{-n} \sqrt{2 \pi n}\frac{e^{n/2 + \sqrt{n/2} - 1/8} 2^{n/2}}{n^{n/2} \sqrt{4 \pi n}}\\
+	&=
+	n^{n/2} e^{\sqrt{n/2} - n/2 - 1/8} 2^{n/2 - 1/2}
+\end{align}
 \end{document}
