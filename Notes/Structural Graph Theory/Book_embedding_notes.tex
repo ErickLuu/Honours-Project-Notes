@@ -598,6 +598,15 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 	Let $G$ be planar. Then $G$ has a tree-decomposition of adhesion size at most $3$ with the torsos being $4$-connected, from \cref{lem:clique_sum_connected} However, this implies that the torsos are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}, thus the number of pages needed for each torso is $2$. Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most $2 \times 4 + 3 = 11$. 
 \end{proof}
 
+\begin{theorem}
+	If $G$ is $K_5$-minor free, then $G$ has pagenumber $\leq 19$. .
+\end{theorem}
+
+\begin{proof}
+	Suppose $G$ is $K_5$-minor free. Then by Wagner's theorem, $G$ has a tree-decomposition of adhesion at most 3 where every torso is either a planar graph or the Wagner graph.
+	We have that planar graphs are $4$-colourable and have pagenumber $\leq 4$. We have that the Wagner graph is $3$-colourable and has pagenumber $\leq 4$. Therefore, we have that if $G$ is $K_5$-minor free, then $G$ has pagenumber at most $4 \times 4 + 3 = 19$. 
+\end{proof}
+
 \subsection{Bounded treewidth and page number}\label{ssec:Bounded_Treewidth}
 \begin{theorem}[Ganley + Heath\cite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
 	Every graph $G$ with $\tw(G) \leq k$ has $\pn(G) \leq k + 1$. 
