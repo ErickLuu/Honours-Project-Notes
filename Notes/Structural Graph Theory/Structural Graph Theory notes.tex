@@ -759,5 +759,48 @@ In the GMST, we have the result that every $K_t$-minor free graph can be constru
 \end{itemize}
 However, this tells us nothing about the structure of graphs of bounded genus, or even planar graphs. Graph product structure theory tells us a way to build graph families which are more complex than $K_t$-minor free graphs. 
 
+The product that we are dealing with is the strong product. Let $A$ and $B$ be graphs. Then $A \boxtimes B$ where $\boxtimes$ is the strong product is defined as:
+$V(A \boxtimes B) = V(A) \times V(B)$
+and $(u,v)(a,b)$ is an edge in $A \boxtimes B$ iff $u = a$ and $ v$ is adjacent to $b$ in $B$, or if $b = v$ and $u $ is adjacent to $v$, or if $u$ and $v$ are adjacent to $a$ and $b$ respectively. 
 
+In fact, $\boxtimes$ is the largest product that maintains projection, meaning that projecting an edge $e$ from $E(A \boxtimes B)$ to $A$ will send $e$ to $E(A)$ or $V(A)$, likewise for $B$. 
+
+We say a graph $G$ is contained in a graph $H$ is $G$ is isomorphic to a subgraph of $H$.
+
+As a reformulation of the tree-partition-width, we have that $\tpw(G)$ is exactly the inflation of a tree $T$. If $\tpw(G) \leq k$, then $G$ is contained in $T \boxtimes K_{k}$. Therefore from Distel + Wood, for all graphs $G$ of $\tw(G) \leq k$ and $\Delta(G) \leq \Delta$, $G$ contained in $T \boxtimes K_{18 k \Delta}$. In fact, we showed that $\delta(T) \leq 6 \Delta$ and $|V(T)|  \leq \max \left\{|V(G)|/2k , 1\right\}$.
+
+\subsection{Planar graphs}
+One paper which revitalised the interest of GPST is the paper by Vida Dujmović, Gwenaël Joret,Piotr Micek, Pat Morin,Torsten Ueckerdt and David R. Wood, which states that
+\begin{theorem}
+	Every planar graph $G$ is contained in:
+	\begin{enumerate}
+		\item $H \boxtimes P$ where $\tw(H) \leq 8$and $P$ is a path,
+		\item $H \boxtimes P \boxtimes K_3$, $\tw(H) \leq 3$. 
+	\end{enumerate}
+\end{theorem}
+
+We can think of the first statement as a layering of $H$ according to $P$, and we can think of the second statement as a 3d layering with triangles.
+
+Followup by Ueckerdt, Wood and Yi proved that $\tw(H) \leq 6$. This comes from improvements at the start and end of the induction steps. 
+
+This finding was motivated by finding a bound on the queue-number of planar graphs. We know from Yannakakis that the pagenumber of planar graphs is at most 4, but Heath, Leighton and Rosenberg conjectured that the queue-number of planar graphs is bounded. In fact, we have that the queuenumber of $H \boxtimes P \boxtimes K_\ell$ where $H$ has tw at most $k$ is at most 
+\begin{equation}
+	3 \ell (2^k - 1) + 3/2 \ell.
+\end{equation}
+For $\ell = 3$ and $\tw(H)  = 2$, then this gives the upper bound of 49.
+
+
+Full proof was given by Nikolai.
+\subsection{Graphs of Euler genus $g$}
+We can extend this to graphs on arbitrary surfaces. For all graphs $G$, we have that:
+\begin{enumerate}
+	\item $G \leq H \boxtimes P$ where $\tw(H) \leq 2g + 6$
+	\item $G \leq H \boxtimes P \boxtimes K_{\max\{2g, 3\} }$ where $\tw(H) \leq 3$. 
+\end{enumerate}
+Therefore, $qn(G) \leq O(g)$. 
+
+\subsection{Other graph families}
+Define the row-treewidth of a graph $G$ to be $rtw(G) := $ min $k$ such that $G \leq H \boxtimes P$ and $\tw(H) \leq k$. We have examples of families of graphs with bounded rtw.
+What about families of graphs with high $rtw$?
+Let $A_n$ to be the $n \times n$ grid with an apex vertex. We have that $A_n$ is $K_6$-minor free. Now suppose $A_n \leq H \boxtimes P$. But consider a layering of $A_n$. Consider where the apex vertex $a$ sits in the layering- all its neighbours (which is $A_n$ itself) must be sitting on either layer $i$, $i-1$ or $i+1$, where layer $i$ is the layer which $a$ sits in. But this implies that $\tw(H) \geq n^2/3$. meaning that if $A_n$ is a minor of $\mathcal{G}$ for all $n$, then $\mathcal{G}$ has unbounded rtw. In fact, the converse holds. 
 \end{document}
