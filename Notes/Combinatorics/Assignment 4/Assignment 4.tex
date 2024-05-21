@@ -125,8 +125,8 @@ We have that $M \rightarrow \infty$, $M / \sqrt{n} \rightarrow 0$. So we use the
 so we have at the end that the summation becomes:
 
 \begin{equation}
-	\frac{e^{2\sqrt{n} - 1/2}}{2 \pi \sqrt{n}} (\sqrt{n}) \sqrt{2 \pi} = 
-	\frac{e^{2 \sqrt{n} - 1/2}}{\sqrt{2 \pi}}
+	\frac{e^{2\sqrt{n} + 1/2}}{2 \pi \sqrt{n}} (\sqrt{n}) \sqrt{2 \pi} = 
+	\frac{e^{2 \sqrt{n} + 1/2}}{\sqrt{2 \pi}}
 \end{equation}
 
 
@@ -472,8 +472,17 @@ Let $g(\theta) = \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$. Then we have tha
 	g(\theta) = \frac{ e^{r e^{i \theta} + r^2 e^{2 i \theta}}}{r^n e^{i n \theta}}
 \end{equation}
 
+We have that $\log(g (\theta))$ is:
 
+\begin{equation}
+	\log(g(\theta))r e^{i \theta} + r^2 (e^{i \theta})^2 - n \log r - i n \theta.
+\end{equation}
 
+We have that $e^{i \theta} = 1 + i \theta - \theta^2/2  + O(\theta^3)$ and as $\theta = n^{-2/5}$ we have that $\theta^3 = o(n^{-1})$.
+
+We expand out $\log r$ as $\log(\sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right))$. 
+
+\subsection{Using Hayman's method}
 As an addendum, we will also use Hayman's method to calculate $c_n/n!$. 
 
 
