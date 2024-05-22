@@ -475,14 +475,59 @@ Let $g(\theta) = \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$. Then we have tha
 We have that $\log(g (\theta))$ is:
 
 \begin{equation}
-	\log(g(\theta))r e^{i \theta} + r^2 (e^{i \theta})^2 - n \log r - i n \theta.
+	\log(g(\theta)) = r e^{i \theta} + r^2 (e^{i \theta})^2 - n \log r - i n \theta.
 \end{equation}
 
 We have that $e^{i \theta} = 1 + i \theta - \theta^2/2  + O(\theta^3)$ and as $\theta = n^{-2/5}$ we have that $\theta^3 = o(n^{-1})$.
 
-We expand out $\log r$ as $\log(\sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right))$. 
+We expand out $\log r$ as $\log(\sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right))$. So
 
-\subsection{Using Hayman's method}
+\begin{equation}
+	\log(r) = \frac{1}{2}\log(n/2) + \log\left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right).
+\end{equation} 
+Now we have that 
+\begin{align*}
+	&\log\left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right) \\
+	&= - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + (- \frac{1}{2 \sqrt{2n}} + \frac{1}{16n})^2/2 + O(1/n^2)\\
+	&= -\frac{1}{2 \sqrt{2n}} + \frac{1}{32 \sqrt{2}n^{3/2}} + O(1/n^2)
+\end{align*}
+Therefore, we have that $n \log r = \frac{n}{2}\log \left(\frac{n}{2}\right) - \frac{\sqrt{n}}{2 \sqrt{2}} + \frac{1}{32 \sqrt{2} n^{1/2}} + O(1/n)$. 
+
+Finally, we have that
+\begin{align*}
+	 &r e^{i \theta} + r^2 (e^{i \theta})^2 \\
+	 &= \sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right)( 1 + i \theta - \theta^2/2 + O(\theta^3)) \\
+	 &+ \frac{n}{2} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right)^2( 1 + i \theta - \theta^2/2 + O(\theta^3))^2
+\end{align*}
+
+So we have that 
+\begin{align}
+	\log g(\theta) &=r e^{i \theta} + r^2 (e^{i \theta})^2 - n \log r - i n \theta \\
+	&=
+	-1/8 + \sqrt{n/2} + n/2 - n \theta^2 -n/2 \log(n/2) + o(1) 
+\end{align}
+So we have that $g(\theta) = \exp(-1/8 + \sqrt{n/2} + n/2 - n\theta^2)(n/2)^{-n/2}$. 
+
+Finally, we evaulate the integral on the domain $\theta = [n^{-2/5}, n^{2/5}]$. We have that:
+\begin{equation}
+	[z^n] f(z) = \frac{1}{2 \pi} \int_{-n^{-2/5}}^{n^{-2/5}} \exp(-1/8 + \sqrt{n/2} + n/2 - n\theta^2) (n/2)^{-n/2}\, d\theta
+\end{equation}
+We can take out all terms except for $-n \theta^2$ and evaluate. 
+\begin{align*}
+	[z^n] f(z) &= \frac{\exp(-1/8 + \sqrt{n/2} + n/2) }{2 \pi(n/2)^{n/2}} \int_{-n^{-2/5}}^{n^{-2/5}} \exp(- n\theta^2)\, d\theta\\
+	&=
+	 \frac{\exp(-1/8 + \sqrt{n/2} + n/2)}{2 \pi(n/2)^{n/2}} \sqrt{\pi/n}\, d\theta \\
+\end{align*}
+
+Therefore, we have that $c_n = [z^n] f(z) n!$. We have that $n! = (n/e)^n \sqrt{2 \pi n}$
+so we have that:
+\begin{equation}
+	c_n = \frac{n^{n/2} 2^{n/2 - 1/2} e^{-1/8 + \sqrt{n/2}} }{ e^{n/2}}
+\end{equation}
+
+which matches Hayman's method. 
+
+\subsubsection{Using Hayman's method}
 As an addendum, we will also use Hayman's method to calculate $c_n/n!$. 
 
 
@@ -532,4 +577,22 @@ Now we have that $n! \sim (n/e)^n \sqrt{2 \pi n}$ so we have that:
 	&=
 	n^{n/2} e^{\sqrt{n/2} - n/2 - 1/8} 2^{n/2 - 1/2}
 \end{align}
+
+
+\subsection{e}
+Recall that:
+\begin{equation}
+	|f(r e^{i \theta})| = \exp(
+	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
+	).
+\end{equation}
+Then when $\theta > n^{-2/5}$, we have that 
+\begin{align*}
+	&\frac{1}{2 \pi n^n} \int^\pi_{n^{-2/5}} \exp(
+	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
+	) \, d\theta \\
+	&= O(1/n^n \exp(n^(1/5)))\\
+	&= o(n^{n/2} e^{-n/2} 2^{n/2})
+\end{align*}
+
 \end{document}
