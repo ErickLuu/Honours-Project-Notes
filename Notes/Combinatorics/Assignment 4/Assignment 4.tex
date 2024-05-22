@@ -131,9 +131,13 @@ so we have at the end that the summation becomes:
 
 
 \subsection{Showing tails are negligible}
+We break up the tail into the sections of $\sqrt{n} + n^{3/10}$ to $n$ and from $n$ to infinity.
 
-When $M  = n^{3/10}$, consider $k = M + n^{3/10}$. Then we have that:
-
+When $M  = n^{3/10}$, consider $k = \sqrt{n} + M$. Then we have that
+$R_k = (n + \sqrt{n}+ n^{3/10})/(\sqrt{n} + n^{3/10})^2$. Expanding this out, we get:
+$R_k = (n + \sqrt{n} + n^{3/10})/(n + 2 n^{8/10} + n^{9/100})$, which approaches 1. Therefore, we have that the bound in this section $k = [\sqrt{n} + M, n]$ is bounded above by $n \times (n + k)!/n! (k!)^2$ which is of $o(S)$, where s is the sum. 
+When $k = n$, then the term becomes $(2n)!/ (n!)^3$, and $R_k \leq 2/n$. Therefore,
+we have that there is a geometric sequence with exponent $2/n$ and constant $(2n)!/(n!)^3$, meaning that we get that the tail is at most $n/(n - 2) (2n)!/(n!)^3 = o(S)$. 
 \section{2}
 Let $k = w + y$ for some $y = O(1)$. Then we have that:
 \begin{equation}
@@ -579,7 +583,7 @@ Now we have that $n! \sim (n/e)^n \sqrt{2 \pi n}$ so we have that:
 \end{align}
 
 
-\subsection{e}
+\subsection{f}
 Recall that:
 \begin{equation}
 	|f(r e^{i \theta})| = \exp(
@@ -594,5 +598,5 @@ Then when $\theta > n^{-2/5}$, we have that
 	&= O(1/n^n \exp(n^(1/5)))\\
 	&= o(n^{n/2} e^{-n/2} 2^{n/2})
 \end{align*}
-
+as wanted. 
 \end{document}
