@@ -82,54 +82,77 @@ Now we let $y = k - \sqrt{n}$, or that $k = \sqrt{n} + y$. Then we have that:
 	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
 	{ \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)}(\sqrt{n} + y) }\\
 \end{equation*}
-Now we have that if $y = o(n^{1/3})$, then we have that
+Now we have that if $y = o(n^{1/3})$, then we have that:
+\begin{align*}
+	\left(\sqrt{n} + y\right)^{(\sqrt{n} + y)} &= \sqrt{n}^{(\sqrt{n} + y)} \exp(\sqrt{n} + y) \log(1 + y/\sqrt{n})
+\end{align*}
+We have that:
 \begin{equation}
-	 \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)} = \sqrt{n}^{2 (\sqrt{n} + y)} \exp(2y + \frac{y^2}{n} + O(y^3/n^2)) 
+	\log(1 + y/\sqrt{n}) = y/\sqrt{n} + y^2/(2n) + O(y^3/n^{3/2}),
 \end{equation}
+therefore, we have that:
+\begin{align*}
+	(\sqrt{n} + y) \log(1 + y/\sqrt{n}) &= (\sqrt{n} + y) ( y/\sqrt{n} + y^2/(2n) + O(y^3/n^{3/2}))\\
+	&= y + + y^2/(2 \sqrt{n}) + y^2/\sqrt{n} + y^3/(2n) + O(y^3/n)\\
+	&= y + 3y^2/(2\sqrt{n}) + o(1)
+\end{align*}
 
-
-But we have that $\sqrt{n}^{2 (\sqrt{n} + y)}  = n^{\sqrt{n} + y}$. So we have that:
+So we have that $\left(\sqrt{n} + y\right)^{(\sqrt{n} + y)} = \sqrt{n}^{(\sqrt{n} + y)} \exp(y + 3y^2/(2 \sqrt{n}))$, so we have that $\left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)} = n^{\sqrt{n} + y} \exp(2y + 3y^2/\sqrt{n})$. 
+ So we have that:
 \begin{align*}
 	&\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
 	\frac{e^{\sqrt{n} + y}}{2\pi}
 	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
-	{ n^{\sqrt{n} + y}\exp(2y + \frac{y^2}{n} + O(y^3/n^2)) (\sqrt{n} + y) }\\
+	{ n^{\sqrt{n} + y}\exp(2y + 3y^2/\sqrt{2n}) (\sqrt{n} + y) }\\
 	&=
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
 	\frac{e^{\sqrt{n} + y}}{2\pi}
-	\frac{ e^{\sqrt{n} - y + \frac{(\sqrt{n} + y)^2}{2n} - \frac{y^2}{n}}}
+	\frac{ e^{\sqrt{n} - y + \frac{(\sqrt{n} + y)^2}{2n} - \frac{3y^2}{\sqrt{n}}}}
 	{(\sqrt{n} + y) }\\
 	&=
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	\frac{ e^{2\sqrt{n} + \frac{(\sqrt{n} + y)^2}{2n} - \frac{y^2}{n}}}
+	\frac{ e^{2\sqrt{n} + \frac{(\sqrt{n} + y)^2}{2n} - \frac{3y^2}{\sqrt{n}}}}
 	{2 \pi(\sqrt{n} + y) }\\
 \end{align*}
 Expanding out, we get:
 
 \begin{equation}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	\frac{\exp\left(2 \sqrt{n} + 1/2 + \frac{y}{\sqrt{n}} - y^2/2n\right)}
+	\frac{\exp\left(2 \sqrt{n} + 1/2 + \frac{y}{\sqrt{n}} - 5y^2/2n\right)}
+	{2 \pi(\sqrt{n} + y) }\\
+\end{equation}
+Completing the square, we have that:
+\begin{equation}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{\exp\left(\frac{-5}{2n}( y - \sqrt{n}/5)^2 + 2 \sqrt{n} + 3/5  \right)}
 	{2 \pi(\sqrt{n} + y) }\\
 \end{equation}
 We have that $2 \pi (\sqrt{n} + y)$ becomes $2 \pi \sqrt{n}$.
-But we have that $y/\sqrt{n}$ is $o(1)$, so the only terms that matter is $2 \sqrt{n} + 1/2 - y^2/(2n)$. Therefore, we have that:
-\begin{equation}
-	=
-	\frac{e^{2 \sqrt{n} + 1/2}}{2 \pi \sqrt{n}}
+
+\begin{align*}
+	&=
+	\frac{e^{2 \sqrt{n} + 3/5}}{2 \pi \sqrt{n}}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	e^{-y^2/2n}
+	e^{\frac{-5}{2n}( y - \sqrt{n}/5)^2}
+	&=
+	\frac{e^{2 \sqrt{n} + 3/5}}{2 \pi \sqrt{n}}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	e^{\frac{-5}{2}( y/\sqrt{n} - 1/5)^2}
+\end{align*}
+Taking the integral and letting $M$ go to infinity, we have that
+\begin{equation}
+		\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	e^{\frac{-5}{2}( y/\sqrt{n} - 1/5)^2} =
+		\sqrt{n} \sum_{z = \lfloor -M \sqrt{n} \rfloor }^{y =  \lceil + M \sqrt{n} \rceil}
+	e^{\frac{-5}{2}( z - 1/5)^2} = \sqrt{n} \sqrt{\frac{2 \pi}{5}}
 \end{equation}
-We have that $M \rightarrow \infty$, $M / \sqrt{n} \rightarrow 0$. So we use the integral lemma to get that:
+where we take out the $\sqrt{n}$ term as a change of variable. 
+
+So we have at the end that the summation becomes:
 
 \begin{equation}
-	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	e^{ y^2/2n} = \sqrt{2 \pi n}.
-\end{equation}
-so we have at the end that the summation becomes:
-
-\begin{equation}
-	\frac{e^{2\sqrt{n} + 1/2}}{2 \pi \sqrt{n}} (\sqrt{n}) \sqrt{2 \pi} = 
-	\frac{e^{2 \sqrt{n} + 1/2}}{\sqrt{2 \pi}}
+	\frac{e^{2\sqrt{n} + 1/2}}{2 \pi \sqrt{n}} (\sqrt{n}) \sqrt{2 \pi/ 5} = 
+	\frac{e^{2 \sqrt{n} + 1/2}}{\sqrt{10 \pi}}.
 \end{equation}
 
 
