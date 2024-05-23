@@ -118,13 +118,18 @@ Expanding out, we get:
 
 \begin{equation}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	\frac{\exp\left(2 \sqrt{n} + 1/2 + \frac{y}{\sqrt{n}} - 5y^2/2n\right)}
+	\frac{\exp\left(2 \sqrt{n} + 1/2 + \frac{y}{\sqrt{n}} - 3y^2/\sqrt{n} + y^2/(2n)\right)}
 	{2 \pi(\sqrt{n} + y) }\\
 \end{equation}
-Completing the square, we have that:
+
+We have that $y/\sqrt{n}$ is $O(n^{-1/5})$ which becomes $o(1)$ uniformly.
+
+Simplifying, we have
 \begin{equation}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	\frac{\exp\left(\frac{-5}{2n}( y - \sqrt{n}/5)^2 + 2 \sqrt{n} + 3/5  \right)}
+	\frac{\exp\left(
+		2 \sqrt{n} + 1/2 - y^2 (3/\sqrt{n} - 1/(2n))
+		\right)}
 	{2 \pi(\sqrt{n} + y) }\\
 \end{equation}
 We have that $2 \pi (\sqrt{n} + y)$ becomes $2 \pi \sqrt{n}$.
@@ -133,26 +138,22 @@ We have that $2 \pi (\sqrt{n} + y)$ becomes $2 \pi \sqrt{n}$.
 	&=
 	\frac{e^{2 \sqrt{n} + 3/5}}{2 \pi \sqrt{n}}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	e^{\frac{-5}{2n}( y - \sqrt{n}/5)^2}
-	&=
-	\frac{e^{2 \sqrt{n} + 3/5}}{2 \pi \sqrt{n}}
-	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	e^{\frac{-5}{2}( y/\sqrt{n} - 1/5)^2}
+	e^{y^2 (3/\sqrt{n} - 1/(2n))}
 \end{align*}
-Taking the integral and letting $M$ go to infinity, we have that
+If we have that $\alpha = (3/\sqrt{n} - 1/2n)$ then we have that $\alpha$ goes to 0, $M \sqrt{\alpha} = n^{3/10} n^{-1/4} = \infty$, so we have convergence. $\alpha^{-1} = \frac{2n}{6 \sqrt{n} - 1} \sim \sqrt{\frac{n}{\sqrt{3n}}}$.  Therefore, we have that:
 \begin{equation}
-		\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	e^{\frac{-5}{2}( y/\sqrt{n} - 1/5)^2} =
-		\sqrt{n} \sum_{z = \lfloor -M \sqrt{n} \rfloor }^{y =  \lceil + M \sqrt{n} \rceil}
-	e^{\frac{-5}{2}( z - 1/5)^2} = \sqrt{n} \sqrt{\frac{2 \pi}{5}}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	e^{y^2 (3/\sqrt{n} - 1/(2n))}
+	=
+	\sqrt{\frac{2n \pi}{6 \sqrt{n} - 1}}
 \end{equation}
-where we take out the $\sqrt{n}$ term as a change of variable. 
 
-So we have at the end that the summation becomes:
-
+and the final summation becomes:
 \begin{equation}
-	\frac{e^{2\sqrt{n} + 1/2}}{2 \pi \sqrt{n}} (\sqrt{n}) \sqrt{2 \pi/ 5} = 
-	\frac{e^{2 \sqrt{n} + 1/2}}{\sqrt{10 \pi}}.
+	\frac{e^{2\sqrt{n} + 1/2}}{2 \pi \sqrt{n}} 
+	\sqrt{\frac{2n \pi}{6 \sqrt{n}}}
+	= 
+	\frac{e^{2 \sqrt{n} + 1/2} }{n^{-1/4} \sqrt{12 \pi} }
 \end{equation}
 
 
@@ -434,6 +435,12 @@ Finally, we can say $n! \sim (n/e)^n\sqrt{2 \pi n}$ and approximate.
 	&+
 	\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
 \end{align}
+
+However, we have that when $n$ is odd, the left hand side cancels out the right hand side.
+
+When $n$ is odd, then we have that the left hand side and the right hand side should be the same, so we have that
+
+$f(z) \sim \frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}$ when $n$ is even. 
 \section{6}
 \subsection{a}
 We shall think about this in the form of decks. Let a card be a connected digraph where no two edges share a vertex. We have that $d_1 = 1$ as there is only one standard card of size 1, which is the singleton vertex with label $1$. We have $d_2 = 2$ as there are two cards, the vertex $1$ pointing to the vertex $2$, and the vertex $2$ pointing to the vertex $1$. Then the deck enumerator is $x + \frac{1}{2} (2) x^2 = x + x^2$, so the egf for $\left\{ c_n\right\}_{n \geq 0}$ is $f(x) := e^{x + x^2}$.
@@ -622,7 +629,7 @@ Then when $\theta > n^{-2/5}$, we have that
 	&\frac{1}{2 \pi n^n} \int^\pi_{n^{-2/5}} \exp(
 	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
 	) \, d\theta \\
-	&= O(1/n^n \exp(n^(1/5)))\\
+	&= O(1/n^n \exp(n^{1/5}))\\
 	&= o(n^{n/2} e^{-n/2} 2^{n/2})
 \end{align*}
 as wanted. 
