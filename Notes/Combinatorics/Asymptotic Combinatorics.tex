@@ -479,4 +479,45 @@ Plugging into the RHS, we have
 
 Then taking the logs of both sides, we get more logs! but we get closer asymptotically.
 
+\section{Analytic combinatorics}
+
+Suppose we have an ordinary generating function $a_n$ with coefficients $\left\{a_n\right\}_{n \geq 0}$. 
+
+Suppose $\sum_n a_n x^n$ converges for all $|x| \leq 1/2$. What does this tell us about $a_n$?
+\begin{lemma}
+	Suppose $f_(x_0)$ converges in the interval $[0, x_0]$ and $[x^n] f(x) \geq 0$ for all $n \geq 0$. Then 
+	\begin{equation}
+		[x^n] f(x) \leq x_0^{-n} f(x_0).
+	\end{equation}
+\end{lemma}
+As an example, consider $a(x) = e^x$. Using the lemma, we have that 
+\begin{equation}
+	\frac{1}{n!} \leq x^{-n} e^x
+\end{equation}
+But what is the best bound for $1/n!$? Taking $D \log$, we have that $(- n \log x + x)' = - n/x + 1 = 0$. So $x = n$ is the best solution, yielding
+\begin{equation}
+	n! \geq \left(n/e\right)^n
+\end{equation}
+as an exact bound. This is very close to $\left(n/e\right)^n \sqrt{2 \pi n}$, which is Stirling's approximation. 
+
+This is known as the saddlepoint bound. If we treat this as living on the complex plane, this number is the smallest real number to fulfil the bound, but moving slightly up/down the imaginary plane yields smaller values. 
+
+We now move onto complex analysis.
+
+\subsection{Complex analysis}
+Let $f(x) = \sum a_n x^n$ be a formal power series. Now suppose $S$ is the $\limsup |a_n|^{1/n}$ or the supremum of the set of $w$ such that $|a_n|^{1/n} > w i.o$. 
+of course $S = \infty$ if $|a_n|^{1/n}$ is unbounded.
+
+\begin{theorem}
+	Put $R = 1/S$. Then $f(z)$ converges for all $z$ with $|z| < R$. $f(z)$ diverges for all $z$ with $|z| > R$. On $R$ it may converge or diverge, but typically there is only a countable number of divergent points. 
+\end{theorem}
+In fact we have that for all $\varepsilon > 0$:
+\begin{equation}
+	|a_n | < (\frac{1}{R} + \varepsilon)^n 
+\end{equation}
+eventually, and 
+\begin{equation}
+	|a_n | > (\frac{1}{R} - \varepsilon)^n 
+\end{equation}
+i.o.
 \end{document}
