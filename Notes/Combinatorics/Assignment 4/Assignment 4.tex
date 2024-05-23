@@ -122,9 +122,7 @@ Expanding out, we get:
 	{2 \pi(\sqrt{n} + y) }\\
 \end{equation}
 
-Completing the square, we get:
-
-Simplifying, we have
+Completing the square and simplifying, we get:
 \begin{equation}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
 	\frac{\exp\left(
@@ -132,18 +130,18 @@ Simplifying, we have
 		\right)}
 	{2 \pi(\sqrt{n} + y) }\\
 \end{equation}
-We have that $2 \pi (\sqrt{n} + y) \sim 2 \pi \sqrt{n}$ uniformly with a small enough $y$. 
+We have that $1/(2 \pi (\sqrt{n} + y)) \sim 1/(2 \pi \sqrt{n})$ uniformly with $y = n^{3/10}$. 
 
 \begin{align*}
 	&=
 	\frac{e^{2 \sqrt{n} + 1/2}}{2 \pi \sqrt{n}}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	e^{- y^2 (3/\sqrt{n} - 1/(2n))}
+	e^{- (y + O(1))^2 (3/\sqrt{n} - 1/(2n))}
 \end{align*}
 If we have that $\alpha = (3/\sqrt{n} - 1/2n)$ then we have that $\alpha$ goes to 0, $M \sqrt{\alpha} = n^{3/10} n^{-1/4} = \infty$, so we have convergence. $\alpha^{-1} = \frac{2n}{6 \sqrt{n} - 1} \sim \sqrt{\frac{n}{\sqrt{3n}}}$.  Therefore, we have that:
 \begin{equation}
 	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
-	e^{(y + O(1))^2 (3/\sqrt{n} - 1/(2n))}
+	e^{-(y + O(1))^2 (3/\sqrt{n} - 1/(2n))}
 	=
 	\sqrt{\frac{2n \pi}{6 \sqrt{n} - 1}}
 \end{equation}
@@ -442,19 +440,6 @@ When $n$ is even, then we have that the left hand side and the right hand side s
 
 $f(z) \sim 2 \frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}$ when $n$ is even, or
 $f(z) \sim 2\frac{n^n \sqrt{2 \pi n}}{\Gamma(1/4) e^{1/4 + n} 2^{1/4} n^{3/4}}$. 
-
-\subsection{Verification}
-
-To verify this answer, consider
-\begin{equation}
-	h(z) = \frac{e^{-z/4}}{(1 - z)^{1/4}}.
-\end{equation}
-We have that $f(z) = h(z^2)$, therefore by the calculus of egfs, we have that the entries of $f$ are the same as the entries of $h$ except padded out by one zero between each coordinate. We have that:
-
-\begin{equation}
-	e^{-z/4}
-\end{equation}
-evaluated at $z = 1$ is:
 \section{6}
 \subsection{a}
 We shall think about this in the form of decks. Let a card be a connected digraph where no two edges share a vertex. We have that $d_1 = 1$ as there is only one standard card of size 1, which is the singleton vertex with label $1$. We have $d_2 = 2$ as there are two cards, the vertex $1$ pointing to the vertex $2$, and the vertex $2$ pointing to the vertex $1$. Then the deck enumerator is $x + \frac{1}{2} (2) x^2 = x + x^2$, so the egf for $\left\{ c_n\right\}_{n \geq 0}$ is $f(x) := e^{x + x^2}$.

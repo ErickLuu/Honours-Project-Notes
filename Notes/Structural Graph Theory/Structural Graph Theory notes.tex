@@ -794,13 +794,69 @@ Full proof was given by Nikolai.
 \subsection{Graphs of Euler genus $g$}
 We can extend this to graphs on arbitrary surfaces. For all graphs $G$, we have that:
 \begin{enumerate}
-	\item $G \leq H \boxtimes P$ where $\tw(H) \leq 2g + 6$
-	\item $G \leq H \boxtimes P \boxtimes K_{\max\{2g, 3\} }$ where $\tw(H) \leq 3$. 
+	\item $G \subseteq H \boxtimes P$ where $\tw(H) \leq 2g + 6$
+	\item $G \subseteq H \boxtimes P \boxtimes K_{\max\{2g, 3\} }$ where $\tw(H) \leq 3$. 
 \end{enumerate}
 Therefore, $qn(G) \leq O(g)$. 
 
 \subsection{Other graph families}
-Define the row-treewidth of a graph $G$ to be $rtw(G) := $ min $k$ such that $G \leq H \boxtimes P$ and $\tw(H) \leq k$. We have examples of families of graphs with bounded rtw.
+Define the row-treewidth of a graph $G$ to be $rtw(G) := $ min $k$ such that $G \subseteq H \boxtimes P$ and $\tw(H) \leq k$. We have examples of families of graphs with bounded rtw.
 What about families of graphs with high $rtw$?
-Let $A_n$ to be the $n \times n$ grid with an apex vertex. We have that $A_n$ is $K_6$-minor free. Now suppose $A_n \leq H \boxtimes P$. But consider a layering of $A_n$. Consider where the apex vertex $a$ sits in the layering- all its neighbours (which is $A_n$ itself) must be sitting on either layer $i$, $i-1$ or $i+1$, where layer $i$ is the layer which $a$ sits in. But this implies that $\tw(H) \geq n^2/3$. meaning that if $A_n$ is a minor of $\mathcal{G}$ for all $n$, then $\mathcal{G}$ has unbounded rtw. In fact, the converse holds. 
+Let $A_n$ to be the $n \times n$ grid with an apex vertex. We have that $A_n$ is $K_6$-minor free. Now suppose $A_n \subseteq H \boxtimes P$. But consider a layering of $A_n$. Consider where the apex vertex $a$ sits in the layering- all its neighbours (which is $A_n$ itself) must be sitting on either layer $i$, $i-1$ or $i+1$, where layer $i$ is the layer which $a$ sits in. But this implies that $\tw(H) \geq n^2/3$. meaning that if $A_n$ is a minor of $\mathcal{G}$ for all $n$, then $\mathcal{G}$ has unbounded rtw. In fact, the converse holds. 
+\begin{theorem}
+	For all minor-closed classes $\mathcal{G}$, $\mathcal{G}$ has bounded rtw iff some apex graph $A$ is not in $\mathcal{G}$.
+\end{theorem}
+Recall that a graph $A$ is apex if there exists a vertex $a$ such that $A - a$ is planar.
+
+As a corollary, Euler genus $g$ graphs have no $K_{3, 2g + 3}$ which is apex. 
+
+
+Proof uses Graph Minor Structure Theorem and is based on a strengthening by Dvorak and Thomas.
+
+\begin{theorem}
+	For all apex-minor-free graphs $G$, we can construct them with
+	\begin{enumerate}
+		\item Surfaces
+		\item Vortices
+		\item Weak apex vertices
+		\item Clique-sums
+	\end{enumerate}
+\end{theorem}
+Weak apex vertices are vertices that are adjacent to vortices and themselves. Strong apex vertices are apex vertices which are not weak.
+
+Finally, if $X$ is $k$-apex (with $k$ apex vertices)
+Then $G$ is $X$-minor-free iff $G$ can be constructed out of 
+\begin{itemize}
+	\item surfaces
+	\item vortices
+	\item weak apex vertices
+	\item $\leq k - 1$ strong apex vertices
+	\item Clique-sums
+\end{itemize}
+
+As an addendum which are $X$-minor free are $k + 4$-colourable with clustering $\leq f(X)$.
+Dujmovic + Wood, 2021
+\subsection{Past minor-closed families}
+We have that $H \boxtimes P$ deals with minor-closed classes. But what about non-minor-closed classes?
+
+Consider $k$-planar graphs.
+We define a $(k, d)$-shortcut system $\mathcal{P}$ on $G_0$ to be a set of paths in $G_0$ such that the length of each path is $\leq k$ and each vertex is internal to $\leq d$ paths of $\mathcal{P}$. 
+
+Then the shortcut system $G_0^\mathcal{P}$ is the graph where $V(G_0^\mathcal{P}) = V(G_0)$ and $vw \in E(G_0^\mathcal{P})$ iff there is a $vw$ path in $P$. We claim that for all $k$-planar graphs $G$, there is a planar graph $G_0$ and $G = G_0^\mathcal{P}$ for some $(k + 2, 2)$-shortcut system. 
+
+Place a dummy vertex on each intersection of $G$, call the graph $G_0$. Then for every edge $vw$, add the path $v x_1, x_2, ..., x_k w$ to $\mathcal{P}$. Then $G \subseteq G_0^{\mathcal{P}}$. 
+
+\begin{lemma}
+	Dujmovic, Morin, Wood
+	For all $G_0 \subseteq H \boxtimes P$, $\tw(H) \leq k$, for all $(k, d)$ shortcut systems $\mathcal{P}$ of $G_0$, if $G = G_0^\mathcal{P}$, then $G \subseteq H' \boxtimes P'$, where $\tw(H) \leq f(t, d, tw(H))$. 
+\end{lemma}
+Therefore, $k$-planar graphs also have the product structure.
+
+\begin{lemma}
+	Hickingbotham, Wood
+	If $G_0 \subseteq H \boxtimes P$, and $G$ is an $r$-shallow minor of $G_0 \boxtimes K_L$, then $G \subseteq H' \boxtimes P$ where $\tw(H) \leq f(\tw(H), r, c)$. 
+\end{lemma}
+As an example, if $G$ is $k$-planar, then $G$ is a $\approx k/2$-shallow minor of $G_0 \boxtimes K_2$ where $G_0$ is planar. 
 \end{document}
+
+

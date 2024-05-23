@@ -71,12 +71,13 @@ Much of the literature is focused on building bounds of the rate of convergence 
 \section{Random walks}\label{sec:random walks}
 
 \subsection{Random walks}
-We define a Markov chain on a set $\mathcal{X}$ in the following manner. We have a fixed probability distribution at each fixed point in $x$, so $P_x : \mathcal{X} \rightarrow [0, 1]$ is a probability distribution. 
+We define a Markov chain on a set $\mathcal{X}$ in the following manner. We have a fixed probability distribution at each fixed point in $x$, so $P_x : \mathcal{X} \rightarrow [0, 1]$ is a \textit{probability distribution}. When $\mathcal{X}$ is finite, this means that the sum of $P_x$ over all of $\mathcal{X}$ is 1. 
 
-We say a sequence of random variables $(X_0, X_1, ...)$ is a Markov chain with state space $\mathcal{X}$ and distribution $P$ if 
+We say a sequence of random variables $(X_0, X_1, ...)$ is a \textit{Markov chain} with\textit{ state space} $\mathcal{X}$ and \textit{distribution} $P$ if 
 \begin{equation}
 	P_x(y) = P(X_{t + 1} = y | X_t = x)
-\end{equation}
+\end{equation}.
+Essentially, this means that $P$ ignores all information about the previous steps except for the last. 
 
 We will denote the Markov probability as $P$ where $P(x, y) = P_x(y)$. Typically $P$ is represented as a matrix where $[P]_{i,j} = P(i, j)$. 
 
@@ -87,7 +88,7 @@ A state $i$ is \textit{transient} if there is a nonzero probability that we will
 
 We say a Markov chain is \textit{ergodic} if every state is \textit{positive recurrent}. 
 \subsubsection{Stationary distributions}
-We wish to see what the distribution converges to in the long-run. We define a stationary distribution $\pi$ to be a vector on a transition matrix $P$ such that $\pi P = \pi$. 
+We wish to see what the distribution converges to in the long-run. We define a\textit{ stationary distribution} $\pi$ to be a vector on a transition matrix $P$ such that $\pi P = \pi$. 
 
 \begin{theorem}
 	If a Markov chain is irreducible and aperiodic, then there exists a unique stationary distribution $\pi$, and $P^{*k}$ converges to a rank one matrix where every row is $\pi$. 
@@ -104,12 +105,12 @@ For a set $A \subseteq G$, we have that $P(A) = \sum_{g \in A} P(g)$. We define 
 \begin{example}
 	These are examples of a random distribution on a group. 
 	\begin{itemize}
-		\item We define the uniform distribution $U$ on $G$ as $U(g) = 1/|G|$ for all $g \in G$. 
+		\item We define the \textit{uniform distribution} $U$ on $G$ as $U(g) = 1/|G|$ for all $g \in G$. 
 		\item We define the subset distribution $S \subset G$ to be $1/|S|$ for all $ g \in S$ and 0 else.
 	\end{itemize}
 \end{example}
 
-Instead of treating the group as a set, we can treat the elements as functions, specifically the left regular group action. Then we can act on the group and walk around it. The convolution operator encapsulates taking steps around a group.
+Instead of treating the group as a set, we can treat the elements as functions, specifically the left regular group action. Then we can act on the group and walk around it. The \textit{convolution} operation encapsulates taking steps around a group.
 Let $P$, $Q$ be probabilities on $G$. Suppose we choose $X$ according to $P$ and $Y$ according to $Q$. Then the probability that $XY = g$ is the probability that $Y = h$ for some $h \in G$ and the probability that $X = gh^{-1}$. 
 So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
 
@@ -128,7 +129,7 @@ So $P \ast Q(g) := \text{Prob}[XY = g] = \sum_{h\in G} P(gh^{-1})Q(h) $.
 \end{proof}
 Thus this is a probability distribution. Obviously, the support is of the form $\left\{ xy : x \in \supp(P), y \in \supp(Q) \right\}$. 
 
-The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
+The way to think about random walks is as follows. We start at the identity and move to element $x_1$ according to $P$. Then we choose another element $x_2$ according to $P$ and move to $x_1 x_2$. So this is a sequence of i.i.d. variables with distribution $P$.
 
 This forms a Markov chain, and is an example of a random walk.
 
@@ -144,13 +145,15 @@ This forms a Markov chain, and is an example of a random walk.
 
 \subsection{Ergodicity}
 We denote $P^{\ast k}$ as $\underbrace{P \ast P \ast ... \ast P}_{k \text{ times}}$. 
-A random walk on a group $G$ driven by $P$ is said to be ergodic if there exists an integer $N > 0$ such that $P^{\ast n}(g) > 0$ for all $n > N$ and $g \in G$. This means that after some point in time, the probability of reaching all states is nonzero after a certain burn-in period.
+A random walk on a group $G$ driven by $P$ is said to be \textit{ergodic} if there exists an integer $N > 0$ such that $P^{\ast n}(g) > 0$ for all $n > N$ and $g \in G$. This means that after some point in time, the probability of reaching all states is nonzero after a certain burn-in period.
 
 \subsection{Results for finite groups}
-For probability distributions on groups, we have some stronger statements. In fact, we will show that $\pi$ is uniform, and in fact the ergodicity of the walk is easier to show with a group. 
+For probability distributions on groups, we have some stronger statements. In fact, we will show that the stationary distribution $\pi$ is uniform.
 \begin{proposition}
 	Let $P$ be a probability on a finite group $G$ and suppose $P(1) > 0$ and $Supp(P)$ generates the group $G$. Then the random walk driven by $P$ is ergodic.
 \end{proposition}
+
+If a walk has nonzero probability of reaching all states at time $N$ and it maintains this property on times $N+ 1, N + 2 , ..., 2N$, then the walk is ergodic all times after by the associative property of the convolution operation. This is an easy way to check if a walk is ergodic.
 
 \begin{proof}
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
@@ -195,43 +198,63 @@ We say that $P$ converges to $Q$ if for all $\varepsilon > 0$, there exists $N >
 \section{Fourier analysis on finite groups}\label{sec:Fourier Analysis}
 In this section, we will prove some important ideas about Fourier analysis and finite groups. We will mainly be using Steinberg \cite{steinbergProbabilityRandomWalks2012} for finite abelian groups, but we will be using a paper from Diaconis and Shahshahani's paper on random groups \cite{diaconisGeneratingRandomPermutation1981} for some results on symmetric groups. Below is an example from their paper \cite{diaconisGeneratingRandomPermutation1981}.
 
-\begin{definition}
-	If $\rho$ is a representation and $P$ is a function on $G$, then
-	\begin{equation}
-		\rho(P) = \sum_{g \in G} P(g) \rho(g)
-	\end{equation}
-\end{definition}
-This is almost the Fourier transform, which we will see later. Like the Fourier transform, it converts convolutions to multiplication.
-\begin{lemma}\label{lem:rep_ast}
-	If $P, Q$ are functions on $G$ and $\rho$ is a representation, then $\rho(P \ast Q) = \rho(P) \rho(Q)$.
-\end{lemma}
+Let $G$ be a group. Let $\hat{G}$ be a the set of irreducible characters on $G$.
+We have the general definition of Fourier transform. Let $f \in \mathbb{C}G$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
+\begin{equation}
+	\widehat{f}(\chi) = |G| \langle f, \chi \rangle = \sum_{g \in G} f(g) \overline{\chi(g)}
+\end{equation}
+
+The Fourier inverse is defined as:
+
+\begin{equation}
+	f(x) = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{f}(\chi) \chi(x)
+\end{equation}
+For some results, we will work over abelian groups. 
+Abelian groups are nice as all irreducible characters are degree 1 characters and also representations. Also, the number of characters is the number of elements in $G$. Finally, $ZL(G) = \mathbb{C}(G)$ for abelian groups. 
+
+Furthermore, we have that if $\chi, \psi \in \widehat{G}$, then $\widehat{\chi}(\psi) = \langle \chi, \psi \rangle = |G|\delta_{\chi, \psi}$. So $\widehat{\chi} = |G| \delta_{\chi}$, where $\delta_{\chi}(\psi) = 1$ if $\psi = \chi$ and 0 else. 
+So the duals of irreducible characters work like functionals on $\widehat{G}$> 
+Now we will show that taking dual groups transforms convolutions into something nicer, the product. We prefer to work over multiplication because it is a much easier operation to deal with. 
+
+\begin{theorem}
+	\label{thm:abelian dual commutation}
+	Let $G$ be an group, and $a, b \in \mathbb{C}(G)$. Then $ \widehat{a \ast b} = \widehat{a} \widehat{b}$. 
+\end{theorem}
 
 \begin{proof}
 	We have that:
 	\begin{align*}
-		\rho(P \ast Q) &= \sum_{g \in G} \rho(g) (P \ast Q)(g)\\
-		&= \sum_{g \in G} \rho(g) \sum_{h \in G} P(g h^{-1}) Q(h)\\
-		&= \sum_{g \in G}\sum_{h \in G} \rho(gh^{1}) \rho(h)  P(g h^{-1}) Q(h)\\
-		&= \left(\sum_{h \in G}  \rho(h) Q(h)\right) \sum_{g \in G} \rho(gh^{1})P(g h^{-1}) \quad \text{ Let } x = gh^{-1} \\
-		&= \rho(Q) \sum_{x \in G} \rho(x) P(x)\\
-		&= \rho(Q) \rho(P)
+		\widehat{a \ast b}(\chi) &= |G| \langle a \ast b, \chi \rangle\\
+		&= \sum_{g \in G} (a \ast b) (g) \overline{\chi(g)} \\
+		&= \sum_{g \in G} \overline{\chi(g)} 
+		\sum_{h \in G} a(g h^{-1}) b(h) \\
+		&= \sum_{h \in G} b(h)  
+		\sum_{g \in G} a(g h^{-1})\overline{\chi(g)}  
+	\end{align*} 
+	And setting $k = gh^{-1}$, so $g =kh$, we get that:
+	\begin{align*}
+		&= \sum_{h \in G} b(h)  
+		\sum_{k \in G} a(k)\overline{\chi(kh)} \\
+		&= \sum_{h \in G} b(h)  
+		\sum_{k \in G} a(k)\overline{\chi(k)} \overline{\chi(h)} \\
+		&=  \sum_{h \in G} b(h)  \overline{\chi(h)} 
+		\sum_{k \in G} a(k)\overline{\chi(k)}\\
+		&= \widehat{a}(\chi) \widehat{b}(\chi)
 	\end{align*}
-	As shown. 
 \end{proof}
 
-For class functions, we have a stronger result.
-
+We have a result involving class functions that will be useful when we are working with any group. 
 \begin{theorem}\label{thm:class_fns}
-	Let $G$ be a finite group and $\rho$ an irrep of $G$. let $P$ be a class function and let $C = \lbrace C_1... C_n \rbrace$ be the conjugacy classes with $\lbrace c_1, ..., c_n \rbrace$ the associated representatives in $G$. Then:
+	Let $G$ be a finite group and $\rho$ an irrep of $G$. let $P$ be a class function and let $C = \lbrace C_1... C_n \rbrace$ be the conjugacy classes with $\lbrace c_1, ..., c_n \rbrace$ the associated representatives in $G$, and suppose $\lbrace C_1, ..., C_n \rbrace$ is real. Then:
 	\begin{equation}
-		\rho(P) = C \times Id \qquad \text{where} \qquad C = \frac{1}{\deg(\rho)}  \sum_{i = 1}^n\left(|C_i|\right) P(c_i) \chi_\rho(c_i).
+		\widehat{P}(\rho)= C \times Id \qquad \text{where} \qquad C = \frac{1}{\deg(\rho)}  \sum_{i = 1}^n\left(|C_i|\right) P(c_i) \chi_\rho(c_i).
 	\end{equation}
 \end{theorem}
 \begin{proof}
 	We will use Schur's lemma to prove this result. 
 	Let $M_i = \sum_{c \in C_i} \rho(c)$. Then we have that:
 	\begin{equation}
-		\rho(P) = \sum_{g \in G} P(g) \rho(g) = \sum_{i = 1}^n P(c_i) M_i
+			\widehat{P}(\rho) = \sum_{g \in G} P(g) \overline{\rho(g)} = \sum_{g \in G} P(g) \rho(g) =  \sum_{i = 1}^n P(c_i) M_i
 	\end{equation}
 	We have that $\rho(g) \left(\sum_{c \in C_i} \rho(c)\right) \rho(g^{-1}) = M_i$ for all $g \in G$. Therefore, we use Schur's lemma to say that $M_i = K_i I$ for some real number $K_i$. Then by taking the trace, we have that:
 	\begin{equation}
@@ -251,10 +274,10 @@ We will finish with an example by Diaconis and Shahshahani. This example involve
 	\end{equation}
 	Then $T$ is a class function, and from \cref{thm:class_fns}, we have that for $\rho \in S_n$:
 	\begin{equation}
-		\rho(T) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right) Id.
+		\widehat{T}(\rho) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right) Id.
 	\end{equation}
 \end{example}
-We have that $\chi(1) = \deg(\rho)$, so this pops the first one out. Next, we have $|C_{\text{transpositions}}| = \binom{n}{2} = \frac{n(n-1)}{2}$, so we have the result above.
+We have that $\chi(1) = \deg(\rho)$, so this is the identity permutation. Next, we have $|C_{\text{transpositions}}| = \binom{n}{2} = \frac{n(n-1)}{2}$, so we have the result above.
 \subsection{Dual groups of abelian groups}
 Let $G$ be a finite group and let $\widehat{G}$ be the set of irreducible characters $\chi: G \rightarrow \mathbb{C}$. If $G$ is also abelian, then we have a stronger result. 
 \begin{theorem}
@@ -270,47 +293,6 @@ What is the most important part about $G$ being abelian is that the representati
 \end{theorem}
 \begin{proof}
 	This is easy to see for cyclic groups $\mathbb{Z}_n$, as for any generator $\langle k \rangle$, we send $\rho_a(k) = e^{2 i \pi a / n}$. Now for any finite cyclic group $\mathbb{Z}_{\alpha} \times \mathbb{Z}_{\beta}... $ (we can do this using the characterisation of abelian groups) with generators $\langle 1_{\alpha}, 1_\beta... \rangle$, we look at the irreducible representations on just $\mathbb{Z}_{i}$ and take the tensor product with all the other representations on $\mathbb{Z}_j$ for any different $j$ in the group product to form the character group. 
-\end{proof}
-
-We have the general definition of Fourier transform. Let $f \in \mathbb{C}G$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
-\begin{equation}
-	\widehat{f}(\chi) = |G| \langle f, \chi \rangle = \sum_{g \in G} f(g) \overline{\chi(g)}
-\end{equation}
-
-The Fourier inverse is defined as:
-
-\begin{equation}
-	f(x) = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{f}(\chi) \chi(x)
-\end{equation}
-Abelian groups are nice as all irreducible characters are degree 1 characters and also representations. Also, the number of characters is the number of elements in $G$. Finally, $ZL(G) = \mathbb{C}(G)$ for abelian groups. 
-
-Furthermore, we have that if $\chi, \psi \in \widehat{G}$, then $\widehat{\chi}(\psi) = \langle \chi, \psi \rangle = |G|\delta_{\chi, \psi}$. So $\widehat{\chi} = |G| \delta_{\chi}$, where $\delta_{\chi}(\psi) = 1$ if $\psi = \chi$ and 0 else. 
-
-\begin{theorem}
-	\label{thm:abelian dual commutation}
-	Let $G$ be an abelian group, and $a, b \in \mathbb{C}(G)$. Then $ \widehat{a \ast b} = \widehat{a} \widehat{b}$. 
-\end{theorem}
-The proof given below is essentially the same proof from \cref{lem:rep_ast}.
-\begin{proof}
-	We have that:
-\begin{align*}
-		\widehat{a \ast b}(\chi) &= |G| \langle a \ast b, \chi \rangle\\
-		&= \sum_{g \in G} (a \ast b) (g) \overline{\chi(g)} \\
-		&= \sum_{g \in G} \overline{\chi(g)} 
-		\sum_{h \in G} a(g h^{-1}) b(h) \\
-		&= \sum_{h \in G} b(h)  
-		\sum_{g \in G} a(g h^{-1})\overline{\chi(g)}  
-\end{align*} 
-And setting $k = gh^{-1}$, so $g =kh$, we get that:
-\begin{align*}
-		&= \sum_{h \in G} b(h)  
-		\sum_{k \in G} a(k)\overline{\chi(kh)} \\
-		&= \sum_{h \in G} b(h)  
-		\sum_{k \in G} a(k)\overline{\chi(k)} \overline{\chi(h)} \\
-		&=  \sum_{h \in G} b(h)  \overline{\chi(h)} 
-		\sum_{k \in G} a(k)\overline{\chi(k)}\\
-		&= \widehat{a}(\chi) \widehat{b}(\chi)
-\end{align*}
 \end{proof}
 
 \begin{theorem}
@@ -371,14 +353,15 @@ Recall that $\langle \widehat{a}, \widehat{b} \rangle = \frac{1}{|\widehat{G}|} 
 	\end{equation}
 
 \end{proof}
-We have another result by Plancherel, which we lift from Serre \cite{serreExamples1977}. This example is used to bound above the rate of convergence.
+We have another result by Plancherel, which we lift from Serre \cite{serreExamples1977}. This example is used to bound above the rate of convergence for any group. We will not discuss the proof in the report.
 \begin{theorem}[Plancherel]\label{lem:Plancharel formula}
 	If $P$ is a function on $G$, then
 	\begin{equation}
-		\sum_{g \in G}|P(g)|^2 = \frac{1}{|G|} \sum_{\rho \in \widehat{G}} \deg(\rho) Tr(\rho(P) \overline{\rho(P)}) 
+		\sum_{g \in G}|P(g)|^2 = \frac{1}{|G|} \sum_{\rho \in \widehat{G}} \deg(\rho) Tr(\widehat{P}(\rho) \overline{\widehat{P}(\rho)}) 
 	\end{equation}
 \end{theorem}
-\begin{lemma}[Diaconis–Shahshahani Upper bound lemma]
+For abelian groups, we can use the Diaconis- Shahshahani Upper Bound Lemma to bound above the rate of convergence of a group. This is generally a stronger bound than Plancharel's inequality. 
+\begin{lemma}[Diaconis–Shahshahani Upper Bound Lemma]
 	\label{lem:Upper bound lemma}
 	Let $G$ be a finite abelian group, and let $F$ be the set of non-trivial irreducible characters of $G$. Let $Q$ be a probability on $G$.  Then:
 	\begin{equation}
@@ -430,50 +413,49 @@ It suffices to show that $|\widehat{P}(\chi)| < 1$ for all nontrivial characters
 \subsection{Discussion}
 This result means that all random ergodic walks on groups that respect the group operation converge to a uniform distribution. Note that we have for any general Markov chain, then aperiodic and irreducible walks converge to some distribution, rather than a uniform distribution. This assumption is much weaker than on any set as we do not need aperiodicity to show convergence, but we do need the walk to respect the fact that groups are transitive. We use the fact that the group is finite abelian because the characters are very well defined: they are degree 1 and we can take tensor products to make characters for every element of the group in the natural way. 
 
-In fact, there are similar results for groups that are nonabelian. We can drop some of the assumptions and have similar results for non-abelian groups.
+In fact, there are similar results for groups that are nonabelian, but require additional conditions. 
 
 \section{Examples}\label{Examples}
 
 \subsection{Swapping two cards}
+This proof comes from Diaconis and Shahshahani \cite{diaconisGeneratingRandomPermutation1981}. 
 Let $T$ be defined as in \cref{ex:swap two cards}. Then we have that:
-
-\begin{proof}
 	\begin{lemma}
 	\begin{equation}
 		\| T^{\ast k} - U \|_1 \leq \left[\sum_\rho d^2_\rho \left(\frac{1}{n} + \frac{n-1}{n} \deg(\rho)\right)^{2k}\right]^{\frac{1}{2}}
 	\end{equation}
 \end{lemma}
 
-From Cauchy-Schwartz and the triangle inequality, we have that
+\begin{proof}
+	From Cauchy-Schwartz and the triangle inequality, we have that
 
 \begin{equation}
 	\| T^{\ast k} - U \|_1 = \sum_{g \in S_n} \left|T^{\ast k}(g) - \frac{1}{n!}\right| \leq \left[n! \sum_{g \in S_n} \left(T^{*k}(g) - \frac{1}{n!}\right)^2\right]^{\frac{1}{2}}
 \end{equation}
 From \cref{lem:Plancharel formula}, we have that
 \begin{equation}
-	n! \sum_{g \in S_n} \left(T^{*k}(g) - \frac{1}{n!}\right)^2 = \sum_\rho d_\rho Tr\left(\rho^s(T^{*k } - U)\right)
+	n! \sum_{g \in S_n} \left(T^{*k}(g) - \frac{1}{n!}\right)^2 = \sum_\rho d_\rho Tr\left([\widehat{T}^{2k} - \widehat{U}] \rho^2\right)
 \end{equation}
 
 Then from \cref{ex:swap two cards}, we have that
 \begin{equation}
-	\rho(T) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right) Id.
+	\widehat{T}(\rho)= \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right) Id.
 \end{equation}
-By \cref{lem:rep_ast}, we have that:
-
+By \cref{thm:class_fns}, we have that:
 \begin{equation}
-	\rho(T^{* k}) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right)^k Id.
+	\widehat{T}^{\ast k}(\rho)= \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right)^k Id.
 \end{equation}
-Therefore,
+We also have that $\widehat{U}(\rho) = 0$ for any nontrivial $\rho$. Therefore, we have that by additivity: 
 \begin{equation}
-	Tr(\rho^2(T^{* k})) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right)^{2k} Id.
+	Tr((\widehat{T}^{\ast k}  - \widehat{U})(\rho)^2 ) = \left(\frac{1}{n} + \frac{n-1}{n} \frac{\chi_\rho(\tau)}{\deg(\rho)}\right)^{2k} Id.
 \end{equation}
 
 and the necessary result is given. 
 \end{proof}
 
-In the paper by Diaconis and Shahshahani\cite{diaconisGeneratingRandomPermutation1981}, they bound this constant above by looking at each cycle length and creating ``zones'' which partition the set of partitions of $n$. However, we can bound it above by a constant which tends to zero as $k$ goes to infinity. 
+In the paper by Diaconis and Shahshahani\cite{diaconisGeneratingRandomPermutation1981}, they bound this constant above by looking at each cycle length and creating ``zones'' which partition the set of partitions of $n$. This proof is combinatorial in nature and will not be discussed more here. 
 \subsection{Ehrenfest's urn}
-Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. In statistical mechanics, this is a very simple model of heat transfer or particle exchange. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
+Suppose we have two urns, labelled $A$ and $B$, and urn $A$ contains $n$ balls and $B$ contains no balls. Then at each step in time, we choose a random ball and move it to the other urn. In statistical mechanics, this is a very simple model of heat transfer or particle exchange. As an example, we can imagine this as a simplified diffusion model between two boxes. This is the same as acting on $(\mathbb{Z}_2)^n$ such that the states that you can reach from $g \in (\mathbb{Z}_2)^n$ are to flip one of the bits with uniform probability. 
 
 The probability function is given by $P = \frac{1}{n} \left(\delta_{e_1} ... \delta_{e_n}\right)$
 
@@ -519,8 +501,8 @@ Plugging this into the equation. we get that:
 \end{align*}
 This is a simple proof to show that we achieve convergence to a uniform bound with an upper limit on the rate of convergence. This proof is combinatorial in nature, except for the use of the upper bound lemma. However, it illustrates how combinatorics and Fourier analysis may be combined to prove an upper bound of the rate of convergence.
 
-	\subsection{Riffle-shuffling of a deck of cards}This comes from Bayer and Diaconis \cite{bayerTrailingDovetailShuffle1992}. A riffle-shuffle is when the deck is split into two heaps and cards from each heap are shuffled through either heap with a certain probability. The model that was used was that cards were dropped from the left and right heaps with a probability proportional to the number of cards in each heap, so if there are $A$ and $B$ cards remaining in each heap, the probability of choosing a card from the left heap is $\frac{A}{A + B}$ and the probability of choosing a card from the right heap is $\frac{B}{A + B}$. Then given $n$ cards, the number of these operations that need to be performed is at most $\frac{3}{2} \log n$ to reach a cutoff point where extra shuffles will only slightly increase the rate of convergence. For a deck of 52 cards, the number is around 7 shuffles. 
+	\subsection{Riffle-shuffling of a deck of cards}This comes from Bayer and Diaconis \cite{bayerTrailingDovetailShuffle1992}. A riffle-shuffle is when the deck is split into two heaps and cards from each heap are shuffled through either heap with a certain probability. The model that was used was that cards were dropped from the left and right heaps with a probability proportional to the number of cards in each heap, so if there are $A$ and $B$ cards remaining in each heap, the probability of choosing a card from the left heap is $\frac{A}{A + B}$ and the probability of choosing a card from the right heap is $\frac{B}{A + B}$. Then given $n$ cards, the number of these operations that need to be performed is at most $\frac{3}{2} \log n$ to reach a cutoff point. A \textit{cutoff point} is a point where extra shuffles will not make the deck more random. For a deck of 52 cards, the number is around 7 shuffles. 
 \section{Conclusion}
-Investigating statistical or combinatorial problems such as card shuffling can lead to interesting mathematics. In particular, if the problem space is nice, like on a group, then we can use tools such as representation theory and Fourier analysis on groups to build good bounds on how fast we converge to the uniform distribution. This report mainly focused on the representation theory part on this area of knowledge, though we do discuss the combinatorial aspects as well. 
+Investigating statistical or combinatorial problems such as card shuffling can lead to interesting mathematics. In particular, if the problem space is nice, like on a group, then we can use tools such as representation theory and Fourier analysis on groups to build good bounds on how fast we converge to the uniform distribution. We can apply this knowledge to statistical and stochastic models to build an understanding of the rate of convergence of a particular system. This report mainly focused on the representation theory part on this area of knowledge, though we do discuss the combinatorial aspects as well. 
 \printbibliography
 \end{document}
