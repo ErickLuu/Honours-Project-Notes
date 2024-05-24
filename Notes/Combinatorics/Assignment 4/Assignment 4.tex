@@ -9,6 +9,7 @@
 \newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
 \newcommand{\egf}{\overset{\text{egf}}{\leftrightarrow}}
 %opening
+\AddToHook{cmd/section/before}{\clearpage}
 \title{Assignment 4}
 \author{Eric Luu}
 
@@ -21,7 +22,10 @@ Firstly, let $a_k = \frac{(n + k)!}{n!(k!)^2}$. Then let us calculate
 \begin{equation}
 	R_k = \frac{a_{k + 1}}{a_k} = \frac{n!(k!)^2}{(n + k)!}\frac{(n + k + 1)^2}{n! (k + 1)!} = \frac{n + k + 1}{(k + 1)^2}. 
 \end{equation}
-Then we have that $R_k = 1$ when $n + k + 1 = (k + 1)^2$. Solving for $k$, we have that $(k + 1)^2 - (k + 1) - n = 0$, therefore $k + 1 = \frac{1 + \sqrt{1 + 4n}}{2}$ by solving the quadratic. Therefore, $k \sim \sqrt{n}$, and around this the function falls off. 
+Then we have that $R_k = 1$ when $n + k + 1 = (k + 1)^2$. Solving for $k$, we have that $(k + 1)^2 - (k + 1) - n = 0$, therefore $k + 1 = \frac{1 + \sqrt{1 + 4n}}{2}$ by solving the quadratic.
+
+This means that $k \sim \sqrt{n}$ multiplicatively. 
+
 \subsection{Calculating near maximum}
 Let us calculate this equation around $\sqrt{n}$. 
 
@@ -29,7 +33,6 @@ We want to calculate:
 \begin{equation}
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}  \frac{(n + k)!}{n!(k!)^2}.
 \end{equation}
-Now let $y = k - \sqrt{n}$. We will re-index the equation to match what we have.
 
 We use Stirling's approximation.
 \begin{align*}
@@ -43,60 +46,180 @@ Substituting this into the equation, we have that:
 	&=
 	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{\left(\frac{n + k}{e}\right)^{n + k}\sqrt{2\pi (n + k)}}{\left(\frac{n}{e}\right)^n \sqrt{2 \pi n} \left(\frac{k}{e}\right)^{2k} (2 \pi k)}\\
 	&=
-	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{1}{e^k 2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{e^{k}}{2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
 \end{align*}
-We have that when $y = o(\sqrt{n})$, then:
-\begin{align*}
-	(n + \sqrt{n} + y)^{n + \sqrt{n} + y} &= \exp\left((n + \sqrt{n} + y) \log(n + \sqrt{n} + y)\right)\\
-	&=
-	\exp\left((n + \sqrt{n} + y) \log(n) +  (n + \sqrt{n} + y) \log (1 + \frac{1}{\sqrt{n}} + \frac{y}{n})\right)\\
-	&=
-	n^{n + \sqrt{n} + y} \exp\left((n + \sqrt{n} + y) \log(1 + \frac{1}{\sqrt{n}} + \frac{y}{n})
-	\right)
-\end{align*}
-Now we have that $\log(1 + \frac{1}{\sqrt{n}} + \frac{y}{n}) = \frac{1}{\sqrt{n}} + \frac{y}{n} + O(\frac{y^2 + 2yn + n}{n^2})$. But we have that $y = o(\sqrt{n}$, so $O(\frac{y^2 + 2yn + n}{n^2}) = o(1)$. Then we have that 
 
-Now suppose 
+We have that as $k = \sqrt{n} + M = o(n^{2/3})$, we have that:
+\begin{equation}
+	\left(n + k\right)^{n + k} = n^{n + k} e^{k + \frac{k^2}{2n} + O(k^3/n^2)}
+\end{equation}
+which as $k = O(n^{1/3})$, the $O(k^3/n^2) = o(1)$. Therefore, we have that:
+
+\begin{align*}
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{e^{k}}{2\pi} \frac{\left(n + k\right)^{n + k}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k } &= 
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil} \frac{e^{k}}{2\pi} \frac{n^{n + k} e^{k + \frac{k^2}{2n}}\sqrt{(n + k)}}{\left(n\right)^n \sqrt{n} \left(k\right)^{2k}k }\\
+	&=
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}
+	\frac{e^{k}}{2\pi}
+	\frac{n^{k} e^{k + \frac{k^2}{2n}}\sqrt{(n + k)}}
+	{\sqrt{n} \left(k\right)^{2k}k }\\
+\end{align*}
+
+
+We can note that $\sqrt{\frac{n + k}{n}}= \sqrt{1 + \frac{k}{n}} = 1 + O(k^2/n^2) = 1 + o(1)$. Therefore, this is negligible around $k = \sqrt{1/n}$. Then we have that:
+
+\begin{equation*}
+	\sum_{k = \lfloor \sqrt{n} - M \rfloor }^{ \lceil \sqrt{n} + M \rceil}
+	\frac{e^{k}}{2\pi}
+	\frac{n^{k} e^{k + \frac{k^2}{2n}}}
+	{ \left(k\right)^{2k}k }\\
+\end{equation*}
+Now we let $y = k - \sqrt{n}$, or that $k = \sqrt{n} + y$. Then we have that:
+\begin{equation*}
+	=
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{e^{\sqrt{n} + y}}{2\pi}
+	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
+	{ \left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)}(\sqrt{n} + y) }\\
+\end{equation*}
+Now we have that if $y = o(n^{1/3})$, then we have that:
+\begin{align*}
+	\left(\sqrt{n} + y\right)^{(\sqrt{n} + y)} &= \sqrt{n}^{(\sqrt{n} + y)} \exp(\sqrt{n} + y) \log(1 + y/\sqrt{n})
+\end{align*}
+We have that:
+\begin{equation}
+	\log(1 + y/\sqrt{n}) = y/\sqrt{n} + y^2/(2n) + O(y^3/n^{3/2}),
+\end{equation}
+therefore, we have that:
+\begin{align*}
+	(\sqrt{n} + y) \log(1 + y/\sqrt{n}) &= (\sqrt{n} + y) ( y/\sqrt{n} + y^2/(2n) + O(y^3/n^{3/2}))\\
+	&= y + + y^2/(2 \sqrt{n}) + y^2/\sqrt{n} + y^3/(2n) + O(y^3/n)\\
+	&= y + 3y^2/(2\sqrt{n}) + o(1)
+\end{align*}
+
+So we have that $\left(\sqrt{n} + y\right)^{(\sqrt{n} + y)} = \sqrt{n}^{(\sqrt{n} + y)} \exp(y + 3y^2/(2 \sqrt{n}))$, so we have that $\left(\sqrt{n} + y\right)^{2(\sqrt{n} + y)} = n^{\sqrt{n} + y} \exp(2y + 3y^2/\sqrt{n})$. 
+ So we have that:
+\begin{align*}
+	&\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{e^{\sqrt{n} + y}}{2\pi}
+	\frac{n^{\sqrt{n} + y} e^{\sqrt{n} + y + \frac{(\sqrt{n} + y)^2}{2n}}}
+	{ n^{\sqrt{n} + y}\exp(2y + 3y^2/\sqrt{2n}) (\sqrt{n} + y) }\\
+	&=
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{e^{\sqrt{n} + y}}{2\pi}
+	\frac{ e^{\sqrt{n} - y + \frac{(\sqrt{n} + y)^2}{2n} - \frac{3y^2}{\sqrt{n}}}}
+	{(\sqrt{n} + y) }\\
+	&=
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{ e^{2\sqrt{n} + \frac{(\sqrt{n} + y)^2}{2n} - \frac{3y^2}{\sqrt{n}}}}
+	{2 \pi(\sqrt{n} + y) }\\
+\end{align*}
+Expanding out, we get:
+
+\begin{equation}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{\exp\left(2 \sqrt{n} + 1/2 + \frac{y}{\sqrt{n}} - 3y^2/\sqrt{n} + y^2/(2n)\right)}
+	{2 \pi(\sqrt{n} + y) }\\
+\end{equation}
+
+Completing the square and simplifying, we get:
+\begin{equation}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	\frac{\exp\left(
+		2 \sqrt{n} + 1/2 + o(1) - (y + O(1))^2 (3/\sqrt{n} - 1/(2n))
+		\right)}
+	{2 \pi(\sqrt{n} + y) }\\
+\end{equation}
+We have that $1/(2 \pi (\sqrt{n} + y)) \sim 1/(2 \pi \sqrt{n})$ uniformly with $y = n^{3/10}$. 
+
+\begin{align*}
+	&=
+	\frac{e^{2 \sqrt{n} + 1/2}}{2 \pi \sqrt{n}}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	e^{- (y + O(1))^2 (3/\sqrt{n} - 1/(2n))}
+\end{align*}
+If we have that $\alpha = (3/\sqrt{n} - 1/2n)$ then we have that $\alpha$ goes to 0, $M \sqrt{\alpha} = n^{3/10} n^{-1/4} = \infty$, so we have convergence. $\alpha^{-1} = \frac{2n}{6 \sqrt{n} - 1} \sim \sqrt{\frac{n}{\sqrt{3n}}}$.  Therefore, we have that:
+\begin{equation}
+	\sum_{y = \lfloor -M \rfloor }^{y =  \lceil + M \rceil}
+	e^{-(y + O(1))^2 (3/\sqrt{n} - 1/(2n))}
+	=
+	\sqrt{\frac{2n \pi}{6 \sqrt{n} - 1}}
+\end{equation}
+
+and the final summation becomes:
+\begin{equation}
+	\frac{e^{2\sqrt{n} + 1/2}}{2 \pi \sqrt{n}} 
+	\sqrt{\frac{2n \pi}{6 \sqrt{n}}}
+	= 
+	\frac{e^{2 \sqrt{n} + 1/2} }{n^{-1/4} \sqrt{12 \pi} }
+\end{equation}
+
+
+\subsection{Showing tails are negligible}
+We break up the tail into the sections of $\sqrt{n} + n^{3/10}$ to $n$ and from $n$ to infinity.
+
+When $M  = n^{3/10}$, consider $k = \sqrt{n} + M$. Then we have that
+$R_k = (n + \sqrt{n}+ n^{3/10})/(\sqrt{n} + n^{3/10})^2$. Expanding this out, we get:
+$R_k = (n + \sqrt{n} + n^{3/10})/(n + 2 n^{8/10} + n^{9/100})$, which approaches 1. Therefore, we have that the bound in this section $k = [\sqrt{n} + M, n]$ is bounded above by $n \times (n + k)!/n! (k!)^2$ which is of $o(S)$, where s is the sum. By symmetry, we have the same result around $k = \sqrt{n} - M$ as well. 
+When $k = n$, then the term becomes $(2n)!/ (n!)^3$, and $R_k \leq 2/n$. Therefore,
+we have that there is a geometric sequence with exponent $2/n$ and constant $(2n)!/(n!)^3$, meaning that we get that the tail is at most $n/(n - 2) (2n)!/(n!)^3 = o(S)$. 
+
 \section{2}
-We wish to show that $e^k k^{n - k} \sim e^w w^{n - w}$. This is equivalent to showing that:
+Let $k = w + y$ for some $y = O(1)$. Then we have that:
 \begin{equation}
-	\frac{e^k k^{n - k}}{e^w w^{n - w}} \sim 1.
+	e^{k} k^{n - k} = e^{w + y} (w + y)^{n - w - y}
 \end{equation}
-We can rewrite this as:
+Now we have that:
 \begin{equation}
-	e^{k - w} \frac{k^{n - k}}{w^{n - w}}.
+	(w + y)^{-w} = w^{-w} \left(1 + \frac{y}{w}\right)^{-w}
 \end{equation}
-Now we have that $k = w + y$ for $y = O(1)$. We input this in and rearrange.
+
+But we have that $w \rightarrow \infty$ as $n \rightarrow \infty$, to be proven later. So we have that: 
+
 \begin{equation}
-	e^{y} \frac{w^w}{k^k} \frac{k^n}{w^n} 
+	\left(1 + \frac{y}{w}\right)^{-w} = \left(\left(1 + \frac{y}{w}\right)^{w}\right)^{-1} \sim \left(e^{y}\right)^{-1} = e^{-y}
 \end{equation}
-We use the fact that when $y = O(1)$, we have that $k^k = (w + y)^{w + y} = \exp((w + y) \log(w + y))$. But $\log(w + y) = \log(w) + \log(1 + y/w) = \log(w) + 1 + y/w + O(y^2/w^2)$. Then we have that $(w + y)^{w + y}  = \exp((w + y) \log(w) + (w + y) (1 + y/w + O(y^2/w^2)) = w^{w + y} \exp(w + 2y + O(\frac{1}{w}))$. But we have that $w$ is increasing and unbounded, so $O(\frac{1}{w}) = o(1)$. So:
-\begin{equation}
-	k^k = (w + y)^{w + y}  = w^{w + y} \exp(w + 2y).
-\end{equation}
+
 Therefore, we have that:
 \begin{equation}
-	e^{y} \frac{w^w}{w^{w + y}\exp(w + 2y)} \frac{k^n}{w^n} = \frac{1}{w^y \exp(w + y)} \frac{k^n}{w^n} = \frac{k^n}{w^{n + y} \exp(w + y)}.
+	(w + y)^{-w} = w^{-w} e^{-y}.
 \end{equation}
-What remains to show is that 
 
-\subsection{$w$ as a bound of $n$}
-We have that $w \log (w + 1) = n$. 
-From bounds, we have that when $w = 0$, the left hand side is $0$. When $w = n$, we have that the left hand side is $n \log(n + 1) > n$. Therefore as the function is increasing, $0 < w < n$. 
-
-Rearrange so that we have that $w = \frac{n}{\log(w + 1)}$. Now suppose $w = \alpha n$ for some $\alpha$ in $O(1)$. Then we have that:
+Now consider
+\begin{equation}
+	(w + y)^{n - y}.
+\end{equation}
+We first take out $w$ to get:
+\begin{equation}
+	(w + y)^{n - y} = w^{n - y} \left(1 + \frac{y}{w}\right)^{n - y}
+\end{equation}
+We have that $n = w \log (w + 1)$. We then substitute this into the equation above to get:
+\begin{equation}
+	\left(1 + \frac{y}{w}\right)^{n - y} = \left(1 + \frac{y}{w}\right)^{w \log(w + 1) - y}.
+\end{equation}
+Now we have that this is equal to:
+\begin{equation}
+	\exp((w \log(w + 1) - y) \log\left(1 + \frac{y}{w}\right)).
+\end{equation}
+But we have that $\log\left(1 + \frac{y}{w}\right) = \frac{y}{w} + O(y^2/w^2)$. Substituting this into the equation above, and using the fact that $y = O(1)$, we get that:
 \begin{align*}
-	w &= \frac{n}{\log(\alpha n + 1)}\\
-	&= \frac{n}{\log(\alpha n) (1 + \frac{1}{\alpha n})}\\
-	&=\frac{n}{\log(\alpha) + \log(n) - \log(1 + \frac{1}{\alpha n})}\\
-	&= \frac{n/ \log n}{\log(\alpha)/\log n + 1 - \log(1 + 1/\alpha n)/\log n}\\
+	&(w \log(w + 1) - y)(\frac{y}{w} + O(y^2/w^2))\\ 
+	&= y \log(w + 1) - O(1/w) + O(y \log w/w) + O(y^3/w^2)\\ 
+	&=  y \log(w + 1) + O(\log w / w).
 \end{align*}
-We then can use the fact that $1/(1 + o(1)) = (1 + o(1))$ to show that:
-\begin{align*}
-	w &= n / \log n (1 + O(\log n))
-\end{align*}
-so $w \sim n / \log n$. 
+Therefore, we have that:
+$\left(1 + \frac{y}{w}\right)^{n - y} = \exp(y \log(w + 1) + o(1)) = (w + 1)^y$. 
+Finally, we have that $(w + 1)^y = w^y (1 + 1/w)^y \sim w^y$ as $(1 + 1/w)^y$ is bounded above and goes to 1 very quickly. 
+Therefore, we have that:
 
+\begin{align*}
+	e^k k^{n - k} &= e^{w + y}(w + y)^{n - w - y}\\
+	&=e^w e^y (w + y)^{-w} (w + y)^{n - y}\\
+	&= e^w e^y w^{-w} \left(1 + \frac{y}{w}\right)^{- w}  w^{n - y}   \left(1 + \frac{y}{w}\right)^{n - y}\\
+	&\sim e^w e^y w^{-w} e^{-y}  w^{n - y} w^y\\
+	&= e^w w^{n - w}
+\end{align*}
+which is what we wanted. 
 \section{3}
 \subsection{a}
 We have the equation:
@@ -169,7 +292,11 @@ But we have that $\frac{1}{\sqrt{1 + x}} = 1 + O(x)$ when $x = o(1)$. Therefore,
 
 \section{4}
 \subsection{a}
-We have that $b_0 = 0$, $b_1 = a_1$. We have that $a_0 = 0$ as well. For the recurrence, we have that $b_n = \sum_{i = 1}^{n} a_i b_{n - i} = \sum_{i = 0}^{n} a_i b_i + a_n$. We have that $[x^n]a(x) b(x) = \sum_{i = 0}^{n} a_i b_{n - i}$.  Therefore, we have that $b(x) =  a(x)(b(x) + 1) = a(x) b(x) + a(x)$. Shuffling around, we have that:
+We have that $b_0 = 0$, $b_1 = a_1$. We have that $a_0 = 0$ as well. For the recurrence, we have that $b_n = \sum_{i = 1}^{n} a_i b_{n - i} = \sum_{i = 0}^{n} a_i b_i + a_n$. We have that $[x^n]a(x) b(x) = \sum_{i = 0}^{n} a_i b_{n - i}$.  Therefore, we have that
+\begin{equation}
+	b(x) =  a(x)(b(x) + 1) = a(x) b(x) + a(x). 
+\end{equation}
+Shuffling around, we have that:
 \begin{equation}
 	b(x) = \frac{a(x)}{1 - a(x)}.
 \end{equation}
@@ -182,7 +309,7 @@ Firstly, we have that we have that $a(x e^{i\theta}) \leq a(x)$ for all $x > 0$.
 \section{5}
 
 \subsection{a}
-We will prove this using deck and hands
+We will prove this using deck and hands.
 We have that the deck that we are dealing with are $n$-cycles which are even. In other words, we want that every connected component has an even number of vertices. We know that the deck enumerator for connected $2$-regular graphs is:
 \begin{equation}
 	D(x) = \frac{1}{2}\left(\log\left(\frac{1}{1 - x}\right) - x - \frac{x^2}{2}\right)
@@ -206,7 +333,10 @@ We have that $x$ is analytic in $\left\{ z: |z| < 1 + \varepsilon \right\} \setm
 
 We want to write $f(z) =\frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ as a summation $\sum_{i = 0}^{J'} c_j (1 - z)^{\alpha + j \beta} + \sum_{i = 0}^{J'} c_j (1 + z)^{\alpha + j \beta}$.
 
-We can do this by writing $f(z) = \frac{1}{2}(g(z) + h(z))$ where $g(z)$ is $\frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = 1$ and $h(z) = \frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = -1$.
+We can do this by evaluating $f$ on a series of curves $C_1 := \left\{z : |z| = 1 + \delta\right\}$ counterclockwise, $C_2 := \left\{z : |1 - z| = \delta\right\}$ clockwise, and $C_3 := \left\{z : |1 + z| = \delta\right\}$ clockwise. From the proof of Darboux's method, $C_1$ is negligible, and $C_2$ and $C_3$ are the most important curves. Now we have to evaluate $f$ around these curves. 
+
+
+We can do this by writing $f(z) = g(z) + h(z)$ where $g(z)$ is $\frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = 1$ and $h(z) = \frac{e^{-z^2/4}}{(1 - z^2)^{1/4}}$ evaluated around $z = -1$.
 
 \subsubsection{Evaluating near $z = 1$}
  We have that when $z$ is near $1$, then we can write
@@ -224,23 +354,23 @@ Therefore, by Darboux' method, we have that
 	[z^n]g(z) = \frac{1}{e^{1/4} 2^{1/4}} \left( \binom{-1/4}{n}(-1)^{-n} +  \frac{1}{2}\binom{3/4}{n}(-1)^{-n} - \frac{1}{8} \binom{7/4}{n} (-1)^{-n} + O(n^{-15/4} \right).
 \end{equation}
 
-With the approximation that $\binom{q}{n}(-1)^n = \binom{n^{-q - 1}}{\Gamma(-q)}$, we have that $\binom{-1/4}{n}(-1)^{-n} \sim \frac{n^{-3/4}}{\Gamma(1/4)}$.
+With the approximation that $\binom{q}{n}(-1)^n = \frac{n^{-q - 1}}{\Gamma(-q)}$, we have that $\binom{-1/4}{n}(-1)^{-n} \sim \frac{n^{-3/4}}{\Gamma(1/4)}$.
 
 We have that:
 \begin{equation}
-	\binom{3/4}{n}(-1)^{-n} \sim \frac{n^{-7/4}}{\gamma(-3/4)}
+	\binom{3/4}{n}(-1)^{-n} \sim \frac{n^{-7/4}}{\Gamma(-3/4)}
 \end{equation}
 
 And
 \begin{equation}
-	\binom{7/4}{n}(-1)^{-n} \sim \frac{n^{-11/4}}{\gamma(-7/4)}
+	\binom{7/4}{n}(-1)^{-n} \sim \frac{n^{-11/4}}{\Gamma(-7/4)}
 \end{equation}
-We have that $\gamma(-3/4) = 1/4 \gamma(1/4)$ and that $\gamma(-7/4) = -3/4 \gamma(-3/4) = -3/16 \gamma(-1/4)$. 
+We have that $\Gamma(-3/4) = 1/4 \Gamma(1/4)$ and that $\Gamma(-7/4) = -3/4 \Gamma(-3/4) = -3/16 \Gamma(-1/4)$. 
 
 Therefore, we have that:
 
 \begin{equation}
-	[z^n]g(z) = \frac{1}{e^{1/4} 2^{1/4}\gamma(1/4)} \left( n^{-3/4} +  2 n^{-7/4} + \frac{2}{3} n^{-11/4} + O(n^{-15/4} \right).
+	[z^n]g(z) = \frac{1}{e^{1/4} 2^{1/4}\Gamma(1/4)} \left( n^{-3/4} +  2 n^{-7/4} + \frac{2}{3} n^{-11/4} + O(n^{-15/4} \right).
 \end{equation}
 
 \subsubsection{Evaluating near $z = -1$}
@@ -279,11 +409,11 @@ Therefore, we have that
 
 Now we put these two sums together to get that:
 \begin{align*}
-	[z^n] f(z) &= [z^n] \frac{1}{2} \left(g(z) + h(z)\right)\\
+	[z^n] f(z) &= [z^n] \left(g(z) + h(z)\right)\\
 	&=
-	\frac{1}{\Gamma(1/4) e^{1/4} 2^{1/4} \cdot 2}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
+	\frac{1}{\Gamma(1/4) e^{1/4} 2^{1/4} }\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
 	&+
-	\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} n! \Gamma(-1/4 - n) \cdot 2} \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
+	\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} n! \Gamma(-1/4 - n)} \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
 \end{align*}
 
 
@@ -291,11 +421,25 @@ Therefore, we have that the number of labelled $2$-regular bipartite graphs is:
 
 \begin{align}
 	n! [z^n] f(z)&=
-\frac{n!}{\Gamma(1/4) e^{1/4} 2^{1/4} \cdot 2}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
+\frac{n!}{\Gamma(1/4) e^{1/4} 2^{1/4}}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
 &+
-\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n) \cdot 2}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
+\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
 \end{align}
 
+Finally, we can say $n! \sim (n/e)^n\sqrt{2 \pi n}$ and approximate. 
+\begin{align}
+	n! [z^n] f(z)&=
+	\frac{n^n \sqrt{2 \pi n}}{\Gamma(1/4) e^{1/4 + n} 2^{1/4}}\left( n^{-3/4} +  2 n^{-7/4} + 2/3 n^{-11/4} + O(n^{-15/4}) \right)\\ 
+	&+
+	\frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}  \left(1+ \frac{3}{8 (-1/4 - n)} - \frac{21}{128 (3/4 - n)(-1/4 - n)}+  O(n^{-15/4} n^{-n})\right)
+\end{align}
+
+However, we have that when $n$ is odd, the left hand side cancels out the right hand side.
+
+When $n$ is even, then we have that the left hand side and the right hand side should be the same, so we have that
+
+$f(z) \sim 2 \frac{\Gamma(3/4)}{e^{1/4} 2^{1/4} \Gamma(-1/4 - n)}$ when $n$ is even, or
+$f(z) \sim 2\frac{n^n \sqrt{2 \pi n}}{\Gamma(1/4) e^{1/4 + n} 2^{1/4} n^{3/4}}$. 
 \section{6}
 \subsection{a}
 We shall think about this in the form of decks. Let a card be a connected digraph where no two edges share a vertex. We have that $d_1 = 1$ as there is only one standard card of size 1, which is the singleton vertex with label $1$. We have $d_2 = 2$ as there are two cards, the vertex $1$ pointing to the vertex $2$, and the vertex $2$ pointing to the vertex $1$. Then the deck enumerator is $x + \frac{1}{2} (2) x^2 = x + x^2$, so the egf for $\left\{ c_n\right\}_{n \geq 0}$ is $f(x) := e^{x + x^2}$.
@@ -307,7 +451,7 @@ We have that $f$ is entire on $\mathbb{C}$. Therefore, the radius of convergence
 \end{equation}
 so substituting this in, we have that:
 \begin{equation}
-	c_n \leq r^{-n} e^{r + r^2}.
+	c_n/n! \leq r^{-n} e^{r + r^2}.
 \end{equation}
 To find when $r$ is minimised, we take the derivative. So we get that:
 \begin{align*}
@@ -333,12 +477,159 @@ and then take a factor of $8n$ out of the square root. So we have that:
 \end{equation}
 Now we have that $\sqrt{1 + x} = 1 + x/2 + O(x^2)$ so we have that:
 \begin{align*}
-	r &= \frac{\sqrt{8n}\left(1 + \frac{1}{16n} + O(\frac{1/n^2}{den})\right)}{4} - \frac{1}{4}\\
-	&= \sqrt{\frac{n}{2}} + \frac{1}{8 \sqrt{2 n}} - \frac{1}{4} + O(\frac{1}{n^{3/2}})
+	r &= \frac{\sqrt{8n}\left(1 + \frac{1}{16n} + O(\frac{1}{n^2})\right)}{4} - \frac{1}{4}\\
+	&= \sqrt{\frac{n}{2}} + \frac{1}{16 \sqrt{2 n}} - \frac{1}{4} + O(\frac{1}{n^{3/2}})
 \end{align*}
 which has additive error $o(\frac{1}{n})$. 
 
 \subsection{d}
+We have that $|f(r e^{i \theta})| = |\exp\left(r e^{i \theta} + r^2 e^{2 i \theta}\right)|$. Now we have that $e^{i \theta} = \cos(\theta) + i \sin (\theta)$, but $|e^{a + ib}| = e^a$. Therefore, the $i \sin \theta$ terms disappear in the magnitude, so we have that 
+\begin{equation}
+	|f(r e^{i \theta})| = e^{r \cos (\theta) + r^2 \cos (2 \theta)}. 
+\end{equation}
+
+Now we have that $\cos \theta = 1 - \theta^2/2 + O(\theta^4)$. 
+
+We want that:
+\begin{equation}
+	\exp(r (1 - \theta^2/2 + O(\theta^4)) + r^2 (1 - 2 \theta^2 + O(\theta^4)) - r - r^2) = o(1/n)
+\end{equation}
+We have that the above equation evaluates to:
+\begin{equation}
+	\exp(
+	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
+	)
+\end{equation}
+meaning that if $t = n^{-1/4 - \epsilon}$ for any $\epsilon > 0$, then we have that the $O(\theta^4 n)$ goes to 0. But we want that $\exp^{- n \theta^2} = o(-n)$ so we want that $\theta^2 n = n^\varepsilon$. Therefore, we want that $\theta = n^{-1/2 + \varepsilon}$ for some $\varepsilon > 0$. Therefore, if we set $\theta = n^{-2/5}$, then we have that $\exp(-n^{1/5}) = o(1/n)$.
 
 \subsection{e}
+
+Let $g(\theta) = \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$. Then we have that:
+\begin{equation}
+	g(\theta) = \frac{ e^{r e^{i \theta} + r^2 e^{2 i \theta}}}{r^n e^{i n \theta}}
+\end{equation}
+
+We have that $\log(g (\theta))$ is:
+
+\begin{equation}
+	\log(g(\theta)) = r e^{i \theta} + r^2 (e^{i \theta})^2 - n \log r - i n \theta.
+\end{equation}
+
+We have that $e^{i \theta} = 1 + i \theta - \theta^2/2  + O(\theta^3)$ and as $\theta = n^{-2/5}$ we have that $\theta^3 = o(n^{-1})$.
+
+We expand out $\log r$ as $\log(\sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right))$. So
+
+\begin{equation}
+	\log(r) = \frac{1}{2}\log(n/2) + \log\left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right).
+\end{equation} 
+Now we have that 
+\begin{align*}
+	&\log\left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right) \\
+	&= - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + (- \frac{1}{2 \sqrt{2n}} + \frac{1}{16n})^2/2 + O(1/n^2)\\
+	&= -\frac{1}{2 \sqrt{2n}} + \frac{1}{32 \sqrt{2}n^{3/2}} + O(1/n^2)
+\end{align*}
+Therefore, we have that $n \log r = \frac{n}{2}\log \left(\frac{n}{2}\right) - \frac{\sqrt{n}}{2 \sqrt{2}} + \frac{1}{32 \sqrt{2} n^{1/2}} + O(1/n)$. 
+
+Finally, we have that
+\begin{align*}
+	 &r e^{i \theta} + r^2 (e^{i \theta})^2 \\
+	 &= \sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right)( 1 + i \theta - \theta^2/2 + O(\theta^3)) \\
+	 &+ \frac{n}{2} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right)^2( 1 + i \theta - \theta^2/2 + O(\theta^3))^2
+\end{align*}
+
+So we have that 
+\begin{align}
+	\log g(\theta) &=r e^{i \theta} + r^2 (e^{i \theta})^2 - n \log r - i n \theta \\
+	&=
+	-1/8 + \sqrt{n/2} + n/2 - n \theta^2 -n/2 \log(n/2) + o(1) 
+\end{align}
+So we have that $g(\theta) = \exp(-1/8 + \sqrt{n/2} + n/2 - n\theta^2)(n/2)^{-n/2}$. 
+
+Finally, we evaulate the integral on the domain $\theta = [n^{-2/5}, n^{2/5}]$. We have that:
+\begin{equation}
+	[z^n] f(z) = \frac{1}{2 \pi} \int_{-n^{-2/5}}^{n^{-2/5}} \exp(-1/8 + \sqrt{n/2} + n/2 - n\theta^2) (n/2)^{-n/2}\, d\theta
+\end{equation}
+We can take out all terms except for $-n \theta^2$ and evaluate. 
+\begin{align*}
+	[z^n] f(z) &= \frac{\exp(-1/8 + \sqrt{n/2} + n/2) }{2 \pi(n/2)^{n/2}} \int_{-n^{-2/5}}^{n^{-2/5}} \exp(- n\theta^2)\, d\theta\\
+	&=
+	 \frac{\exp(-1/8 + \sqrt{n/2} + n/2)}{2 \pi(n/2)^{n/2}} \sqrt{\pi/n}\, d\theta \\
+\end{align*}
+
+Therefore, we have that $c_n = [z^n] f(z) n!$. We have that $n! = (n/e)^n \sqrt{2 \pi n}$
+so we have that:
+\begin{equation}
+	c_n = \frac{n^{n/2} 2^{n/2 - 1/2} e^{-1/8 + \sqrt{n/2}} }{ e^{n/2}}
+\end{equation}
+
+which matches Hayman's method. 
+
+\subsubsection{Using Hayman's method}
+As an addendum, we will also use Hayman's method to calculate $c_n/n!$. 
+
+
+We have that $a(n) = r f'(x)/f(r) = r(2r + 1)$. Then we get that 
+\begin{equation}
+	r_n = \frac{-1 + \sqrt{1 + 8n}}{4} = \sqrt{\frac{n}{2}} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n} + O(1/n^2)\right)
+\end{equation}
+which agrees with above. 
+
+Now we have that:
+\begin{align*}
+	f(r_n) = e^{r_n + r_n^2} &= \exp\left(\sqrt{\frac{n}{2}} - 1/4 + o(1) + (n/2)\left(\frac{n}{2} \left(1 - \frac{1}{2 \sqrt{2n}} + \frac{1}{16n}\right) ^2 \right)\right)\\
+	&=
+	\exp \left(
+	\sqrt{\frac{n}{2}} - 1/4 + n/2 - 1/4\sqrt{\frac{n}{2}} + 1/32 - 1/4\sqrt{\frac{n}{2}} + 1/16 + 1/32 + o(1)
+	\right)\\
+	&=
+	\exp \left(
+	\frac{n}{2} + \frac{1}{2} \sqrt{\frac{n}{2}} - 1/8 + o(1)
+	\right)
+\end{align*}
+We have that $b(r_n) = r_n + 4 r_n^2 \sim 2n$ as $r_n \sim \sqrt{n/2}$. Finally, we have that:
+\begin{equation}
+	r_n^n = \left(\sqrt{\frac{n}{2}}\right)^n  \exp( n  \log(r_n/ \sqrt{n/2}))
+\end{equation}
+We have that 
+\begin{align*}
+	\log(r_n/\sqrt{n/2}) &= \log(1 - 1/(2 \sqrt{2n}) + 1/16n + o(1/n))\\
+	& -\frac{1}{2 \sqrt{2n}} + \frac{1}{16n} - 1/2 \frac{1}{8n} + o(1/n)\\
+	&= - \frac{1}{2 \sqrt{2n}} + o(1/n)
+\end{align*}
+So $r_n^n \sim \left(\sqrt{\frac{n}{2}}\right)^n e^{n \left(- \frac{1}{2 \sqrt{2n}} + o(1/n)\right)}$, so $r_n^n = n^{n/2} 2^{-n/2} e^{-\frac{\sqrt{n}}{2\sqrt{2}}}$. 
+
+From Hayman's method, we have that:
+\begin{equation}
+	c_n/n! \sim \frac{f(r_n)}{r_n^n \sqrt{2 \pi b(r_n)}}
+\end{equation}
+so we input in what we have to get:
+\begin{align}
+	c_n/n! &\sim \frac{e^{n/2 + 1/2 \sqrt{n/2} - 1/8}}{n^{n/2} 2^{-1/2} e^{-1/2 \sqrt{n/2}} \sqrt{2 \pi (2n)}}\\
+	&\sim 
+	\frac{e^{n/2 + \sqrt{n/2} - 1/8} 2^{n/2}}{n^{n/2} \sqrt{4 \pi n}}
+\end{align}
+Now we have that $n! \sim (n/e)^n \sqrt{2 \pi n}$ so we have that:
+\begin{align}
+	c_n &\sim n^n e^{-n} \sqrt{2 \pi n}\frac{e^{n/2 + \sqrt{n/2} - 1/8} 2^{n/2}}{n^{n/2} \sqrt{4 \pi n}}\\
+	&=
+	n^{n/2} e^{\sqrt{n/2} - n/2 - 1/8} 2^{n/2 - 1/2}
+\end{align}
+
+
+\subsection{f}
+Recall that:
+\begin{equation}
+	|f(r e^{i \theta})| = \exp(
+	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
+	).
+\end{equation}
+Then when $\theta > n^{-2/5}$, we have that 
+\begin{align*}
+	&\frac{1}{2 \pi n^n} \int^\pi_{n^{-2/5}} \exp(
+	-\theta^2/8 - \theta^2/(256n) + \theta^2/(32 \sqrt{2n}) + \sqrt{n} \theta^2/(2 \sqrt{2}) - n \theta^2 + O(\theta^4 n)
+	) \, d\theta \\
+	&= O(1/n^n \exp(n^{1/5}))\\
+	&= o(n^{n/2} e^{-n/2} 2^{n/2})
+\end{align*}
+as wanted. 
 \end{document}

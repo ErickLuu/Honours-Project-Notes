@@ -504,7 +504,7 @@ For graphs that can be embedded on a torus, there are at least 17,523 graphs whi
 
 This proof has been adapted into the language of tree-decompositions. 
 \begin{theorem}[Hickingbotham and Wood \cite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
-	Let $G$ be a graph with a tree-decomposition $(B_x: x \in V(T))$ where each torso $G \langle B_x \rangle$ has pagenumber $\leq s$ and $\cup_{x \in V(T)} G \langle B_x \rangle$ is $c$-colourable. Additionally, we have that the adhesion of this tree is at most $\ell$.
+	Let $G$ be a graph with a tree-decomposition $(B_x: x \in V(T))$ where each torso $G \langle B_x \rangle$ has pagenumber $\leq s$ and every torso $G \langle B_x \rangle$ is $c$-colourable. Additionally, we have that the adhesion of this tree is at most $\ell$.
 	 Then $\pn(G(\mathcal{G}, T)) \leq cs + \ell$.  
 \end{theorem}
 
@@ -597,6 +597,17 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 \begin{proof}[Proof \cref{thm:Planar Graph Hickingbotham Bound}]
 	Let $G$ be planar. Then $G$ has a tree-decomposition of adhesion size at most $3$ with the torsos being $4$-connected, from \cref{lem:clique_sum_connected} However, this implies that the torsos are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}, thus the number of pages needed for each torso is $2$. Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most $2 \times 4 + 3 = 11$. 
 \end{proof}
+
+We will discuss the $K_5$-minor free case. If $G$ is $K_5$-minor free, then we do not need to worry about the GMST to form an upper bound. 
+\begin{theorem}
+	If $G$ is $K_5$-minor free, then $G$ has pagenumber $\leq 19$.
+\end{theorem}
+
+\begin{proof}
+	Suppose $G$ is $K_5$-minor free. Then by Wagner's theorem \cite{wagnerUeberEigenschaftEbenen1937}, $G$ has a tree-decomposition of adhesion at most 3 where every torso is either a planar graph or the Wagner graph.
+	We have that planar graphs are $4$-colourable and have pagenumber $\leq 4$. We have that the Wagner graph is $3$-colourable and has pagenumber $\leq 4$. Therefore, we have that if $G$ is $K_5$-minor free, then $G$ has pagenumber at most $4 \times 4 + 3 = 19$. 
+\end{proof}
+\todo{Draw Wagner graph and book-embedding on 4 pages}
 
 \subsection{Bounded treewidth and page number}\label{ssec:Bounded_Treewidth}
 \begin{theorem}[Ganley + Heath\cite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
@@ -721,7 +732,18 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	If $G$ is $2$-cell embedded on a surface of Euler genus $g$, then any planar-nonplanar decomposition has at most $3g-3$ homotopy classes. 
 \end{lemma}
 \begin{proof}
-	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $v - e + f = 2 - g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3v = 2e$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $v = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 3 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $3(f-1) + v \leq 2e$, by double counting faces and edges. Thus, we have that $3g - 3 \geq v/2 = h$ by manipulating the inequalities. 
+	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $n - m + f = 2 - g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3n = 2m$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $n = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 3 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $3(f-1) + n \leq 2m$, by double counting faces and edges. Thus, we have that
+	\begin{align*}
+	3n &\geq 6(f - 1) + n\\
+	2n &\geq 6f + 6\\
+	4h &\geq 5 f - 6\\
+	4h &\geq 5(2 - g + m - n) - 6\\
+	4h &\geq 6 - 6g + 3n\\
+	4h &\geq 6 - 6g + 6h\\
+	-2h &\geq 6 - 6g\\
+	h &\leq 3g - 3
+	\end{align*}
+	$3g - 3 \geq h$ by manipulating the inequalities. 
 \end{proof}
 
 \subsubsection{Proving graphs with bounded number of homotopy classes have bounded pagenumber}\label{sssec:bounded_pagenumber_homotopy}
