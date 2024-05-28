@@ -1,81 +1,4 @@
-\documentclass[]{report}
-\usepackage[margin = 1in]{geometry}
-
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage[english]{babel}
-\usepackage{url}
-\usepackage{todonotes}
-\usepackage{csquotes}
-
-\usepackage{hyperref}
-\usepackage[noabbrev, capitalise]{cleveref}
-
-\usepackage[style = numeric,
-isbn=false,
-url=false,
-eprint = false,
-maxbibnames=99
-]{biblatex}
-\renewbibmacro{in:}{}
-\DeclareSourcemap{
-	\maps[datatype=bibtex]{
-		\map{
-			\step[fieldset=url, null]
-			\step[fieldset=extra, null]
-			\step[fieldset=urldate, null]
-		}
-	}
-}
-\AtEveryBibitem{%
-	\clearfield{day}%
-	\clearfield{month}%
-	\clearfield{endday}%
-	\clearfield{endmonth}%
-}
-
-\addbibresource{Book-Embeddings.bib}
-% Commands
-\newcommand{\tree}{\mathcal{T}}
-\newcommand{\tw}{\text{tw}}
-\newcommand{\had}{\text{had}}
-\newcommand{\pw}{\text{pw}}
-\newcommand{\td}{\text{td}}
-\newcommand{\pn}{\text{pn}}
-% Environments
-
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{conjecture}[theorem]{Conjecture}
-
-\theoremstyle{definition}
-\newtheorem{example}[theorem]{Example}
-
-\numberwithin{theorem}{section}
-\numberwithin{equation}{section}
-
-%includeonly
-\includeonly{
-introduction,
-definitions
-}
-
-%opening
-\title{Towards a proof that all $K_t$-minor-free graphs have bounded pagenumber}
-\author{Eric Luu}
-
-\begin{document}
-
-\maketitle
-\chapter{Abstract}\label{abstract}
-In this report we outline our current progress in proving that $K_t$-minor free graphs have bounded pagenumber. Proving this bound will connect two important concepts in structural graph theory that have been studied extensively for the past 40 years. We will outline the most important theorem in structural graph theory related to $K_t$-minor free graphs, the Graph Minor Structure Theorem. We will also introduce some other proofs which will be of use proving this bounded pagenumber conjecture. 
-
-\include{introduction}
-\include{definitions}
+% !TEX root = ./thesis.tex
 
 \chapter{Known results from structural graph theory}\label{chap:Known results}
 In this chapter of the report, we outline important known results that will help us solve \cref{conj:bded_had_pn}.
@@ -220,7 +143,7 @@ For graphs that can be embedded on a torus, there are at least 17,523 graphs whi
 This proof has been adapted into the language of tree-decompositions. 
 \begin{theorem}[Hickingbotham and Wood \cite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let $G$ be a graph with a tree-decomposition $(B_x: x \in V(T))$ where each torso $G \langle B_x \rangle$ has pagenumber $\leq s$ and every torso $G \langle B_x \rangle$ is $c$-colourable. Additionally, we have that the adhesion of this tree is at most $\ell$.
-	 Then $\pn(G(\mathcal{G}, T)) \leq cs + \ell$.  
+	Then $\pn(G(\mathcal{G}, T)) \leq cs + \ell$.  
 \end{theorem}
 
 \subsubsection{Proof of above theorem.}
@@ -239,12 +162,12 @@ To prove this theorem, we will use a common technique in graph theory. We will s
 \end{lemma}
 \begin{proof}[Proof of \cref{lem:Hickingbotham_Lemma}]
 	Let $(\leq_a, \psi_a)$ be a $s$-stack layout of $G$ and let $\rho: V(G) \rightarrow \lbrace 1, 2, ..., c\rbrace$ be a proper colouring of $V(G)$.
-
-Let $u_1, ..., u_k$ be the vertices of $C$ ordered by $\sigma_C$. Note that $k \leq \ell$. Then the new ordering starts with $u_1 \leq u_2 \leq ..., \leq u_k$, and all vertices not in $K$ are placed after, according to $\leq_a$.
-Then the stack assignment $\psi$ is now defined. For every edge $u_i v$ where $u_i \in V(C)$ and $u_i \leq v$, define $u_i v = i$. Otherwise, if neither $u$ or $v$ are in $V(C)$, and $u \leq v$, then let $\psi(uv) = (\rho(u), \psi_a(uv))$. Then we have at most $|\rho| |\psi_a| + k \leq cs + \ell$ pages.
-
-We shall show that $(\leq, \psi)$ is a proper book-embedding. Suppose we have a pair of edges $uv$ and $xy$ which cross, and $\phi(uv) = \phi(xy)$. Suppose that $u$ is the smallest vertex in the ordering $\leq$. If $u \in V(C)$, then the edge $uv$ is assigned to its own page, meaning that it cannot cross $xy$. So $x = u$, but we can draw $uv$ and $uy$ on a single page. Thus they do not cross. Therefore we have that $u, v, x, y$ are not in $V(C)$, and as we preserve the original book-embedding, then these edges do not cross. Thus shown.
-We have that property 1 and 2 are immediate. For property 3, consider a clique $J$ in $G$. Then we must show the last vertex of $J$ is rainbow. Suppose the last vertex of $J$ is $w$, and let $u, v$ be earlier vertices. Since $u$ and $v$ necessarily are assigned different colours in the colouring, then $\psi(uw) = (\rho(u), \psi_a(uw))$ and $\psi(vw) = (\rho(v), \psi_a(vw))$. Therefore, the two edges are on different pages. Thus $w$ is a rainbow vertex. 
+	
+	Let $u_1, ..., u_k$ be the vertices of $C$ ordered by $\sigma_C$. Note that $k \leq \ell$. Then the new ordering starts with $u_1 \leq u_2 \leq ..., \leq u_k$, and all vertices not in $K$ are placed after, according to $\leq_a$.
+	Then the stack assignment $\psi$ is now defined. For every edge $u_i v$ where $u_i \in V(C)$ and $u_i \leq v$, define $u_i v = i$. Otherwise, if neither $u$ or $v$ are in $V(C)$, and $u \leq v$, then let $\psi(uv) = (\rho(u), \psi_a(uv))$. Then we have at most $|\rho| |\psi_a| + k \leq cs + \ell$ pages.
+	
+	We shall show that $(\leq, \psi)$ is a proper book-embedding. Suppose we have a pair of edges $uv$ and $xy$ which cross, and $\phi(uv) = \phi(xy)$. Suppose that $u$ is the smallest vertex in the ordering $\leq$. If $u \in V(C)$, then the edge $uv$ is assigned to its own page, meaning that it cannot cross $xy$. So $x = u$, but we can draw $uv$ and $uy$ on a single page. Thus they do not cross. Therefore we have that $u, v, x, y$ are not in $V(C)$, and as we preserve the original book-embedding, then these edges do not cross. Thus shown.
+	We have that property 1 and 2 are immediate. For property 3, consider a clique $J$ in $G$. Then we must show the last vertex of $J$ is rainbow. Suppose the last vertex of $J$ is $w$, and let $u, v$ be earlier vertices. Since $u$ and $v$ necessarily are assigned different colours in the colouring, then $\psi(uw) = (\rho(u), \psi_a(uw))$ and $\psi(vw) = (\rho(v), \psi_a(vw))$. Therefore, the two edges are on different pages. Thus $w$ is a rainbow vertex. 
 \end{proof}
 
 \subsubsection{Full proof}
@@ -449,14 +372,14 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 \begin{proof}
 	Decompose $G$ to a $(R, G_P, E_N)$ decomposition of $G$. Suppose $E_N \neq \emptyset$. Then identify $G_P$ to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point $G_P$, and place vertices where the circle intersects all edges. Then delete the vertex $G_P$, and call the new graph $H$. We have that $n = |V(H)|$, $m = |E(H)|$, $h$ is the number of homotopy classes, and $f$ is the number of faces. We have that $n - m + f = 2 - g$. Since $H$ is cubic as every vertex has two edges on the circle and one on the homotopy class, then $3n = 2m$ by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, $n = 2h$. The interior face of $H$ has $v$ incident edges, and the remaining $f-1$ faces have at least 3 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that $3(f-1) + n \leq 2m$, by double counting faces and edges. Thus, we have that
 	\begin{align*}
-	3n &\geq 6(f - 1) + n\\
-	2n &\geq 6f + 6\\
-	4h &\geq 5 f - 6\\
-	4h &\geq 5(2 - g + m - n) - 6\\
-	4h &\geq 6 - 6g + 3n\\
-	4h &\geq 6 - 6g + 6h\\
-	-2h &\geq 6 - 6g\\
-	h &\leq 3g - 3
+		3n &\geq 6(f - 1) + n\\
+		2n &\geq 6f + 6\\
+		4h &\geq 5 f - 6\\
+		4h &\geq 5(2 - g + m - n) - 6\\
+		4h &\geq 6 - 6g + 3n\\
+		4h &\geq 6 - 6g + 6h\\
+		-2h &\geq 6 - 6g\\
+		h &\leq 3g - 3
 	\end{align*}
 	$3g - 3 \geq h$ by manipulating the inequalities. 
 \end{proof}
@@ -473,37 +396,6 @@ We refer to a homotopy class as orientable if $T_1$ and $T_2$ go in opposite dir
 	Suppose $G$ has a planar-nonplanar decomposition $(R, G_P, E_N)$ on an non-orientable surface $\Sigma$. Then $G$ can be embedded on at most $9g - 1$ pages.
 \end{lemma}
 \begin{proof}[Proof sketch]
-\todo{Flesh out details completely}
-We want to add edges in a controlled way so that the traces that are reversed become unreversed. This is done by adding edges between vertices so that we can invert the ordering on the circle such that we have that the vertices in one homotopy class have a non-crossing page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page where there are finitely many pages wrt to the genus of the surface. Let $\mathcal{C}_{i,j}$ be a chord class when it is the set of chords that go between traces $T_i$ and $T_j$, where $T_i$ and $T_j$ both go clockwise or counterclockwise. Note that the number of chord classes $\mathcal{C}_{i,j}$ is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite. 
+	\todo{Flesh out details completely}
+	We want to add edges in a controlled way so that the traces that are reversed become unreversed. This is done by adding edges between vertices so that we can invert the ordering on the circle such that we have that the vertices in one homotopy class have a non-crossing page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page where there are finitely many pages wrt to the genus of the surface. Let $\mathcal{C}_{i,j}$ be a chord class when it is the set of chords that go between traces $T_i$ and $T_j$, where $T_i$ and $T_j$ both go clockwise or counterclockwise. Note that the number of chord classes $\mathcal{C}_{i,j}$ is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite. 
 \end{proof}
-
-\chapter{Potential proof techniques}\label{chap:Proving_The_Theorem}
-Our aim is to show that graphs with bounded genus $g$ containing $p$ vortices of bounded width $k$ have bounded pagenumber $f(g, p, k)$. Thus we can show that for fixed $t$, all $K_t$-minor free graphs have bounded pagenumber $f(g, p, k, a, \ell)$. However, from \cite{hickingbothamStackNumberCliqueSum2023}, we can show that the clique-sums of graphs of bounded genus also have bounded genus.
-
-We wish to find a book-embedding of a graph $G$ of bounded genus $g$ with vortices $G_1, ..., G_p$ of adhesion $k$ such that the pagenumber of $G$ is at most $f(g, p, k)$ for some constants $g$ and $p$. We do not worry about the $a$-case now.
-
-\section{Planar graphs}
-From Heath and Istrail, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
-
-We wish to prove the following:
-
-\begin{conjecture}\label{conj:4-planar graphs}
-	For all 4-connected planar graphs $G$ with an embedding $\Sigma$, with $i$ distinguished faces $\left\lbrace F_1, ..., F_i \right\rbrace$ and a distinguished clique $C$ of size at most $3$, there exists a book-embedding $(<, \psi)$ such that all edges bounding the faces $F_i$ are ``almost'' monochromatic and $C$ is at the start of the embedding with pagenumber at most $f(i)$.
-\end{conjecture}
-
-\subsection{Graphs of bounded genus}
-
-However, this conjecture may be too difficult to prove. Then we can consider a book-embedding of graphs $g$ of bounded genus, and consider what happens if the disks were manipulated only slightly, with a bounded number of vertices on the boundary of the disks moved around. Then from using Heath and Istrail's algorithm to build the homotopy classes, we can add on the disks to the graphs of bounded genus. However, we do not know any good way of making this work properly. 
-\section{Apex vertices}
-In this section, we will prove that apex vertices can be added with a bounded increase to the number of pages.
-\begin{theorem}
-	If $G$ is a graph with components $G'$ and $A$ apex vertices and $G'$ is a graph with pagenumber $s$, $a = |A|$, then $G$ has pagenumber $s + \left\lceil \frac{3a}{2}\right\rceil$. 
-\end{theorem}
-\begin{proof}
-	Let $G'$ have book-embedding $(<, \rho)$. Then place the vertices of $A$ at the very start of $(<)$ and for every edge $u_iv$, $u_i \in A$, $v \in G'$, we colour $\rho(uv) = i$. Then for any edge $e \in E(G')$, we maintain the same colour as before. Then for the edges between vertices in $A$, we have that the number of colours is bounded above by $\left\lceil \frac{a}{2} \right\rceil$ from \cref{thm:Pagenumber_Complete_Graph}. Therefore, we have that $\pn(G) \leq \pn(G') + a + \left\lceil \frac{a}{2} \right\rceil =s + \left\lceil \frac{3a}{2}\right\rceil$. 
-\end{proof}
-
-\chapter{Conclusion}\label{chap:conclusion}
-We conclude this report by explaining our current progress and our future plans. We have explained the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003} and its application in our particular problem involving $K_t$-minor free graphs. We apply the Graph Minor Structure Theorem to the problem and explain some partial results. What will be the future area of research are graphs which are almost-embeddable on surfaces. The main issue that we are dealing with is the problem of vortices on surfaces. We have to show that adding $p$ vortices of adhesion $k$ to surfaces of genus $g$ still has a bounded pagenumber, with the bounds depending only on $p, k$ and $g$. We hope to continue this avenue of investigation through the next semester. 
-\printbibliography
-\end{document}

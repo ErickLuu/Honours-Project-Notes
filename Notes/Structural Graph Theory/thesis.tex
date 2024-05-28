@@ -1,0 +1,87 @@
+\documentclass[]{report}
+\usepackage[margin = 1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{csquotes}
+
+\usepackage{hyperref}
+\usepackage[noabbrev, capitalise]{cleveref}
+
+\usepackage[style = numeric,
+isbn=false,
+url=false,
+eprint = false,
+maxbibnames=99
+]{biblatex}
+\renewbibmacro{in:}{}
+\DeclareSourcemap{
+	\maps[datatype=bibtex]{
+		\map{
+			\step[fieldset=url, null]
+			\step[fieldset=extra, null]
+			\step[fieldset=urldate, null]
+		}
+	}
+}
+\AtEveryBibitem{%
+	\clearfield{day}%
+	\clearfield{month}%
+	\clearfield{endday}%
+	\clearfield{endmonth}%
+}
+
+\addbibresource{Book-Embeddings.bib}
+% Commands
+\newcommand{\tree}{\mathcal{T}}
+\newcommand{\tw}{\text{tw}}
+\newcommand{\had}{\text{had}}
+\newcommand{\pw}{\text{pw}}
+\newcommand{\td}{\text{td}}
+\newcommand{\pn}{\text{pn}}
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+%includeonly
+\includeonly{
+chapters/introduction,
+chapters/definitions,
+chapters/knownresults,
+chapters/proofattempt
+}
+
+%opening
+\title{Towards a proof that all $K_t$-minor-free graphs have bounded pagenumber}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\chapter{Abstract}\label{abstract}
+In this report we outline our current progress in proving that $K_t$-minor free graphs have bounded pagenumber. Proving this bound will connect two important concepts in structural graph theory that have been studied extensively for the past 40 years. We will outline the most important theorem in structural graph theory related to $K_t$-minor free graphs, the Graph Minor Structure Theorem. We will also introduce some other proofs which will be of use proving this bounded pagenumber conjecture. 
+
+\include{chapters/introduction}
+\include{chapters/definitions}
+\include{chapters/knownresults}
+\include{chapters/proofattempt}
+
+\chapter{Conclusion}\label{chap:conclusion}
+We conclude this report by explaining our current progress and our future plans. We have explained the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003} and its application in our particular problem involving $K_t$-minor free graphs. We apply the Graph Minor Structure Theorem to the problem and explain some partial results. What will be the future area of research are graphs which are almost-embeddable on surfaces. The main issue that we are dealing with is the problem of vortices on surfaces. We have to show that adding $p$ vortices of adhesion $k$ to surfaces of genus $g$ still has a bounded pagenumber, with the bounds depending only on $p, k$ and $g$. We hope to continue this avenue of investigation through the next semester. 
+\printbibliography
+\end{document}
