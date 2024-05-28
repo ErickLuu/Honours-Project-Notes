@@ -20,15 +20,18 @@ As a consequence of Tutte's theorem, we have that every 4-connected planar graph
 We wish to prove the following:
 
 \begin{conjecture}\label{conj:4-planar graphs}
-	For all 4-connected planar graphs $G$ with an embedding $\Sigma$, with $i$ distinguished faces $\left\lbrace F_1, ..., F_i \right\rbrace$ and a distinguished clique $C$ of size at most $3$, there exists a book-embedding $(<, \psi)$ such that all edges bounding the faces $F_i$ are ``almost'' monochromatic and $C$ is at the start of the embedding with pagenumber at most $f(i)$.
+	For all graphs $G$ embedded on a surface $\Sigma$ of genus $g$, where there are $p$ distinguished faces on $G$, we have that $G$ can be embedded on $\leq f(g, p)$ pages.
 \end{conjecture}
+
+We first do the planar-nonplanar decomposition of $G$ first. 
+
+Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected components with adhesion at most 3. We form Hamiltonian cycles which preserve every face on the embedding.
+In Robert's proof, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face $F$ which touches these vertices, the number of pages needed to embed $F$ is bounded because of a lemma below. 
 
 \subsection{Graphs of bounded genus}
 
-However, this conjecture may be too difficult to prove. Then we can consider a book-embedding of graphs $g$ of bounded genus, and consider what happens if the disks were manipulated only slightly, with a bounded number of vertices on the boundary of the disks moved around.
-
 \begin{lemma}
-	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths. Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
+	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths (alternatively, the number of transitions is $m$ ). Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
 \end{lemma}
 We shall prove this auxillary lemma for each $l$. 
 \begin{lemma}
@@ -44,6 +47,23 @@ We shall prove this auxillary lemma for each $l$.
 	If $u = x$, then we can follow the path $P$ from $x_1$ to $x_k$ to reach $u$ with no crossings. (Draw picture!)
 \end{proof}
 
+Now we will use the auxillary lemma to prove the above lemma.
+\begin{proof}
+	Suppose $G$ has this structure above, and every edge $e$ has a colour $\phi(e)$. 
+	Now we give every vertex in $B_i$ the colour $(b(v),  \phi(e))$. Then we have that when we have the book-embedding, the monochromatic $v_i$ form a 1-page book embedding. Therefore, we use the lemma above to form a bounded book-embedding, which is what we need. However, this relies on this unproven conjecture.
+\end{proof}
+
+\begin{conjecture}
+	For all graphs $G$ of genus $g$, for all faces $F_1, ..., F_k$ of $G$, there exists a $f(g, k)$-page book embedding such that $F_i$ has $\leq h(g, k)$ transition points. 
+\end{conjecture}
+
+\subsection{Non-planar decomposition}
+Now consider $E_n$, the edges not in the planar decomposition. Consider $F_n$, the faces $F$ such that there exists an edge $e$ in $E_n$ which bounds $F$. Then we claim that the number of edges that bound $F$ is bounded. We first need an auxillary topological conjecture. 
+
+\begin{conjecture}
+	Let $\Sigma$ be a surface and let $x_0$ be a point on the surface. Then let $\gamma_1, ..., \gamma_k$ be loops that start and end at $x_0$ which are nontrivial. Then let $F_1, ..., F_j$ be faces on $\Sigma$ derived from the loops, meaning that $\Sigma - \gamma_1, ..., \gamma_k$ has path-connected components $F_1, ..., F_j$. Then for all $i$, $F_i$ has at most $f(g)$ loops on its boundary.
+\end{conjecture}
+
+If we can prove this conjecture, then we can prove the above theorem. 
 
 
-Suppose $G$ is bounded on the surface. From the lemma above, we can build a decomposition of $G$ such that every face preserves the rotation. 
