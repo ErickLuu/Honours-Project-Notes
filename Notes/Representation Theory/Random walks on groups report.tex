@@ -57,14 +57,14 @@ maxbibnames=99
 
 \maketitle
 \section{Introduction}
-Random walks on groups was originally motivated by the art of shuffling cards, popularised by mathemagician Persi Diaconis. One of the seminal results in random walks is the investigation into riffle shuffles, one of the most popular shuffling methods, by Bayer and Diaconis, \cite{bayerTrailingDovetailShuffle1992}. They found that the number of shuffles needed is at most $\frac{3}{2} \log n$ shuffles. Much of the work on random walks and groups have to do with the cutoff, or the time where the distribution is "close enough" to a uniform distribution. This is useful for shuffling cards, because we want that the cards that we shuffle to be uniform in some way.
+Random walks on groups was originally motivated by the art of shuffling cards, popularised by mathemagician Persi Diaconis. One of the seminal results in random walks is the investigation into riffle shuffles, one of the most popular shuffling methods, by Bayer and Diaconis \cite{bayerTrailingDovetailShuffle1992}. They found that the number of shuffles needed is at most $\frac{3}{2} \log n$ shuffles. Much of the work on random walks and groups have to do with the cutoff, or the time where the distribution is ``close enough'' to a uniform distribution. This is useful for shuffling cards, because we want that the cards that we shuffle to be uniformly shuffled around.
 \subsection{Outline of report}
 We will outline the report as such.
 \begin{enumerate}
 	\item In \cref{sec:random walks}, we investigate what a random walk is and some important notions involving random walks. 
 	\item In \cref{sec:defns}, we define some important terms specifically for random walks on groups. 
 	\item In \cref{sec:Fourier Analysis}, we discuss the usage of Fourier analysis on finite abelian groups to yield results in the Fourier series.
-	\item In \cref{sec:spectral theory}, we use the Fourier analysis before to build a spectral analysis of the random walks and we eventually show that the most important eigenvalue that appears is the uniform distribution. 
+	\item In \cref{sec:spectral theory}, we use Fourier analysis to build a spectral analysis of the random walks and we eventually show that the most important eigenvalue that appears is the uniform distribution. 
 	\item In \cref{Examples}, we build on the theory developed on some example random walks. 
 \end{enumerate}
 Much of the literature is focused on building bounds of the rate of convergence of some shuffles. There is a lot of representation theory but much of the work of establishing bounds is combinatorial in nature. We do not focus on the combinatorial aspects as much in the report, though we do have a short discussion on using combinatorics in the examples page. 
@@ -157,11 +157,11 @@ For probability distributions on groups, we have some stronger statements. In fa
 	Let $P$ be a probability on a finite group $G$ and suppose $P(1) > 0$ and $Supp(P)$ generates the group $G$. Then the random walk driven by $P$ is ergodic.
 \end{proposition}
 
-If a walk has nonzero probability of reaching all states at time $N$ and it maintains this property on times $N+ 1, N + 2 , ..., 2N$, then the walk is ergodic all times after by the associative property of the convolution operation. This is an easy way to check if a walk is ergodic.
-
 \begin{proof}
 	Let $S = Supp(P)$. As $S$ is a generating set, then there exists an $N$ such that $S^N = G$. So we have that $P^{\ast N} g > 0$ by the definition of the support. Finally, $S^{k} \subseteq S^{k + 1}$ as $1 \in S$. Therefore, $P$ is ergodic. 
 \end{proof}
+
+If a walk has nonzero probability of reaching all states at time $N$ and it maintains this property on times $N+ 1, N + 2 , ..., 2N$, then the walk is ergodic all times after by the associative property of the convolution operation. This is an easy way to check if a walk is ergodic.
 
 
 \subsection{Notion of difference between probabilities}
@@ -177,7 +177,7 @@ We define the total variation distance between probabilities $P$ and $Q$ on a gr
 	
 	
 	By definition, 
-	\begin{equation}*
+	\begin{equation}
 		\|P - Q\|_{TV} \geq |P(B) - Q(B)| = P(B) - Q(B).
 	\end{equation}
 	Let $A$ be a set such that $\|P - Q\|_{TV} = |P(A) - Q(A)|.$ Then $|P(A^c) - Q(A^c)| = |1 - P(A) - (1 - Q(A))| = |Q(A) - P(A)| = \|P - Q \|_{TV}$. Therefore, this is closed under complement. It is trivial to show that $P(B) - Q(B) = |Q(A) - P(A)|$. 
@@ -202,7 +202,7 @@ We say that $P$ converges to $Q$ if for all $\varepsilon > 0$, there exists $N >
 \section{Fourier analysis on finite groups}\label{sec:Fourier Analysis}
 In this section, we will prove some important ideas about Fourier analysis and finite groups. We will mainly be using Steinberg \cite{steinbergProbabilityRandomWalks2012} for finite abelian groups, but we will be using a paper from Diaconis and Shahshahani's paper on random groups \cite{diaconisGeneratingRandomPermutation1981} for some results on symmetric groups. Below is an example from their paper \cite{diaconisGeneratingRandomPermutation1981}.
 
-Let $G$ be a group. Let $\hat{G}$ be a the set of irreducible characters on $G$.
+Let $G$ be a group. Let $\widehat{G}$ be a the set of irreducible characters on $G$.
 We have the general definition of Fourier transform. Let $f \in \mathbb{C}G$. Then $\widehat{f}: \widehat{G} \rightarrow \mathbb{C}$ is defined as:
 \begin{equation}
 	\widehat{f}(\chi) = |G| \langle f, \chi \rangle = \sum_{g \in G} f(g) \overline{\chi(g)}
