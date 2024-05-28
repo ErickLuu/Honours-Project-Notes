@@ -213,11 +213,11 @@ The Fourier inverse is defined as:
 \begin{equation}
 	f(x) = \frac{1}{|G|} \sum_{\chi \in \widehat{G}} \widehat{f}(\chi) \chi(x)
 \end{equation}
-For some results, we will work over abelian groups. 
+As the characters form an orthonormal basis for $f$, this inverse is obvious. For some results, we will work over abelian groups. 
 Abelian groups are nice as all irreducible characters are degree 1 characters and also representations. Also, the number of characters is the number of elements in $G$. Finally, $ZL(G) = \mathbb{C}(G)$ for abelian groups. 
 
 Furthermore, we have that if $\chi, \psi \in \widehat{G}$, then $\widehat{\chi}(\psi) = \langle \chi, \psi \rangle = |G|\delta_{\chi, \psi}$. So $\widehat{\chi} = |G| \delta_{\chi}$, where $\delta_{\chi}(\psi) = 1$ if $\psi = \chi$ and 0 else. 
-So the duals of irreducible characters work like functionals on $\widehat{G}$> 
+So the duals of irreducible characters work like a basis on $\widehat{G}$.
 Now we will show that taking dual groups transforms convolutions into something nicer, the product. We prefer to work over multiplication because it is a much easier operation to deal with. 
 
 \begin{theorem}
@@ -339,7 +339,7 @@ This is a special case of \cref{thm:Eigenvector operators}.
 \end{lemma}
 \begin{proof}
 	This comes from the Cauchy-Schwartz inequality. We have that \begin{equation}
-		\| f \|_1^2 = \left(\sum_{g \in G} |f(g)|\right)^2 \leq \sum_{g \in G} |f(g)|^2 = |G| \| f\|.
+		\| f \|_1^2 = \left(\sum_{g \in G} |f(g)|\right)^2 \leq \sum_{g \in G} |f(g)|^2 = |G|^2 \langle f, f \rangle = |G|^2 \| f \|^2.
 	\end{equation}
 \end{proof}
 This result by Plancharel will be used to prove an important upper bound. 
