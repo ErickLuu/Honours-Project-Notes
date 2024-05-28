@@ -642,25 +642,6 @@ Now to prove the technical lemma.
 	We then do the same procedure with the set $B$. We then have $\tree_B$ as the tree, with $S$ being a small bag. Then we attach $\tree_A$ and $\tree_B$ by taking the disjoint union and adding an edge between both bags containing $S$. This is a tree-decomposition which satisfies the above properties. 
 \end{proof}
 
-
-We have this short lemma that may be useful in the future.
-\begin{lemma}
-	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths. Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
-\end{lemma}
-We shall prove this auxillary lemma for each $l$. 
-\begin{lemma}
-	Let $(B_1, ..., B_n)$ be a path-decomposition of $G$ with path-width $k$. Let $x_1, ..., x_n$ be vertices in $G$ such that $x_i \in B_i$ for all $i$. Then we have that for any one-page embedding of $x_1, ..., x_n$, $G$ has a $k + 1$-page embedding. 
-\end{lemma}
-
-\begin{proof}
-	For each $v \in V(G)$, let $b(v) := \min \left\{ i : v \in B_i \right\}$. This partitions $V(G)$. Let $(\leq)$ be the one-page embedding of $x_1, ..., x_n$ and suppose we have a circular ordering. Colour the vertices such that every vertex in each bag is assigned a different colour. Now for all edges $uv$ in $E(G)$ where $b(u) \leq b(v) $, set $\phi(uv) = col(u)$. 
-	
-	Now for all $i$, place $b^{-1}(i)$ immediately clockwise from $x_i$. We claim that this is a book-embedding. 
-	
-	Suppose edges $uv$ and $xy$ are assigned the same colour, $u < v$, $u \leq x$ and $x \leq y$. Suppose $h(v) = i$. Then we can draw a line such that $B_i, B_1$ and $x_1$ is on one side and $B_{i + 1}, B_{i + 2}, ..., B_k$ from the fact that $x_1$ form a planar partition of the graph $G$. This is possible from the Jordan curve theorem and the fact that the line that goes through $x_1 ... x_k$ is planar. Then this implies that $uv$ and $xy$ do not cross. 
-	If $u = x$, then we can follow the path $P$ from $x_1$ to $x_k$ to reach $u$ with no crossings. (Draw picture!)
-\end{proof}
-
 \section{A bird-eye's view}
 Consider the world of graph families that are not minor-closed. This is a much stranger world than the ones that we deal with, though we do understand it rather well.
 
