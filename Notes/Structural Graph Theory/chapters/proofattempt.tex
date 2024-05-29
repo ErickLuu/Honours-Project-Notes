@@ -65,10 +65,14 @@ Now we will use the auxillary lemma to prove the above lemma.
 \subsection{Non-planar decomposition}
 Now consider $E_n$, the edges not in the planar decomposition. Consider $F_n$, the faces $F$ such that there exists an edge $e$ in $E_n$ which bounds $F$. Then we claim that the number of edges that bound $F$ is bounded. We first need an auxillary topological conjecture. 
 
-\begin{conjecture}
-	Let $\Sigma$ be a surface and let $x_0$ be a point on the surface. Then let $\gamma_1, ..., \gamma_k$ be loops that start and end at $x_0$ which are nontrivial. Then let $F_1, ..., F_j$ be faces on $\Sigma$ derived from the loops, meaning that $\Sigma - \gamma_1, ..., \gamma_k$ has path-connected components $F_1, ..., F_j$. Then for all $i$, $F_i$ has at most $f(g)$ loops on its boundary.
-\end{conjecture}
+\begin{lemma}
+	Let $\Sigma$ be a surface and let $x_0$ be a point on the surface. Then let $\gamma_1, ..., \gamma_k$ be loops that start and end at $x_0$ which are nontrivial. Then let $F_1, ..., F_j$ be faces on $\Sigma$ derived from the loops, meaning that $\Sigma - \gamma_1, ..., \gamma_k$ has path-connected components $F_1, ..., F_j$. Then for all $i$, $F_i$ has at most $2g$ loops on its boundary.
+\end{lemma}
 
-If we can prove this conjecture, then we can prove the above theorem. 
+This was proven after a quick discussion with Corbin Reid.
 
+\begin{proof}
+	Suppose we add nontrivial loops $\gamma_1, ..., \gamma_i$ such that the $i$-th loop makes $F$ a $2$-cell. Then we have that there is a single face and a single surface. Then we have that from Euler's theorem, $|V| - |E| + |F| = 2 - g$, so we have that $ 1 - i + 1 = 2 - g$, so $i = g$. But if we draw more loops, then we are subdividing $F$, meaning that the total number of edges that bound $F_1, ..., F_j$ is at most $g$. Thus shown.
+\end{proof}
 
+If we have this theorem in our back pocket, then we have that every nonplanar face alternates between having a planar-nonplanar trace at most $2g$ times. Therefore, we have a bound. 
