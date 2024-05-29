@@ -13,9 +13,7 @@ In this section, we will prove that apex vertices can be added with a bounded in
 \end{proof}
 
 \section{Vortices on graphs}
-The most problematic section is dealing with vortices on surfaces. Recall that:
-
-
+The most problematic section is dealing with vortices on surfaces. Recall that vortices are on graphs on surfaces. 
 
 From Heath and Istrail, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
 Let $G$ be a graph. We say that a vertex ordering $<$ preserves a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and an orientation $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. 
@@ -29,7 +27,10 @@ We wish to prove the following:
 
 We first do the planar-nonplanar decomposition of $G$ first. 
 
-Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected components with adhesion at most 3. We form Hamiltonian cycles which preserve every face on the embedding.
+Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected components with adhesion at most 3.
+
+From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if $G$ is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle $(\leq)$ preserves all faces on $G$. However, do n
+
 In Robert's proof, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face $F$ which touches these vertices, the number of pages needed to embed $F$ is bounded because of a lemma below. 
 
 \subsection{Graphs of bounded genus}
