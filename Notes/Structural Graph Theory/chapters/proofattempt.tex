@@ -43,24 +43,17 @@ We shall prove this auxillary lemma for each $l$.
 	Let $(B_1, ..., B_n)$ be a path-decomposition of $G$ with path-width $k$. Let $x_1, ..., x_n$ be vertices in $G$ such that $x_i \in B_i$ for all $i$. Then we have that for any one-page embedding of $x_1, ..., x_n$, $G$ has a $k + 1$-page embedding. 
 \end{lemma}
 
-\begin{proof}
-	For each $v \in V(G)$, let $b(v) := \min \left\{ i : v \in B_i \right\}$. This partitions $V(G)$. Let $(\leq)$ be the one-page embedding of $x_1, ..., x_n$ and suppose we have a circular ordering. Colour the vertices such that every vertex in each bag is assigned a different colour. Now for all edges $uv$ in $E(G)$ where $b(u) \leq b(v) $, set $\phi(uv) = col(u)$. 
-	
-	Now for all $i$, place $b^{-1}(i)$ immediately clockwise from $x_i$. We claim that this is a book-embedding. 
-	
-	Suppose edges $uv$ and $xy$ are assigned the same colour, $u < v$, $u \leq x$ and $x \leq y$. Suppose $h(v) = i$. Then we can draw a line such that $B_i, B_1$ and $x_1$ is on one side and $B_{i + 1}, B_{i + 2}, ..., B_k$ from the fact that $x_1$ form a planar partition of the graph $G$. This is possible from the Jordan curve theorem and the fact that the line that goes through $x_1 ... x_k$ is planar. Then this implies that $uv$ and $xy$ do not cross. 
-	If $u = x$, then we can follow the path $P$ from $x_1$ to $x_k$ to reach $u$ with no crossings. (Draw picture!)
-\end{proof}
-
 Now we will use the auxillary lemma to prove the above lemma.
 \begin{proof}
 	Suppose $G$ has this structure above, and every edge $e$ has a colour $\phi(e)$. 
 	Now we give every vertex in $B_i$ the colour $(b(v),  \phi(e))$. Then we have that when we have the book-embedding, the monochromatic $v_i$ form a 1-page book embedding. Therefore, we use the lemma above to form a bounded book-embedding, which is what we need. However, this relies on this unproven conjecture.
 \end{proof}
 
-\begin{conjecture}
+\begin{theorem}
 	For all graphs $G$ of genus $g$, for all faces $F_1, ..., F_k$ of $G$, there exists a $f(g, k)$-page book embedding such that $F_i$ has $\leq h(g, k)$ transition points. 
-\end{conjecture}
+\end{theorem}
+
+For faces in the planar decomposition, this is from applying Robert's theorem and Tutte's theorem. As we only move at most three vertices in every face, the vortex $G_i$ on the face $F$ has a bounded increase in the number of pages needed to move around. 
 
 \subsection{Non-planar decomposition}
 Now consider $E_n$, the edges not in the planar decomposition. Consider $F_n$, the faces $F$ such that there exists an edge $e$ in $E_n$ which bounds $F$. Then we claim that the number of edges that bound $F$ is bounded. We first need an auxillary topological conjecture. 
