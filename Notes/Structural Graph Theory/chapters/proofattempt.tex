@@ -59,17 +59,31 @@ For faces in the planar decomposition, this is from applying Robert's theorem an
 Now consider $E_n$, the edges not in the planar decomposition. Consider $F_n$, the faces $F$ such that there exists an edge $e$ in $E_n$ which bounds $F$. Then we claim that the number of edges that bound $F$ is bounded. We first need an auxillary topological conjecture. We say a loop is \textit{trivial} if it is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges $e_1, ..., e_n$ that bound a face such that $e_i$ is incident to $e_{i + 1}$ modulo $n$ for all $i$. The length of the facial walk is $n$. 
 
 \begin{lemma}
-	Let $\Sigma$ be a surface and let $x_0$ be a point on the surface. Then let $L$ be nontrivial loops that start and end at $x_0$ on $\Sigma$. Then let $F_1, ..., F_j$ be faces on $\Sigma + L$, such that each $F_i$ is homeomorphic to a disk. Then the length of the facial walk for all $F$ is at most $2g$. 
+	Let $\Sigma$ be a surface of Euler genus $g$ and let $x_0$ be a point on the surface. Then let $L$ be nontrivial loops that start and end at $x_0$ on $\Sigma$. Then let $F_1, ..., F_j$ be faces on $\Sigma + L$, such that each $F_i$ is homeomorphic to a disk. Then the length of the facial walk for all $F$ is at most $2g$. 
 \end{lemma}
 
 Parts of the proof was motivated by a discussion with Corbin Reid. 
 
 \begin{proof}
-	Let $G'$ be the dual graph of this graph, where the vertex set is $F_1, ..., F_j$ and the edge set are the loops, where two faces are incident if there is a loop that is touching both faces. Then take a spanning tree of the graph, and let $L'$ be the loops that are not in the spanning tree and $L''$ be the loops that are in the spanning tree. Then consider embedding $L'$ on the surface $\
+	Let $G'$ be the dual graph of this graph, where the vertex set is $F_1, ..., F_j$ and the edge set are the loops, where two faces are incident if there is a loop that is touching both faces. Then take a spanning tree $T$ of $G'$, and let $L'$ be the loops that are not in $T$ and $L''$ be the loops that are in $T$. 
+	Then consider embedding $L'$ on the surface $\Sigma$. Now this bounds a disk, call it $F_0$. This is a disk as we glue together $F_1, ..., F_j$ according to the spanning tree $T$, meaning that we maintain the property that the surface is contractible.
+	Now we have that there is one vertex, $|L'|$ edges, and one face $F_0$. Then by Euler's formula, we have that:
+	\begin{equation}
+		n - m + f = 2 - g
+	\end{equation}
+	therefore, we have that $1 - |L'| + 1 = 2 - g$, or that $|L'| = g$. As every edge is traversed twice on either side on the facial walk, we have that the length of the facial walk is $2g$. 
+	Now let us add each edge from $L''$, one at a time. We shall show that every face after adding all edges from $L''$ to $L'$ has a facial walk length of $\leq 2g$. 
+	
+	Before adding any edge, we have $F_0$ has $\leq 2g$ on the facial walk. Now suppose we have added loops $\gamma_1, ..., \gamma_{i - 1}$, and suppose every face has a facial walk length of $\leq 2g$. 
+	Then suppose loop $\gamma_i$ splits face $F$ into faces $H$ and $J$. We have that the facial walk length $|H|$ and $|J|$ are at least 2, but bounded above by the facial walk length $F + 2$. Then we have that: 
+	\begin{equation}
+		2 + |J| \leq |H| + |J| \leq |F| + 2 \leq 2g + 2
+	\end{equation}
+	so $|J| \leq 2g$ and by symmetry so does $|H|$. 
 \end{proof}
 
 \begin{corollary}
 	From the theorem above, every nonplanar face alternates between having a planar trace and nonplanar edge at most $2g$ times. Therefore, we are bounded.
 \end{corollary}
 
-By the theorem above, then we have that the planar-nonplanar decomposition has a bounded number of pages. 
+By the theorem above, then we have that the planar-nonplanar decomposition has a bounded number of pages. Therefore, we are done for orientable surfaces. 
