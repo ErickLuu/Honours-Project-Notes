@@ -1,9 +1,8 @@
 
 \chapter{Potential proof techniques}\label{chap:Proving_The_Theorem}
 Our aim is to show that graphs with bounded genus $g$ containing $p$ vortices of bounded width $k$ have bounded pagenumber $f(g, p, k)$.
-Using Robert's theorem, we can build clique-sums with adhesion $\leq \ell$ and from a theorem below, we can add $a$ apex vertices. 
-Thus we can show that for fixed $t$, all $K_t$-minor free graphs have bounded pagenumber $f(g, p, k, a, \ell)$. However, from \cite{hickingbothamStackNumberCliqueSum2023}, we can show that the clique-sums of graphs of bounded genus also have bounded genus.
-
+Using Robert's theorem \cref{thm:clique_sum_pagenumber_bound}, we can build clique-sums with adhesion $\leq \ell$ and from a theorem below, we can add $a$ apex vertices. 
+Thus we can show that for fixed $t$, all $K_t$-minor free graphs have bounded pagenumber $f(g, p, k, a, \ell)$. 
 We wish to find a book-embedding of a graph $G$ of bounded genus $g$ with vortices $G_1, ..., G_p$ of adhesion $k$ such that the pagenumber of $G$ is at most $f(g, p, k)$ for some constants $g$ and $p$. It is trivial to show that apex vertices only increase the number of pages by $f(a)$ for a fixed function $f$. 
 \subsection{Apex vertices}
 In this section, we will prove that apex vertices can be added with a bounded increase to the number of pages. Typically, apex vertices are the problematic component when applying the Graph Minor Structure theorem, but in this case they are a trivial addition.
@@ -13,6 +12,8 @@ In this section, we will prove that apex vertices can be added with a bounded in
 \begin{proof}
 	Let $G'$ have book-embedding $(<, \rho)$. Then place the vertices of $A$ at the very start of $(<)$ and for every edge $u_iv$, $u_i \in A$, $v \in G'$, we colour $\rho(uv) = i$. Then for any edge $e \in E(G')$, we maintain the same colour as before. Then for the edges between vertices in $A$, we have that the number of colours is bounded above by $\left\lceil \frac{a}{2} \right\rceil$ from \cref{thm:Pagenumber_Complete_Graph}. Therefore, we have that $\pn(G) \leq \pn(G') + a + \left\lceil \frac{a}{2} \right\rceil =s + \left\lceil \frac{3a}{2}\right\rceil$. 
 \end{proof}
+
+Therefore, adding $ \leq a$ apex vertices still maintains a bounded pagenumber.
 
 \section{Vortices on graphs}
 The most problematic section is dealing with vortices on surfaces. Recall that vortices are on graphs on surfaces. 
