@@ -84,7 +84,7 @@ A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assign
 \end{proof}
 \todo{Add pictures}
 \section{Book embedding}\label{sec:Book Embedding}
-A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966} \cite{atneosenOnedimensionalNleavedContinua1972}. 
+A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966, atneosenOnedimensionalNleavedContinua1972}. 
 A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
 
 The \textit{pagenumber} of a graph $G$ is the minimum number of pages required to embed $G$ on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. 
@@ -94,7 +94,7 @@ A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G
 We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, ..., v_{|G|})$, we refer to the edges $\left\{v_1 v_2, v_2 v_3, ..., v_{|G| - 1}, v_{|G|}v_{1}\right\}$ as \textit{spine edges}.
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering, so we ignore the start and end vertices.
 
-Book-embeddings were introduced by Kainen and Ollmann in the 1970s. \cite{kainenRecentResultsTopological1974} \cite{ollmannBookThicknessVarious1973}. It was developed further in a paper by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}. 
+Book-embeddings were introduced by Kainen and Ollmann in the 1970s. \cite{kainenRecentResultsTopological1974, ollmannBookThicknessVarious1973}. It was developed further in a paper by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}. 
 \begin{lemma}\label{lem:Pagenumber_1}
 	A graph $G$ has page-number at most 1 iff $G$ is outerplanar.
 \end{lemma}
@@ -130,7 +130,7 @@ Therefore for any graph $G$ on $n$ vertices, $n \geq 4$, $\pn(G) \leq \lceil n/2
 We may note that this bound is not tight. Planar graphs are 4-colourable \cite{appelEveryPlanarMap1989}, but there exist planar graphs that require 4 pages \cite{yannakakisPlanarGraphsThat2020}, \cite{kaufmannFourPagesAre2020}. 
 
 \subsection{Historical interest}\label{ssec:Pagenumber_History}
-Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics.\todo{Add citation}
+Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics 
 The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof. \cite{yannakakisPlanarGraphsThat2020} At around the same time, Kaufmann, Bekos, Klute, Pupyrev, Raftopoulu and Ueckerdt published a similar result\cite{kaufmannFourPagesAre2020}. 
 
 \section{Treewidth}\label{sec:treewidth}
