@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{url}
+\usepackage{todonotes}
 
 % Environments
 
@@ -100,13 +101,12 @@ We also have that $ker T$ is $\rho$-invariant subspace of $V$, and $im T$ is a $
 
 By Schur's lemma, all abelian groups have dimension 1. 
 
-\chapter
-
 \chapter{Algebraic constructions}
 \section{New constructions}
 We have that if $V$ and $W$ are vector spaces, then the direct sum $V \oplus W$ is a vector space where every element is of the form $v \oplus w$, and obeys the laws that $v_1 \oplus w_1 + v_2 \oplus w_2 = (v_1 + v_2) \oplus (w_1 + w_2)$ and $c (v_1 \oplus w_1) = (c v_1) \oplus (c w_1)$. 
 
 The tensor product $V \otimes W$ is the vector space where $(v_1 + v_2) \otimes w = v_1 \otimes w + v_2 \otimes w$, $v \otimes (w_1 + w_2) = v \otimes w_1 + v \otimes w_2$, $c (v \otimes w) = (cv) \otimes w = v \otimes (cw)$. 
+
 
 \section{Algebras}
 A ring is a structure with an addition and multiplication operator. We have that:
@@ -157,6 +157,18 @@ for $r, s \in R$, $x, y \in M$.
 
 Essentially, we treat the algebra $A$ as the ring and $V$ as the abelian group to form an $A$-module. There is an algebra homomorphism $\tilde{\rho}: A \rightarrow End(V)$ and we write it as $a \cdot v$. 
 
+\todo{Do symmetric algebras, tensor algebras and exterior algebras}
+
 \subsection{Schur's lemma}
 Let $U$ and $V$ be simple $A$-modules, where $A$ is an algebra over $\mathcal{C}$. Then the only homomorphisms between $U$ and $V$ are the null map, or a scaled isomorphism.
+\todo{Prove this!}
+
+\subsection{Group algebras}
+
+The group algebra is the algebra that comes from linearising a group $G$. 
+
+\section{Characters}
+In mathematics, we can summarise data about a mathematical object that allows us to completely distinguish two objects from each other. Two examples are the Fourier transform and moment-generating functions. 
+
+In representation theory, the summary data that we think about is characters. Characters allow us to build ideas from 
 \end{document}
