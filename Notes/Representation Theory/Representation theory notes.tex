@@ -46,14 +46,61 @@ We say a subspace $U \leq V$ is $\rho$-invariant under a representation $\rho: G
 $\rho: G \rightarrow GL(V)$ is irreducible if the only invariant subspaces are trivial, and reducible otherwise. We say that $V$ is decomposable if $V = V_1 \oplus V_2$ for non-zero invariant subspaces, and indecomposible otherwise.
 Note that decomposable implies reducible, and irreducible implies decomposable. Completely reducible implies that we can decompose $V$ into direct sum of subspaces $V_i$ where the representation on $V_i$ is irreducible. 
 
-Matschke's theorem: Every representation of a finite group over $\mathbb{C}$ is completely reducible. Proof: Consider $\langle \cdot , \cdot \rangle$ as the standard inner product on $V$. We can construct a inner product
-$\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$
-such that $\rho$ is unitary.
+\begin{theorem}[Matschke's theorem]
+	Every representation of a finite group over $\mathbb{C}$ is completely reducible. 
+\end{theorem}
 
-Suppose $V$ is unitary. Then $V$ is completely decomposable. We look at the orthogonal complement of the nontrivial subspace and show that under $\langle \cdot, \cdot \rangle_\rho$, $U^\bot$ is invariant. 
 
-Schur's lemma. Suppose $\rho$ and $\phi$ be irreducible representations over $\mathbb{C}$. Then the only homomorphisms between $\rho$ and $\phi$ are null-homeomorphisms or scaled isomorphisms. 
+We need this lemma to prove Matschke's theorem.
 
+\begin{lemma}
+	Let $\rho : G \rightarrow GL(V)$ be a unitary representation, where $G$ is any group and $V$ is over $\mathbb{C}$. Then $\rho$ is irreducible or decomposible. 
+\end{lemma}
+\begin{proof}
+	Consider $\langle \cdot , \cdot \rangle$ as the standard inner product on $V$. We can construct a inner product
+	$\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$
+	such that $\rho$ is unitary.
+	
+Suppose $V$ is unitary. Then $V$ is decomposable. We look at the orthogonal complement of the nontrivial subspace and show that under $\langle \cdot, \cdot \rangle_\rho$, $U^\bot$ is invariant. 
+
+Take $g \in G$, $u \in U$, and $v \in U^\bot$. 
+Then:
+\begin{equation}
+	\langle \rho_g(v), u \rangle = \langle \rho_{g^{-1}} \rho_g v, \rho_{g^{-1}} u \rangle = \langle \rho v, \rho_{g^{-1}} u \rangle = 0
+\end{equation}
+as $v$ is in $U^\bot$ and $\rho_{g^{-1}} u$ is in $U$. Thus shown decomposability. 
+\end{proof}
+
+\begin{proof}[Proof of Matschke's theorem]
+	Suppose $\rho$ is a non-zero rep. Then it is equivalent to a unitary rep, so $\rho$ is irreducible or decomposable. Now we induct on the dimension. If $dim V = 1$, then $V$ is irreducible. This handles the base case. Suppose it holds for all $dim V < n$. Then if $V$ has dimension $n + 1$, and $V$ is not irreducible, then $V$ must be decomposable. So $V = U \oplus W$ for invariant subspaces $U$ and $W$. By induction, $U$ and $W$ are completely reducible. Therefore, $V$ is also completely reducible.
+\end{proof}
+Noe that Matschke's theorem only works when $\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$ is well-defined. We can use integration over compact groups (matrix integrals) to have similar results. 
+
+
+\begin{theorem}[Schur's lemma]
+	Suppose $\rho$ and $\phi$ be irreducible representations over $\mathbb{C}$. Then the only homomorphisms between $\rho$ and $\phi$ are null-homeomorphisms or scaled isomorphisms. 
+\end{theorem}
+
+We use two lemmas to prove this. 
+Let $Hom_G( \rho, \phi)$ be the set of morphisms from $\rho$ to $\psi$. We have that:
+\begin{lemma}
+	$Hom_G( \rho, \phi)$ is a subspace of $Hom(V, W)$. This is because if $S, T \in Hom_G(\rho, \phi)$, $a, b \in \mathbb{C}$, then $(a S + b T) \rho_g = a S \rho_g + b T \rho_g = a \Psi_g S + b \Psi_g T = \psi_g (a S + b T)$. Additionally, the zero map is in $Hom_G( \rho, \phi)$. 
+\end{lemma}
+
+We also have that $ker T$ is $\rho$-invariant subspace of $V$, and $im T$ is a $\phi$-invariant subspace of $W$.
+\begin{proof}
+	$T \rho_g v = \psi_g T v = \psi_g 0 = 0.$. Similarly, if $w \in Im T$ then $w = T v$ for some $v \in V$. Then $\psi_g W = \psi_g T v = T \rho_g v$ is in im T. Thus shown.
+\end{proof}
+
+\begin{proof}
+	Let $T \in Hom_G( \rho, \phi)$. Since $ker T$ is $\rho$-invariant and $\rho$ is an irrep, $ker T = 0$ or $V$. We also have that since im $T$ is $\phi$-invariant and $\phi$ is an irrep, then $im T = 0$ or $W$. Therefore, $T$ is either the zero map or is an isomorphism. Then we have that if $T$ is an isomorphism, then $\rho \sim \phi$. 
+	
+	As we are working over $\mathbb{C}$, $T$ has eigenvalue $\lambda$. THen $\lambda I - T$ is not invertible. But we have that $\lambda I - T \in Hom_G(\rho, \rho)$. But this means that $\lambda I - T = 0$, so $T = \lambda I$. 
+\end{proof}
+
+By Schur's lemma, all abelian groups have dimension 1. 
+
+\chapter
 
 \chapter{Algebraic constructions}
 \section{New constructions}
