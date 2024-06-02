@@ -194,9 +194,21 @@ Facts:
 	Let $\rho$, $\psi$ be reps. Then:
 	\begin{enumerate}
 		\item $\chi_{\rho \oplus \psi} = \chi_\rho + \chi_\psi$.
+		\item $\chi_{\rho \otimes \psi} = \chi_\rho \times \chi_\psi$. 
 		\item $\chi_\rho(1) = \deg \rho$. 
 		\item $\chi_\rho(h g h^{-1}) = \chi_\rho(g)$.
 		\item $\chi_\rho(g^{-1}) = \overline{\chi_\rho(g)}$ for $G$ finite. 
 	\end{enumerate}
 \end{corollary}
+\begin{proof}
+	\begin{enumerate}
+		\item We have that $(\rho \oplus \psi)_g$ is a block matrix with $\rho_g$ and $\psi_g$ as the blocks on the diagonal. Then the trace is the sum of the traces of $\rho_g$ and $\psi_g$. 
+		\item We have that $(\rho \otimes \psi)_g$ takes basis elements $v_i \otimes w_j$ to $\rho_g(v_i) \otimes \psi_g(w_j)$. Now consider  
+		\item $\chi_\rho(1)$ is the trace of the identity matrix which is $1$. 
+		\item As the trace has the rotation property and $\rho$ is a homomorphism, we have that $\tr(\rho_{h^{-1} g h}) = \tr(\rho_{h^{-1}} \rho_g \rho_h) = \tr( \rho_g)$. 
+		\item We have that the trace is the sum of eigenvalues. We have that $\rho_g$ has eigenvalues $\lambda_i$ and its inverse has eigenvalues $\overline{\lambda_i}$, as the inverse is $\lambda^{|G| - 1} = 1 = \overline{\lambda}$. Then the sum of the conjugate eigenvalues is $\overline{\chi_\rho(g)}$. 
+	\end{enumerate}
+\end{proof}
+
+
 \end{document}
