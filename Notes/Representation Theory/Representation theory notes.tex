@@ -6,6 +6,7 @@
 \usepackage{amsthm}
 \usepackage{url}
 \usepackage{todonotes}
+\usepackage{ytableau}
 
 % Environments
 
@@ -211,4 +212,27 @@ Facts:
 \end{proof}
 This restricts what an irreducible character looks like- irreps have coresponding irreducible chracters. 
 
+We can view class functions as elements in the group algebra $\mathbb{C}G$.
+
+Orthogonal relations:
+\begin{theorem}
+	Irreducible characters of $G$ is the same as the conjugacy classes of $G$. 
+	
+	1st orthogonality relation:
+	$\frac{1}{|G|} \sum_{g \in G} \chi_i(g) \overline{\chi_j(g)} = \langle \chi_i, \chi_j \rangle = 0$ for $i \neq j$.
+	
+	2nd orthogonality relation:
+	$\sum_{i = 1}^{k} \chi_i(g) \overline{\chi_i(h)} = 0$ if $g$ and $h$ are in different conjugacy classes. 
+\end{theorem}
+
+\section{Induced reps}
+
+\section{Representations of symmetric groups}
+
+We have that for $S_n$, every conjugacy class is equivalent to a cycle type. But every cycle type is also equivalent to a character, and we can associate characters and cycle types.
+
+Denote $\lambda \vdash n$ to say that $\lambda$ is a partition of $n$. 
+A Young diagram for a partition $\lambda = (\lambda_1, \lambda_2, ..., \lambda_\ell)$ looks like this:
+
+\include
 \end{document}
