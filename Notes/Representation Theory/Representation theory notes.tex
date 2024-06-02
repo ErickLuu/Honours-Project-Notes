@@ -203,12 +203,12 @@ Facts:
 \begin{proof}
 	\begin{enumerate}
 		\item We have that $(\rho \oplus \psi)_g$ is a block matrix with $\rho_g$ and $\psi_g$ as the blocks on the diagonal. Then the trace is the sum of the traces of $\rho_g$ and $\psi_g$. 
-		\item We have that $(\rho \otimes \psi)_g$ takes basis elements $v_i \otimes w_j$ to $\rho_g(v_i) \otimes \psi_g(w_j)$. Now consider  
+		\item We have that $(\rho \otimes \psi)_g$ takes basis elements $v_i \otimes w_j$ to $\rho_g(v_i) \otimes \psi_g(w_j)$. Then let the basis of $V \otimes W$ to be the eigenbasis of $\rho_g$ and $\psi_g$, and the result follows from the basis of the tensor product.
 		\item $\chi_\rho(1)$ is the trace of the identity matrix which is $1$. 
 		\item As the trace has the rotation property and $\rho$ is a homomorphism, we have that $\tr(\rho_{h^{-1} g h}) = \tr(\rho_{h^{-1}} \rho_g \rho_h) = \tr( \rho_g)$. 
 		\item We have that the trace is the sum of eigenvalues. We have that $\rho_g$ has eigenvalues $\lambda_i$ and its inverse has eigenvalues $\overline{\lambda_i}$, as the inverse is $\lambda^{|G| - 1} = 1 = \overline{\lambda}$. Then the sum of the conjugate eigenvalues is $\overline{\chi_\rho(g)}$. 
 	\end{enumerate}
 \end{proof}
-
+This restricts what an irreducible character looks like- irreps have coresponding irreducible chracters. 
 
 \end{document}
