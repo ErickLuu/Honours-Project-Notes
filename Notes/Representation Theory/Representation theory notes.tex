@@ -8,6 +8,8 @@
 \usepackage{todonotes}
 \usepackage{ytableau}
 
+\ytableausetup{centertableaux}
+
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -232,7 +234,47 @@ Orthogonal relations:
 We have that for $S_n$, every conjugacy class is equivalent to a cycle type. But every cycle type is also equivalent to a character, and we can associate characters and cycle types.
 
 Denote $\lambda \vdash n$ to say that $\lambda$ is a partition of $n$. 
-A Young diagram for a partition $\lambda = (\lambda_1, \lambda_2, ..., \lambda_\ell)$ looks like this:
+A Young diagram for a partition $\lambda = (\lambda_1, \lambda_2, ..., \lambda_\ell)$ with weakly decreasing $\lambda_i$ looks like this:
 
-\include
+\ydiagram{5, 3, 3, 2}
+
+The young diagrams with 4 boxes are:
+\ydiagram{4}, \ydiagram{3,1}, \ydiagram{1,1,1,1}, \ydiagram{2,1,1},  \ydiagram{2,2}.
+
+We say $\lambda$ dominates $\mu$ or $\lambda \unrhd \mu$ if the first $i$ rows have as many boxes as the first $i$ rows of $\mu$ for all $i$. 
+
+Dominance is a partial order. Obviously, $\lambda \unrhd \lambda$, and if $\lambda \unrhd \mu$ and $\mu \unrhd \lambda$, then $\lambda = \mu$. Finally, if $\lambda \unrhd \mu$ and $\mu \unrhd \rho$ then $\lambda \unrhd \rho$. 
+
+\subsection{Young tableaux}
+A $\lambda$-tableau where $\lambda \vdash n$ is a way to put the numbers $ 1, ..., n$ in the boxes of the Young diagram for $\lambda$. As an example,
+\begin{ytableau}
+	1 & 2 & 4\\
+	3
+\end{ytableau}
+
+For $\lambda \vdash n$, there is a transitive action on $S_n$ on the set of $\lambda$-tableau, which permutes the entries of the square in the obvious way. 
+
+If $t$ is a Young tableau with $n$ boxes, then the column stabiliser of $t$ is the subgroup $C_t \leq S_n$ which preserves the columns of $t$. 
+
+The row stabiliser is the subgroup $R_t \leq S_n$ which preserves the rows of $t$. 
+
+\subsection{Tabloids}
+We place an equivalence relation $s \sim t$ if $s$ and $t$ differ by a row stabiliser. Tabloids of shape $\lambda$ is an equivalence class of $\lambda$-tableaux with respect to $\sim$. 
+
+Then the equivalence class is denoted as $[t]$ with $t$ a representative and $T^\lambda$ is the set of $\lambda$-tabloids. 
+
+For $\lambda \vdash n$, there is a well-defined transitive action of $S_n$ on $T^\lambda$ defined as $\sigma[t] = [\sigma t]$ for $t$ a $\lambda$-tableau. 
+
+This is transitive as it is transitive on all $\lambda$-tableaux. It is well defined as if $t_1 \sim t_2$, then we have that no matter how we rearrange the rows of $t_1$, $\sigma$ sends an element in a row to an element in the same row. Therefore, $\sigma t_1 \sim \sigma t_2$. 
+
+We say that $\mathbb{C} T^\lambda$ is the vector space of formal $\mathbb{C}$-linear combinations of $\lambda$-tabloids and $\rho^\lambda$ is the linear extension of the $S_n$ action on $T^\lambda$. We have that $\rho^\lambda$ is generally not irreducible, but the representation of the Young tableau that is dominated appears in $\rho^\lambda$ exactly once. 
+
+Say $A_t : \mathbb{C}T^\lambda \rightarrow  \mathbb{C}T^\lambda$ defined as $A_t = \sum_{\pi \in C_t} sgn(\pi) \rho^\lambda_\pi$. 
+Then $e_t = A_t[t] = sum_{\pi \in C_t} sgn(\pi) \pi[t] \in \mathbb{C} T^\lambda$. 
+
+We have that $\rho_\sigma^\lambda e_t = e_{\sigma t}$.
+
+Let $V^\lambda = span \lbrace e_t | t$ a $\lambda$-tableau $\rbrace$. This is a $\rho^\lambda$-invariant space of $\mathbb{C} T^\lambda$. Define the Specht representation $\psi^\lambda$ to be the corresponding subrepresentation of $\rho^\lambda: S_n \rihtarrow GL(\mathbb{C} T^\lambda)$. 
+
+We want to show that $\psi^\lambda$ forms a complete set of irreps for the symmetric group. 
 \end{document}
