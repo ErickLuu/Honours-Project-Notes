@@ -22,6 +22,9 @@
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
 
+%Commands
+\newcommand{\tr}{\text{tr}}
+
 %opening
 \title{Representation theory Notes}
 \author{Eric Luu}
@@ -171,4 +174,29 @@ The group algebra is the algebra that comes from linearising a group $G$.
 In mathematics, we can summarise data about a mathematical object that allows us to completely distinguish two objects from each other. Two examples are the Fourier transform and moment-generating functions. 
 
 In representation theory, the summary data that we think about is characters.
+
+\begin{definition}
+	Let $\rho : G \rightarrow GL(V)$ be a rep over $\mathbb{C}$. Then the associated character $\chi_\rho : G \rightarrow \mathbb{C}$ is defined as $\chi_\rho(g) = tr(\rho_g)$. 
+\end{definition}
+Characters store the information about a representation!
+If $\rho \sim \psi$, then $\chi_\rho = \chi_\psi$. 
+\begin{proof}
+	Suppose we have isomorphism $T: V \rightarrow W$. Then for $g \in G$, we have that:
+	\begin{equation}
+		\rho_g = T^{-1} \psi_g T
+	\end{equation}
+	so $\tr(\rho_g) = \tr(T^{-1} \psi_g T)$
+\end{proof}
+As $\tr(A B C) = \tr(C A B) = \tr(B C A)$, then $\tr(T^{-1} \psi_g T) = \tr(\psi_g)$. Therefore we have that $\chi_\rho = \chi_\psi$. 
+
+Facts:
+\begin{corollary}
+	Let $\rho$, $\psi$ be reps. Then:
+	\begin{enumerate}
+		\item $\chi_{\rho \oplus \psi} = \chi_\rho + \chi_\psi$.
+		\item $\chi_\rho(1) = \deg \rho$. 
+		\item $\chi_\rho(h g h^{-1}) = \chi_\rho(g)$.
+		\item $\chi_\rho(g^{-1}) = \overline{\chi_\rho(g)}$ for $G$ finite. 
+	\end{enumerate}
+\end{corollary}
 \end{document}
