@@ -127,10 +127,10 @@ Therefore for any graph $G$ on $n$ vertices, $n \geq 4$, $\pn(G) \leq \lceil n/2
 \begin{proof}
 	Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
 \end{proof}
-We may note that this bound is not tight. Planar graphs are 4-colourable \cite{appelEveryPlanarMap1989}, but there exist planar graphs that require 4 pages \cite{yannakakisPlanarGraphsThat2020}, \cite{kaufmannFourPagesAre2020}. 
+We may note that this bound is not tight. Planar graphs are 4-colourable \cite{appelEveryPlanarMap1989}, but there exist planar graphs that require 4 pages \cite{yannakakisPlanarGraphsThat2020, kaufmannFourPagesAre2020}. 
 
 \subsection{Historical interest}\label{ssec:Pagenumber_History}
-Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics 
+Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics \cite{haslingerRNAStructuresPseudoknots1999}. 
 The project of finding upper and lower bounds of the pagenumber of planar graphs was started by Bernhart and Kainen when they conjectured that planar graphs had unbounded page-number. However, Buss and Shor\cite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and Heath \cite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. Yannakakis' devised an algorithm to bound the pagenumber to at most 4 \cite{yannakakisEmbeddingPlanarGraphs1989}. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof. \cite{yannakakisPlanarGraphsThat2020} At around the same time, Kaufmann, Bekos, Klute, Pupyrev, Raftopoulu and Ueckerdt published a similar result\cite{kaufmannFourPagesAre2020}. 
 
 \section{Treewidth}\label{sec:treewidth}
