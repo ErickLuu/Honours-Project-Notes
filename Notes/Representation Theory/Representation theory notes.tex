@@ -5,6 +5,10 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{url}
+\usepackage{todonotes}
+\usepackage{ytableau}
+
+\ytableausetup{centertableaux}
 
 % Environments
 
@@ -20,6 +24,9 @@
 
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
+
+%Commands
+\newcommand{\tr}{\text{tr}}
 
 %opening
 \title{Representation theory Notes}
@@ -46,20 +53,66 @@ We say a subspace $U \leq V$ is $\rho$-invariant under a representation $\rho: G
 $\rho: G \rightarrow GL(V)$ is irreducible if the only invariant subspaces are trivial, and reducible otherwise. We say that $V$ is decomposable if $V = V_1 \oplus V_2$ for non-zero invariant subspaces, and indecomposible otherwise.
 Note that decomposable implies reducible, and irreducible implies decomposable. Completely reducible implies that we can decompose $V$ into direct sum of subspaces $V_i$ where the representation on $V_i$ is irreducible. 
 
-Matschke's theorem: Every representation of a finite group over $\mathbb{C}$ is completely reducible. Proof: Consider $\langle \cdot , \cdot \rangle$ as the standard inner product on $V$. We can construct a inner product
-$\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$
-such that $\rho$ is unitary.
+\begin{theorem}[Matschke's theorem]
+	Every representation of a finite group over $\mathbb{C}$ is completely reducible. 
+\end{theorem}
 
-Suppose $V$ is unitary. Then $V$ is completely decomposable. We look at the orthogonal complement of the nontrivial subspace and show that under $\langle \cdot, \cdot \rangle_\rho$, $U^\bot$ is invariant. 
 
-Schur's lemma. Suppose $\rho$ and $\phi$ be irreducible representations over $\mathbb{C}$. Then the only homomorphisms between $\rho$ and $\phi$ are null-homeomorphisms or scaled isomorphisms. 
+We need this lemma to prove Matschke's theorem.
 
+\begin{lemma}
+	Let $\rho : G \rightarrow GL(V)$ be a unitary representation, where $G$ is any group and $V$ is over $\mathbb{C}$. Then $\rho$ is irreducible or decomposible. 
+\end{lemma}
+\begin{proof}
+	Consider $\langle \cdot , \cdot \rangle$ as the standard inner product on $V$. We can construct a inner product
+	$\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$
+	such that $\rho$ is unitary.
+	
+Suppose $V$ is unitary. Then $V$ is decomposable. We look at the orthogonal complement of the nontrivial subspace and show that under $\langle \cdot, \cdot \rangle_\rho$, $U^\bot$ is invariant. 
+
+Take $g \in G$, $u \in U$, and $v \in U^\bot$. 
+Then:
+\begin{equation}
+	\langle \rho_g(v), u \rangle = \langle \rho_{g^{-1}} \rho_g v, \rho_{g^{-1}} u \rangle = \langle \rho v, \rho_{g^{-1}} u \rangle = 0
+\end{equation}
+as $v$ is in $U^\bot$ and $\rho_{g^{-1}} u$ is in $U$. Thus shown decomposability. 
+\end{proof}
+
+\begin{proof}[Proof of Matschke's theorem]
+	Suppose $\rho$ is a non-zero rep. Then it is equivalent to a unitary rep, so $\rho$ is irreducible or decomposable. Now we induct on the dimension. If $dim V = 1$, then $V$ is irreducible. This handles the base case. Suppose it holds for all $dim V < n$. Then if $V$ has dimension $n + 1$, and $V$ is not irreducible, then $V$ must be decomposable. So $V = U \oplus W$ for invariant subspaces $U$ and $W$. By induction, $U$ and $W$ are completely reducible. Therefore, $V$ is also completely reducible.
+\end{proof}
+Noe that Matschke's theorem only works when $\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$ is well-defined. We can use integration over compact groups (matrix integrals) to have similar results. 
+
+
+\begin{theorem}[Schur's lemma]
+	Suppose $\rho$ and $\phi$ be irreducible representations over $\mathbb{C}$. Then the only homomorphisms between $\rho$ and $\phi$ are null-homeomorphisms or scaled isomorphisms. 
+\end{theorem}
+
+We use two lemmas to prove this. 
+Let $Hom_G( \rho, \phi)$ be the set of morphisms from $\rho$ to $\psi$. We have that:
+\begin{lemma}
+	$Hom_G( \rho, \phi)$ is a subspace of $Hom(V, W)$. This is because if $S, T \in Hom_G(\rho, \phi)$, $a, b \in \mathbb{C}$, then $(a S + b T) \rho_g = a S \rho_g + b T \rho_g = a \Psi_g S + b \Psi_g T = \psi_g (a S + b T)$. Additionally, the zero map is in $Hom_G( \rho, \phi)$. 
+\end{lemma}
+
+We also have that $ker T$ is $\rho$-invariant subspace of $V$, and $im T$ is a $\phi$-invariant subspace of $W$.
+\begin{proof}
+	$T \rho_g v = \psi_g T v = \psi_g 0 = 0.$. Similarly, if $w \in Im T$ then $w = T v$ for some $v \in V$. Then $\psi_g W = \psi_g T v = T \rho_g v$ is in im T. Thus shown.
+\end{proof}
+
+\begin{proof}
+	Let $T \in Hom_G( \rho, \phi)$. Since $ker T$ is $\rho$-invariant and $\rho$ is an irrep, $ker T = 0$ or $V$. We also have that since im $T$ is $\phi$-invariant and $\phi$ is an irrep, then $im T = 0$ or $W$. Therefore, $T$ is either the zero map or is an isomorphism. Then we have that if $T$ is an isomorphism, then $\rho \sim \phi$. 
+	
+	As we are working over $\mathbb{C}$, $T$ has eigenvalue $\lambda$. THen $\lambda I - T$ is not invertible. But we have that $\lambda I - T \in Hom_G(\rho, \rho)$. But this means that $\lambda I - T = 0$, so $T = \lambda I$. 
+\end{proof}
+
+By Schur's lemma, all abelian groups have dimension 1. 
 
 \chapter{Algebraic constructions}
 \section{New constructions}
 We have that if $V$ and $W$ are vector spaces, then the direct sum $V \oplus W$ is a vector space where every element is of the form $v \oplus w$, and obeys the laws that $v_1 \oplus w_1 + v_2 \oplus w_2 = (v_1 + v_2) \oplus (w_1 + w_2)$ and $c (v_1 \oplus w_1) = (c v_1) \oplus (c w_1)$. 
 
 The tensor product $V \otimes W$ is the vector space where $(v_1 + v_2) \otimes w = v_1 \otimes w + v_2 \otimes w$, $v \otimes (w_1 + w_2) = v \otimes w_1 + v \otimes w_2$, $c (v \otimes w) = (cv) \otimes w = v \otimes (cw)$. 
+
 
 \section{Algebras}
 A ring is a structure with an addition and multiplication operator. We have that:
@@ -110,6 +163,118 @@ for $r, s \in R$, $x, y \in M$.
 
 Essentially, we treat the algebra $A$ as the ring and $V$ as the abelian group to form an $A$-module. There is an algebra homomorphism $\tilde{\rho}: A \rightarrow End(V)$ and we write it as $a \cdot v$. 
 
+\todo{Do symmetric algebras, tensor algebras and exterior algebras}
+
 \subsection{Schur's lemma}
 Let $U$ and $V$ be simple $A$-modules, where $A$ is an algebra over $\mathcal{C}$. Then the only homomorphisms between $U$ and $V$ are the null map, or a scaled isomorphism.
+\todo{Prove this!}
+
+\subsection{Group algebras}
+
+The group algebra is the algebra that comes from linearising a group $G$. 
+
+\section{Characters}
+In mathematics, we can summarise data about a mathematical object that allows us to completely distinguish two objects from each other. Two examples are the Fourier transform and moment-generating functions. 
+
+In representation theory, the summary data that we think about is characters.
+
+\begin{definition}
+	Let $\rho : G \rightarrow GL(V)$ be a rep over $\mathbb{C}$. Then the associated character $\chi_\rho : G \rightarrow \mathbb{C}$ is defined as $\chi_\rho(g) = tr(\rho_g)$. 
+\end{definition}
+Characters store the information about a representation!
+If $\rho \sim \psi$, then $\chi_\rho = \chi_\psi$. 
+\begin{proof}
+	Suppose we have isomorphism $T: V \rightarrow W$. Then for $g \in G$, we have that:
+	\begin{equation}
+		\rho_g = T^{-1} \psi_g T
+	\end{equation}
+	so $\tr(\rho_g) = \tr(T^{-1} \psi_g T)$
+\end{proof}
+As $\tr(A B C) = \tr(C A B) = \tr(B C A)$, then $\tr(T^{-1} \psi_g T) = \tr(\psi_g)$. Therefore we have that $\chi_\rho = \chi_\psi$. 
+
+Facts:
+\begin{corollary}
+	Let $\rho$, $\psi$ be reps. Then:
+	\begin{enumerate}
+		\item $\chi_{\rho \oplus \psi} = \chi_\rho + \chi_\psi$.
+		\item $\chi_{\rho \otimes \psi} = \chi_\rho \times \chi_\psi$. 
+		\item $\chi_\rho(1) = \deg \rho$. 
+		\item $\chi_\rho(h g h^{-1}) = \chi_\rho(g)$.
+		\item $\chi_\rho(g^{-1}) = \overline{\chi_\rho(g)}$ for $G$ finite. 
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	\begin{enumerate}
+		\item We have that $(\rho \oplus \psi)_g$ is a block matrix with $\rho_g$ and $\psi_g$ as the blocks on the diagonal. Then the trace is the sum of the traces of $\rho_g$ and $\psi_g$. 
+		\item We have that $(\rho \otimes \psi)_g$ takes basis elements $v_i \otimes w_j$ to $\rho_g(v_i) \otimes \psi_g(w_j)$. Then let the basis of $V \otimes W$ to be the eigenbasis of $\rho_g$ and $\psi_g$, and the result follows from the basis of the tensor product.
+		\item $\chi_\rho(1)$ is the trace of the identity matrix which is $1$. 
+		\item As the trace has the rotation property and $\rho$ is a homomorphism, we have that $\tr(\rho_{h^{-1} g h}) = \tr(\rho_{h^{-1}} \rho_g \rho_h) = \tr( \rho_g)$. 
+		\item We have that the trace is the sum of eigenvalues. We have that $\rho_g$ has eigenvalues $\lambda_i$ and its inverse has eigenvalues $\overline{\lambda_i}$, as the inverse is $\lambda^{|G| - 1} = 1 = \overline{\lambda}$. Then the sum of the conjugate eigenvalues is $\overline{\chi_\rho(g)}$. 
+	\end{enumerate}
+\end{proof}
+This restricts what an irreducible character looks like- irreps have coresponding irreducible chracters. 
+
+We can view class functions as elements in the group algebra $\mathbb{C}G$.
+
+Orthogonal relations:
+\begin{theorem}
+	Irreducible characters of $G$ is the same as the conjugacy classes of $G$. 
+	
+	1st orthogonality relation:
+	$\frac{1}{|G|} \sum_{g \in G} \chi_i(g) \overline{\chi_j(g)} = \langle \chi_i, \chi_j \rangle = 0$ for $i \neq j$.
+	
+	2nd orthogonality relation:
+	$\sum_{i = 1}^{k} \chi_i(g) \overline{\chi_i(h)} = 0$ if $g$ and $h$ are in different conjugacy classes. 
+\end{theorem}
+
+\section{Induced reps}
+
+\section{Representations of symmetric groups}
+
+We have that for $S_n$, every conjugacy class is equivalent to a cycle type. But every cycle type is also equivalent to a character, and we can associate characters and cycle types.
+
+Denote $\lambda \vdash n$ to say that $\lambda$ is a partition of $n$. 
+A Young diagram for a partition $\lambda = (\lambda_1, \lambda_2, ..., \lambda_\ell)$ with weakly decreasing $\lambda_i$ looks like this:
+
+\ydiagram{5, 3, 3, 2}
+
+The young diagrams with 4 boxes are:
+\ydiagram{4}, \ydiagram{3,1}, \ydiagram{1,1,1,1}, \ydiagram{2,1,1},  \ydiagram{2,2}.
+
+We say $\lambda$ dominates $\mu$ or $\lambda \unrhd \mu$ if the first $i$ rows have as many boxes as the first $i$ rows of $\mu$ for all $i$. 
+
+Dominance is a partial order. Obviously, $\lambda \unrhd \lambda$, and if $\lambda \unrhd \mu$ and $\mu \unrhd \lambda$, then $\lambda = \mu$. Finally, if $\lambda \unrhd \mu$ and $\mu \unrhd \rho$ then $\lambda \unrhd \rho$. 
+
+\subsection{Young tableaux}
+A $\lambda$-tableau where $\lambda \vdash n$ is a way to put the numbers $ 1, ..., n$ in the boxes of the Young diagram for $\lambda$. As an example,
+\begin{ytableau}
+	1 & 2 & 4\\
+	3
+\end{ytableau}
+
+For $\lambda \vdash n$, there is a transitive action on $S_n$ on the set of $\lambda$-tableau, which permutes the entries of the square in the obvious way. 
+
+If $t$ is a Young tableau with $n$ boxes, then the column stabiliser of $t$ is the subgroup $C_t \leq S_n$ which preserves the columns of $t$. 
+
+The row stabiliser is the subgroup $R_t \leq S_n$ which preserves the rows of $t$. 
+
+\subsection{Tabloids}
+We place an equivalence relation $s \sim t$ if $s$ and $t$ differ by a row stabiliser. Tabloids of shape $\lambda$ is an equivalence class of $\lambda$-tableaux with respect to $\sim$. 
+
+Then the equivalence class is denoted as $[t]$ with $t$ a representative and $T^\lambda$ is the set of $\lambda$-tabloids. 
+
+For $\lambda \vdash n$, there is a well-defined transitive action of $S_n$ on $T^\lambda$ defined as $\sigma[t] = [\sigma t]$ for $t$ a $\lambda$-tableau. 
+
+This is transitive as it is transitive on all $\lambda$-tableaux. It is well defined as if $t_1 \sim t_2$, then we have that no matter how we rearrange the rows of $t_1$, $\sigma$ sends an element in a row to an element in the same row. Therefore, $\sigma t_1 \sim \sigma t_2$. 
+
+We say that $\mathbb{C} T^\lambda$ is the vector space of formal $\mathbb{C}$-linear combinations of $\lambda$-tabloids and $\rho^\lambda$ is the linear extension of the $S_n$ action on $T^\lambda$. We have that $\rho^\lambda$ is generally not irreducible, but the representation of the Young tableau that is dominated appears in $\rho^\lambda$ exactly once. 
+
+Say $A_t : \mathbb{C}T^\lambda \rightarrow  \mathbb{C}T^\lambda$ defined as $A_t = \sum_{\pi \in C_t} sgn(\pi) \rho^\lambda_\pi$. 
+Then $e_t = A_t[t] = sum_{\pi \in C_t} sgn(\pi) \pi[t] \in \mathbb{C} T^\lambda$. 
+
+We have that $\rho_\sigma^\lambda e_t = e_{\sigma t}$.
+
+Let $V^\lambda = span \lbrace e_t | t$ a $\lambda$-tableau $\rbrace$. This is a $\rho^\lambda$-invariant space of $\mathbb{C} T^\lambda$. Define the Specht representation $\psi^\lambda$ to be the corresponding subrepresentation of $\rho^\lambda: S_n \rihtarrow GL(\mathbb{C} T^\lambda)$. 
+
+We want to show that $\psi^\lambda$ forms a complete set of irreps for the symmetric group. 
 \end{document}
