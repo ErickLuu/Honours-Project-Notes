@@ -26,7 +26,16 @@
 \numberwithin{equation}{section}
 
 %Commands
-\newcommand{\tr}{\text{tr}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\res}{\operatorname{Res}}
+\newcommand{\ind}{\operatorname{Ind}}
+
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\doublefaktor}[3]{% 
+	{\textstyle #1}
+	\mkern-4mu\scalebox{1.5}{$\diagdown$}\mkern-5mu^{\textstyle #2}%
+	\mkern-4mu\scalebox{1.5}{$\diagup$}\mkern-5mu{\textstyle #3} }
 
 %opening
 \title{Representation theory Notes}
@@ -227,7 +236,104 @@ Orthogonal relations:
 	$\sum_{i = 1}^{k} \chi_i(g) \overline{\chi_i(h)} = 0$ if $g$ and $h$ are in different conjugacy classes. 
 \end{theorem}
 
-\section{Induced reps}
+\section{Restriction and induction}
+
+Suppose we have a class function $f: G \rightarrow \mathbb{C}$ and a subgroup $H \leq G$. Then we have that the restriction of $f$ onto $H$, denoted $\res^G_H f : H \rightarrow \mathbb{C}$ in the obvious way. 
+\begin{equation}
+	\res^G_H f(h) = f(h)
+\end{equation}
+for all $h \in H$. 
+
+Now this is a class function because $f$ is a class function. Additionally, we send characters to characters. 
+\subsection{Induction}
+Suppose we have a class function $f: H \rightarrow \mathbb{C}$ and that $H \leq G$. Then consider $\dot{f}$, which does the following:
+\begin{equation}
+	\dot{f}(h) =
+	\begin{cases}
+		f(h) & h \in H\\
+		0 & h \notin H
+	\end{cases}.
+\end{equation}
+We have that $\dot{f}(h)$ is linear but not a class function.
+Consider any class function $f: A_4 \rightarrow \mathbb{C}$ such that $(123)$ and $(132)$ have different values. Lift to $S_4$. Then $\dot{f}$ is not well defined on the conjugacy class $(123)$ so $\dot{f}$ is not a class function.
+However, can we construct an induced class function from $f$? Yes. 
+
+\begin{equation}
+	Ind^G_H f(g) = \frac{1}{|H|} \sum_{x \in G} \dot{f}(x^{-1} g x)
+\end{equation}
+This is a class function. We have that:
+
+\begin{equation}
+	Ind^G_H f(y^{-1}g y) = \frac{1}{|H|} \sum_{x \in G} \dot{f}((yx)^{-1} g yx) = \frac{1}{|H|} \sum_{x \in G} \dot{f}(x^{-1} g x) = Ind^G_H f(g) 
+\end{equation}
+This is also linear by the linearity of $\dot{f}$. 
+
+\subsection{Frobenius reciprocity}
+For $H \leq G$, $a \in ZL(H)$, $b \in ZL(G)$, we have the following relation:
+\begin{equation}
+	\left\langle \ind^G_H a ,b \right\rangle = \left\langle a , Res^G_H b \right\rangle 
+\end{equation}
+
+\begin{proof}
+	We have that:
+	\begin{align*}
+		\left\langle \ind^G_H a ,b \right\rangle &= 
+		\frac{1}{|G|} \sum_{g \in G} \ind^G_H a(g) \overline{b(g)}\\
+		&= \frac{1}{|G|} \sum_{g \in G} \frac{1}{|H|} \sum_{x \in G} \dot{f}(x^{-1} g x) \overline{b(g)}\\
+		&= \frac{1}{|G||H|}\sum_{x \in G}\sum_{g \in G}   \dot{f}(x^{-1} g x) \overline{b(g)}\\
+	\end{align*}
+	Now let $g = x h x^{-1}$ for $h \in H$ because this is the only time $\dot{f}$ is nonzero.  
+	\begin{align*}
+		&= \frac{1}{|G||H|}\sum_{x \in G}\sum_{h \in H}   \dot{a}(h) \overline{b(x h x^{-1})}\\
+		&= \frac{1}{|G||H|}\sum_{x \in G}\sum_{h \in H}   \dot{a}(h) \overline{b(h)}\\
+		&= \frac{1}{|G|}\sum_{x \in G} \frac{1}{|H|}\sum_{h \in H}   a(h) \overline{b(h)}\\
+		&= \frac{1}{|G|}\sum_{x \in G} \left\langle a, \res^G_H b \right\rangle\\
+		&= \left\langle a, \res^G_H b \right\rangle.
+	\end{align*}
+\end{proof}
+Now, Frobenius reciprocity allows us to prove that induced characters are characters. 
+
+Theorem: Induction maps take characters to characters. 
+
+\subsection{Mackey's theorem}
+
+Two representations $\rho$ and $\psi$ are disjoint if they have no common irreps, meaning that $\left\langle \chi_\rho, \chi_\psi \right\rangle = 0$. 
+
+Let $\rho: H \rightarrow GL_d(\mathbb{C})$ be a rep with $H \leq G$. Then $\ind^G_H \rho$ is irreducible when 
+$\left\langle \ind^G_H \chi_\rho , \ind^G_H \chi_\rho \right \rangle = 1$. 
+
+But by Frobenius reciprocity, this is when
+\begin{equation}
+	\left\langle \chi_\rho , \res^G_H \ind^G_H \chi_\rho \right \rangle = 1.
+\end{equation}
+But when does this occur?
+Consider the double cosets $\doublefaktor{H}{G}{H}$.
+
+We have a result from Mackey. 
+\begin{theorem}[Mackey's theorem]
+	Let $H, K \leq G$ and let $S$ be a complete set of double coset representatives for $\doublefaktor{H}{G}{K}$. Then:
+	\begin{equation}
+		\res^G_H \ind^G_K f = \sum_{s \in S} \ind^H_{H \cap s K s^{-1}} \res^{s K s^{-1}}_{H \cap s K s^{-1}} f^s
+	\end{equation}
+	where $f^s(x) = f(s^{-1} x s)$. 
+\end{theorem}
+
+\subsection{Mackey's irreducibility criterion}
+
+We have that if $\rho$ is a rep of $H$, $H \leq G$, then $\rho$ is an irrep of $G$ iff:
+\begin{enumerate}
+	\item $\rho$ is an irrep of $H$
+	\item The reps $\res^H_{H \cap s H s^{-1}} \rho$ and $\res^{s H s^{-1}}_{H \cap s H s^{-1}} \rho^s$ are disjoint for all $s \in \widehat{S}$
+\end{enumerate}
+where $\widehat{S}$ is the set of coset representatives of $\doublefaktor{H}{G}{H}$. 
+
+\subsubsection{Normal case}
+If $H$ is normal, then we only need that:
+\begin{theorem}
+	$\rho$ and $\rho^s$  are disjoint for all coset representatives $s$ of $G/H$. 
+\end{theorem}
+
+
 
 \section{Representations of symmetric groups}
 
@@ -269,12 +375,12 @@ This is transitive as it is transitive on all $\lambda$-tableaux. It is well def
 
 We say that $\mathbb{C} T^\lambda$ is the vector space of formal $\mathbb{C}$-linear combinations of $\lambda$-tabloids and $\rho^\lambda$ is the linear extension of the $S_n$ action on $T^\lambda$. We have that $\rho^\lambda$ is generally not irreducible, but the representation of the Young tableau that is dominated appears in $\rho^\lambda$ exactly once. 
 
-Say $A_t : \mathbb{C}T^\lambda \rightarrow  \mathbb{C}T^\lambda$ defined as $A_t = \sum_{\pi \in C_t} sgn(\pi) \rho^\lambda_\pi$. 
-Then $e_t = A_t[t] = sum_{\pi \in C_t} sgn(\pi) \pi[t] \in \mathbb{C} T^\lambda$. 
+Say $A_t : \mathbb{C}T^\lambda \rightarrow  \mathbb{C}T^\lambda$ defined as $A_t = \sum_{\pi \in C_t} \sgn(\pi) \rho^\lambda_\pi$. 
+Then $e_t = A_t[t] = \sum_{\pi \in C_t} \sgn(\pi) \pi[t] \in \mathbb{C} T^\lambda$. 
 
 We have that $\rho_\sigma^\lambda e_t = e_{\sigma t}$.
 
-Let $V^\lambda = span \lbrace e_t | t$ a $\lambda$-tableau $\rbrace$. This is a $\rho^\lambda$-invariant space of $\mathbb{C} T^\lambda$. Define the Specht representation $\psi^\lambda$ to be the corresponding subrepresentation of $\rho^\lambda: S_n \rihtarrow GL(\mathbb{C} T^\lambda)$. 
+Let $V^\lambda = \Span \lbrace e_t | t$ a $\lambda$-tableau $\rbrace$. This is a $\rho^\lambda$-invariant space of $\mathbb{C} T^\lambda$. Define the Specht representation $\psi^\lambda$ to be the corresponding subrepresentation of $\rho^\lambda: S_n \rightarrow GL(\mathbb{C} T^\lambda)$. 
 
 We want to show that $\psi^\lambda$ forms a complete set of irreps for the symmetric group. 
 \end{document}
