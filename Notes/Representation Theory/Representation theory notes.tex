@@ -29,6 +29,7 @@
 \newcommand{\tr}{\operatorname{tr}}
 \newcommand{\res}{\operatorname{Res}}
 \newcommand{\ind}{\operatorname{Ind}}
+\newcommand{\im}{\operatorname{im}}
 
 \newcommand{\Span}{\operatorname{span}}
 \newcommand{\sgn}{\operatorname{sgn}}
@@ -88,28 +89,28 @@ as $v$ is in $U^\bot$ and $\rho_{g^{-1}} u$ is in $U$. Thus shown decomposabilit
 \end{proof}
 
 \begin{proof}[Proof of Matschke's theorem]
-	Suppose $\rho$ is a non-zero rep. Then it is equivalent to a unitary rep, so $\rho$ is irreducible or decomposable. Now we induct on the dimension. If $dim V = 1$, then $V$ is irreducible. This handles the base case. Suppose it holds for all $dim V < n$. Then if $V$ has dimension $n + 1$, and $V$ is not irreducible, then $V$ must be decomposable. So $V = U \oplus W$ for invariant subspaces $U$ and $W$. By induction, $U$ and $W$ are completely reducible. Therefore, $V$ is also completely reducible.
+	Suppose $\rho$ is a non-zero rep. Then it is equivalent to a unitary rep, so $\rho$ is irreducible or decomposable. Now we induct on the dimension. If $\dim V = 1$, then $V$ is irreducible. This handles the base case. Suppose it holds for all $\dim V < n$. Then if $V$ has dimension $n + 1$, and $V$ is not irreducible, then $V$ must be decomposable. So $V = U \oplus W$ for invariant subspaces $U$ and $W$. By induction, $U$ and $W$ are completely reducible. Therefore, $V$ is also completely reducible.
 \end{proof}
 Noe that Matschke's theorem only works when $\langle v,w \rangle_\rho = \sum_{g \in G} \langle \rho_g v , \rho_g w \rangle$ is well-defined. We can use integration over compact groups (matrix integrals) to have similar results. 
 
 
 \begin{theorem}[Schur's lemma]
-	Suppose $\rho$ and $\phi$ be irreducible representations over $\mathbb{C}$. Then the only homomorphisms between $\rho$ and $\phi$ are null-homeomorphisms or scaled isomorphisms. 
+	Suppose $\rho$ and $\psi$ be irreducible representations over $\mathbb{C}$. Then the only homomorphisms between $\rho$ and $\psi$ are null-homeomorphisms or scaled isomorphisms. 
 \end{theorem}
 
 We use two lemmas to prove this. 
-Let $Hom_G( \rho, \phi)$ be the set of morphisms from $\rho$ to $\psi$. We have that:
+Let $Hom_G( \rho, \psi)$ be the set of morphisms from $\rho$ to $\psi$. We have that:
 \begin{lemma}
-	$Hom_G( \rho, \phi)$ is a subspace of $Hom(V, W)$. This is because if $S, T \in Hom_G(\rho, \phi)$, $a, b \in \mathbb{C}$, then $(a S + b T) \rho_g = a S \rho_g + b T \rho_g = a \Psi_g S + b \Psi_g T = \psi_g (a S + b T)$. Additionally, the zero map is in $Hom_G( \rho, \phi)$. 
+	$Hom_G( \rho, \psi)$ is a subspace of $Hom(V, W)$. This is because if $S, T \in Hom_G(\rho, \psi)$, $a, b \in \mathbb{C}$, then $(a S + b T) \rho_g = a S \rho_g + b T \rho_g = a \psi_g S + b \psi_g T = \psi_g (a S + b T)$. Additionally, the zero map is in $Hom_G( \rho, \psi)$. 
 \end{lemma}
 
-We also have that $ker T$ is $\rho$-invariant subspace of $V$, and $im T$ is a $\phi$-invariant subspace of $W$.
+We also have that $\ker T$ is $\rho$-invariant subspace of $V$, and $\im T$ is a $\psi$-invariant subspace of $W$.
 \begin{proof}
-	$T \rho_g v = \psi_g T v = \psi_g 0 = 0.$. Similarly, if $w \in Im T$ then $w = T v$ for some $v \in V$. Then $\psi_g W = \psi_g T v = T \rho_g v$ is in im T. Thus shown.
+	$T \rho_g v = \psi_g T v = \psi_g 0 = 0$. Similarly, if $w \in \im T$ then $w = T v$ for some $v \in V$. Then $\psi_g W = \psi_g T v = T \rho_g v$ is in im T. Thus shown.
 \end{proof}
 
 \begin{proof}
-	Let $T \in Hom_G( \rho, \phi)$. Since $ker T$ is $\rho$-invariant and $\rho$ is an irrep, $ker T = 0$ or $V$. We also have that since im $T$ is $\phi$-invariant and $\phi$ is an irrep, then $im T = 0$ or $W$. Therefore, $T$ is either the zero map or is an isomorphism. Then we have that if $T$ is an isomorphism, then $\rho \sim \phi$. 
+	Let $T \in Hom_G( \rho, \psi)$. Since $\ker T$ is $\rho$-invariant and $\rho$ is an irrep, $\ker T = 0$ or $V$. We also have that since im $T$ is $\psi$-invariant and $\psi$ is an irrep, then $\im T = 0$ or $W$. Therefore, $T$ is either the zero map or is an isomorphism. Then we have that if $T$ is an isomorphism, then $\rho \sim \psi$. 
 	
 	As we are working over $\mathbb{C}$, $T$ has eigenvalue $\lambda$. THen $\lambda I - T$ is not invertible. But we have that $\lambda I - T \in Hom_G(\rho, \rho)$. But this means that $\lambda I - T = 0$, so $T = \lambda I$. 
 \end{proof}
@@ -235,6 +236,77 @@ Orthogonal relations:
 	2nd orthogonality relation:
 	$\sum_{i = 1}^{k} \chi_i(g) \overline{\chi_i(h)} = 0$ if $g$ and $h$ are in different conjugacy classes. 
 \end{theorem}
+
+This proof of the 1st orthogonality relation is from 3.19.
+\begin{proof}
+	Let $\phi : G \rightarrow GL_m(\mathbb{C})$ and $\psi : G \rightarrow GL_n(\mathbb{C})$ be representations of a finite group $G$. Let $V = Mat_{mn}(\mathbb{C})$ and define a representation $\rho: G \rightarrow GL(V)$ by $\rho_g(A) = \phi_g A \psi^*_g$ where $\psi^*$ is the conjugate transpose. 
+	
+	We have that $\chi_\rho(g) = \tr(\rho(g))$. We have that the trace of the operation is the multiplicity of the basis elements in this set. Let $E_{ij} \in Mat_{mn}(\mathbb{C})$ be the basis matrix, with $1$ in entry $[E]_{ij}$ and zeroes everywhere else. Then we have that $\phi_g E_{k \ell} \psi^*_g = \sum_{i = 1}^{m} \sum_{j = 1}^{n} \phi_{ik}(g) \psi^*_{j \ell}(g) E_{ij}$, meaning that the trace of this element will be $\phi_{k k} \psi^*_{\ell \ell}$. Then taking the sums of all elements, we have that:
+	\begin{equation}
+		\tr(\rho(g)) = \sum_{i = 1}^{m} \sum_{j = 1}^{n} \phi_{i,i}(g) \psi^*{j,j}(g) = \sum_{i = 1}^{m} \phi_{i,i}(g)\sum_{j = 1}^{n}  \psi^*{j,j}(g) = \tr(\phi(g)) \overline{\tr(\psi(g))} = \chi_\phi(g) \overline{\chi_\psi(g)}. 
+	\end{equation}
+	
+	Now we have that homeomorphisms between $\psi$ and $\phi$ which preserve the group operation is precisely the fixed subspace $V^G$. Let $T$ be a homeomorphism between $\psi$ and $\phi$. Then we have that $\rho_g(T) = \phi_g T \psi^*_g = T \psi_g \psi^*_g = T$. Secondly, if $T$ is in the fixed subspace, then by working backwards, it is in the fixed subspace $V^G$. We have that the dimension of $Hom_G(\psi, \phi)$ is $1/|G| \sum_{h \in G} \tr(\rho_h)$, which is simply $1/|G| \sum_{g \in G} \chi_\phi(g) \overline{\chi_\psi(g)} = \left\langle \chi_\phi, \chi_\psi \right\rangle$. But from Schur's lemma, we have that $Hom_G(\psi, \phi)$ has dimension zero or 1, and it has dimension $0$ if $\phi \nsim \psi$ and dimension $1$ if $\phi \sim \psi$. Therefore, the 1st orthogonality relation holds. 
+	
+\end{proof}
+To prove the second orthogonality relation, we use a technical lemma.
+\begin{lemma}[Technical lemma]
+	Let $\rho : G \rightarrow GL(V)$ be an irrep and $f \in Z(L(G))$. Then:
+	\begin{equation}
+		\sum_{g \in G} \overline{f(g)} \rho(g) = \frac{|G|}{\deg(\rho)} \langle \chi_\rho, f \rangle Id_V. 
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Let $T = \sum_{g \in G} \overline{f(g)} \rho(g)$. Then for $h \in G$, we have that:
+	\begin{align*}
+		\rho_h T &= \rho_h \sum_{g \in G} \overline{f(g)} \rho_g\\
+		 &=\sum_{g \in G} \overline{f(g)} \rho_{h g h^{-1}} \rho_h\\
+		 &=\sum_{g \in G} \overline{f(h g h^{-1})} \rho_{h g h^{-1}} \rho_h\\
+		 &=\sum_{x \in G} \overline{f(x)} \rho_{x} \rho_h\\
+		 &= T \rho_h
+	\end{align*}
+	So $\rho_h T = T \rho_h$ for all $h \in G$. Therefore, $T \in Hom_G(\rho, \rho)$ and Schur's lemma applies. We have that $T = \lambda Id_V$ for some $\lambda \in \mathbb{C}$. Taking the trace of both sides, we have that:
+	
+	\begin{equation}
+		\sum_{g \in G} \overline{f(g)} \chi_\rho(g) = |G| \langle \chi_\rho, f \rangle = \lambda \deg \rho 
+	\end{equation}
+	which implies above. 
+\end{proof}
+
+To show that $\chi_1, ..., \chi_s$ spans $Z(L(G))$, suppose not. Suppose there is an $f$ such that $\langle \chi_i, f \rangle = 0$ for all $1, 2, ..., s$. Then this implies that $\sum_{g \in G} \overline{f(g)} \lambda(g) = 0$, the zero map for all $\lambda$. In particular, this is zero when $\lambda$ is the regular representation. But suppose we have $h \in G$ is an element of $\mathbb{C}(G)$. We have that $\sum_{g \in G} \overline{f(g)} \lambda_g h = \sum_{g \in G} \overline{f(g)} gh = \sum_{x \in G} \overline{f(x h^{-1})} x = 0$. But this implies that as all $x$ are independent in $\mathbb{C}G$, then $f(x h^{-1}) = 0$ for all $x \in G$. But this means that $f$ is a zero map on $G$. Thus the only orthogonal map is the zero function, and $\chi_1, ..., \chi_s$ span $Z(L(G))$. 
+
+Therefore, character tables are square. 
+
+\begin{theorem}[Second orthogonality relation]
+	Suppose $C, D \subseteq G$ be conjugacy classes with $g \in C$ and $h \in D$. Then:
+	\begin{equation}
+		\sum_{i = 1}^k \chi_i(g) \overline{\chi_i(h)} = \begin{cases}
+			|G|/|C|, & \text{ if } C = D\\
+			0, & \text{ if } C \neq D
+		\end{cases}
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	Since $\chi_1, \chi_2, ..., \chi_k$ is an orthonormal basis,
+	
+	\begin{align*}
+		\delta_D(g) &= \sum_{i = 1}^k \langle \delta_D, \chi_i \rangle \chi_g\\
+		&= \sum_{i = 1}^k \frac{1}{|G|} \sum_{h \in G} \delta_D(g) \overline{\chi_i(h)} \chi_i(g)\\
+		&= \frac{1}{|G|}\sum_{i = 1}^k \sum_{h \in D} \overline{\chi_i(h)} \chi_i(g)\\
+		&= \frac{|D|}{|G|}\sum_{i = 1}^k \overline{\chi_i(h)} \chi_i(g)
+	\end{align*}
+	But we have that by the definition of $\delta_D(g)$, we have that 
+	\begin{equation}
+		\frac{|D|}{|G|}\sum_{i = 1}^k \overline{\chi_i(h)} \chi_i(g) = \begin{cases}
+			1, & \text{ if } g \in D\\
+			0, & \text{ if } g \notin D
+		\end{cases}
+	\end{equation}
+	which shows what we need. 
+\end{proof}
+
 
 \section{Restriction and induction}
 
@@ -383,4 +455,6 @@ We have that $\rho_\sigma^\lambda e_t = e_{\sigma t}$.
 Let $V^\lambda = \Span \lbrace e_t | t$ a $\lambda$-tableau $\rbrace$. This is a $\rho^\lambda$-invariant space of $\mathbb{C} T^\lambda$. Define the Specht representation $\psi^\lambda$ to be the corresponding subrepresentation of $\rho^\lambda: S_n \rightarrow GL(\mathbb{C} T^\lambda)$. 
 
 We want to show that $\psi^\lambda$ forms a complete set of irreps for the symmetric group. 
+
+
 \end{document}
