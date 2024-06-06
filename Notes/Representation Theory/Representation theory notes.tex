@@ -571,5 +571,27 @@ We want that the Lie bracket satisfies:
 \end{enumerate}
 
 \subsection{Lie algebra $\mathfrak{sl}_2(\mathbb{C})$}
+Consider operators $E, F, H$ where $E = \begin{bmatrix}
+	0 & 1\\
+	0 & 0
+\end{bmatrix}
+$, $F = \begin{bmatrix}
+	0 & 0 \\
+	1 & 0
+\end{bmatrix}
+$ and
+$ H = \begin{bmatrix}
+	1 & 0\\
+	0 & -1
+\end{bmatrix}
+$. This is the fundamental group. 
+We have that $[e, f] = h$, $[h, f] = -2f$, $[h, e] = 2e$. 
 
+Now what vector space do these act on?
+
+Consider the vector space $V_d = span\{ x^d, x^{d-1} y, x^{d-2} y^2, ..., x y^{d-1} y^d\}$ as a subspace of polynomials of $x$ and $y$. 
+
+Consider the linear maps $E = x \dfrac{\partial}{\partial y}$, $F = y \dfrac{\partial}{\partial x}$, $H = x \dfrac{\partial}{\partial x} - y \dfrac{\partial}{\partial y}$. 
+
+Then we can show that these are irreps!
 \end{document}
