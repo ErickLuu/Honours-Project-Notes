@@ -456,5 +456,59 @@ Let $V^\lambda = \Span \lbrace e_t | t$ a $\lambda$-tableau $\rbrace$. This is a
 
 We want to show that $\psi^\lambda$ forms a complete set of irreps for the symmetric group. 
 
+We have that $\rho^\lambda_\sigma(e_t) = e_{\sigma_t}$. 
 
+
+
+\subsection{Four lemmas}
+Let $A_t : \mathbb{C}T^\mu \rightarrow \mathbb{C} T^\mu$ by 
+\begin{equation}
+	A_t = \sum_{\pi \in C_t} \sgn(\pi) \rho^\mu_\pi
+\end{equation}
+
+\begin{lemma}[Lemma A]
+	Let $s$ be a $\mu$-tableau and $t$ be a $\lambda$-tableau with $\mu, \lambda \vdash n$. If $A_t[s] \neq 0$, then $\lambda \unrhd \mu$. 
+\end{lemma}
+\begin{proof}
+	Suppose that $i, j$ are in the same row of $S$ and in the same column of $t$. Then $(i, j)[s] = [s]$. Let $\sigma_1$, $\sigma_2, ..., \sigma_m$ be the set of coset representatives for $\langle (i, j) \rangle \leq C_t$. Then $A_t[s] = \sum_{\pi \in C_t} \sgn(\pi) \pi[s]$.
+	But we can divide it into coset representatives. So we have that this is:
+	\begin{align*}
+		&= \sum_{i = 1}^m   \sgn(\sigma_k)  \sigma_k[s] + \sgn(\sigma_k \circ (i, j)) [s]\\
+		&= \sum_{i = 1}^m   \sgn(\sigma_k) (\sigma_k(s) - \sigma_k \circ(i,j) [s]) = 0
+	\end{align*}
+\end{proof}
+As $A_t[s] \neq 0$, then the entries in the same row of $s$ lie in different columns of $t$. By the dominance lemma, $\lambda \unrhd \mu$. 
+
+\begin{lemma}[Lemma B]
+	Let $s$ and $t$ be $\lambda$-tableaux such that entries in the same row of $s$ are in different columns of $t$. Then $A_t[s] = \pm e_t$. 
+\end{lemma}
+\begin{proof}
+	By the corollary of the dominance lemma, there is a $\lambda$-tableau $u$ such that the rows of $u$ contain the same entries as the rows of $s$ and the columns of $u$ contain the same entries as the columns of $t$. So $[u] = [s]$ and there is a $\sigma \in C_t$ such that $\sigma t = u$. 
+	So:
+	\begin{align*}
+		A_t[s] &= \sum_{\pi \in C_t} \sgn(\pi) \pi[s]\\
+		&= \sum_{\tau \in C_t} \sgn(\tau \sigma^{-1}) \tau \sigma^{-1} [u]\\
+		&= \sgn(\sigma) \sum_{\tau \in C_t} \sgn(\tau) \tau[\sigma^{-1} u]\\
+		&= \sgn(\sigma) \sum_{\tau \in C_t} \sgn(\tau) \tau[t]\\
+		&= \pm e_t
+	\end{align*}
+\end{proof}
+\begin{lemma}[Lemma C]
+	If $t$ is a $\lambda$-tableau, then the image of $A_t$ is $\mathbb{C} e_t$.
+\end{lemma}
+\begin{proof}
+	From lemmas $A$ and $B$, we have that for all $[s] \in T^\lambda$, we have that $A_t[s] = 0$ or $\pm e_t$. 
+\end{proof}
+Then we equip $\mathbb{C} T^\lambda$ with the inner product for which $T^\lambda$ is orthonormal.
+\begin{lemma}[Lemma D]
+	If $t$ is a $\lambda$-tableau, the adjoint of $A_t : \mathbb{C} T^\lambda \rightarrow \mathbb{C} T^\lambda$ is $A_t$ itself.
+\end{lemma} 
+\begin{proof}
+	$\rho^\lambda$ is unitary because $\rho^\lambda_\sigma$ permutes the basis vectors in the usual way. So the adjoint satisfies $\rho^\lambda_\sigma)^\star = (\rho^\lambda_\sigma)^{-1} = \rho^\lambda_{\sigma^{-1}}$. 
+	For a $\lambda$-tableau, we have that:
+	\begin{align*}
+		A_t^\star &= \left(\sum_{\pi \in C_t} \sgn(\pi) \rho^\lambda_\pi \right)^\star\\
+		&=
+	\end{align*}
+\end{proof}
 \end{document}
