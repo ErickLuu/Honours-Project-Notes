@@ -508,7 +508,68 @@ Then we equip $\mathbb{C} T^\lambda$ with the inner product for which $T^\lambda
 	For a $\lambda$-tableau, we have that:
 	\begin{align*}
 		A_t^\star &= \left(\sum_{\pi \in C_t} \sgn(\pi) \rho^\lambda_\pi \right)^\star\\
-		&=
+		&=\sum_{\pi \in C_t} \sgn(\pi) \left(\rho^\lambda_\pi \right)^\star\\
+		&= \sum_{\pi \in C_t} \sgn(\pi) \rho^\lambda_{\pi^{-1}}\\
+		&= \sum_{\pi \in C_t} \sgn(\pi^{-1}) \rho^\lambda_{\pi^{-1}}\\
+		&= A_t.
 	\end{align*}
 \end{proof}
+
+\subsection{Specht representations are irreducible}
+\begin{theorem}[Subrepresentation theorem]
+	Let $\lambda \vdash n$ and suppose $W$ is a $\rho^\lambda$-invariant subspace of $\mathbb{C} T^\lambda$. Then either $V^\lambda \subseteq W$ or $W \subseteq (V^\lambda)^\perp$. 
+\end{theorem}
+
+Suppose that there is a $\lambda$-tableau $t$ and $v \in W$ such that $A_t v \neq 0$. Then by lemma $C$, we have that $A_t v \in \mathbb{C} e_t$, so $A_t v \in W$. So $\mathbb{C} e_t \cap W \neq 0$. Then we have that $\sigma e_t = e_{\sigma t} \in W$, by the above statement. Since $S_n$ acts transitively on $\lambda$-tableaux, we have $e_t \in W$ for all $\lambda$-tableau $t$. Hence $V^\lambda \subset W$. Now suppose $A_t v = 0$ for all $\lambda$-tableau $t$ and $v \in W$. Then by lemma $D$,
+\begin{equation}
+	\langle v, e_t \rangle = \langle v, A_t[t] \rangle = \langle A_t v, [t] \rangle = 0
+\end{equation}
+as $A_t v = 0$. Then as this holds for all $t$ and all $v \in W$, we have that $W \subseteq (V^\lambda)^\perp$. 
+
+
+\begin{theorem}
+	For $\lambda \vdash n$, $\psi^\lambda : S_n \rightarrow GL(V^\lambda)$ is irreducible.
+\end{theorem}
+
+\begin{proof}
+	Suppose $W$ is a $\psi^\lambda$-invariant subspace of $V^\lambda$. Then either $V^\lambda \subseteq W$, so $W = V^\lambda$, or $W \subset (V^\lambda)^\perp$, which means that $W = 0$. Thus $\psi^\lambda$ is irreducible.
+\end{proof}
+\subsection{Spect representations are inequivalent}
+Let $\lambda, \mu \vdash n$ and let $T \in Hom_{S_n}(\rho^\lambda, \rho^\mu)$. If $V^\lambda \nsubseteq \ker T$, then $\lambda \unrhd \mu$. Moreover...
+
+
+\section{Lie groups}
+Consider a group $G$ that has the structure of a smooth manifold, meaning that group multiplication $G \times G \rightarrow G$ and inversion $G \rightarrow G$ are smooth. 
+
+Lie groups combine topology, representation theory and differential geometry. 
+
+\subsection{Lie algebras}
+Take a tangent space at the identity. We can preserve the local structure of the Lie group with the tangent space. The tangent space inherits a `` Lie bracket'' that turns it into a ``Lie algebra'', which is NOT an algebra.
+
+Consider $SL_2(\mathbb{C}) = \left\{
+\begin{bmatrix}
+	a & b\\
+	c & d
+\end{bmatrix}
+| a, b, c, d \in \mathbb{C}, ad - bc = 1
+\right\}
+$. 
+The tangent space are the matrices that satisfy $\det\left(I + \varepsilon \begin{bmatrix}
+	a & b\\
+	c & d
+\end{bmatrix} \right) \approx 1$, and is denoted $\mathfrak{sl}_2(\mathbb{C})$.  
+
+These are the matrices whose trace is $0$. The associated Lie bracket, therefore, is $\left[A, B\right] = AB - BA$. Note that the trace of $\left[A, B\right]$ is 0, so $[A, B] \in \mathfrak{sl}_2(\mathbb{C})$. 
+
+A Lie algebra is a vector space $\mathfrak{g}$ with operation $\mathfrak{g} \times \mathfrak{g} \rightarrow \mathfrak{g}$ that has the Lie bracket. 
+
+We want that the Lie bracket satisfies:
+\begin{enumerate}
+	\item Bilinearity
+	\item Alternating
+	\item Jacobi identity: $[x, [y,z]] + [y, [z, x]] + [z, [x, y]] = 0$. 
+\end{enumerate}
+
+\subsection{Lie algebra $\mathfrak{sl}_2(\mathbb{C})$}:
+
 \end{document}
