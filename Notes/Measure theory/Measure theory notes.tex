@@ -209,6 +209,8 @@ We have that the Lebesgue measure is translation and rotation invariant.
 	Now suppose $E$ is almost open. Then for all $j \in \mathbb{N}$, let $U_i$ be an open set such that $\lambda_m(U_i \setminus E) < 1/j$. Then let $G = \cap U_j$. Then we have that $E \subseteq G$ and $\lambda_m(G \setminus E) < j^{-1}$ for all $j \in \mathbb{N}$. So $G \setminus E$ is Lebesgue measurable. Finally, note that $E =G \setminus (G \setminus E)$, which is measurable. 
 \end{proof}
 
+Similarly, we have that there is a set $F \subset E$ which is closed and has arbitrarily small measure difference, and there is a set $K$ which is compact and also has the difference.
+
 \section{Counterexamples}
 There are sets in $\mathbb{R}$ which are not Lebesgue measurable.
 \subsection{Vitali set}
@@ -224,15 +226,18 @@ We say that $(X, \mathcal{S}, \mu)$ is a measure space.
 \subsection{Measurable functions}
 We say that $f: X \rightarrow \mathbb{R} \cup \lbrace \pm \infty \rbrace$ is $\mu$-measurable if the sets $\lbrace x \in X | f(x) = \pm \infty \rbrace$ and $\lbrace x \in X : f(x) > \alpha \rbrace$ for all $\alpha \in \mathbb{R}$ are measurable. 
 
+In other words, the preimage of any Borel set in $\mathbb{R} \cup \{\pm \infty\}$ is measurable. 
+
 We can replace $> \alpha$ with $< \alpha$, $\geq \alpha$, $\leq \alpha$.
 \begin{example}[Examples of measurable functions]
+	An example of measurable functions is:
 	\begin{enumerate}
 		\item Constant functions
 		\item Indicator functions of measurable sets
 		\item Continuous functions
 	\end{enumerate}
 \end{example}
-We have that if $\lbrace f_n \rbrace_{n \in \mathbb{N}}$ is a sequence of measurable functions, then $f(x) := inf_{n \in \mathbb{N}} f_n(x)$ and $F(x) := \sup_{n \in \mathbb{N}} f_n(x)$ are both measurable. 
+We have that if $\lbrace f_n \rbrace_{n \in \mathbb{N}}$ is a sequence of measurable functions, then $f(x) := \inf_{n \in \mathbb{N}} f_n(x)$ and $F(x) := \sup_{n \in \mathbb{N}} f_n(x)$ are both measurable. 
 This is because $\lbrace x \in X : f(x) \geq \alpha \rbrace = \cap_{n \in \mathbb{N}} \lbrace x \in X : f_n(x) \geq \alpha \rbrace$ and $\lbrace x \in X : F(x) > \alpha \rbrace = \cup_{n \in \mathbb{N}} \lbrace x \in X : f_n(x) > \alpha \rbrace$.
 
 \begin{definition}
