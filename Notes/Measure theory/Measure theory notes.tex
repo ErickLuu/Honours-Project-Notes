@@ -1,9 +1,10 @@
 \documentclass{article}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{url}
+\usepackage{todonotes}
 
 % Environments
 
@@ -87,7 +88,8 @@ A monotone class on $X$ is a collection $\mathcal{M}$ of subsets of $X$ that is 
 	
 	Let $\mono_0$ be the subset of $\mono(\alg)$ of all $F \in \mono(\alg)$ where $F^c \in \mono(\alg)$. Then $\alg \in \mono_0$, and $\mono_0$ is a monotone class from De Morgan's law. $(\bigcup_{n \in \mathbb{N}} A_n)^c = \bigcap_{n \in \mathbb{N}} A_n^c$ thus the complement is contained in $\mono_0$. Therefore, $\mono_0 = \mono(\alg)$ from definition.
 	\par
-	... Thus $\mono(A) = \sigma(A)$.
+	Now consider a family of sets $(A_n)_n \subset \mathcal{M}(\alg)$. Define a set $B_n = \cup_{i = 1}^n A_i$. Then we have that this is a monotone class, so the union of $B_i$ is in $\mono(A)$. Therefore, we have closure under countable unions. 
+	Thus $\mono(A) = \sigma(A)$.
 \end{proof}
 
 \subsection{Measures on algebras}
@@ -143,8 +145,15 @@ The last property states that $\mu^*$ is $\sigma$-subadditive.
 \end{proof}
 
 \subsubsection{Caratheodory's theorem}
-We have that $E \subset X$ is called $\mu^*$-measurable whenever:
-$\mu^*(A) = \mu^*(A \cap E) + \mu^*(A \cap E^C)$ for all $A \subseteq X$. The collection of all $\mu^*$-measurable subsets of $X$ is called $\sigmes$. It contains $\alg$.
+
+\begin{definition}
+	We have that $E \subset X$ is called $\mu^*$-measurable whenever:
+	\begin{equation}
+			\mu^*(A) = \mu^*(A \cap E) + \mu^*(A \cap E^C)
+	\end{equation}
+	 for all $A \subseteq X$.
+\end{definition}
+The collection of all $\mu^*$-measurable subsets of $X$ is called $\sigmes$. It contains $\alg$.
 Note that $ \alg$ is a subset of $\sigmes$. Let $A$ be in $\alg$ and let $B \subset X$. Then we have that $\mu^*(B) = \sum_{n \in \mathbb{N}}\mu(A_n)$ for some collection of $A_n \in \alg$. However, we can split apart $A_n = (A_n \cap A) \cup (A_n \cap A^c)$ such that
 \begin{equation}
 	\mu^*(B) = \sum_{n \in \mathbb{N}}\mu(A_n\cap A \cup A_n \cap A^c) = \sum_{n \in \mathbb{N}} \mu(A_n \cap A) + \sum_{n \in \mathbb{N}} \mu(A_n \cap A^c) \geq \mu^*(A \cap B) + \mu^*(A^c \cap B)
@@ -157,6 +166,19 @@ What sets are $\mu^*$-measurable?
 	\item Null sets
 \end{itemize}
 
+Is this measure complete?
+\begin{theorem}
+	The outer measure is complete.
+\end{theorem}
+\begin{proof}
+	Let $\mu^*(B) = 0$, and let $A \subseteq B$. Then we have that for all $C \subset X$. Then we want that $\mu^*(C) = \mu^*(C \cap B) + \mu^*(C \cap B^c)$. But we have that for all $\epsilon > 0$, there is a cover of $B$ such that the $\mu^*(C \cap B) < \varepsilon$. But this cover is the same as the cover for $A$, so we have that $ \mu^*(C) = \mu^*(C \cap B^c) \leq \mu^*(C \cap A^c) \leq \mu^*(C)$, meaning that $ \mu^*(C \cap A) = 0$ and $\mu^*(C \cap A^c) = \mu^*(C)$. Therefore, $A$ is also measurable. 
+\end{proof}
+
+\begin{theorem}[Hahn extension theorem]
+	Suppose $\mu$ is $\sigma$-finite on $\alg$. Then $\mu^*$ is the only additive extension from $\mu$ to $\Lambda_{\mu^*}$. 
+\end{theorem}
+\todo{prove this!}
+
 \section{Lebesgue measure}
 We define the algebra $\mathcal{C}_m$ of intervals in $\mathbb{R}^m$. We then define the volume to be:
 \begin{definition}[Volume]
@@ -167,7 +189,8 @@ We define the algebra $\mathcal{C}_m$ of intervals in $\mathbb{R}^m$. We then de
 
 Then we use the Caratheodory extension lemma to form the Lebesgue-measurable sets, with the Lebesgue measure being defined as $\lambda_m(A) := \text{Vol}_m^*\llcorner \Gamma_{\text{Vol}_m^*}$.
 
-\begin{example}[Examples of measurable sets]
+\begin{example}
+	Some examples of measurable sets are:
 	\begin{itemize}
 		\item Intervals, or boxes
 		\item Countably many isolated points
@@ -177,11 +200,13 @@ Then we use the Caratheodory extension lemma to form the Lebesgue-measurable set
 We have that the Lebesgue measure is translation and rotation invariant.
 \subsubsection{Almost open, closed and compact}
 \begin{theorem}[Almost open]
-	A subset $E \subset \mathbb{R}^m$ is Lebesgue iff it is almost open, meaning that for all $\varepsilon > 0$, there exists an open set $E \subset U$ and $\lambda_m(U\\E) \equiv \lambda_m(U) - \lambda_m(E) < \varepsilon$. 
+	A subset $E \subset \mathbb{R}^m$ is Lebesgue iff it is almost open, meaning that for all $\varepsilon > 0$, there exists an open set $E \subset U$ and $\lambda_m(U\setminus E) \equiv \lambda_m(U) - \lambda_m(E) < \varepsilon$. 
 \end{theorem}
 \begin{proof}[Proof of above theorem]
 	Consider when $\lambda_m(E) \leq \infty$. Then given $\varepsilon > 0$, choose a sequence $\left\lbrace I_j \right\rbrace_{j \in \mathbb{N}} $ such that $E \subseteq \bigcup_{j \in \mathbb{N}}I_j$ and $\sum_{j \in \mathbb{N}} \lambda_mI_j < \varepsilon + \lambda_m(E)$. This set exists by the infinum property.
-	Let $U := \bigcup_{j \in \mathbb{N}}I_j$. We have that $\lambda_m(U) \leq \sum_{j \in \mathbb{N}}\lambda_m(I_j) < \varepsilon + \lambda_m(E)$. Thus shown for $< \infty$. If $\lambda_m(E) = \infty$, then we use the $\sigma$-finiteness of $\mathbb{R}^m$. 
+	Let $U := \bigcup_{j \in \mathbb{N}}I_j$. We have that $\lambda_m(U) \leq \sum_{j \in \mathbb{N}}\lambda_m(I_j) < \varepsilon + \lambda_m(E)$. Thus shown for $< \infty$. If $\lambda_m(E) = \infty$, then we use the $\sigma$-finiteness of $\mathbb{R}^m$. Let $(E_i)_i$ be a cover of $E$ and let $(U_i)_i$ be a cover such that $\lambda(U_i\setminus E_i) < 2^{-i} \varepsilon$. The the union of these $U_i$ is at most $ \varepsilon$. 
+	
+	Now suppose $E$ is almost open. Then for all $j \in \mathbb{N}$, let $U_i$ be an open set such that $\lambda_m(U_i \setminus E) < 1/j$. Then let $G = \cap U_j$. Then we have that $E \subseteq G$ and $\lambda_m(G \setminus E) < j^{-1}$ for all $j \in \mathbb{N}$. So $G \setminus E$ is Lebesgue measurable. Finally, note that $E =G \setminus (G \setminus E)$, which is measurable. 
 \end{proof}
 
 \section{Counterexamples}
@@ -243,6 +268,12 @@ We have that if $E$ is measurable, then $\int_E f d\mu := \int_X \chi_E f d\mu$.
 	\int_X f d\mu = \lim_{n \rightarrow \infty} \int_X f_n d\mu.
 \end{equation}
 \end{theorem}
+
+\begin{proof}
+	Let 
+\end{proof}
+
+
 \begin{theorem}[Fatou's lemma:]
 	Let $\lbrace f_n \rbrace_{n \in \mathbb{N}}$ be a sequence of functions in $\mathcal{M}^+$. Then \begin{equation}
 		\int_X \liminf_{n\rightarrow \infty} f_n d\mu \leq \liminf_{n \rightarrow \infty} \int_X f_n d\mu.
