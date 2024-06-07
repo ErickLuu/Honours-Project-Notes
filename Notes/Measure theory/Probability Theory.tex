@@ -177,9 +177,26 @@ We have that $\liminf_n A_n \subset \limsup_n A_n$.
 	\end{equation}
 \end{lemma}
 
-\begin{theorem}
-	Borel-Cantellini
+\begin{theorem}[Borel-Cantelli]
 	Let $(A_n)_n$ be such that $\sum_n \mathbb{P}(A_n) \leq +\infty$. Then $\mathbb{P}(A_n i.o.) = 0$. 
 \end{theorem}
 
+
+\section{Random variables}
+A random variable $X$ is a measurable function on a probability space  $(\Omega, \mathcal{F}, \mathbb{P})$. 
+
+For any given variable $X$, we say $\sigma(X)$ is the intersection of all spaces such that $X$ is measurable on this space. 
+
+\subsection{Distribution of random variable}
+
+The function $\mathbb{P}_X: \mathcal{B}(\mathbb{R}) \rightarrow [0,1]$ which takes sets $\mathbb{P}_X(A) = \mathbb{P}(X \in A)$ is a probability measure on $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$. This is the law/distribution on $X$. 
+
+\subsection{Distribution function}
+We say $F_X : \mathbb{R} \rightarrow [0, 1]$ is the distribution function, so
+\begin{equation}
+	F_X(x) = \mathbb{P}_X((-\infty, x])
+\end{equation}
+
+\subsection{Independence}
+ 
 \end{document}
