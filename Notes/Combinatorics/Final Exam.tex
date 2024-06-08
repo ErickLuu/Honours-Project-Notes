@@ -140,16 +140,23 @@ $\log(1 - k/n)  = -k/n - \frac{k^2}{2n^2} + O(k^3/n^3)$, and $\log\left(1 + \fra
 
 Then:
 \begin{align*}
-	n \left( 3 \log(1 - k/n) + \log\left(1 + \frac{3k}{n - k - 2}\right)\right) &=
-	n \left(-3k/n - 3k^2/2n^2 + \frac{3k}{n - k - 2} - \frac{9k^2}{2(n - k - 2)^2} + O(k^3/(n - k)^3)\right)\\
+	&n \left( 3 \log(1 - k/n) + \log\left(1 + \frac{3k}{n - k - 2}\right)\right) \\
+	&= n \left(-3k/n - 3k^2/2n^2 + \frac{3k}{n - k - 2} - \frac{9k^2}{2(n - k - 2)^2} + O(k^3/(n - k)^3)\right)\\
 	&= -3k - 3k^2/2n + \frac{3kn}{n - k - 2} - \frac{9k^2 n}{(n - k - 2)^2} + O(k^3/(n - k)^2)
 \end{align*}
 Now we have that $\frac{3kn}{n - k - 2}  \sim 3k$ from the argument above, and $\frac{9k^2 n}{(n - k - 2)^2} = \frac{1}{n} \frac{9 k^2}{(1 - k/n - 2/n)^2} = \frac{9k^2}{n}(1 + O(k/n)) = \frac{9k^2}{n} + o(1)$. Therefore, taking the exponent of both sides, we have that this is:
 \begin{equation}
-	\frac{e^3k }{e^{3k + 3k^2/2n + 9k^2/n}} = e^{-21/2 k^2/n}
+	\frac{e^3k }{e^{3k + 3k^2/(2n) + 9k^2/n}} = e^{-\frac{21}{2} k^2/n}
 \end{equation}
 and as $k \sim \sqrt{n}$, so $k^2/n \sim 1$, then this becomes $e^{-21/2}$. 
 
+\subsection{d}
+The probability that three players conflict 
+\subsection{e}
+
+\subsection{f}
+
+\subsection{g}
 \section{Question 7}
 Find an asymptotic formula for:
 \begin{equation}
@@ -252,7 +259,11 @@ Now we have that for all $r > 0$, $r \in \mathbb{R}$, we have that:
 \begin{equation}
 	[z^n] f(z) \leq r^{-n} f(r).
 \end{equation}
-To find the minimum, take $D \log$ of $r^{-n} f(r)$. We have that this is $D(-n \log r + r e^r) = 0$, or $-n/r + e^r + r e^r = 0$. Therefore, we have that:
+To find the minimum, take $D \log$ of $r^{-n} f(r)$. We have that this is $D(-n \log r + r e^r) = 0$, or 
+\begin{equation}
+	-n/r + e^r + r e^r = 0.
+\end{equation}
+Therefore, we have that:
 \begin{equation}
 	-n + r e^r + r^2 e^r = 0
 \end{equation}
@@ -260,7 +271,11 @@ or that:
 \begin{equation}
 	r (r + 1) e^r = n.
 \end{equation}
-Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the upper bound of $[x^n] f(x)$ is $r(n)^{-n} e^{r(n) e^{r(n)}}$ where $r(n)$ is defined above. 
+Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the upper bound of $[x^n] f(x)$ is
+\begin{equation}
+	r(n)^{-n} e^{r(n) e^{r(n)}}
+\end{equation}
+ where $r(n)$ is defined in the question. 
 
 \subsection{c}
 We will evaluate the integral $[z^n] f(z) = \frac{1}{2 \pi i }\oint_C f(z)/z^{n + 1} dz =  \frac{1}{2\pi}\int_{-\pi}^{\pi} g(\theta) \, dx$ where $ g(\theta) := \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$.
@@ -351,6 +366,10 @@ So we have that:
 
 \begin{equation}
 	[z^n] b(z) = 2^n \left( -\frac{4 \sqrt{e}}{7 \sqrt{\pi}} n^{-3/2} - \frac{39 \sqrt{e}}{49\sqrt{\pi}} n^{-5/2} + O(n^{-7/2})\right)
+\end{equation}
+For a simpler equation, we have that:
+\begin{equation}
+	[z^n] b(z) \sim -\frac{4 \sqrt{e}}{7 \sqrt{\pi}} n^{-3/2} 2^n
 \end{equation}
 \subsection{b}
 For an approximation with a relative error $o(1/n)$, we have that:
