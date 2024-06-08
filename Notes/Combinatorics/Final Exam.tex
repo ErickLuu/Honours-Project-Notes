@@ -49,7 +49,7 @@ Calculate the total number of diagrams and use a many to one relation.
 \section{Question 6}
 
 \subsection{a}
-We have that the total number of games is $\binom{n}{3}$. We have that the number of schedules is $\binom{n}{3}^n$, where we allow conflics. Therefore, the proportion of schedules where players 1 and 2 play together in the first game is the same as the proportion of games where $1$ and $2$ play together out of all games. 
+We have that the total number of games is $\binom{n}{3}$. We have that the number of schedules is $T_n := \binom{n}{3}^n$, where we allow conflics. Therefore, the proportion of schedules where players 1 and 2 play together in the first game is the same as the proportion of games where $1$ and $2$ play together out of all games. 
 
 We have that the games where $1$ and $2$ play together are of the form $\{ 1, 2, k\}$ where $k \in [3, ..., n]$. There are $(n-2)$ of these games.
 Therefore, the proportion is:
@@ -152,6 +152,7 @@ and as $k \sim \sqrt{n}$, so $k^2/n \sim 1$, then this becomes $e^{-21/2}$.
 
 \subsection{d}
 Fix distinct players $x, y, z$ such that $x$ has a conflict with $y$ and $x$ has a conflict with $z$. One scenario is that there are players (not necessarily distinct) and games $G_i = (x, y, a)$, $G_j = (x, y, b)$, $G_k = (x, z, c)$, $G_\ell = (x, z, d)$. 
+The number of ways to choose the placement of $G_i, G_j, G_k, G_\ell$ in the schedule is $\binom{n}{4}$, the number of ways to choose $a, b, c, d$ is $(n - 2)^4$, the number of ways to choose the other games is $\binom{n}{3}^{n - 4}$, and the number of ways to choose distinct $x, y, z$ is $n(n - 1)(n-2)$. Putting this together, the 
 
 
 \subsection{e}
