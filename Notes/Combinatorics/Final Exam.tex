@@ -258,9 +258,67 @@ To find the minimum, take $D \log$ of $r^{-n} f(r)$. We have that this is $D(-n 
 \end{equation}
 or that:
 \begin{equation}
-	r (r + 1) e^r = n
-\end{equation}.
-Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the bound is $r(n)^{-n} e^{r(n) e^{r(n)}}$ where $r(n)$ is defined above. 
+	r (r + 1) e^r = n.
+\end{equation}
+Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the upper bound of $[x^n] f(x)$ is $r(n)^{-n} e^{r(n) e^{r(n)}}$ where $r(n)$ is defined above. 
 
+\subsection{c}
+We will evaluate the integral $[z^n] f(z) = \oint_C f(z)/z^{n + 1} dz =  \int_{-\pi}^{\pi} g(\theta) \, dx$ where $ g(\theta) := \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$.
+
+Taking the log of $g$, we have that:
+\begin{equation}
+	\log(g(\theta)) = (r e^{i \theta + r e^{i \theta}}) - n \log r - i n \theta. 
+\end{equation}
+We have that $e^{i \theta} =  1 + i \theta - \frac{\theta^2}{2} + O(\theta^3)$. So we have that:
+\begin{equation}
+	\log(g(\theta)) = (r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) - n \log r - i n \theta. 
+\end{equation}
+
+Expanding out, we get that:
+\begin{equation}
+	 (r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) = r e^r e^{(r + 1) i \theta- \frac{\theta^2 r}{2} + O(r\theta^3)}.
+\end{equation}
+Expanding out, we have that:
+\begin{equation}
+	e^{(r + 1) i \theta- \frac{\theta^2 r}{2} + O(r\theta^3)} = (1 + (r + 1) i \theta - \frac{\theta^2 r}{2} - \frac{(r + 1)^2 \theta^2}{2} + O(r^2 \theta^3))
+\end{equation}
+Therefore, we have:
+\begin{equation}
+	(r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) = r e^r + r(r + 1) e^r i \theta - r e^r \frac{r + (r + 1)^2 }{2} \theta^2 + O(r^2 \theta^3).
+\end{equation}
+We have that $r(r + 1) e^r = n$, so we have that:
+\begin{equation}
+	(r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) = r e^r + n i \theta - \frac{r^2 e^r + (r + 1) n}{2} \theta^2 + O(r^2 \theta^3).
+\end{equation}
+Therefore, we have that
+\begin{equation}
+	\log(g(\theta)) = r e^r - \frac{r^2 e^r + (r + 1) n }{2} \theta^2 - n \log r + O(r^2 \theta^3).
+\end{equation}
+Therefore, we have that from integrating $e^{\log g(\theta)}$ between $-n^{-2/5}$ and $n^{-2/5}$, 
+\begin{align*}
+	\frac{1}{2 \pi}\int_{-n^{-2/5}}^{n^{-2/5}} e^{\log g \theta} \, d\theta &= \frac{e^{r e^r}}{r^n} \int_{-n^{-2/5}}^{n^{-2/5}} e^{- \frac{r^2 e^r + (r + 1) n }{2} \theta^2 + o(1)} \, d\theta\\
+	&=  \frac{e^{r e^r}}{ 2 \pi r^n} \int_{-n^{-2/5}}^{n^{-2/5}} e^{- \frac{r^2 e^r + (r + 1) n }{2} \theta^2 + o(1)} \, d\theta\\
+	&= \frac{e^{r e^r}}{2 \pi r^n}\sqrt{\frac{2\pi}{r^2 e^r + (r + 1) n}}\\
+	&= \frac{e^{r e^r}}{r^n \sqrt{r e^r(r + (r + 1)^2)}}
+\end{align*}
+Inserting $r(r + 1) e^r = n$, we have that
+\begin{equation}
+	[z^n] f(z) = \frac{e^{r e^r}}{r^{r (r + 1) e^r} \sqrt{r e^r(r + (r + 1)^2)}}
+\end{equation}
+
+\subsection{d}
+From $r (r + 1) e^r = n$ and taking logs, we have that $r = \log(n) - 2\log(r)$ approximately. If we say that $r = O(\log n)$, then as $\log \log (n)$ and the summations is negligible, then we have that $r \sim \log(n)$.
+
+\subsection{e}
+We will use the bootstrapping method to find an additive bound. 
+We have that $r = \log(n) - 2 \log(O(\log n))$, so $r = \log n - O(\log \log n)$. Then we have that $r = \log(n) - 2 \log(\log (n) - O(\log \log n))$. Then we have that:
+\begin{equation}
+	r = \log(n) - 2 \log \log n - 2\log \left(1 -  O\left(\frac{\log \log n}{\log n}\right)\right).
+\end{equation}
+We have that $\log \left(1 -  O\left(\frac{\log \log n}{\log n}\right)\right) = O\left(\frac{\log \log n}{\log n}\right)$, so we have that:
+\begin{equation}
+	r = \log(n) - 2 \log \log n - O\left(\frac{\log \log n}{\log n}\right).
+\end{equation}
+As we have that $ O\left(\frac{\log \log n}{\log n}\right) = o(1)$, then we have that $g(n) = \log(n) - 2 \log \log n$. 
 \section{Question 9}
 \end{document}
