@@ -209,7 +209,7 @@ Therefore, we have that the sum becomes:
 \begin{align*}
 	&\frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M \frac{(2n)^{2n-z} \exp(-z + z^2/4n) }{n^{(n + z)} \exp(z + 1/2 z^2/n) n^{n -2z} \exp( -2z + 2z^2/n) } \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
 	&= \frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M 2^{2n-z} \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
-	&= \frac{2^{3n}}{\sqrt{2\pi}} sum_{z = -M}^M  \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}}
+	&= \frac{2^{3n}}{\sqrt{2\pi}} \sum_{z = -M}^M  \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}}
 \end{align*}
 We have that as $z = o(n^2/3)$, then
 \begin{align*}
@@ -241,8 +241,26 @@ We have that at $n^{2/3}$, the term above is at most $\left(\frac{e(3n - n^{2/3}
 \begin{equation}
 	(6e)^{n^{2/3}} n^{n^{2/3}/3} n^{2/3}.
 \end{equation} 
-But notice that $(2^n)^3$ bounds the product of each of these terms as when taking logs of both equations, we have a $3n$ term out but the largest term out is a $\log n n^2/3$. Therefore, we have that the term above is of $o(S)$. Therefore, the tails is negligible. 
+But notice that $(2^n)^3$ bounds the product of each of these terms as when taking logs of both equations, we have a $3n$ term out but the largest term out is a $\log n n^2/3$. Therefore, we have that the term above is of $o(S)$. Therefore, the tail is negligible. 
 \section{Question 8}
+\subsection{a}
+We shall use cards, decks and hands. Each card will be a standard deck with a number in $[n]$ in the centre. Now we have that the number of decks is $n$ for each $n \geq 1$, therefore the deck enumerator is $D(x) = \sum_{n \geq 1} n \frac{x^n}{n!} = \sum_{n \geq 1} \frac{x^n}{(n - 1)!} = x e^x$. 
+Therefore, the egf for the number of labelled galaxies is $f(x) = e^{D(x)} = e^{x e^x}$. 
+
+\subsection{b}
+Now we have that for all $r > 0$, $r \in \mathbb{R}$, we have that:
+\begin{equation}
+	[z^n] f(z) \leq r^{-n} f(r).
+\end{equation}
+To find the minimum, take $D \log$ of $r^{-n} f(r)$. We have that this is $D(-n \log r + r e^r) = 0$, or $-n/r + e^r + r e^r = 0$. Therefore, we have that:
+\begin{equation}
+	-n + r e^r + r^2 e^r = 0
+\end{equation}
+or that:
+\begin{equation}
+	r (r + 1) e^r = n
+\end{equation}.
+Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the bound is $r(n)^{-n} e^{r(n) e^{r(n)}}$ where $r(n)$ is defined above. 
 
 \section{Question 9}
 \end{document}
