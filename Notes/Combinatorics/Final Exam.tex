@@ -133,9 +133,85 @@ Now taking the exponential and the fact that $O(k^2/(n - k)) = O(1/\sqrt{n} = o(
 	\frac{e^{3k}}{e^{3k}} = 1. 
 \end{equation}
 
+\subsubsection{ii}
+Suppose $k \sim \sqrt{n}$. 
+Take the log expansion 
+$\log(1 - k/n)  = -k/n - \frac{k^2}{2n^2} + O(k^3/n^3)$, and $\log\left(1 + \frac{3k}{n - k - 2}\right) = \frac{3k}{n - k - 2} - \frac{9k^2}{2(n - k - 2)^2} + O(k^3/(n - k)^3)$. 
 
+Then:
+\begin{align*}
+	n \left( 3 \log(1 - k/n) + \log\left(1 + \frac{3k}{n - k - 2}\right)\right) &=
+	n \left(-3k/n - 3k^2/2n^2 + \frac{3k}{n - k - 2} - \frac{9k^2}{2(n - k - 2)^2} + O(k^3/(n - k)^3)\right)\\
+	&= -3k - 3k^2/2n + \frac{3kn}{n - k - 2} - \frac{9k^2 n}{(n - k - 2)^2} + O(k^3/(n - k)^2)
+\end{align*}
+Now we have that $\frac{3kn}{n - k - 2}  \sim 3k$ from the argument above, and $\frac{9k^2 n}{(n - k - 2)^2} = \frac{1}{n} \frac{9 k^2}{(1 - k/n - 2/n)^2} = \frac{9k^2}{n}(1 + O(k/n)) = \frac{9k^2}{n} + o(1)$. Therefore, taking the exponent of both sides, we have that this is:
+\begin{equation}
+	\frac{e^3k }{e^{3k + 3k^2/2n + 9k^2/n}} = e^{-21/2 k^2/n}
+\end{equation}
+and as $k \sim \sqrt{n}$, so $k^2/n \sim 1$, then this becomes $e^{-21/2}$. 
 
 \section{Question 7}
+Find an asymptotic formula for:
+\begin{equation}
+	\sum_{k = 0}^n \binom{3n - k}{k} 2^k.
+\end{equation}
+Let $a_k := \binom{3n - k}{k} 2^k = \frac{(3n - k)!}{k! (3n - 2k)!} 2^k$.
+We have that:
+\begin{align*}
+	a_{k + 1} &= \frac{(3n - k - 1)!}{(k + 1)! (3n - 2k - 2)!} 2^{k + 1}\\
+	\frac{a_{k + 1}}{a_k} = \frac{(3n - 2k)(3n - 2k - 1) 2}{(k + 1)(3n - k)}
+\end{align*}
+Setting $\frac{a_{k + 1}}{a_k}$ to find the inflection point, we have that:
+\begin{equation}
+	(3n - 2k)(3n - 2k - 1) 2 = (k + 1)(3n - k)
+\end{equation}
+
+Plugging this equation into WolframAlpha and solving for $k$, we have that:
+\begin{equation}
+	k = \frac{1}{18}\left(- \sqrt{81 n^2 + 54 n + 25} + 27 n + 5\right)
+\end{equation}
+and expanding out $\sqrt{81 n^2 + 54 n + 25} = 9 n(1 + O(1))$, we have that:
+$k \sim n$. 
+
+Around $n$, we have that $\binom{3n - k}{k} 2^k$ approximates a symmetric function. So we need to evaluate the summation
+\begin{equation}
+	\frac{1}{2}\sum_{y = n - M}^{n + M} \binom{3n - y}{y} 2^y
+\end{equation}
+and show that the tail $\sum_{k = 0}^{n - M} \binom{3n - k}{k} 2^k$ is negligible.
+
+\subsection{Evaluating main sum}
+Now let $z = y - n$. We have that the summation becomes:
+\begin{equation}
+	\sum_{z = -M}^M \binom{2n - z}{n + z} 2^n 2^z = \sum_{z = -M}^M\frac{(2n - z)!}{(n + z)! (n - 2z)!} 2^{n + z}. 
+\end{equation}
+
+Now we have that by Stirling:
+\begin{align*}
+	(2n - z)! &\sim (2n - z)^{2n-z}/e^{2n - z} \sqrt{2 \pi (2n-z)}\\
+	(n + z)! &\sim (n + z)^{n + z}/e^{n + z} \sqrt{2 \pi (n + z)}\\
+	(n - 2z)! &\sim (n - 2z)^{n - 2z}/e^{n - 2z} \sqrt{2 \pi (n -2z)}
+\end{align*}
+so we have that the total sum becomes:
+\begin{align*}
+	&\sum_{z = -M}^M \frac{(2n - z)^{2n - z}}{(n + z)^{n + z} (n - 2z)^{n - 2z}} \frac{e^{n + z} e^{n - 2z}}{e^{2n - z}} \frac{\sqrt{2\pi (2n - z)}}{\sqrt{2\pi (n + z)} \sqrt{2\pi (n - 2z)}} 2^{n} 2^z \\
+	&= \frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M \frac{(2n - z)^{2n - z}}{(n + z)^{n + z} (n - 2z)^{n - 2z}} \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z
+\end{align*}
+
+Now we have that when $M = o(n^{2/3})$,
+\begin{align*}
+	(2n - z)^{2n-z}  &=  (2n)^{2n-z} \exp(-z + z^2/4n + O(z^3/n^2)) = (2n)^{2n-z} \exp(-z + z^2/4n)\\
+	(n + z)^{n + z} &= n^{(n + z)} \exp(z + 1/2 z^2/n + O(z^3/n^2)) = n^{(n + z)} \exp(z + 1/2 z^2/n) \\
+	(n - 2z)^{n - 2z} &= n^{n -2z} \exp\left( (n - 2z) \log(1 - 2z/n)\right)\\
+	&= n^{n -2z} \exp\left( (n - 2z) (-2z/n - 2z^2/n^2 + O(z^3/n^3))\right)\\
+	&= n^{n -2z} \exp\left( -2z + 2z^2/n + O(z^3/n^2)\right) = n^{n -2z} \exp( -2z + 2z^2/n)
+\end{align*}
+Therefore, we have that the sum becomes:
+\begin{align*}
+	&\frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M \frac{(2n)^{2n-z} \exp(-z + z^2/4n) }{n^{(n + z)} \exp(z + 1/2 z^2/n) n^{n -2z} \exp( -2z + 2z^2/n) } \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
+	&= \frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M 2^{2n-z} \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
+	&= \frac{2^{3n}}{\sqrt{2\pi}}\exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}}
+\end{align*}
+We have that $\sqrt{\frac{2n - z}{(n + z)(n - 2z)}} = \sqrt{1/(n + z) + 1/(n - 2z)} = \frac{1}{\sqrt{n}} \sqrt{1/(1 + z/n) + 1/(1 - 2z/n)} = \frac{1}{\sqrt{n}} \sqrt{1 -z/n + 1 + 2z/n + O(z^2/n^2)}
 
 \section{Question 8}
 
