@@ -266,7 +266,19 @@ Let $P_{i,j}$ be the property that two distinct games $i, j$ are conflicted. The
 Fix $k$ to be an integer. 
 Let $Y \subseteq S$ where $|Y| = k$. Then say $Y$ is good if for every $P_{i, j}$ the games are different games, and bad if there are two properties $P_{i, j}, P_{i, \ell} \in Y$. 
 
-Let us calculate the number of games for each fixed $|Y|$. For a property $P_{i, j}$, 
+Let us calculate the number of games for each fixed good $|Y|$. For a property $P_{i, j}$, we have that games $G_i$ and $G_j$ are of the form $(x, y, a)$ and $(x, y, b)$ respectively. The number of ways that this can happen is if we have that $x, y$ are distinct without order, so there are $n(n-1)/2$ ways to choose $x, y$ and $a, b$ are distinct from $x, y$ but not distinct from each other, so we can choose $a, b$ from $(n-2)^2$ options. This is for each $k$.
+
+We also have that there are $\binom{n}{3}^{n - k}$ other games that are not part of the original games, so we have for a fixed $Y \subseteq S$, that the number of games that have $Y$'s properties are:
+\begin{equation}
+	N_\geq(Y) = \binom{n}{3}^{n - k} \left[ n (n -1)/2 (n - 2)^2 \right]^k = \binom{n}{3}^n \frac{1}{\binom{n}{3}^k} \frac{n^{k} (n - 1)^{k} (n - 2)^{2k}}{2^{2k}} = \binom{n}{3}^n
+\end{equation}
+
+Then if we were to choose the properties in order, then we would have that the first property has $\binom{n}{2}$ games to choose from, the second property has $\binom{n-2}{2}$ and so on until $\binom{n-k}{2}$. Therefore, the total number of "good" combinations we can choose from is:
+\begin{equation}
+	\binom{n}{2} \times \binom{n-2}{2} \times ... \times \binom{n - k}{2} = \frac{n(n -1) (n - 2) ... (n - 2k + 1)(n - 2k))}{2^k} = \frac{n^{2k}}{2^k}
+\end{equation}
+as we have that $k$ is fixed relative to $n$. 
+If we disregard order, then we divide by $k!$.
 
 \section{Question 7}
 Find an asymptotic formula for:
@@ -494,9 +506,9 @@ Now multiply and divide by $2^n(a n^{-3/2} + b n^{-5/2})$. We have that this is:
 \end{equation}
 Dividing both by $a n^{-3/2}$, we get:
 \begin{align*}
-	2^n(a n^{-3/2} + b n^{-5/2}) \frac{1 + b/a n^{-1}}{1 + b/a n^{-1} + O(n^{-2})}.
+	2^n(a n^{-3/2} + b n^{-5/2}) \frac{1 + b/(an)}{1 + b/(an) + O(n^{-2})}.
 \end{align*}
-We then expand out to have a relative error $(1 + b/a n^{-1}) (1 -b/a n^{-1} + O(n^{-2})) = 1 + O(n^{-2})$. As $O(n^{-1/2})  = o(1/n)$, then we have what we want. 
+We then expand out to have a relative error $(1 + b/(an)) (1 -b/(an) + O(n^{-2})) = 1 + O(n^{-2})$. As $O(n^{-1/2})  = o(1/n)$, then we have what we want. 
 
 \begin{equation}
 	[z^n] b(z) = 2^n \left( -\frac{4 \sqrt{e}}{7 \sqrt{\pi}} n^{-3/2} - \frac{39 \sqrt{e}}{49\sqrt{\pi}} n^{-5/2} + O(n^{-7/2})\right)
