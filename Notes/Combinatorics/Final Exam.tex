@@ -92,9 +92,9 @@ We will use Cauchy-Frobenius to solve this question. Let $\sigma \in S_n $ act o
 \end{equation}
 Now suppose $\sigma$ has cycles $(a_1, a_2, ..., a_m)$. Then the number of fixed elements is $4^{n m}$ as we can choose $4^n$ spots for each cycle row so there is $(4^n)^m = 4^{n m}$ different fixed elements. Then we have that the number of isomorphism classes become:
 \begin{equation}
-	\frac{1}{n!} \sum_{\sigma \in S_n} 4^{n \}
+	\frac{1}{n!} \sum_{\sigma \in S_n} 4^{n \stirlingI{n}{k}}
 \end{equation}
-where $Cyc(\sigma)$ is the number of cycles in $\sigma$. 
+where $\stirlingI{n}{k}$ is the $k$-th Stirling number of size $n$. 
 \subsection{b}
 Now we will move onto solving this using inclusion-exclusion.
 Let $P_N$ be the property that $N$ is not included in the matrix, $P_S$ be the property that $S$ is not included, and so on.
