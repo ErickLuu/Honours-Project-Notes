@@ -145,21 +145,28 @@ Then the hand enumerator
 \begin{equation}
 	H(x,y) = e^{y D(x)} = \exp\left( \frac{yx}{1-x}\right).
 \end{equation}
-where $[x^n/n! y^k] H(x,y)$ is the number of ways to have unordered $k$ queues from $n$ people. But we want that these queues have a circular order, therefore we look at the queue with $1$ in it and make that one the start. Then there are $(k - 1)!$ queues, so we use the $y D_y$ operator on $H(x,y)$ and treat $H(x, y)$ like an egf on $y$. So we have that:
+where $[x^n/n! y^k] H(x,y)$ is the number of ways to have unordered $k$ queues from $n$ people. But we want that these queues have a circular order, therefore we look at the queue with $1$ in it and make that one the start. Then there are $(k - 1)!$ queues, so we integrate and divide by $y$ and treat $H(x, y)$ like an egf on $y$. We first divide by $n$ so we can multiply by $n!$ to get out $(n - 1)$. So we have that:
 \begin{equation}
-	G(x,y) = y D_y(H(x,y)) = \frac{e^{\frac{x y}{1 - x}}x y}{1 - x}
+	G(x,y) = \int \frac{H(x, y) - 1}{y} \, dy
 \end{equation}
-To remove the $y$ term, we take:
+To remove the $y$ term, we treat $y$ as an egf variable. To extract out properly, we take partial derivatives at $y = 0$ to extract out the coefficients.
 \begin{equation}
 	G(x) = \sum_{n \geq 0} D^n_y(G(x, y))|_{y = 0}.
 \end{equation}
-We have that $D^n_y(G(x, y))|_{y = 0} = \frac{n x^n}{(1 - x)^n}$. 
-We have that the $k$-th coefficient of $\frac{1}{(1 - x)^n}$ is $\binom{n + k - 1}{k}$, so the $k$-th coefficient of $\frac{x^n}{(1 - x)^n}$ is $\binom{k - 1}{k - n}$ when $k > n$. 
+We have that $D^n_y(G(x, y))|_{y = 0} = \frac{x^n}{n(1 - x)^n}$. 
+The summation of these variables is:
 
 \begin{equation}
-	[x^n/n!] G(x) = n! \sum_{k = 1}^{n} k \binom{n - 1}{n - k}
+	\log(1 - x) - \log(1 - 2x)
 \end{equation}
-
+and $[x^n]$ is 
+\begin{equation}
+	2^n/n - 1/n = \frac{2^{n} - 1}{n}.
+\end{equation}
+Therefore, we have that:
+\begin{equation}
+	m_n = [x^n/n!] \log(1 - x) - \log(1 - 2x) = (n-1)! (2^n - 1).
+\end{equation}
 \section{Question 6}
 
 \subsection{a}
