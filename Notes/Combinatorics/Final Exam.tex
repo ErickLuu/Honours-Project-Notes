@@ -268,17 +268,21 @@ Let $Y \subseteq S$ where $|Y| = k$. Then say $Y$ is good if for every $P_{i, j}
 
 Let us calculate the number of games for each fixed good $|Y|$. For a property $P_{i, j}$, we have that games $G_i$ and $G_j$ are of the form $(x, y, a)$ and $(x, y, b)$ respectively. The number of ways that this can happen is if we have that $x, y$ are distinct without order, so there are $n(n-1)/2$ ways to choose $x, y$ and $a, b$ are distinct from $x, y$ but not distinct from each other, so we can choose $a, b$ from $(n-2)^2$ options. This is for each $k$.
 
-We also have that there are $\binom{n}{3}^{n - k}$ other games that are not part of the original games, so we have for a fixed $Y \subseteq S$, that the number of games that have $Y$'s properties are:
+We also have that there are $\binom{n}{3}^{n - 2k}$ other games that are not part of the original games, so we have for a fixed $Y \subseteq S$, that the number of games that have $Y$'s properties are:
 \begin{equation}
-	N_\geq(Y) = \binom{n}{3}^{n - k} \left[ n (n -1)/2 (n - 2)^2 \right]^k = \binom{n}{3}^n \frac{1}{\binom{n}{3}^k} \frac{n^{k} (n - 1)^{k} (n - 2)^{2k}}{2^{2k}} = \binom{n}{3}^n
+	N_\geq(Y) = \binom{n}{3}^{n - 2k} \left[ \binom{n}{2} (n - 2)^2 \right]^k = \binom{n}{3}^n \frac{1}{\binom{n}{3}^{2k}} \frac{n^{k} (n - 1)^{k} (n - 2)^{2k}}{2^{2k}} = \binom{n}{3}^n 9^{k} \frac{1}{n^k(n-1)^k}
 \end{equation}
+
 
 Then if we were to choose the properties in order, then we would have that the first property has $\binom{n}{2}$ games to choose from, the second property has $\binom{n-2}{2}$ and so on until $\binom{n-k}{2}$. Therefore, the total number of "good" combinations we can choose from is:
 \begin{equation}
 	\binom{n}{2} \times \binom{n-2}{2} \times ... \times \binom{n - k}{2} = \frac{n(n -1) (n - 2) ... (n - 2k + 1)(n - 2k))}{2^k} = \frac{n^{2k}}{2^k}
 \end{equation}
 as we have that $k$ is fixed relative to $n$. 
-If we disregard order, then we divide by $k!$.
+If we disregard order, then we divide by $k!$, so the total number of $Y$ is
+\begin{equation}
+	\sum_{Y \subseteq S, |Y| = j} N_\geq(Y) = \binom{n}{3}^n 9^{k} \frac{1}{n^k(n-1)^k}\frac{n^{2k}}{2^k k!} \sim \binom{n}{3}^n \left(\frac{9}{2}\right)^k \frac{1}{k!}.
+\end{equation}
 
 \section{Question 7}
 Find an asymptotic formula for:
