@@ -138,59 +138,27 @@ It is obvious that $L_n = 0$ when $n < n(n-1)/2$ as there are not enough logs to
 
 \section{Question 5}
 
-Let $m(n, \ell)$ be the number of diagrams with $n$ people in $\ell$ lines.
-We have that $m(n, 1) = n!$, which is the number of ways to place $n$ people in a single queue. 
-We additionally have that $m(n,n) = (n-1)!$ which is the number of ways to place $n$ people around a circle with rotation invariant.
+We use cards, decks and hands to solve this problem.
 
-For a recursion, we have that:
+Each card will be a queue with people from $1...n$. Then each queue will have $n!$ ways to permute the people, so the deck enumerator is $D(x) = \sum_{n \geq 1} x^n n!/n! = \frac{x}{1-x}$. 
+Then the hand enumerator
 \begin{equation}
-	m(n,\ell) = m(n-1, \ell)(\ell + n - 1) + m(n-1, \ell - 1)(\ell - 1)
+	H(x,y) = e^{y D(x)} = \exp\left( \frac{yx}{1-x}\right).
 \end{equation}
-when $n,\ell > 1$.
-where we look at where the $n$-th person goes. If they are in their own queue, then we can remove them. There are $(\ell - 1)$ places they can go. If they are not in their own queue, they are either standing in front of someone or in the back of a line, so there are $\ell + n - 1$ places they can be standing. 
-
-Finally, we have that:
-
+where $[x^n/n! y^k] H(x,y)$ is the number of ways to have unordered $k$ queues from $n$ people. But we want that these queues have a circular order, therefore we look at the queue with $1$ in it and make that one the start. Then there are $(k - 1)!$ queues, so we use the $y D_y$ operator on $H(x,y)$ and treat $H(x, y)$ like an egf on $y$. So we have that:
 \begin{equation}
-	m_n = \sum_{\ell = 1}^{n} m(n, \ell)
+	G(x,y) = y D_y(H(x,y)) = \frac{e^{\frac{x y}{1 - x}}x y}{1 - x}
 \end{equation}
-
-Now let $M(x, y)$ be a polynomial where $M$ is an egf in $x$ and an ops in $y$. We have that $[x^n y ]M(x, y) = 1$ for all $y$ by the law above, and that $[x^n y^n] M(x, y) = \frac{1}{n \times n!}$. 
-
-Therefore, $m_n = [x^n/n!] M(x, 1)$. 
-
-We also have that $[xy] M(x, y) = 1$. 
-
-From the recursion above, we can write this as:
+To remove the $y$ term, we take:
 \begin{equation}
-	m(n+1,\ell + 1) = m(n, \ell + 1)(\ell + 1) + m(n, \ell + 1)n + m(n, \ell)\ell
+	G(x) = \sum_{n \geq 0} D^n_y(G(x, y))|_{y = 0}.
 \end{equation}
-when $n, \ell \geq 1$, and $(0, \ell) = 0$, $m(n, 0) = 0$ for all $n, \ell$.
-
-
-We have that $(y) M(x, y) = yD_y((M)) $. The $(\ell + 1)$-th term is $ (yD_y(M) - 1)/y$. 
-We have that to extract $n$ from $m(n, \ell + 1)n$, we take $xD_x$ of $M/y$, so we have $ xM_x/y$. 
-
-Finally, $m(n, \ell)\ell$ is just $y D(M) = y M_y$. 
-
-Then this implies that:
-\begin{align*}
-	\frac{1}{y}(\dfrac{\partial}{\partial x} M(x, y)) &=  (yD_y(M) - 1)/y + xM_x/y + yM_y\\
-	1/y M_x  &= M_y - 1/y + x M_x/y + y M_y\\
-	M_x &= x M_x - 1 + (y + y^2) M_y\\
-	0 &= (x - 1) M_x + (y + y^2) M_y - 1
-	M = (x - 1) M_x + (y + y^2)M_y + M(x,0)
-\end{align*}
-so using a PDE solver, we have that:
+We have that $D^n_y(G(x, y))|_{y = 0} = \frac{n x^n}{(1 - x)^n}$. 
+We have that the $k$-th coefficient of $\frac{1}{(1 - x)^n}$ is $\binom{n + k - 1}{k}$, so the $k$-th coefficient of $\frac{x^n}{(1 - x)^n}$ is $\binom{k - 1}{k - n}$ when $k > n$. 
 
 \begin{equation}
-	M(x,y) = A(1-x)\left(\log(y) - \log(1 + y) - \log(x - 1)\right)
+	[x^n/n!] G(x) = n! \sum_{k = 1}^{n} k \binom{n - 1}{n - k}
 \end{equation}
-Therefore, $M(x, 1)$ is the coefficient that we need, which is
-\begin{equation}
-	M(x, 1) = A(1-x)
-\end{equation}
-Now 
 
 \section{Question 6}
 
