@@ -137,26 +137,58 @@ n.b. A similar question was on a FIT3155 assignment, written by Arun S. Konagurt
 It is obvious that $L_n = 0$ when $n < n(n-1)/2$ as there are not enough logs to reach the top, and $L_{n(n-1)/2} = 1$. 
 
 \section{Question 5}
-Let there be $k$ gates at the MCG. Label the gates $1, 2, ..., k$, and suppose there are $n$ people queuing. We want to count the number of distinguished gate diagrams, where rotation gives a diagram we say to be different.
 
-Firstly, we can assign everybody a gate with a bijection between strings with digits of $1$ up to $n$ with $k - 1$ dividers, by assigning each section between the dividers to a distinguished gate. Then we have there are $\frac{(n + k - 1)!}{(k - 1)!}$ ways to do this. There are $(n - k + 1)!$ ways to permute the people $1 ... n$ with gates $a_1, ..., a_{k - 1}$.
+Let $m(n, \ell)$ be the number of diagrams with $n$ people in $\ell$ lines.
+We have that $m(n, 1) = n!$, which is the number of ways to place $n$ people in a single queue. 
+We additionally have that $m(n,n) = (n-1)!$ which is the number of ways to place $n$ people around a circle with rotation invariant.
 
-Let $A$ be the set of all possible gate diagrams. We have that $|A| = \frac{(n + k - 1)!}{(k - 1)!}$ from the argument above.
-Now we say a diagram has property $P_i$ if gate $i$ has no people in it. So there are in total $k$ properties in total. Let $S$ be the set of all properties 
-
-We want to count the number of gates which have none of the properties above. Let $Y \subset S$ be a subset of these properties, where $|Y| = j$. Then we have that $N_\geq(Y)$ is the number of ways to assign $n$ people to $k - j$ lines, which is $\frac{(n + k - j - 1)!}{(k - j - 1)!}$ ways, from the argument above. The number of ways to choose these properties is $\binom{k}{j} = \frac{k!}{j! (k - j)!}$. Therefore, the total number of sets which have satisfy at least $j$ properties is:
+For a recursion, we have that:
 \begin{equation}
-	\sum_{Y \subseteq S, |Y| = j} N_\geq(Y) = \frac{k!}{j! (k - j)!}\frac{(n + k - j - 1)!}{(k - j - 1)!}.
+	m(n,\ell) = m(n-1, \ell)(\ell + n - 1) + m(n-1, \ell - 1)(\ell - 1)
+\end{equation}
+when $n,\ell > 1$.
+where we look at where the $n$-th person goes. If they are in their own queue, then we can remove them. There are $(\ell - 1)$ places they can go. If they are not in their own queue, they are either standing in front of someone or in the back of a line, so there are $\ell + n - 1$ places they can be standing. 
+
+Finally, we have that:
+
+\begin{equation}
+	m_n = \sum_{\ell = 1}^{n} m(n, \ell)
 \end{equation}
 
-Therefore, we have that:
+Now let $M(x, y)$ be a polynomial where $M$ is an egf in $x$ and an ops in $y$. We have that $[x^n y ]M(x, y) = 1$ for all $y$ by the law above, and that $[x^n y^n] M(x, y) = \frac{1}{n \times n!}$. 
+
+Therefore, $m_n = [x^n/n!] M(x, 1)$. 
+
+We also have that $[xy] M(x, y) = 1$. 
+
+From the recursion above, we can write this as:
 \begin{equation}
-	N_=(\emptyset) = \sum_{j = 0}^k (-1)^j \binom{k}{j}\frac{(n + k - j - 1)!}{(k - j - 1)!}.
+	m(n+1,\ell + 1) = m(n, \ell + 1)(\ell + 1) + m(n, \ell + 1)n + m(n, \ell)\ell
 \end{equation}
-However, we have to divide by $k$ since we can rotate in $k$ directions to get $k$ different diagrams. Therefore, we have that when there are $k$ gates, 
+when $n, \ell \geq 1$, and $(0, \ell) = 0$, $m(n, 0) = 0$ for all $n, \ell$.
+
+We can write $M(x, y+1) = 1/y(M) = \frac{1}{y}(M)$. 
+Then we can write $(y + 1) M(x, y + 1) = yD_y((M)/y) = M_y - M/y$. 
+We have that to extract $n$ from $m(n, \ell + 1)n$, we take $xD_x$, so we have $ xM_x/y$. 
+
+Finally, $m(n, \ell)\ell$ is just $yM_y$. 
+
+Then this implies that:
+\begin{align*}
+	\frac{1}{y}\dfrac{\partial}{\partial x} M(x, y) &= M_y - M/y + xM_x/y + yM_y\\
+	M_x &= y M_y - M + x M_x + y^2 M_y\\
+	M = (x - 1) M_x + (y + y^2)M_y
+\end{align*}
+so using a PDE solver, we have that:
+
 \begin{equation}
-	m_n = \frac{1}{k} \sum_{j = 0}^k (-1)^j \binom{k}{j}\frac{(n + k - j - 1)!}{(k - j - 1)!}.
+	M(x,y) = A(1-x)\left(\log(y) - \log(1 + y) - \log(x - 1)\right)
 \end{equation}
+Therefore, $M(x, 1)$ is the coefficient that we need, which is
+\begin{equation}
+	M(x, 1) = (x - 1) A \log\left(\frac{1}{2(x - 1)}\right)
+\end{equation}
+Now 
 
 \section{Question 6}
 
