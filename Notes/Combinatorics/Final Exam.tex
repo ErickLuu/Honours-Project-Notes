@@ -287,7 +287,7 @@ If we disregard order, then we divide by $k!$, so the total number of $Y$ is
 
 Now if $Y$ is bad, then the number of $Y$ is of $o(\left(\frac{9}{2}\right)^k \frac{1}{k!})$.
 
-Consider what happens when $Y$ is bad. This means that we choose $k$ properties such that two games intersect. The probability of having any two games intersect is $\binom{n(n - 1)/2}{k} \sim (n^2/2)^k/k!$, but the number of good games is $\frac{n^{2k}}{2^k} = (n^2/2)^k/ k!$. Therefore, the number of ``bad'' schedules is much smaller than the number of ``good''  schedules.
+Consider what happens when $Y$ is bad. This means that we choose $k$ properties such that two games intersect. The total number ways that $k$ properties could intersect is $\binom{n(n - 1)/2}{k} \sim (n^2/2)^k/k!$, but the number of good schedules is $\frac{n^{2k}}{2^k}\frac{1}{k!} = (n^2/2)^k/ k!$. Therefore, the number of ``bad'' schedules is much smaller than the number of ``good''  schedules as the proportions between good schedules and all schedules become the same with large $n$. 
 
 Therefore, using the Poisson principle, we have that the proportion of schedules with no clashes is, (fixing $\lambda = 9/2$, $r = 0$)
 \begin{equation}
