@@ -167,16 +167,18 @@ From the recursion above, we can write this as:
 \end{equation}
 when $n, \ell \geq 1$, and $(0, \ell) = 0$, $m(n, 0) = 0$ for all $n, \ell$.
 
-We can write $M(x, y+1) = 1/y(M) = \frac{1}{y}(M)$. 
-Then we can write $(y + 1) M(x, y + 1) = yD_y((M)/y) = M_y - M/y$. 
-We have that to extract $n$ from $m(n, \ell + 1)n$, we take $xD_x$, so we have $ xM_x/y$. 
 
-Finally, $m(n, \ell)\ell$ is just $yM_y$. 
+We have that $(y) M(x, y) = yD_y((M)) $. The $(\ell + 1)$-th term is $ (yD_y(M) - 1)/y$. 
+We have that to extract $n$ from $m(n, \ell + 1)n$, we take $xD_x$ of $M/y$, so we have $ xM_x/y$. 
+
+Finally, $m(n, \ell)\ell$ is just $y D(M) = y M_y$. 
 
 Then this implies that:
 \begin{align*}
-	\frac{1}{y}(\dfrac{\partial}{\partial x} M(x, y) - M(x, 0)) &= M_y - M/y + xM_x/y + yM_y\\
-	M_x - M(x, 0) &= y M_y - M + x M_x + y^2 M_y\\
+	\frac{1}{y}(\dfrac{\partial}{\partial x} M(x, y)) &=  (yD_y(M) - 1)/y + xM_x/y + yM_y\\
+	1/y M_x  &= M_y - 1/y + x M_x/y + y M_y\\
+	M_x &= x M_x - 1 + (y + y^2) M_y\\
+	0 &= (x - 1) M_x + (y + y^2) M_y - 1
 	M = (x - 1) M_x + (y + y^2)M_y + M(x,0)
 \end{align*}
 so using a PDE solver, we have that:
