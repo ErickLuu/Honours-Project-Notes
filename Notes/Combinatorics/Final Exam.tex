@@ -88,13 +88,26 @@ We have that the total number of sequences is $\binom{2n-1}{n}= \frac{(2n -1 )!}
 where $\mathcal{C}_{n}$ is the $n$-th Catalan number, and $|C_0| = 1$. 
 
 \subsection{b}
+\subsection{Correspondence between tree and sequence of $0$s and $2$s}
 Let $T$ be a tree with root $r$ with $2n$ vertices embedded in the plane. Then for each tree, there is a specific preorder string where we "eat" the tree by starting at $r$, traversing to its neighbour, and deleting $r$.
 
 Then at every step, we look at the vertex $v$ we are at, record down its degree, then "eat" $v$ and move down to the left vertex. After the left subtree of $v$ is eaten, we then move onto the right subtree.
 
-We are doing a pre-order traversal where we record either $0$ if the vertex is a leaf or $2$ if the vertex is an internal vertex. We also ignore 
+We are doing a pre-order traversal where we record either $0$ if the vertex is a leaf or $2$ if the vertex is an internal vertex. We then ignore the root vertex in this sequence. This gives us a string with $n$ zeroes and $n-1$ 2s. 
+
+\subsubsection{Correspondence between circular sequence and trees}
+Let $s$ be a sequence of $n - 1$ 2s and $n$ zeros. Let $[s]$ be the set of circular rotations of $s$. We have that there is a unique $s' \in [s]$ such that for every prefix of $s'$ of length at most $2n - 2$, we have that the number of $2$s is $\geq$ the number of $0$s. The reason for this is to consider $s$ as a mountain range where we start at $0$ and we go up 1 step when we see a 2 and down 1 step when we see a 0. We then look at all the points where we hit the maximum depth and we go to the one on the farthest left. Then we have that at this point, we do not go down by too much. The reason this works is because we always end up at -1, so we can always find a maximum depth. At this depth, we want the one which will be above 0 until we hit -1, which must be unique. This sequence $s'$ must start with a $2$ and end with a $0$. 
+
+When we have this unique point in the circular sequence, we then do the same operation. We start with a root vertex $r$, which is a leaf vertex. Then for any "run" of 2s, we go to the left until we hit a 0. Then we draw a leaf vertex and then go to the right of the farthest left vertex, and so on and so forth until we finish a tree. This defines a unique tree.
+\subsubsection{Proving these correspondences are the same}
+We have that if we have a tree $T$, then the sequence we get out from the first operation $s$ eats the tree and is also a Dyck path. This means that the number of $2$s is at least the number of zeroes in every prefix. Therefore, it is the unique starting point for the cycle. Then with this cycle, doing the operation above recreates the tree by design.
+
+If we have a sequence, then doing the operation above is just a cyclic shift of the sequence. Therefore, pulling out the tree that comes out and decomposing it will yield a cyclic shift of the sequence. 
 
 \subsection{c}
+Therefore, there is a correspondence between $B_{2n}$ and $C_n$. Therefore, $|B_{2n}| = |C_n| = \mathcal{C}_{n - 1}$. Therefore, $\mathcal{C}_n = |B_{2n + 2}|$. 
+
+n.b. A similar question was on a FIT3155 assignment. 
 \section{Question 4}
 
 \section{Question 5}
