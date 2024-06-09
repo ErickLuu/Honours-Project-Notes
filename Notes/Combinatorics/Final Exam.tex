@@ -107,18 +107,35 @@ If we have a sequence, then doing the operation above is just a cyclic shift of 
 \subsection{c}
 Therefore, there is a correspondence between $B_{2n}$ and $C_n$. Therefore, $|B_{2n}| = |C_n| = \mathcal{C}_{n - 1}$. Therefore, $\mathcal{C}_n = |B_{2n + 2}|$. 
 
-n.b. A similar question was on a FIT3155 assignment, written by Arun S. Konagurthu
+n.b. A similar question was on a FIT3155 assignment, written by Arun S. Konagurthu.
 \section{Question 4}
 
 \section{Question 5}
-Calculate the total number of diagrams and use a many to one relation.
+Let there be $k$ gates at the MCG. Label the gates $1, 2, ..., k$, and suppose there are $n$ people queuing. We want to count the number of distinguished gate diagrams, where rotation gives a diagram we say to be different.
 
-Use inclusion-exclusion to count the number of ways that a station can have at least 1 member inside all.
+Firstly, we can assign everybody a gate with a bijection between strings with digits of $1$ up to $n$ with $k - 1$ dividers, by assigning each section between the dividers to a distinguished gate. Then we have there are $\frac{(n + k - 1)!}{(k - 1)!}$ ways to do this. There are $(n - k + 1)!$ ways to permute the people $1 ... n$ with gates $a_1, ..., a_{k - 1}$.
+
+Let $A$ be the set of all possible gate diagrams. We have that $|A| = \frac{(n + k - 1)!}{(k - 1)!}$ from the argument above.
+Now we say a diagram has property $P_i$ if gate $i$ has no people in it. So there are in total $k$ properties in total. Let $S$ be the set of all properties 
+
+We want to count the number of gates which have none of the properties above. Let $Y \subset S$ be a subset of these properties, where $|Y| = j$. Then we have that $N_\geq(Y)$ is the number of ways to assign $n$ people to $k - j$ lines, which is $\frac{(n + k - j - 1)!}{(k - j - 1)!}$ ways, from the argument above. The number of ways to choose these properties is $\binom{k}{j} = \frac{k!}{j! (k - j)!}$. Therefore, the total number of sets which have satisfy at least $j$ properties is:
+\begin{equation}
+	\sum_{Y \subseteq S, |Y| = j} N_\geq(Y) = \frac{k!}{j! (k - j)!}\frac{(n + k - j - 1)!}{(k - j - 1)!}.
+\end{equation}
+
+Therefore, we have that:
+\begin{equation}
+	N_=(\emptyset) = \sum_{j = 0}^k (-1)^j \binom{k}{j}\frac{(n + k - j - 1)!}{(k - j - 1)!}.
+\end{equation}
+However, we have to divide by $k$ since we can rotate in $k$ directions to get $k$ different diagrams. Therefore, we have that when there are $k$ gates, 
+\begin{equation}
+	m_n = \frac{1}{k} \sum_{j = 0}^k (-1)^j \binom{k}{j}\frac{(n + k - j - 1)!}{(k - j - 1)!}.
+\end{equation}
 
 \section{Question 6}
 
 \subsection{a}
-We have that the total number of games is $\binom{n}{3}$. We have that the number of schedules is $T_n := \binom{n}{3}^n$, where we allow conflics. Therefore, the proportion of schedules where players 1 and 2 play together in the first game is the same as the proportion of games where $1$ and $2$ play together out of all games. 
+We have that the total number of games is $\binom{n}{3}$. We have that the number of schedules is $T_n := \binom{n}{3}^n$, where we allow conflicts. Therefore, the proportion of schedules where players 1 and 2 play together in the first game is the same as the proportion of games where $1$ and $2$ play together out of all games. 
 
 We have that the games where $1$ and $2$ play together are of the form $\{ 1, 2, k\}$ where $k \in [3, ..., n]$. There are $(n-2)$ of these games.
 Therefore, the proportion is:
@@ -239,11 +256,10 @@ Fix distinct $x, y$ and suppose $G_1 = (x, y, a)$ and $G_2 = (x, y, b)$, where $
 \subsection{f}
 Suppose we have games $G_1, ..., G_j$ such that $|G_1 \cup G_2 \cup ... \cup G_j| = k$. We assume that $j >> k$ in this scenario. Then we choose $k$ candidates and assign them to $3j$ different rounds, ordering each player $1, 2, ..., 3j$. The number of ways to do this is roughly $(3j)^k$, which does not take into account the fact that all candidates must be in at least 1 round and cannot be twice in the same round. However, the number of ways to choose $k$ candidates is $[n]_k  = O(n^k)$ for fixed $k$. Therefore, we have that the number of ways to choose $G_1, ..., G_j$ with cardinality $k$ (when $j$ is large enough) is $O(n^j)$. 
 \par
-If $G_1, G_2, G_3$ are games that have cardinality $4$, then by the pigeonhole principle $G_1$ conflicts with $G_2$ and $G_3$. Therefore, we have that there are $O(n^4)$ different games. But we can (with symmetry) pick any two other positions for $G_2$ and $G_3$ so there are $\binom{n - 1 }{2} = O(n^2)$ positions that the other 2 games $G_1$ is conflicted with. Then we have that there are:
+If $G_1, G_2, G_3$ are games that have cardinality $5$, then we can have $G_1 = (x, y, z)$, $G_2 = (x, y, a)$ and $G_3 = (y, z, b)$. This is the largest number such that there is a conflict between $G_1$ and $G_2$ and $G_2$ and $G_3$. Therefore, we have that there are $O(n^5)$ different games. But we can (with symmetry) pick any two other positions for $G_2$ and $G_3$ so there are $\binom{n - 1 }{2} = O(n^2)$ positions that the other 2 games $G_1$ is conflicted with. Then we have that there are:
 \begin{equation}
-	\frac{O(n^4) O(n^2)}{\binom{n}{3}^3} = O(1/n^3)
+	\frac{O(n^5) O(n^2)}{\binom{n}{3}^3} = \frac{O(n^7)}{O(n^9)} = O(\frac{1}{n^2}).
 \end{equation}
-...
 
 \subsection{g}
 
