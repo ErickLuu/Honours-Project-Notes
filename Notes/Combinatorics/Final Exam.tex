@@ -175,9 +175,9 @@ Finally, $m(n, \ell)\ell$ is just $yM_y$.
 
 Then this implies that:
 \begin{align*}
-	\frac{1}{y}\dfrac{\partial}{\partial x} M(x, y) &= M_y - M/y + xM_x/y + yM_y\\
-	M_x &= y M_y - M + x M_x + y^2 M_y\\
-	M = (x - 1) M_x + (y + y^2)M_y
+	\frac{1}{y}(\dfrac{\partial}{\partial x} M(x, y) - M(x, 0)) &= M_y - M/y + xM_x/y + yM_y\\
+	M_x - M(x, 0) &= y M_y - M + x M_x + y^2 M_y\\
+	M = (x - 1) M_x + (y + y^2)M_y + M(x,0)
 \end{align*}
 so using a PDE solver, we have that:
 
@@ -186,7 +186,7 @@ so using a PDE solver, we have that:
 \end{equation}
 Therefore, $M(x, 1)$ is the coefficient that we need, which is
 \begin{equation}
-	M(x, 1) = (x - 1) A \log\left(\frac{1}{2(x - 1)}\right)
+	M(x, 1) = 
 \end{equation}
 Now 
 
