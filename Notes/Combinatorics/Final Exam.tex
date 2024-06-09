@@ -85,9 +85,14 @@ We have that the total number of sequences is $\binom{2n-1}{n}= \frac{(2n -1 )!}
 \begin{equation}
 	|C_n| = \frac{(2n - 2)!}{n!(n - 1)!} = \mathcal{C}_{n - 1}
 \end{equation}
-where $\mathcal{C}_{n}$ is the $n$-th Catalan number. 
+where $\mathcal{C}_{n}$ is the $n$-th Catalan number, and $|C_0| = 1$. 
 
 \subsection{b}
+Let $T$ be a tree with root $r$ with $2n$ vertices embedded in the plane. Then for each tree, there is a specific preorder string where we "eat" the tree by starting at $r$, traversing to its neighbour, and deleting $r$.
+
+Then at every step, we look at the vertex $v$ we are at, record down its degree, then "eat" $v$ and move down to the left vertex. After the left subtree of $v$ is eaten, we then move onto the right subtree.
+
+We are doing a pre-order traversal where we record either $0$ if the vertex is a leaf or $2$ if the vertex is an internal vertex. We also ignore 
 
 \subsection{c}
 \section{Question 4}
