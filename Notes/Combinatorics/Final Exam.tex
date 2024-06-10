@@ -392,7 +392,7 @@ Therefore, using the Poisson principle, we have that the proportion of schedules
 	\frac{1}{N} N_=(\emptyset) = e^{-9}.
 \end{equation}
 or roughly 1\% of all games.
-This also tells us that on average, we see between $4$ and $5$ conflicts as $n$ grows large. 
+This also tells us that on average, we see around 9 conflicts as $n$ grows large. 
 
 \section{Question 7}
 Find an asymptotic formula for:
@@ -607,7 +607,7 @@ and $n/(r e^r) = (r + 1)$. So we divide the top and bottom of the fraction by $r
 \end{equation}
 Asymptotically, $r$ goes to infinity, so $r + 1 \sim r$. Therefore, we have that:
 \begin{equation}
-	\sqrt{\frac{(r + 1)}{1 + (r + 1)^2}} \sim \sqrt{\frac{r}{1 + r^2}} n^n.
+	\sqrt{\frac{(r + 1)}{1 + (r + 1)^2}} \sim \sqrt{\frac{r}{1 + r^2}}.
 \end{equation}
 Therefore, we have that:
 \begin{equation}
@@ -643,7 +643,7 @@ Then let
 We have that $[z^n] b(z) = 2^n [z^n] g(z)$. 
 
 Now we have for $g(z)$ an algebraic singularity at $z = 1$. Then we can use Darboux's theorem. We have that $g(z) = \frac{e^{z/2}}{1 - z^3/8} \sqrt{1 - z}$, and we can evaluate $f(z) := \frac{e^{z/2}}{1 - z^3/8} $ around the point where $z = 1$. 
-We have that $f(z) = f(1) - f'(1) (1 - z) + O((z - 1)^2)$. So we have $f(z) = \frac{8}{7}\sqrt{e} -  \frac{52}{49}\sqrt{e}(1-z) + O((1 - z)^2)$, so $g(z) = \frac{8}{7}\sqrt{e}(1 - z)^{1/2} -  \frac{52}{49}\sqrt{e}(1-z)^{3/2} + O((1 - z)^{5/2})$. 
+We have that $f(z) = f(1) - f'(1) (1 - z) + O((1 - z)^2)$. So we have $f(z) = \frac{8}{7}\sqrt{e} -  \frac{52}{49}\sqrt{e}(1-z) + O((1 - z)^2)$, so $g(z) = \frac{8}{7}\sqrt{e}(1 - z)^{1/2} -  \frac{52}{49}\sqrt{e}(1-z)^{3/2} + O((1 - z)^{5/2})$. 
 We have that $J = 1$, $J' = 1$, $\alpha = 1/2$, $\beta = 1$. We also have $z_0 = 1$.
 Then by Darboux's theorem, 
 \begin{equation}
