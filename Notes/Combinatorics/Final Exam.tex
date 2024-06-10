@@ -311,7 +311,7 @@ Then we have that:
 \end{align*}
 
 We have that $3kn/(n - k - 2) = 3k/(1 - k/n - 2/n) = 3k(1 + O(k/n)) = 3k + O(k^2/n) =  3k + o(1)$. 
-Now taking the exponential and the fact that $O(k^2/(n - k)) = O(1/\sqrt{n} = o(1))$, we have the proportion is:
+Now taking the exponential and the fact that $O(k^2/(n - k)) = O(1/\sqrt{n}) = o(1)$, we have the proportion is:
 
 \begin{equation}
 	\frac{e^{3k}}{e^{3k}} = 1. 
@@ -352,7 +352,7 @@ Fix distinct $x, y$ and suppose $G_1 = (x, y, a)$ and $G_2 = (x, y, b)$, where $
 \end{equation}
 
 \subsection{f}
-Suppose we have games $G_1, ..., G_j$ such that $|G_1 \cup G_2 \cup ... \cup G_j| = k$. We assume that $j >> k$ in this scenario. Then we choose $k$ candidates and assign them to $3j$ different rounds, ordering each player $1, 2, ..., 3j$. The number of ways to do this is roughly $(3j)^k$, which does not take into account the fact that all candidates must be in at least 1 round and cannot be twice in the same round. However, the number of ways to choose $k$ candidates is $[n]_k  = O(n^k)$ for fixed $k$. Therefore, we have that the number of ways to choose $G_1, ..., G_j$ with cardinality $k$ (when $j$ is large enough) is $O(n^j)$. 
+Suppose we have games $G_1, ..., G_j$ such that $|G_1 \cup G_2 \cup ... \cup G_j| = k$. We assume that $3 < j \ll 3k$ in this scenario. Then we choose $k$ candidates and assign them to $3j$ different rounds, ordering each player $1, 2, ..., 3j$. The number of ways to do this is roughly $(3j)^k$, which does not take into account the fact that all candidates must be in at least 1 round and cannot be twice in the same round. However, the number of ways to choose $k$ candidates is $[n]_k  = O(n^k)$ for fixed $k$. Therefore, we have that the number of ways to choose $G_1, ..., G_j$ with cardinality $k$ (when $k$ is large enough) is $O(n^k)$. 
 \par
 If $G_1, G_2, G_3$ are games that have cardinality $5$, then we can have $G_1 = (x, y, z)$, $G_2 = (x, y, a)$ and $G_3 = (y, z, b)$. This is the largest number such that there is a conflict between $G_1$ and $G_2$ and $G_2$ and $G_3$. Therefore, we have that there are $O(n^5)$ different games. But we can (with symmetry) pick any two other positions for $G_2$ and $G_3$ so there are $\binom{n - 1 }{2} = O(n^2)$ positions that the other 2 games $G_1$ is conflicted with. Then we have that there are:
 \begin{equation}
