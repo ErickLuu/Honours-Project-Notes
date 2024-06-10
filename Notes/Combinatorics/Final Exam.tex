@@ -541,7 +541,7 @@ Expanding out, we get that:
 \end{equation}
 Expanding out, we have that:
 \begin{equation}
-	e^{(r + 1) i \theta- \frac{\theta^2 r}{2} + O(r\theta^3)} = (1 + (r + 1) i \theta - \frac{\theta^2 r}{2} - \frac{(r + 1)^2 \theta^2}{2} + O(r^2 \theta^3))
+	e^{(r + 1) i \theta- \frac{\theta^2 r}{2} + O(r\theta^3)} = 1 + (r + 1) i \theta - \frac{\theta^2 r}{2} - \frac{(r + 1)^2 \theta^2}{2} + O(r^2 \theta^3)
 \end{equation}
 Therefore, we have:
 \begin{equation}
@@ -557,7 +557,7 @@ Therefore, we have that
 \end{equation}
 Therefore, we have that from integrating $e^{\log g(\theta)}$ between $-n^{-2/5}$ and $n^{-2/5}$, 
 \begin{align*}
-	\frac{1}{2 \pi}\int_{-n^{-2/5}}^{n^{-2/5}} e^{\log g \theta} \, d\theta &= \frac{e^{r e^r}}{r^n} \int_{-n^{-2/5}}^{n^{-2/5}} e^{- \frac{r^2 e^r + (r + 1) n }{2} \theta^2 + o(1)} \, d\theta\\
+	\frac{1}{2 \pi}\int_{-n^{-2/5}}^{n^{-2/5}} e^{\log g \theta} \, d\theta &= \frac{e^{r e^r}}{2 \pi r^n} \int_{-n^{-2/5}}^{n^{-2/5}} e^{- \frac{r^2 e^r + (r + 1) n }{2} \theta^2 + o(1)} \, d\theta\\
 	&=  \frac{e^{r e^r}}{ 2 \pi r^n} \int_{-n^{-2/5}}^{n^{-2/5}} e^{- \frac{r^2 e^r + (r + 1) n }{2} \theta^2 + o(1)} \, d\theta\\
 	&= \frac{e^{r e^r}}{2 \pi r^n}\sqrt{\frac{2\pi}{r^2 e^r + (r + 1) n}}\\
 	&= \frac{e^{r e^r}}{r^n \sqrt{r e^r + (r + 1)n} \sqrt{2\pi}}
@@ -595,23 +595,23 @@ Now we want to count the number of galaxies. So we multiply by $n!$ and use Stir
 \begin{align*}
 	m_n &= n!\frac{e^{r e^r}}{r^n \sqrt{r e^r + (r + 1)n} \sqrt{2\pi}}\\
 	&= \frac{e^{r e^r} n^n \sqrt{2 \pi n}}{ e^n r^n \sqrt{r e^r + (r + 1)n} \sqrt{2\pi}}\\
-	&= \frac{e^{r e^r - n}}{r^n} \sqrt{\frac{n}{r e^r + (r + 1)n }}
+	&= \frac{e^{r e^r - n}}{r^n} \sqrt{\frac{n}{r e^r + (r + 1)n }} n^n
 \end{align*}
 As we can write $r e^r - n = - r^2 e^r$, we have that:
 \begin{equation}
-	m_n = \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{n}{r e^r + (r + 1)n }}
+	m_n = \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{n}{r e^r + (r + 1)n }} n^n
 \end{equation}
 and $n/(r e^r) = (r + 1)$. So we divide the top and bottom of the fraction by $r e^r$ to get:
 \begin{equation}
-	m_n = \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{(r + 1)}{1 + (r + 1)^2 }}
+	m_n = \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{(r + 1)}{1 + (r + 1)^2 }} n^n
 \end{equation}
 Asymptotically, $r$ goes to infinity, so $r + 1 \sim r$. Therefore, we have that:
 \begin{equation}
-	\sqrt{\frac{(r + 1)}{1 + (r + 1)^2}} \sim \sqrt{\frac{r}{1 + r^2}}.
+	\sqrt{\frac{(r + 1)}{1 + (r + 1)^2}} \sim \sqrt{\frac{r}{1 + r^2}} n^n.
 \end{equation}
 Therefore, we have that:
 \begin{equation}
-	m_n \sim \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{r}{1 + r^2}}.
+	m_n \sim \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{r}{1 + r^2}} n^n.
 \end{equation}
 
 \subsection{d}
