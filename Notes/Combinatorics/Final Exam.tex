@@ -369,7 +369,7 @@ Let us calculate the number of games for each fixed good $|Y|$. For a property $
 
 We also have that there are $\binom{n}{3}^{n - 2k}$ other games that are not part of the original games, so we have for a fixed $Y \subseteq S$, that the number of games that have $Y$'s properties are:
 \begin{equation}
-	N_\geq(Y) = \binom{n}{3}^{n - 2k} \left[ \binom{n}{2} (n - 2)^2 \right]^k = \binom{n}{3}^n \frac{1}{\binom{n}{3}^{2k}} \frac{n^{k} (n - 1)^{k} (n - 2)^{2k}}{2^{2k}} = \binom{n}{3}^n 9^{k} \frac{1}{n^k(n-1)^k}
+	N_\geq(Y) = \binom{n}{3}^{n - 2k} \left[ \binom{n}{2} (n - 2)^2 \right]^k = \binom{n}{3}^n \frac{1}{\binom{n}{3}^{2k}} \frac{n^{k} (n - 1)^{k} (n - 2)^{2k}}{2^{k}} = \binom{n}{3}^n 18^{k} \frac{1}{n^k(n-1)^k}
 \end{equation}
 
 
@@ -380,16 +380,16 @@ Then if we were to choose the properties in order, then we would have that the f
 as we have that $k$ is fixed relative to $n$. 
 If we disregard order, then we divide by $k!$, so the total number of $Y$ is
 \begin{equation}
-	\sum_{Y \subseteq S, |Y| = j} N_\geq(Y) = \binom{n}{3}^n 9^{k} \frac{1}{n^k(n-1)^k}\frac{n^{2k}}{2^k k!} \sim \binom{n}{3}^n \left(\frac{9}{2}\right)^k \frac{1}{k!}.
+	\sum_{Y \subseteq S, |Y| = j} N_\geq(Y) = \binom{n}{3}^n 18^{k} \frac{1}{n^k(n-1)^k}\frac{n^{2k}}{2^k k!} \sim \binom{n}{3}^n \left(9\right)^k \frac{1}{k!}.
 \end{equation}
 
-Now if $Y$ is bad, then the number of $Y$ is of $o(\left(\frac{9}{2}\right)^k \frac{1}{k!})$.
+Now if $Y$ is bad, then the number of $Y$ is of $o(\left(9\right)^k \frac{1}{k!})$.
 
 Consider what happens when $Y$ is bad. This means that we choose $k$ properties such that two games intersect. The total number ways that $k$ properties could intersect is $\binom{n(n - 1)/2}{k} \sim (n^2/2)^k/k!$, but the number of good schedules is $\frac{n^{2k}}{2^k}\frac{1}{k!} = (n^2/2)^k/ k!$. Therefore, the number of ``bad'' schedules is much smaller than the number of ``good''  schedules as the proportions between good schedules and all schedules become the same with large $n$. 
 
-Therefore, using the Poisson principle, we have that the proportion of schedules with no clashes is, (fixing $\lambda = 9/2$, $r = 0$)
+Therefore, using the Poisson principle, we have that the proportion of schedules with no clashes is, (fixing $\lambda = 9$, $r = 0$)
 \begin{equation}
-	\frac{1}{N} N_=(\emptyset) = e^{-9/2}.
+	\frac{1}{N} N_=(\emptyset) = e^{-9}.
 \end{equation}
 or roughly 1\% of all games.
 This also tells us that on average, we see between $4$ and $5$ conflicts as $n$ grows large. 
@@ -414,7 +414,7 @@ Plugging this equation into WolframAlpha and solving for $k$, we have that:
 \begin{equation}
 	k = \frac{1}{18}\left(- \sqrt{81 n^2 + 54 n + 25} + 27 n + 5\right)
 \end{equation}
-and expanding out $\sqrt{81 n^2 + 54 n + 25} = 9 n(1 + O(1))$, we have that:
+and expanding out $\sqrt{81 n^2 + 54 n + 25} = 9 n(1 + o(1))$, we have that
 $k \sim n$. 
 
 Around $n$, we have that $\binom{3n - k}{k} 2^k$ approximates a symmetric function. So we need to evaluate the summation
@@ -444,18 +444,18 @@ so we have that the total sum becomes:
 Now we have that when $M = o(n^{2/3})$,
 \begin{align*}
 	(2n - z)^{2n-z}  &=  (2n)^{2n-z} \exp(-z + z^2/4n + O(z^3/n^2)) = (2n)^{2n-z} \exp(-z + z^2/4n)\\
-	(n + z)^{n + z} &= n^{(n + z)} \exp(z + 1/2 z^2/n + O(z^3/n^2)) = n^{(n + z)} \exp(z + 1/2 z^2/n) \\
+	(n + z)^{n + z} &= n^{(n + z)} \exp(z + \frac{1}{2} z^2/n + O(z^3/n^2)) = n^{(n + z)} \exp(z + \frac{1}{2} z^2/n) \\
 	(n - 2z)^{n - 2z} &= n^{n -2z} \exp\left( (n - 2z) \log(1 - 2z/n)\right)\\
 	&= n^{n -2z} \exp\left( (n - 2z) (-2z/n - 2z^2/n^2 + O(z^3/n^3))\right)\\
 	&= n^{n -2z} \exp\left( -2z + 2z^2/n + O(z^3/n^2)\right) = n^{n -2z} \exp( -2z + 2z^2/n)
 \end{align*}
 Therefore, we have that the sum becomes:
 \begin{align*}
-	&\frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M \frac{(2n)^{2n-z} \exp(-z + z^2/4n) }{n^{(n + z)} \exp(z + 1/2 z^2/n) n^{n -2z} \exp( -2z + 2z^2/n) } \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
+	&\frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M \frac{(2n)^{2n-z} \exp(-z + z^2/4n) }{n^{(n + z)} \exp(z + \frac{1}{2} z^2/n) n^{n -2z} \exp( -2z + 2z^2/n) } \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
 	&= \frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M 2^{2n-z} \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
 	&= \frac{2^{3n}}{\sqrt{2\pi}} \sum_{z = -M}^M  \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}}
 \end{align*}
-We have that as $z = o(n^2/3)$, then
+We have that as $z = o(n^{2/3})$, then
 \begin{align*}
 	\sqrt{\frac{2n - z}{(n + z)(n - 2z)}} &= \sqrt{1/(n + z) + 1/(n - 2z)}\\
 	 &= \frac{1}{\sqrt{n}} \sqrt{1/(1 + z/n) + 1/(1 - 2z/n)}\\
@@ -465,15 +465,15 @@ We have that as $z = o(n^2/3)$, then
 \end{align*}
 Therefore, we have that the summation is:
 \begin{equation}
-	\frac{2^{3n}}{\sqrt{\pi n}} \sum_{z = -M}^M  \exp(- 9z^2/4n) 
+	\frac{2^{3n + \frac{1}{2}}}{\sqrt{\pi n}} \sum_{z = -M}^M  \exp(- 9z^2/4n) 
 \end{equation}
 and using the fact that $ M = n^{2/3}$, we can use the fact that $\alpha(n) = 9/(4n)$ and we have that $M \alpha \rightarrow 0$, $M \sqrt{\alpha} \rightarrow \infty$ to yield:
 \begin{equation}
-	\frac{2^{3n}}{\sqrt{\pi n}} \sum_{z = -M}^M  \exp(- 9z^2/4n)  = \frac{2^{3n}}{\sqrt{\pi n}} \sqrt{\frac{4 \pi n}{9}} = \frac{2}{3} 2^{3n}
+	\frac{2^{3n + 1/2}}{\sqrt{\pi n}} \sum_{z = -M}^M  \exp(- 9z^2/4n)  = \frac{2^{3n}}{\sqrt{\pi n}} \sqrt{\frac{4 \pi n}{9}} = \frac{2}{3} 2^{3n + 1/2}
 \end{equation}
 Therefore, we have that the summation:
 \begin{equation}
-	\sum_{y = n - M}^n \binom{3n - y}{y} 2^y = \frac{1}{2} \sum_{y = n - M}^{n + M}\binom{3n - y}{y} 2^y = \frac{2^{3n}}{3}
+	\sum_{y = n - M}^n \binom{3n - y}{y} 2^y = \frac{1}{2} \sum_{y = n - M}^{n + M}\binom{3n - y}{y} 2^y = \frac{2^{3n + 1/2}}{3}
 \end{equation}
 \subsection{Tail is negligible}
 To show that the tail is negligible, we want to show
