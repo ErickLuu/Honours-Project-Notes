@@ -6,6 +6,8 @@
 \usepackage{amsthm}
 \usepackage{url}
 
+\AddToHook{cmd/section/before}{\clearpage}
+
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -167,10 +169,34 @@ Therefore, there is a correspondence between $B_{2n}$ and $C_n$. Therefore, $|B_
 n.b. A similar question was on a FIT3155 assignment, written by Arun S. Konagurthu.
 \section{Question 4}
 
-It is obvious that $L_n = 0$ when $n < n(n-1)/2$ as there are not enough logs to reach the top, and $L_{n(n-1)/2} = 1$. 
+It is obvious that $L_n = 0$ when $n < r(r+1)/2$ as there are not enough logs to reach the top, and $L_{r(r+1)/2} = 1$. 
 
-We can divide up the logs into three sections. 
+We can divide up the logs into three sections. We have, on the left, a section of ascending logs, in the centre a pyramid, to the right of the centre some logs of the same height, and a series of decending logs.
 
+Now let us understand the generating function for the left. We have $n$ (right-leaning) columns that go up to $n-1$. If there are $n$ logs on the left of the pyramid, then the generating function will be the number of partitions of $n$ where each part has size at most $r - 1$. 
+
+Now the generating function for this is:
+\begin{equation}
+	M_{r - 1}(x) = \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right).
+\end{equation}
+By the same argument above, , then the generating function for the right-leaning side of the pyramid are the number of partitions of $n$ where each part has size at most $r$.
+\begin{equation}
+	M_{r}(x) = \prod_{k = 1}^{r} \left(\frac{1}{1 - x^k}\right).
+\end{equation}
+
+From rule 2, we have that:
+\begin{equation}
+	[x^n] M_{r-1} (x) M_{r}(x)
+\end{equation}
+is the number of ways to partition $n$ into $k$ logs on the left, $n - k$ logs on the right and all ways to combine the two logs. Therefore, we have that:
+\begin{equation}
+	[x^n] M_{r-1} (x) M_{r}(x) = \left(\frac{1}{1 - x^r}\right) \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right)^2 
+\end{equation}
+Now to include the triangle in the centre, all we need to do is multiply by $x^\ell$ where $\ell$ is the number of logs in the centre. This is just the triangle number of $r$ which is $r(r + 1)/2$. Therefore, we have that:
+
+\begin{equation}
+	L(x) = x^{\frac{r(r + 1)}{2}} \left(\frac{1}{1 - x^r}\right) \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right)^2.
+\end{equation}
 \section{Question 5}
 
 We use cards, decks and hands to solve this problem.
