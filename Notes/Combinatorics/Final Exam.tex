@@ -125,7 +125,7 @@ so setting $y = 4^n$, we have that:
 We want to count the number of matrices with all of $N, S, E, W$ included. 
 
 Now we will move onto solving this using inclusion-exclusion.
-Let $P_N$ be the property that $N$ is not included in the matrix, $P_S$ be the property that $S$ is not included, and so on. There are $4$ different properties to keep in mind
+Let $P_N$ be the property that $N$ is not included in the matrix, $P_S$ be the property that $S$ is not included, and so on. There are $4$ different properties to keep in mind.
 \par
 Let $F_j(n) = \frac{1}{n!} \sum_{k = 1}^n \stirlingI{n}{k} j^{n k} = \binom{j^n + n - 1}{n}$. 
 
@@ -140,7 +140,7 @@ as $\binom{1^n + n - 1}{n} = \binom{n}{n} = 1$.
 
 \section{Question 3}
 \subsection{a}
-We have that the total number of sequences is $\binom{2n-1}{n}= \frac{(2n -1 )!}{n! (n - 1)!}$. Now for the number of circular sequences, we identify $(2n - 1)$ sequences with each other. These sequences are distinct as if two sequences were the same when shifted, it would mean that the number of $2$s and $0$s would divide the length of the sequence, which is impossible. So we have that:
+We have that the total number of sequences is $\binom{2n-1}{n}= \frac{(2n -1 )!}{n! (n - 1)!}$. Now for the number of circular sequences, we identify $(2n - 1)$ sequences with each other. These sequences are distinct as if two sequences were the same when shifted, it would mean that the number of $2$s and $0$s would divide the length of the sequence, which cannot happen since that would imply $(2n-1)$ is even. So we have that:
 \begin{equation}
 	|C_n| = \frac{(2n - 2)!}{n!(n - 1)!} = \mathcal{C}_{n - 1}
 \end{equation}
@@ -179,7 +179,7 @@ Now the generating function for this is:
 \begin{equation}
 	M_{r - 1}(x) = \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right).
 \end{equation}
-By the same argument above, , then the generating function for the right-leaning side of the pyramid are the number of partitions of $n$ where each part has size at most $r$.
+By the same argument above, the generating function for the right-leaning side of the pyramid are the number of partitions of $n$ where each part has size at most $r$.
 \begin{equation}
 	M_{r}(x) = \prod_{k = 1}^{r} \left(\frac{1}{1 - x^k}\right).
 \end{equation}
@@ -206,7 +206,9 @@ Then the hand enumerator
 \begin{equation}
 	H(x,y) = e^{y D(x)} = \exp\left( \frac{yx}{1-x}\right).
 \end{equation}
-where $[x^n/n! y^k] H(x,y)$ is the number of ways to have unordered $k$ queues from $n$ people. But we want that these queues have a circular order, therefore we look at the queue with $1$ in it and make that one the start. Then there are $(k - 1)!$ queues, so we integrate and divide by $y$ and treat $H(x, y)$ like an egf on $y$. We first divide by $n$ so we can multiply by $n!$ to get out $(n - 1)$. So we have that:
+where $[x^n/n! y^k] H(x,y)$ is the number of ways to have unordered $k$ queues from $n$ people. But we want that these queues have a circular order, therefore we look at the queue with $1$ in it and make that one the start. Then there are $(k - 1)!$ queues, so we integrate and divide by $y$ and treat $H(x, y)$ like an egf on $y$. We have that $\int a_n y^n/y \, dy = \frac{1}{n} a_n y^n + c$, so if we want to multiply by $(k - 1)$, we divide by $k$ first and then multiply by $k!$. The way to multiply by $k!$ is to take the summations of the partial derivatives when $y = 0$ so we have that $a_n y^n$ extracts out the term $n! a_n$. 
+
+We first divide by $n$ so we can multiply by $n!$ to get out $(n - 1)$. So we have that:
 \begin{equation}
 	G(x,y) = \int \frac{H(x, y) - 1}{y} \, dy
 \end{equation}
