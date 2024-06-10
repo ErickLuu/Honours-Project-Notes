@@ -97,7 +97,7 @@ Now suppose $\sigma$ has cycles $(a_1, a_2, ..., a_m)$. Then the number of fixed
 \begin{equation}
 	\frac{1}{n!} \sum_{\sigma \in S_n} 4^{n Cyc(\sigma)}
 \end{equation}
-and we can group together $\sigma$ based on the number of cycles. So we use the Stirling number of the first kind to do so.
+where $Cyc(\sigma)$ is the number of cycles in $\sigma$. We can group together $\sigma$ based on the number of cycles. So we use the Stirling number of the first kind to do so.
 \begin{equation}
 	\frac{1}{n!} \sum_{k = 1}^n \stirlingI{n}{k} 4^{n k}
 \end{equation}
@@ -179,7 +179,7 @@ Now the generating function for this is:
 \begin{equation}
 	M_{r - 1}(x) = \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right).
 \end{equation}
-By the same argument above, the generating function for the right-leaning side of the pyramid are the number of partitions of $n$ where each part has size at most $r$.
+as we count parts of size up to $r - 1$, so we truncate at $r -1$. By the same argument above, the generating function for the right-leaning side of the pyramid are the number of partitions of $n$ where each part has size at most $r$.
 \begin{equation}
 	M_{r}(x) = \prod_{k = 1}^{r} \left(\frac{1}{1 - x^k}\right).
 \end{equation}
@@ -190,7 +190,7 @@ From rule 2, we have that:
 \end{equation}
 is the number of ways to partition $n$ into $k$ logs on the left, $n - k$ logs on the right and all ways to combine the two logs. Therefore, we have that:
 \begin{equation}
-	[x^n] M_{r-1} (x) M_{r}(x) = \left(\frac{1}{1 - x^r}\right) \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right)^2 
+	M_{r-1} (x) M_{r}(x) = \left(\frac{1}{1 - x^r}\right) \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right)^2 
 \end{equation}
 Now to include the triangle in the centre, all we need to do is multiply by $x^\ell$ where $\ell$ is the number of logs in the centre. This is just the triangle number of $r$ which is $r(r + 1)/2$. Therefore, we have that:
 
@@ -219,14 +219,15 @@ To remove the $y$ term, we treat $y$ as an egf variable. To extract out properly
 We have that $D^n_y(G(x, y))|_{y = 0} = \frac{x^n}{n(1 - x)^n}$ when $ns \geq 1$, and $0$ when $n = 0$. 
 The summation of these variables is:
 
+So we have that:
 \begin{equation}
-	\log(1 - x) - \log(1 - 2x)
+	\sum_{n = 1}^{\infty} \frac{x^n}{n(1 - x)^n} = - \log(1 - \frac{x}{1-x}) = \log(1-x) - \log(1-2x).
 \end{equation}
-and $[x^n]$ is 
+Now we look at the coefficients of the form above. We have that 
 \begin{equation}
-	2^n/n - 1/n = \frac{2^{n} - 1}{n}.
+	[x^n]\log(1 - x) - \log(1 - 2x) = \frac{2^n}{n} - \frac{1}{n}= \frac{2^{n} - 1}{n}.
 \end{equation}
-These simplifications come from WolframAlpha, but they are easy enough to verify. Therefore, we have that:
+Therefore, we have that:
 \begin{equation}
 	m_n = [x^n/n!] \log(1 - x) - \log(1 - 2x) = (n-1)! (2^n - 1).
 \end{equation}
