@@ -164,7 +164,7 @@ We have that if we have a tree $T$, then the sequence we get out from the first 
 If we have a sequence, then doing the operation above is just a cyclic shift of the sequence. Therefore, pulling out the tree that comes out and decomposing it will yield a cyclic shift of the sequence. 
 
 \subsection{c}
-Therefore, there is a correspondence between $B_{2n}$ and $C_n$. Therefore, $|B_{2n}| = |C_n| = \mathcal{C}_{n - 1}$. Therefore, $\mathcal{C}_n = |B_{2n + 2}|$. 
+Therefore, there is a bijection between $B_{2n}$ and $C_n$. Therefore, $|B_{2n}| = |C_n| = \mathcal{C}_{n - 1}$. Therefore, $\mathcal{C}_n = |B_{2n + 2}|$. 
 
 n.b. A similar question was on a FIT3155 assignment, written by Arun S. Konagurthu.
 \section{Question 4}
@@ -216,9 +216,7 @@ To remove the $y$ term, we treat $y$ as an egf variable. To extract out properly
 \begin{equation}
 	G(x) = \sum_{n \geq 0} D^n_y(G(x, y))|_{y = 0}.
 \end{equation}
-We have that $D^n_y(G(x, y))|_{y = 0} = \frac{x^n}{n(1 - x)^n}$ when $ns \geq 1$, and $0$ when $n = 0$. 
-The summation of these variables is:
-
+We have that $D^n_y(G(x, y))|_{y = 0} = \frac{x^n}{n(1 - x)^n}$ when $n \geq 1$, and $0$ when $n = 0$. 
 So we have that:
 \begin{equation}
 	\sum_{n = 1}^{\infty} \frac{x^n}{n(1 - x)^n} = - \log(1 - \frac{x}{1-x}) = \log(1-x) - \log(1-2x).
@@ -327,13 +325,13 @@ Then:
 \begin{align*}
 	&n \left( 3 \log(1 - k/n) + \log\left(1 + \frac{3k}{n - k - 2}\right)\right) \\
 	&= n \left(-3k/n - 3k^2/2n^2 + \frac{3k}{n - k - 2} - \frac{9k^2}{2(n - k - 2)^2} + O(k^3/(n - k)^3)\right)\\
-	&= -3k - 3k^2/2n + \frac{3kn}{n - k - 2} - \frac{9k^2 n}{(n - k - 2)^2} + O(k^3/(n - k)^2)
+	&= -3k - 3k^2/2n + \frac{3kn}{n - k - 2} - \frac{9k^2 n}{2(n - k - 2)^2} + O(k^3/(n - k)^2)
 \end{align*}
-Now we have that $\frac{3kn}{n - k - 2}  \sim 3k$ from the argument above, and $\frac{9k^2 n}{(n - k - 2)^2} = \frac{1}{n} \frac{9 k^2}{(1 - k/n - 2/n)^2} = \frac{9k^2}{n}(1 + O(k/n)) = \frac{9k^2}{n} + o(1)$. Therefore, taking the exponent of both sides, we have that this is:
+Now we have that $\frac{3kn}{n - k - 2}  \sim 3k$ from the argument above, and $\frac{9k^2 n}{2(n - k - 2)^2} = \frac{1}{n} \frac{9 k^2}{2(1 - k/n - 2/n)^2} = \frac{9k^2}{2n}(1 + O(k/n)) = \frac{9k^2}{2n} + o(1)$. Therefore, taking the exponent of both sides, we have that this is:
 \begin{equation}
-	\frac{e^3k }{e^{3k + 3k^2/(2n) + 9k^2/n}} = e^{-\frac{21}{2} k^2/n}
+	\frac{e^{3k} }{e^{3k + 3k^2/(2n) + 9k^2/(2n)}} = e^{-6 k^2/n}
 \end{equation}
-and as $k \sim \sqrt{n}$, so $k^2/n \sim 1$, then this becomes $e^{-21/2}$. 
+and as $k \sim \sqrt{n}$, so $k^2/n \sim 1$, then this becomes $e^{-6}$. 
 
 \subsection{d}
 Fix distinct players $x, y, z$ such that $x$ has a conflict with $y$ and $x$ has a conflict with $z$. One scenario is that there are players (not necessarily distinct) and games $G_i = (x, y, a)$, $G_j = (x, y, b)$, $G_k = (x, z, c)$, $G_\ell = (x, z, d)$. 
@@ -361,6 +359,7 @@ If $G_1, G_2, G_3$ are games that have cardinality $5$, then we can have $G_1 = 
 \end{equation}
 
 \subsection{g}
+We will use Inclusion-Exclusion and the Poisson Principle to solve this problem. 
 Let $A$ be the set of all schedules, $|A| = \binom{n}{3}^n$. 
 Let $P_{i,j}$ be the property that two distinct games $i, j$ are conflicted. The number of properties is $\binom{n}{2}$, and let $S$ be the set of all properties. 
 Fix $k$ to be an integer. 
@@ -509,9 +508,9 @@ or that:
 \begin{equation}
 	r (r + 1) e^r = n.
 \end{equation}
-Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the upper bound of $[x^n] f(x)$ is
+Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the saddlepoint upper bound of $[x^n] f(x)$ is
 \begin{equation}
-	r(n)^{-n} e^{r(n) e^{r(n)}}
+	[x^n] f(x) \leq r(n)^{-n} e^{r(n) e^{r(n)}}
 \end{equation}
  where $r(n)$ is defined in the question. 
 
