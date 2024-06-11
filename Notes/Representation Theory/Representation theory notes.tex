@@ -177,7 +177,16 @@ Essentially, we treat the algebra $A$ as the ring and $V$ as the abelian group t
 
 \subsection{Schur's lemma}
 Let $U$ and $V$ be simple $A$-modules, where $A$ is an algebra over $\mathcal{C}$. Then the only homomorphisms between $U$ and $V$ are the null map, or a scaled isomorphism.
-\todo{Prove this!}
+
+\begin{proof}
+	Suppose $U$ and $V$ are $A$-modules. Then we have that for any map $T \in Hom_A(U, V)$, $T$ is a $U$, $V$ preserving map. $T : U \rightarrow V$.
+	
+	Let $u \in \ker(T)$, so $T v = 0$. But this means that $a \cdot T v = T (a \cdot v) = 0$, so $a \cdot v$ is in $\ker T$. We also have that if $v = T (u)$, then $a \cdot v = a \cdot T(u) = T( a \cdot u)$, so $a \cdot u$ is in $\im T$. Therefore, $T$ is $A$-invariant.
+	
+	Because of this, we have that as the $A$-module is simple, then $\ker T = 0$ or $U$. Similarly, $\im T = 0$ or $V$. Therefore, $T$ is either a zero map or an isomorphism.
+	
+	To show $T$ is a scaled isomorphism, let $\lambda \in \mathbb{C}$ and consider $T - \lambda I$. We have that for some $\lambda$ this is a zero map. Therefore, $T = \lambda I$. 
+\end{proof}
 
 \subsection{Group algebras}
 
