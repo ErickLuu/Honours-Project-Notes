@@ -123,6 +123,7 @@ We have that if $V$ and $W$ are vector spaces, then the direct sum $V \oplus W$ 
 
 The tensor product $V \otimes W$ is the vector space where $(v_1 + v_2) \otimes w = v_1 \otimes w + v_2 \otimes w$, $v \otimes (w_1 + w_2) = v \otimes w_1 + v \otimes w_2$, $c (v \otimes w) = (cv) \otimes w = v \otimes (cw)$. 
 
+We say $V^{\otimes k}$ to be the tensor product of $v$ with itself $k$ times. 
 
 \section{Algebras}
 A ring is a structure with an addition and multiplication operator. We have that:
@@ -173,7 +174,8 @@ for $r, s \in R$, $x, y \in M$.
 
 Essentially, we treat the algebra $A$ as the ring and $V$ as the abelian group to form an $A$-module. There is an algebra homomorphism $\tilde{\rho}: A \rightarrow End(V)$ and we write it as $a \cdot v$. 
 
-\todo{Do symmetric algebras, tensor algebras and exterior algebras}
+The symmetric algebra is:
+
 
 \subsection{Schur's lemma}
 Let $U$ and $V$ be simple $A$-modules, where $A$ is an algebra over $\mathcal{C}$. Then the only homomorphisms between $U$ and $V$ are the null map, or a scaled isomorphism.
@@ -315,6 +317,13 @@ Therefore, character tables are square.
 	\end{equation}
 	which shows what we need. 
 \end{proof}
+\section{Topics on characters}
+
+We say a character is ``real'' iff $\overline{\chi} = \chi$. We say a conjugacy class $C$ is real if it holds that $C^{-1} := \{g^{-1}: g \in C\}$ is $C$.
+
+\begin{theorem}[Burnside's theorem]
+	If $G$ is finite, the number of real irreducible characters equals the number of real conjugacy classes.
+\end{theorem}
 
 
 \section{Restriction and induction}
