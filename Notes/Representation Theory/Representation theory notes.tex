@@ -26,7 +26,7 @@
 \numberwithin{equation}{section}
 
 %Commands
-\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\tr}{\operatorname{Tr}}
 \newcommand{\res}{\operatorname{Res}}
 \newcommand{\ind}{\operatorname{Ind}}
 \newcommand{\im}{\operatorname{im}}
@@ -324,6 +324,19 @@ We say a character is ``real'' iff $\overline{\chi} = \chi$. We say a conjugacy 
 \begin{theorem}[Burnside's theorem]
 	If $G$ is finite, the number of real irreducible characters equals the number of real conjugacy classes.
 \end{theorem}
+
+\begin{proof}
+	Label the conjugacy classes $C_1, C_2, .., C_k$ and let $\chi_1, \chi_2, ..., \chi_k$ be the irreducible characters. Let $\alpha, \beta \in S_k$ by $\overline{\chi_i} = \chi_{\alpha(i)}$ and $C_i^{-1} = C_{\beta(i)}$.
+	
+	Then $\chi_i$ is real iff $\alpha_i = i$ and $C_i$ is real iff $\beta_i = i$.
+	
+	So we want to show that the number of fixed points in $\alpha$ and $\beta$ are the same. Now the number of fixed points in $S_n$ is $\tr(\rho_\sigma)$ where $\rho$ is the natural representation. So we want to show that
+	\begin{equation}
+		\tr(\rho_\alpha) = \tr(\rho_\beta).
+	\end{equation}
+	
+	Let $\chi$ be the character table for $G$. We have that $\rho_\alpha(X)$ is obtained from $X$ by swapping $\chi_i$ and $\overline{\chi_i}$, which means that $\rho_\alpha(X) = \overline{X}$, and $\chi \rho_\beta = \overline{X}$ as we swap columns which are conjugates. Then as $X$ is invertible, we have that $\rho_\alpha = X \rho_\beta X^{-1}$ which implies that $\tr(\rho_\alpha) = \tr(\rho_\beta)$. 
+\end{proof}
 
 
 \section{Restriction and induction}
