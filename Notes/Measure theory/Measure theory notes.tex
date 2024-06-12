@@ -483,8 +483,10 @@ for all $n, m  > M$.
 	$L^p$ with $\| \cdot \|_{p}$ is complete, for $p \in [1, \infty)$. 
 \end{theorem}
 \subsection{Miscellania}
-Small functions are dense.
-Suppose $\Omega \in \mathcal{S}$ is a $\mu$-measurable subset with finite measure. Then if $\varphi$ is convex and $f : X \rightarrow \mathbb{R}$ is integrable, then:
+Simple functions are dense.
+
+\begin{theorem}[Jensen's inequality]
+	Suppose $\Omega \in \mathcal{S}$ is a $\mu$-measurable subset with finite measure. Then if $\varphi$ is convex and $f : X \rightarrow \mathbb{R}$ is integrable, then:
 \begin{equation}
 	\int_{\Omega} (\varphi \circ f) \, d\mu 
 \end{equation}
@@ -493,6 +495,7 @@ and
 \begin{equation}
 	\varphi \left(\frac{1}{\mu(\Omega)} \int_{\Omega} f \, d\mu \right)\leq \frac{1}{\mu(\Omega)}\int_{\Omega} (\varphi \circ f) \, d\mu 
 \end{equation}
+\end{theorem}
 
 \section{Product measures}
 We define a product measure of the product of a measure triple $(X, \mathcal{X}, \mu)$ and $(Y, \mathcal{Y}, \nu)$ as
@@ -565,7 +568,7 @@ Let $\nu \ll \mu$. Then we have that $\nu(E) = \int_E f_0 \, d\mu$. Then $\dfrac
 \begin{theorem}
 	Let $\mu, \nu$, and $\omega$ be $\sigma$-finite measures on $(X, \mathcal{S})$.
 	\begin{enumerate}
-		\item Then if $\mu \ll \nu$ and $f$ ins $\mu$-measurable, then
+		\item Then if $\mu \ll \nu$ and $f$ is $\mu$-measurable, then
 		\begin{equation}
 			\int_X f \, d\nu = \int_X (\dfrac{d\nu}{d\mu}) f d\mu
 		\end{equation}
@@ -583,6 +586,12 @@ Let $\nu \ll \mu$. Then we have that $\nu(E) = \int_E f_0 \, d\mu$. Then $\dfrac
 		\end{equation}
 	\end{enumerate}
 \end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 
+	\end{enumerate}
+\end{proof}
 
 \section{Lebesgue measure approximation}
 We denote all continuous functions with compact support on an open set $V$ as $C^0_c(V)$ and the collection of smooth functions with compact support as $C^\infty_c(V)$. 
