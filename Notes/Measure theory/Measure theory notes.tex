@@ -424,7 +424,11 @@ We let $L^p$ be the space of measurable functions where $|f|^p$ has finite integ
 		|f + g|^p = |f + g|^{p-1} |f + g| \leq |f| |f + g|^{p-1} + |g| |f + g|^{p-1}.
 	\end{equation}
 	Setting $q = \frac{p}{p-1}$, we have that:
-	\todo{finish this!}
+	
+	\begin{equation}
+		\| f + g\|_p^p \leq \int |f| |f + g|^{p-1}  \, d\mu +  \int |g| |f + g|^{p-1} \, d\mu
+	\end{equation}
+	so we use Holder's inequality to bound above. 
 \end{proof}
 
 \begin{lemma}
