@@ -715,7 +715,32 @@ Then we have that $a.u.$ implies $\mu$, $a.e.$ implies $\mu$ (Ergorov), $a.e.$ i
 \begin{proposition}
 	Let $p \in [1, \infty)$ and $\{f_n\}_n \subset L^p$ be a sequence such that $|f_n(x)| < g(x)$ on $\mu$ a.e.
 	with $g \in L^p$. 
+	Then we have that:
+	
+	\begin{enumerate}
+		\item If $f_n \xrightarrow{a.e.} f$, then $f_n \xrightarrow{L^p} f$.
+		\item If $f_n \xrightarrow{\mu} f$, then $f_n \xrightarrow{L^p} f$.
+		\item If $f_n \xrightarrow{a.e.} f$, then $f_n \xrightarrow{a.u.} f$.
+	\end{enumerate}
 \end{proposition}
+\begin{proof}
+	\begin{enumerate}
+		\item $|f_n - f|^p \xrightarrow{a.e.} 0$ when $|f_n - f| \xrightarrow{a.e.} 0$. 
+		In addition, we have that $\mu$ a.e. that:
+		\begin{equation}
+			|f_n - f|^p \leq (|f_n| + |f|)^p \leq 2^p(|g|^p + |f|^p) \in L^1.
+		\end{equation}
+		Then it follows from LDCT that:
+		$|f_n - f|^p \xrightarrow{L^1} 0$,
+		which is equivalent to the conclusion wanted. 
+		
+		\item 
+		Assume for contradiction that $\{ f_n \}_n$ does not converge to $f$ in $L^p$. Then we can find a subsequence $\{g_k\}_k$ such that $\|g_k - f \|_{L^p} > \varepsilon$ for all $k$. But $ \{ g_k \}_k$ converges to $f$ in measure. But this means there is a subsequence of $\{g_k\}_k$ that converges a.e. to $f$. This subsequence converges to $f$ in $L^p$, but this contradicts the statement above. 
+		\item 
+		Now suppose $
+	\end{enumerate}
+\end{proof}
+
 
 \section{Lebesgue measure approximation}
 We denote all continuous functions with compact support on an open set $V$ as $C^0_c(V)$ and the collection of smooth functions with compact support as $C^\infty_c(V)$. 
