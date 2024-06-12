@@ -686,6 +686,32 @@ Suppose $\mu(X) < \infty$. Then:
 	If $\{ f_n\}_n \subset \mathcal{M}$ converges a.e. to $f \in \mathcal{M}$, then $\{ f_n\}_n$ converges to $f$ almost uniformly. 
 \end{theorem}
 
+\begin{proof}
+	Suppose $\{f_n\}_n$ converges pointwise on $Y$ where $Y^c$ is a null-set. For $(n, m) \in \mathbb{N}^2$, define
+	\begin{equation}
+		E_n(m) := \bigcup_{k \geq n} \{ x \in Y : |f_k(x) - f(x)| > m^{-1}\}.
+	\end{equation}
+	Clearly, $E_{n+ 1}(m) \subseteq E_n(m)$. Since $Y^c$ is a null-set, it is obvious $\cap_{n \in \mathbb{N}} E_n(m)$ is also a null set for each $M$. Then we have that $\lim_{n \rightarrow \infty} \mu(E_n(m)) = 0$ for all $M \in \mathbb{N}$. 
+	
+	Now let $\delta > 0$ and let $k_m$ be a sequence such that $\mu(E_{k_m}) < 2^{-m} \delta$. Setting:
+	\begin{equation}
+		F_\delta := \bigcup_{m \in \mathbb{N}} E_{k_m}(m)
+	\end{equation}
+	yields
+	$\mu(F_{\delta}) < \delta$. 
+	So if $y \in F_\delta^c$< then $y \neq E_{k_m}$ for all $M$. 
+	Hence, 
+	\begin{equation}
+		|f_k(y) - f(y) | < m^{-1}
+	\end{equation}
+	for all $k > k_m$ for all $m \in \mathbb{N}$. 
+	In other words, $\{f_k\}$ convergees to $f$ uniformly on $F_\delta^c$, which is the definition of almost uniform.
+\end{proof}
+
+Then we have that $a.u.$ implies $\mu$, $a.e.$ implies $\mu$ (Ergorov), $a.e.$ is equivalent to $a.u.$
+
+\subsection{Domination}
+
 \section{Lebesgue measure approximation}
 We denote all continuous functions with compact support on an open set $V$ as $C^0_c(V)$ and the collection of smooth functions with compact support as $C^\infty_c(V)$. 
 \begin{theorem}[Urysohn]
