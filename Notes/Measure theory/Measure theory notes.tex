@@ -622,13 +622,44 @@ We have a series of ways for things to converge to a function.
 \begin{itemize}
 	\item Pointwise, $f_n \xrightarrow{pt} f$. For every $x \in X$ and every $\varepsilon > 0$, there exists an $N_{x,\varepsilon} \in \mathbb{N}$ sich that $|f_n(x) - f(x) | < \varepsilon$ for all $n > N_{x,\varepsilon}$. 
 	\item Uniformly, $f_n \xrightarrow{unif} f$. For every $x \in X$ and every $\varepsilon > 0$, there exists an $N_{\varepsilon} \in \mathbb{N}$ sich that $|f_n(x) - f(x) | < \varepsilon$ for all $n > N_{ \varepsilon}$. 
-	\item almost everywhere $f_n \xrightarrow{a.e.} f$: The set of points where $f_n$ does not converge pointwise to $f$ has zero measure.
-	\item in $L^p$, $f_n \xrightarrow{L^p} f$, $\lim_{n \rightarrow \infty} \| f_n  - f \|_p = 0$. 
-	
+	\item Almost everywhere $f_n \xrightarrow{a.e.} f$: The set of points where $f_n$ does not converge pointwise to $f$ has zero measure.
+	\item In $L^p$, $f_n \xrightarrow{L^p} f$, $\lim_{n \rightarrow \infty} \| f_n  - f \|_p = 0$. 
+\end{itemize}
 	We also have two new modes of convergence. 
-	\item almost uniformly $f_n \xrightarrow{a.u.} f$ for every $\delta > 0$, there exists $E_\delta \in \mathcal{S}$ with $\mu(E_\delta) < \delta$ such that $f_n$ converges uniformly to $f$ on $E^c_\delta$. 
+\begin{itemize}
+	\item Almost uniformly $f_n \xrightarrow{a.u.} f$ for every $\delta > 0$, there exists $E_\delta \in \mathcal{S}$ with $\mu(E_\delta) < \delta$ such that $f_n$ converges uniformly to $f$ on $E^c_\delta$. 
+	\item In measure $f_n \xrightarrow{\mu} f$. For every $\varepsilon > 0$, there holds $\lim_{n \rightarrow \infty} \mu(\{x \in X : |f_n(x) - f(x)| > \varepsilon\}) = 0$.
 \end{itemize}
 
+Obviously, uniformly implies pointwise implies almost everywhere, and uniformly implies almost uniformly (set $E_\delta = \emptyset$).
+
+If $f_n \xrightarrow{a.u.} f$, then $f_n \xrightarrow{a.e.} f$ and $f_n \xrightarrow{\mu} f$.
+
+\begin{proof}
+	For each $j \in \mathbb{N}$, there exists $E_j \in \mathcal{S}$ such that $\mu(E_j) < 2^{-j}$ and $f_n \xrightarrow{unif} f$ on $E_j^c$. Let
+	\begin{equation}
+		F_k := \cup_{j \geq k} E_j
+	\end{equation}
+	such that $\mu(F_k) < 2^{1 - k}$. 
+	Then as $F_k$ is decreasing, the intersection $F$ is a null-set. Clearly $\{f_n\}_n$ converges pointwise on each $E_j^c$ so it converges pointwise on $F$. Thus $\{f_n\}_n$ converges a.e.
+	\paragraph{In measure}
+	To show this converges in measure, let $\alpha, \delta$ be arbitrary positive numbers. Then there exists an $E_\delta \in \mathcal{S}$ such that $\mu(E_\delta) < \delta$ and $f_n \xrightarrow{unif} f$ on $E_\delta^c$. 
+	
+	Then if $n$ is large enough, $\{ x \in X : |f_n(x) - f(x)| > \alpha\} \in E_\delta$. 
+	As this holds for every $\delta > 0$, we have that the limit goes to 0. As $\alpha$ is abitrary, we have this converges in measure.
+\end{proof} 
+
+If $f_n \xrightarrow{L^p} f$, then $f_n \xrightarrow{\mu} f$. 
+
+\begin{proof}
+	By Chebyshev's inequality, we have that
+	\begin{equation}
+		\lim_{n \rightarrow \infty} \mu\left( \{ x \in X : |f_n(x) - f(x)| \geq \alpha\}\right) \leq \alpha^p \lim_{n \rightarrow \infty} \|f_n - f \|_{L^p}^p = 0
+	\end{equation}
+	as required.
+\end{proof}
+
+If $f_n \xrightarrow{\mu} f$, then $f_{n_k} \xrightarrow{a.u.} f$ for some subsequence $\{ f_{n_k}\} \subset {f_n}$. 
 
 
 \section{Lebesgue measure approximation}
