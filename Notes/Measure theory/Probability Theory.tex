@@ -204,6 +204,22 @@ Properties of distribution function:
 	\item $F_x$ is right-continuous, meaning that right limits converge. 
 \end{itemize}
 
+\begin{definition}
+	Skorokhod representation: Any function which satisfies the 3 properties above is the distribution of a random variable on the Lebesgue measure on $[0, 1]$.
+\end{definition}
+
+\begin{theorem}[Monotone Class Theorem]
+	Let $\mathcal{C}$ be a $\pi$-system and $\mathcal{H}$ be a class of bounded real valued functions on $\Omega$ satisfying:
+	\begin{itemize}
+		\item $\mathcal{H}$ is a vector space over $\mathbb{R}$
+		\item $1 \in \mathcal{H}$
+		\item If $(f_n)_n$ is a series of non-negative increasing functions in $\mathcal{H}$ such that $f_n$ converges to $f$ where $f$ is bounded, then $f \in \mathcal{H}$
+		\item For all $A \in \mathcal{C}$, $1_A$ is in $\mathcal{H}$
+	\end{itemize}
+	Then $\mathcal{H}$ contains every bounded $\sigma(\mathcal{C})$-measurable function. 
+\end{theorem}
+Proof from Monotone class theorem (of measure theory)
+
 \subsection{Independence}
 We say two random variables are independent 
  
