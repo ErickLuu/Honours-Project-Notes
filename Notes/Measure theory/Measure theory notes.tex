@@ -604,6 +604,12 @@ Let $\nu \ll \mu$. Then we have that $\nu(E) = \int_E f_0 \, d\mu$. Then $\dfrac
 			\int_X \varphi \, d\nu = \int_X \varphi f_0 \, d\mu
 		\end{equation}
 		for $\varphi$ being a simple function. We can then show it holds for all non-negative measurable functions using the MCT and extend to integrable functions. 
+		\item
+		We have that there exists $f_0, f_1$ such that $\nu(E) = \int_E f_0 \, d\mu$ and $\omega(E) = \int_E f_1 \, d\mu$. 
+		
+		Therefore, $(\nu + \omega)(E) = \int_E (f_0 + f_1) \, d\mu$ which proves the result above.
+		\item Let $f_0, f_1$ be such that $\nu(E) = \int_E f_0 \, d\mu$, $\mu(E) = \int_E f_1 \, d\omega$. We then have that by the first above,  $\nu(E) = \int_E f_0 (\dfrac{d\mu}{d\omega}) \, d\omega$, therefore we have that $\dfrac{d \nu}{d \omega} = \dfrac{d\nu}{d\mu} \dfrac{d\mu}{d\omega}$. 
+		\item Set $\omega = \nu$. Then we have that $\dfrac{d\nu}{d\nu} = 1$ which is the result above. 
 	\end{enumerate}
 \end{proof}
 
