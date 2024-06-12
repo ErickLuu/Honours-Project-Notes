@@ -218,7 +218,16 @@ Properties of distribution function:
 	\end{itemize}
 	Then $\mathcal{H}$ contains every bounded $\sigma(\mathcal{C})$-measurable function. 
 \end{theorem}
-Proof from Monotone class theorem (of measure theory)
+Proof from Monotone class theorem (of measure theory).
+
+\begin{definition}
+	Two events are independent if $\mathbb{P}(A \cap B) = \mathbb{P}(A) \mathbb{P}(B)$.
+	
+	Events $A_1, ..., A_n$ are independent if for all $A \subset [n]$, we have that:
+	\begin{equation}
+		\mathbb{P}(\cap_{i \in A} A_i) = \cap_{i \in A} \mathbb{P}(A_i).
+	\end{equation}
+\end{definition}
 
 \subsection{Independence}
 We say two random variables are independent 
