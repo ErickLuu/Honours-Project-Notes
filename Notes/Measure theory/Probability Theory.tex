@@ -158,12 +158,12 @@ We can do another extension using Caratheodory to extend $\mathbb{P}$.
 \begin{definition}
 	We say that for a family $(A_n)_n$, 
 	\begin{equation}
-		\limsup_n A_n = \cap_n \cup_{m \geq n} A_m
+		\limsup_n A_n = \bigcap_n \bigcup_{m \geq n} A_m
 	\end{equation}
 	is $A_n$ infinitely often (i.o.)
 	and 
 	\begin{equation}
-		\liminf_n A_n = \cup_n \cap_{m \geq n} A_m 
+		\liminf_n A_n = \bigcup_n \bigcap_{m \geq n} A_m 
 	\end{equation}
 	is $A_n$ eventually. 
 \end{definition}
@@ -243,7 +243,18 @@ Sub $\sigma$-algebras $\mathcal{G}_\lambda$ are independent if for all $\{\lambd
 	Second Borel-Cantelli Lemma:
 	Let $(A_n)_n$ be a sequence of independent events. If $\sum_n \mathbb{P}(A_n) = \infty$, then $\mathbb{P}(A_n i.o.) = 1$. 
 \end{lemma}
-
- 
 \subsection{Kolmogorov 0-1 Law}
+The tail $\sigma$-algebra of a sequence of random variables $(X_n)_n$ is the $\sigma$-algebra $\mathcal{T}= \cap_n \sigma(X_m, m \geq n)$. 
+\begin{example}
+	$\left\{ \lim_n X_n \in A\right\}$
+\end{example}
+
+\begin{theorem}[Kolmogorov's 0-1 Law]
+	Let $(X_n)_n$ be a sequence of independent random variable. Then the tail $\sigma$-algebra is trivial, meaning that if $A \in \mathcal{T}$ then $\mathbb{P}(A) = 0$ or $\mathbb{P}(A) = 1$. 
+\end{theorem}
+We use this lemma.
+\begin{lemma}
+	If $P(T)^2 = P(T)$, then $P(T) = 0, 1$. 
+\end{lemma}
+FOr any $n \in N$, we have that the tail event is independent. Thus, any finite subcollection is independent.
 \end{document}
