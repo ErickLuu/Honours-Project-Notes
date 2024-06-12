@@ -26,7 +26,7 @@
 \numberwithin{equation}{section}
 
 %Commands
-\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\tr}{\operatorname{Tr}}
 \newcommand{\res}{\operatorname{Res}}
 \newcommand{\ind}{\operatorname{Ind}}
 \newcommand{\im}{\operatorname{im}}
@@ -123,6 +123,7 @@ We have that if $V$ and $W$ are vector spaces, then the direct sum $V \oplus W$ 
 
 The tensor product $V \otimes W$ is the vector space where $(v_1 + v_2) \otimes w = v_1 \otimes w + v_2 \otimes w$, $v \otimes (w_1 + w_2) = v \otimes w_1 + v \otimes w_2$, $c (v \otimes w) = (cv) \otimes w = v \otimes (cw)$. 
 
+We say $V^{\otimes k}$ to be the tensor product of $v$ with itself $k$ times. 
 
 \section{Algebras}
 A ring is a structure with an addition and multiplication operator. We have that:
@@ -173,11 +174,48 @@ for $r, s \in R$, $x, y \in M$.
 
 Essentially, we treat the algebra $A$ as the ring and $V$ as the abelian group to form an $A$-module. There is an algebra homomorphism $\tilde{\rho}: A \rightarrow End(V)$ and we write it as $a \cdot v$. 
 
-\todo{Do symmetric algebras, tensor algebras and exterior algebras}
+The tensor algebra is:
+\begin{equation}
+	V^{\otimes 0} \oplus V^{\otimes 1} \oplus V^{\otimes 2} \oplus ...
+\end{equation}
+
+Finally, we have that reps $(\rho \otimes \phi))g(v \otimes w) = \rho_g(v) \otimes \rho_g(w)$. 
+
+Symmetric power:
+
+$Sym^k(V)$ is the quotient of $V^{\otimes k}$ by the relation $u \otimes v = v \otimes w$ for $u, v \in V$.
+
+Then we have that the symmetric algebra of $V$ is:
+
+\begin{equation}
+	Sym^0(V) \oplus Sym^1(V) \oplus Sym^2(V) \oplus ... 
+\end{equation}
+
+The exterior power is $\bigwedge^k(V)$. This is $V^{\otimes k}$ with the relation $u \otimes v = -v \otimes u$.
+
+We denote the exterior product as $u \wedge v$. 
+
+The exterior algebra is:
+\begin{equation}
+	\bigwedge^0(V) \oplus \bigwedge^1(V) \oplus \bigwedge^2(V) \oplus ... 
+\end{equation}
+
+The dual space is the map of functionals on $V$.
+
+We have that the dual representation is $\rho^*_g(f) (v) = f(\rho_{g^{-1}}(v)))$.
 
 \subsection{Schur's lemma}
 Let $U$ and $V$ be simple $A$-modules, where $A$ is an algebra over $\mathcal{C}$. Then the only homomorphisms between $U$ and $V$ are the null map, or a scaled isomorphism.
-\todo{Prove this!}
+
+\begin{proof}
+	Suppose $U$ and $V$ are $A$-modules. Then we have that for any map $T \in Hom_A(U, V)$, $T$ is a $U$, $V$ preserving map. $T : U \rightarrow V$.
+	
+	Let $u \in \ker(T)$, so $T v = 0$. But this means that $a \cdot T v = T (a \cdot v) = 0$, so $a \cdot v$ is in $\ker T$. We also have that if $v = T (u)$, then $a \cdot v = a \cdot T(u) = T( a \cdot u)$, so $a \cdot u$ is in $\im T$. Therefore, $T$ is $A$-invariant.
+	
+	Because of this, we have that as the $A$-module is simple, then $\ker T = 0$ or $U$. Similarly, $\im T = 0$ or $V$. Therefore, $T$ is either a zero map or an isomorphism.
+	
+	To show $T$ is a scaled isomorphism, let $\lambda \in \mathbb{C}$ and consider $T - \lambda I$. We have that for some $\lambda$ this is a zero map. Therefore, $T = \lambda I$. 
+\end{proof}
 
 \subsection{Group algebras}
 
@@ -305,6 +343,26 @@ Therefore, character tables are square.
 		\end{cases}
 	\end{equation}
 	which shows what we need. 
+\end{proof}
+\section{Topics on characters}
+
+We say a character is ``real'' iff $\overline{\chi} = \chi$. We say a conjugacy class $C$ is real if it holds that $C^{-1} := \{g^{-1}: g \in C\}$ is $C$.
+
+\begin{theorem}[Burnside's theorem]
+	If $G$ is finite, the number of real irreducible characters equals the number of real conjugacy classes.
+\end{theorem}
+
+\begin{proof}
+	Label the conjugacy classes $C_1, C_2, .., C_k$ and let $\chi_1, \chi_2, ..., \chi_k$ be the irreducible characters. Let $\alpha, \beta \in S_k$ by $\overline{\chi_i} = \chi_{\alpha(i)}$ and $C_i^{-1} = C_{\beta(i)}$.
+	
+	Then $\chi_i$ is real iff $\alpha_i = i$ and $C_i$ is real iff $\beta_i = i$.
+	
+	So we want to show that the number of fixed points in $\alpha$ and $\beta$ are the same. Now the number of fixed points in $S_n$ is $\tr(\rho_\sigma)$ where $\rho$ is the natural representation. So we want to show that
+	\begin{equation}
+		\tr(\rho_\alpha) = \tr(\rho_\beta).
+	\end{equation}
+	
+	Let $\chi$ be the character table for $G$. We have that $\rho_\alpha(X)$ is obtained from $X$ by swapping $\chi_i$ and $\overline{\chi_i}$, which means that $\rho_\alpha(X) = \overline{X}$, and $\chi \rho_\beta = \overline{X}$ as we swap columns which are conjugates. Then as $X$ is invertible, we have that $\rho_\alpha = X \rho_\beta X^{-1}$ which implies that $\tr(\rho_\alpha) = \tr(\rho_\beta)$. 
 \end{proof}
 
 
@@ -571,5 +629,27 @@ We want that the Lie bracket satisfies:
 \end{enumerate}
 
 \subsection{Lie algebra $\mathfrak{sl}_2(\mathbb{C})$}
+Consider operators $E, F, H$ where $E = \begin{bmatrix}
+	0 & 1\\
+	0 & 0
+\end{bmatrix}
+$, $F = \begin{bmatrix}
+	0 & 0 \\
+	1 & 0
+\end{bmatrix}
+$ and
+$ H = \begin{bmatrix}
+	1 & 0\\
+	0 & -1
+\end{bmatrix}
+$. This is the fundamental group. 
+We have that $[e, f] = h$, $[h, f] = -2f$, $[h, e] = 2e$. 
 
+Now what vector space do these act on?
+
+Consider the vector space $V_d = span\{ x^d, x^{d-1} y, x^{d-2} y^2, ..., x y^{d-1} y^d\}$ as a subspace of polynomials of $x$ and $y$. 
+
+Consider the linear maps $E = x \dfrac{\partial}{\partial y}$, $F = y \dfrac{\partial}{\partial x}$, $H = x \dfrac{\partial}{\partial x} - y \dfrac{\partial}{\partial y}$. 
+
+Then we can show that $V_d$ is an irrep of $\mathfrak{sl}_2(\mathbb{C})$. 
 \end{document}
