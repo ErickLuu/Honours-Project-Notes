@@ -617,6 +617,18 @@ Let $\nu \ll \mu$. Then we have that $\nu(E) = \int_E f_0 \, d\mu$. Then $\dfrac
 We have that elements in the dual space live in the dual exponent. 
 
 \section{Modes of convergence}
+We have a series of ways for things to converge to a function.
+
+\begin{itemize}
+	\item Pointwise, $f_n \xrightarrow{pt} f$. For every $x \in X$ and every $\varepsilon > 0$, there exists an $N_{x,\varepsilon} \in \mathbb{N}$ sich that $|f_n(x) - f(x) | < \varepsilon$ for all $n > N_{x,\varepsilon}$. 
+	\item Uniformly, $f_n \xrightarrow{unif} f$. For every $x \in X$ and every $\varepsilon > 0$, there exists an $N_{\varepsilon} \in \mathbb{N}$ sich that $|f_n(x) - f(x) | < \varepsilon$ for all $n > N_{ \varepsilon}$. 
+	\item almost everywhere $f_n \xrightarrow{a.e.} f$: The set of points where $f_n$ does not converge pointwise to $f$ has zero measure.
+	\item in $L^p$, $f_n \xrightarrow{L^p} f$, $\lim_{n \rightarrow \infty} \| f_n  - f \|_p = 0$. 
+	
+	We also have two new modes of convergence. 
+	\item almost uniformly $f_n \xrightarrow{a.u.} f$ for every $\delta > 0$, there exists $E_\delta \in \mathcal{S}$ with $\mu(E_\delta) < \delta$ such that $f_n$ converges uniformly to $f$ on $E^c_\delta$. 
+\end{itemize}
+
 
 
 \section{Lebesgue measure approximation}
