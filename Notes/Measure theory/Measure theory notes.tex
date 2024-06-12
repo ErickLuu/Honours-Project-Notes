@@ -661,6 +661,22 @@ If $f_n \xrightarrow{L^p} f$, then $f_n \xrightarrow{\mu} f$.
 
 If $f_n \xrightarrow{\mu} f$, then $f_{n_k} \xrightarrow{a.u.} f$ for some subsequence $\{ f_{n_k}\} \subset {f_n}$. 
 
+\begin{proof}
+	Let ${f_{n_k}}$ satisfy:
+	\begin{equation}
+		\mu(\{x \in X : |f_{n_k}(x) - f(x) | > n^{-1}\}) < 2^{-n}
+	\end{equation}
+	Let:
+	\begin{equation}
+		E_n := \{ x \in X : |f_{n_k} - f(x) > n^{-1}\}
+	\end{equation}
+	So if $x \in E^{c}_n$, we have:
+	\begin{equation}
+		|f_{n_k} - f(x)| < n^{-1}
+	\end{equation}
+	so $\{ f_{n_k}\}$ converges uniformly on $E_n^c$. 
+\end{proof}
+
 
 \section{Lebesgue measure approximation}
 We denote all continuous functions with compact support on an open set $V$ as $C^0_c(V)$ and the collection of smooth functions with compact support as $C^\infty_c(V)$. 
