@@ -45,7 +45,6 @@
 \begin{document}
 
 \maketitle
-\chapter{Representations}
 \section{Representations}
 A representation of a group $G$ on a vector space $V$ is a map $\rho : G \rightarrow GL(V)$ where $\rho_{g}: V \rightarrow V$ and $\rho_{1} = id$ and $\rho_{g}\rho_{h} x = \rho_{gh} x$. The degree of $\rho$ is dim $V$. The vector spaces that we will be working over are finite-dimensional vector spaces over $\mathbb{C}$, and the groups are finite.
 
@@ -117,15 +116,15 @@ We also have that $\ker T$ is $\rho$-invariant subspace of $V$, and $\im T$ is a
 
 By Schur's lemma, all abelian groups have dimension 1. 
 
-\chapter{Algebraic constructions}
-\section{New constructions}
+\section{Algebraic constructions}
+\subsection{New constructions}
 We have that if $V$ and $W$ are vector spaces, then the direct sum $V \oplus W$ is a vector space where every element is of the form $v \oplus w$, and obeys the laws that $v_1 \oplus w_1 + v_2 \oplus w_2 = (v_1 + v_2) \oplus (w_1 + w_2)$ and $c (v_1 \oplus w_1) = (c v_1) \oplus (c w_1)$. 
 
 The tensor product $V \otimes W$ is the vector space where $(v_1 + v_2) \otimes w = v_1 \otimes w + v_2 \otimes w$, $v \otimes (w_1 + w_2) = v \otimes w_1 + v \otimes w_2$, $c (v \otimes w) = (cv) \otimes w = v \otimes (cw)$. 
 
 We say $V^{\otimes k}$ to be the tensor product of $v$ with itself $k$ times. 
 
-\section{Algebras}
+\subsection{Algebras}
 A ring is a structure with an addition and multiplication operator. We have that:
 $R$ is an abelian group under addition, so:
 \begin{itemize}
@@ -222,7 +221,7 @@ Let $U$ and $V$ be simple $A$-modules, where $A$ is an algebra over $\mathcal{C}
 The group algebra is the algebra that comes from linearising a group $G$. 
 
 \section{Characters}
-In mathematics, we can summarise data about a mathematical object that allows us to completely distinguish two objects from each other. Two examples are the Fourier transform and moment-generating functions. 
+In mathematics, we can summarise data about a mathematical object that allows us to completely distinguish two objects from each other. One example is a moment-generating function. 
 
 In representation theory, the summary data that we think about is characters.
 
