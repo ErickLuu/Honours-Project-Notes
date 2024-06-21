@@ -1,1 +1,10 @@
- \usegdlibrary {circular,trees}
+\usegdlibrary {circular,trees}
+\tikz \graph [simple necklace layout] {
+	tree 1[draw, circle] // [tree layout] { a -> {1, 2}; }
+	-> b
+	-> c
+	-> tree 2[draw] // [tree layout] { d -> {3, 4 -> {5, 6} } }
+	-> e
+	-> f
+	-> tree 1;
+};
