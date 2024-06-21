@@ -83,6 +83,8 @@ A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assign
 	Suppose $H \leq G$. We will use induction to show that $H$ has a model in $G$. Suppose $H$ is obtained from $G$ by contraction operations only. We can assume this by taking a subgraph of $G$ if necessary. Let $uv$ be the edge that is contracted first and let $G' = G \setminus uv$. Let $w$ be the vertex obtained after contracting $uv$. Then by induction, there is a model $\mu'$ of $H$ in $G'$. Then we look at the block $B$ where $H$ lives in, and we delete $w$ from $H$ and add back in $u$, $v$, and $uv$. Then this is a model of $H$ in $G$. 
 \end{proof}
 \todo{Add pictures}
+
+
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966, atneosenOnedimensionalNleavedContinua1972}. 
 A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
