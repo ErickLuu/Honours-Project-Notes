@@ -83,8 +83,6 @@ A \textit{model} of a graph $H$ to a graph $G$ is a function $\rho$ which assign
 	Suppose $H \leq G$. We will use induction to show that $H$ has a model in $G$. Suppose $H$ is obtained from $G$ by contraction operations only. We can assume this by taking a subgraph of $G$ if necessary. Let $uv$ be the edge that is contracted first and let $G' = G \setminus uv$. Let $w$ be the vertex obtained after contracting $uv$. Then by induction, there is a model $\mu'$ of $H$ in $G'$. Then we look at the block $B$ where $H$ lives in, and we delete $w$ from $H$ and add back in $u$, $v$, and $uv$. Then this is a model of $H$ in $G$. 
 \end{proof}
 \todo{Add pictures}
-
-
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book} of \textit{thickness} $k$ are $k$ half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966, atneosenOnedimensionalNleavedContinua1972}. 
 A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We place the vertices of $G$ on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
@@ -113,8 +111,16 @@ This is an upper bound of any graph $G$ with vertices $n$.
 \begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
 	The complete graph $K_n$ on $n$ vertices where $n \geq 4$, has pagenumber $\lceil n/2 \rceil$. 
 \end{theorem}
+\begin{proof}
+	Arrange the vertices in any circular ordering, and colour the edges like below.
+	\begin{figure}[h]
+		\caption{Circular embedding of $K_8$ with 4 colours, the minimum possible.}
+		\centering
+		\input{chapters/figures/k8-withcolouring}
+		\label{fig:k8 coloured with colours}
+	\end{figure}
+\end{proof}
 Therefore for any graph $G$ on $n$ vertices, $n \geq 4$, $\pn(G) \leq \lceil n/2 \rceil$. 
-\todo{Add picture of proof}
 \subsection{Related graph properties}\label{ssec:Related_Properties}
 
 \begin{lemma}[Bound on number of edges \cite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
@@ -163,7 +169,9 @@ The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace
 	\begin{proof}
 		Suppose $G$ is a tree. Root the graph $G$ at the vertex $r$. Then let $T = G$ and $B_x:= \lbrace x, p \rbrace$ where $p$ is the parent of $x$. The bag $B_r$ will just contain $r$. Then all edges $vw$ will be between parent $v$ and child $w$, so it will be in bag $B_w$. Finally, the subgraph induced by vertex $x$ in $T$ will be $x$ and the children of $x$, which is a connected subtree.
 		
-		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. \todo{Add pictures!}
+		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. 
+		\input{chapters/figures/treewidth-tree}
+		\input{chapters/figures/treewidth-tree-treedecomp}
 	\end{proof}
 	\begin{lemma}
 		If $\tw(G) = 1$, then $G$ has no cycles.
