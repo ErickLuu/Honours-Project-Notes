@@ -1,0 +1,6 @@
+\usetikzlibrary {graphs,graphdrawing}
+\usegdlibrary {trees}
+\tikz 
+\graph [tree layout] {
+	1 -> { 2 -> {3, 4}, 5 -> {6, 7 -> 8} };
+};
