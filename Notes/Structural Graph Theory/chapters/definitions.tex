@@ -175,8 +175,12 @@ The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace
 		Suppose $G$ is a tree. Root the graph $G$ at the vertex $r$. Then let $T = G$ and $B_x:= \lbrace x, p \rbrace$ where $p$ is the parent of $x$. The bag $B_r$ will just contain $r$. Then all edges $vw$ will be between parent $v$ and child $w$, so it will be in bag $B_w$. Finally, the subgraph induced by vertex $x$ in $T$ will be $x$ and the children of $x$, which is a connected subtree.
 		
 		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. 
-		\input{chapters/figures/treewidth-tree}
-		\input{chapters/figures/treewidth-tree-treedecomp}
+		\begin{figure}[h]
+			\centering
+			\input{chapters/figures/treewidth-tree}
+			\input{chapters/figures/treewidth-tree-treedecomp}
+			\caption{A tree and its tree-decomposition. We root at the vertex $1$ and every bag consists of a vertex and its parent.}
+		\end{figure}
 	\end{proof}
 	\begin{lemma}
 		If $\tw(G) = 1$, then $G$ has no cycles.
