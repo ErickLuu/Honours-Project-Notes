@@ -19,12 +19,16 @@ Therefore, adding $ \leq a$ apex vertices still maintains a bounded pagenumber.
 The most problematic section is dealing with vortices on surfaces. Recall that vortices are on graphs on surfaces. 
 
 From Heath and Istrail, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
-Let $G$ be a graph. We say that a vertex ordering $<$ preserves a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and an orientation $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. 
+Let $G$ be a graph. We say that a vertex ordering $<$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
 As a consequence of Tutte's theorem, we have that every 4-connected planar graph is Hamiltonian and also every face of the embedding is preserved.
 \begin{theorem}
-	Let $G$ be a 4-connected planar graph embedded on some surface. Then 
-	\input{"chapters/figures/4-connected-planar-graph with cycle"}
+	Let $G$ be a 4-connected planar graph embedded on some surface. 
 \end{theorem}
+
+\begin{proof}
+	Let $G$ be a 4-connected planar graph embedded on some surface. Now we have that $G$ has a Hamiltonian cycle. Now as $G$ is planar, the Hamiltonian cycle splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of the Hamilton cycle. But this means that every every face maintains the ordering
+	\input{"chapters/figures/4-connected-planar-graph with cycle"}
+\end{proof}
 \todo{complete proof}
 
 We wish to prove the following:
