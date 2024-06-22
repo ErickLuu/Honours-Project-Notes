@@ -26,7 +26,7 @@ As a consequence of Tutte's theorem, we have that every 4-connected planar graph
 \end{theorem}
 
 \begin{proof}
-	Let $G$ be a 4-connected planar graph embedded on some surface. Now we have that $G$ has a Hamiltonian cycle. Now as $G$ is planar, the Hamiltonian cycle splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of the Hamilton cycle. But this means that every every face maintains the ordering
+	Let $G$ be a 4-connected planar graph embedded on some surface. From Tutte's theorem, we have that $G$ has a Hamiltonian cycle $C$. Let $D$ be the natural circular ordering of these vertices by traversing $C$ clockwise. Now as $G$ is planar, $C$ splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of $C$. But this means that every face must be preserved in $D$, as the surface we are dealing with is orientable and we can affix an orientation to every face $F$ such that the order of the vertices in the orientation is the same order as the orientation in $D$. Thus every face in this embedding is preserved. 
 	\input{"chapters/figures/4-connected-planar-graph with cycle"}
 \end{proof}
 \todo{complete proof}
