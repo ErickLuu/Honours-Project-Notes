@@ -109,10 +109,10 @@ This is because we can embed the graph on a sphere with the vertices and Hamilto
 \subsection{Pagenumber of complete graphs}\label{ssec:Pagenumber_Complete_Graphs}
 This is an upper bound of any graph $G$ with vertices $n$. 
 \begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
-	The complete graph $K_n$ on $n$ vertices where $n \geq 4$, has pagenumber $\lceil n/2 \rceil$. 
+	The complete graph $K_n$ on $n$ vertices where $n \geq 4$, has pagenumber $ \leq \lceil n/2 \rceil$. 
 \end{theorem}
 \begin{proof}
-	Arrange the vertices in any circular ordering, and colour the edges like below.
+	Arrange the vertices in any circular ordering, and colour the edges like below. To show the other equality, we use the lemma \cref{lem:Edge_Bound}.
 	\begin{figure}[h]
 		\caption{Circular embedding of $K_8$ with 4 colours, the minimum possible.}
 		\centering
@@ -129,6 +129,11 @@ Therefore for any graph $G$ on $n$ vertices, $n \geq 4$, $\pn(G) \leq \lceil n/2
 \begin{proof}
 	Given a vertex ordering $v_1 \leq v_2 \leq ... \leq v_n$, we have that the spine edges $v_i v_i+1$, $v_1 v_n$  can appear on any page. Furthermore we have there are at most $n-3$ non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is $2n - 3$ from \cref{thm:outerplanar_bound}, but we remove the outer cycle (with $n$ edges on the cycle) to have at most $n-3$ edges on each page. Therefore, $m$, the number of edges, satisfies $m \leq n + k (n - 3)$. 
 \end{proof}
+
+\begin{corollary}
+	The pagenumber of $K_n$ is $\frac{n}{2}$ when $n \geq 4$.
+\end{corollary}
+We have shown one direction of the inequality, and we use \cref{lem:Edge_Bound} to prove the other direction. We have that $K_n$ has $n$ vertices and $\binom{n}{2}$ edges. Then $\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} \geq \lceil \frac{n}{2} \rceil$ when $n \geq 4$, from the lemma. This concludes the equality. 
 \begin{theorem}[Chromatic number bound\cite{bernhartBookThicknessGraph1979}]\label{thm:Colouring_Bound}
 	For all graphs $G$, $\chi(G) \leq 2 \pn(G) + 2$.
 \end{theorem}
