@@ -1,0 +1,686 @@
+\documentclass[]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+
+\AddToHook{cmd/section/before}{\clearpage}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\newcommand{\ops}{\overset{\text{ops}}{\leftrightarrow}}
+\newcommand{\egf}{\overset{\text{egf}}{\leftrightarrow}}
+
+\newcommand{\genstirlingI}[3]{%
+	\genfrac{[}{]}{0pt}{#1}{#2}{#3}%
+}
+
+\newcommand{\stirlingI}[2]{\genstirlingI{}{#1}{#2}}
+
+%opening
+\title{Exam}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+\section{Question 1}
+We have that there are $6$ current Australian coins, being the 5c, 10c, 20c, 50c, \$1, \$2. 
+Let $d_n$ be the number of sequences where the first and last coins are different denominations.
+
+For simplicity, suppose there are $m$ coins.
+
+We have that:
+\begin{equation}
+	d_n = m \times (m - 1)^{n-1} - d_{n-1}
+\end{equation}
+where $m \times (m - 1)^{n-1}$ are the total number of ways to count the number of sequences where no coin appears twice in a row and $d_{n-1}$ counts the number of ways where the first and last coins are the same coin.
+
+We have that $d_1 = m$ and $d_2 = m (m - 1)$. 
+
+We claim that this satisfies the recurrence:
+\begin{equation}
+	d_n = \begin{cases}
+		m &, \text{ if } n = 1\\
+		(m -1)^n + (-1)^n (m - 1) &, \text{ if } n \geq 2
+	\end{cases}
+\end{equation}
+When $n = 2$, we claim that this satisfies the equation above. Suppose it holds for $n = k$. Then for $k + 1$, we have that:
+\begin{align*}
+	d_{k + 1} &= m \times (m - 1)^{k} - ((m -1)^k + (-1)^k (m - 1))\\
+	&= (m - 1)^{k + 1} + (m-1)^k - (m - 1)^k - (-1)^k (m - 1)\\
+	&= (m - 1)^{k + 1} + (-1)^{k + 1}(m - 1).
+\end{align*}
+Thus this satisfies the recurrence outlined above.
+
+We can get to the recurrence by treating a sequence as a labelled graph $C_n$ with labels $1, 2, ...n$ around the cycle. Then each sequence is a way to properly colour $C_n$. Therefore, the number of sequences $d_n$ comes from the chromatic polynomial of $C_n$ and we can use the contraction-deletion formula to have the result above. Wikipedia has a list of useful chromatic polynomials and $C_n$ is one of them.
+
+\subsection{Counting the cost}
+We have that each coin appears the same number of times as another coin. This is because of symmetry. If we have the list of all sequences and we permute the coins around, then we must have the same list back, otherwise we are missing some sequences in the list. As we claim to have the list of all sequences, this is impossible. Let $c_n$ be the cost of a sequence. Then we have that the cost is equal to the average coin denomination times the number of sequences times the number of coins in each sequence. Therefore,
+\begin{equation}
+	c_n = \frac{(0.05 + 0.10 + 0.20 + 0.50 + 1 + 2) }{6}(n) \left[5^n + 5(-1)^n \right] =  \frac{77}{120} n \left[5^n + 5(-1)^n \right]
+\end{equation}
+when $n \geq 2$.
+So:
+\begin{equation}
+	c_n = 
+	\begin{cases}
+		3.85 &, \text{ if } n = 1\\
+		\frac{77}{120} n \left[5^n + 5(-1)^n \right] &, \text{ if } n \geq 2
+	\end{cases}
+\end{equation}
+
+\section{Question 2}
+
+\subsection{a}
+We will use Cauchy-Frobenius to solve this question. Let $\sigma \in S_n $ act on a matrix $A$ by having $\sigma \cdot A_{i, j} = A_{i, \sigma(j)}$. Then the number of isomorphism classes is equal to the number of orbits in this group action, which is:
+\begin{equation}
+	\frac{1}{|G|} \sum_{\sigma \in G} |Fix(\sigma)|
+\end{equation}
+Now suppose $\sigma$ has cycles $(a_1, a_2, ..., a_m)$. Then the number of fixed elements is $4^{n m}$ as we can choose $4^n$ spots for each cycle row so there is $(4^n)^m = 4^{n m}$ different fixed elements. Then we have that the number of isomorphism classes become:
+
+\begin{equation}
+	\frac{1}{n!} \sum_{\sigma \in S_n} 4^{n Cyc(\sigma)}
+\end{equation}
+where $Cyc(\sigma)$ is the number of cycles in $\sigma$. We can group together $\sigma$ based on the number of cycles. So we use the Stirling number of the first kind to do so.
+\begin{equation}
+	\frac{1}{n!} \sum_{k = 1}^n \stirlingI{n}{k} 4^{n k}
+\end{equation}
+where $\stirlingI{n}{k}$ is the $k$-th Stirling number of the first kind of size $n$. 
+
+However, what is this sum?
+
+We have that the hand enumerator of the permutations is:
+\begin{equation}
+	H(x, y) = \frac{1}{(1 - x)^y}
+\end{equation}
+with $H(x, y)$ being an ops in $y$. Therefore, we have that $h(n, k) = \stirlingI{n}{k}/ n!$. 
+
+We have that from this identity,
+
+\begin{equation}
+	\sum_k \stirlingI{n}{k} y^k = n! \binom{y + n - 1}{n}
+\end{equation}
+so setting $y = 4^n$, we have that:
+\begin{equation}
+	\frac{1}{n!} \sum_{k = 1}^n \stirlingI{n}{k} 4^{n k} = \binom{4^n + n - 1}{n}
+\end{equation}
+
+\subsection{b}
+We want to count the number of matrices with all of $N, S, E, W$ included. 
+
+Now we will move onto solving this using inclusion-exclusion.
+Let $P_N$ be the property that $N$ is not included in the matrix, $P_S$ be the property that $S$ is not included, and so on. There are $4$ different properties to keep in mind.
+\par
+Let $F_j(n) = \frac{1}{n!} \sum_{k = 1}^n \stirlingI{n}{k} j^{n k} = \binom{j^n + n - 1}{n}$. 
+
+We have that the ground set $|A| = F_4(n) = \binom{4^n + n - 1}{n}$.
+We have that $\sum_{Y \subseteq S, |Y| = k} N_\geq(Y) = \binom{4}{k} F_{4 - k}(n)$. 
+So we have that from Inclusion-Exclusion,
+
+\begin{equation}
+	N_{=}(\emptyset) = F_{4}(n) - 4 F_{3}(n) + 6 F_{2}(n) - 4 F_{1}(n) = \left[ \binom{4^n + n - 1}{n} - 4 \binom{3^n + n - 1}{n} + 6 \binom{2^n + n - 1}{n} - 4 \right]
+\end{equation}
+as $\binom{1^n + n - 1}{n} = \binom{n}{n} = 1$. 
+
+\section{Question 3}
+\subsection{a}
+We have that the total number of sequences is $\binom{2n-1}{n}= \frac{(2n -1 )!}{n! (n - 1)!}$. Now for the number of circular sequences, we identify $(2n - 1)$ sequences with each other. These sequences are distinct as if two sequences were the same when shifted, it would mean that the number of $2$s and $0$s would divide the length of the sequence, which cannot happen since that would imply $(2n-1)$ is even. So we have that:
+\begin{equation}
+	|C_n| = \frac{(2n - 2)!}{n!(n - 1)!} = \mathcal{C}_{n - 1}
+\end{equation}
+where $\mathcal{C}_{n}$ is the $n$-th Catalan number, and $|C_0| = 1$. 
+
+\subsection{b}
+\subsection{Correspondence between tree and sequence of $0$s and $2$s}
+Let $T$ be a tree with root $r$ with $2n$ vertices embedded in the plane. Then for each tree, there is a specific preorder string where we "eat" the tree by starting at $r$, traversing to its neighbour, and deleting $r$.
+
+Then at every step, we look at the vertex $v$ we are at, record down its degree, then "eat" $v$ and move down to the left vertex. After the left subtree of $v$ is eaten, we then move onto the right subtree.
+
+We are doing a pre-order traversal where we record either $0$ if the vertex is a leaf or $2$ if the vertex is an internal vertex. We then ignore the root vertex in this sequence. This gives us a string with $n$ zeroes and $n-1$ 2s. 
+
+\subsubsection{Correspondence between circular sequence and trees}
+Let $s$ be a sequence of $n - 1$ 2s and $n$ zeros. Let $[s]$ be the set of circular rotations of $s$. We have that there is a unique $s' \in [s]$ such that for every prefix of $s'$ of length at most $2n - 2$, we have that the number of $2$s is $\geq$ the number of $0$s. The reason for this is to consider $s$ as a mountain range where we start at $0$ and we go up 1 step when we see a 2 and down 1 step when we see a 0. We then look at all the points where we hit the maximum depth and we go to the one on the farthest left. Then we have that at this point, we do not go down by too much. The reason this works is because we always end up at -1, so we can always find a maximum depth. At this depth, we want the one which will be above 0 until we hit -1, which must be unique. This sequence $s'$ must start with a $2$ and end with a $0$. 
+
+When we have this unique point in the circular sequence, we then do the same operation. We start with a root vertex $r$, which is a leaf vertex. Then for any "run" of 2s, we go to the left until we hit a 0. Then we draw a leaf vertex and then go to the right of the farthest left vertex, and so on and so forth until we finish a tree. This defines a unique tree.
+\subsubsection{Proving these correspondences are the same}
+We have that if we have a tree $T$, then the sequence we get out from the first operation $s$ eats the tree and is also a Dyck path. This means that the number of $2$s is at least the number of zeroes in every prefix. Therefore, it is the unique starting point for the cycle. Then with this cycle, doing the operation above recreates the tree by design.
+
+If we have a sequence, then doing the operation above is just a cyclic shift of the sequence. Therefore, pulling out the tree that comes out and decomposing it will yield a cyclic shift of the sequence. 
+
+\subsection{c}
+Therefore, there is a bijection between $B_{2n}$ and $C_n$. Therefore, $|B_{2n}| = |C_n| = \mathcal{C}_{n - 1}$. Therefore, $\mathcal{C}_n = |B_{2n + 2}|$. 
+
+n.b. A similar question was on a FIT3155 assignment, written by Arun S. Konagurthu.
+\section{Question 4}
+
+It is obvious that $L_n = 0$ when $n < r(r+1)/2$ as there are not enough logs to reach the top, and $L_{r(r+1)/2} = 1$. 
+
+We can divide up the logs into three sections. We have, on the left, a section of ascending logs, in the centre a pyramid, to the right of the centre some logs of the same height, and a series of decending logs.
+
+Now let us understand the generating function for the left. We have $n$ (right-leaning) columns that go up to $n-1$. If there are $n$ logs on the left of the pyramid, then the generating function will be the number of partitions of $n$ where each part has size at most $r - 1$. 
+
+Now the generating function for this is:
+\begin{equation}
+	M_{r - 1}(x) = \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right).
+\end{equation}
+as we count parts of size up to $r - 1$, so we truncate at $r -1$. By the same argument above, the generating function for the right-leaning side of the pyramid are the number of partitions of $n$ where each part has size at most $r$.
+\begin{equation}
+	M_{r}(x) = \prod_{k = 1}^{r} \left(\frac{1}{1 - x^k}\right).
+\end{equation}
+
+From rule 2, we have that:
+\begin{equation}
+	[x^n] M_{r-1} (x) M_{r}(x)
+\end{equation}
+is the number of ways to partition $n$ into $k$ logs on the left, $n - k$ logs on the right and all ways to combine the two logs. Therefore, we have that:
+\begin{equation}
+	M_{r-1} (x) M_{r}(x) = \left(\frac{1}{1 - x^r}\right) \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right)^2 
+\end{equation}
+Now to include the triangle in the centre, all we need to do is multiply by $x^\ell$ where $\ell$ is the number of logs in the centre. This is just the triangle number of $r$ which is $r(r + 1)/2$. Therefore, we have that:
+
+\begin{equation}
+	L(x) = x^{\frac{r(r + 1)}{2}} \left(\frac{1}{1 - x^r}\right) \prod_{k = 1}^{r - 1} \left(\frac{1}{1 - x^k}\right)^2.
+\end{equation}
+\section{Question 5}
+
+We use cards, decks and hands to solve this problem.
+
+Each card will be a queue with people from $1...n$. Then each queue will have $n!$ ways to permute the people, so the deck enumerator is $D(x) = \sum_{n \geq 1} x^n n!/n! = \frac{x}{1-x}$. 
+Then the hand enumerator
+\begin{equation}
+	H(x,y) = e^{y D(x)} = \exp\left( \frac{yx}{1-x}\right).
+\end{equation}
+where $[x^n/n! y^k] H(x,y)$ is the number of ways to have unordered $k$ queues from $n$ people. But we want that these queues have a circular order, therefore we look at the queue with $1$ in it and make that one the start. Then there are $(k - 1)!$ queues, so we integrate and divide by $y$ and treat $H(x, y)$ like an egf on $y$. We have that $\int a_n y^n/y \, dy = \frac{1}{n} a_n y^n + c$, so if we want to multiply by $(k - 1)$, we divide by $k$ first and then multiply by $k!$. The way to multiply by $k!$ is to take the summations of the partial derivatives when $y = 0$ so we have that $a_n y^n$ extracts out the term $n! a_n$. 
+
+We first divide by $n$ so we can multiply by $n!$ to get out $(n - 1)$. So we have that:
+\begin{equation}
+	G(x,y) = \int \frac{H(x, y) - 1}{y} \, dy
+\end{equation}
+To remove the $y$ term, we treat $y$ as an egf variable. To extract out properly, we take partial derivatives at $y = 0$ to extract out the coefficients.
+\begin{equation}
+	G(x) = \sum_{n \geq 0} D^n_y(G(x, y))|_{y = 0}.
+\end{equation}
+We have that $D^n_y(G(x, y))|_{y = 0} = \frac{x^n}{n(1 - x)^n}$ when $n \geq 1$, and $0$ when $n = 0$. 
+So we have that:
+\begin{equation}
+	\sum_{n = 1}^{\infty} \frac{x^n}{n(1 - x)^n} = - \log(1 - \frac{x}{1-x}) = \log(1-x) - \log(1-2x).
+\end{equation}
+Now we look at the coefficients of the form above. We have that 
+\begin{equation}
+	[x^n]\log(1 - x) - \log(1 - 2x) = \frac{2^n}{n} - \frac{1}{n}= \frac{2^{n} - 1}{n}.
+\end{equation}
+Therefore, we have that:
+\begin{equation}
+	m_n = [x^n/n!] \log(1 - x) - \log(1 - 2x) = (n-1)! (2^n - 1).
+\end{equation}
+\section{Question 6}
+
+\subsection{a}
+We have that the total number of games is $\binom{n}{3}$. We have that the number of schedules is $T_n := \binom{n}{3}^n$, where we allow conflicts. Therefore, the proportion of schedules where players 1 and 2 play together in the first game is the same as the proportion of games where $1$ and $2$ play together out of all games. 
+
+We have that the games where $1$ and $2$ play together are of the form $\{ 1, 2, k\}$ where $k \in [3, ..., n]$. There are $(n-2)$ of these games.
+Therefore, the proportion is:
+\begin{equation}
+	\frac{(n-2)}{\binom{n}{3}} = \frac{(n-2)}{\frac{n(n-1)(n-2)}{6}} = \frac{6}{n(n-1)}.
+\end{equation}
+
+\subsection{b}
+The number of games where player 1 and player 2 never play a game together is:
+\begin{equation}
+	\binom{n}{3} - (n-2)
+\end{equation}
+using the same logic above. Therefore, the number of schedules where player 1 and 2 never play a game together is:
+\begin{equation}
+	\left(\binom{n}{3} - (n-2)\right)^n.
+\end{equation}
+Then the proportion of games where $1$ and $2$ never play together is:
+\begin{equation}
+	\frac{\left(\binom{n}{3} - (n-2)\right)^n}{\binom{n}{3}^n} = \left(1 - \frac{(n-2)}{\binom{n}{3}}\right)^n = \left(1 - \frac{6}{n(n-1)}\right)^n.
+\end{equation}
+Now we have that
+\begin{equation}
+	\left(1 - \frac{6}{n(n-1)}\right)^n = \exp\left( n \log \left(1 - \frac{6}{n(n-1)}\right) \right) = \exp \left(n O(1/n^2)\right) = \exp( O(1/n)) = e^{o(1)} = (1 + o(1))
+\end{equation}
+therefore, we have that the number of schedules where 1 and 2 never play together is asymptotic to the number of schedules. 
+
+\subsection{c}
+We have that the number of games where no player in $[k] := \lbrace 1, 2, ..., k \rbrace$ plays together is:
+\begin{equation}
+	\underbrace{\binom{n - k}{2} k}_{\text{number of ways to choose two players not in $[k]$ and one from k}} + \underbrace{\binom{n-k}{3}}_{\text{number of ways to choose no players from $[k]$ }}
+\end{equation}
+Therefore, the proportion of games where no player in $[k]$ plays together is:
+\begin{equation}
+	\left(\binom{n - k}{2} k + \binom{n-k}{3}\right)^n \binom{n}{3}^{-n} = \left(\frac{\binom{n-k}{2} k}{\binom{n-k}{3}} + 1\right)^n \left(\frac{\binom{n-k}{3}}{\binom{n}{3}}\right)^n
+\end{equation}
+
+We have that:
+\begin{align*}
+	&= \left(\frac{\binom{n-k}{3}}{\binom{n}{3}}\right)^n\\
+	&= \left( \frac{\frac{(n-k)(n-k - 1)(n - k - 2)}{6}}{\frac{n(n-1)(n-2)}{6}}  \right)^n\\
+	&= \left(\frac{n-k}{n} \frac{n-k - 1}{n - 1} \frac{n - k - 2}{n - 2}\right)^n\\
+	&= \left(1 - k/n\right)^n \left(1 - k/(n - 1)\right)^n \left(1 - k/(n-2)\right)^n
+\end{align*}
+Taking the log (will take exponential later), we have that this is equal to:
+\begin{equation}
+	n \left( \log(1 - k/n) +  \log(1 - k/(n-1)) + \log(1 - k/(n-2)) \right)
+\end{equation}
+and this is asymptotic to 
+$n \left(3 \log(1 - k/n)\right)$ as we have that for large $n$, $1/n$ is asymptotic to $1/(n + o(1))$.
+
+Now we have that:
+\begin{align*}
+	&\left(\frac{\binom{n-k}{2} k}{\binom{n-k}{3}} + 1\right)^n\\
+	&= \left(\frac{(n-k)(n - k - 1)k}{2} \frac{6}{(n - k)(n - k - 1)(n - k - 2)} + 1\right)^n\\
+	&= \left(\frac{3k}{n - k - 2} + 1\right)^n
+\end{align*}
+Taking the logs again, we have that this is
+\begin{equation}
+	n \log(1 + \frac{3k}{n - k - 2})
+\end{equation}
+Therefore, the log of the proportion is:
+\begin{equation}
+	n \left( 3 \log(1 - k/n) + \log\left(1 + \frac{3k}{n - k - 2}\right)\right)
+\end{equation}
+
+\subsubsection{i}
+Now suppose $k \sim n^{1/4}$.
+Take the log expansion of
+$\log(1 - k/n) = -k/n + O(k^2/n^2)$ and $\log\left(1 + \frac{3k}{n - k - 2}\right) = \frac{3k}{n - k - 2} + O(k^2/(n- k)^2)$. 
+
+Then we have that:
+\begin{align*}
+	n \left( 3 \log(1 - k/n) + \log\left(1 + \frac{3k}{n - k - 2}\right)\right) &= n \left(- 3k/n + 3k/(n - k - 2) + O(k^2/(n - k)^2)\right) \\
+	&= -3k + 3kn/(n - k - 2) + O(k^2/(n - k)).
+\end{align*}
+
+We have that $3kn/(n - k - 2) = 3k/(1 - k/n - 2/n) = 3k(1 + O(k/n)) = 3k + O(k^2/n) =  3k + o(1)$. 
+Now taking the exponential and the fact that $O(k^2/(n - k)) = O(1/\sqrt{n}) = o(1)$, we have the proportion is:
+
+\begin{equation}
+	\frac{e^{3k}}{e^{3k}} = 1. 
+\end{equation}
+
+\subsubsection{ii}
+Suppose $k \sim \sqrt{n}$. 
+Take the log expansion 
+$\log(1 - k/n)  = -k/n - \frac{k^2}{2n^2} + O(k^3/n^3)$, and $\log\left(1 + \frac{3k}{n - k - 2}\right) = \frac{3k}{n - k - 2} - \frac{9k^2}{2(n - k - 2)^2} + O(k^3/(n - k)^3)$. 
+
+Then:
+\begin{align*}
+	&n \left( 3 \log(1 - k/n) + \log\left(1 + \frac{3k}{n - k - 2}\right)\right) \\
+	&= n \left(-3k/n - 3k^2/2n^2 + \frac{3k}{n - k - 2} - \frac{9k^2}{2(n - k - 2)^2} + O(k^3/(n - k)^3)\right)\\
+	&= -3k - 3k^2/2n + \frac{3kn}{n - k - 2} - \frac{9k^2 n}{2(n - k - 2)^2} + O(k^3/(n - k)^2)
+\end{align*}
+Now we have that $\frac{3kn}{n - k - 2}  \sim 3k$ from the argument above, and $\frac{9k^2 n}{2(n - k - 2)^2} = \frac{1}{n} \frac{9 k^2}{2(1 - k/n - 2/n)^2} = \frac{9k^2}{2n}(1 + O(k/n)) = \frac{9k^2}{2n} + o(1)$. Therefore, taking the exponent of both sides, we have that this is:
+\begin{equation}
+	\frac{e^{3k} }{e^{3k + 3k^2/(2n) + 9k^2/(2n)}} = e^{-6 k^2/n}
+\end{equation}
+and as $k \sim \sqrt{n}$, so $k^2/n \sim 1$, then this becomes $e^{-6}$. 
+
+\subsection{d}
+Fix distinct players $x, y, z$ such that $x$ has a conflict with $y$ and $x$ has a conflict with $z$. One scenario is that there are players (not necessarily distinct) and games $G_i = (x, y, a)$, $G_j = (x, y, b)$, $G_k = (x, z, c)$, $G_\ell = (x, z, d)$. 
+The number of ways to choose the placement of $G_i, G_j, G_k, G_\ell$ in the schedule is $\binom{n}{4}$, the number of ways to choose $a, b, c, d$ is $(n - 2)^4$, the number of ways to choose the other games is $\binom{n}{3}^{n - 4}$, and the number of ways to choose distinct $x, y, z$ is $n(n - 1)(n-2)$. Putting this together, the proportion of schedules is this:
+\begin{align*}
+	&\frac{\binom{n}{4} (n-2)^4 \binom{n}{3}^{n - 4} n (n-1)(n-2)}{\binom{n}{3}^n}\\
+	&= \frac{n(n-1)(n-2)(n-3) (n-2)^4 n (n-1)(n-2)}{24 \binom{n}{3}^4}\\
+	&= \frac{n(n-1)(n-2)(n-3) (n-2)^4 n (n-1)(n-2) 6^4 }{24 n^4 (n-1)^4 (n-2)^4}\\
+	&= \frac{(n - 2)^2 (n - 3) 6^3}{4 n^2 (n-1)^2}\\
+	&= O(1/n).
+\end{align*}
+
+\subsection{e}
+Fix distinct $x, y$ and suppose $G_1 = (x, y, a)$ and $G_2 = (x, y, b)$, where $a $ and $b$ are not necessarily distinct. We have that there are $\binom{n}{2}$ ways to choose $x,y$ and there are $(n-2)^2$ ways to choose $a$ and $b$. So we have that the fraction is:
+\begin{equation}
+	\frac{\binom{n}{2} (n - 2)^2}{\binom{n}{3}^2} = \frac{36 n (n-1) (n-2)^2 }{2 n^2 (n-1)^2(n-2)^2} = \frac{18}{n (n-1)} \sim \frac{18}{n^2}
+\end{equation}
+
+\subsection{f}
+Suppose we have games $G_1, ..., G_j$ such that $|G_1 \cup G_2 \cup ... \cup G_j| = k$. We assume that $3 < j \ll 3k$ in this scenario. Then we choose $k$ candidates and assign them to $3j$ different rounds, ordering each player $1, 2, ..., 3j$. The number of ways to do this is roughly $(3j)^k$, which does not take into account the fact that all candidates must be in at least 1 round and cannot be twice in the same round. However, the number of ways to choose $k$ candidates is $[n]_k  = O(n^k)$ for fixed $k$. Therefore, we have that the number of ways to choose $G_1, ..., G_j$ with cardinality $k$ (when $k$ is large enough) is $O(n^k)$. 
+\par
+If $G_1, G_2, G_3$ are games that have cardinality $5$, then we can have $G_1 = (x, y, z)$, $G_2 = (x, y, a)$ and $G_3 = (y, z, b)$. This is the largest number such that there is a conflict between $G_1$ and $G_2$ and $G_2$ and $G_3$. Therefore, we have that there are $O(n^5)$ different games. But we can (with symmetry) pick any two other positions for $G_2$ and $G_3$ so there are $\binom{n - 1 }{2} = O(n^2)$ positions that the other 2 games $G_1$ is conflicted with. Then we have that there are:
+\begin{equation}
+	\frac{O(n^5) O(n^2)}{\binom{n}{3}^3} = \frac{O(n^7)}{O(n^9)} = O(\frac{1}{n^2}).
+\end{equation}
+
+\subsection{g}
+We will use Inclusion-Exclusion and the Poisson Principle to solve this problem. 
+Let $A$ be the set of all schedules, $|A| = \binom{n}{3}^n$. 
+Let $P_{i,j}$ be the property that two distinct games $i, j$ are conflicted. The number of properties is $\binom{n}{2}$, and let $S$ be the set of all properties. 
+Fix $k$ to be an integer. 
+Let $Y \subseteq S$ where $|Y| = k$. Then say $Y$ is good if for every $P_{i, j}$ the games are different games, and bad if there are two properties $P_{i, j}, P_{i, \ell} \in Y$. 
+
+Let us calculate the number of games for each fixed good $|Y|$. For a property $P_{i, j}$, we have that games $G_i$ and $G_j$ are of the form $(x, y, a)$ and $(x, y, b)$ respectively. The number of ways that this can happen is if we have that $x, y$ are distinct without order, so there are $n(n-1)/2$ ways to choose $x, y$ and $a, b$ are distinct from $x, y$ but not distinct from each other, so we can choose $a, b$ from $(n-2)^2$ options. This is for each $k$.
+
+We also have that there are $\binom{n}{3}^{n - 2k}$ other games that are not part of the original games, so we have for a fixed $Y \subseteq S$, that the number of games that have $Y$'s properties are:
+\begin{equation}
+	N_\geq(Y) = \binom{n}{3}^{n - 2k} \left[ \binom{n}{2} (n - 2)^2 \right]^k = \binom{n}{3}^n \frac{1}{\binom{n}{3}^{2k}} \frac{n^{k} (n - 1)^{k} (n - 2)^{2k}}{2^{k}} = \binom{n}{3}^n 18^{k} \frac{1}{n^k(n-1)^k}
+\end{equation}
+
+
+Then if we were to choose the properties in order, then we would have that the first property has $\binom{n}{2}$ games to choose from, the second property has $\binom{n-2}{2}$ and so on until $\binom{n-k}{2}$. Therefore, the total number of "good" combinations we can choose from is:
+\begin{equation}
+	\binom{n}{2} \times \binom{n-2}{2} \times ... \times \binom{n - k}{2} = \frac{n(n -1) (n - 2) ... (n - 2k + 1)(n - 2k))}{2^k} = \frac{n^{2k}}{2^k}
+\end{equation}
+as we have that $k$ is fixed relative to $n$. 
+If we disregard order, then we divide by $k!$, so the total number of $Y$ is
+\begin{equation}
+	\sum_{Y \subseteq S, |Y| = j} N_\geq(Y) = \binom{n}{3}^n 18^{k} \frac{1}{n^k(n-1)^k}\frac{n^{2k}}{2^k k!} \sim \binom{n}{3}^n \left(9\right)^k \frac{1}{k!}.
+\end{equation}
+
+Now if $Y$ is bad, then the number of $Y$ is of $o(\left(9\right)^k \frac{1}{k!})$.
+
+Consider what happens when $Y$ is bad. This means that we choose $k$ properties such that two games intersect. The total number ways that $k$ properties could intersect is $\binom{n(n - 1)/2}{k} \sim (n^2/2)^k/k!$, but the number of good schedules is $\frac{n^{2k}}{2^k}\frac{1}{k!} = (n^2/2)^k/ k!$. Therefore, the number of ``bad'' schedules is much smaller than the number of ``good''  schedules as the proportions between good schedules and all schedules become the same with large $n$. 
+
+Therefore, using the Poisson principle, we have that the proportion of schedules with no clashes is, (fixing $\lambda = 9$, $r = 0$)
+\begin{equation}
+	\frac{1}{N} N_=(\emptyset) = e^{-9}.
+\end{equation}
+or roughly 1\% of all games.
+This also tells us that on average, we see around 9 conflicts as $n$ grows large. 
+
+\section{Question 7}
+Find an asymptotic formula for:
+\begin{equation}
+	\sum_{k = 0}^n \binom{3n - k}{k} 2^k.
+\end{equation}
+Let $a_k := \binom{3n - k}{k} 2^k = \frac{(3n - k)!}{k! (3n - 2k)!} 2^k$.
+We have that:
+\begin{align*}
+	a_{k + 1} &= \frac{(3n - k - 1)!}{(k + 1)! (3n - 2k - 2)!} 2^{k + 1}\\
+	\frac{a_{k + 1}}{a_k} = \frac{(3n - 2k)(3n - 2k - 1) 2}{(k + 1)(3n - k)}
+\end{align*}
+Setting $\frac{a_{k + 1}}{a_k} = 1$ to find the peak, we have that:
+\begin{equation}
+	(3n - 2k)(3n - 2k - 1) 2 = (k + 1)(3n - k)
+\end{equation}
+
+Plugging this equation into WolframAlpha and solving for $k$, we have that:
+\begin{equation}
+	k = \frac{1}{18}\left(- \sqrt{81 n^2 + 54 n + 25} + 27 n + 5\right)
+\end{equation}
+and expanding out $\sqrt{81 n^2 + 54 n + 25} = 9 n(1 + o(1))$, we have that
+$k \sim n$. 
+
+Around $n$, we have that $\binom{3n - k}{k} 2^k$ approximates a symmetric function. So we need to evaluate the summation
+\begin{equation}
+	\frac{1}{2}\sum_{y = n - M}^{n + M} \binom{3n - y}{y} 2^y
+\end{equation}
+and show that the tail $\sum_{k = 0}^{n - M} \binom{3n - k}{k} 2^k$ is negligible.
+
+\subsection{Evaluating main sum}
+Now let $z = y - n$. We have that the summation becomes:
+\begin{equation}
+	\sum_{z = -M}^M \binom{2n - z}{n + z} 2^n 2^z = \sum_{z = -M}^M\frac{(2n - z)!}{(n + z)! (n - 2z)!} 2^{n + z}. 
+\end{equation}
+
+Now we have that by Stirling:
+\begin{align*}
+	(2n - z)! &\sim (2n - z)^{2n-z}/e^{2n - z} \sqrt{2 \pi (2n-z)}\\
+	(n + z)! &\sim (n + z)^{n + z}/e^{n + z} \sqrt{2 \pi (n + z)}\\
+	(n - 2z)! &\sim (n - 2z)^{n - 2z}/e^{n - 2z} \sqrt{2 \pi (n -2z)}
+\end{align*}
+so we have that the total sum becomes:
+\begin{align*}
+	&\sum_{z = -M}^M \frac{(2n - z)^{2n - z}}{(n + z)^{n + z} (n - 2z)^{n - 2z}} \frac{e^{n + z} e^{n - 2z}}{e^{2n - z}} \frac{\sqrt{2\pi (2n - z)}}{\sqrt{2\pi (n + z)} \sqrt{2\pi (n - 2z)}} 2^{n} 2^z \\
+	&= \frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M \frac{(2n - z)^{2n - z}}{(n + z)^{n + z} (n - 2z)^{n - 2z}} \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z
+\end{align*}
+
+Now we have that when $M = o(n^{2/3})$,
+\begin{align*}
+	(2n - z)^{2n-z}  &=  (2n)^{2n-z} \exp(-z + z^2/4n + O(z^3/n^2)) = (2n)^{2n-z} \exp(-z + z^2/4n)\\
+	(n + z)^{n + z} &= n^{(n + z)} \exp(z + \frac{1}{2} z^2/n + O(z^3/n^2)) = n^{(n + z)} \exp(z + \frac{1}{2} z^2/n) \\
+	(n - 2z)^{n - 2z} &= n^{n -2z} \exp\left( (n - 2z) \log(1 - 2z/n)\right)\\
+	&= n^{n -2z} \exp\left( (n - 2z) (-2z/n - 2z^2/n^2 + O(z^3/n^3))\right)\\
+	&= n^{n -2z} \exp\left( -2z + 2z^2/n + O(z^3/n^2)\right) = n^{n -2z} \exp( -2z + 2z^2/n)
+\end{align*}
+Therefore, we have that the sum becomes:
+\begin{align*}
+	&\frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M \frac{(2n)^{2n-z} \exp(-z + z^2/4n) }{n^{(n + z)} \exp(z + \frac{1}{2} z^2/n) n^{n -2z} \exp( -2z + 2z^2/n) } \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
+	&= \frac{1}{\sqrt{2\pi}}\sum_{z = -M}^M 2^{2n-z} \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}} 2^{n} 2^z\\
+	&= \frac{2^{3n}}{\sqrt{2\pi}} \sum_{z = -M}^M  \exp(- 9z^2/4n) \sqrt{\frac{2n - z}{(n + z)(n - 2z)}}
+\end{align*}
+We have that as $z = o(n^{2/3})$, then
+\begin{align*}
+	\sqrt{\frac{2n - z}{(n + z)(n - 2z)}} &= \sqrt{1/(n + z) + 1/(n - 2z)}\\
+	 &= \frac{1}{\sqrt{n}} \sqrt{1/(1 + z/n) + 1/(1 - 2z/n)}\\
+	 &= \frac{1}{\sqrt{n}} \sqrt{1 -z/n + 1 + 2z/n + O(z^2/n^2)}\\
+	 &= \frac{1}{\sqrt{n}} \sqrt{2 + o(1)}\\
+	 &= \frac{\sqrt{2}}{\sqrt{n}} 
+\end{align*}
+Therefore, we have that the summation is:
+\begin{equation}
+	\frac{2^{3n}}{\sqrt{\pi n}} \sum_{z = -M}^M  \exp(- 9z^2/4n) 
+\end{equation}
+and using the fact that $ M = n^{2/3}$, we can use the fact that $\alpha(n) = 9/(4n)$ and we have that $M \alpha \rightarrow 0$, $M \sqrt{\alpha} \rightarrow \infty$ to yield:
+\begin{equation}
+	\frac{2^{3n}}{\sqrt{\pi n}} \sum_{z = -M}^M  \exp(- 9z^2/4n)  = \frac{2^{3n}}{\sqrt{\pi n}} \sqrt{\frac{4 \pi n}{9}} = \frac{2}{3} 2^{3n}
+\end{equation}
+Therefore, we have that the summation:
+\begin{equation}
+	\sum_{y = n - M}^n \binom{3n - y}{y} 2^y = \frac{1}{2} \sum_{y = n - M}^{n + M}\binom{3n - y}{y} 2^y = \frac{2^{3n}}{3}
+\end{equation}
+\subsection{Tail is negligible}
+To show that the tail is negligible, we want to show
+\begin{equation}
+	\sum_{k = 0}^{n^{2/3}}\binom{3n - k}{k} 2^k = o(S)
+\end{equation}
+where $S$ is the sum above. 
+We have that at $n^{2/3}$, the term above is at most $\left(\frac{e(3n - n^{2/3})}{n^{2/3}}\right)^{n^{2/3}} 2^{n^{2/3}}$, as we have that $\binom{n}{k} \leq \left(\frac{n \cdot e}{k}\right)^k$ (from Wikipedia). Now we have that this is at most $(3e \cdot n^{1/3})^{n^{2/3}} 2^{n^{2/3}} = (6e)^{n^{2/3}} n^{n^{2/3}/3}$, so the full summation is bounded above by:
+\begin{equation}
+	(6e)^{n^{2/3}} n^{n^{2/3}/3} n^{2/3}.
+\end{equation} 
+But notice that $(2^n)^3$ bounds the product of each of these terms as when taking logs of both equations, we have a $3n$ term out but the largest term out is a $ n^{2/3} \log n$ which is asymptotically much smaller. Therefore, we have that the term above is of $o(S)$. Therefore, the tail is negligible. 
+\section{Question 8}
+\subsection{a}
+We shall use cards, decks and hands. Each card will be a standard deck with a number in $[n]$ in the centre. Now we have that the number of decks is $n$ for each $n \geq 1$, therefore the deck enumerator is $D(x) = \sum_{n \geq 1} n \frac{x^n}{n!} = \sum_{n \geq 1} \frac{x^n}{(n - 1)!} = x e^x$. 
+Therefore, the egf for the number of labelled galaxies is $f(x) = e^{D(x)} = e^{x e^x}$. 
+
+\subsection{b}
+Now we have that for all $r > 0$, $r \in \mathbb{R}$, we have that:
+\begin{equation}
+	[z^n] f(z) \leq r^{-n} f(r).
+\end{equation}
+To find the minimum, take $D \log$ of $r^{-n} f(r)$. We have that this is $D(-n \log r + r e^r) = 0$, or 
+\begin{equation}
+	-n/r + e^r + r e^r = 0.
+\end{equation}
+Therefore, we have that:
+\begin{equation}
+	-n + r e^r + r^2 e^r = 0
+\end{equation}
+or that:
+\begin{equation}
+	r (r + 1) e^r = n.
+\end{equation}
+Therefore, the saddlepoint upper bound of $[x^n] f(x)$ is at $r(n)$, so the saddlepoint upper bound of $[x^n] f(x)$ is
+\begin{equation}
+	[x^n] f(x) \leq r(n)^{-n} e^{r(n) e^{r(n)}}
+\end{equation}
+ where $r(n)$ is defined in the question. 
+
+\subsection{c}
+We will evaluate the integral 
+\begin{equation}
+	[z^n] f(z) = \frac{1}{2 \pi i }\oint_C f(z)/z^{n + 1} dz =  \frac{1}{2\pi}\int_{-\pi}^{\pi} g(\theta) \, d\theta
+\end{equation}
+where $ g(\theta) := \frac{f(r e^{i \theta})}{r^n e^{i n \theta}}$.
+
+Therefore,
+\begin{equation}
+	g(\theta) = \frac{e^{r e^{i \theta + r e^{i \theta}}}}{r^n e^{i n \theta}}
+\end{equation}
+
+Taking the log of $g$, we have that:
+\begin{equation}
+	\log(g(\theta)) = (r e^{i \theta + r e^{i \theta}}) - n \log r - i n \theta. 
+\end{equation}
+We have that $e^{i \theta} =  1 + i \theta - \frac{\theta^2}{2} + O(\theta^3)$. So we have that:
+\begin{equation}
+	\log(g(\theta)) = (r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) - n \log r - i n \theta. 
+\end{equation}
+
+Expanding out, we get that:
+\begin{equation}
+	 (r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) = r e^r e^{(r + 1) i \theta- \frac{\theta^2 r}{2} + O(r\theta^3)}.
+\end{equation}
+Expanding out, we have that:
+\begin{equation}
+	e^{(r + 1) i \theta- \frac{\theta^2 r}{2} + O(r\theta^3)} = 1 + (r + 1) i \theta - \frac{\theta^2 r}{2} - \frac{(r + 1)^2 \theta^2}{2} + O(r^2 \theta^3)
+\end{equation}
+Therefore, we have:
+\begin{equation}
+	(r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) = r e^r + r(r + 1) e^r i \theta - r e^r \frac{r + (r + 1)^2 }{2} \theta^2 + O(r^2 \theta^3).
+\end{equation}
+We have that $r(r + 1) e^r = n$, so we have that:
+\begin{equation}
+	(r e^{i \theta + r ( 1 + i \theta - \frac{\theta^2}{2} + O(\theta^3))}) = r e^r + n i \theta - \frac{r^2 e^r + (r + 1) n}{2} \theta^2 + O(r^2 \theta^3).
+\end{equation}
+Therefore, we have that
+\begin{equation}
+	\log(g(\theta)) = r e^r - \frac{r^2 e^r + (r + 1) n }{2} \theta^2 - n \log r + O(r^2 \theta^3).
+\end{equation}
+Therefore, we have that from integrating $e^{\log g(\theta)}$ between $-n^{-2/5}$ and $n^{-2/5}$, 
+\begin{align*}
+	\frac{1}{2 \pi}\int_{-n^{-2/5}}^{n^{-2/5}} e^{\log g \theta} \, d\theta &= \frac{e^{r e^r}}{2 \pi r^n} \int_{-n^{-2/5}}^{n^{-2/5}} e^{- \frac{r^2 e^r + (r + 1) n }{2} \theta^2 + o(1)} \, d\theta\\
+	&=  \frac{e^{r e^r}}{ 2 \pi r^n} \int_{-n^{-2/5}}^{n^{-2/5}} e^{- \frac{r^2 e^r + (r + 1) n }{2} \theta^2 + o(1)} \, d\theta\\
+	&= \frac{e^{r e^r}}{2 \pi r^n}\sqrt{\frac{2\pi}{r^2 e^r + (r + 1) n}}\\
+	&= \frac{e^{r e^r}}{r^n \sqrt{r e^r + (r + 1)n} \sqrt{2\pi}}
+\end{align*}
+\subsubsection{Proving tails are negligible}
+We want to show that
+
+\begin{equation}
+	\frac{1}{2 \pi} \int_{n^{-2/5}}^\pi g(\theta) d\theta
+\end{equation}
+is comparatively negligible.
+\begin{equation}
+	g(\theta) = \frac{e^{r e^{i \theta + r e^{i \theta}}}}{r^n e^{i n \theta}}
+\end{equation}
+We have that $e^{i \theta + r e^{i \theta}} = e^{i \theta + r \cos \theta + r i \sin \theta} = e^{r \cos \theta} e^{i( \theta + r \sin \theta)} = e^{r \cos \theta}(e^{\cos(\theta + r \sin \theta)} + i \sin((\theta + r \sin \theta)) )$. 
+Therefore, we have that:
+
+\begin{equation}
+	|g(\theta)| = e^{r e^{r \cos \theta + \cos(\theta + r \sin \theta)} - n \cos \theta} r^{-n}< e^{r e^{r + 1} - n \cos(\theta)} r^{-n}. 
+\end{equation}
+We have that $e^{n \cos \theta} = e^n e^{- n \theta_0^2/2 + o(1)}$, therefore, we have that:
+\begin{equation}
+	\frac{1}{2 \pi} \int_{n^{-2/5}}^\pi g(\theta) d\theta = O(e^{r e^r + 1} e^{n} e^{-n^{1/5}/2} r^{-n} ) = o([z^n] f(z)).
+\end{equation}
+
+\subsubsection{Conclusion}
+Therefore, 
+\begin{equation}
+	[z^n] f(z) = \frac{e^{r e^r}}{r^n \sqrt{r e^r + (r + 1)n} \sqrt{2\pi}}
+\end{equation}
+
+\subsubsection{Counting galaxies}
+
+Now we want to count the number of galaxies. So we multiply by $n!$ and use Stirling's approximation. Let $m_n$ be the number of galaxies.
+\begin{align*}
+	m_n &= n!\frac{e^{r e^r}}{r^n \sqrt{r e^r + (r + 1)n} \sqrt{2\pi}}\\
+	&= \frac{e^{r e^r} n^n \sqrt{2 \pi n}}{ e^n r^n \sqrt{r e^r + (r + 1)n} \sqrt{2\pi}}\\
+	&= \frac{e^{r e^r - n}}{r^n} \sqrt{\frac{n}{r e^r + (r + 1)n }} n^n
+\end{align*}
+As we can write $r e^r - n = - r^2 e^r$, we have that:
+\begin{equation}
+	m_n = \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{n}{r e^r + (r + 1)n }} n^n
+\end{equation}
+and $n/(r e^r) = (r + 1)$. So we divide the top and bottom of the fraction by $r e^r$ to get:
+\begin{equation}
+	m_n = \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{(r + 1)}{1 + (r + 1)^2 }} n^n
+\end{equation}
+Asymptotically, $r$ goes to infinity, so $r + 1 \sim r$. Therefore, we have that:
+\begin{equation}
+	\sqrt{\frac{(r + 1)}{1 + (r + 1)^2}} \sim \sqrt{\frac{r}{1 + r^2}}.
+\end{equation}
+Therefore, we have that:
+\begin{equation}
+	m_n \sim \frac{e^{- r^2 e^r}}{r^n} \sqrt{\frac{r}{1 + r^2}} n^n.
+\end{equation}
+
+\subsection{d}
+From $r (r + 1) e^r = n$ and taking logs, we have that $r = \log(n) - 2\log(r)$ approximately. If we say that $r = O(\log n)$, then as $\log \log (n)$ and the summations is negligible, then we have that $r \sim \log(n)$.
+
+\subsection{e}
+We will use the bootstrapping method to find an additive bound. 
+We have that $r = \log(n) - 2 \log(O(\log n))$, so $r = \log n - O(\log \log n)$. Then we have that $r = \log(n) - 2 \log(\log (n) - O(\log \log n))$. Then we have that:
+\begin{equation}
+	r = \log(n) - 2 \log \log n - 2\log \left(1 -  O\left(\frac{\log \log n}{\log n}\right)\right).
+\end{equation}
+We have that $\log \left(1 -  O\left(\frac{\log \log n}{\log n}\right)\right) = O\left(\frac{\log \log n}{\log n}\right)$, so we have that:
+\begin{equation}
+	r = \log(n) - 2 \log \log n - O\left(\frac{\log \log n}{\log n}\right).
+\end{equation}
+As we have that $ O\left(\frac{\log \log n}{\log n}\right) = o(1)$, then we have that $g(n) = \log(n) - 2 \log \log n$. 
+\section{Question 9}
+\subsection{a}
+
+We will use Darboux's method to solve this equation. We have an algebraic singularity at $z = 1/2$, so we will use this fact to calculate Darboux's method.
+Let 
+\begin{equation}
+	b(z) = \frac{e^z \sqrt{1 - 2z}}{1 - z^3}.
+\end{equation}
+Then let 
+\begin{equation}
+	g(z) = b(z/2) = \frac{e^{z/2} \sqrt{1-z}}{1 - z^3/8}.
+\end{equation}
+We have that $[z^n] b(z) = 2^n [z^n] g(z)$. 
+
+Now we have for $g(z)$ an algebraic singularity at $z = 1$. Then we can use Darboux's theorem. We have that $g(z) = \frac{e^{z/2}}{1 - z^3/8} \sqrt{1 - z}$, and we can evaluate $f(z) := \frac{e^{z/2}}{1 - z^3/8} $ around the point where $z = 1$. 
+We have that $f(z) = f(1) - f'(1) (1 - z) + O((1 - z)^2)$. So we have $f(z) = \frac{8}{7}\sqrt{e} -  \frac{52}{49}\sqrt{e}(1-z) + O((1 - z)^2)$, so $g(z) = \frac{8}{7}\sqrt{e}(1 - z)^{1/2} -  \frac{52}{49}\sqrt{e}(1-z)^{3/2} + O((1 - z)^{5/2})$. 
+We have that $J = 1$, $J' = 1$, $\alpha = 1/2$, $\beta = 1$. We also have $z_0 = 1$.
+Then by Darboux's theorem, 
+\begin{equation}
+	[z^n] g(z) = \frac{8}{7}\sqrt{e} \binom{1/2}{n} (-1)^{-n} -  \frac{52}{49}\sqrt{e} \binom{3/2}{n}(-1)^n + O(n^{-7/2})
+\end{equation}
+Then we have that $\binom{1/2}{n} (-1)^{-n} = \frac{n^{-3/2}}{\Gamma(-1/2)}$ and  $\binom{3/2}{n} (-1)^{-n} = \frac{n^{-5/2}}{\Gamma(-3/2)}$. 
+We have that $\Gamma(1/2) = -1/2 \Gamma(-1/2) = \sqrt{\pi}$, so $\Gamma(-1/2) = - 2 \sqrt{\pi}$. We additionally have that $\Gamma[-1/2] = -3/2 \Gamma[-3/2] = -2 \sqrt{\pi}$, so $\Gamma[-3/2] = 4/3 \sqrt{\pi}$. Therefore, we have that:
+\begin{align*}
+	[z^n] g(z) &= \frac{8}{7}\sqrt{e} \frac{n^{-3/2}}{\Gamma(-1/2)} -  \frac{52}{49}\sqrt{e} \frac{n^{-5/2}}{\Gamma(-3/2)} + O(n^{-7/2})\\
+	&= -\frac{4 \sqrt{e}}{7 \sqrt{\pi}} n^{-3/2} - \frac{39 \sqrt{e}}{49\sqrt{\pi}} n^{-5/2} + O(n^{-7/2})
+\end{align*}
+So we have that:
+
+\begin{equation}
+	[z^n] b(z) = 2^n \left( -\frac{4 \sqrt{e}}{7 \sqrt{\pi}} n^{-3/2} - \frac{39 \sqrt{e}}{49\sqrt{\pi}} n^{-5/2} + O(n^{-7/2})\right)
+\end{equation}
+For an asymptotic formula, we have that:
+\begin{equation}
+	[z^n] b(z) \sim -\frac{4 \sqrt{e}}{7 \sqrt{\pi}} n^{-3/2} 2^n
+\end{equation}
+\subsection{b}
+For an approximation with a relative error $o(1/n)$, we have that:
+\begin{equation}
+	b_n = 2^n ( a n^{-3/2} + b n^{-5/2} + O(n^{-7/2})),
+\end{equation}
+where $a$ and $b$ are the coefficients above. 
+Now multiply and divide by $2^n(a n^{-3/2} + b n^{-5/2})$. We have that this is:
+\begin{equation}
+	2^n(a n^{-3/2} + b n^{-5/2}) \frac{a n^{-3/2} + b n^{-5/2}}{a n^{-3/2} + b n^{-5/2} + O(n^{-7/2})}.
+\end{equation}
+Dividing both by $a n^{-3/2}$, we get:
+\begin{align*}
+	2^n(a n^{-3/2} + b n^{-5/2}) \frac{1 + b/(an)}{1 + b/(an) + O(n^{-2})}.
+\end{align*}
+We then expand out to have a relative error $(1 + b/(an)) (1 -b/(an) + O(n^{-2})) = 1 + O(n^{-2})$. As $O(n^{-2})  = o(1/n)$, then we have what we want. 
+
+\begin{equation}
+	[z^n] b(z) = 2^n \left( -\frac{4 \sqrt{e}}{7 \sqrt{\pi}} n^{-3/2} - \frac{39 \sqrt{e}}{49\sqrt{\pi}} n^{-5/2} + O(n^{-7/2})\right)
+\end{equation}
+\end{document}
