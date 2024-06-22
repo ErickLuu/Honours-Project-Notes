@@ -36,13 +36,9 @@ We wish to prove the following:
 \begin{conjecture}\label{conj:4-planar graphs}
 	For all graphs $G$ embedded on a surface $\Sigma$ of genus $g$, where there are $p$ distinguished faces on $G$, we have that $G$ can be embedded on $\leq f(g, p)$ pages.
 \end{conjecture}
-
 We first do the planar-nonplanar decomposition of $G$ first. 
-
 Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected components with adhesion at most 3.
-
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if $G$ is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle $(\leq)$ preserves all faces on $G$.
-
 In Robert's proof, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face $F$ which touches these vertices, the number of pages needed to embed $F$ is bounded. 
 
 \subsection{Graphs of bounded genus}
@@ -54,12 +50,13 @@ We shall prove this auxillary lemma for each $l$.
 \begin{lemma}
 	Let $(B_1, ..., B_n)$ be a path-decomposition of $G$ with path-width $k$. Let $x_1, ..., x_n$ be vertices in $G$ such that $x_i \in B_i$ for all $i$. Then we have that for any one-page embedding of $x_1, ..., x_n$, $G$ has a $k + 1$-page embedding. 
 \end{lemma}
-
 Now we will use the auxillary lemma to prove the above lemma.
 \begin{proof}
 	Suppose $G$ has this structure above, and every edge $e$ has a colour $\phi(e)$. 
-	Now we give every vertex in $B_i$ the colour $(b(v),  \phi(e))$. Then we have that when we have the book-embedding, the monochromatic $v_i$ form a 1-page book embedding. Therefore, we use the lemma above to form a bounded book-embedding, which is what we need. However, this relies on this unproven conjecture.
+	Now we give every vertex in $B_i$ the colour $(b(v),  \phi(e))$. Then we have that when we have the book-embedding, the monochromatic $v_i$ form a 1-page book embedding.
 \end{proof}
+However, the issue that we run into is that the number of times each face changes colour is bounded. Let $F$ be a face and suppose the edges are in some decomposition. We define a \textit{transition point} to be a point where, when traversing a face, we change colours. We wish to devise a systems such that every face we are dealing with has a bounded number of transision points.
+\todo{Write this proof more carefully.}
 
 \begin{theorem}
 	For all graphs $G$ of genus $g$, for all faces $F_1, ..., F_k$ of $G$, there exists a $f(g, k)$-page book embedding such that $F_i$ has $\leq h(g, k)$ transition points. 
