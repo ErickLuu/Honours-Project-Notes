@@ -16,9 +16,9 @@ In this section, we will prove that apex vertices can be added with a bounded in
 Therefore, adding $ \leq a$ apex vertices still maintains a bounded pagenumber.
 
 \section{Vortices on graphs}
-The most problematic section is dealing with vortices on surfaces. Recall that vortices are on graphs on surfaces. 
+The most problematic section is dealing with vortices\cref{ssec:Robertson_Seymour_Graph_Structure} on surfaces.
 
-From Heath and Istrail, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
+From Heath and Istrail\cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
 Let $G$ be a graph. We say that a vertex ordering $<$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
 As a consequence of Tutte's theorem, we have that every 4-connected planar graph is Hamiltonian and also every face of the embedding is preserved.
 \begin{theorem}
@@ -39,7 +39,7 @@ We wish to prove the following:
 We first do the planar-nonplanar decomposition of $G$ first. 
 Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected components with adhesion at most 3.
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if $G$ is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle $(\leq)$ preserves all faces on $G$.
-In Hickingbotham's proof, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face $F$ which touches these vertices, the number of pages needed to embed $F$ is bounded. 
+In Hickingbotham's proof\cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face $F$ which touches these vertices, the number of pages needed to embed $F$ is bounded. 
 \todo{Write this part more carefully}
 
 \subsection{Graphs of bounded genus}
