@@ -261,9 +261,9 @@ Similarly to treewidth, we have the following observation.
 \begin{lemma}
 	The pathwidth of $G$ is the largest pathwidth over all connected components.
 \end{lemma}
-We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is adjacent to a vertex on the path $P$. Alternatively, $G$ is a caterpillar if removing every leaf yields a path.
+We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is adjacent to a vertex on the path $P$. Alternatively, $G$ is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
 \begin{theorem}[Caterpillars]
-	Graphs have pathwidth at most 11 iff every connected component is a caterpillar. \todo{Add picture}
+	Graphs have pathwidth at most 11 iff every connected component is a caterpillar.
 \end{theorem}
 \begin{proof}[Caterpillars]
 	Suppose $G$ is a caterpillar. Denote $P =\left( p_1, p_2, ..., p_n\right)$ as the central path. The leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Define the bags as $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1.
@@ -271,8 +271,9 @@ We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is ad
 	If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
 	
 	\begin{figure}[h]
+		\centering
 		\input{chapters/figures/caterpillar-graph}
-		\caption{A caterpillar graph. Notice that the path $a - b - d - g - i$ is the main path and every other vertex is off.}
+		\caption{A caterpillar graph. Notice that the path $a - b - d - g - i$ is the central path.}
 		\label{fig:caterpillar}
 	\end{figure}
 
