@@ -75,7 +75,7 @@ This theorem also tells us that pagenumbers of planar graphs are bounded.
 	Let $G$ be a planar graph. Then $\pn(G) \leq 11$.
 \end{theorem}
 
-We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use the fact that all planar graphs are $4$-colourable \cite{appelEveryPlanarMap1989} and the fact that all 4-connected planar graphs are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}.
+We will use \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use the fact that all planar graphs are $4$-colourable \cite{appelEveryPlanarMap1989} and the fact that all 4-connected planar graphs are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}.
 
 \begin{theorem}[Tutte\cite{tutteTheoremPlanarGraphs1956}]\label{thm:4-connected_planar_ham_cycle}
 	All 4-connected planar graphs are Hamiltonian.
@@ -94,7 +94,7 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 
 
 \begin{proof}[Proof \cref{thm:Planar Graph Hickingbotham Bound}]
-	Let $G$ be planar. Then $G$ has a tree-decomposition of adhesion size at most $3$ with the torsos being $4$-connected, from \cref{lem:clique_sum_connected} However, this implies that the torsos are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}, thus the number of pages needed for each torso is $2$. Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most $2 \times 4 + 3 = 11$. 
+	Let $G$ be planar. Then $G$ has a tree-decomposition of adhesion size at most $3$ with the torsos being $4$-connected, from \cref{lem:clique_sum_connected}. However, this implies that the torsos are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}, thus the number of pages needed for each torso is $2$. Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most $2 \times 4 + 3 = 11$. 
 \end{proof}
 
 We will discuss the $K_5$-minor free case. If $G$ is $K_5$-minor free, then we do not need to worry about the GMST to form an upper bound. We will use Wagner's theorem.
