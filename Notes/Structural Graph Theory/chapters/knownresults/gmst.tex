@@ -74,10 +74,12 @@ The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is t
 
 The Wagner graph is given below.
 
-\usetikzlibrary {graphs.standard}
-\tikz \graph [clockwise] { subgraph C_n [n=8, --]
- 1--4;
- };
+\begin{figure}
+	\usetikzlibrary {graphs.standard}
+	\tikz \graph [simple] {
+		subgraph K_n [n=7, clockwise]; % create lots of edges
+	};
+\end{figure}
 
 \subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
 Given a graph $G$ and a tree-decomposition $\tree$, the \textit{torso} of a bag $B_x$ of $T$ is the graph $G\langle B_x \rangle$, obtained from $G[B_x]$ where $vw$ is a vertex in $G\langle B_x \rangle$ iff $v,w \in B_x \cap B_y$, where $y$ is any neighbour of $x$ in $T$. So the set $B_x \cap B_y$ for all neighbours $y$ of $x$ in $T$ is a clique in $G\langle B_x \rangle$.
