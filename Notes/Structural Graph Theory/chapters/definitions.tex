@@ -25,6 +25,22 @@ We say a graph $G$ is $k$-colourable if there exists a function $f: V(G) \righta
 
 Throughout this report, we use as shorthand for the set $[n] = \lbrace 1... n \rbrace$. 
 
+\subsection{Menger's theorem}
+Menger's theorem is an important theorem which we use throughout the report, so it is worth dedicating some time discussing its significance.
+
+Let $G$ be a graph and $A, B \subseteq V(G)$. An $AB$-path is a path in $G$ which starts in $A$ and ends in $B$ with no internal vertices in $A$ or $B$. An $AB$-connector is a set of interally-disjoint $AB$-paths. An $AB$-separator is a set $S$ such that $G - S$ contains no $AB$ path. Then:
+
+\begin{theorem}[Menger's theorem]
+	\label{thm:Menger}
+	The size of the smallest $AB$ separator of $G$ is equal to the largest $AB$-connector. 
+\end{theorem}
+
+Now take vertices $x, y$. Now let $A = N_G(x) \cup \{x\}$ and $B = N_G(y) \cup \{y\}$. Then the size of the smallest $AB$ separator implies that:
+\begin{theorem}[Menger's theorem, vertex-connectivity version]
+	\label{thm:Menger_Vertex}
+	$G$ is $k$-connected iff every pair of vertices has at least $k$ internally disjoint paths between. 
+\end{theorem}
+
 \section{Planar graphs}\label{sec:Planar graphs}
 We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. If $G$ is embedded on $\Sigma$, then $\Sigma$ is divided into regions where no edges cross. These regions are called \textit{faces}. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. We also say that the vertices and edges \textit{bound} a face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
 Let $F(G)$ be the set of faces of $G$ embedded on $\Sigma$. Then we have that:
