@@ -97,7 +97,12 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 	Let $G$ be planar. Then $G$ has a tree-decomposition of adhesion size at most $3$ with the torsos being $4$-connected, from \cref{lem:clique_sum_connected} However, this implies that the torsos are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}, thus the number of pages needed for each torso is $2$. Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most $2 \times 4 + 3 = 11$. 
 \end{proof}
 
-We will discuss the $K_5$-minor free case. If $G$ is $K_5$-minor free, then we do not need to worry about the GMST to form an upper bound. 
+We will discuss the $K_5$-minor free case. If $G$ is $K_5$-minor free, then we do not need to worry about the GMST to form an upper bound. We will use Wagner's theorem.
+
+\begin{theorem}[Wagner's theorem]
+	Every $K_5$-minor free graph is the clique sum of planar graphs and Wagner graphs, where the size of the cliques we sum over is at most 3.
+\end{theorem}
+Equivalently, if $G$ is $K_5$ minor free, then $G$ has a tree-decomposition $\tree$ where $\tree$ has adhesion at most 3, and every torso of $\tree$ is either planar or the Wagner graph. 
 \begin{theorem}
 	If $G$ is $K_5$-minor free, then $G$ has pagenumber $\leq 19$.
 \end{theorem}
