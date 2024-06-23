@@ -85,7 +85,7 @@ We will use the corollary \cref{corr:planar_graphs_4_connected_cliqesums}. We wi
 	All graphs are clique-sum trees of $k$-connected subgraphs with adhesion at most $k-1$.
 \end{lemma}
 \begin{proof}
-	We have that from Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} that if a graph $G$ is not $k$-connected, we can find a separator of size at most $k-1$ such that we have sets $A$ and $B$. Then we repeat this operation on $A$ and $B$ and we can construct a clique-sum tree where every component is $k$-connected and the adhesion size is at most $k-1$. 
+	If a graph $G$ is not $k$-connected, we can find a set $S$ of size at most $k-1$ such that $G - S$ is disconnected. Then we repeat this operation on the connected components of $G - S$, until each component either has $k-1$ vertices or is $k$-connected. So we can construct a clique-sum tree where every component is $k$-connected and the adhesion size is at most $k-1$. 
 \end{proof}
 
 \begin{corollary}\label{corr:planar_graphs_4_connected_cliqesums}
