@@ -16,10 +16,14 @@ In this section, we will prove that apex vertices can be added with a bounded in
 Therefore, adding $ \leq a$ apex vertices still maintains a bounded pagenumber.
 
 \section{Vortices on graphs}
-The most problematic section is dealing with vortices\cref{ssec:Robertson_Seymour_Graph_Structure} on surfaces.
+The most problematic section is dealing with vortices  on surfaces (for reference on vortices, see \cref{ssec:Robertson_Seymour_Graph_Structure}).
+
+We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vertex is added onto the face.
+Let $G$ be a graph. We say that a vertex ordering $<$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
+Preserved faces are very important. If $G$ is a graph embedded on a surface, with an ordering $(<)$
+
 
 From Heath and Istrail\cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
-Let $G$ be a graph. We say that a vertex ordering $<$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
 \begin{theorem}
 	Let $G$ be a planar graph. Then every Hamiltonian cycle in $G$ preserves all faces. 
 \end{theorem}
