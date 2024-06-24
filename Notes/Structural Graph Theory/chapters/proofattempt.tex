@@ -40,6 +40,7 @@ Preserved faces are very important, because of this lemma.
 	To add this book-embedding to $G_0$, we add the vertices that appear first in $B_i$ after the associated vertex $v_i$ in $G_0$ such that $v_i$ is on the face $F$ and $v_i \in B_i$. This is a book-embedding of $G$ requiring at most $\pn(G_0) + k + 1$ colours. 
 \end{proof}
 
+
 \subsection{Planar graphs}
 We have a result for planar Hamiltonian graphs, that gets us partially where we need to be. 
 \begin{theorem}
@@ -60,7 +61,7 @@ We first do the planar-nonplanar decomposition of $G$ first.
 Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected components with adhesion at most 3, from \cref{corr:planar_graphs_4_connected_cliqesums}. 
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if $G$ is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle $(\leq)$ preserves all faces on $G$.
 In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face $F$ which touches these vertices, the number of pages needed to embed $F$ is bounded. 
-\todo{Write this part more carefully}
+However, since we only move at most three vertices for every embedding, this means that we end up with 
 
 \subsection{Graphs of bounded genus}
 \begin{lemma}
@@ -75,12 +76,13 @@ Now we will use the auxillary lemma to prove the above lemma.
 	Suppose $G$ has this structure above, and every edge $e$ has a colour $\phi(e)$. 
 	Now we give every vertex in $B_i$ the colour $(b(v),  \phi(e))$. Then we have that when we have the book-embedding, the monochromatic $v_i$ form a 1-page book embedding.
 \end{proof}
+
+
 However, the issue that we run into is that the number of times each face changes colour is bounded. Let $F$ be a face and suppose the edges are in some decomposition. We define a \textit{transition point} to be a point where, when traversing a face, we change colours. We wish to devise a systems such that every face we are dealing with has a bounded number of paths.
 \todo{Write this proof more carefully.}
 
 \subsection{Non-planar decomposition}
-
-The main proof we wish to show is this:
+We wish to show this statement:
 \begin{theorem}
 	For all graphs $G$ of orientable genus $g$, for all faces $F_1, ..., F_k$ of $G$, there exists a $f(g, k)$-page book embedding such that $F_i$ has $\leq h(g, k)$ transition points. 
 \end{theorem}
