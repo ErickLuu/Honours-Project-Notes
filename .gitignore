@@ -12,3 +12,6 @@
 *.toc
 Notes/Structural Graph Theory/Presentation/svg-inkscape/*
 *.sta
+*.fdb_latexmk
+*.tdo
+*.fls

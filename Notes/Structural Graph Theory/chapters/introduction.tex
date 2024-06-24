@@ -11,7 +11,7 @@ The driving question of this report is the following:
 Answering this question will yield a link between the pagenumber of a graph and the global structure of the graph. This report currently lays out the literature related to this question. We use a result in one of the papers of the Graph Minor Theorem, which is the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}.
 
 In a PhD thesis, Blankenship claimed to have a proof of \cref{conj:bded_had_pn}.\cite{Blankenship-PhD03} However, this result has not been published in any journal and has not been independently verified. We aim to fill this gap in our knowledge. 
-\subsection{Plan for solving the problem}
+\section{Plan for solving the problem}
 We aim to solve the question using the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}, which describes the structure of graphs which do not contain a $K_t$ minor.
 \par
 Robertson and Seymour showed that we can build graphs with no $K_t$ minor from smaller building blocks. We first start with a graph $G$ embedded on a genus $g$ surface. Then we add on $p$ \textit{vortices} to $G$, with \textit{pathwidth} at most $k$. Then we add on $a$ \textit{apex vertices} to $G$. We say that $G$ is $(g, p, k, a)$-\textit{almost embeddable}. Robertson and Seymour \cite{robertsonGraphMinorsXVI2003} proved that all graphs with no $K_t$ minor are \textit{clique-sums} of $(g, p, k, a)$ almost-embeddable graphs, with $(g, p, k, a)$ depending on only $k$. 
