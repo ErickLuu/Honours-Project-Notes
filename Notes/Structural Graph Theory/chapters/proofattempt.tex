@@ -20,22 +20,23 @@ The most problematic section is dealing with vortices  on surfaces (for referenc
 
 We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vertex is added onto the face.
 Let $G$ be a graph. We say that a vertex ordering $<$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
-Preserved faces are very important. Let $G$ is a graph embedded on a surface with a vortex $G'$ with pathwidth $\leq k$ on a face $F$. We also have a book-embedding of $G - G'$ which preserves $F$. Then by \cref{thm:bded_treewidth_bded_pagenumber} we need only $k + 1$ extra pages to add $G'$. This is because we 
+Preserved faces are very important. Let $G$ is a graph embedded on a surface with a vortex $G'$ with pathwidth $\leq k$ on a face $F$. We also have a book-embedding of $G - G'$ which preserves $F$. Then by \cref{thm:bded_treewidth_bded_pagenumber}, we only need $k$ colours to add $G'$. This is because we colour each vertex such that no two vertices are assigned the same colour, and then we repeat the steps of the proof above. We can reuse the same $k$ colours for all vortices on preserved faces.
 
-
-From Heath and Istrail \cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
+\subsection{Planar graphs}
+We have a result for planar Hamiltonian graphs, that gets us partially where we need to be. 
 \begin{theorem}
 	Let $G$ be a planar graph. Then every Hamiltonian cycle in $G$ preserves all faces. 
 \end{theorem}
 
 \begin{proof}
-	 Let $C$ be the Hamiltonian cycle of $G$. Let $D$ be the natural circular ordering of these vertices by traversing $C$. Now as $G$ is planar, $C$ splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of $C$. But this means that every face must be preserved in $D$, as the surface we are dealing with is orientable and we can affix an orientation to every face $F$ such that the order of the vertices in the orientation is the same order as the orientation in $D$. Thus every face in this embedding is preserved. 
+	Let $C$ be the Hamiltonian cycle of $G$. Let $D$ be the natural circular ordering of these vertices by traversing $C$. Now as $G$ is planar, $C$ splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of $C$. But this means that every face must be preserved in $D$, as the surface we are dealing with is orientable and we can affix an orientation to every face $F$ such that the order of the vertices in the orientation is the same order as the orientation in $D$. Thus every face in this embedding is preserved. 
 	\input{"chapters/figures/4-connected-planar-graph with cycle"}
 	\todo{Make this image look like a Hamiltonian cycle in a planar graph.}
 \end{proof}
 As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face.
 
 
+From Heath and Istrail \cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
 We wish to prove the following:
 
 \begin{conjecture}\label{conj:4-planar graphs}
