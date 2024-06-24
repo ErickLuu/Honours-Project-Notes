@@ -68,9 +68,7 @@ We shall now prove the lemma above.
 	We use the path-decomposition on $G'$ as the set $(B_1, \cdot , B_n)$ in proving this lemma. We apply the lemma above for the monochromatic $v_i$ to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, we add on the faces in the exact order. Then we have that the monochromatic paths are preserved in the ordering. 
 \end{proof}
 
-
 However, the issue that we run into is that the number of times each face changes colour is bounded. Let $F$ be a face and suppose the edges are in some decomposition. We define a \textit{transition point} to be a point where, when traversing a face, we change colours. We wish to devise a systems such that every face we are dealing with has a bounded number of paths.
-
 
 \subsection{Planar graphs}
 We have a result for planar Hamiltonian graphs, that gets us partially where we need to be. 
@@ -93,14 +91,16 @@ Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected c
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if $G$ is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle $(\leq)$ preserves all faces on $G$.
 In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face $F$ which touches these vertices, the number of pages needed to embed $F$ is bounded. 
 
-
-\subsection{Graphs of bounded genus}
-
+\section{Orientable surfaces}
+In this section, we discuss orientable surfaces and a method for dealing with faces on an orientable surface. The non-orientable case has not been dealt with yet. 
 \subsection{Non-planar decomposition}
+Suppose we have a graph $G$ embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition \cite{heathPagenumberGenusGraphs1992} to break up the edges of $G$ into $E_p$ and $E_n$, edges that are planar and nonplanar. If $F$ is bounded by planar edges, then we have that $F$ is monochromatic. If $F$ is bounded by non-planar edges. 
 We wish to show this statement:
 \begin{theorem}
 	For all graphs $G$ of orientable genus $g$, for all faces $F_1, ..., F_k$ of $G$, there exists a $f(g, k)$-page book embedding such that $F_i$ has $\leq h(g, k)$ transition points. 
 \end{theorem}
+
+The case when $F$ is a face in the planar decomposition 
 
 Consider $E_n$, the edges not in the planar decomposition. Consider $F_n$, the faces $F$ such that there exists an edge $e$ in $E_n$ which bounds $F$. Then we claim that the number of edges that bound $F$ is bounded. We first need an auxillary topological conjecture. We say a loop is \textit{trivial} if it is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges $e_1, ..., e_n$ that bound a face such that $e_i$ is incident to $e_{i + 1}$ modulo $n$ for all $i$. The length of the facial walk is $n$. 
 
