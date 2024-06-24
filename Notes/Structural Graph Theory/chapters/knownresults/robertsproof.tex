@@ -98,10 +98,16 @@ We will use \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use th
 \end{proof}
 
 We will discuss the $K_5$-minor free case. If $G$ is $K_5$-minor free, then we do not need to worry about the GMST to form an upper bound. We will use Wagner's theorem.
-
-\begin{theorem}[Wagner's theorem \cite{wagnerUeberEigenschaftEbenen1937}]
-	Every $K_5$-minor free graph is the clique sum of planar graphs and Wagner graphs, where the size of the cliques we sum over is at most 3.
+\begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
+	If $G$ is $K_5$-minor-free, then $G$ can be obtained from $(\leq 3)$-clique-sums of planar graphs and the Wagner graph $V_8$.
 \end{theorem}
+A description of
+\begin{figure}[h]
+	\input{chapters/figures/wagner-graph}
+	\caption{The Wagner graph. Notice how the clockwise circular ordering of the vertices of the Wagner graph needs 4 pages to embed the graph. }
+	\label{fig:wagner}
+\end{figure}
+
 Equivalently, if $G$ is $K_5$ minor free, then $G$ has a tree-decomposition $\tree$ where $\tree$ has adhesion at most 3, and every torso of $\tree$ is either planar or the Wagner graph. We will use this to prove the theorem below. 
 \begin{theorem}
 	If $G$ is $K_5$-minor free, then $G$ has pagenumber $\leq 19$.
