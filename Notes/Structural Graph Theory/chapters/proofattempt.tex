@@ -20,6 +20,15 @@ The most problematic section is dealing with vortices on surfaces (for reference
 
 We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vertex is added onto the face.
 Let $G$ be a graph. We say that a vertex ordering $(<)$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
+
+The way we are planning to deal with vortices is as such:
+\begin{itemize}
+	\item First we start with $G$ being a $4$-connected planar graph. We preserve all faces and all faces are monochromatic.
+	\item Then we move on to the situation where $G$ is connected planar. Faces are not preserved, but a bounded number of vertices are moved around in the embedding. This allows us to 
+	\item We finally move onto the case where $G$ is on an orientable surface. 
+\end{itemize}
+
+
 \todo{Add signposting to explain how we are going to prove this lemma. Discuss every step in proving the case for vortices. }
 Preserved faces are very important, because of this lemma.
 
@@ -39,6 +48,27 @@ Preserved faces are very important, because of this lemma.
 	then is a book-embedding of $G_1$ with $k+1$ colours for the same reason as \cref{thm:bded_treewidth_bded_pagenumber}.
 	To add this book-embedding to $G_0$, we add the vertices that appear first in $B_i$ after the associated vertex $v_i$ in $G_0$ such that $v_i$ is on the face $F$ and $v_i \in B_i$. This is a book-embedding of $G$ requiring at most $\pn(G_0) + k + 1$ colours. 
 \end{proof}
+
+Now consider when $G$ does not have a preserved face, but we can partition the edges into sections where each section is preserved. Then we have the following result:
+\begin{lemma}
+	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths. Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
+\end{lemma}
+We shall prove an intermediate lemma. 
+\begin{lemma}
+	Let $(B_1, ..., B_n)$ be a path-decomposition of $G$ with path-width $k$. Let $x_1, ..., x_n$ be vertices in $G$ such that $x_i \in B_i$ for all $i$. Then we have that for any one-page embedding of $x_1, ..., x_n$, $G$ has a $k + 1$-page embedding. 
+\end{lemma}
+\begin{proof}
+	Suppose $G$ has this structure above, and every edge $e$ has a colour $\phi(e)$. 
+	Now we give every vertex in $B_i$ the colour $(b(v),  \phi(e))$. Then we have that when we have the book-embedding, the monochromatic $v_i$ form a 1-page book embedding.
+\end{proof}
+
+We shall now prove the lemma above.
+\begin{proof}[Book-embedding lemma]
+	We use the path-decomposition on $G'$ as the set $(B_1, \cdot , B_n)$ in proving this lemma. 
+\end{proof}
+
+
+However, the issue that we run into is that the number of times each face changes colour is bounded. Let $F$ be a face and suppose the edges are in some decomposition. We define a \textit{transition point} to be a point where, when traversing a face, we change colours. We wish to devise a systems such that every face we are dealing with has a bounded number of paths.
 
 
 \subsection{Planar graphs}
@@ -64,22 +94,6 @@ In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to mov
 
 
 \subsection{Graphs of bounded genus}
-\begin{lemma}
-	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths. Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
-\end{lemma}
-We shall prove this auxillary lemma for each $l$. 
-\begin{lemma}
-	Let $(B_1, ..., B_n)$ be a path-decomposition of $G$ with path-width $k$. Let $x_1, ..., x_n$ be vertices in $G$ such that $x_i \in B_i$ for all $i$. Then we have that for any one-page embedding of $x_1, ..., x_n$, $G$ has a $k + 1$-page embedding. 
-\end{lemma}
-Now we will use the auxillary lemma to prove the above lemma.
-\begin{proof}
-	Suppose $G$ has this structure above, and every edge $e$ has a colour $\phi(e)$. 
-	Now we give every vertex in $B_i$ the colour $(b(v),  \phi(e))$. Then we have that when we have the book-embedding, the monochromatic $v_i$ form a 1-page book embedding.
-\end{proof}
-
-
-However, the issue that we run into is that the number of times each face changes colour is bounded. Let $F$ be a face and suppose the edges are in some decomposition. We define a \textit{transition point} to be a point where, when traversing a face, we change colours. We wish to devise a systems such that every face we are dealing with has a bounded number of paths.
-\todo{Write this proof more carefully.}
 
 \subsection{Non-planar decomposition}
 We wish to show this statement:
