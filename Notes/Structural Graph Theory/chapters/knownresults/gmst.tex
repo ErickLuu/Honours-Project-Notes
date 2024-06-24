@@ -83,7 +83,8 @@ Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$
 Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
 
 \todo{Draw the "tennis court" graph in tikz as an illusttration of a graph which is K5 free but has unbounded genus, treewidth etc}
-\subsection{Robertson-Seymour Graph Minor Structure Theorem\cite{robertsonGraphMinorsXVI2003}}\label{ssec:Robertson_Seymour_Graph_Structure}
+\subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
+The full statement of Robertson and Seymour's Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}is such:
 Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embeddable if there exists an $A \subseteq V(G)$ with $|A| \leq a$, and there exists subgraphs $G_0, G_1, ...,  G_{p'}$ of $G$ such that:
 \begin{itemize}
 	\item $G - A = G_0 \cup G_1 \cup G_2 ... G_{p'}$
