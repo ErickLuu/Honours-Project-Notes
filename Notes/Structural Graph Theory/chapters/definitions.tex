@@ -190,7 +190,7 @@ The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace
 	\begin{proof}
 		Suppose $G$ is a tree. Root the graph $G$ at the vertex $r$. Then let $T = G$ and $B_x:= \lbrace x, p \rbrace$ where $p$ is the parent of $x$. The bag $B_r$ will just contain $r$. Then all edges $vw$ will be between parent $v$ and child $w$, so it will be in bag $B_w$. Finally, the subgraph induced by vertex $x$ in $T$ will be $x$ and the children of $x$, which is a connected subtree.
 		
-		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. 
+		If $G$ is a forest, then we perform this operation on every connected component of $G$ and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. An example is in \cref{fig:tree-treedecomp}. 
 		\begin{figure}[h]
 			\centering
 			\input{chapters/figures/treewidth-tree}
@@ -284,7 +284,9 @@ We say a graph $G$ is a caterpillar if $G$ has a path $P$ and every vertex is ad
 \begin{proof}[Caterpillars]
 	Suppose $G$ is a caterpillar. Denote $P =\left( p_1, p_2, ..., p_n\right)$ as the central path. The leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Define the bags as $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1.
 	\paragraph{$\Rightarrow$}
-	If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
+	If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. An example of this is in \cref{fig:caterpillar}.
+	\paragraph{$\Leftarrow$}
+	\todo{Finish proof}
 	
 	\begin{figure}[h]
 		\centering
