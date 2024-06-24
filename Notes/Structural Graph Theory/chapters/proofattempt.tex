@@ -35,10 +35,7 @@ We have a result for planar Hamiltonian graphs, that gets us partially where we 
 \end{proof}
 As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face.
 
-
-From Heath and Istrail \cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
-We wish to prove the following:
-
+\subsection{Planar graphs}
 \begin{conjecture}\label{conj:4-planar graphs}
 	For all graphs $G$ embedded on a surface $\Sigma$ of genus $g$, where there are $p$ distinguished faces on $G$, we have that $G$ can be embedded on $\leq f(g, p)$ pages.
 \end{conjecture}
@@ -49,7 +46,7 @@ In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to mov
 \todo{Write this part more carefully}
 
 \subsection{Graphs of bounded genus}
-
+From Heath and Istrail \cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
 \begin{lemma}
 	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths (alternatively, the number of transitions is $m$ ). Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
 \end{lemma}
