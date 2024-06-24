@@ -20,10 +20,10 @@ The most problematic section is dealing with vortices  on surfaces (for referenc
 
 We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vertex is added onto the face.
 Let $G$ be a graph. We say that a vertex ordering $<$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
-Preserved faces are very important. If $G$ is a graph embedded on a surface, with an ordering $(<)$
+Preserved faces are very important. Let $G$ is a graph embedded on a surface with a vortex $G'$ with pathwidth $\leq k$ on a face $F$. We also have a book-embedding of $G - G'$ which preserves $F$. Then by \cref{thm:bded_treewidth_bded_pagenumber} we need only $k + 1$ extra pages to add $G'$. This is because we 
 
 
-From Heath and Istrail\cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
+From Heath and Istrail \cite{heathPagenumberGenusGraphs1992}, we can form a planar-nonplanar decomposition of $G$ of bounded genus $g$. Therefore, it makes sense to think about planar graphs first before thinking about graphs with bounded genus $g$.
 \begin{theorem}
 	Let $G$ be a planar graph. Then every Hamiltonian cycle in $G$ preserves all faces. 
 \end{theorem}
