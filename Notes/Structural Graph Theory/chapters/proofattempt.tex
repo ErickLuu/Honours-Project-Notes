@@ -97,7 +97,7 @@ In this section, we discuss orientable surfaces and a method for dealing with fa
 Suppose we have a graph $G$ embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition \cite{heathPagenumberGenusGraphs1992} to break up the edges of $G$ into $E_p$ and $E_n$, edges that are planar and nonplanar. If $F$ is bounded by planar edges, then we have that we can add a vortex to $F$ with a bounded number of pages. If $F$ is bounded by some non-planar edges, then we need additional lemmas.
 We wish to show this statement:
 \begin{theorem}
-	For all graphs $G$ of orientable genus $g$, for all faces $F_1, ..., F_k$ of $G$, there exists a $f(g, k)$-page book embedding such that $F_i$ has $\leq h(g, k)$ monochromatic paths. . 
+	For all graphs $G$ of orientable genus $g$, for all faces $F_1, ..., F_k$ of $G$, there exists a $f(g, k)$-page book embedding such that $F_i$ has $\leq h(g, k)$ monochromatic paths.
 \end{theorem}
 
 Consider $E_n$, the edges not in the planar decomposition. Consider $F_n$, the faces $F$ such that there exists an edge $e$ in $E_n$ which bounds $F$. Then we claim that the number of edges that bound $F$ is bounded. We first need an auxillary topological conjecture. We say a loop is \textit{trivial} if it is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges $e_1, ..., e_n$ that bound a face such that $e_i$ is incident to $e_{i + 1}$ modulo $n$ for all $i$. The length of the facial walk is $n$. 
@@ -127,8 +127,12 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 \end{proof}
 
 \begin{corollary}
-	Let $G$ be a graph and $F$ be a nonplanar face. 
-	From the theorem above, every nonplanar face alternates between having a planar trace and nonplanar edge at most $4g$ times. Therefore, we are bounded.
+	Let $G$ be a graph embedded on a surface $\Sigma$ with a planar-nonplanar decomposition and let $F$ be a nonplanar face. Then we have that $F$ has $\leq 4g$ monochromatic paths.
 \end{corollary}
+
+\begin{proof}
+	Contract $G$ to a point. Then $F$ has at most $2g$ edges on its surface, from above. 
+	Then every nonplanar face alternates between having a planar trace and nonplanar edge at most $4g$ times. Therefore, the number of monochromatic paths is bounded.
+\end{proof}
 
 By the theorem above, then we have that the planar-nonplanar decomposition has a bounded number of pages. Therefore, we are done for orientable surfaces. 
