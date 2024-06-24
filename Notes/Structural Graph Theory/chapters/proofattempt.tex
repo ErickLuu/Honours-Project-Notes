@@ -16,11 +16,29 @@ In this section, we will prove that apex vertices can be added with a bounded in
 Therefore, adding $ \leq a$ apex vertices still maintains a bounded pagenumber.
 
 \section{Vortices and pagenumber}
-The most problematic section is dealing with vortices  on surfaces (for reference on vortices, see \cref{ssec:Robertson_Seymour_Graph_Structure}).
+The most problematic section is dealing with vortices on surfaces (for reference on vortices, see \cref{ssec:Robertson_Seymour_Graph_Structure}).
 
 We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vertex is added onto the face.
 Let $G$ be a graph. We say that a vertex ordering $(<)$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
-Preserved faces are very important. Let $G$ is a graph embedded on a surface with a vortex $G'$ with pathwidth $\leq k$ on a face $F$. We also have a book-embedding of $G - G'$ which preserves $F$. Then by \cref{thm:bded_treewidth_bded_pagenumber}, we only need $k$ colours to add $G'$. This is because we colour each vertex such that no two vertices are assigned the same colour, and then we repeat the steps of the proof above. We can reuse the same $k$ colours for all vortices on preserved faces.
+
+Preserved faces are very important, because of this lemma.
+
+\begin{lemma}[Vortex on preserved faces]\label{lem:preserved_faces_pagenumber}
+	Let $G$ be a graph where $G = G_0 \cup G_1$. We have that $G_0$ is embedded on a surface and $G_1$ is a vortex on $G$ with path-width at most $k$. Suppose $G_1$ is a vortex on a face $F$ on $G_0$. We also have a book-embedding of $G_0$ which preserves $F$. Then $\pn(G) = \pn(G_0) + k + 1$. 
+\end{lemma}
+
+\begin{proof}
+	We repeat a similar argument to \cref{thm:bded_treewidth_bded_pagenumber}. For each vertex in $G_0$, we give them all different colours inside each bag. We then order the vertices in $G_1$. Let $B_1, ..., B_i$ be the path-decomposition of $G_1$. We let $\sigma(v)$ be the first time $v$ appears in the path-decomposition. We then colour the edges of $G_1$ as such: If $uv \in E(G_1)$, then:
+	\begin{equation}
+		c(uv) = 
+		\begin{cases}
+			c(T_u) &\text{ if } \sigma(u) \leq \sigma(v),\\
+			c(T_v) &\text{ if } \sigma(v) \leq \sigma(u)
+		\end{cases}
+	\end{equation}
+	then is a book-embedding of $G_1$ with $k+1$ colours for the same reason as \cref{thm:bded_treewidth_bded_pagenumber}.
+	To add this book-embedding to $G_0$, we add the vertices that appear first in $B_i$ after the associated vertex $v_i$ in $G_0$ such that $v_i$ is on the face $F$ and $v_i \in B_i$. This is a book-embedding of $G$ requiring at most $\pn(G_0) + k + 1$ colours. 
+\end{proof}
 
 \subsection{Planar graphs}
 We have a result for planar Hamiltonian graphs, that gets us partially where we need to be. 
@@ -33,7 +51,9 @@ We have a result for planar Hamiltonian graphs, that gets us partially where we 
 	\input{"chapters/figures/4-connected-planar-graph with cycle"}
 	\todo{Make this image look like a Hamiltonian cycle in a planar graph.}
 \end{proof}
-As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face.
+As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face. 
+
+
 
 \subsection{Planar graphs}
 \begin{conjecture}\label{conj:4-planar graphs}
