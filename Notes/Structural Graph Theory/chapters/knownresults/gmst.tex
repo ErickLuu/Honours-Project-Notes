@@ -66,7 +66,14 @@ An apex vertex $a$ is added to a graph $G$ such that it has arbitrary edges. As 
 	We shall prove the contrapositive. Suppose $G + a$ has a $K_{t + 1}$ minor. Then $K_{t + 1}$ has a model in $G + a$ and denote the model function as $\rho$. Now let $v$ be the vertex in $K_{t + 1}$ such that $\rho(v)$ contains $a$. Then if we delete $v$ from $K_{t + 1}$ and delete all the vertices in $\rho(v)$ from $G$, then we have that $K_t$ is a minor of $G'$, where $G'$ is $G - \rho(v)$. But $G'$ is a minor of $G$, as $G'$ does not contain $a$. But this means that $G$ has a $K_t$ minor. 
 \end{proof}
 \subsection{Clique-sums}\label{sssec:Clique_Sums}
-The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is the graph obtained by performing a series of operation on the cliques of $G$ and $H$. We find cliques in $G$ and $H$, $C_G$ and $C_H$ respectively, such that $C_G$ and $C_H$ have size $k$. Then we identify the vertices in $C_G$ and $C_H$ to glue $G$ and $H$ together. Call this new clique $C$. We can delete some edges between vertices in $C$. \todo{Add picture}
+The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is the graph obtained by performing a series of operation on the cliques of $G$ and $H$. We find cliques in $G$ and $H$, $C_G$ and $C_H$ respectively, such that $C_G$ and $C_H$ have size $k$. Then we identify the vertices in $C_G$ and $C_H$ to glue $G$ and $H$ together. Call this new clique $C$. We can delete some edges between vertices in $C$. An illustration can be found in \cref{fig:clique-sum}. 
+
+\begin{figure}[h]
+	\centering
+	\includesvg{chapters/figures/Clique-sum}
+	\caption{Figure of clique-sum. Public domain image from David Eppstein \cite{eppsteinCliquesum2023}.}
+	\label{fig:clique-sum}
+\end{figure}
 
 
 \begin{lemma}
