@@ -29,8 +29,8 @@ The way we are planning to deal with vortices is to deal with the faces. We have
 The current plan for dealing with surfaces is thus:
 \begin{itemize}
 	\item First we start with $G$ being a $4$-connected planar graph. We preserve all faces and all faces are monochromatic.
-	\item Then we move on to the situation where $G$ is connected planar. Faces are not preserved, but a bounded number of vertices are moved around. This is a small problem but we can deal with this by adding extra pages. What is an issue is how vortices interact with the graph. 
-	\item We finally move onto the case where $G$ is on an orientable surface. 
+	\item Then we move on to the situation where $G$ is a connected planar graph. Faces are not preserved, but a bounded number of vertices are moved around. This is a small problem but we can deal with this by adding extra pages. What is an issue is how vortices interact with the graph. 
+	\item We finally move onto the case where $G$ is on an orientable surface. We use Heath and Istrail's \cite{heathPagenumberGenusGraphs1992} planar-nonplanar decomposition to move from the case where $G$ is a connected planar graph to when $G$ is of genus $g$. 
 \end{itemize}
 
 \subsection{Faces and Monochromatic paths}
@@ -90,7 +90,6 @@ We have a result for planar Hamiltonian graphs, that gets us partially where we 
 \end{proof}
 As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face. 
 \subsection{Graphs on surfaces}
-
 We first do the planar-nonplanar decomposition of $G$ first. 
 Then we look at the planar subgraph $G_p$ and decompose $G_p$ into 4-connected components with adhesion at most 3, from \cref{corr:planar_graphs_4_connected_cliqesums}. 
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if $G$ is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle $(\leq)$ preserves all faces on $G$.
