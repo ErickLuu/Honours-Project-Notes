@@ -21,14 +21,20 @@ The most problematic section is dealing with vortices on surfaces (for reference
 We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vertex is added onto the face.
 Let $G$ be a graph. We say that a vertex ordering $(<)$ \textit{preserves} a face $F$ if there is a vertex $v_0$ on the boundary of $F$ and a vertex ordering $(v_0, v_1, ..., v_k)$ around the boundary of $F$ such that $v_0 < v_1 < ... < v_k$. We say that a circular ordering $<$ preserves a face $F$ if we can start at any point in the circular ordering and have the condition above. 
 
-The way we are planning to deal with vortices is as such:
+What we plan to show is this:
+\begin{conjecture}
+	Let $G_0$ be a graph embedded on some surface $\Sigma$. Suppose we have $k$ vortices on $G_0$, call them $G_1, \cdot , G_k$. Suppose they are on disks $D_1, ..., D_k$ on faces $F_1, ..., F_k$. Now let these vortices have pathwidth $\leq p$. 
+	We have that $G = G_0 \cup G_1 \cup ... \cup G_p$ has pagenumber $\leq f(\pn(G), k, p)$.
+\end{conjecture}
+The way we are planning to deal with vortices is to deal with the faces. We have the following lemma \cref{lem:vortices_mono_paths}. This lemma allows us to pay less attention to the vertex ordering of $G_0$ and look at how the edges are arranged in the ordering. This will be useful when dealing with graphs on surfaces.
+The current plan for dealing with the 
 \begin{itemize}
 	\item First we start with $G$ being a $4$-connected planar graph. We preserve all faces and all faces are monochromatic.
 	\item Then we move on to the situation where $G$ is connected planar. Faces are not preserved, but a bounded number of vertices are moved around. This is a small problem but we can deal with this by adding extra pages. What is an issue is how vortices interact with the graph. 
 	\item We finally move onto the case where $G$ is on an orientable surface. 
 \end{itemize}
 
-
+\subsection{Faces and Monochromatic Paths}
 \todo{Figure out how having a bounded number of vertices at the start of the face changes how the vortex interacts with the face in the page embedding. }
 Preserved faces are very important, because of this lemma.
 
@@ -50,7 +56,7 @@ Preserved faces are very important, because of this lemma.
 \end{proof}
 
 Now consider when $G$ does not have a preserved face, but we can partition the edges into sections where each section is preserved. Then we have the following result:
-\begin{lemma}
+\begin{lemma}\label{lem:vortices_mono_paths}
 	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths. Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
 \end{lemma}
 We shall prove an intermediate lemma. 
