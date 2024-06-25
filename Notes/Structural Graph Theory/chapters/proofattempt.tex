@@ -4,6 +4,7 @@ Our aim is to show that graphs with bounded genus $g$ containing $p$ vortices of
 Using Robert's theorem \cref{thm:clique_sum_pagenumber_bound}, we can build clique-sums with adhesion $\leq \ell$ and from a theorem below, we can add $a$ apex vertices. 
 Thus we can show that for fixed $t$, all $K_t$-minor free graphs have bounded pagenumber $f(g, p, k, a, \ell)$. 
 We wish to find a book-embedding of a graph $G$ of bounded genus $g$ with vortices $G_1, ..., G_p$ of adhesion $k$ such that the pagenumber of $G$ is at most $f(g, p, k)$ for some constants $g$ and $p$. It is trivial to show that apex vertices only increase the number of pages by $f(a)$ for a fixed function $f$. 
+\todo{Figure out a good way to restructure this proof.}
 \section{Apex vertices}
 In this section, we will prove that apex vertices can be added with a bounded increase to the number of pages. Typically, apex vertices are the problematic component when applying the Graph Minor Structure theorem, but in this case they are a trivial addition.
 \begin{theorem}
@@ -68,10 +69,10 @@ We shall prove an intermediate lemma.
 	We claim that we can repeat the same scheme as in \cref{lem:preserved_faces_pagenumber}. For each vertex $v$ in $G$, we let $B_i$ be the first bag $v$ appears in. Then in the book-embedding of $G$, we place all bags of $v_i$ after $x_i$ in the book-embedding. Then we have that if two edges cross in the book-embedding, then they have different colours. If two edges cross, then that implies that in a book-embedding of the path $P$ with $(B_1, ..., B_n)$ added in like $\cref{lem:preserved_faces_pagenumber}$, then they will cross as well. But as that that implies they have different colours, then in this new embedding they have different colours as well. Two examples are given below.
 \end{proof}
 
-% TODO: \usepackage{graphicx} required
+
 \begin{figure}
 	\centering
-	\includegraphics{chapters/figures/20240508_173516}
+	\includegraphics[width= 0.8 \textwidth]{chapters/figures/20240508_173516}
 	\caption{Description of proof above. $x_1, ..., x_n$ are the vertices with a path that is a single book-embedding and $B_1, ..., B_n$ are the bags of the embedding. Notice that there are two different ways that the $n + 1$-th bag can end up, but both ways stil maintain the property that this is a book-embedding. This diagram is a circular ordering of $x_1, ..., x_n$ as it is more compact to draw.}
 	\label{fig:20240508173516}
 \end{figure}
