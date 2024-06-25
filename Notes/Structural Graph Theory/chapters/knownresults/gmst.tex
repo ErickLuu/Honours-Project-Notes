@@ -74,17 +74,20 @@ We refer to the \textit{adhesion set} as the set $B_x \cap B_y$.
 The \textit{adhesion} of a tree is defined as $\max(|B_x \cap B_y|)$ where $xy$ is an edge in $T$.
 
 \subsubsection{Relationship between clique-sums and treewidth}
-Given $G$ and a tree-decomposition $\tree$, we can say that $G$ is a clique-sum of the torsos $G\langle B_x \rangle$ where the size of the cliques that we paste over is at most the adhesion.
-\todo{Expand on this!}
+Given $G$ and a tree-decomposition $\tree$, we can say that $G$ is a clique-sum of the torsos $G\langle B_x \rangle$ where the size of the cliques that we paste over is at most the adhesion. Note that the tree-decomposition that we use is not one which has bounded treewidth as we have been using tree-decompositions before.
 
 \subsubsection{Vortices}\label{sssec:vortices}
 Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$ be a disc in $\Sigma$ such that $D$ only intersects $G$ only on vertices on the boundary of $F$. We denote these discs as $G$-clean. 
 
 Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
 
+The reason why vortices are important are graphs like in \cref{fig:tenniscourt}. This graph is one where vortices are needed as an essential ingredient and in fact there is a vortex of pathwidth 6 which is glued onto a graph of genus 0. 
+
 \begin{figure}[h]
 	\centering
 	\includesvg{chapters/figures/tenniscourt}
+	\caption{An example of a family of graphs which is $K_5$ minor free but has unbounded genus and treewidth, and apex vertices. }
+	\label{fig:tenniscourt}
 \end{figure}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
 The full statement of Robertson and Seymour's Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}is such:
