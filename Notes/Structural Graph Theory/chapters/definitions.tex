@@ -156,7 +156,7 @@ We have shown one direction of the inequality, and we use \cref{lem:Edge_Bound} 
 \begin{proof}
 	Let $\pn(G) = k$ and suppose $G$ has $n$ vertices and $m$ edges. Then we have that the average degree of $G$, $d(G) = 2m/n$ by the handshaking lemma. But $2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2$. But this implies that $G$ has a vertex of degree $\leq 2k + 1$, and as if $G'$ is a subgraph of $G$, then $G'$ also has $\pn(G') \leq k$, thus $G'$ has a vertex of degree at most $2k + 1$. However, this implies $G$ is $2k + 1$-degenerate, thus $\chi(G) \leq 2k + 2$. 
 \end{proof}
-We may note that this bound is not tight. Planar graphs are 4-colourable \cite{appelEveryPlanarMap1989}, but there exist planar graphs that require 4 pages \cite{yannakakisPlanarGraphsThat2020, kaufmannFourPagesAre2020}. 
+We may note that this bound is not tight when $\pn(G) = 1$ or $2$. When $\pn(G) = 1$, then $G$ is outerplanar, but can be coloured with 3 colours. When $\pn(G) = 2$, then $G$ is Hamiltonian and planar, but is 4-colourable. 
 
 \subsection{Historical interest}\label{ssec:Pagenumber_History}
 Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics \cite{haslingerRNAStructuresPseudoknots1999}. 
