@@ -4,13 +4,13 @@
 This proof has been adapted into the language of tree-decompositions. 
 \begin{theorem}[Hickingbotham and Wood \cite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\) where each torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and every torso \(G \langle B_x \rangle\) is \(c\)-colourable. Additionally, we have that the adhesion of this tree is at most \(\ell\).
-	Then \(\pn(G(\mathcal{G}, T)) \leq cs + \ell\).  
+	Then \(\pn(G(\mathcal{G}, T)) \leq cs + \ell \).  
 \end{theorem}
 
 \subsubsection{Proof of above theorem.}
-This proof will involve gluing torsos along adhesion sets, which are cliques. However, the size of these cliques is at most \(\ell\). 
+This proof will involve gluing torsos along cliques of size at most \( \ell \). 
 
-Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, ... , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell\). For any arbitrary clique \(J\), we define a rainbow-vertex \(w \in V(J)\) as a vertex where for any \(x, y \in V(J)\), the edges \(wx\) and \(wy\) are on different pages. We want the book embedding to have the structure \((\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})\). 
+Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). For any arbitrary clique \(J\), we define a rainbow-vertex \(w \in V(J)\) as a vertex where for any \(x, y \in V(J)\), the edges \(wx\) and \(wy\) are on different pages. We want the book embedding to have the structure \((\underbrace{u_1, u_2, ..., u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, ..., v_l}_{\text{Vertices not in }C})\). 
 
 To prove this theorem, we will use a common technique in graph theory. We will strengthen the lemma so that we may use induction to prove the statement.
 \begin{lemma}\label{lem:Hickingbotham_Lemma}

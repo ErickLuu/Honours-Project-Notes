@@ -101,21 +101,32 @@ We have a result for planar Hamiltonian graphs, that gets us partially where we 
 		\caption{An image of a Hamiltonian planar graph. If we have a circular ordering of the vertices, going clockwise around the Hamiltonian cycle, then every face is preserved.}
 		\label{fig:hamiltonian_planar}
 	\end{figure}
-	
-	\todo{Make this image look like a Hamiltonian cycle in a planar graph.}
 \end{proof}
 As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face. 
+
 \subsection{Graphs on surfaces}
+
 We first do the planar-nonplanar decomposition of \(G\) first. 
 Then we look at the planar subgraph \(G_p\) and decompose \(G_p\) into 4-connected components with adhesion at most 3, from \cref{corr:planar_graphs_4_connected_cliqesums}. 
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if \(G\) is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\).
 In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face \(F\) which touches these vertices, the number of pages needed to embed \(F\) is bounded. 
+
+\begin{theorem}\label[thm:Embedded_Graph]
+	Let \( G \) be a graph embedded on some surface \(\Sigma \) and let \(F\) be a face on \(G\). Suppose \(F \) is preserved in some book-embedding \( < \). Let \(x_1, x_2, \ldots, x_k \) be \(k \) vertices that lie on \(F \). Then we will need at most \( k^2 \) colours, and \(F\) has \(k + 1 \) monochromatic components.
+\end{theorem}
+
+\begin{proof}
+	We have that the edges that matter are the ones that are adjacent to \(x_1, x_2, \ldots, x_k \).
+\end{proof}
+
 \todo{Add proof for this part!}
+
+This means that for any connected planar graph \(G \), we have from \cref{corr:planar_graphs_4_connected_cliqesums} that \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, we have that \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then we have that we have that \(F \) has 4 monochromatic components, which is bounded. Now we suppose we are living on a surface which is orientable.
 
 \section{Orientable surfaces}
 In this section, we discuss orientable surfaces and a method for dealing with faces on an orientable surface. The non-orientable case has not been dealt with yet. 
 \subsection{Non-planar decomposition}
-Suppose we have a graph \(G\) embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition \cite{heathPagenumberGenusGraphs1992} to break up the edges of \(G\) into \(E_p\) and \(E_n\), edges that are planar and nonplanar. If \(F\) is bounded by planar edges, then we have that we can add a vortex to \(F\) with a bounded number of pages. If \(F\) is bounded by some non-planar edges, then we need additional lemmas.
+Suppose we have a graph \(G\) embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition~\cite{heathPagenumberGenusGraphs1992} to break up the edges of \(G\) into \(E_p\) and \(E_n\), edges that are planar and nonplanar. If \(F\) is bounded by planar edges, then we have that we can add a vortex to \(F\) with a bounded number of pages. If \(F\) is bounded by some non-planar edges, then we need additional lemmas.
 We wish to show this statement:
 \begin{theorem}
 	For all graphs \(G\) of orientable genus \(g\), for all faces \(F_1, \ldots, F_k\) of \(G\), there exists a \(f(g, k)\)-page book embedding such that \(F_i\) has \(\leq h(g, k)\) monochromatic paths.
@@ -156,4 +167,6 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 	Then every nonplanar face alternates between having a planar trace and nonplanar edge at most \(4g\) times. Therefore, the number of monochromatic paths is bounded.
 \end{proof}
 
-By the theorem above, then we have that the planar-nonplanar decomposition has a bounded number of pages. Therefore, we are done for orientable surfaces. 
+By the theorem above, then we have that the planar-nonplanar decomposition has a bounded number of pages.
+
+So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed. This is what we want. 
