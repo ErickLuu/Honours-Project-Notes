@@ -95,7 +95,7 @@ Given $G$ and a tree-decomposition $\tree$, we can say that $G$ is a clique-sum 
 \subsection{Vortices}\label{sssec:vortices}
 Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$ be a disc in $\Sigma$ such that $D$ only intersects $G$ only on vertices on the boundary of $F$. We denote these discs as $G$-clean. 
 
-Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
+Then let $\Lambda = (x_1, x_2, \ldots, x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, \ldots B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
 
 The reason why vortices are important are graphs like in \cref{fig:tenniscourt}. This graph is one where vortices are needed as an essential ingredient and in fact there is a vortex of pathwidth 6, with a subgraph of genus 0.
 
@@ -107,12 +107,12 @@ The reason why vortices are important are graphs like in \cref{fig:tenniscourt}.
 \end{figure}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
 The full statement of Robertson and Seymour's Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}is such:
-Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embeddable if there exists an $A \subseteq V(G)$ with $|A| \leq a$, and there exists subgraphs $G_0, G_1, ...,  G_{p'}$ of $G$ such that:
+Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embeddable if there exists an $A \subseteq V(G)$ with $|A| \leq a$, and there exists subgraphs $G_0, G_1, \ldots,  G_{p'}$ of $G$ such that:
 \begin{itemize}
-	\item $G - A = G_0 \cup G_1 \cup G_2 ... G_{p'}$
+	\item $G - A = G_0 \cup G_1 \cup G_2 \ldots G_{p'}$
 	\item $p' \leq p$
 	\item There is an embedding of $G_0$ onto a surface $\Sigma$ of genus $\leq g$
-	\item There exists pairwise disjoint $G_0$-clean discs $D_1, D_2, ..., D_{p'}$ in $\Sigma$
+	\item There exists pairwise disjoint $G_0$-clean discs $D_1, D_2, \ldots, D_{p'}$ in $\Sigma$
 	\item $G_i$ is a $D_i$-vortex of width at most $k$.
 \end{itemize}
 
