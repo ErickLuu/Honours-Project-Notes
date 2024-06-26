@@ -56,9 +56,9 @@ Preserved faces are very important, because of this lemma.
 	To add this book-embedding to \(G_0\), we add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. 
 \end{proof}
 
-Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Then we have the following result:
+Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Let \(F\) be a face on \(G\). Let \( (<, \phi) \) be a book-embedding of \(G\). A path \(P\) on the boundary of \(F\) is a \textit{monochromatic path} if all the edges on \(P\) are given the same colour with respect to \( \phi \). We have the following result:
 \begin{lemma}\label{lem:vortices_mono_paths}
-	Suppose \(G\) is a graph with components \(G_0\) and \(G'\). Suppose \(G_0\) is embedded on a surface \(\Sigma\) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(d\)-clean disk on \(F\). Now suppose \(G'\) is a vortex on \(D\) with a path-decomposition \((B_0, \ldots B_l)\). Suppose \(G_0\) has a book-embedding \((<, \phi)\). Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\phi\)-monochromatic path on \(C\). Suppose there are \(m\) paths. Then \(G\) has a book-embedding with \(pn(G) + f(m)\) pages.
+	Suppose \(G\) is a graph with components \(G_0\) and \(G'\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(d\)-clean disk on \(F\). Now suppose \(G'\) is a vortex on \(D\) with a path-decomposition \((B_0, \ldots B_l)\). Suppose \(G_0\) has a book-embedding \((<, \phi)\). Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\phi \)-monochromatic path on \(C\). Suppose there are \(m\) paths. Then \(G\) has a book-embedding with \(pn(G) + f(m)\) pages.
 \end{lemma}
 We shall prove an intermediate lemma. 
 \begin{lemma}\label{lem:one_page_decomposition}
@@ -135,7 +135,7 @@ We wish to show this statement:
 Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), the faces \(F\) such that there exists an edge \(e\) in \(E_n\) which bounds \(F\). Then we claim that the number of edges that bound \(F\) is bounded. We first need an auxillary topological conjecture. We say a loop is \textit{trivial} if it is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\). 
 
 \begin{lemma}
-	Let \(\Sigma\) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be nontrivial loops that start and end at \(x_0\) on \(\Sigma\). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma + L\), such that each \(F_i\) is homeomorphic to a disk. Then the length of the facial walk for all \(F\) is at most \(2g\). 
+	Let \(\Sigma \) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be nontrivial loops that start and end at \(x_0\) on \(\Sigma \). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma + L\), such that each \(F_i\) is homeomorphic to a disk. Then the length of the facial walk for all \(F\) is at most \(2g\). 
 \end{lemma}
 
 Parts of the proof was motivated by a discussion with Corbin Reid. The proof given is a topological one. 
@@ -170,3 +170,9 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 By the theorem above, then we have that the planar-nonplanar decomposition has a bounded number of pages.
 
 So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed. This is what we want. 
+\begin{theorem}
+	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface. Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ has bounded pagenumber.
+\end{theorem}
+\begin{proof}
+	We use the fact that 
+\end{proof}
