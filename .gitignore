@@ -15,3 +15,5 @@ Notes/Structural Graph Theory/Presentation/svg-inkscape/*
 *.fdb_latexmk
 *.tdo
 *.fls
+*.pdf_tex
+*.bak
