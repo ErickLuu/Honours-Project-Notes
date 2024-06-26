@@ -61,7 +61,7 @@ Now consider when $G$ does not have a preserved face, but we can partition the e
 	Suppose $G$ is a graph with components $G_0$ and $G'$. Suppose $G_0$ is embedded on a surface $\Sigma$ of genus $g$ and let $F$ be a face on $G_0$. Let $v_1, v_2, ..., v_k$ be the vertices bordering $F$, and let $C$ be the cycle bordering $F$. Let $D$ be a $d$-clean disk on $F$. Now suppose $G'$ is a vortex on $D$ with a path-decomposition $(B_0, ... B_l)$. Suppose $G_0$ has a book-embedding $(<, \phi)$. Then partition the edges $e_i = v_i v_{i + 1}$ (modulo $k$) such that the edges form a maximal $\phi$-monochromatic path on $C$. Suppose there are $m$ paths. Then $G$ has a book-embedding with $pn(G) + f(m)$ pages.
 \end{lemma}
 We shall prove an intermediate lemma. 
-\begin{lemma}
+\begin{lemma}\label{lem:one_page_decomposition}
 	Let $(B_1, ..., B_n)$ be a path-decomposition of $G$ with path-width $k$. Let $x_1, ..., x_n$ be vertices in $G$ such that $x_i \in B_i$ for all $i$, and suppose $P$ is an induced path $(x_1, x_2, ..., x_n)$ in $G$. Then we have that for any one-page embedding of $P$, $G$ has a $k + 1$-page embedding. 
 \end{lemma}
 \begin{proof}
@@ -74,14 +74,14 @@ We shall prove an intermediate lemma.
 	\centering
 	\includegraphics[width= 0.8 \textwidth]{chapters/figures/20240508_173516}
 	\caption{Description of proof above. $x_1, ..., x_n$ are the vertices with a path that is a single book-embedding and $B_1, ..., B_n$ are the bags of the embedding. Notice that there are two different ways that the $n + 1$-th bag can end up, but both ways stil maintain the property that this is a book-embedding. This diagram is a circular ordering of $x_1, ..., x_n$ as it is more compact to draw.}
-	\label{fig:20240508173516}
+	\label{fig:}
 \end{figure}
 
 \todo{Recreate diagram in tikz}
 
-We shall now prove the lemma above.
+We shall now prove \cref{lem:vortices_mono_paths}.
 \begin{proof}[Book-embedding lemma]
-	We use the path-decomposition on $G'$ as the set $(B_1, \cdot , B_n)$ in proving this lemma. We apply the lemma above for the monochromatic $v_i$ to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, we add on the faces in the exact order. Then we have that the monochromatic paths are preserved in the ordering. 
+	We use the path-decomposition on $G'$ as the set $(B_1, \cdot , B_n)$ in proving \cref{lem:vortices_mono_paths}. We apply \cref{lem:one_page_decomposition} for the monochromatic $v_i$ to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, we add on the faces in the exact order. Then we have that the monochromatic paths are preserved in the ordering, and in fact they are bounded as from \cref{lem:one_page_decomposition} they are bounded.
 \end{proof}
 
 However, the issue that we run into is that the number of times each face changes colour is bounded. Let $F$ be a face and suppose the edges are in some decomposition. We define a \textit{transition point} to be a point where, when traversing a face, we change colours. We wish to devise a systems such that every face we are dealing with has a bounded number of paths.
