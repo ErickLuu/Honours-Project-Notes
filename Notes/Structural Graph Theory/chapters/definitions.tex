@@ -73,11 +73,7 @@ We can use this result to bound the number of edges in an outerplanar graph.
 We say that a graph \(H\) is a \textit{minor} of another graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) such that \(N_G(w) = N_G(u) \cup N_G(v)\), where \(N_G(v)\) is the neighbourhood of \(v\). We notate an edge contraction on \(uv\) as \(G\setminus uv\).
 We notate the statement ``\(H\) is a minor of \(G\)'' as \(H \leq G\). 
 We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph \(G\) is \textit{\(H\)-minor-free} if there is no sequence of deletions and contractions of \(G\) that yield a graph isomorphic to \(H\). We say that a family of graphs \(\mathcal{F}\) is minor-closed if for all \(G \in \mathcal{F}\), all minors of \(G\) is also in \(\mathcal{F}\). 
-
-\begin{example}
-	An example of a minor-closed class is the class of planar graphs. 
-\end{example}
-
+An example of a minor-closed class is the class of planar graphs. 
 An important class of graph families are the \(K_t\)-minor free graphs. For a graph \(G\), we define \textit{Hadwiger's number} \(\had(G)\) to be the largest \(t\) such that \(K_t\) is a minor of \(G\). This is named after Hugo Hadwiger and his most famous conjecture.
 
 \begin{conjecture}[Hadwiger's conjecture]\cite{hadwigerUeberKlassifikationStreckenkomplexe1943}
@@ -123,10 +119,10 @@ This is because we can embed the graph on a sphere with the vertices and Hamilto
 \subsection{Pagenumber of complete graphs}\label{ssec:Pagenumber_Complete_Graphs}
 This is an upper bound of any graph \(G\) with vertices \(n\). 
 \begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
-	The complete graph \(K_n\) on \(n\) vertices where \(n \geq 4\), has pagenumber \( \leq \lceil n/2 \rceil\). 
+	The complete graph \(K_n\) on \(n\) vertices where \(n \geq 4\), has pagenumber \( \leq \lceil n/2 \rceil \). 
 \end{theorem}
 \begin{proof}
-	Arrange the vertices in any circular ordering, and colour the edges like in \cref{fig:k8 coloured with colours}. To show the other equality, we use \cref{lem:Edge_Bound}.
+	Arrange the vertices in any circular ordering, and colour the edges in a zig-zag spanning path. \cref{fig:k8 coloured with colours}. To show equality, we use \cref{lem:Edge_Bound}.
 	\begin{figure}[ht]
 		\caption{Circular embedding of \(K_8\) with 4 colours, the minimum possible.}
 		\centering
@@ -182,9 +178,6 @@ The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbr
 
 \begin{example}\label{ex:treewidth_forest}
 	\(\tw(G) = 1\) iff \(G\) is a forest.
-	\begin{lemma}
-		If \(G\) is a forest, then \(\tw(G) = 1\).
-	\end{lemma}
 	\begin{proof}
 		Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\) and \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\). The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so it will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(x\) and the children of \(x\), which is a connected subtree.
 		
@@ -196,11 +189,6 @@ The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbr
 			\caption{A tree and its tree-decomposition. We root at the vertex \(1\) and every bag consists of a vertex and its parent.}
 			\label{fig:tree-treedecomp}
 		\end{figure}
-	\end{proof}
-	\begin{lemma}
-		If \(\tw(G) = 1\), then \(G\) has no cycles.
-	\end{lemma}
-	\begin{proof}
 		If \(G\) has a cycle \(C\), then the treewidth cannot be 1. This is because if there is a tree decomposition \(\tree\) where the size of each bag is at most 2, then as the graph must have every edge, then every edge in \(C\) is in separate bags. However, we have that for any vertex \(v\) in \(C\) to have an induced connected subgraph in \(T\), then it follows that the cycle \(C\) is also in \(T\). Thus \(T\) is not a tree, and this is not a valid tree-decomposition. 
 	\end{proof}
 \end{example}
@@ -232,10 +220,10 @@ The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbr
 \end{proof}
 
 Recall that an outerplanar graph is a planar graph where there exists a face such that all vertices lie on the boundary of that face. 
-\begin{example}\label{ex:tw_outerplanar}
+\begin{lemma}\label{ex:tw_outerplanar}
 	The treewidth of an outerplanar graph is at most 2.
-\end{example}
-\begin{proof}[Proof of outerplanar treewidth.]
+\end{lemma}
+\begin{proof}
 	Let \(G\) be an outerplanar graph, and let \(G'\) be the triangulation of \(G\). As \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). We look at the \textit{weak dual} of \(G'\). This is a tree \(T\), where every node \(v_f\) in \(T\) corresponds to a face \(f\) in \(G'\). Then let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\), where every bag has at most 3 vertices. Thus, \(\tw(G) \leq 2\). 
 \end{proof}
 
@@ -277,9 +265,9 @@ Similarly to treewidth, we have the following observation.
 \end{lemma}
 We say a graph \(G\) is a \textit{caterpillar} if \(G\) has a path \(P\) and every vertex is adjacent to a vertex on the path \(P\). Alternatively, \(G\) is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
 \begin{theorem}[Caterpillars]
-	Graphs have pathwidth at most 11 iff every connected component is a caterpillar.
+	Graphs have pathwidth at most 1 iff every connected component is a caterpillar.
 \end{theorem}
-\begin{proof}[Caterpillars]
+\begin{proof}
 	Suppose \(G\) is a caterpillar. 
 	Denote \(P =\left( p_1, p_2, \dots, p_n\right)\) as the central path. The leaves of vertex \(p_i\) are denoted as \(v_{i, 1}, v_{i, 2} \dots, v_{i, k}\). Define the bags as \((v_{1, 1}, v_1)\), \((v_{1, 2}, v_1)\) \dots \((v_{1, j}, v_1)\),  \((v_1, v_2)\), \((v_{2, 1}, v_2)\), \((v_{2,2}, v_2,)\) \dots. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of \(G\) is 1. We can repeat this for every connected component.
 	Suppose \(G\) has pathwidth 1. Then for each connected component of \(G\), we choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. An example of this is in \cref{fig:caterpillar}.
