@@ -18,3 +18,4 @@ Notes/Structural Graph Theory/Presentation/svg-inkscape/*
 *.pdf_tex
 *.bak
 *.synctex
+*.synctex(busy)
