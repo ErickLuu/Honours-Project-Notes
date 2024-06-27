@@ -11,7 +11,7 @@ In this section, we will prove that apex vertices can be added with a bounded in
 	If \(G\) is a graph with partition \((G', A)\) such that \(G'\) is a graph with pagenumber \(s\), \(|V(A)| \leq a\), then \(G\) has pagenumber \(s + \left\lceil \frac{3a}{2}\right\rceil\). 
 \end{theorem}
 \begin{proof}
-	Let \(G'\) have book-embedding \((<, \rho)\). Then place the vertices of \(A\) at the very start of \((<)\) and for every edge \(u_iv\), \(u_i \in A\), \(v \in G'\), we colour \(\rho(uv) = i\). Then for any edge \(e \in E(G')\), we maintain the same colour as before. Then for the edges between vertices in \(A\), we have that the number of colours is bounded above by \(\left\lceil \frac{a}{2} \right\rceil\) from \cref{thm:Pagenumber_Complete_Graph}. Therefore, we have that \(\pn(G) \leq \pn(G') + a + \left\lceil \frac{a}{2} \right\rceil =s + \left\lceil \frac{3a}{2}\right\rceil\). 
+	Let \(G'\) have book-embedding \((<, \rho)\). Then place the vertices of \(A\) at the very start of \((<)\) and for every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), we colour \(\rho(uv) = i\). Then for any edge \(e \in E(G')\), we maintain the same colour as before. Then for the edges between vertices in \(A\), we have that the number of colours is bounded above by \(\left\lceil \frac{a}{2} \right\rceil\) from \cref{thm:Pagenumber_Complete_Graph}. Therefore, we have that \(\pn(G) \leq \pn(G') + a + \left\lceil \frac{a}{2} \right\rceil =s + \left\lceil \frac{3a}{2}\right\rceil\). 
 \end{proof}
 
 Therefore, adding \( \leq a\) apex vertices still maintains a bounded pagenumber.
@@ -36,7 +36,7 @@ The current plan for dealing with surfaces is thus:
 
 \subsection{Faces and Monochromatic paths}
 \todo{Figure out how having a bounded number of vertices at the start of the face changes how the vortex interacts with the face in the page embedding. }
-Let \(G\) be a graph. We say that a vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \ldots < v_k\). We say that a circular ordering \(<\) preserves a face \(F\) if we can start at any point in the circular ordering and have the condition above. 
+Let \(G\) be a graph. We say that a vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \cdots < v_k\). We say that a circular ordering \(<\) preserves a face \(F\) if we can start at any point in the circular ordering and have the condition above. 
 Preserved faces are very important, because of this lemma.
 
 \begin{lemma}[Vortex on preserved faces]\label{lem:preserved_faces_pagenumber}
@@ -73,8 +73,7 @@ We shall prove an intermediate lemma.
 \begin{figure}
 	\centering
 	\includegraphics[width= 0.8 \textwidth]{figures/20240508_173516}
-	\caption{Description of \cref{lem:one_page_decomposition}. \(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways stil maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\) as it is more compact to draw.}
-	\label{fig:preserving_pages}
+	\caption{Description of \cref{lem:one_page_decomposition}. \(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways stil maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\) as it is more compact to draw.}\label{fig:preserving_pages}
 \end{figure}
 
 \todo{Recreate diagram in tikz}
@@ -98,8 +97,7 @@ We have a result for planar Hamiltonian graphs, that gets us partially where we 
 	\begin{figure}
 		\centering
 		\includesvg[width=0.3\linewidth]{figures/hamiltonian-planar}
-		\caption{An image of a Hamiltonian planar graph. If we have a circular ordering of the vertices, going clockwise around the Hamiltonian cycle, then every face is preserved.}
-		\label{fig:hamiltonian_planar}
+		\caption{An image of a Hamiltonian planar graph. If we have a circular ordering of the vertices, going clockwise around the Hamiltonian cycle, then every face is preserved.}\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
 As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face. 
@@ -111,7 +109,7 @@ Then we look at the planar subgraph \(G_p\) and decompose \(G_p\) into 4-connect
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if \(G\) is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\).
 In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face \(F\) which touches these vertices, the number of pages needed to embed \(F\) is bounded. 
 
-\begin{theorem}\label[thm:Embedded_Graph]
+\begin{theorem}\label{thm:embedded_graph}
 	Let \( G \) be a graph embedded on some surface \(\Sigma \) and let \(F\) be a face on \(G\). Suppose \(F \) is preserved in some book-embedding \( < \). Let \(x_1, x_2, \ldots, x_k \) be \(k \) vertices that lie on \(F \). Then we will need at most \( k^2 \) colours, and \(F\) has \(k + 1 \) monochromatic components.
 \end{theorem}
 
@@ -170,9 +168,12 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 By the theorem above, then we have that the planar-nonplanar decomposition has a bounded number of pages.
 
 So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed. This is what we want. 
-\begin{theorem}
-	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface. Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ has bounded pagenumber.
+\begin{theorem}\label{thm:orientablevortices}
+	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$. Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ has bounded pagenumber.
 \end{theorem}
 \begin{proof}
-	We use the fact that 
+	We first start off with 4-connected planar graphs.
+	We then move onto planar graphs in general.
+	We then move onto orientable surfaces.
+	We finally move onto torsos
 \end{proof}
