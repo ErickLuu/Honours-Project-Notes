@@ -29,7 +29,7 @@ We have a simpler proof if the tree is a path. We go from one end of the path to
 \end{theorem}
 We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages \cite{yannakakisPlanarGraphsThat2020} \cite{kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber. 
 
-\subsection{Graphs embedded on a surface of bounded genus}\label{ssec:pagenumber_bounded_genus}
+\section{Graphs embedded on a surface of bounded genus}\label{sec:pagenumber_bounded_genus}
 \begin{theorem}[Heath and Istrail\cite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
 	Let \(g\) be the genus of a graph \(G\). For all graphs \(G\), \(\pn(G) \leq O(g)\).
 \end{theorem}
@@ -140,7 +140,7 @@ We refer to a homotopy class as orientable if \(T_1\) and \(T_2\) go in opposite
 	Suppose \(G\) has a planar-nonplanar decomposition \((R, G_P, E_N)\) on an orientable surface \(\Sigma\). Then \(G\) can be embedded on at most \(18g - 5\) pages.
 \end{lemma}
 \begin{proof}
-	We use Yannikakis' proof \cref{ssec:Planar_Graphs} to lay out the nonplanar spanning subgraph \(G_P\) on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in \(E_P\), we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks, the biconnected components of \(G\). We need two as we could have some which span blocks in a way that forces them to be on different pages. Therefore, we need at most \(4 + 3(6g - 3) = 18g-5\) pages if \(G\) has a planar-nonplanar decomposition. 
+	We use Yannikakis' proof in \cref{ssec:Planar_Graphs} to lay out the nonplanar spanning subgraph \(G_P\) on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in \(E_P\), we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks, the biconnected components of \(G\). We need two as we could have some which span blocks in a way that forces them to be on different pages. Therefore, we need at most \(4 + 3(6g - 3) = 18g-5\) pages if \(G\) has a planar-nonplanar decomposition. 
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_nonorientable}

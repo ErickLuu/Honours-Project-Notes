@@ -115,35 +115,30 @@ Book-embeddings were introduced by Kainen and Ollmann in the 1970s.\cite{kainenR
 	A graph \(G\) has pagenumber at most 2 iff \(G\) is a subgraph of a planar graph with a Hamiltonian cycle.
 \end{lemma}
 This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and edges on each hemisphere forms the interior and exterior edges of the cycle respectively.
+\subsection{Properties of pagenumber}\label{ssec:Related_Properties}
+\begin{lemma}[Bound on number of edges, from \textcite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
+	If an \(n\)-vertex graph \(G\) has \(\pn(G) = k\), then \(G\) has at most \(n + k(n-3)\) edges.
+\end{lemma}
+\begin{proof}
+	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), we have that the spine edges \(v_i v_{i + 1}\), \(v_1 v_n\)  can appear on any page. Furthermore we have there are at most \(n-3\) non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the outer cycle (with \(n\) edges on the cycle) to have at most \(n-3\) edges on each page. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\). 
+\end{proof}
 
-\subsection{Pagenumber of complete graphs}\label{ssec:Pagenumber_Complete_Graphs}
 This is an upper bound of any graph \(G\) with vertices \(n\). 
 \begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
 	The complete graph \(K_n\) on \(n\) vertices where \(n \geq 4\), has pagenumber \( \leq \lceil n/2 \rceil \). 
 \end{theorem}
 \begin{proof}
-	Arrange the vertices in any circular ordering, and colour the edges in a zig-zag spanning path. \cref{fig:k8 coloured with colours}. To show equality, we use \cref{lem:Edge_Bound}.
+	Arrange the vertices in any circular ordering, and colour the edges in a zig-zag spanning path. As an example, we refer to \cref{fig:k8 coloured with colours} to show what zig-zagging pattern we are referring to. We rotate this pattern around $\lceil n/2 \rceil$ times. To show equality, we use \cref{lem:Edge_Bound}.
 	\begin{figure}[ht]
 		\caption{Circular embedding of \(K_8\) with 4 colours, the minimum possible.}
 		\centering
 		\input{figures/k8-withcolouring}
 		\label{fig:k8 coloured with colours}
 	\end{figure}
+
+	We have shown one direction of the inequality, and we use \cref{lem:Edge_Bound} to prove the other direction. We have that \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\), from the lemma. As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality.
 \end{proof}
 Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\). 
-\subsection{Related graph properties}\label{ssec:Related_Properties}
-
-\begin{lemma}[Bound on number of edges \cite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
-	If an \(n\)-vertex graph \(G\) has \(\pn(G) = k\), then \(G\) has at most \(n + k(n-3)\) edges.
-\end{lemma}
-\begin{proof}
-	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), we have that the spine edges \(v_i v_{i + 1}\), \(v_1 v_n\)  can appear on any page. Furthermore we have there are at most \(n-3\) non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the outer cycle (with \(n\) edges on the cycle) to have at most \(n-3\) edges on each page. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\). 
-\end{proof}
-\todo{combine to one proof}
-\begin{corollary}
-	The pagenumber of \(K_n\) is \(\lceil \frac{n}{2} \rceil \) when \(n \geq 4\).
-\end{corollary}
-We have shown one direction of the inequality, and we use \cref{lem:Edge_Bound} to prove the other direction. We have that \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\), from the lemma. As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality. 
 \begin{theorem}[Chromatic number bound\cite{bernhartBookThicknessGraph1979}]\label{thm:Colouring_Bound}
 	For all graphs \(G\), \(\chi(G) \leq 2 \pn(G) + 2\).
 \end{theorem}
@@ -291,10 +286,6 @@ We say a graph \(G\) is a \textit{caterpillar} if \(G\) has a path \(P\) and eve
 \end{theorem}
 
 \begin{proof}[Proof of pathwidth of tree]
-	\item
-	\paragraph{Showing \(\leq\)}
 	To show \(\pw(T) \leq 1 + \pw(T - V(P))\), we have that if \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a path-width and we can order each connected component such that they appear in the order of the trees. Then we have that adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\). 
-	\item
-	\paragraph{Showing \(\geq\)}
 	To show there exists a path \(P\) such that \(\pw(T) \geq 1 + \pw(T - V(P))\), we proceed by induction. Let \(B_1, \ldots B_n\) be a path-decomposition of \(T\). Let \(x\) live in bag \(B_1\) and \(y\) live in bag \(B_n\), the final bag. Then let \(P\) be the unique path from \(x\) to \(y\). Then \(P\) traverses through every bag in the path-decomposition. Then \(\tw(T) \geq 1 + \tw(T - P)\) by induction. 
 \end{proof}
