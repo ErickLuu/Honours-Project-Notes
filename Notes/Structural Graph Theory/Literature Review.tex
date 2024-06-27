@@ -88,8 +88,8 @@ For a graph $G$, we define the \textit{vertex} and \textit{edge} sets of $G$ to 
 For a subset of vertices $A \subseteq V(G)$, we denote the \textit{induced subgraph} on $G$ with vertex set $A$ as $G[A]$. 
 
 \begin{itemize}
-	\item A \textit{path} in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell- 1}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$, and all the vertices are distinct. 
-	\item A \textit{simple cycle} $C$ in a graph $G$ is a sequence of edges $e_1, e_2, ..., e_{\ell}$ which join a sequence of vertices $v_1, v_2, ..., v_{\ell}$ such that $e_i = v_iv_{i + 1}$ for $1 \leq i \leq \ell - 1$ and $e_\ell = v_\ell v_1$. 
+	\item A \textit{path} in a graph $G$ is a sequence of edges $e_1, e_2, \cdots, e_{\ell- 1}$ which join a sequence of vertices $v_1, v_2, \cdots, v_{\ell}$ such that $e_i = v_iv_{i + 1}$, and all the vertices are distinct. 
+	\item A \textit{simple cycle} $C$ in a graph $G$ is a sequence of edges $e_1, e_2, \cdots, e_{\ell}$ which join a sequence of vertices $v_1, v_2, \cdots, v_{\ell}$ such that $e_i = v_iv_{i + 1}$ for $1 \leq i \leq \ell - 1$ and $e_\ell = v_\ell v_1$. 
 	\item A \textit{Hamiltonian cycle} in a graph $G$ is a simple cycle $C$ such that all vertices in $G$ appear in $C$.
 \end{itemize}
 
@@ -97,7 +97,7 @@ We say that a graph $G$ is \textit{$k$-connected} if between any two vertices $v
 
 We say a graph $G$ is $k$-colourable if there exists a function $f: V(G) \rightarrow [k]$ such that for all $vw \in E(G)$, $f(v)$ and $f(w)$ are assigned different colours. The \textit{chromatic number} $\chi(G)$ is the smallest $k$ such that $G$ is $k$-colourable. 
 
-Throughout this report, we use as shorthand for the set $[n] = \lbrace 1... n \rbrace$. 
+Throughout this report, we use as shorthand for the set $[n] = \lbrace 1\cdots n \rbrace$. 
 
 \section{Planar graphs}\label{sec:Planar graphs}
 We say a graph $G$ is \textit{planar} if $G$ can be drawn on the Euclidean plane $\Sigma$ such that no two edges cross. Say $G$ is drawn on a plane. If $G$ is embedded on $\Sigma$, then $\Sigma$ is divided into regions where no edges cross. These regions are called \textit{faces}. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. We also say that the vertices and edges \textit{bound} a face. $G$ is \textit{outerplanar} if $G$ is planar and all vertices in $G$ lie on the outerface. 
@@ -150,8 +150,8 @@ A \textit{book-embedding} of a graph $G$ is an embedding of $G$ on a book. We pl
 The \textit{pagenumber} of a graph $G$ is the minimum number of pages required to embed $G$ on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. 
 
 We have another definition which abstracts the underlying topology and focuses on the graph. This definition is more combinatorial in nature. 
-A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in a total ordering $v_1 < v_2 < ... < v_n$. We then colour the edges $E(G)$ such that if we have $v_a < v_b < v_c < v_d$ and edges $v_a v_c$ and $v_b v_d$, then they are each assigned different colours.
-We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, ..., v_{|G|})$, we refer to the edges $\left\{v_1 v_2, v_2 v_3, ..., v_{|G| - 1}, v_{|G|}v_{1}\right\}$ as \textit{spine edges}.
+A \textit{book embedding} of a graph $G$ is an arrangement of the vertices of $G$ in a total ordering $v_1 < v_2 < \cdots < v_n$. We then colour the edges $E(G)$ such that if we have $v_a < v_b < v_c < v_d$ and edges $v_a v_c$ and $v_b v_d$, then they are each assigned different colours.
+We refer to the total ordering of $V(G)$ in the book embedding as $(<)$ or as $(\leq)$. For a book-embedding $(v_1, v_2, \cdots, v_{|G|})$, we refer to the edges $\left\{v_1 v_2, v_2 v_3, \cdots, v_{|G| - 1}, v_{|G|}v_{1}\right\}$ as \textit{spine edges}.
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering, so we ignore the start and end vertices.
 
 Book-embeddings were introduced by Kainen and Ollmann in the 1970s. \cite{kainenRecentResultsTopological1974} \cite{ollmannBookThicknessVarious1973}. It was developed further in a paper by Bernhart and Kainen \cite{bernhartBookThicknessGraph1979}. 
@@ -260,14 +260,14 @@ Given $G$ and a tree-decomposition $\tree$, we can say that $G$ is a clique-sum 
 \subsubsection{Vortices}\label{sssec:vortices}
 Let $G$ be embedded on a surface $\Sigma$, and let $F$ be a face on $G$. Let $D$ be a disc in $\Sigma$ such that $D$ only intersects $G$ only on vertices on the boundary of $F$. We denote these discs as $G$-clean. 
 
-Then let $\Lambda = (x_1, x_2, ..., x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, ... B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
+Then let $\Lambda = (x_1, x_2, \cdots, x_b)$ be a tuple of vertices on the boundary of $F$ such that they intersect $D$. Then we define a new graph $H$ such that $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of $H$ of bags $B_1, B_2, \cdots B_b$ such that $x_i \in B_i$ for all $i$. $H$ is denoted as a \textit{$D$-vortex} of $G$. The width of a $D$-vortex is the width of the path above, or $\max_i(|B_i| - 1)$. 
 \subsection{Robertson-Seymour Graph Minor Structure Theorem\cite{robertsonGraphMinorsXVI2003}}\label{ssec:Robertson_Seymour_Graph_Structure}
-Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embeddable if there exists an $A \subseteq V(G)$ with $|A| \leq a$, and there exists subgraphs $G_0, G_1, ...,  G_{p'}$ of $G$ such that:
+Given $g, p, a \geq 0$, $k \geq 1$, a graph $G$ is $(g, p, k, a)$- almost embeddable if there exists an $A \subseteq V(G)$ with $|A| \leq a$, and there exists subgraphs $G_0, G_1, \cdots,  G_{p'}$ of $G$ such that:
 \begin{itemize}
-	\item $G - A = G_0 \cup G_1 \cup G_2 ... G_{p'}$
+	\item $G - A = G_0 \cup G_1 \cup G_2 \cdots G_{p'}$
 	\item $p' \leq p$
 	\item There is an embedding of $G_0$ onto a surface $\Sigma$ of genus $\leq g$
-	\item There exists pairwise disjoint $G_0$-clean discs $D_1, D_2, ..., D_{p'}$ in $\Sigma$
+	\item There exists pairwise disjoint $G_0$-clean discs $D_1, D_2, \cdots, D_{p'}$ in $\Sigma$
 	\item $G_i$ is a $D_i$-vortex of width at most $k$.
 \end{itemize}
 
