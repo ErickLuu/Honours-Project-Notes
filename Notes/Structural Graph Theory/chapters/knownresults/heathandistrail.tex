@@ -24,7 +24,7 @@ In the original proof, they considered the case where \(G\) is a \(k\)-tree. We 
 We have a simpler proof if the tree is a path. We go from one end of the path to the other, and add vertices to the book-embedding in the order of the first time they appear. Then we colour each vertex such that in each bag, no two vertices are assigned the same colour. We can do this as this is the same intersection graph as above. The rest of the proof follows.
 
 \subsection{Planar graphs}\label{ssec:Planar_Graphs}
-\begin{theorem}[Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}] \label{thm:4Pages_Planar}
+\begin{theorem}[Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}]\label{thm:4Pages_Planar}
 	Planar graphs can be embedded on at most four pages.
 \end{theorem}
 We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages \cite{yannakakisPlanarGraphsThat2020} \cite{kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber. 
@@ -65,7 +65,7 @@ Suppose \(G\) is embedded on an surface \(\Sigma\). Then we wish to triangulate 
 
 We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\). 
 \paragraph{Adding vertices to biconnected block}
-For a current boundary of the outerface of \(G_P\), if \(v_i \rightarrow v_j \rightarrow v_k\) is trace with no edge of \(E_N\) incident to \(v_j\), then \(v_iv_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and we can add it to \(G_P\). 
+For a current boundary of the outerface of \(G_P\), if \(v_i \rightarrow v_j \rightarrow v_k\) is trace with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and we can add it to \(G_P\). 
 \paragraph{Creating new biconnected block}
 If no \(v_k\) exists, then we find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). We then add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then we add all safe edges. This is so that every edge in \(E_p\) maintains the property that both endpoints are on the boundary.
 
@@ -107,7 +107,7 @@ We can then form a directed cycle \(C_0\) induced by \(F_0\). Each vertex on the
 We may think of \(G_n\) as living on a locally flat part of \(S\) and the homotopy class \(u_1v_1\) and \(u_2 v_2\) living on a handle (alternatively, passing through a crosscap such that they bound a face). Then if we take \(G_n\) to a point, there exists a \textit{homotopy} (in the topological sense) from \(u_1v_1\) to \(u_2v_2\). These form equivalence classes of the nonplanar edges.
 
 \begin{lemma}
-	If \(C\) is a homotopy class of edges \(u_1v_1, \cdots, u_kv_k\) with a natural order, then we can build traces \(T_1\) and \(T_2\) by building the trace from \(u_1\) to \(u_k\) passing through all \(u_i\), and \(v_1\) to \(v_k\) passing through all \(v_i\). 
+	If \(C\) is a homotopy class of edges \(u_1 v_1, \ldots, u_k v_k\) with a natural order, then we can build traces \(T_1\) and \(T_2\) by building the trace from \(u_1\) to \(u_k\) passing through all \(u_i\), and \(v_1\) to \(v_k\) passing through all \(v_i\). 
 \end{lemma}
 We refer to a homotopy class as orientable if \(T_1\) and \(T_2\) go in opposite directions, and non-orientable if \(T_1\) and \(T_2\) go in the same direction.
 
