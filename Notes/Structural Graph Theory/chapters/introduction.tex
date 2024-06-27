@@ -18,9 +18,9 @@ We aim to solve the question using the Graph Minor Structure Theorem \cite{rober
 Robertson and Seymour showed that we can build graphs with no \(K_t\) minor from smaller building blocks. We first start with a graph \(G\) embedded on a genus \(g\) surface. Then we add on \(p\) \textit{vortices} to \(G\), with \textit{pathwidth} at most \(k\). Then we add on \(a\) \textit{apex vertices} to \(G\). We say that \(G\) is \((g, p, k, a)\)-\textit{almost embeddable}. Robertson and Seymour \cite{robertsonGraphMinorsXVI2003} proved that all graphs with no \(K_t\) minor are \textit{clique-sums} of \((g, p, k, a)\) almost-embeddable graphs, with \((g, p, k, a)\) depending on only \(k\).
 We have some useful results that can be paired with the Graph Minor Structure Theorem to prove this result.
 \begin{itemize}
-	\item From Heath and Istrail, all graphs of bounded genus have bounded pagenumber \cite{heathPagenumberGenusGraphs1992}.
-	\item From Ganley and Heath \cite{ganleyPagenumberTrees2001}, and Dujmovic and Wood \cite{dujmovicGraphTreewidthGeometric2007}, all graphs of bounded treewidth have bounded pagenumber.
-	\item From Hickingbotham and Wood\cite{hickingbothamStackNumberCliqueSum2023}, if a graph \(G\) has a \textit{tree-decomposition} where every \textit{torso} has bounded pagenumber, then \(G\) has bounded pagenumber.
+	\item From \textcite{heathPagenumberGenusGraphs1992}, all graphs of bounded genus have bounded pagenumber.
+	\item From \textcite{ganleyPagenumberTrees2001}, and \textcite{dujmovicGraphTreewidthGeometric2007}, all graphs of bounded treewidth have bounded pagenumber.
+	\item From \textcite{hickingbothamStackNumberCliqueSum2023}, if a graph \(G\) has a \textit{tree-decomposition} where every \textit{torso} has bounded pagenumber, then \(G\) has bounded pagenumber.
 \end{itemize}
 These results individually show that the constituent ingredients of the GMST have bounded pagenumber. What this report aims to do is to combine these proofs together to show that the pagenumber is bounded for all $K_t$-minor free graphs.
 The most problematic combinations are showing that adding vortices on surfaces does not blow up the pagenumber. 
