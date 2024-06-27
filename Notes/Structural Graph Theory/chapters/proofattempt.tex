@@ -174,24 +174,31 @@ The main theorem we want to prove is:
 	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$.  Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ has bounded pagenumber.
 \end{theorem}
 
+
+\begin{lemma}\label{lem:planargraphs_monochromatic_paths}
+	For every planar graph $G$, we have that every face of $G$ has a bounded number of monochromatic paths.
+\end{lemma}
+\begin{proof}
+	We can then decompose $G_p$ to a tree-decomposition with 4-connected torsos, with adhesion size 3, from \cref{corr:planar_graphs_4_connected_cliqesums}. Then we have that from \textcite{tutteTheoremPlanarGraphs1956} that every 4-connected planar graph is Hamiltonian. Additionally, every planar graph with at most 4 vertices has bounded pagenumber.
+	The faces that come out are monochromatic faces with respect to the vertex ordering from the Hamiltonian cycle.
+	We then use \cref{lem:Hickingbotham_Lemma} to glue the torsos together with a bounded number of pages. For every subgraph that we glue using the lemma, we only move 3 vertices to the start of the embedding. We then us \cref{thm:embedded_graph} to say that every face that we have has a bounded number of monochromatic paths.
+	Therefore, $G_p$ has a bounded number of pages and every face has a bounded number of monochromatic paths. 
+\end{proof}
+
+
 \begin{lemma}\label{lem:orientablesurfaces_monochromatic_edges}
 	Let $G$ be a graph embedded on an orientable surface of genus at most $g$. Then every face of $G$ has $ \leq f(g)$ monochromatic paths. 
 \end{lemma}
 \begin{proof}
-	Let $G$ be such a graph. We have that $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. 
-	We can then decompose $G_p$ to a tree-decomposition with 4-connected torsos, with adhesion size 3, from \cref{corr:planar_graphs_4_connected_cliqesums}. Then we have that from \textcite{tutteTheoremPlanarGraphs1956} that every 4-connected planar graph is Hamiltonian. Additionally, every planar graph with at most 4 vertices has bounded pagenumber.
-	The faces that come out are monochromatic faces with respect to the vertex ordering from the Hamiltonian cycle.
-	We then use \cref{lem:Hickingbotham_Lemma} to glue the torsos together with a bounded number of pages. For every subgraph that we glue using the lemma, we only move 3 vertices to the start of the embedding. We then us \cref{thm:embedded_graph} to say that every face that we have has a bounded number of monochromatic paths.
-	Therefore, $G_p$ has a bounded number of pages and every face has a bounded number of monochromatic paths. Now consider $G$, where $G_p$ is only a spanning subgraph. Then we have that from \cref{corr:orientable_nonplanar_faces} that every face has a bounded number of monochromatic paths with fixed $g$. Therefore, every face of $G$ has at most $f(g)$ monochromatic paths.
+	Let $G$ be such a graph. We have that $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. We then use \cref{lem:planargraphs_monochromatic_paths} to find a book-embedding of $G$ such that every face has a bounded number of monochromatic pages.
+	Now consider $G$, where $G_p$ is only a spanning subgraph. Then we have that from \cref{corr:orientable_nonplanar_faces} that every face has a bounded number of monochromatic paths with fixed $g$. Therefore, every face of $G$ has at most $f(g)$ monochromatic paths.
 \end{proof}
-\todo{Split apart the planar case onto its own section}
-
 \begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
 	Let $G$ be a graph $k$-almost embeddable on an orientable surface of genus at most $g$, with $p$ vortices on $G$. Then $G$ has a book-embedding with at most $f(g, p, k)$ pages for some function $f(g, p, k)$. 
 \end{lemma}
 
 \begin{proof}
-Suppose $G$ is $k$-almost-embeddable on a surface of genus $g$. Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \geq i \geq p$ are vortices. Then there exists a book-embedding $(\leq, \psi)$ where every face has $f(g)$ monochromatic edges, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{lem:vortices_mono_paths}, this means that every $G_1, ..., G_p$ on $G_0$ can be embedded in at most $f(g, p, k)$ pages. Thus shown.
+Suppose $G$ is $k$-almost-embeddable on a surface of genus $g$. Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ where every face has $f(g)$ monochromatic edges, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{lem:vortices_mono_paths}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded in at most $f(g, p, k)$ pages. Thus shown.
 \end{proof}
 
 Now to prove the main theorem:
