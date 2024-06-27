@@ -96,8 +96,9 @@ A \textit{model} of a graph \(H\) to a graph \(G\) is a function \(\rho\) which 
 \todo{Subdivisions of edges}
 \todo{Layouts of graph subdivisions}
 \todo{Layouts of expander graphs}
-\todo{Examples of K5 minor free graphs}
-\todo{inherently knotted and linklessly embeddable graphs}
+\todo{section on Kt minor free graphs and some properties of graphs}
+\todo{linklessly embedded graphs}
+\todo{fundamentally knotted graphs}
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book} of \textit{thickness} \(k\) are \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966, atneosenOnedimensionalNleavedContinua1972}.
 A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
@@ -127,13 +128,11 @@ This is because we can embed the graph on a sphere with the vertices and Hamilto
 \begin{proof}
 	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), we have that the spine edges \(v_i v_{i + 1}\), \(v_1 v_n\)  can appear on any page. Furthermore we have there are at most \(n-3\) non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the outer cycle (with \(n\) edges on the cycle) to have at most \(n-3\) edges on each page. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
 \end{proof}
-
-This is an upper bound of any graph \(G\) with vertices \(n\).
 \begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
 	The complete graph \(K_n\) on \(n\) vertices where \(n \geq 4\), has pagenumber \( \leq \lceil n/2 \rceil \).
 \end{theorem}
 \begin{proof}
-	Arrange the vertices in any circular ordering, and colour the edges in a zig-zag spanning path. As an example, we refer to \cref{fig:k8 coloured with colours} to show what zig-zagging pattern we are referring to. We rotate this pattern around $\lceil n/2 \rceil$ times. To show equality, we use \cref{lem:Edge_Bound}.
+	Arrange the vertices in any circular ordering, and colour the edges in a zig-zag spanning path. As an example, we refer to \cref{fig:k8 coloured with colours} to show what zig-zagging pattern we are referring to. We rotate this pattern $\lceil n/2 \rceil$ times. To show equality, we use \cref{lem:Edge_Bound}.
 	\begin{figure}[ht]
 		\caption{Circular embedding of \(K_8\) with 4 colours, the minimum possible.}
 		\centering
@@ -143,6 +142,7 @@ This is an upper bound of any graph \(G\) with vertices \(n\).
 
 	We have shown one direction of the inequality, and we use \cref{lem:Edge_Bound} to prove the other direction. We have that \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\), from the lemma. As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality.
 \end{proof}
+This is an upper bound of any graph \(G\) with \(n\) vertices.
 Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\).
 \begin{theorem}[Chromatic number bound\cite{bernhartBookThicknessGraph1979}]\label{thm:Colouring_Bound}
 	For all graphs \(G\), \(\chi(G) \leq 2 \pn(G) + 2\).

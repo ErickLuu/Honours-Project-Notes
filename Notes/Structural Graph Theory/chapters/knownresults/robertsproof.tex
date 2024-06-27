@@ -82,10 +82,10 @@ We will use \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use th
 \end{theorem}
 
 \begin{lemma}\label{lem:clique_sum_connected}
-	All graphs are clique-sum trees of \(k\)-connected subgraphs with adhesion at most \(k-1\).
+	All graphs have a tree-decomposition where every torso is a \(k\)-connected graph, or has at most $k-1$ vertices, with adhesion set size at most \(k-1\).
 \end{lemma}
 \begin{proof}
-	If a graph \(G\) is not \(k\)-connected, we can find a set \(S\) of size at most \(k-1\) such that \(G - S\) is disconnected. Then we repeat this operation on the connected components of \(G - S\), until each component either has \(k-1\) vertices or is \(k\)-connected. So we can construct a clique-sum tree where every component is \(k\)-connected and the adhesion size is at most \(k-1\). 
+	If a graph \(G\) is not \(k\)-connected, we can find a set \(S\) of size at most \(k-1\) such that \(G - S\) is disconnected. Then we repeat this operation on the connected components of \(G - S\), until each component either has \(k-1\) vertices or is \(k\)-connected. So we can construct a tree-decomposition where every torso is \(k\)-connected and the adhesion size is at most \(k-1\). 
 \end{proof}
 
 \begin{corollary}\label{corr:planar_graphs_4_connected_cliqesums}
@@ -100,7 +100,7 @@ This upper bound is much worse than the tight upper bound found by Yannakakis \c
 
 We will discuss the \(K_5\)-minor free case. If \(G\) is \(K_5\)-minor free, then we do not need to worry about the GMST to form an upper bound. We will use Wagner's theorem.
 \begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
-	If \(G\) is \(K_5\)-minor-free, then \(G\) can be obtained from \((\leq 3)\)-clique-sums of planar graphs and the Wagner graph \(V_8\).
+	If \(G\) is \(K_5\)-minor-free, then \(G\) has a tree-decomposition of adhesion $\leq 3$ where every torso is eithe a planar graph or the Wagner graph \(V_8\).
 \end{theorem}
 A description of the Wagner graph is in \cref{fig:wagner}. The edges are coloured such that the internal edges are on different pages. The spine edges (the edges that are on the outerface) are the ones which can go on any page. 
 \begin{figure}[h]

@@ -92,6 +92,8 @@ The \textit{adhesion} of a tree is defined as \(\max(|B_x \cap B_y|)\) where \(x
 \subsubsection{Relationship between clique-sums and treewidth}
 Given \(G\) and a tree-decomposition \(\tree\), we can say that \(G\) is a clique-sum of the torsos \(G\langle B_x \rangle\) where the size of the cliques that we paste over is at most the adhesion. Note that the tree-decomposition that we use is not one which has bounded treewidth as we have been using tree-decompositions before.
 
+Throughout the report, we will discuss decomposing graphs in the language of tree-decompositions, rather than clique-sums. This is because we can discuss the structure of the tree-decomposition which is more difficult to do with the language of clique-sums.
+
 \subsection{Vortices}\label{sssec:vortices}
 Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). Let \(D\) be a disc in \(\Sigma\) such that \(D\) only intersects \(G\) only on vertices on the boundary of \(F\). We denote these discs as \(G\)-clean. 
 
@@ -137,5 +139,3 @@ Equivalently, this theorem states that:
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors.
 For planar graphs, the two forbidden minors are \(K_5\) and \(K_{3,3}\). This was proven by Wagner \cite{wagnerUeberEigenschaftEbenen1937}. 
 For graphs that can be embedded on a torus, there are at least 17,523 graphs which are forbidden minors, with a database maintained by Myrvold and Woodcock\cite{myrvoldLargeSetTorus2018}. 
-
-\todo{section on Kt minor free graphs and some properties of graphs}
