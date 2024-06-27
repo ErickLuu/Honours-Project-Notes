@@ -1,17 +1,13 @@
 % !TEX root = ./thesis.tex
 \chapter{Introduction}\label{sec:introduction}
 Structural graph theory is a fundamental topic in graph theory. Many results from structural graph theory decompose graphs, or families of graphs, into smaller graphs with bounded parameters. One of the most important theorems in structural graph theory is Robertson and Seymour's Graph Minor Theorem \cite{robertsonGraphMinorsXX2004} which states that proper minor-closed families of graphs are characterised by a finite set of forbidden minors.
-\par
 The concept of the \textit{pagenumber} of a graph was introduced by Ollmann \cite{ollmannBookThicknessVarious1973} in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph is a way to arrange the vertices on the ``spine'' of a book and arrange the edges on ``pages'' of a book, or half-planes. The \textit{pagenumber} of a graph \(G\) is the smallest number of pages necessary in a book-embedding of \(G\).
-
 The driving question of this report is the following:
 \begin{conjecture}\label{conj:bded_had_pn}
 	Given a graph \(G\) with no \(K_t\) minor, is the pagenumber of \(G\) bounded by a function of \(t\), so \(\pn(G) \leq f(t)\) for some \(f\)?
 \end{conjecture}
 Answering this question will yield a link between the pagenumber of a graph and the global structure of the graph. This report currently lays out the literature related to this question. We use a result in one of the papers of the Graph Minor Theorem, which is the Graph Minor Structure Theorem by \textcite{robertsonGraphMinorsXVI2003}.
-
 In a PhD thesis, Blankenship claimed to have a proof of \cref{conj:bded_had_pn}.\cite{Blankenship-PhD03} However, this result has not been published in any journal and has not been independently verified. We aim to fill this gap in our knowledge.
-
 We have good reason to believe \cref{conj:bded_had_pn} is true. Firstly, it was shown by \textcite{yannakakisEmbeddingPlanarGraphs1989} that all planar graphs need at most 4 pages. It was then shown by \textcite{malitzGenusGraphsHave1994} that all graphs of Euler genus $g$ have pagenumber $O(\sqrt(g))$, and it was also shown by \textcite{malitzGraphsEdgesHave1994} that graphs with $e$ edges have pagenumber pagenumber $O(\sqrt(e))$. We also have that graphs with bounded treewidth have bounded pagenumber, from \textcite{ganleyPagenumberTrees2001} and \textcite{dujmovicGraphTreewidthGeometric2007}
 \section{Plan for solving the problem}
 We aim to solve the question using the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}, which describes the structure of graphs which do not contain a \(K_t\) minor.
