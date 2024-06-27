@@ -64,7 +64,7 @@ We have some bounds in terms of pagenumber on some of these constants, however t
 	If \(G\) has a clique of size \(k\), then embedding the clique of size \(k\) and therefore \(G\) requires at least \(\lfloor \frac{k}{2} \rfloor\) pages, from \cref{thm:Pagenumber_Complete_Graph}. Therefore, if we can embed \(G\) in \(s\) pages, then the largest clique of \(G\) is at most \(2s + 1\). Therefore, \(\ell \leq 2s + 1\). 
 \end{proof}
 As we have the bound of \(\chi(G) \leq 2 \pn(G) + 2\), from \cref{thm:Colouring_Bound}, we have a bound that does not depend on the chromatic number of \(G\). 
-\begin{corollary}[Bounded pagenumber of tree-decompositions]
+\begin{corollary}[Bounded pagenumber of tree-decompositions]\label{corr:bded_pn_tree_decomp}
 	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\) where each torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\). Then from \cref{thm:clique_sum_pagenumber_bound}, \(G\) has pagenumber at most \(2s^2 + 4s + 1\). 
 \end{corollary}
 

@@ -107,7 +107,7 @@ The reason why vortices are important are graphs like in \cref{fig:tenniscourt}.
 \end{figure}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
 The full statement of Robertson and Seymour's Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}is such:
-Given \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) such that:
+Given \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) such that:
 \begin{itemize}
 	\item \(G - A = G_0 \cup G_1 \cup G_2 \ldots G_{p'}\)
 	\item \(p' \leq p\)
@@ -117,7 +117,7 @@ Given \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almos
 \end{itemize}
 
 \begin{theorem}[Robertson-Seymour Graph Minor Structure Theorem for \(K_t\)-minor-free graphs]
-	For all \(t\), there exists \(g, p, a \geq 0\), \(k, \ell \geq 1\), such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-embeddable. We refer to the family of graphs which satisfy these constants as \(\mathcal{G}(g, p, k, a)\). 
+	For all \(t\), there exists \(g, p, a \geq 0\), \(k, \ell \geq 1\), such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. We refer to the family of graphs which satisfy these constants as \(\mathcal{G}(g, p, k, a)\). 
 \end{theorem}
 In fact, there exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor. Joret and Wood\cite{joretCompleteGraphMinors2013} found that
 \begin{theorem}[Bounds on Graph Minor Structure Theorem\cite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}

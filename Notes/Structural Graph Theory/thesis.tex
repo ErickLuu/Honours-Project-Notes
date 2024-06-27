@@ -86,6 +86,7 @@ chapters/proofattempt
 
 \maketitle
 \listoftodos
+\setcounter{tocdepth}{50}
 \tableofcontents
 \chapter{Abstract}\label{abstract}
 In this report we outline our current progress in proving that \(K_t\)-minor free graphs have bounded pagenumber. Proving this bound will connect two important concepts in structural graph theory that have been studied extensively for the past 40 years. We will outline the most important theorem in structural graph theory related to \(K_t\)-minor free graphs, the Graph Minor Structure Theorem. We will also introduce some other proofs which will be of use proving this bounded pagenumber conjecture. 
@@ -114,7 +115,7 @@ We aim to prove this conjecture:
 
 The non-orientable analogue of the orientable case is:
 \begin{conjecture}
-	Let $G$ be a graph embedded on a non-orientable surface of Euler genus $g$. Let $F_1, ..., F_p$ be faces on $G$ which are homeomorphic to a disk. Then there exists a book-embedding $(<, \leq)$ such that for all $F_i$, $1 \leq i \leq p$, we have that $F_i$ needs $\leq f(g)$ monochromatic paths. 
+	Let $G$ be a graph embedded on a non-orientable surface of Euler genus $g$. Let $F_1, \ldots, F_p$ be faces on $G$ which are homeomorphic to a disk. Then there exists a book-embedding $(<, \leq)$ such that for all $F_i$, $1 \leq i \leq p$, we have that $F_i$ needs $\leq f(g)$ monochromatic paths. 
 \end{conjecture}
 This will be much more difficult as we do not have the same tools for orientable surfaces. Heath and Istrail's proof for non-orientable surface page numbers is a lot more complex than the orientable case, and we will need to look at that proof in depth and extend their results for our case.
 
