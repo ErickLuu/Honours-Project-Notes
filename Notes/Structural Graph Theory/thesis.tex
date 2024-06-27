@@ -47,11 +47,11 @@ maxbibnames=99
 \addbibresource{Book-Embeddings.bib}
 % Commands
 \newcommand{\tree}{\mathcal{T}}
-\newcommand{\tw}{\text{tw}}
-\newcommand{\had}{\text{had}}
-\newcommand{\pw}{\text{pw}}
-\newcommand{\td}{\text{td}}
-\newcommand{\pn}{\text{pn}}
+\DeclareMathOperator{\tw}{tw}
+\DeclareMathOperator{\had}{had}
+\DeclareMathOperator{\pw}{pw}
+\DeclareMathOperator{\td}{td}
+\DeclareMathOperator{\pn}{pn}
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -111,10 +111,12 @@ We aim to prove this conjecture:
 \begin{conjecture}
 	Let $G$ be a graph where all torsos are $k$ almost-embeddable on a surface of genus at most $g$. Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ has bounded pagenumber.
 \end{conjecture}
-This will be much more difficult as we do not have the same tools for orientable surfaces. Heath and Istrail's proof for non-orientable surface page numbers is a lot more complex than the orientable case, and we will need to look at that proof in depth and extend their results for our case. 
 
-For the non-orientable case, we aim to show that:
-
+The non-orientable analogue of the orientable case is:
+\begin{conjecture}
+	Let $G$ be a graph embedded on a non-orientable surface of Euler genus $g$. Let $F_1, ..., F_p$ be faces on $G$ which are homeomorphic to a disk. Then there exists a book-embedding $(<, \leq)$ such that for all $F_i$, $1 \leq i \leq p$, we have that $F_i$ needs $\leq f(g)$ monochromatic paths. 
+\end{conjecture}
+This will be much more difficult as we do not have the same tools for orientable surfaces. Heath and Istrail's proof for non-orientable surface page numbers is a lot more complex than the orientable case, and we will need to look at that proof in depth and extend their results for our case.
 
 \printbibliography{}
 \end{document}
