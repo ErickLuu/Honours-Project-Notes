@@ -138,4 +138,8 @@ Equivalently, this theorem states that:
 \end{theorem}
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors.
 For planar graphs, the two forbidden minors are \(K_5\) and \(K_{3,3}\). This was proven by Wagner \cite{wagnerUeberEigenschaftEbenen1937}. 
-For graphs that can be embedded on a torus, there are at least 17,523 graphs which are forbidden minors, with a database maintained by Myrvold and Woodcock\cite{myrvoldLargeSetTorus2018}. 
+For graphs that can be embedded on a torus, there are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. 
+
+We say a graph $G$ is \textit{linkless} if we can embed $G$ in 3-dimensional Euclidean space such that no two cycles are linked. If no embedding of $G$ has this property, we say $G$ is \textit{inherently linked}. We have that the family of linkless graphs is minor closed. If $G$ is linkless, then contracting any edge maintains the property that $G$ is linkless. In fact, the forbidden minor characterisation of the linkless graph family is only seven forbidden minors, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. Linkless graphs also appear in the proof that all $K_6$-minor free graphs are $5$-colourable, from \textcite{robertsonHadwigerConjectureK_61993}.
+
+We say a graph $G$ is \textit{knotless} if there exist an embedding of $G$ in 3-dimensional Euclidean space such that every cycle is a simple knot. $G$ is \textit{fundamentally knotted} if this is not the case. It was shown by \textcite{conwayKnotsLinksSpatial1983} that $K_7$ is fundamentally knotted. The family of knotless graphs are also minor-closed, as contracting any edge preserves the knotless property. \todo{find paper with number of knotless graph forbidden minors}. 
