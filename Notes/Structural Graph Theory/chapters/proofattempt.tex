@@ -110,16 +110,14 @@ From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we ha
 In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face \(F\) which touches these vertices, the number of pages needed to embed \(F\) is bounded. 
 
 \begin{theorem}\label{thm:embedded_graph}
-	Let \( G \) be a graph embedded on some surface \(\Sigma \) and let \(F\) be a face on \(G\). Suppose \(F \) is preserved in some book-embedding \( < \). Let \(x_1, x_2, \ldots, x_k \) be \(k \) vertices that lie on \(F \). Then we will need at most \( k^2 \) colours, and \(F\) has \(k + 1 \) monochromatic components.
+	Let \( G \) be a graph embedded on some surface \(\Sigma \) and let \(F\) be a face on \(G\). Suppose \(F \) is preserved in some book-embedding \( < \). Let \(x_1, x_2, \ldots, x_k \) be \(k \) vertices that lie on \(F \). Then we will need at most \( 2k \) colours, and \(F\) has \( 4k \) monochromatic paths.
 \end{theorem}
 
 \begin{proof}
-	We have that the edges that matter are the ones that are adjacent to \(x_1, x_2, \ldots, x_k \).
+	Consider the edges that are adjacent to \(x_1, x_2, \ldots, x_k \). Now we can simply assign every edge in this set its own individual page. Now we will break every face with $4k$ monochromatic paths as there are $2k$ edges that are given its own page. So there are $4k$ monochromatic paths on $F$.
 \end{proof}
 
-\todo{Add proof for this part!}
-
-This means that for any connected planar graph \(G \), we have from \cref{corr:planar_graphs_4_connected_cliqesums} that \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, we have that \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then we have that we have that \(F \) has 4 monochromatic components, which is bounded. Now we suppose we are living on a surface which is orientable.
+This means that for any connected planar graph \(G \), we have from \cref{corr:planar_graphs_4_connected_cliqesums} that \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, we have that \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then we have that we have that \(F \) has 12 monochromatic components, which is bounded. Now we suppose we are living on a surface which is orientable.
 
 \section{Orientable surfaces}
 In this section, we discuss orientable surfaces and a method for dealing with faces on an orientable surface. The non-orientable case has not been dealt with yet. 
@@ -162,7 +160,7 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 
 \begin{proof}
 	Contract \(G\) to a point. Then \(F\) has at most \(2g\) edges on its surface, from above. 
-	Then every nonplanar face alternates between having a planar trace and nonplanar edge at most \(4g\) times. Therefore, the number of monochromatic paths is bounded.
+	Then every nonplanar face alternates between having a planar trace and nonplanar edge at most \(4g\) times. Therefore, the number of monochromatic paths is bounded as the planar trace has a bounded number of monochromatic paths. 
 \end{proof}
 
 \section{Putting the pieces together}

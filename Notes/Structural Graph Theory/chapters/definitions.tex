@@ -19,8 +19,8 @@ For a subset of vertices \(A \subseteq V(G)\), we denote the \textit{induced sub
 	\item A \textit{Hamiltonian cycle} in a graph \(G\) is a simple cycle \(C\) such that all vertices in \(G\) appear in \(C\).
 \end{itemize}
 
-We say that a connected graph \(G\) is \textit{\(k\)-connected} if \(G\) has more than \(k\) vertices and removing up to \(k-1\) vertices from \(G\) maintains the connected property. For the case that \(k = 2\), the graph is \textit{biconnected}. Note that all graphs \(G\) with a Hamiltonian cycle is biconnected, due to Menger's theorem.\cite{mengerZurAllgemeinenKurventheorie1927}
-We say a graph \(G\) is \(k\)-colourable if there exists a function \(f: V(G) \rightarrow [k]\) such that for all \(vw \in E(G)\), \(f(v)\) and \(f(w)\) are assigned different colours. The \textit{chromatic number} \(\chi(G)\) is the smallest \(k\) such that \(G\) is \(k\)-colourable.
+We say that a connected graph \(G\) is \textit{\(k\)-connected} if \(G\) has more than \(k\) vertices and removing up to \(k-1\) vertices from \(G\) maintains the property that $G$ is connected. For the case that $k$ equals $2$, the graph is \textit{biconnected}. Note that all graphs \(G\) with a Hamiltonian cycle is biconnected, due to Menger's theorem.\cite{mengerZurAllgemeinenKurventheorie1927}
+We say a graph \(G\) is \(k\)-colourable if there exists a function \(f: V(G) \rightarrow [k]\) such that for all edges $vw$ in $G$, \(f(v)\) and \(f(w)\) are assigned different colours. The \textit{chromatic number} \(\chi(G)\) is the smallest \(k\) such that \(G\) is \(k\)-colourable.
 Throughout this report, we use as shorthand for the set \( [n] = \lbrace 1\ldots n \rbrace \).
 
 \subsection{Menger's theorem}
@@ -95,7 +95,7 @@ A \textit{model} of a graph \(H\) to a graph \(G\) is a function \(\rho\) which 
 \todo{linklessly embedded graphs}
 \todo{fundamentally knotted graphs}
 \section{Book embedding}\label{sec:Book Embedding}
-A \textit{book} of \textit{thickness} \(k\) are \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by Persinger and Atnosen in the 1960s \cite{persingerSubsetsNbooksE31966, atneosenOnedimensionalNleavedContinua1972}.
+A \textit{book} of \textit{thickness} \(k\) are \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by \textcite{persingerSubsetsNbooksE31966, atneosenOnedimensionalNleavedContinua1972} in the 1960s.
 A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
 The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}.
 \par
