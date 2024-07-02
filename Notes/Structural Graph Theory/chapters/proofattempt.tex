@@ -137,7 +137,7 @@ Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), t
 Parts of the proof was motivated by a discussion with Corbin Reid. The proof given is a topological one. 
 
 \begin{proof}
-	Let \(G'\) be the dual graph of this graph, where the vertex set is \(F_1, \ldots, F_j\) and the edge set are the loops, where two faces are incident if there is a loop that is touching both faces. Then take a spanning tree \(T\) of \(G'\), and let \(L'\) be the loops that are not in \(T\) and \(L''\) be the loops that are in \(T\). 
+	Let \(G'\) be the dual multigraph of this graph, where the vertex set is \(F_1, \ldots, F_j\) and the edge set are the loops, where two faces are incident if there is a loop that is touching both faces. Then take a spanning tree \(T\) of \(G'\), and let \(L'\) be the loops that are not in \(T\) and \(L''\) be the loops that are in \(T\). 
 	Then consider embedding \(L'\) on the surface \(\Sigma\). Now this bounds a disk, call it \(F_0\). This is a disk as we glue together \(F_1, \ldots, F_j\) according to the spanning tree \(T\), meaning that we maintain the property that the surface is contractible.
 	Now we have that there is one vertex, \(|L'|\) edges, and one face \(F_0\). Then by Euler's formula, we have that:
 	\begin{equation}
