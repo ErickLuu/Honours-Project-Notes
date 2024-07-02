@@ -4,7 +4,7 @@
 This proof has been adapted into the language of tree-decompositions. 
 \begin{theorem}[Hickingbotham and Wood \cite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\) where each torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and every torso \(G \langle B_x \rangle\) is \(c\)-colourable. Additionally, we have that the adhesion of this tree is at most \(\ell\).
-	Then \(\pn(G(\mathcal{G}, T)) \leq cs + \ell \).  
+	Then \(\pn(G) \leq cs + \ell \).  
 \end{theorem}
 
 \subsubsection{Proof of above theorem.}
@@ -28,7 +28,8 @@ To prove this theorem, we will use a common technique in graph theory. We will s
 	Then the stack assignment \(\psi\) is now defined. For every edge \(u_i v\) where \(u_i \in V(C)\) and \(u_i \leq v\), define \(u_i v = i\). Otherwise, if neither \(u\) or \(v\) are in \(V(C)\), and \(u \leq v\), then let \(\psi(uv) = (\rho(u), \psi_a(uv))\). Then we have at most \(|\rho| |\psi_a| + k \leq cs + \ell\) pages.
 	
 	We shall show that \((\leq, \psi)\) is a proper book-embedding. Suppose we have a pair of edges \(uv\) and \(xy\) which cross, and \(\phi(uv) = \phi(xy)\). Suppose that \(u\) is the smallest vertex in the ordering \(\leq\). If \(u \in V(C)\), then the edge \(uv\) is assigned to its own page, meaning that it cannot cross \(xy\). So \(x = u\), but we can draw \(uv\) and \(uy\) on a single page. Thus they do not cross. Therefore we have that \(u, v, x, y\) are not in \(V(C)\), and as we preserve the original book-embedding, then these edges do not cross. Thus shown.
-	We have that property 1 and 2 are immediate. For property 3, consider a clique \(J\) in \(G\). Then we must show the last vertex of \(J\) is rainbow. Suppose the last vertex of \(J\) is \(w\), and let \(u, v\) be earlier vertices. Since \(u\) and \(v\) necessarily are assigned different colours in the colouring, then \(\psi(uw) = (\rho(u), \psi_a(uw))\) and \(\psi(vw) = (\rho(v), \psi_a(vw))\). Therefore, the two edges are on different pages. Thus \(w\) is a rainbow vertex. 
+	\par
+	We have that properties 1 and 2 are immediate from the definition of the book-embedding. For property 3, consider a clique \(J\) in \(G\). Then we must show the last vertex of \(J\) is rainbow. Suppose the last vertex of \(J\) is \(w\), and let \(u, v\) be earlier vertices. Since \(u\) and \(v\) necessarily are assigned different colours in the colouring, then \(\psi(uw) = (\rho(u), \psi_a(uw))\) and \(\psi(vw) = (\rho(v), \psi_a(vw))\). Therefore, the two edges are on different pages. Thus \(w\) is a rainbow vertex. 
 \end{proof}
 
 \subsubsection{Full proof}
