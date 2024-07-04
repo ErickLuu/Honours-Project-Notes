@@ -89,10 +89,6 @@ A \textit{model} of a graph \(H\) to a graph \(G\) is a function \(\rho\) which 
 \end{proof}
 \todo{Add pictures}
 
-\todo{Subdivisions of edges}
-\todo{Layouts of graph subdivisions}
-\todo{Layouts of expander graphs}
-
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book} of \textit{thickness} \(k\) are \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} in the 1960s.
 A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
@@ -145,9 +141,20 @@ Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lc
 \end{proof}
 We may note that this bound is not tight when \(\pn(G) = 1\) or \(2\). When \(\pn(G) = 1\), then \(G\) is outerplanar, but can be coloured with 3 colours. When \(\pn(G) = 2\), then \(G\) is Hamiltonian and planar, but is 4-colourable.
 
-\subsection{Historical interest}\label{ssec:Pagenumber_History}
+\subsection{Subdivision of edges}
+Let $G$ be a graph. A \textit{subdivision} of an edge $uv$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$. \textcite{atneosengailadeleEmbeddabilityCompactaNbooks} proved that we can subdivide a graph $G$ a finite number of times such the subdivision $G'$ has pagenumber 3. From \url{https://link.springer.com/chapter/10.1007/978-3-540-31843-9_15}, we have that for all graphs $G$, we can subdivide $G$ with $O(\log(\pn(G)))$ subdivisions such that $G$ is embedded in 3 pages. This is the best result known.
+
+\todo{Subdivisions of edges}
+\todo{Layouts of graph subdivisions}
+\todo{Layouts of expander graphs}
+
+\subsection{Layouts of expander graphs}
+An \textit{expander graph} is a sparse, highly connected graph. The pagenumber of expander graphs 
+
+
+\subsection{History of book-embeddings}\label{ssec:Pagenumber_History}
 Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics by \textcite{haslingerRNAStructuresPseudoknots1999}.
-The project of finding upper and lower bounds of the pagenumber of planar graphs was started by \textcite{bernhartBookThicknessGraph1979} when they conjectured that planar graphs had unbounded pagenumber. However, \textcite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and \textcite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7. \textcite{yannakakisEmbeddingPlanarGraphs1989} devised an algorithm to bound the pagenumber to at most 4. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof \cite{yannakakisPlanarGraphsThat2020}. At around the same time, \textcite{kaufmannFourPagesAre2020} published a similar result.
+The project of finding upper and lower bounds of the pagenumber of planar graphs was started by \textcite{bernhartBookThicknessGraph1979} when they conjectured that planar graphs had unbounded pagenumber. However, \textcite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and \textcite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7.\ \textcite{yannakakisEmbeddingPlanarGraphs1989} devised an algorithm to bound the pagenumber to at most 4. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof \cite{yannakakisPlanarGraphsThat2020}. At around the same time, \textcite{kaufmannFourPagesAre2020} published a similar result.
 
 \textcite{malitzGraphsEdgesHave1994} proved two results with the pagenumber of a graph. Malitz proved that any graph with $e$ edges has pagenumber $O(\sqrt{e})$ and that there exists $d$-regular graphs with $n$ edges that require $\Omega(\sqrt{d} N^{1/2 - 1/d})$ pages. These graphs come from random $d$-regular graphs. Therefore for random 3-regular graphs, we have that the number of pages needed is $\Omega(N^{1/6})$ pages. Finally, we have a result from \textcite{eppsteinThreeDimensionalGraphProducts2024} that $\pn(P_n \boxtimes P_n \boxtimes P_n)$ is in $\Theta(n^{1/3})$.
 \section{Treewidth}\label{sec:treewidth}
