@@ -8,10 +8,10 @@ We wish to find a book-embedding of a graph \(G\) of bounded genus \(g\) with vo
 \section{Apex vertices}
 In this section, we will prove that apex vertices can be added with a bounded increase to the number of pages. Typically, apex vertices are the problematic component when applying the Graph Minor Structure theorem, but in this case they are a trivial addition.
 \begin{theorem}\label{thm:apex_vertices_pagenumber}
-	If \(G\) is a graph with partition \((G', A)\) such that \(G'\) is a graph with pagenumber \(s\), \(|V(A)| \leq a\), then \(G\) can be embedded on \(s + \left\lceil \frac{3a}{2}\right\rceil\) pages. 
+	If \(G\) is a graph with vertex partition \((A, B)\) such that \(G' = V[B]\) is a graph with pagenumber \(s\), \(|A| \leq a\), then \(G\) can be embedded on \(s + a \) pages. 
 \end{theorem}
 \begin{proof}
-	Let \(G'\) have book-embedding \((<, \rho)\). Then place the vertices of \(A\) at the very start of \((<)\) and for every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), we colour \(\rho(uv) = i\). Then for any edge \(e \in E(G')\), we maintain the same colour as before. Then for the edges between vertices in \(A\), we have that the number of colours is bounded above by \(\left\lceil \frac{a}{2} \right\rceil\) from \cref{thm:Pagenumber_Complete_Graph}. Therefore, we have that \(\pn(G) \leq \pn(G') + a + \left\lceil \frac{a}{2} \right\rceil =s + \left\lceil \frac{3a}{2}\right\rceil\). 
+	Let \(G'\) have book-embedding \((<, \rho)\). Then place the vertices of \(A\) at the very start of \((<)\), with order $u_1, u_2, ...$. For every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), we colour \(\rho(uv) = i\), and for any edge \(u_i u_j\) where $u_i, u_j \in A$, $i < j$, we colour $u_i u_j$ with colour $i$. Then this is a proper book-embedding. If two edges cross, then they either are edges in $A$ or one edge in $A$, one edge in $G'$, or both edges in $G'$. As $(< \rho)$ is a book-embedding, if two edges in $G'$ cross, then they have different colours. We also have that if two edges in $A$ cross, then they have different colours, and the same goes for edges from $A$ to $G'$. Therefore, there is only an increase of $|A|$ pages. Thus shown. 
 \end{proof}
 
 Therefore, adding \( \leq a\) apex vertices still maintains a bounded pagenumber.
