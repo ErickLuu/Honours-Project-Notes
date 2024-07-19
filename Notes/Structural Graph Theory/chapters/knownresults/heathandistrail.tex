@@ -1,18 +1,18 @@
 \subsection{Bounded treewidth and page number}\label{ssec:Bounded_Treewidth}
 \begin{theorem}[Ganley + Heath\cite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
-	Every graph \(G\) with \(\tw(G) \leq k\) can be embedded on $k + 1$ pages. 
+	Every graph \(G\) with \(\tw(G) \leq k\) can be embedded on $k + 1$ pages.
 \end{theorem}
-In the original proof, they considered the case where \(G\) is a \(k\)-tree. We will bypass using \(k\)-trees and consider a tree-decomposition of \(G\) directly. 
+In the original proof, they considered the case where \(G\) is a \(k\)-tree. We will bypass using \(k\)-trees and consider a tree-decomposition of \(G\) directly.
 
 \begin{proof}
 	Consider a tree-decomposition of \(G\) with bags $B_x$ and tree $T$. Perform a depth-first search on \(T\), starting at an arbitrary root node \(r\). Let the ordering of the book-embedding \(\sigma(v)\) of a vertex \(v\) in \(V(G)\) be determined by the first time \(x \in T\) appears, where \(v \in B_x\). Within each bag, if two vertices appears in the bag first, then they are ordered arbitrarily in the book-embedding. Now consider the subtree \(T_v\) induced by the bags \(B_x\) containing \(v\). We now consider colouring the subtrees \(T_v\) for all \(v \in G\) such that no overlapping subtrees have the same colour. Let \(H\) be the intersection graph of the subtrees, where \(V(H) = \lbrace T_v : v \in G \rbrace\) and \(T_u T_v \in E(H)\) if there exists a bag \(B_x\) such that \(u, b \in B_x\). We have that \(H\) is perfect, and thus \(\chi(H) = \omega(H)\). Then as \(\tw(G) \leq k + 1\), then the size of a clique in \(H\) is at most \(k + 1\). Thus \(H\) is \(k + 1\)-colourable.
 	\paragraph{}
 	We now use this to assign the edges of \(G\) a page. Let \(c(T_v)\) be the colour assigned to \(T_v\). Colour each edge \(uv \in E(G)\) as follows:
 	\begin{equation}
-		c(uv) = 
+		c(uv) =
 		\begin{cases}
-			c(T_u) &\text{ if } \sigma(u) \leq \sigma(v),\\
-			c(T_v) &\text{ if } \sigma(v) \leq \sigma(u)
+			c(T_u) & \text{ if } \sigma(u) \leq \sigma(v), \\
+			c(T_v) & \text{ if } \sigma(v) \leq \sigma(u)
 		\end{cases}
 	\end{equation}
 	Then we claim that this is a proper book-embedding of \(G\). Suppose we have that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that there exists a bag \(B\) such that \(u, x, v \in B\), as we have that \(uv\) is an edge in \(B\) and we do a depth-first search to establish the ordering. So \(u, x, v\) they are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Finally, the number of pages used is \(\chi(H) \leq k + 1\), so \(\pn(G) \leq k + 1\). Thus shown.
@@ -24,51 +24,51 @@ We have a simpler proof if the tree is a path. We go from one end of the path to
 \begin{theorem}[Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}]\label{thm:4Pages_Planar}
 	Planar graphs can be embedded on at most four pages.
 \end{theorem}
-We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages \cite{yannakakisPlanarGraphsThat2020} \cite{kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber. 
+We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages \cite{yannakakisPlanarGraphsThat2020} \cite{kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber.
 
 \section{Graphs embedded on a surface of bounded genus}\label{sec:pagenumber_bounded_genus}
 
 \begin{theorem}[Heath and Istrail\cite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
 	Let \(g\) be the genus of a graph \(G\). For all graphs \(G\), \(\pn(G) \leq O(g)\).
 \end{theorem}
-Note that this bound extends the one found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus. 
+Note that this bound extends the one found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus.
 The best known bound is \(O(\sqrt{g})\), found by Malitz\cite{malitzGenusGraphsHave1994}.
 
-It was shown by Heath and Istrail that the family of graphs of bounded genus have bounded pagenumber. 
-We refer to the ``layout'' of the graph as the book-embedding of the graph and ``embedding'' as the surface-embedding. We refer to orientable surfaces as genus \(g\) as a sphere with \(g\) handles, and a nonorientable surface of genus \(g\) as a sphere with \(g\) cross-caps. We define the orientable genus of a graph \(G\), denoted \(\gamma(G)\), as the minimum orientable surface genus that \(G\) can be embedded on. The nonorientable genus of a graph \(G\), denoted \(\tilde{\gamma}(G)\), is the minimum nonorientable genus surface that \(G\) can be embedded on. Mohar\cite{moharOrientableGenusGraphs1998} claims that \(\tilde{\gamma}(G) \leq 2 \gamma(G) + 1\) for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that, Auslander et al.\cite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus. 
+It was shown by Heath and Istrail that the family of graphs of bounded genus have bounded pagenumber.
+We refer to the ``layout'' of the graph as the book-embedding of the graph and ``embedding'' as the surface-embedding. We refer to orientable surfaces as genus \(g\) as a sphere with \(g\) handles, and a nonorientable surface of genus \(g\) as a sphere with \(g\) cross-caps. We define the orientable genus of a graph \(G\), denoted \(\gamma(G)\), as the minimum orientable surface genus that \(G\) can be embedded on. The nonorientable genus of a graph \(G\), denoted \(\tilde{\gamma}(G)\), is the minimum nonorientable genus surface that \(G\) can be embedded on. Mohar\cite{moharOrientableGenusGraphs1998} claims that \(\tilde{\gamma}(G) \leq 2 \gamma(G) + 1\) for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that, Auslander et al.\cite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus.
 \paragraph{Proof}
 We say that the embedding is \(2\)-cell if every face is homeomorphic to an open disc in \(\mathbb{R}^2\). Any embedding of \(G\) onto an orientable surface is a 2-cell embedding, but this does not hold for nonorientable surfaces, but we assume there exists a \(2\)-cell embedding.
 Heath and Istrail rely on decomposing the graph \(G\) of genus \(\gamma(G)\) into a planar spanning subgraph \(G_p\) of \(G\) such that:
 \begin{enumerate}
-	\item The edges in \(E(G) - E(G_p)\) attach to the boundary vertices of \(V(G_p)\). 
-	\item Adding an edge from \(E(G) - E(G_p)\) to \(G_p\) breaks the above condition. 
+	\item The edges in \(E(G) - E(G_p)\) attach to the boundary vertices of \(V(G_p)\).
+	\item Adding an edge from \(E(G) - E(G_p)\) to \(G_p\) breaks the above condition.
 \end{enumerate}
 To talk about graphs embedded in surfaces, we assign to each face a cyclic permutation \(\sigma_v\) which represents the sequence of vertices encountered when traversing the boundary of a face in counterclockwise order.
 
-This is enough to represent any graph in an orientable surface, but not enough for a non-orientable surface. We have to attach on an orientation to each edge, where each edge is either orientation-preserving or orientation-reversing. 
+This is enough to represent any graph in an orientable surface, but not enough for a non-orientable surface. We have to attach on an orientation to each edge, where each edge is either orientation-preserving or orientation-reversing.
 
-We have that a planar-nonplanar decomposition of \(G\) is a triple \((R, G_P, E_N)\) where \(R\) is a rotation of \(G\) representing the surface embedding on the surface \(S\), \(G\) is a spanning planar graph, and \(E_N = E - E(G_P)\). 
+We have that a planar-nonplanar decomposition of \(G\) is a triple \((R, G_P, E_N)\) where \(R\) is a rotation of \(G\) representing the surface embedding on the surface \(S\), \(G\) is a spanning planar graph, and \(E_N = E - E(G_P)\).
 This satisfies a list of properties:
 \begin{enumerate}
-	\item The subrotation induces a planar embedding of \(G_p\), so we can arrange \(G\) on the surface \(S\) such that the embedding of \(G_p\) is planar. 
+	\item The subrotation induces a planar embedding of \(G_p\), so we can arrange \(G\) on the surface \(S\) such that the embedding of \(G_p\) is planar.
 	\item For each \(vw \in E_N\), we have that \(v\) and \(w\) live on the outerface \(F_0\).
-	\item \(E(G_P)\) is maximal, so we cannot add edges from \(E_N\) to \(G_P\) without breaking properties 1 and 2. 
+	\item \(E(G_P)\) is maximal, so we cannot add edges from \(E_N\) to \(G_P\) without breaking properties 1 and 2.
 \end{enumerate}
 
 \subsubsection{Decomposing graphs on surfaces}\label{sssec:Planar_nonplanar_decomp}
-We first have to know that the planar-nonplanar decomposition exists. 
+We first have to know that the planar-nonplanar decomposition exists.
 
-Suppose \(G\) is embedded on an surface \(\Sigma\). Then we wish to triangulate \(G\) to form \(G_T\). We choose a single triangle as the starting point and we add traces to the planar part incrementally. At each step, we set \(G_P\) to be the current planar part and \(E_N\) as the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints in \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). 
+Suppose \(G\) is embedded on an surface \(\Sigma\). Then we wish to triangulate \(G\) to form \(G_T\). We choose a single triangle as the starting point and we add traces to the planar part incrementally. At each step, we set \(G_P\) to be the current planar part and \(E_N\) as the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints in \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\).
 
-We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\). 
+We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\).
 \paragraph{Adding vertices to biconnected block}
-For a current boundary of the outerface of \(G_P\), if \(v_i \rightarrow v_j \rightarrow v_k\) is trace with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and we can add it to \(G_P\). 
+For a current boundary of the outerface of \(G_P\), if \(v_i \rightarrow v_j \rightarrow v_k\) is trace with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and we can add it to \(G_P\).
 \paragraph{Creating new biconnected block}
 If no \(v_k\) exists, then we find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). We then add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then we add all safe edges. This is so that every edge in \(E_p\) maintains the property that both endpoints are on the boundary.
 
 We claim that after repeating this operation, then we have that every edge in \(E_N\) (edges not in \(G_P\)) satisfy the two properties above. If we have that an edge \(vw\) has \(v\) added, then we should be able to add \(w\) as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) or \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage and therefore go to part 1. This has the corollary that every vertex is in \(G_P\).
 
-Now we have that \(E_N\) has every edge which cannot be added to \(G_P\) without crossing over another edge, and that \(G_P\) is maximal. Then we have that all edges in \(E_N\) satisfy the conditions lised above. 
+Now we have that \(E_N\) has every edge which cannot be added to \(G_P\) without crossing over another edge, and that \(G_P\) is maximal. Then we have that all edges in \(E_N\) satisfy the conditions lised above.
 \todo{Add pictures! this proof needs lots of pictures}
 
 \subsubsection{Level sets and cycles}
@@ -87,11 +87,11 @@ We refer to the faces that have vertices in only \(V_i\) as chordal and the face
 
 We define a weak triangulation of \(G\) to be a triangulation \(G'\) such that all faces except for the outerface is a triangulation.
 \begin{lemma}
-	There exists a weak triangulation of \(G\), \(G'\) which preserves the level sets \(V_i\) and edge sets \(E_i\), \(C_i\), \(K_i\) for all \(i\). 
+	There exists a weak triangulation of \(G\), \(G'\) which preserves the level sets \(V_i\) and edge sets \(E_i\), \(C_i\), \(K_i\) for all \(i\).
 \end{lemma}
 
 \begin{proof}
-	If \(F\) is a chordal face of \(G\), then any triangulation maintains the property. If \(F\) is nonchordal and the boundary has edges in \(V_i\) and \(V_{i + 1}\), then add edges that are only between vertices in \(V_i\) and \(V_{i + 1}\). This will suffice to build a new triangulated graph \(G'\) where all vertices and edges are in the correct place. 
+	If \(F\) is a chordal face of \(G\), then any triangulation maintains the property. If \(F\) is nonchordal and the boundary has edges in \(V_i\) and \(V_{i + 1}\), then add edges that are only between vertices in \(V_i\) and \(V_{i + 1}\). This will suffice to build a new triangulated graph \(G'\) where all vertices and edges are in the correct place.
 \end{proof}
 
 \subsubsection{Classifying nonplanar edges according to homotopy class}
@@ -104,7 +104,7 @@ We can then form a directed cycle \(C_0\) induced by \(F_0\). Each vertex on the
 We may think of \(G_n\) as living on a locally flat part of \(S\) and the homotopy class \(u_1v_1\) and \(u_2 v_2\) living on a handle (alternatively, passing through a crosscap such that they bound a face). Then if we take \(G_n\) to a point, there exists a \textit{homotopy} (in the topological sense) from \(u_1v_1\) to \(u_2v_2\). These form equivalence classes of the nonplanar edges.
 
 \begin{lemma}
-	If \(C\) is a homotopy class of edges \(u_1 v_1, \ldots, u_k v_k\) with a natural order, then we can build traces \(T_1\) and \(T_2\) by building the trace from \(u_1\) to \(u_k\) passing through all \(u_i\), and \(v_1\) to \(v_k\) passing through all \(v_i\). 
+	If \(C\) is a homotopy class of edges \(u_1 v_1, \ldots, u_k v_k\) with a natural order, then we can build traces \(T_1\) and \(T_2\) by building the trace from \(u_1\) to \(u_k\) passing through all \(u_i\), and \(v_1\) to \(v_k\) passing through all \(v_i\).
 \end{lemma}
 We refer to a homotopy class as orientable if \(T_1\) and \(T_2\) go in opposite directions, and non-orientable if \(T_1\) and \(T_2\) go in the same direction.
 
@@ -112,25 +112,25 @@ We refer to a homotopy class as orientable if \(T_1\) and \(T_2\) go in opposite
 	We have that if \(G\) is embedded in an orientable surface, then every homotopy class is orientable.
 \end{lemma}
 \begin{proof}[Sketch]
-	We have that if a homotopy class is non-orientable, then on the handle the class sits on, the edges must cross. However, we have the graph is embedded on the surface, therefore this cannot happen. Thus shown. 
+	We have that if a homotopy class is non-orientable, then on the handle the class sits on, the edges must cross. However, we have the graph is embedded on the surface, therefore this cannot happen. Thus shown.
 \end{proof}
 
 \begin{lemma}
-	If \(G\) is \(2\)-cell embedded on a surface of Euler genus \(g\), then any planar-nonplanar decomposition has at most \(3g-3\) homotopy classes. 
+	If \(G\) is \(2\)-cell embedded on a surface of Euler genus \(g\), then any planar-nonplanar decomposition has at most \(3g-3\) homotopy classes.
 \end{lemma}
 \begin{proof}
 	Decompose \(G\) to a \((R, G_P, E_N)\) decomposition of \(G\). Suppose \(E_N \neq \emptyset\). Then identify \(G_P\) to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point \(G_P\), and place vertices where the circle intersects all edges. Then delete the vertex \(G_P\), and call the new graph \(H\). We have that \(n = |V(H)|\), \(m = |E(H)|\), \(h\) is the number of homotopy classes, and \(f\) is the number of faces. We have that \(n - m + f = 2 - g\). Since \(H\) is cubic as every vertex has two edges on the circle and one on the homotopy class, then \(3n = 2m\) by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, \(n = 2h\). The interior face of \(H\) has \(v\) incident edges, and the remaining \(f-1\) faces have at least 3 incident edges each, as we can identify the two homotopy classes bordering a face with four edges together. Therefore, we have that \(3(f-1) + n \leq 2m\), by double counting faces and edges. Thus, we have that
 	\begin{align*}
-		3n &\geq 6(f - 1) + n\\
-		2n &\geq 6f + 6\\
-		4h &\geq 5 f - 6\\
-		4h &\geq 5(2 - g + m - n) - 6\\
-		4h &\geq 6 - 6g + 3n\\
-		4h &\geq 6 - 6g + 6h\\
-		-2h &\geq 6 - 6g\\
-		h &\leq 3g - 3
+		3n  & \geq 6(f - 1) + n         \\
+		2n  & \geq 6f + 6               \\
+		4h  & \geq 5 f - 6              \\
+		4h  & \geq 5(2 - g + m - n) - 6 \\
+		4h  & \geq 6 - 6g + 3n          \\
+		4h  & \geq 6 - 6g + 6h          \\
+		-2h & \geq 6 - 6g               \\
+		h   & \leq 3g - 3
 	\end{align*}
-	\(3g - 3 \geq h\) by manipulating the inequalities. 
+	\(3g - 3 \geq h\) by manipulating the inequalities.
 \end{proof}
 
 \subsubsection{Proving graphs with bounded number of homotopy classes have bounded pagenumber}\label{sssec:bounded_pagenumber_homotopy}
@@ -138,7 +138,7 @@ We refer to a homotopy class as orientable if \(T_1\) and \(T_2\) go in opposite
 	Suppose \(G\) has a planar-nonplanar decomposition \((R, G_P, E_N)\) on an orientable surface \(\Sigma\). Then \(G\) can be embedded on at most \(18g - 5\) pages.
 \end{lemma}
 \begin{proof}
-	We use Yannikakis' proof in \cref{ssec:Planar_Graphs} to lay out the nonplanar spanning subgraph \(G_P\) on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in \(E_P\), we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks, the biconnected components of \(G\). We need two as we could have some which span blocks in a way that forces them to be on different pages. Therefore, we need at most \(4 + 3(6g - 3) = 18g-5\) pages if \(G\) has a planar-nonplanar decomposition. 
+	We use Yannikakis' proof in \cref{ssec:Planar_Graphs} to lay out the nonplanar spanning subgraph \(G_P\) on four pages, maintaining the cyclic order of vertices. Then we can combine each blocks to form a 4 page layout of the graph. For each homotopy class in \(E_P\), we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks, the biconnected components of \(G\). We need two as we could have some which span blocks in a way that forces them to be on different pages. Therefore, we need at most \(4 + 3(6g - 3) = 18g-5\) pages if \(G\) has a planar-nonplanar decomposition.
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_nonorientable}
@@ -146,11 +146,11 @@ We refer to a homotopy class as orientable if \(T_1\) and \(T_2\) go in opposite
 \end{lemma}
 \begin{proof}[Proof sketch]
 	\todo{Flesh out details completely}
-	We want to add edges in a controlled way so that the traces that are reversed become non-reversed. This is done by adding edges between vertices so that we can invert the ordering on the circle such that we have that the vertices in one homotopy class have a non-crossing page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page where there are finitely many pages wrt to the genus of the surface. Let \(\mathcal{C}_{i,j}\) be a chord class when it is the set of chords that go between traces \(T_i\) and \(T_j\), where \(T_i\) and \(T_j\) both go clockwise or counterclockwise. Note that the number of chord classes \(\mathcal{C}_{i,j}\) is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite. 
+	We want to add edges in a controlled way so that the traces that are reversed become non-reversed. This is done by adding edges between vertices so that we can invert the ordering on the circle such that we have that the vertices in one homotopy class have a non-crossing page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page where there are finitely many pages wrt to the genus of the surface. Let \(\mathcal{C}_{i,j}\) be a chord class when it is the set of chords that go between traces \(T_i\) and \(T_j\), where \(T_i\) and \(T_j\) both go clockwise or counterclockwise. Note that the number of chord classes \(\mathcal{C}_{i,j}\) is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite.
 
 	Consider the scenario where the graph $G_p$ is a cycle with a cyclic ordering. Then every trace on the boundary is a path on the cycle. Recall that a trace $T_1$ and $T_2$ are paired if there is a nonplanar edge between the two traces. For every two pairs of traces that are non-orientable, we label one to be non-reversed and one to be reversed, with arbitrary allocation. We then merge all the consecutive reversed and non-reversed traces together. Then we add an edge around each reversed trace, called bypassing edges. We then use Heath's algorithm to find an edge colouring with 7 colours.
 
-	Now consider the case where $G_p$ is outerplanar. We cannot do the unreversing trick anymore, because of edges inside of the graph. However, we can form a path with these edges and colour them with a finite number of colours as well. 
+	Now consider the case where $G_p$ is outerplanar. We cannot do the unreversing trick anymore, because of edges inside of the graph. However, we can form a path with these edges and colour them with a finite number of colours as well.
 	\todo{finish this case!}
 
 	Finally, consider the case where $G_p$ has a block-cut tree.
