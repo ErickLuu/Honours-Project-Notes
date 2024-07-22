@@ -127,8 +127,7 @@ This is because we can embed the graph on a sphere with the vertices and Hamilto
 \begin{figure}[ht]
 	\caption{Circular embedding of \(K_8\) with 4 colours, the minimum possible.}
 	\centering
-	\input{figures/k8-withcolouring}
-	\label{fig:k8 coloured with colours}
+	\input{figures/k8-withcolouring}\label{fig:k8 coloured with colours}
 \end{figure}
 
 This is an upper bound of any graph \(G\) with \(n\) vertices.
@@ -142,7 +141,7 @@ Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lc
 We may note that this bound is not tight when \(\pn(G) = 1\) or \(2\). When \(\pn(G) = 1\), then \(G\) is outerplanar, but can be coloured with 3 colours. When \(\pn(G) = 2\), then \(G\) is Hamiltonian and planar, but is 4-colourable.
 
 \subsection{Subdivision of edges}
-Let $G$ be a graph. A \textit{subdivision} of an edge $uv$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$. \textcite{atneosengailadeleEmbeddabilityCompactaNbooks} proved that we can subdivide a graph $G$ a finite number of times such the subdivision $G'$ has pagenumber 3. From \url{https://link.springer.com/chapter/10.1007/978-3-540-31843-9_15}, we have that for all graphs $G$, we can subdivide $G$ with $O(\log(\pn(G)))$ subdivisions such that $G$ is embedded in 3 pages. This is the best result known.
+Let $G$ be a graph. A \textit{subdivision} of an edge $uv$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$.\textcite{atneosengailadeleEmbeddabilityCompactaNbooks} proved that we can subdivide a graph $G$ a finite number of times such the subdivision $G'$ has pagenumber 3. From \textcite{dujmovicLayoutsGraphSubdivisions2005}, we have that for all graphs $G$, we can subdivide $G$ with $O(\log(\pn(G)))$ subdivisions such that $G$ is embedded in 3 pages.
 
 \todo{Subdivisions of edges}
 \todo{Layouts of graph subdivisions}
