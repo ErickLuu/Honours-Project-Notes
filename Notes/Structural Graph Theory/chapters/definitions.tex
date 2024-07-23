@@ -10,8 +10,8 @@ We lay out this chapter to build towards important notions in structural graph t
 \end{itemize}
 These notions will be useful in discussing the Graph Minor Structure Theorem and our conjecture.
 \section{Basic definitions}\label{sec: Basic definitions}
-For a graph \(G\), we define the \textit{vertex} and \textit{edge} sets of \(G\) to be \(V(G)\) and \(E(G)\) respectively.
-For a subset of vertices \(A \subseteq V(G)\), we denote the \textit{induced subgraph} on \(G\) with vertex set \(A\) as \(G[A]\).
+For a graph \(G\), we define the \textit{vertex} and \textit{edge} sets of \(G\) to be \(V(G)\) and \(E(G)\) respectively. 
+For a subset of vertices \(A \subseteq V(G)\), we denote the \textit{induced subgraph} on \(G\) with vertex set \(A\) as \(G[A]\). The neighborhood of the vertices $A$ is defined to be all vertices that are adjacent to a vertex in $A$ and not in $A$ and is denoted as $N(A)$. 
 
 \begin{itemize}
 	\item A \textit{path} in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell- 1}\) which join a sequence of vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\), and all the vertices are distinct.
@@ -141,14 +141,11 @@ Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lc
 We may note that this bound is not tight when \(\pn(G) = 1\) or \(2\). When \(\pn(G) = 1\), then \(G\) is outerplanar, but can be coloured with 3 colours. When \(\pn(G) = 2\), then \(G\) is Hamiltonian and planar, but is 4-colourable.
 
 \subsection{Subdivision of edges}
-Let $G$ be a graph. A \textit{subdivision} of an edge $uv$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$.\textcite{atneosengailadeleEmbeddabilityCompactaNbooks} proved that we can subdivide a graph $G$ a finite number of times such the subdivision $G'$ has pagenumber 3. From \textcite{dujmovicLayoutsGraphSubdivisions2005}, we have that for all graphs $G$, we can subdivide $G$ with $O(\log(\pn(G)))$ subdivisions such that $G$ is embedded in 3 pages.
-
-\todo{Subdivisions of edges}
-\todo{Layouts of graph subdivisions}
-\todo{Layouts of expander graphs}
+Let $G$ be a graph. A \textit{subdivision} of an edge $uv$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$.\textcite{atneosengailadeleEmbeddabilityCompactaNbooks} proved that we can subdivide a graph $G$ a finite number of times such the subdivision $G'$ has pagenumber 3. From \textcite{dujmovicLayoutsGraphSubdivisions2005}, we have that for all graphs $G$, we can subdivide $G$ with $O(\log\pn(G))$ subdivisions such that $G$ is embedded in 3 pages.
 
 \subsection{Layouts of expander graphs}
-An \textit{expander graph} is a sparse, highly connected graph. The pagenumber of expander graphs 
+An \textit{expander graph} is a sparse, highly connected graph. They share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. We say a bipartite graph $G$ is a bipartite \varepsilon-expander if there exist a partition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, we have that $|N(S)| \geq (1 + \varepsilon) |S|$. 
+\textcite{dujmovicLayoutsExpanderGraphs2016} found that all bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
 
 
 \subsection{History of book-embeddings}\label{ssec:Pagenumber_History}
@@ -189,8 +186,7 @@ The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbr
 		\centering
 		\input{figures/treewidth-tree}
 		\input{figures/treewidth-tree-treedecomp}
-		\caption{A tree and its tree-decomposition. We root at the vertex \(1\) and every bag consists of a vertex and its parent.}
-		\label{fig:tree-treedecomp}
+		\caption{A tree and its tree-decomposition. We root at the vertex \(1\) and every bag consists of a vertex and its parent.}\label{fig:tree-treedecomp}
 	\end{figure}
 \end{proof}
 
