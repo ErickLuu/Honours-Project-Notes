@@ -1,0 +1,234 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{todonotes}
+
+\setcounter{section}{-1} 
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+%opening
+\title{Differential Geometry}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section{Multivariable Calculus}
+
+Let $X, Y$ be real finite-dimension vector spaces.
+
+\begin{itemize}
+	\item $L(X, Y)$ is the set of linear maps from $X$ to $Y$. $L(X) = L(X, X)$. 
+	\item If $U \subset X$ the let $C^\infty(U, Y)$ be the set of smooth maps from $U$ to $Y$. If $Y = \mathbb{R}$, then $C^\infty(U) = C^\infty(U, \mathbb{R})$. 
+\end{itemize}
+Recall that the derivative $D f$ of $f \in C^\infty(U, Y)$ is defined by:
+\begin{definition}
+	\begin{equation}
+		D f(x) v = \dfrac{d}{dt}\mid_{t = 0} f(x + tv) \quad v \in X.
+	\end{equation}
+\end{definition}
+We note here that $D f(x) v$ acts linearly on $v$, so $D f(x) \in L(X, Y)$ for $x \in U$. 
+For $U \in X$, $V \in Y$, we define $C^\infty(U, V)$ to be $\{ f \in C^\infty(U, Y) | f(U) \in V\}$.
+
+\begin{theorem}[Chain rule]
+	Let $X, Y, Z$ be finite dimensional real vector spaces and let $U \in X, V \in Y$ be open sets. If: 
+	\begin{align*}
+		f &\in C^\infty(V, Z),\\
+		g &\in C^\infty(U, V),\\
+		f \circ g &\in C^\infty(U, Z)
+	\end{align*}
+	then:
+	\begin{equation}
+		D(f \circ g) (x) = D f(g(x)) \circ D g(x).
+	\end{equation}
+\end{theorem}
+
+Let $X = \mathbb{R}^n$, $Y = \mathbb{R}^m$ and suppose that $f \in C^\infty (U, Y)$ with $U \subset \mathbb{R}^n$ open. Then 
+
+$f(x) = (f^1(x), f^2(x), ..., f^m(x))$, $x = (x^1, x^2, ..., x^n)$. 
+
+Notation: $V^i w_i = \sum_{i = 1}^n v^i w_i$. 
+\todo{Describe the Jacobian}
+
+\begin{theorem}[Inverse function theorem]
+	Suppose $U \in X$ is open, $x_0 \in U$ and $f \in C^\infty(U, Y)$. If $D f(x_0)$ is in $L(X, Y)$ is invertible, then there exists an open nbhd $V_{y_0}$ in $f(V)$ and a smooth map $g \in C^\infty(V_{y_0}, U)$ that satisfies the following:
+	\begin{align*}
+		f(g(y)) &= y \quad \forall y \in V_{y_0}\\
+		g(f(x)) &= x \quad \forall x \in g(V_{y_0})\\.
+	\end{align*}
+\end{theorem}
+
+\begin{theorem}[Implicit Function Theorem]
+	Suppose $U \subset X \times Y$ is open, $f \in C^\infty(U, Z)$, and $(x_0, y_0) \in U$ satisfies $f(x_0, y_0) = 0$, $D_2 f(x_0, y_0) \in L(Y, Z)$ is invertible, then there exists an open neighbourhood $V_{x_0}$ of $x_0$ in $X$, an open nbhd $W_{y_0}$ of $y_0$ in $Y$, and a $g \in C^\infty(V_{x_0}, W_{y_0})$ such that:
+	\begin{equation}
+		f(x, g(x)) = 0 \quad \forall x \in V_{x_0}.
+	\end{equation}
+	Moreover, $f(x, y) = 0$ for $(x, y) \in V_{x_0} \times W_{y_0}$ iff $y = g(x)$. 
+\end{theorem}
+
+\section{Differential Manifolds}
+\begin{definition}[Charts]
+	Let $M$ be a set. An $n$-dimensional coordinate system or chart on $M$ is a pair $(U, \phi)$ that contains a set $U \subset M$ and an injective map $\phi: U \rightarrow \mathbb{R}^n$ with $\phi(U)$ open in $\mathbb{R}^n$. When we restrict $\phi$ to its image in the codomain, we have a bijection.
+\end{definition}
+
+\begin{definition}[Smooth Manifold]
+	A set $M$ is a smooth manifold of dimension $M$ if there exists a family of $M$-dimensional charts 
+	\begin{equation}
+		\left\{ (U_{\alpha}, \phi_\alpha) | \alpha \in J \right\}
+	\end{equation}
+	where:
+	\begin{itemize}
+		\item $M = \cup_{\alpha \in J} U_\alpha$
+		\item If $U_\alpha \cap U_\beta$ is nonempty, then $\phi_\beta \circ \phi_\alpha$ restricted to the intersection is smooth. 
+	\end{itemize}
+\end{definition}
+The set of charts $\mathfrak{a} = \left\{ (U_{\alpha}, \phi_\alpha) | \alpha \in J \right\}$ is called an atlas. 
+
+A smooth manifold is a set with an associated atlas.
+\begin{remark}
+	These atlases are generally not unique.
+\end{remark}
+
+\begin{proposition}
+	Every atlas from a smooth manifold is contained within a maximal atlas.
+\end{proposition}
+
+\begin{remark}
+	The charts $\mathfrak{a} = \left\{ (U_{\alpha}, \phi_\alpha) | \alpha \in J \right\}$ can be used to define a topology on $M$. $V \subseteq M$ is open iff $\phi_\alpha(V \cap U_\alpha)$ is open in $\mathbb{R}^n$ for all $U_\alpha$. 
+\end{remark}
+Equivalently, the preimage of open sets generates a topology on $M$. 
+
+\begin{example}[Examples of smooth manifolds]
+	Here are some examples of $n$-manifolds. 
+	\begin{itemize}
+		\item $\mathbb{R}^n$ is a smooth manifold. 
+		\item $S^n := \{x \in \mathbb{R}^{n + 1} \mid |x| = 1\}$
+		\item $\mathbb{R}P^n$ is a smooth $n$-manifold. 
+	\end{itemize}
+	\todo{Exercise: Show that this is a smooth manifold.}
+\end{example}
+
+\begin{example}[Open submanifolds]
+	Suppose $(M, \mathfrak{a} = \left\{ (U_{\alpha}, \phi_\alpha) | \alpha \in J \right\} )$ is a smooth manifold, and $V \in M$ is open. Then:
+	\begin{equation}
+		\left(V, \mathfrak{a}_v = \left\{ (U_{\alpha} \cap V, \phi_\alpha|_v) | \alpha \in J \right\} \right)
+	\end{equation}
+	is a smooth $n$-manifold, and is also an open submanifold of $M$. 
+\end{example}
+
+\begin{example}[Product manifold]
+	Suppose $(M, \mathfrak{a} = \left\{ (U_{\alpha}, \phi_\alpha) | \alpha \in J \right\} )$ and $(N, \mathfrak{b} = \left\{ (U_{\beta}, \psi_\beta) | \beta \in K \right\} )$ are $m$-dim and $n$-dim manifolds respectively, then:
+	
+	\begin{equation}
+		\left(M \times N, \mathfrak{a} \times \mathfrak{b} \right)
+	\end{equation}
+	is also a $m + n$-dim manifold where:
+	\begin{equation}
+		\mathfrak{a} \times \mathfrak{b} = \left\{ (U_\alpha \times U_\beta, \phi_\alpha \times \psi_\beta), \alpha \times \beta \in J \times K \right\}
+	\end{equation}
+	and: 
+	\begin{equation}
+		\phi_\alpha \times \psi_\beta : U_\alpha \times U_\beta \rightarrow \mathbb{R}^m \times \mathbb{R}^n
+	\end{equation}
+	and $(x, y) \mapsto (\phi_\alpha(x), \psi_\beta(y))$. 
+
+\end{example}
+
+\begin{definition}[Submanifolds]
+	Let $M$ be an $m$-dimensional manifold. A subset $S \subset M$ is called a submanifold if for each point $p \in S$ there exists a chart $(U, \phi)$ on $M$ such that $\mathbb{R}^m = \mathbb{R}^n \times \mathbb{R}^{m - n}$ and:
+	\begin{itemize}
+		\item $p \in U$
+		\item $\phi(U \cap S) = \phi(U) \cap (\mathbb{R}^n \times \{0, 0, ..., 0\})$.
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	If $a = \{(U_\alpha, \phi_\alpha) | \alpha \in J\}$ is an atlas for $M$ and $S \in M$ is a smooth $n$-submanifold, then $S$ is a smooth $n$-manifold for the choice of atlas: 
+	\begin{equation}
+		\left\{ (U_{\alpha} \cap S, \phi_\alpha|_S) | \alpha \in J \right\}.
+	\end{equation}
+\end{remark}
+
+\begin{example}
+	Let $\mathcal{C} = \left\{(x, 0) | x \in \mathbb{R}^2 , |x| = 1\right\}$ and $S^2$ be the standard 2-sphere. Show that $\mathcal{C}$ is a smooth 1-dimensional submanifold. 
+\end{example}
+
+\section{Smooth maps}
+
+\begin{definition}[Smooth maps]
+	A map $f: M \rightarrow N$ between 2 smooth manifolds is smooth if for every point $P \in M$, there exists charts $(U, \phi)$ on $M$ and $(V, \psi)$ on $M$ such that:
+	\begin{itemize}
+		\item $p \in U$,
+		\item $f(v) \in V$
+		\item $f_{\psi, \phi} = \psi \circ f \circ \phi^{-1} \in C^\infty(\phi(U), \psi(V))$. 
+	\end{itemize}
+\end{definition}
+This definition is hard to work with. Thankfully, smothness is a local phenomenon and we can use weaker propositions. The set of smooth maps from $M$ to $N$ is denoted as $C^\infty(M, N)$. 
+If $N = \mathbb{R}$, then $C^\infty(M) = C^\infty(M, \mathbb{R})$. The map $f_{\psi, \phi} = \psi \circ f \circ \phi^{-1}$ is called the local version of $f$ in the charts $(U, \phi)$ and $(V, \psi)$. 
+
+\begin{example}
+	Examples of smooth functions
+	\begin{itemize}
+		\item If $f : U \in \mathbb{R}^n \rightarrow \mathbb{R}^m$, with $U$ open, then smoothness is defined with respect to the calculus definition.
+		\item The identity map $id : M \rightarrow M$ is smooth. 
+		\item The map $f: S^2 \in \mathbb{R}^3 \rightarrow \mathbb{R}$, sending $x \rightarrow x \cdot e^3$ is smooth. 
+	\end{itemize}
+\end{example}
+
+\begin{remark}
+	Smoothness is a local concept. It can be shown that $f: M \rightarrow N$ is smooth iff for every $p \in M$, there exists an open submanifold $U \subset M$ such that $f|_U$ is smooth. 
+\end{remark}
+
+\begin{definition}[Diffeomorphism]
+	A diffeomorphism between smooth manifolds $M$ and $N$ is a smooth bijection $f : M \rightarrow N$ where its inverse $f^{-1} : N \rightarrow M$ is also smooth. 
+\end{definition}
+
+Diffeomorphism is a very strong condition and many properties of manifolds hold up to diffeomorphism. Charts can be transported from one diffeomorphic shape to another. 
+
+\begin{example}
+	Examples of diffeomorphisms:
+	\begin{itemize}
+		\item $f: S^1 \subset \mathbb{C} \rightarrow S^1 \subset \mathbb{C}$ where $z \mapsto \overline{z}$ is a diffeomorphism.\todo{Show this! Use the fact that $\theta \mapsto e^{i \theta}$ is a homeomorphism from $(0, 2\pi)$ to $S^1 \setminus {1}$. }
+		\item $f: \mathbb{R} \rightarrow \mathbb{R}: x \mapsto x^3$ is smooth and a bijection but not a diffeomorphism, as $f^{-1}$ is not smooth on $\mathbb{R}$. 
+	\end{itemize}
+\end{example}
+
+\begin{lemma}[Cutoff function]
+	Let $U$ be an open nbhd of $p \in M$ where $M$ is a smooth manifold. Then there exists a $\chi \in C^\infty(M)$ and an open neighbourhood $V$ of $p$ such that:
+	\begin{itemize}
+		\item $\overline{V} \subset U$
+		\item $\chi = 1$ on $V$
+		\item $\text{supp} (\chi) \subset U$.
+		\item $0 \leq \chi \leq 1$ on $M$.
+	\end{itemize}
+	This is a stronger version of Ursohyn's lemma from topology, but with smooth rather than continuous functions.
+\end{lemma}
+
+\begin{definition}
+	A smooth manifold $M$:
+	\begin{itemize}
+		\item is Hausdorff if every distinct $x, y \in M$ has disjoint open neighbourhoods.
+		\item is second countable if there exists an atlas of $M$ with a countable number of charts.  
+	\end{itemize}
+\end{definition}
+\end{document}
