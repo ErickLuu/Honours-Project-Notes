@@ -6,8 +6,6 @@
 \usepackage{url}
 \usepackage{todonotes}
 
-\setcounter{section}{-1} 
-
 % Environments
 
 \newtheorem{theorem}{Theorem}
@@ -25,6 +23,10 @@
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
 
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\Star}{st}
+\DeclareMathOperator{\Lk}{lk}
+
 %opening
 \title{Low Dimensional Topology}
 \author{Eric Luu}
@@ -32,5 +34,98 @@
 \begin{document}
 
 \section{Knots}
-A \textit{knot} is an embedding of $S^p$ in $\mathbb{R}^m$ for some $p$ and $m$. Typically, we c
+A \textit{knot} is a subset $K$ of a topological space $X$ that is homeomorphic to a sphere $S^p$. As an example, $K = S^0$ in $X = S^1$. A \textit{link} is a subset $K$ homeomorphic to a disjoint union of spheres, as $S^{p_1} \sqcup  S^{p_2} \sqcup \ldots \sqcup S^{p_n}$. A theme throughout will be seeing when two knots are the same. We say that $K$ and $K'$ in $X$ are equivalent if there exists a homeomorphism $h : X \rightarrow X$ such that $h(K) = K'$. 
+Such a homeomorphism is also written as $h : (X, K) \rightarrow (X, K')$. For links, we assign an ordering and require the homeomorphism to preserve the ordering. 
+An alternative definition is that a knot is an embedding $K: S^p \rightarrow X$, but we have that $K = K(S^p)$ as its image. The corresponding version of equivalence between knots $K, K'$ is a map $h: X \rightarrow X$ such that $h \circ K = K'$. 
+
+There exists an ambient isotopy $H : X \times I \rightarrow X$ where $H(x, t) = h_t(x)$ such that $h_1(k) = k'$. Isotopy is a homotopy with the following condition that $h_0(x) = Id$ and $h_t$ is a homeomorphism for all $t$. 
+
+A tame knot can be embedded using finitely many closed connected line segments. Wild knots are defined as knots which are not tame. 
+
+\section{Categories}
+\subsection{Top}
+Top is the category of manifolds. An $n$-manifold $M$ is a topological space which is:
+\begin{itemize}
+    \item Hausdorff
+    \item Second-Countable
+    \item Locally Euclidean.
+\end{itemize}
+Locally Euclidean means that for all points $x$ in $M$, there exists an open neighbourhood $U$ of $x$ and a homeomorphism $\varphi:U \rightarrow U' \subseteq \mathbb{R}^n$. We say that $\varphi$ is a chart. Morphisms are homeomorphisms between manifolds. 
+
+\subsection{Smooth}
+A smooth manifold $M$ is a manifold where there is an atlas (series of neighbourhoods and homeomorphisms which cover $M$) whose transition maps are smooth. We say that the charts are smoothly compatible The morphisms are diffeomorphisms. 
+$f: M \rightarrow N$ is a diffeomorphism if it is a bijective and smooth with smooth inverse. 
+
+\subsubsection{Manifolds with boundary}
+We say $H^n$ is the upper half plane, defined as $\left\{(x_1, \ldots, x_n) \in \mathbb{R}^n | x_n \geq 0\right\}$. An $n$-manifold with boundary is a topological space which is:
+
+\begin{itemize}
+    \item Hausdorff
+    \item Second-Countable
+    \item Locally Euclidean with boundary.
+\end{itemize}
+Locally Euclidean with boundary means that for all points $x$ in $M$, there exists an open neighbourhood $U$ of $x$ and a homeomorphism $\varphi:U \rightarrow U' \subseteq H^n$. 
+The boundary $\partial M$ are points in $M$ that has neighbourhoods homeomorphic to $H^n$ but not to $\mathbb{R}^n$. 
+
+\subsubsection{Submanifold}
+$S \subseteq M$ is a smooth $k$-submanifold if each point $p$ in $S$ lies in the domain of a chart $\varphi : U \rightarrow \Int(D^n)$ and $U \cap S = \varphi^{-1} (\{x_1, x_2, \ldots,  x_k, 0, \ldots, 0\})$. 
+
+\begin{example}
+    $W \subseteq \mathbb{R}^n$ open, $f : W \rightarrow \mathbb{R}^m$ smooth. Suppose $y \in f(w)$ satisfies: $Df$ has rank $m$ at every point at $x = f^{-1}(y)$. By implicit function theorem, $f^{-1}(y)$ is a submanifold of $W$ with dimension $n - m$. Then this means that we can vary for any smooth manifold. 
+\end{example}
+
+\begin{definition}[Tubular neighbourhood]
+    Let $M$ be a smooth $n$-manifold, let $S \subseteq M$ a smooth $k$-submanifold. A tubular neighbourhood is an embedding of $f : N \rightarrow M$ where $f(N)$ is an open neighbourhood in $M$ containing $S$ and for all $x \in S$, there exists a neighbourhood $U$ of $x$ in $M$ such that $U \cap f(N) \cong  (U \cap S) \times D^{n - k}$. 
+\end{definition}
+
+\subsection{Piecewise Linear}
+
+Say we have vertices $\{v_0, \ldots , v_n\} \subseteq \mathbb{R}^n$ such that they are in general position. The $n$-simplex is the convex hull of these vertices. 
+
+\begin{definition}
+    [Simplicial complex]
+    A simplicial complex $K$ satisfies the following properties: Every face of $K$ is in $K$, and if $K_1, K_2$ is in $K$, then $K_1 \cap K_2$ is in $K$. 
+\end{definition}
+We say $|K|$ is the geometric realisation of $K$.
+
+\begin{definition}
+    [Subcomplex]
+    A subcomplex $K'$ of $K$ is a simplicial subcollection in $K$.
+\end{definition}
+
+\begin{definition}
+    [m-skeleton]
+    An $m$-skeleton of a simplex $K$ are all the simplices with dimension $m' \leq m$. 
+\end{definition}
+
+\begin{definition}[Star of simplex]
+    The star of a particular simplex $\sigma$ in $K$, denoted $\Star(\sigma; K)$ is the simplices of $K$ which share a vertex with $\sigma$. 
+\end{definition}
+\begin{definition}
+    [Link of simplex]
+    The link of a simplex $\sigma$ in $K$ is the intersection of all simplices in $\Star(\sigma; K)$ disjoint from $\sigma$.
+\end{definition} 
+
+\begin{definition}[Star of subcomplex]
+    The star of a particular subcomplex $K'$ in $K$, denoted $\Star(K'; K)$ is the simplices of $K$ which share a vertex with $K'$. 
+\end{definition}
+\begin{definition}
+    [Link of subcomplex]
+    The link of a subcomplex $K'$ in $K$ is the intersection of all simplices in $\Star(K'; K)$ disjoint from $K'$.
+\end{definition} 
+
+\begin{definition}[Star of point]
+    The star of a particular point $p$ in $K$, denoted $\Star(p; K)$ is the simplices of $K$ which intersect with $p$. 
+\end{definition}
+\begin{definition}
+    [Link of point]
+    The link of a point $p$ in $K$ is the intersection of all simplices in $\Star(p; K)$ disjoint from $p$.
+\end{definition} 
+
+
+\subsubsection{PL homeomorphism}
+$|K|$, $|L|$ are PL-homeomorphic if there exists a subdivision $K'$ of $K$, $L'$ of $L$ and there is a face-preserving bijection between $K'$ and $L'$. 
+
+\subsubsection{PL Manifold}
+$M$ is an $n$- manifold if there exists a triangulation of $M$ to $(K, t)$ where $K$ is a simplicial complex and there exists a homeomorphism $t : M \rightarrow K$, and for all $x \in M$, the link of $t(x)$ in $K$ is PL-homeomorphic to a PL $(n-1)$-sphere $|\partial \sigma^n|$ or a PL $(n-1)$-ball $|\sigma^{(n-1)}|$. 
 \end{document}
