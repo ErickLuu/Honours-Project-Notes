@@ -61,28 +61,6 @@ There are 5 different link types of $S^0 \sqcup S^0 \sqcup S^1$ in $S^2$. Label 
     \item 1 blue and 1 red on each hemisphere.
 \end{itemize}
 
-\subsection{Question 3}
-
-\subsubsection{a}
-Using the 1 point compatification, we have that the solid torus is produced of $S^3 - U$ because we can write $S^3$ as two torii glued together on top of one another. When we remove $U$, we delete 1 torus and we have one solid torus remaining. 
-\subsubsection{b}
-From above, we have that $\pi_1(S^3 - U) = \mathbb{Z}$ as this is the fundamental group of the solid torus. It can also be seen by the only nontrivial loop (up to homotopy) being ones which wrap around the hole left behind by $U$. 
-\subsubsection{c}
-Suppose there is a homotopy $H$ which takes the left diagram to the right diagram. Then in $H$, there must be a time $t$ when one of the links passes through the other, by the Jordan curve theorem. Let $h_t(S_1 \sqcup S_1)$ be the shape formed at that point, which is two circles touching at a single point. The fundamental groups of $S^1 \sqcup S^1$ and $S^1 \cup S^1$ touching at a point are different, as one is $\mathbb{Z}$ and the other is $F_2$, meaning that there is no homeomorphism between the two. Therefore, $H$ is not an ambient isotopy, therefore no ambient isotopy exists. 
-
-\subsection{Question 4}
-\subsubsection{a}
-Let $\atlas = \left\{(U_\alpha, \varphi_\alpha) | \alpha \in J\right\}$. Let $(U_\alpha, \varphi_\alpha), (U_\beta, \varphi_\beta)$ be two charts in $\overline{\atlas}$. We want to show that they are smoothly compatible. If either one of them is in $\atlas$, then we have that they are smoothly compatible by definition. Therefore, the interesting case is when neither are in $\atlas$. 
-
-Consider the intersection $U_\alpha \cap U_\beta$. As $\atlas$ is a cover of $M$, then we can write $U_\alpha \cap U_\beta = \cup_{\gamma \in J} (U_\alpha \cap U_\beta) \cap U_\gamma$, and we have that $(\varphi_\beta \circ \varphi_\alpha^{-1}) = (\varphi_\beta \circ \varphi_\gamma^{-1}) \circ (\varphi_\gamma \circ \varphi_\alpha^{-1})$ is the transition map on $(U_\alpha \cap U_\beta) \cap U_\gamma$. This is a smooth map as this is a composition of smooth maps through $\varphi_\gamma(U_\gamma)$. Therefore, we have an open cover of $U_\alpha \cap U_\beta$ which is smooth on the transition maps in $\atlas$. Therefore, we have that the transition map is smooth.
-
-To show that this transition map is maximal, take any maximal atlas $A$ containing $\atlas$. Then we have that this is the collection of maps which contain $\atlas$ and are pairwise smoothly compatible, so it also contains $\overline{\atlas}$ above. If $\alpha$ is in $A$, then it is also smoothly compatible with $\atlas$, so it is in $\overline{\atlas}$. Therefore, $A \subseteq \overline{\atlas}$ and $\overline{\atlas} \subseteq A$. Therefore, $A = \overline{\atlas}$, thus $\overline{\atlas}$ is maximal. 
-\subsubsection{b}
-
-Suppose $\mathcal{A}$ and $\mathcal{B}$ are two atlases which determine the same maximal smooth atlas. So $\overline{\mathcal{A}} = \overline{\mathcal{B}}$. Then this means that $\mathcal{A} \subseteq \overline{\mathcal{B}}$, so $\mathcal{A}$ is smoothly compatible with $\mathcal{B}$. Thus the union $\mathcal{A} \cup \mathcal{B}$ is also a smooth atlas. 
-
-Suppose $\mathcal{A}$ and $\mathcal{B}$ have the property that the union is a smooth atlas. Therefore, we have that $\mathcal{A} \subseteq \overline{\mathcal{B}}$ by definition of $\overline{\mathcal{B}}$. But this means that $\overline{\mathcal{A}} \subseteq \overline{\mathcal{B}}$ as it contains $\mathcal{A}$ and is maximal. Changing letters, we have that $\overline{\mathcal{B}} \subseteq \overline{\mathcal{A}}$ by symmetry. Therefore, $\overline{\mathcal{A}} = \overline{\mathcal{B}}$.
-
 \subsection{5}
 We have that $S^n$ is an $n$-manifold with smooth structure. Take the open sets $U = S^n - (1, 0, \ldots, 0)$ and $V = S^n - (-1, 0, \ldots, 0)$ with maps $\varphi : U \rightarrow \mathbb{R^n}$ where we take $(x_0, x_1, \ldots, x_n) \mapsto (\frac{x_1}{1- x_0}, \frac{x_2}{1- x_0}, \ldots, \frac{x_n}{1- x_0} )$, and $\psi : V \rightarrow \mathbb{R^n}$ where $(x_0, x_1, \ldots, x_n) \mapsto (\frac{x_1}{1+x_0}, \frac{x_2}{1+ x_0}, \ldots, \frac{x_n}{1+x_0} )$. 
 
@@ -91,14 +69,6 @@ The inverse of $\varphi$, going from $\mathbb{R}^n \rightarrow S^n\setminus \{(1
 The inverse of $\psi$ is: Take $(x_1, \ldots, x_n)$. Let $s = \sum_{i = 1}^n x_i^2$. Then $(x_1, \ldots, x_n) \mapsto (\frac{1 - s}{1 + s}, \frac{2x_1}{1 + s}, \ldots, \frac{2x_n}{1 + s})$. 
 
 Then we have that $\psi \circ \varphi^{-1}$ and $\varphi^{-1} \circ \psi$ sends $x$ to $ \frac{x}{|x|}$ which is a smooth function in all coordinates. Thus we have that the sphere is a smooth map. 
-
-\subsection{6}
-We have that $M(n)$ is a smooth manifold. Now consider the function $\det : M(n) \rightarrow \mathbb{R}$, which is a smooth function between two manifolds as it is a polynomial. Now look at $\det^{-1} (1)$, which is precisely the matrices of determinant $1$. Now we want to show that the Jacobian on this set is not the zero vector, so that the preimage is a submanifold. 
-
-Then as we have that $(D \det A)_{ij} = (-1)^{i + j} \det(A^*_{i, j})$ where $A^*_{i, j}$ is the cofactor matrix of $A$ deleting $i$ and $j$. Then this means that this is zero iff the determinant of the cofactor matrix is zero, but this is never the case as the determinant of $A$ itself is nonzero, meaning $A$ is invertible and so are all of its cofactors. Therefore, $D \det(A)$ is 0 iff $\det A = 0$, meaning that the preimage is a submanifold. 
-
-Finally, we have that the dimension is $n^2-1$ and the codimension is 1. 
-
 \subsection{9}
 We have that every compact $1$-manifold is homeomorphic to a countable disjoint union of $S^1$, as the only $1$-manifolds that exist are either homeomorphic to $S^1$ or $\mathbb{R}$, and $\mathbb{R}$ is not compact. We have that the 2-simplex $[v_1, v_1]$ is homeomorphic to $S^1$ directly, so $S^1$ is a $PL$-manifold. As this property holds for every connected component of a compact $1$-manifold, every compact $1$-manifold is also a $PL$-manifold. 
 \end{document}
