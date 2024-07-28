@@ -86,9 +86,11 @@ Suppose $\mathcal{A}$ and $\mathcal{B}$ have the property that the union is a sm
 \subsection{5}
 We have that $S^n$ is an $n$-manifold with smooth structure. Take the open sets $U = S^n - (1, 0, \ldots, 0)$ and $V = S^n - (-1, 0, \ldots, 0)$ with maps $\varphi : U \rightarrow \mathbb{R^n}$ where we take $(x_0, x_1, \ldots, x_n) \mapsto (\frac{x_1}{1- x_0}, \frac{x_2}{1- x_0}, \ldots, \frac{x_n}{1- x_0} )$, and $\psi : V \rightarrow \mathbb{R^n}$ where $(x_0, x_1, \ldots, x_n) \mapsto (\frac{x_1}{1+x_0}, \frac{x_2}{1+ x_0}, \ldots, \frac{x_n}{1+x_0} )$. 
 
-The inverse of $\varphi$ is: Take $(x_1, \ldots, x_n)$. Let $s = \sum_{i = 1}^n x_i^2$. Then $(x_1, \ldots, x_n) \mapsto (\frac{s - 1}{s + 1}, \frac{2x_1}{1 + s}, \ldots, \frac{2x_n}{1 + s})$. TODO the other direction. 
+The inverse of $\varphi$, going from $\mathbb{R}^n \rightarrow S^n\setminus \{(1, 0, \ldots, 0)\}$ is given by this operation. Take $(x_1, \ldots, x_n)$. Let $s = \sum_{i = 1}^n x_i^2$. Then $(x_1, \ldots, x_n) \mapsto (\frac{s - 1}{s + 1}, \frac{2x_1}{1 + s}, \ldots, \frac{2x_n}{1 + s})$. 
 
-Then we have that $\psi \circ \varphi^{-1}$ sends $x$ to $ \frac{x}{|x|}$ which is a smooth function in all coordinates. Thus we have that the sphere is a smooth map. 
+The inverse of $\psi$ is: Take $(x_1, \ldots, x_n)$. Let $s = \sum_{i = 1}^n x_i^2$. Then $(x_1, \ldots, x_n) \mapsto (\frac{1 - s}{1 + s}, \frac{2x_1}{1 + s}, \ldots, \frac{2x_n}{1 + s})$. 
+
+Then we have that $\psi \circ \varphi^{-1}$ and $\varphi^{-1} \circ \psi$ sends $x$ to $ \frac{x}{|x|}$ which is a smooth function in all coordinates. Thus we have that the sphere is a smooth map. 
 
 \subsection{6}
 We have that $M(n)$ is a smooth manifold. Now consider the function $\det : M(n) \rightarrow \mathbb{R}$, which is a smooth function between two manifolds as it is a polynomial. Now look at $\det^{-1} (1)$, which is precisely the matrices of determinant $1$. Now we want to show that the Jacobian on this set is not the zero vector, so that the preimage is a submanifold. 
