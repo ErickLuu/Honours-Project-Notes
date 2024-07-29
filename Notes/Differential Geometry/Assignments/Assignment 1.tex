@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{todonotes}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+%opening
+\title{Assignment 1}
+\author{Eric Luu}
+
+\begin{document}
+
+\maketitle
+
+\section{1}
+\subsection{a}
+We let $F(x, y, z) : \mathbb{R}^3 \rightarrow \mathbb{R}^2$ be the smooth map
+\begin{equation}
+    F(x, y, z) = (G(x, y, z), H(x, y, z)).
+\end{equation}
+
+Then consider the Jacobian with respect to coordinates $x$ and $z$. 
+
+\begin{equation}
+    D_2 F(x, y, z) = 
+    \begin{bmatrix}
+        \dfrac{\partial G}{\partial x} & \dfrac{\partial G}{\partial z}\\
+        \\
+        \dfrac{\partial H}{\partial x} & \dfrac{\partial H}{\partial z}
+    \end{bmatrix}
+\end{equation}
+
+If the Jacobian is invertible, then by the implicit function theorem, then there exist functions $g(y)$ and $h(y)$ such that $g(-1) = 2$ and $h(-1) = 1$, and:
+$F(g(y), y, h(y)) = (0, 0)$ on an open interval $A$ which contains $-1$. 
+
+We have that 
+
+\begin{align*}
+    \dfrac{\partial G}{\partial x} &= D_x(f)\\
+    \dfrac{\partial G}{\partial z} &= 2z\\
+    \dfrac{\partial H}{\partial x} &= z\\
+    \dfrac{\partial H}{\partial z} &= x + 3z^2
+\end{align*}
+so if we want the Jacobian to be invertible, we must have that:
+
+\begin{equation}
+    (D_x f)(x + 3 z^2) - 2 z^2
+\end{equation}
+is nonzero everywhere. 
+
+\subsection{b}
+
+
+\section{2}
+\subsection{a}
+
+Let $\phi_i^{-1} : \mathbb{R}^n \rightarrow U_i$ be the $(x^0, x^1, \ldots, \hat{x^i}, \ldots, x^n)$ to $[x^0, x^1, x^2, \ldots, 1, \ldots, x^n]$ in $\mathbb{RP}^n$ where we have that $x^i = 1$. Then we have that $\phi \circ \phi^{-1} (x^0, \ldots, x^n) = (x^0, \ldots, x^n)$ and $\phi^{-1} \circ \phi(x^0, \ldots, x^n) = [x^0, \ldots, x^n]$. Therefore, $\phi_i$ is a well-defined bijection as there is a well-defined inverse. 
+
+\subsection{b}
+
+Consider $\phi_i \circ \phi_j^{-1}$ on the set ${(x^0, x^1, \ldots, x^n) | x^i \neq 0}$. We have that:
+
+\begin{equation}
+    \phi_i \circ \phi_j^{-1}(x^0, x^1, \ldots, x^n) = (\frac{x^0}{x^i}, \frac{x^1}{x^i}, \ldots, \hat{\frac{x^i}{x^i}}, \ldots, \frac{1}{x^i}, \ldots, \frac{x^n}{x^i})
+\end{equation}
+where $\frac{1}{x_i}$ is the $j$-th coordinate. As this is smooth in all coordinates on the open subset $x^i \in \mathbb{R} - \{0\}$, then we have that this is a smooth transition map. 
+
+\subsection{c}
+We have that $\left\{U_i\right\}$ is a cover of $\mathbb{RP}^n$ and $\left\{\phi_i\right\}$ are also smoothly compatible. This is a cover as the point $(0, 0, \ldots, 0)$ is not included in $\mathbb{RP}^n$, so all points must have a nonzero entry. Therefore, $\mathbb{RP}^n$ is a smooth $n$-manifold. 
+
+\subsection{d}
+To show that the projection is smooth, we want to show that $\phi_i \circ \pi : \mathbb{R}^{n + 1}_+ \rightarrow \mathbb{R}^{n}$ is a smooth map. We have that this map is $(x^1, x^2, \ldots, x^n) \mapsto (\frac{x^1}{x_i}, \ldots, \widehat{\frac{x^i}{x^i}}, \ldots, \frac{x^n}{x^i})$ which is well-defined for all $y = \lambda x$ where $\lambda \neq 0$ and is also smooth. 
+
+\section{3}
+
+Consider 
+\end{document}
