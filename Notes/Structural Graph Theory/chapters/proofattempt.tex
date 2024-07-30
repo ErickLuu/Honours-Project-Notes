@@ -74,7 +74,7 @@ We shall prove an intermediate lemma.
 		\end{cases}
 	\end{equation}.
 
-	Then we have that if two edges cross in the book-embedding, then they have different colours. If two edges cross, then that implies that in a book-embedding of the path \(P\) with \((B_1, \ldots, B_n)\) added in like \(\cref{lem:preserved_faces_pagenumber}\), then they will cross as well. But as that that implies they have different colours, then in this new embedding they have different colours as well. Two examples are given in \cref{fig:preserving_pages}.
+	Then we have that if two edges cross in the book-embedding, then they have different colours. If two edges cross, then that implies that in a book-embedding of the path \(P\) with \((B_1, \ldots, B_n)\) added in like \cref{lem:preserved_faces_pagenumber}, then they will cross as well. But as that that implies they have different colours, then in this new embedding they have different colours as well. Two examples are given in \cref{fig:preserving_pages}.
 
 	This is a small tweak of \cref{lem:preserved_faces_pagenumber}. 
 \end{proof}
@@ -135,7 +135,7 @@ We wish to show this statement:
 \begin{theorem}
 	For all graphs \(G\) of orientable genus \(g\), for all faces \(F_1, \ldots, F_k\) of \(G\), there exists a \(f(g, k)\)-page book embedding such that \(F_i\) has at most \( h(g, k)\) monochromatic paths for some function $h$.
 \end{theorem}
-\todo{does this proof work when we drop the orinntable condition?}
+\todo{does this proof work when we drop the orientable condition?}
 
 Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), the faces \(F\) such that there exists an edge \(e\) in \(E_n\) which bounds \(F\). Then we claim that the number of edges that bound \(F\) is bounded. We first need an auxillary topological conjecture. We say a loop is \textit{trivial} if it is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\).
 
@@ -146,7 +146,7 @@ Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), t
 Parts of the proof was motivated by a discussion with Corbin Reid. The proof given is a topological one.
 
 \begin{proof}
-	Let \(G'\) be the dual graph of this graph, where the vertex set is \(F_1, \ldots, F_j\) and the edge set are the loops, where two faces are incident if there is a loop that is touching both faces. Then take a spanning tree \(T\) of \(G'\), and let \(L'\) be the loops that are not in \(T\) and \(L''\) be the loops that are in \(T\).
+	Let \(G'\) be the dual multigraph of this graph, where the vertex set is \(F_1, \ldots, F_j\) and the edge set are the loops, where two faces are incident if there is a loop that is touching both faces. Then take a spanning tree \(T\) of \(G'\), and let \(L'\) be the loops that are not in \(T\) and \(L''\) be the loops that are in \(T\). 
 	Then consider embedding \(L'\) on the surface \(\Sigma\). Now this bounds a disk, call it \(F_0\). This is a disk as we glue together \(F_1, \ldots, F_j\) according to the spanning tree \(T\), meaning that we maintain the property that the surface is contractible.
 	Now we have that there is one vertex, \(|L'|\) edges, and one face \(F_0\). Then by Euler's formula, we have that:
 	\begin{equation}
