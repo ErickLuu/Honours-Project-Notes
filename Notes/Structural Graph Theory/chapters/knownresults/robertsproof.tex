@@ -82,21 +82,17 @@ We will use \cref{corr:planar_graphs_4_connected_cliqesums}. We will also use th
 	All 4-connected planar graphs are Hamiltonian.
 \end{theorem}
 
-\begin{lemma}\label{lem:clique_sum_connected}
-	All graphs have a tree-decomposition where every torso is a \(k\)-connected graph, or has at most $k-1$ vertices, with adhesion set size at most \(k-1\).
+We have a small lemma that we can use to paste together graphs with 
+
+\begin{lemma}\label{corr:planar_graphs_4_connected_cliqesums}
+	Every planar \(G\) has a tree-decomposition such that each torso is a \(4\)-connected planar graph (or a subgraph of $K_4$) with adhesion at most \(3\).
 \end{lemma}
+
 \begin{proof}
-	If a graph \(G\) is not \(k\)-connected, we can find a set \(S\) of size at most \(k-1\) such that \(G - S\) is disconnected. Then we repeat this operation on the connected components of \(G - S\), until each component either has \(k-1\) vertices or is \(k\)-connected. So we can construct a tree-decomposition where every torso is \(k\)-connected and the adhesion size is at most \(k-1\).
+	Suppose that $G$ is not $4$-connected, meaning there exists at most $3$ vertices $u, v, w$ in $G$ that separate $G$. Then we have that 
+	\todo{Finish proof!}
 \end{proof}
-
-\begin{corollary}\label{corr:planar_graphs_4_connected_cliqesums}
-	All planar graphs \(G\) have tree-decompositions with the torsos being \(4\)-connected planar graphs and adhesion at most \(3\).
-\end{corollary}
-
-
-\begin{proof}[Proof \cref{thm:Planar Graph Hickingbotham Bound}]
-	Let \(G\) be planar. Then \(G\) has a tree-decomposition of adhesion size at most \(3\) with the torsos being \(4\)-connected, from \cref{lem:clique_sum_connected}. However, this implies that the torsos are Hamiltonian, from Tutte \cite{tutteTheoremPlanarGraphs1956}, thus the number of pages needed for each torso is \(2\). Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most \(2 \times 4 + 3 = 11\).
-\end{proof}
+Therefore from \cref{thm:clique_sum_pagenumber_bound}, we have that the pagenumber is at most \(2 \times 4 + 3 = 11\).
 This upper bound is much worse than the tight upper bound found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}. However, the proof given above is more general and will be used throughout to prove several bounds.
 We will discuss the \(K_5\)-minor free case. If \(G\) is \(K_5\)-minor free, then we do not need to worry about the GMST to form an upper bound. We will use Wagner's theorem.
 \begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
