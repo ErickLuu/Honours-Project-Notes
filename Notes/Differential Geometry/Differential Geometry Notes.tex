@@ -29,6 +29,9 @@
 \title{Differential Geometry}
 \author{Eric Luu}
 
+%commands
+\DeclareMathOperator{\supp}{supp}
+
 \begin{document}
 
 \maketitle
@@ -218,12 +221,17 @@ Diffeomorphism is a very strong condition and many properties of manifolds hold 
 	\begin{itemize}
 		\item $\overline{V} \subset U$
 		\item $\chi = 1$ on $V$
-		\item $\text{supp} (\chi) \subset U$.
+		\item $\supp (\chi) \subset U$.
 		\item $0 \leq \chi \leq 1$ on $M$.
 	\end{itemize}
 	This is a stronger version of Ursohyn's lemma from topology, but with smooth rather than continuous functions.
 \end{lemma}
-
+An example of a cutoff function is $\varphi(x) = \begin{cases}
+0 &\text{ if } x \leq 0\\
+e^{-1/x} &\text{ if } x > 0	
+\end{cases}
+$.
+Note that this function is not analytic, and typically these cutoff functions are not analytic as their support is compact. 
 \begin{definition}
 	A smooth manifold $M$:
 	\begin{itemize}
@@ -231,4 +239,58 @@ Diffeomorphism is a very strong condition and many properties of manifolds hold 
 		\item is second countable if there exists an atlas of $M$ with a countable number of charts.  
 	\end{itemize}
 \end{definition}
+
+\begin{lemma}[Partitions of Unity]
+	Let $M$ be a smooth, Hausdorff second-countable manifold. Then for any open cover $\left\{U_\alpha \right\}_{\alpha \in J}$, there exists a collection of smooth functions $\{\chi_\alpha \}_{\alpha \in J}$ on $M$ such that:
+	\begin{enumerate}
+		\item $\chi_\alpha \geq 0$ on $M$ and $\supp (\chi_\alpha) \subseteq U_\alpha$ for all $\alpha$ in $J$. 
+		\item For each point $p$ in $M$, there exists an open neighbourhood $W_p$ of $p$ such that the set 
+		
+		$\left\{\alpha \in J | \supp(\chi_\alpha) \cap W_p \neq \emptyset\right\}$ is finite. This is almost like compatness.
+		\item $\sum_{\alpha \in J} \chi_\alpha = 1$. This is the partition.
+	\end{enumerate}
+	Terminology: $\left\{ \chi_\alpha \right\}_{\alpha \in J}$ is known as the smooth partitin of unity subordinate to $\left\{U_\alpha \right\}_{\alpha \in J}$.
+\end{lemma}
+
+
+\section{Tangent spaces}
+
+To do calculus, we must consider what a tangent space looks like. The tangent space can be seen as a local approximation around a single point $p$ in $\mathbb{M}$. If a manifold is embedded in some $\mathbb{R}^n$, then the tangents must be the regular tangents. 
+
+\begin{definition}
+	A tangent vector at $p \in M$ where $M$ is a smooth $n$-dimensional manifold is a function $V_p : C^\infty(M) \rightarrow \mathbb{R}$ satisfying:
+	\begin{enumerate}
+		\item $V_p$ is linear i.e. $V_p(c f + g) = c V_p f + V_p g$ for all $c \in \mathbb{R}$ and $f, g \in C^\infty(M)$. 
+		\item $V_p(fg) = fV_p(g) + g V_p (f)$ for all $f, g \in C^\infty$. 
+	\end{enumerate}
+\end{definition}
+The set of all tangent vectors at $P \in M$ is denoted $T_p M$. 
+
+\begin{example}
+	Let $(U, \phi)$ be a chart $(\phi^1, \ldots, \phi^n)$. Then
+	$f \circ \phi^{-1}$, we have that $\partial_i|_p f = \partial_i(f \circ \phi^{-1})|_{\phi(p)} = \dfrac{\partial (f \circ \phi^{-1})}{\partial x_i}\mid_{\phi(p)}$ is a tangent vector at $p$. 
+\end{example}
+
+\begin{lemma}
+	Suppose $V_p \in T_p M$. If $f, g \in C^{\infty}(M)$ are equal on an open nbhd of $p \in M$, then $V_p(f) = V_p(g)$. Additionally, if $h \in C^\infty(M)$ is constant on an open nbhd of $p \in M$, then $V_p (h) = 0$. 
+\end{lemma}
+
+\begin{proof}
+	Let $U$ be an open neighbourhood of $f = g$ on $p \in M$ and let $k = f = g$. $k|_{U} = 0$. Next let $\chi \in C^\infty(M)$ be a smooth cutoff function where $\chi|_V = 1$ where $\overline{V} \subset \supp(\chi)$.
+	Then if $V_p \in T_p M$, we get $V_p(\chi k)$ = $V_p (\chi) k + \chi V_p(k) = V_p(k)$. But $\chi k = 0$, and $V_p (\chi k) = 0$ by linearity. Therefore, $V_p(k) = 0$, so $V_p(f) = V_p(g)$. 
+
+	Suppose $h = c$ on an open nbhd. By 1, we have that $h = c$ on $M$. Now note that $V_p \subset T_p$ has the property that $v_p(1) = V_p(1 \times 1) = 1 V_p(1) + 1 V_p(1)$, so $V_p(1) = 0$.
+\end{proof}
+
+\begin{theorem}
+	Suppose $(U, \phi = (\phi^1, \ldots, \phi^m))$ is a chart on a smooth manifold $M$ and $p \in U$. The claim is the following:
+	\begin{equation}
+		\left\{
+			\partial_1|_p, \ldots, \partial_n|_p
+		\right\}
+	\end{equation}
+	is a basis of $T_p(M)$. 
+\end{theorem}
+
+We use an extension of Taylor's theorem to prove this. 
 \end{document}
