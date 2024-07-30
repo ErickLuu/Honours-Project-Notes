@@ -283,7 +283,7 @@ The set of all tangent vectors at $P \in M$ is denoted $T_p M$.
 \end{proof}
 
 \begin{theorem}
-	Suppose $(U, \phi = (\phi^1, \ldots, \phi^m))$ is a chart on a smooth manifold $M$ and $p \in U$. The claim is the following:
+	Suppose $(U, \varphi = (\varphi^1, \ldots, \varphi^m))$ is a chart on a smooth manifold $M$ and $p \in U$. The claim is the following:
 	\begin{equation}
 		\left\{
 			\partial_1|_p, \ldots, \partial_n|_p
@@ -293,4 +293,17 @@ The set of all tangent vectors at $P \in M$ is denoted $T_p M$.
 \end{theorem}
 
 We use an extension of Taylor's theorem to prove this. 
+
+\begin{proof}
+	Without loss of generalisation, we can assume that $\varphi(p) = 0$ and $\varphi(U) = B_R{\iota}$ for some $R > \iota$. Next suppose $f \in C^\infty(M)$ and set $\tilde{f} = f \circ \varphi^{-1} \in C^\infty(B_R(\iota))$. Then, $\tilde{f}(x) = \tilde{f}(0) + \tilde{f}_i (x) e^i$ where $\tilde{f}_i (y) = \int_0^1 \dfrac{\partial f}{\partial x} (ty) dt$. 
+
+	Then this gives that:
+	\begin{equation}
+		f(q) = f(p) + f_i(q) \varphi'(q).
+	\end{equation}
+
+	We have that $\tilde{f} = f + f_i \pi^i$ and $\tilde{f}(x) = \tilde{f}(p) + \tilde{f}_i(x) x^i$. Hitting both sides with $\varphi$, we have that $f(x) = f(p) + \tilde{f}_i \circ \varphi \pi^i \circ \varphi$, where $f_i = \tilde{f}_i \circ \varphi$. 
+	
+	Then we apply an implicit cutoff function and apply $V_p \in T_p(m)$ to $f$. We have that $V_p(f) = V_p(f(p)) + V_p(f_i \varphi^i) = f_i(p) V_p(\varphi^i) + \varphi^i(p) V_p(f_i)$. By definition, the second term is 0. So we have that $V_p(f_i \varphi^i) = f_i(p) V_p(\varphi^i)$. Then we apply $\partial_i$ to yield that $\partial_j|_p f = f_j(p)$. Substituting into above, we have that $V_p(f) = f_i(p) \partial_i |_p(f^i)$ so $V_p = V_p(\partial^i) \partial_i|_p$. So $T_p M$ spans $\{\partial_1|_p, \ldots, \partial_n|_p \}$. Finally, we must show that it spans. 
+\end{proof}
 \end{document}
