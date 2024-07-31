@@ -1,16 +1,24 @@
 \chapter{consequences}\label{chap:consequences}
 
 We will finish by discussing some consequences of the above theorem. 
-We say a family of graphs $\mathcal{F}$ is nontrivial if it is not the empty set of graphs or all graphs. 
+We say a family of graphs $\mathcal{F}$ is \textit{proper} if $\mathcal{F}$ is not the set of all graphs. 
 
-\begin{lemma}\label{lem:Minor-Closed_Pagenumber}
-    Let $\mathcal{F}$ be a nontrivial, minor-closed graph family. Then $\mathcal{F}$ has bounded pagenumber.
+\begin{lemma}\label{lem:minor-closed-Kt}
+    Every proper minor-closed graph family $\mathcal{F}$ has a fixed $t$ such that $\mathcal{F}$ is $K_t$-minor free. 
 \end{lemma}
+
 \begin{proof}
-    From \textcite{robertsonGraphMinorsXX2004}, we have that every minor-closed graph family has a finite forbidden minor characterisation. Let $\mathcal{H}$ be the finite forbidden minor characterisation of $\mathcal{F}$. Let $H \in \mathcal{H}$ be the forbidden minor with the largest number of vertices, say $|V(H)| = \ell$. Then $\mathcal{F}$ is als $K_\ell$-minor free, as if $K_\ell$ appears as a minor in a graph in $\mathcal{F}$, then the subgraph $H$ also appears in $F$. As $H$ is the largest forbidden minor, all other graphs in $\mathcal{H}$ are also minors of $K_\ell$. Therefore, every graph $G$ in $\mathcal{F}$ is $K_\ell$-minor free. Thus $\pn(G) \leq f(\ell)$. Thus shown.
+    From \textcite{robertsonGraphMinorsXX2004} Graph Minor Theorem, we have that every proper minor-closed graph family has a finite forbidden minor characterisation. Let $\mathcal{H}$ be the finite forbidden minor characterisation of $\mathcal{F}$. Let $H \in \mathcal{H}$ be the forbidden minor with the largest number of vertices, say $|V(H)| = t$. Then $\mathcal{F}$ is also $K_t$-minor free, as if $K_t$ appears as a minor in $G$ in $\mathcal{F}$, then the subgraph $H$ also appears in $G$. As $H$ is the largest forbidden minor, all other graphs in $\mathcal{H}$ are also minors of $K_t$. Therefore, every graph $G$ in $\mathcal{F}$ is $K_t$-minor free.
 \end{proof}
 
-This does not say that $\pn(H) \leq \pn(G)$ when $H$ is a minor of $G$. We may subdivide a graph $G$ such that every edge has $O(|V(G)|)$ vertices to make $G'$, and we have that $G'$ has pagenumber at most 3. Then $G$ is a minor of $G'$ but $G$ has unbounded pagenumber.
+\begin{lemma}\label{lem:Minor-Closed_Pagenumber}
+    Every proper minor-closed graph family has bounded pagenumber.
+\end{lemma}
+\begin{proof}
+    From \cref{lem:minor-closed-Kt}, every proper minor-closed graph family is also $K_t$-minor free. Therefore, $\pn(G) \leq f(\ell)$.
+\end{proof}
+
+This does not say that $\pn(H) \leq \pn(G)$ when $H$ is a minor of $G$. We may subdivide a graph $G$ such that every edge has $O(|V(G)|)$ vertices to make $G'$, and we have that $G'$ has pagenumber at most 3. Then $G$ is a minor of $G'$ but $G$ has unbounded pagenumber. \todo{reference this!}
 
 \subsection{Similarities with Blankenship's PhD}
 This is an apt time to discuss the similarity of the proof given above with Blankenship's PhD work. 
