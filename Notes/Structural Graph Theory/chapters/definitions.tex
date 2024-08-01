@@ -105,13 +105,13 @@ We refer to the total ordering of \(V(G)\) in the book embedding as \((<)\) or a
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering. This means that we order the vertices in a circle rather than on a straight line. The book-embedding of a circular ordering is exactly the same as for a linear ordering, and we can convert between a circular and linear ordering by choosing a vertex to be at the start of the sequence.
 Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974, ollmannBookThicknessVarious1973} in the 1970s. It was developed further in a paper by \textcite{bernhartBookThicknessGraph1979}.
 \begin{lemma}\label{lem:Pagenumber_1}
-	A graph \(G\) has pagenumber at most 1if and only if \(G\) is outerplanar.
+	A graph \(G\) has pagenumber at most 1 if and only if \(G\) is outerplanar.
 \end{lemma}
 \begin{proof}
 	We can choose an ordering of the vertices \(V(G)\) to go anticlockwise around the outer face. Suppose we have two edges \(uv\), \(xy\) that cross, so that \(u < x < v < y\). Then in the original graph embedding, we will have that \(uv\) and \(xy\) will cross inside the circle, thus \(G\) is not outerplanar.
 \end{proof}
 \begin{lemma}\label{lem:Pagenumber_2}
-	A graph \(G\) has pagenumber at most 2if and only if \(G\) is a subgraph of a planar graph with a Hamiltonian cycle.
+	A graph \(G\) has pagenumber at most 2 if and only if \(G\) is a subgraph of a planar graph with a Hamiltonian cycle.
 \end{lemma}
 This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and edges on each hemisphere forms the interior and exterior edges of the cycle respectively.
 \subsection{Properties of pagenumber}\label{ssec:Related_Properties}
@@ -179,7 +179,7 @@ The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbr
 
 
 \begin{lemma}\label{lem:treewidth_forest}
-	\(\tw(G) = 1\)if and only if \(G\) is a forest.
+	\(\tw(G) = 1\) if and only if \(G\) is a forest.
 \end{lemma}
 \begin{proof}
 	Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\) and \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\). The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so it will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(x\) and the children of \(x\), which is a connected subtree.
@@ -234,7 +234,7 @@ Recall that an outerplanar graph is a planar graph where there exists a face suc
 We define a \(k\)-tree inductively. We have that the complete graph \(K_k\) is a \(k\)-tree, and if \(G\) is a \(k\)-tree, then we add a new vertex to \(G\) that is adjacent to \(k\) vertices that form a clique of size \(k\) in \(G\) results in a \(k\)-tree.
 A \(k\)-tree is a maximal graph with treewidth \(k\).
 \begin{theorem}[K-tree theorem]
-	\(\tw(G) \leq k\)if and only if \(G\) is a subgraph of a \(k\)-tree.
+	\(\tw(G) \leq k\) if and only if \(G\) is a subgraph of a \(k\)-tree.
 \end{theorem}
 
 
@@ -267,7 +267,7 @@ Similarly to treewidth, we have the following observation.
 \end{lemma}
 We say a graph \(G\) is a \textit{caterpillar} if \(G\) has a path \(P\) and every vertex is adjacent to a vertex on the path \(P\). Alternatively, \(G\) is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
 \begin{theorem}[Caterpillars]
-	Graphs have pathwidth at most 1if and only if every connected component is a caterpillar.
+	Graphs have pathwidth at most 1 if and only if every connected component is a caterpillar.
 \end{theorem}
 \begin{proof}
 	Suppose \(G\) is a caterpillar.
