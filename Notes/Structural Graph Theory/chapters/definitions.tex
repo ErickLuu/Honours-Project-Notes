@@ -1,43 +1,50 @@
 \chapter{Definitions}\label{chap:Definitions}
-We lay out this chapter to build towards important notions in structural graph theory.
+This chapter presents important notions in structural graph theory.
 \begin{itemize}
-	\item \cref{sec: Basic definitions} defines the basics of graph theory and introduces useful notation.
+	\item \cref{sec: Basic definitions} are basic graph theory definitions and notations.
 	\item \cref{sec:Planar graphs} discusses important information involving planar graphs.
 	\item \cref{sec:Graph Minors} discusses graph minors.
-	\item \cref{sec:Book Embedding} defines what a book-embedding is and its importance.
-	\item \cref{sec:treewidth} defines the \textit{treewidth}.
-	\item \cref{sec:Pathwidth} defines a related notion, the \textit{pathwidth}.
+	\item \cref{sec:Book Embedding} defines book-embeddings and discusses its importance.
+	\item \cref{sec:treewidth} defines \textit{treewidth}.
+	\item \cref{sec:Pathwidth} defines a related notion \textit{pathwidth}.
 \end{itemize}
-These notions will be useful in discussing the Graph Minor Structure Theorem and our conjecture.
+These definitions will be useful in discussing the Graph Minor Structure Theorem and our conjecture.
 \section{Basic definitions}\label{sec: Basic definitions}
-For a graph \(G\), we define the \textit{vertex} and \textit{edge} sets of \(G\) to be \(V(G)\) and \(E(G)\) respectively. 
-For a subset of vertices \(A \subseteq V(G)\), we denote the \textit{induced subgraph} on \(G\) with vertex set \(A\) as \(G[A]\). The neighborhood of the vertices $A$ is defined to be all vertices that are adjacent to a vertex in $A$ and not in $A$ and is denoted as $N(A)$. 
+A graph $G$ consists of a vertex set $V(G)$ and an edge set $E(G)$. $E(G)$ contains subsets of $V(G)$ with two elements. In this paper, all graphs are simple, meaning that all edges join two distinct vertices and there is at most one edge between any two vertices. Furthermore, all graphs $G$ are finite, so $|V(G)| < \infty$. 
+Let $G$ be a graph. A \textit{subgraph} $H$ in $G$ is a graph with vertex set $V(H) \subseteq V(G)$ and edge set $E(H)$ with the property that if $vw$ is an edge in $E(H)$, then $vw$ is an edge in $E(G)$.
+Let $G$ be a graph and let $S$ be a non-empty subset of the vertex set of $G$. The \textit{induced subgraph} of $S$ in $G$ is the graph $G[S]$ with vertex set $S$ and edge set containing precisely all edges in $G$ incident to two vertices in $S$. Removing a set of vertices $S \subseteq V(G)$ from $G$ forms the induced subgraph $G - S := G[V(G) - S]$. 
+$H$ is a \textit{spanning subgraph} of $G$ if $H$ is a subgraph of $G$ and $V(H) = V(G)$. 
+Let $G$ be a graph. The neighborhood of a set of vertices $A \subset V(G)$ is defined to be all vertices that are adjacent to a vertex in $A$ and not in $A$ and is denoted as $N_G(A)$. 
 
 \begin{itemize}
 	\item A \textit{path} in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell- 1}\) which join a sequence of vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\), and all the vertices are distinct.
-	\item A \textit{simple cycle} \(C\) in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell}\) which join a sequence of distinct vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\) for \(1 \leq i \leq \ell - 1\) and \(e_\ell = v_\ell v_1\).
-	\item A \textit{Hamiltonian cycle} in a graph \(G\) is a simple cycle \(C\) such that all vertices in \(G\) appear in \(C\).
+	\item A \textit{cycle} \(C\) in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell}\) which join a sequence of distinct vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\) for \(1 \leq i \leq \ell - 1\) and \(e_\ell = v_\ell v_1\).
+	\item A \textit{Hamiltonian cycle} in a graph \(G\) is a cycle \(C\) such that all the vertices in \(G\) appear in \(C\). If a graph $G$ has a Hamiltonian cycle, then $G$ is a Hamiltonian graph. 
 \end{itemize}
 
-We say that a connected graph \(G\) is \textit{\(k\)-connected} if \(G\) has more than \(k\) vertices and removing up to \(k-1\) vertices from \(G\) maintains the property that $G$ is connected. For the case that $k$ equals $2$, the graph is \textit{biconnected}. Note that all graphs \(G\) with a Hamiltonian cycle is biconnected, due to Menger's theorem.\cite{mengerZurAllgemeinenKurventheorie1927}
-We say a graph \(G\) is \(k\)-colourable if there exists a function \(f: V(G) \rightarrow [k]\) such that for all edges $vw$ in $G$, \(f(v)\) and \(f(w)\) are assigned different colours. The \textit{chromatic number} \(\chi(G)\) is the smallest \(k\) such that \(G\) is \(k\)-colourable.
-Throughout this report, we use as shorthand for the set \( [n] = \lbrace 1\ldots n \rbrace \).
+A graph $G$ is \textit{connected} if between any two distinct vertices $x$ and $y$ there exists a path which starts and ends at $x$ and $y$. 
+A connected graph \(G\) is \textit{\(k\)-connected} if \(G\) has more than \(k\) vertices and for any vertex set $S \subseteq V(G)$ where $|S| \leq k - 1$ it holds that $G - S$ is connected. $2$-connected graphs are called \textit{biconnected} graphs. 
+
+Throughout this report, the set $\lbrace 1\ldots n \rbrace$ is notated as $[n]$. 
+A graph \(G\) is \(k\)-colourable if there exists a function \(f: V(G) \rightarrow [k]\) such that if $f(v) = f(w)$, then $v$ and $w$ do not share an edge. The \textit{chromatic number} \(\chi(G)\) is the smallest \(k\) such that \(G\) is \(k\)-colourable.
 
 \subsection{Menger's theorem}
-Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem which we use throughout the report, so it is worth dedicating some time discussing its significance.
-Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) which starts in \(A\) and ends in \(B\) with no internal vertices in \(A\) or \(B\). An \(AB\)-connector is a set of interally-disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S\) such that \(G - S\) contains no \(AB\) path. Then:
+Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem which is used throughout the report.
+Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) which starts in \(A\) and ends in \(B\) with no internal vertices in \(A \cup B\). An \(AB\)-connector is a set of disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S \subseteq V(G)\) such that \(G - S\) contains no \(AB\)-path. Then:
 \begin{theorem}[Menger's theorem]\label{thm:Menger}
-	The size of the smallest \(AB\) separator of \(G\) is equal to the largest \(AB\)-connector.
+	Let $G$ be a graph and let $A, B \subseteq V(G)$. Then the size of the smallest \(AB\)-separator of \(G\) is equal to the size of the largest \(AB\)-connector.
 \end{theorem}
-Now take vertices \(x, y\). Now let \(A = N_G(x) \cup \{x\} \) and \(B = N_G(y) \cup \{y\} \). Then the size of the smallest \(AB\) separator implies that:
+Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B = N_G(y) \cup \{y\} \). Then \cref{thm:Menger} implies that:
 \begin{theorem}[Menger's theorem, vertex-connectivity version]\label{thm:Menger_Vertex}
-	\(G\) is \(k\)-connected iff every pair of vertices has at least \(k\) internally disjoint paths between.
+	A graph \(G\) is \(k\)-connected if and only if for any two distinct vertices, there are at least \(k\) internally disjoint paths between the two vertices.
 \end{theorem}
+As a corollary, all Hamiltonian graphs are biconnected. For any two distinct vertices in a Hamiltonian graph, there are two internally disjoint paths by traversing the Hamiltonian cycle.
 
 \section{Planar graphs}\label{sec:Planar graphs}
-We say a graph \(G\) is \textit{planar} if \(G\) can be drawn on the Euclidean plane \(\Sigma \) such that no two edges cross. Say \(G\) is drawn on a plane. If \(G\) is embedded on \(\Sigma \), then \(\Sigma \) is divided into regions where no edges cross. These regions are called \textit{faces}. The \textit{outerface} is the face on the outside of the graph. We say that a set of vertices \textit{lie} on a face if they are on the boundary of the face. We also say that the vertices and edges \textit{bound} a face. \(G\) is \textit{outerplanar} if \(G\) is planar and all vertices in \(G\) lie on the outerface.
-Let \(F(G)\) be the set of faces of \(G\) embedded on \(\Sigma\). Then we have that:
+A graph \(G\) is \textit{planar} if \(G\) can be drawn in the Euclidean plane \( \mathbb{R}^2 \) such that no two edges cross. A drawing of $G$ in $\mathbb{R}^2$ is referred to as an \textit{embedding} of $G$ in $\mathbb{R}^2$. If \(G\) is embedded in \(\mathbb{R}^2 \), then we can remove $G$ from $\mathbb{R}^2$. The connected components in $\mathbb{R}^2 - G$ are called \textit{faces}. The \textit{outerface} is the unbounded face in $\mathbb{R}^2$, meaning that the outerface goes to infinity. The \textit{internal faces} of $G$ are all the faces which are not the outerface. A set of vertices $S$ in $V(G)$ \textit{lie} on a face $F$, or \textit{bound} $F$ if $S$ is in the closure of $F$. A set of edges $T$ in $V(G)$ also bound a face $F$ if $T$ is in the closure of $F$. If an edge $e$ bounds a face $F$, then $e$ \textit{touches} $F$. \(G\) is \textit{outerplanar} if \(G\) is planar and there exists an embedding such that all vertices in \(G\) lie on the outerface.
+Let \(F(G)\) be the set of faces of \(G\) embedded on \(\mathbb{R}^2\). Then we have that:
 \begin{theorem}[Euler's formula]\label{thm:Euler_planar}
+	For all connected graphs $G$,
 	\begin{equation}
 		|V(G)| - |E(G)| + |F(G)| = 2
 	\end{equation}
@@ -48,33 +55,31 @@ We can use this result to bound the number of edges in an outerplanar graph.
 	If \(G\) is outerplanar with \(n\) vertices and \(m\) edges, then \(m \leq 2n - 3\).
 \end{theorem}
 
-\begin{proof}[Proof of theorem]
-	Suppose \(G\) is \textit{maximal outerplanar}, meaning adding any edge will break the outerplanar property. Let the \textit{internal faces} be all the faces which are not the outerface, and let there be \(f\) internal faces. Then the outerface has \(n\) edges on the boundary, but each internal face will have exactly \(3\) edges on the boundary. However, each edge is touching two distinct faces. Therefore we have that
-	\begin{equation}
-		3 f - 3 + n = 2m
-	\end{equation}
-	Combining with \cref{thm:Euler_planar} given by
-	\begin{equation}
-		n - m + f = 2
-	\end{equation}
-
+\begin{proof}
+	Suppose \(G\) is \textit{maximal outerplanar}, meaning adding any edge will break the outerplanar property. Let there be \(f\) internal faces in $G$. Then the outerface has \(n\) edges on the boundary as every vertex in $G$ is on the boundary of the outerface. Each internal face will have exactly \(3\) edges on the boundary. However, each edge is touching exactly two distinct faces. By counting the number of edges on every face,
+	\begin{equation*}
+		3 f + n = 2m.
+	\end{equation*}
+	Combining with \cref{thm:Euler_planar},
+	\begin{equation*}
+		n - m + (f + 1) = 2
+	\end{equation*}
 	we have, after some rearrangment,
-	\begin{equation}
-		2n = 3 + m
-	\end{equation}
-	Therefore, \(m = 2n - 3\). As every outerplanar graph is a subgraph of a maximal planar graph, then we have that \(m \leq 2n - 3\).
+	\begin{equation*}
+		2n = 3 + m.
+	\end{equation*}
+	Therefore, \(m = 2n - 3\). Since every outerplanar graph is a spanning subgraph of a maximal planar graph, \(m \leq 2n - 3\).
 \end{proof}
 \section{Graph minors}\label{sec:Graph Minors}
-We say that a graph \(H\) is a \textit{minor} of another graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, edges, and \textit{contracting} edges. To \textit{contract} an edge \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) such that \(N_G(w) = N_G(u) \cup N_G(v)\), where \(N_G(v)\) is the neighbourhood of \(v\). We notate an edge contraction on \(uv\) as \(G\setminus uv\).
-We notate the statement ``\(H\) is a minor of \(G\)'' as \(H \leq G\).
-We define minors up to isomorphism, and we typically omit the isomorphism relation in our definitions. We say that a graph \(G\) is \textit{\(H\)-minor-free} if there is no sequence of deletions and contractions of \(G\) that yield a graph isomorphic to \(H\). We say that a family of graphs \(\mathcal{F}\) is minor-closed if for all \(G \in \mathcal{F}\), all minors of \(G\) is also in \(\mathcal{F}\).
+A graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges. Let $G$ be a graph and let $uv$ be an edge in $E(G)$. To \textit{contract} \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) with neighbourhood \(N(w) = N_G(u) \cup N_G(v)\). The graph obtained after contracting the edge \(uv\) in $G$ is written as \(G\setminus uv\).
+The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if it holds that when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
 An example of a minor-closed class is the class of planar graphs.
-An important class of graph families are the \(K_t\)-minor free graphs. For a graph \(G\), we define \textit{Hadwiger's number} \(\had(G)\) to be the largest \(t\) such that \(K_t\) is a minor of \(G\). This is named after Hugo Hadwiger and his most famous conjecture.
+An important class of graph families are the \(K_t\)-minor free graphs. For a graph \(G\), we define \(\had(G)\) to be the largest \(t\) such that \(K_t\) is a minor of \(G\). This is named after Hugo Hadwiger and his most famous conjecture.
 
-\begin{conjecture}[Hadwiger's conjecture]\cite{hadwigerUeberKlassifikationStreckenkomplexe1943}
-	For all graphs \(G\), \(\chi(G) \leq \had(G)\), where \(\chi(G)\) is the \textit{chromatic number} of \(G\).
+\begin{conjecture}[Hadwiger's conjecture]
+	For all graphs \(G\), \(\chi(G) \leq \had(G)\)\cite{hadwigerUeberKlassifikationStreckenkomplexe1943}.
 \end{conjecture}
-Much work has been done on solving Hadwiger's conjecture but as of writing this report it has not been solved.
+Much work has been done on solving \ but as of writing this report it has not been solved.
 \subsection{Minors and models}
 A \textit{model} of a graph \(H\) to a graph \(G\) is a function \(\rho\) which assigns to \(H\) vertex disjoint connected subgraphs of \(G\), such that if \(uv \in E(H)\), then some edge in \(G\) connects a vertex in \(\rho(u)\) to \(\rho(v)\). This definition comes from Sergey Norin in his notes on graph minors \cite{norinMath599GraphMinors2017}.
 

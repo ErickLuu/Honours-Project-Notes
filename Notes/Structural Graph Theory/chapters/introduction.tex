@@ -1,12 +1,12 @@
 % !TEX root = ./thesis.tex
 \chapter{Introduction}\label{sec:introduction}
 Structural graph theory is a fundamental topic in graph theory. Many results from structural graph theory decompose graphs, or families of graphs, into smaller graphs with bounded parameters. One of the most important theorems in structural graph theory is Robertson and Seymour's Graph Minor Theorem \cite{robertsonGraphMinorsXX2004} which states that every proper minor-closed graph family is characterised by a finite set of forbidden minors.
-The concept of the \textit{pagenumber} of a graph was introduced by Ollmann \cite{ollmannBookThicknessVarious1973} in the context of VLSI design and integrated circuitry. A \textit{book-embedding} of a graph $G$ arranges the vertices of $G$ on the ``spine'' of a book and arranges the edges of $G$ on ``pages'' of a book. The \textit{pagenumber} of a graph \(G\) is the minimum number of pages necessary in a book-embedding of \(G\).
+A \textit{book-embedding} of a graph $G$ arranges the vertices of $G$ on the ``spine'' of a book and arranges the edges of $G$ on ``pages'' of a book. The \textit{pagenumber} of a graph \(G\) is the minimum number of pages necessary in a book-embedding of \(G\). The concept of the \textit{pagenumber} of a graph was introduced by Ollmann \cite{ollmannBookThicknessVarious1973} in the context of VLSI design and integrated circuitry. 
 The driving question of this report is the following:
 \begin{conjecture}\label{conj:bded_had_pn}
 	Suppose a graph $G$ is $K_t$-minor-free. Then the pagenumber of \(G\) is bounded by a function of \(t\).
 \end{conjecture}
-This report lays out the current literature related to this question. We use a result in one of the papers of the Graph Minor Theorem, by \textcite{robertsonGraphMinorsXVI2003}. The result we use is the Graph Minor Structure Theorem, which describes $K_t$-minor free graphs.
+This report lays out the current literature related to this question. We use a result in one of the papers of the Graph Minor Theorem, by \textcite{robertsonGraphMinorsXVI2003}. The result we use is the Graph Minor Structure Theorem, which coarsely describes $K_t$-minor free graphs.
 In her PhD thesis, \textcite{Blankenship-PhD03} claimed to prove \cref{conj:bded_had_pn}. However, this result has not been published and has not been independently verified. We aim to fill this gap in knowledge.
 
 We have good reason to believe \cref{conj:bded_had_pn} is true. Firstly, it was shown by \textcite{yannakakisEmbeddingPlanarGraphs1989} that all planar graphs need at most 4 pages. It was then shown by \textcite{malitzGenusGraphsHave1994} that all graphs of Euler genus $g$ have pagenumber $O(\sqrt{g})$. We also have that graphs with bounded treewidth have bounded pagenumber, from \textcite{ganleyPagenumberTrees2001} and \textcite{dujmovicGraphTreewidthGeometric2007}.
