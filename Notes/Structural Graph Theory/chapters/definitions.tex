@@ -84,36 +84,40 @@ Much work has been done on solving Hadwiger's conjecture, with a document by \te
 A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which assigns to \(H\) vertex-disjoint connected subgraphs of \(G\). If $uv$ is an edge in \(E(H)\), then some edge in \(G\) joins the two subgraphs \(\rho(u)\) and \(\rho(v)\). 
 
 \begin{theorem}
-	\(H\) is a model of \(G\) if and only if \( H \leq G\).
+	\(H\) is a model of \(G\) if and only if $H$ is a minor of $G$.
 \end{theorem}
 
 \begin{proof}
-	This proof is from \textcite{norinMath599GraphMinors2017}. Suppose \(H\) is a model of \(G\). Then for all \(x\) in \(V(H)\), we contract \(\rho^{-1}(x)\) in \(G\) to a single vertex. We can do this as each preimages are disjoint and connected. Then we delete edges to form \(H\).
+	From \textcite{norinMath599GraphMinors2017}. Suppose \(H\) is a model of \(G\). Then for all \(x\) in \(V(H)\), contract \(\rho(x)\) in \(G\) to a single vertex. This is a well-defined operation as the image $\rho(x)$ is connected and disjoint from all $\rho(y)$ where $y$ is a distinct vertex in $H$. Then delete edges to form \(H\).
 
-	Suppose \(H \leq G\). We will use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the edge that is contracted first and let \(G' = G \setminus uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, there is a model \(\mu'\) of \(H\) in \(G'\). Then we look at the block \(B\) where \(H\) lives in, and we delete \(w\) from \(H\) and add back in \(u\), \(v\), and \(uv\). Then this is a model of \(H\) in \(G\).
+	Suppose \(H \leq G\). Use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the first contracted edge and let \(G' := G \setminus uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, there is a model \(\rho\) of \(H\) in \(G'\). Then find $x \in V(H)$ such that $w \in V(\rho(x))$. If there is no such $x$, then it is obvious that $\rho$ is a model of $H$ in $G$. Otherwise, 
+	delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\).
 \end{proof}
 \todo{Add pictures}
 
 \section{Book embedding}\label{sec:Book Embedding}
-A \textit{book} of \textit{thickness} \(k\) are \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} in the 1960s.
-A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the mutual boundary of all half-planes, and we place the edges on each half-plane such that no two edges cross.
+A \textit{book} with \(k\) \textit{pages} consists of \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine} and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes. Books were described by \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} in the 1960s.
+A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the spine, and we place each edge on a single page such that no two edges cross.
 The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}.
+\todo{Add picture!}
 \par
-We have another definition which abstracts the underlying topology and focuses on the graph. This definition is more combinatorial in nature.
-A \textit{book embedding} of a graph \(G\) is an arrangement of the vertices of \(G\) in a total ordering \(v_1 < v_2 < \cdots < v_n\). We then colour the edges \(E(G)\) such that if we have \(v_a < v_b < v_c < v_d\) and edges \(v_a v_c\) and \(v_b v_d\), then the edges are each assigned different colours.
+There is an equivalent combinatorial definition. A \textit{book embedding} of a graph \(G\) is an arrangement of the vertices of \(G\) in a total ordering \(v_1 < v_2 < \cdots < v_n\). We then colour the edges \(E(G)\) such that if there are vertices with ordering \(v_a < v_b < v_c < v_d\) and edges \(v_a v_c\) and \(v_b v_d\) in $E(G)$, then $v_a v_c$ and $v_b v_d$ are assigned different colours.
 We refer to the total ordering of \(V(G)\) in the book embedding as \((<)\) or as \((\leq)\). For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), we refer to the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}, v_{|G|}v_{1} \right\} \) as \textit{spine edges}.
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering. This means that we order the vertices in a circle rather than on a straight line. The book-embedding of a circular ordering is exactly the same as for a linear ordering, and we can convert between a circular and linear ordering by choosing a vertex to be at the start of the sequence.
-Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974, ollmannBookThicknessVarious1973} in the 1970s. It was developed further in a paper by \textcite{bernhartBookThicknessGraph1979}.
+Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974, ollmannBookThicknessVarious1973} in the 1970s. A paper by \textcite{bernhartBookThicknessGraph1979} calculated the book-thickness of complete and bipartite graphs.
 \begin{lemma}\label{lem:Pagenumber_1}
-	A graph \(G\) has pagenumber at most 1 if and only if \(G\) is outerplanar.
+	A graph \(G\) has pagenumber at most 1 if and only if \(G\) is an outerplanar graph.
 \end{lemma}
 \begin{proof}
-	We can choose an ordering of the vertices \(V(G)\) to go anticlockwise around the outer face. Suppose we have two edges \(uv\), \(xy\) that cross, so that \(u < x < v < y\). Then in the original graph embedding, we will have that \(uv\) and \(xy\) will cross inside the circle, thus \(G\) is not outerplanar.
+	Suppose $G$ is outerplanar, and embedded in $\mathbb{R}^2$. Then we choose a single vertex $v_0$, and traverse anticlockwise around the outerface to form an ordering. If a vertex $v_i$ appears more than once, then add $v_i$ the first time we see it in the traversal and no other times. Then this is a one-page book embedding, as if we have that $v_a < v_b < v_c < v_d$ and edges $v_a v_c$, $v_b v_d$ in $G$, then $v_a v_c$ or $v_b v_d$ have to lie on the outerface, which breaks the condition that $G$ is outerplanar. This is because either $v_b$ or $v_c$ is not on the outerface If $G$ has a $1$-page book-embedding, then embedding the page in $\mathbb{R}^2$ through the inclusion map is an outerplanar embedding of $G$. 
 \end{proof}
 \begin{lemma}\label{lem:Pagenumber_2}
 	A graph \(G\) has pagenumber at most 2 if and only if \(G\) is a subgraph of a planar graph with a Hamiltonian cycle.
 \end{lemma}
-This is because we can embed the graph on a sphere with the vertices and Hamiltonian cycle on the equator, and edges on each hemisphere forms the interior and exterior edges of the cycle respectively.
+Suppose $G$ is a subgraph of a planar graph $G'$ with a Hamiltonian cycle $C$. By the Jordan curve theorem, $\mathbb{R}^2 - C$ has two connected components $F_1$ and $F_2$. Choose a vertex $x_0$ and order the vertices with respect to the Hamiltonian cycle $C$ where $x_0$ is the first vertex. Give edges on $C$ colour $1$. For all edges which are a chord in $F_1$, give these edges colour $1$. For all edges which are a chord in $F_2$, give these edges colour $2$. This is a book-embedding of $G'$ on two pages. 
+\todo{define chords on faces}
+\par
+Suppose $G$ has pagenumber $2$, and embedded in a book with two pages. Add all remaining spine edges to one of the pages. Then embed the two pages in $\mathbb{R}^2$ through the homeomorphism of two pages to $\mathbb{R}^2$. Then this is a planar graph with a Hamiltonian cycle, so $G$ is a subgraph of a graph with a Hamiltonian cycle.
 \subsection{Properties of pagenumber}\label{ssec:Related_Properties}
 \begin{lemma}[Bound on number of edges, from \textcite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
 	If an \(n\)-vertex graph \(G\) has \(\pn(G) = k\), then \(G\) has at most \(n + k(n-3)\) edges.
