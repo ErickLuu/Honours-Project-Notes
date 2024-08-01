@@ -55,7 +55,7 @@ The \textit{width} of the tree decomposition $\tree$ is defined as $\max \lbrace
 \end{definition}
 The reason why the $-1$ appears in the definition of the with of a tree decomposition is because the definition wanted the treewidth of a forest to be 1. However, this causes some notational confusion.
 \begin{example}
-	$\tw(G) = 1$ iff $G$ is a forest.
+	$\tw(G) = 1$if and only if $G$ is a forest.
 	\begin{lemma}
 		If $G$ is a forest, then $\tw(G) = 1$.
 	\end{lemma}
@@ -107,7 +107,7 @@ The reason why the $-1$ appears in the definition of the with of a tree decompos
 \subsection{Different characterisations of treewidth}
 \subsubsection{$k$-trees}
 We define a $k$-tree inductively. We have that the complete graph $K_k$ is a $k$-tree, and if $G$ is a $k$-tree, then we add a new vertex to $G$ that is adjacent to $k$ vertices that form a clique of size $k$ in $G$ results in a $k$-tree. 
-A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$ iff $G$ is a subgraph of a $k$-tree. 
+A $k$-tree is a maximal graph with treewidth $k$. $\tw(G) \leq k$if and only if $G$ is a subgraph of a $k$-tree. 
 
 \section{Separators}
 A subset $X$ of $V(G)$ is a \textit{balanced separator} of $G$ if each component of $G - X$ has at most $|V(G)|/2$ vertices. This implies that we can partition the vertices of $G$ into sets $A$ and $B$ such that there are no $AB$-edges and the size of $A$ and $B$ is at most $2/3 |V(G)|$. This is because we can order the components from smallest to largest and partition them into sets $A$ and $B$ where the sizes are at most $2/3 |V(G)|$.
@@ -198,7 +198,7 @@ If $G$ has $n$ vertices with layered treewidth $k$, then $G$ has treewidth $2 \s
 \end{theorem}
 
 \begin{proof}
-	We have that $|E(G)| = 3n + 3g - 6$ and $|F(G)| = 2n + 2g - 4$. If $T$ is a $BFS$ spanning on $G$, and $G^*$ is its dual, then we define a new graph $D$ such that $V(D) = V(G^*) = F(G)$ and $xy$ is an edge in $D$ iff $xy$ does not cross an edge of $T$. Note that $D$ is not a tree if $g > 0 $. Finally, the number of edges in $D$ is equal to $|E(G)| - |E(T)| = 3n + 3g - 6 - (n-1) = 2n + 3g - 5$. By definition, $D$ is connected, so let $T^*$ be any spanning tree of $G$, rooted at $r$. $|E(T^*)| = 2n + 2g - 5$, so $|E(D)| - |E(T)| = g$. Denote the $g$ edges as $v_1w_1, v_2w_2, ..., v_gw_g$. As $D$ has $g$ edges not in $T^*$, for every face $f = xyz$ of $G$, let $B_f := P_x \cup P_y \cup P_z \bigcup_{i = 1}^g P_{v_i} \cup P_{w_i}$, where $P_x$ is the unique path in $T$ from $x$ to $r$. Thus $\ltw(G) \leq 2g + 3$. 
+	We have that $|E(G)| = 3n + 3g - 6$ and $|F(G)| = 2n + 2g - 4$. If $T$ is a $BFS$ spanning on $G$, and $G^*$ is its dual, then we define a new graph $D$ such that $V(D) = V(G^*) = F(G)$ and $xy$ is an edge in $D$if and only if $xy$ does not cross an edge of $T$. Note that $D$ is not a tree if $g > 0 $. Finally, the number of edges in $D$ is equal to $|E(G)| - |E(T)| = 3n + 3g - 6 - (n-1) = 2n + 3g - 5$. By definition, $D$ is connected, so let $T^*$ be any spanning tree of $G$, rooted at $r$. $|E(T^*)| = 2n + 2g - 5$, so $|E(D)| - |E(T)| = g$. Denote the $g$ edges as $v_1w_1, v_2w_2, ..., v_gw_g$. As $D$ has $g$ edges not in $T^*$, for every face $f = xyz$ of $G$, let $B_f := P_x \cup P_y \cup P_z \bigcup_{i = 1}^g P_{v_i} \cup P_{w_i}$, where $P_x$ is the unique path in $T$ from $x$ to $r$. Thus $\ltw(G) \leq 2g + 3$. 
 \end{proof}
 \begin{corollary}
 	The treewidth of a graph with genus $g$ is at most $2\sqrt{(2g + 3) n } -1$. 
@@ -306,7 +306,7 @@ The \textit{$k$-clique-sum} of two graphs $G$ and $H$, denoted as $G \# H$, is t
 
 
 \subsection{Torsos and adhesion}
-Given a graph $G$ and a tree-decomposition $\tree$, the \textit{torso} of a bag $B_x$ of $T$ is the graph $G\langle B_x \rangle$, obtained from $G[B_x]$ where $vw$ is a vertex in $G\langle B_x \rangle$ iff $v,w \in B_x \cap B_y$, where $y$ is a neighbour of $x$ in $T$. So the set $B_x \cap B_y$ for all neighbours $y$ of $x$ in $T$ is a clique in $G\langle B_x \rangle$. 
+Given a graph $G$ and a tree-decomposition $\tree$, the \textit{torso} of a bag $B_x$ of $T$ is the graph $G\langle B_x \rangle$, obtained from $G[B_x]$ where $vw$ is a vertex in $G\langle B_x \rangle$if and only if $v,w \in B_x \cap B_y$, where $y$ is a neighbour of $x$ in $T$. So the set $B_x \cap B_y$ for all neighbours $y$ of $x$ in $T$ is a clique in $G\langle B_x \rangle$. 
 The \textit{adhesion} of a tree is defined as $\max(|B_x \cap B_y|)$ where $xy$ is an edge in $T$.
 
 \subsubsection{Vortices}
@@ -334,7 +334,7 @@ In fact, there exists a function $t(g, p, k, a)$ such that if a graph has a tree
 We define the path-decomposition of a graph $G$ to be a sequence of bags $B_i$ such that the subsequence of bags containing a vertex $v$ induces a subpath and each edge $vw$ is in a bag $B_i$. Then we define the width of a path-decomposition as $\max_i \lbrace |B_i| \rbrace -1$, same as treewidth. The pathwidth of a graph $G$ is the minimum treewidth.
 \begin{example}
 	\begin{theorem}[Caterpillars]
-		Graphs have pathwidth at most 11 iff every connected component is a caterpillar (graphs where removing every leaf yields a path).
+		Graphs have pathwidth at most 11if and only if every connected component is a caterpillar (graphs where removing every leaf yields a path).
 	\end{theorem}
 	\begin{proof}[Caterpillars]
 		Suppose $G$ is a caterpillar graph and $p_1, p_2, ..., p_n$ is the central path, and the leaves of vertex $p_i$ are denoted as $v_{i, 1}, v_{i, 2} ..., v_{i, k}$. Then have the bags $(v_{1, 1}, v_1), (v_{1, 2}, v_1)... (v_{1, j}, v_1), (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,)... $. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of $G$ is 1. If $G$ has pathwidth 1, then for each connected component, we choose a vertex $v$ in $B_1$ and a vertex $w$ in $B_n$, the final bag, and look at a path from $v$ to $w$. This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. 
@@ -371,7 +371,7 @@ We define a ternary tree to be a tree where every vertex has degree 1 or 4, exce
 For complete binary trees of edge-height $h$, it is easy to show there is a path-decomposition of width $\lceil h/2 \rceil$. (Consider doing the same operation, but with half the vertices.)
 
 \subsection{Treedepth}
-We define the \textit{closure} of a rooted tree $T$ to be the the graph $G$ where $V(G) = V(T)$ and $vw$ is an edge in $G$ iff $v$ is an ancestor of $w$ in $T$.
+We define the \textit{closure} of a rooted tree $T$ to be the the graph $G$ where $V(G) = V(T)$ and $vw$ is an edge in $G$if and only if $v$ is an ancestor of $w$ in $T$.
 \begin{definition}
 	The treedepth of a graph $G$, denoted as $\td(G)$, is defined to be the minimum vertex-height of a rooted forest $T$ such that $G \subseteq $ closure of $T$.
 \end{definition}
@@ -427,8 +427,8 @@ We have that $(\tw(\mathcal{G}_H), \pw(\mathcal{G})_H, \td(\mathcal{G})_H)$ are 
 	Suppose $H$ is not a forest. Then $H$ has a cycle. However, the set of complete ternary trees has no $H$-minor and has unbounded path-width. The other direction is proven in \url{https://www.sciencedirect.com/science/article/pii/009589569190068U}. 
 \end{proof}
 
-Therefore, a minor-closed class $\mathcal{G}$ has bounded path-width iff $\mathcal{G}$ excludes some forest. The equivalent statement for treewidth is that: 
-"a minor-closed class $\mathcal{G}$ has bounded treewidth iff $\mathcal{G}$ excludes some planar graph". Proof by Robertson + Seymour, graph minors 1.
+Therefore, a minor-closed class $\mathcal{G}$ has bounded path-widthif and only if $\mathcal{G}$ excludes some forest. The equivalent statement for treewidth is that: 
+"a minor-closed class $\mathcal{G}$ has bounded treewidthif and only if $\mathcal{G}$ excludes some planar graph". Proof by Robertson + Seymour, graph minors 1.
 \begin{lemma}
 	For all $n$-vertex planar graphs $G$, $G$ is a minor of the grid on $2n \times 2n$ vertices.
 \end{lemma}
@@ -447,7 +447,7 @@ We can show the following:
 For all $G$, the $\pw(G) = \min k$ such that $G$ is a spanning subgraph of an interval graph with no $K_{k + 2}$, so the intervals cross at most $K + 1$ times. 
 
 We can show a similar result for treewidth as well:
-For all $G$, $\tw(G) = \min k$ such that $G$ is a spanning subgraph of a \textit{chordal graph} with no $K_{k + 2}$ subgraph. A chordal graph is a graph with no induced cycle with more than 4 vertices. This is equivalent to saying that $G$ has $\tw \leq k$ iff $G$ is a spanning subgraph of the intersection graph of a tree $T$ with max clique size $k + 1$. 
+For all $G$, $\tw(G) = \min k$ such that $G$ is a spanning subgraph of a \textit{chordal graph} with no $K_{k + 2}$ subgraph. A chordal graph is a graph with no induced cycle with more than 4 vertices. This is equivalent to saying that $G$ has $\tw \leq k$if and only if $G$ is a spanning subgraph of the intersection graph of a tree $T$ with max clique size $k + 1$. 
 $G$ is chordal if all minimal separators are a clique. 
 
 
@@ -518,7 +518,7 @@ We also impose that $f^{-1}(x)$ is connected for all $x \in V(H)$.
 
 We define the width of a $H$-partition is $width(f) := \max( |f^{-1} (x)| : x \in V(H))$. Therefore if the width is $k$, then we have that $G \subseteq H \boxtimes K_k$, or that $G$ is a subgraph of the $k$-regular inflation of $H$. 
 
-Recall that a chordal graph is one where every induced cycle is a triangle. Alternatively, we say that $H$ is chordal if it has a simplicial vertex $v$ such that $H - v$ is chordal, where a simplicial vertex is one where all its neighbours form a clique. Another definition is iff $\tw(H) = \omega(H) - 1 = \chi(H) - 1 = had(H) - 1$. 
+Recall that a chordal graph is one where every induced cycle is a triangle. Alternatively, we say that $H$ is chordal if it has a simplicial vertex $v$ such that $H - v$ is chordal, where a simplicial vertex is one where all its neighbours form a clique. Another definition isif and only if $\tw(H) = \omega(H) - 1 = \chi(H) - 1 = had(H) - 1$. 
 
 
 \begin{theorem}
@@ -742,7 +742,7 @@ However, this tells us nothing about the structure of graphs of bounded genus, o
 
 The product that we are dealing with is the strong product. Let $A$ and $B$ be graphs. Then $A \boxtimes B$ where $\boxtimes$ is the strong product is defined as:
 $V(A \boxtimes B) = V(A) \times V(B)$
-and $(u,v)(a,b)$ is an edge in $A \boxtimes B$ iff $u = a$ and $ v$ is adjacent to $b$ in $B$, or if $b = v$ and $u $ is adjacent to $v$, or if $u$ and $v$ are adjacent to $a$ and $b$ respectively. 
+and $(u,v)(a,b)$ is an edge in $A \boxtimes B$if and only if $u = a$ and $ v$ is adjacent to $b$ in $B$, or if $b = v$ and $u $ is adjacent to $v$, or if $u$ and $v$ are adjacent to $a$ and $b$ respectively. 
 
 In fact, $\boxtimes$ is the largest product that maintains projection, meaning that projecting an edge $e$ from $E(A \boxtimes B)$ to $A$ will send $e$ to $E(A)$ or $V(A)$, likewise for $B$. 
 
@@ -785,7 +785,7 @@ Define the row-treewidth of a graph $G$ to be $rtw(G) := $ min $k$ such that $G 
 What about families of graphs with high $rtw$?
 Let $A_n$ to be the $n \times n$ grid with an apex vertex. We have that $A_n$ is $K_6$-minor free. Now suppose $A_n \subseteq H \boxtimes P$. But consider a layering of $A_n$. Consider where the apex vertex $a$ sits in the layering- all its neighbours (which is $A_n$ itself) must be sitting on either layer $i$, $i-1$ or $i+1$, where layer $i$ is the layer which $a$ sits in. But this implies that $\tw(H) \geq n^2/3$. meaning that if $A_n$ is a minor of $\mathcal{G}$ for all $n$, then $\mathcal{G}$ has unbounded rtw. In fact, the converse holds. 
 \begin{theorem}
-	For all minor-closed classes $\mathcal{G}$, $\mathcal{G}$ has bounded rtw iff some apex graph $A$ is not in $\mathcal{G}$.
+	For all minor-closed classes $\mathcal{G}$, $\mathcal{G}$ has bounded rtwif and only if some apex graph $A$ is not in $\mathcal{G}$.
 \end{theorem}
 Recall that a graph $A$ is apex if there exists a vertex $a$ such that $A - a$ is planar.
 
@@ -806,7 +806,7 @@ Proof uses Graph Minor Structure Theorem and is based on a strengthening by Dvor
 Weak apex vertices are vertices that are adjacent to vortices and themselves. Strong apex vertices are apex vertices which are not weak.
 
 Finally, if $X$ is $k$-apex (with $k$ apex vertices)
-Then $G$ is $X$-minor-free iff $G$ can be constructed out of 
+Then $G$ is $X$-minor-freeif and only if $G$ can be constructed out of 
 \begin{itemize}
 	\item surfaces
 	\item vortices
@@ -823,7 +823,7 @@ We have that $H \boxtimes P$ deals with minor-closed classes. But what about non
 Consider $k$-planar graphs.
 We define a $(k, d)$-shortcut system $\mathcal{P}$ on $G_0$ to be a set of paths in $G_0$ such that the length of each path is $\leq k$ and each vertex is internal to $\leq d$ paths of $\mathcal{P}$. 
 
-Then the shortcut system $G_0^\mathcal{P}$ is the graph where $V(G_0^\mathcal{P}) = V(G_0)$ and $vw \in E(G_0^\mathcal{P})$ iff there is a $vw$ path in $P$. We claim that for all $k$-planar graphs $G$, there is a planar graph $G_0$ and $G = G_0^\mathcal{P}$ for some $(k + 2, 2)$-shortcut system. 
+Then the shortcut system $G_0^\mathcal{P}$ is the graph where $V(G_0^\mathcal{P}) = V(G_0)$ and $vw \in E(G_0^\mathcal{P})$if and only if there is a $vw$ path in $P$. We claim that for all $k$-planar graphs $G$, there is a planar graph $G_0$ and $G = G_0^\mathcal{P}$ for some $(k + 2, 2)$-shortcut system. 
 
 Place a dummy vertex on each intersection of $G$, call the graph $G_0$. Then for every edge $vw$, add the path $v x_1, x_2, ..., x_k w$ to $\mathcal{P}$. Then $G \subseteq G_0^{\mathcal{P}}$. 
 
