@@ -28,6 +28,7 @@ A connected graph \(G\) is \textit{\(k\)-connected} if \(G\) has more than \(k\)
 
 Throughout this report, the set $\lbrace 1\ldots n \rbrace$ is notated as $[n]$. 
 A graph \(G\) is \(k\)-colourable if there exists a function \(f: V(G) \rightarrow [k]\) such that if $f(v) = f(w)$, then $v$ and $w$ do not share an edge. The \textit{chromatic number} \(\chi(G)\) is the smallest \(k\) such that \(G\) is \(k\)-colourable.
+$G$ is $k$-degenerate if every subgraph $H$ of $G$ has a vertex of degree at most $k$. Every $k$-degenerate graph is $(k + 1)$-colourable. 
 
 \subsection{Menger's theorem}
 Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem which is used throughout the report.
@@ -102,7 +103,7 @@ A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. W
 The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}.
 \todo{Add picture!}
 \par
-There is an equivalent combinatorial definition. A \textit{book embedding} of a graph \(G\) is an arrangement of the vertices of \(G\) in a total ordering \(v_1 < v_2 < \cdots < v_n\). We then colour the edges \(E(G)\) such that if there are vertices with ordering \(v_a < v_b < v_c < v_d\) and edges \(v_a v_c\) and \(v_b v_d\) in $E(G)$, then $v_a v_c$ and $v_b v_d$ are assigned different colours.
+There is an equivalent combinatorial definition. A \textit{book embedding} of a graph \(G\) is an arrangement of the vertices of \(G\) in a total ordering \(v_1 < v_2 < \cdots < v_n\). We then \textit{colour} the edges \(E(G)\) such that if there are vertices with ordering \(v_a < v_b < v_c < v_d\) and edges \(v_a v_c\) and \(v_b v_d\) in $E(G)$, then $v_a v_c$ and $v_b v_d$ are assigned different colours.
 We refer to the total ordering of \(V(G)\) in the book embedding as \((<)\) or as \((\leq)\). For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), we refer to the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}v_{|G|}, v_{|G|}v_{1} \right\} \) as \textit{spine edges}.
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering. This means that we order the vertices in a circle rather than on a straight line. The book-embedding of a circular ordering is exactly the same as for a linear ordering, and we can convert between a circular and linear ordering by choosing a vertex to be at the start of the sequence.
 Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974, ollmannBookThicknessVarious1973} in the 1970s. A paper by \textcite{bernhartBookThicknessGraph1979} calculated the book-thickness of complete and bipartite graphs.
@@ -122,96 +123,78 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	Suppose $G$ has pagenumber $2$, and embedded in a book with two pages. Add all remaining spine edges to one of the pages. Then embed the two pages in $\mathbb{R}^2$ through the homeomorphism of two pages to $\mathbb{R}^2$, by flipping one page over. Then this is a planar graph with a Hamiltonian cycle, so $G$ is a subgraph of a graph with a Hamiltonian cycle.
 \end{proof}
 \subsection{Properties of pagenumber}\label{ssec:Related_Properties}
-\begin{lemma}[Bound on number of edges, from \textcite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
-	If an \(n\)-vertex graph \(G\) has \(\pn(G) = k\), then \(G\) has at most \(n + k(n-3)\) edges.
+\cref{lem:Edge_Bound} comes from \textcite{bernhartBookThicknessGraph1979}.
+\begin{lemma}\label{lem:Edge_Bound}
+	If an \(n\)-vertex graph \(G\) can be embedded on $k$ pages, then \(G\) has at most \(n + k(n-3)\) edges.
 \end{lemma}
 \begin{proof}
-	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), we have that the spine edges \(v_i v_{i + 1}\), \(v_1 v_n\)  can appear on any page. Furthermore we have there are at most \(n-3\) non outer-cycle edges on each page as the maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the outer cycle (with \(n\) edges on the cycle) to have at most \(n-3\) edges on each page. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
+	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), we have that the spine edges can appear on any page. Furthermore we have there are at most \(n-3\) non-spine edges on each page. The maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the spine edges, with \(n\) edges on the spine. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
 \end{proof}
-\begin{theorem}[\cite{bernhartBookThicknessGraph1979}]\label{thm:Pagenumber_Complete_Graph}
+\begin{theorem}[]\label{thm:Pagenumber_Complete_Graph}
 	$\pn(K_n) = \lceil \frac{n}{2} \rceil$ when $n \geq 4$.
 \end{theorem}
 \begin{proof}
-	To show $\leq$, arrange the vertices in any circular ordering, and colour the edges in a zig-zag spanning path. As an example, we refer to \cref{fig:k8 coloured with colours} to show what zig-zagging pattern we are referring to. We rotate this pattern $\lceil n/2 \rceil$ times. To show equality, we use \cref{lem:Edge_Bound}.
+	To show the upper bound, arrange the vertices in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then we colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. As an example, we refer to \cref{fig:k8 coloured with colours} to show what zig-zagging pattern we are referring to. We rotate this pattern $\lceil n/2 \rceil$ times. 
 	\par
-	To show $\geq$, we use \cref{lem:Edge_Bound} to prove the other direction. We have that \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\), from the lemma. As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality.
+	To show the lower bound, we use \cref{lem:Edge_Bound}. We have that \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\). As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality.
 \end{proof}
 \begin{figure}[ht]
 	\caption{Circular embedding of \(K_8\) with 4 colours, the minimum possible.}
 	\centering
 	\input{figures/k8-withcolouring}\label{fig:k8 coloured with colours}
 \end{figure}
-
+The proof of \cref{thm:Pagenumber_Complete_Graph} is from \textcite{bernhartBookThicknessGraph1979}
 This is an upper bound of any graph \(G\) with \(n\) vertices.
-Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\).
-\begin{theorem}[Chromatic number bound\cite{bernhartBookThicknessGraph1979}]\label{thm:Colouring_Bound}
+Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\). The next theorem bounds the chromatic number, from \textcite{bernhartBookThicknessGraph1979}
+\begin{theorem}\label{thm:Colouring_Bound}
 	For all graphs \(G\), \(\chi(G) \leq 2 \pn(G) + 2\).
 \end{theorem}
 \begin{proof}
-	Let \(\pn(G) = k\) and suppose \(G\) has \(n\) vertices and \(m\) edges. Then we have that the average degree of \(G\), \(d(G) = 2m/n\) by the handshaking lemma. But \(2m/n \leq 2 \frac{n + k(n-3)}{n} < 2k + 2\). But this implies that \(G\) has a vertex of degree \(\leq 2k + 1\), and as if \(G'\) is a subgraph of \(G\), then \(G'\) also has \(\pn(G') \leq k\), thus \(G'\) has a vertex of degree at most \(2k + 1\). However, this implies \(G\) is \(2k + 1\)-degenerate, thus \(\chi(G) \leq 2k + 2\).
+	Let \(\pn(G) = k\) and suppose \(G\) has \(n\) vertices and \(m\) edges. Then the average degree of \(G\), \(d(G) = 2m/n\) by the handshaking lemma. So \(2\frac{m}{n} \leq 2 \frac{n + k(n-3)}{n} = 2 + 2k \frac{n-3}{n} < 2k + 2\). But this implies that \(G\) has a vertex of degree \(\leq 2k + 1\), and as if \(G'\) is a subgraph of \(G\), then \(G'\) also has \(\pn(G') \leq k\), thus \(G'\) has a vertex of degree at most \(2k + 1\). However, this implies \(G\) is \((2k + 1)\)-degenerate, thus \(\chi(G) \leq 2k + 2\).
 \end{proof}
-We may note that this bound is not tight when \(\pn(G) = 1\) or \(2\). When \(\pn(G) = 1\), then \(G\) is outerplanar, but can be coloured with 3 colours. When \(\pn(G) = 2\), then \(G\) is Hamiltonian and planar, but is 4-colourable.
 
+We have that there exists graphs with bounded chromatic number but bunbounded pagenumber. 
+\todo{ find graphs $G$ such that $\chi(G) \geq \pn(G)$}. 
 \subsection{Subdivision of edges}
-Let $G$ be a graph. A \textit{subdivision} of an edge $uv$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$.\textcite{atneosengailadeleEmbeddabilityCompactaNbooks} proved that we can subdivide a graph $G$ a finite number of times such the subdivision $G'$ has pagenumber 3. From \textcite{dujmovicLayoutsGraphSubdivisions2005}, we have that for all graphs $G$, we can subdivide $G$ with $O(\log\pn(G))$ subdivisions such that $G$ is embedded in 3 pages.
+Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$, so the edge $e$ is replaced with a path $P$ of length $k$.\ \textcite{atneosenEmbeddabilityCompactaNbooks} proved that all graphs can be subdivided a finite number of times such the subdivision has pagenumber 3.\ \textcite{dujmovicLayoutsGraphSubdivisions2005} showed that the number of subdivision necessary is $O(\log\pn(G))$.
 
 \subsection{Layouts of expander graphs}
-An \textit{expander graph} is a sparse, highly connected graph. They share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. We say a bipartite graph $G$ is a bipartite \varepsilon-expander if there exist a partition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, we have that $|N(S)| \geq (1 + \varepsilon) |S|$. 
-\textcite{dujmovicLayoutsExpanderGraphs2016} found that all bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
+An \textit{expander graph} is a sparse, highly connected graph. Expander graphs share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. We say a graph $G$ is a bipartite \varepsilon-expander if there exists a bipartition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, we have that $|N(S)| \geq (1 + \varepsilon) |S|$. 
+\textcite{dujmovicLayoutsExpanderGraphs2016} showed that all bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
 
 
 \subsection{History of book-embeddings}\label{ssec:Pagenumber_History}
-Pagenumbers were developed for VLSI and processor designs, but more recently have been used in bioinformatics by \textcite{haslingerRNAStructuresPseudoknots1999}.
-The project of finding upper and lower bounds of the pagenumber of planar graphs was started by \textcite{bernhartBookThicknessGraph1979} when they conjectured that planar graphs had unbounded pagenumber. However, \textcite{bussPagenumberPlanarGraphs1984} found that the pagenumber of planar graphs was at most 9, and \textcite{heathEmbeddingPlanarGraphs1984} found that the pagenumber of planar graphs is at most 7.\ \textcite{yannakakisEmbeddingPlanarGraphs1989} devised an algorithm to bound the pagenumber to at most 4. Yannakakis, in this paper, claimed that there exist planar graphs with pagenumber 4. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof \cite{yannakakisPlanarGraphsThat2020}. At around the same time, \textcite{kaufmannFourPagesAre2020} published a similar result.
+Book-embeddings of graphs were developed for VLSI and processor designs, but has been used in bioinformatics by \textcite{haslingerRNAStructuresPseudoknots1999}.\todo{find applications in graph drawings}
+The project of finding upper and lower bounds of the pagenumber of planar graphs was started by \textcite{bernhartBookThicknessGraph1979} when they conjectured that planar graphs had unbounded pagenumber. However, \textcite{bussPagenumberPlanarGraphs1984} showed that all graphs could be embedded in nine pages, and \textcite{heathEmbeddingPlanarGraphs1984} brought down the number of needed pages to seven.\ \textcite{yannakakisEmbeddingPlanarGraphs1989} devised an algorithm to embed a graph in four pages. Yannakakis, in this paper, claimed that there exists planar graphs which cannot be embedded in three pages. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof \cite{yannakakisPlanarGraphsThat2020}. At around the same time, \textcite{kaufmannFourPagesAre2020} published the same lower bound.
 
-\textcite{malitzGraphsEdgesHave1994} proved two results with the pagenumber of a graph. Malitz proved that any graph with $e$ edges has pagenumber $O(\sqrt{e})$ and that there exists $d$-regular graphs with $n$ edges that require $\Omega(\sqrt{d} N^{1/2 - 1/d})$ pages. These graphs come from random $d$-regular graphs. Therefore for random 3-regular graphs, we have that the number of pages needed is $\Omega(N^{1/6})$ pages. Finally, we have a result from \textcite{eppsteinThreeDimensionalGraphProducts2024} that $\pn(P_n \boxtimes P_n \boxtimes P_n)$ is in $\Theta(n^{1/3})$.
+\textcite{malitzGraphsEdgesHave1994} proved that any graph with $e$ edges has pagenumber $O(\sqrt{e})$. Additionally, he proved that random $d$-regular graphs $G$ with $n$ vertices have the property that $\pn(G) \in \Omega(\sqrt{d} n^{1/2 - 1/d})$. For random 3-regular graphs $G$ with $n$ vertices, $\pn(G) \in \Omega(n^{1/6})$. These constructions of $\Omega(n^d)$ pagenumber graphs are not explicit.\ \textcite{eppsteinThreeDimensionalGraphProducts2024} showed that $\pn(P_n \boxtimes P_n \boxtimes P_n) \in \Theta(n^{1/3})$. This is an explicit construction of a graph which has pagenumber in $\Theta(n^{d})$. 
 \section{Treewidth}\label{sec:treewidth}
-
-The \textit{treewidth} of a graph \(G\) measures how far \(G\) is from being a forest, according to \textcite{diestelGraphMinors2017}.
+The \textit{treewidth} of a graph \(G\) measures how far \(G\) is from being a forest.
 
 \begin{definition}[Tree-decomposition]\label{def:tree-decomposition}
-	The tree-decomposition \(\tree\) of a graph \(G\) is defined as a tree \(T\) with associated \textit{bags} \(\lbrace B_x : x \in V(T) \rbrace\) such that:
+	A tree-decomposition \(\tree\) of a graph \(G\) is defined as a tree \(T\) with associated \textit{bags} \(\lbrace B_x : x \in V(T) \rbrace\) such that:
 	\begin{itemize}
-		\item Every vertex in \(G\) is in at least one bag \(B_x\).
-		\item for all \(v \in V(G)\), the subset of vertices \(\left\lbrace x \in V(T): v \in B_x \right\rbrace\) in \(V(T)\) induces a connected subtree in \(V(T)\).
-		\item For all edges \(vw \in E(G)\), there exists a bag \(B_x\) such that both \(v\) and \(w\) are in the bag \(B_x\).
+		\item $\bigcup_{x \in V(T)} B_x = V(G)$.
+		\item For all \(v \in V(G)\), the subset of vertices \(\left\lbrace x \in V(T): v \in B_x \right\rbrace\) induces a connected subtree in \(V(T)\).
+		\item For all edges \(vw \in E(G)\), there exists a bag \(B_x\) such that both \(v\) and \(w\) are in \(B_x\).
 	\end{itemize}
 \end{definition}
 We refer to the vertices of the tree \(T\) as \textit{nodes}.
-The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x \in V(T) \rbrace\). An important tree-decomposition
-
-\begin{definition}\label{def:treewidth}
-	The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree decompositions of the graph \(G\).
-\end{definition}
-
-
-\begin{lemma}\label{lem:treewidth_forest}
-	\(\tw(G) = 1\) if and only if \(G\) is a forest.
-\end{lemma}
-\begin{proof}
-	Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\) and \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\). The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so it will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(x\) and the children of \(x\), which is a connected subtree.
-	\par
-	If \(G\) is a forest, then we perform this operation on every connected component of \(G\) and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. An example is in \cref{fig:tree-treedecomp}.
-	\par
-	If \(G\) has a cycle \(C\), then the treewidth cannot be 1. This is because if there is a tree decomposition \(\tree\) where the size of each bag is at most 2, then as the graph must have every edge, then every edge in \(C\) is in separate bags. However, we have that for any vertex \(v\) in \(C\) to have an induced connected subgraph in \(T\), then it follows that the cycle \(C\) is also in \(T\). Thus \(T\) is not a tree, and this is not a valid tree-decomposition.
-	\begin{figure}[ht]
-		\centering
-		\input{figures/treewidth-tree}
-		\input{figures/treewidth-tree-treedecomp}
-		\caption{A tree and its tree-decomposition. We root at the vertex \(1\) and every bag consists of a vertex and its parent.}\label{fig:tree-treedecomp}
-	\end{figure}
-\end{proof}
+The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x \in V(T) \rbrace\).
+The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree decompositions of the graph \(G\).
 
 \begin{lemma}[Helly Property]\label{lem:Helly}
-	Let \(T_1, \ldots, T_k\) be subtrees of a tree \(T\) such that for every pair of trees, there is a vertex in common. Then there exists a vertex which is common to all trees.
+	Let \(T_1, \ldots, T_k\) be subtrees of a tree \(T\) such that for every pair of trees $T_i$, $T_j \in T_1, \ldots, T_k$, $V(T_i) \cap V(T_j) \neq \emptyset$. Then there exists a vertex which is common to all trees.
 \end{lemma}
-\begin{proof}[Helly property]
-	If \(T_1\), \(T_2\) and \(T_3\) are subtrees of \(T\) such that the vertex sets are pairwise nonempty, then there is a common vertex in all three subtrees. If this is not the case, denote \(v_1\) as a vertex in the intersection of \(T_1\) and \(T_2\), \(v_2\) as the vertex in \(T_1 \cap T_3\), and \(v_3\) as the vertex in \(T_2\) and \(T_3\). Then there exists a unique path \(P\) in \(T_1\) from \(v_1\) to \(v_2\).
+\begin{proof}
+	We shall prove this for three trees. This proof can be generalised to any number of trees. 
+	Without loss of generality, let \(T_1\), \(T_2\) and \(T_3\) be subtrees of \(T\) with the property above. Suppose $V(T_1) \cap V(T_2) \cap V(T_3) = \emptyset$. Denote \(v_1\) as a vertex in the intersection of \(T_1\) and \(T_2\), \(v_2\) as the vertex in \(T_1 \cap T_3\), and \(v_3\) as the vertex in \(T_2\) and \(T_3\). Then there exists a unique path \(P\) in \(T_1\) from \(v_1\) to \(v_2\). This path must 
+	\todo{finish this proof!}
 \end{proof}
 
-\begin{theorem}[Clique theorem]\label{thm:clique}
-	In any tree-decomposition of \(G\), for every clique \(C\) in \(G\), there exists a node \(x \in V(T)\) such that \(C \subseteq B_x\).
-\end{theorem}
+\begin{lemma}[Clique lemma]\label{lem:clique}
+	For every graph $G$, in any tree-decomposition of \(G\), for every clique \(C\) in \(G\), there exists a node \(x \in V(T)\) such that \(C \subseteq B_x\).
+\end{lemma}
 
 \begin{proof}
 	Let \(\tree\) be a tree-decomposition. Every vertex \(v\) induces a connected subtree in \(T\), call it \(T_v\). Then for any two vertices \(x, y\) in \(C\), we have that \(T_x\) and \(T_y\) must intersect as the edge \(xy\) is inside a bag \(B_z\) corresponding to a node \(z\). Then by the Helly property, there exists a node \(v\) such that \(C \subseteq B_v\).
@@ -224,9 +207,28 @@ The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbr
 \begin{theorem}\label{thm:tw_minor_closure}
 	If \(H\) is a minor of \(G\), then \(\tw(H) \leq \tw(G)\).
 \end{theorem}
-\begin{proof}[Proof of theorem]
+\begin{proof}
 	Suppose we have a tree-decomposition \(\tree\) of \(G\). If we delete an edge in \(G\), then \(\tree\) remains a valid tree-decomposition. If we delete a vertex \(v\), then \(\tree\) where we remove \(v\) from every bag in \(\tree\) is also a valid tree-decomposition. If we contract an edge \(vw\), creating a new vertex \(u\), then relabeling \(v\) and \(w\) in all bags to \(u\) is a valid tree-decomposition as the induced subtree of \(u\) is the union of the induced subtrees of \(v\) and \(w\), and every neighbor of \(v\) or \(w\) is a neighbor of \(u\). But the edges in the neighborhood do not change. Thus this is a valid tree-decomposition of \(H\), with width at most the width of \(\tree\).
 \end{proof}
+
+\begin{lemma}\label{lem:treewidth_forest}
+	\(\tw(G) = 1\) if and only if \(G\) is a forest.
+\end{lemma}
+
+\begin{proof}
+	Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\) and \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\) and $x \neq r$. The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so it will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(B_x\) and the children of \(B_x\), which is a connected subtree.
+	\par
+	If \(G\) is a forest, then we perform this operation on every connected component of \(G\) and connect the roots to form a new tree. Then this tree is a tree-decomposition. This forms a tree-decomposition of width at most 1. An example is in \cref{fig:tree-treedecomp}.
+	\par
+	If \(G\) has a cycle \(C\), then $G$ has a $K_3$-minor. By \cref{cor:complete_tw}, $\tw(K_3) = 2$. By \cref{thm:tw_minor_closure}, $2 \leq \tw(G)$. Therefore, $G$ has treewidth at least two. 
+	\begin{figure}[ht]
+		\centering
+		\input{figures/treewidth-tree}
+		\input{figures/treewidth-tree-treedecomp}
+		\caption{A tree and its tree-decomposition. We root at the vertex \(1\) and every bag consists of a vertex and its parent.}\label{fig:tree-treedecomp}
+	\end{figure}
+\end{proof}
+
 
 Recall that an outerplanar graph is a planar graph where there exists a face such that all vertices lie on the boundary of that face.
 \begin{lemma}\label{ex:tw_outerplanar}
