@@ -1,0 +1,7 @@
+{
+    "ltex.additionalRules.enablePickyRules": true,
+    "ltex.additionalRules.languageModel": "en-AU",
+    "ltex.dictionary": {
+        
+    }
+}
