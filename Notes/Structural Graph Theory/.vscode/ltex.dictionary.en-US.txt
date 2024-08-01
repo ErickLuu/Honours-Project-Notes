@@ -1,0 +1,11 @@
+treewidth
+pathwidth
+subgraph
+Biconnected
+Menger
+biconnected
+outerface
+outerplanar
+Hadwiger
+subgraphs
+pagenumber
