@@ -19,6 +19,7 @@ Let $G$ be a graph. The neighborhood of a set of vertices $A \subset V(G)$ is de
 \begin{itemize}
 	\item A \textit{path} in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell- 1}\) which join a sequence of vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\), and all the vertices are distinct.
 	\item A \textit{cycle} \(C\) in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell}\) which join a sequence of distinct vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\) for \(1 \leq i \leq \ell - 1\) and \(e_\ell = v_\ell v_1\).
+	\item Let $G$ be a graph and $C$ be a cycle in $G$. A \textit{chord} in $C$ is an edge $e$ that joins two vertices in $C$ that are not adjacent in $C$. 
 	\item A \textit{Hamiltonian cycle} in a graph \(G\) is a cycle \(C\) such that all the vertices in \(G\) appear in \(C\). If a graph $G$ has a Hamiltonian cycle, then $G$ is a Hamiltonian graph. 
 \end{itemize}
 
@@ -102,22 +103,24 @@ The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required
 \todo{Add picture!}
 \par
 There is an equivalent combinatorial definition. A \textit{book embedding} of a graph \(G\) is an arrangement of the vertices of \(G\) in a total ordering \(v_1 < v_2 < \cdots < v_n\). We then colour the edges \(E(G)\) such that if there are vertices with ordering \(v_a < v_b < v_c < v_d\) and edges \(v_a v_c\) and \(v_b v_d\) in $E(G)$, then $v_a v_c$ and $v_b v_d$ are assigned different colours.
-We refer to the total ordering of \(V(G)\) in the book embedding as \((<)\) or as \((\leq)\). For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), we refer to the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}, v_{|G|}v_{1} \right\} \) as \textit{spine edges}.
+We refer to the total ordering of \(V(G)\) in the book embedding as \((<)\) or as \((\leq)\). For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), we refer to the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}v_{|G|}, v_{|G|}v_{1} \right\} \) as \textit{spine edges}.
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering. This means that we order the vertices in a circle rather than on a straight line. The book-embedding of a circular ordering is exactly the same as for a linear ordering, and we can convert between a circular and linear ordering by choosing a vertex to be at the start of the sequence.
 Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974, ollmannBookThicknessVarious1973} in the 1970s. A paper by \textcite{bernhartBookThicknessGraph1979} calculated the book-thickness of complete and bipartite graphs.
 \begin{lemma}\label{lem:Pagenumber_1}
-	A graph \(G\) has pagenumber at most 1 if and only if \(G\) is an outerplanar graph.
+	A graph \(G\) can be embedded on a single page if and only if \(G\) is an outerplanar graph.
 \end{lemma}
 \begin{proof}
 	Suppose $G$ is outerplanar, and embedded in $\mathbb{R}^2$. Then we choose a single vertex $v_0$, and traverse anticlockwise around the outerface to form an ordering. If a vertex $v_i$ appears more than once, then add $v_i$ the first time we see it in the traversal and no other times. Then this is a one-page book embedding, as if we have that $v_a < v_b < v_c < v_d$ and edges $v_a v_c$, $v_b v_d$ in $G$, then $v_a v_c$ or $v_b v_d$ have to lie on the outerface, which breaks the condition that $G$ is outerplanar. This is because either $v_b$ or $v_c$ is not on the outerface If $G$ has a $1$-page book-embedding, then embedding the page in $\mathbb{R}^2$ through the inclusion map is an outerplanar embedding of $G$. 
 \end{proof}
 \begin{lemma}\label{lem:Pagenumber_2}
-	A graph \(G\) has pagenumber at most 2 if and only if \(G\) is a subgraph of a planar graph with a Hamiltonian cycle.
+	A graph \(G\) can be embedded on two pages if and only if \(G\) is a subgraph of a planar graph with a Hamiltonian cycle.
 \end{lemma}
-Suppose $G$ is a subgraph of a planar graph $G'$ with a Hamiltonian cycle $C$. By the Jordan curve theorem, $\mathbb{R}^2 - C$ has two connected components $F_1$ and $F_2$. Choose a vertex $x_0$ and order the vertices with respect to the Hamiltonian cycle $C$ where $x_0$ is the first vertex. Give edges on $C$ colour $1$. For all edges which are a chord in $F_1$, give these edges colour $1$. For all edges which are a chord in $F_2$, give these edges colour $2$. This is a book-embedding of $G'$ on two pages. 
-\todo{define chords on faces}
-\par
-Suppose $G$ has pagenumber $2$, and embedded in a book with two pages. Add all remaining spine edges to one of the pages. Then embed the two pages in $\mathbb{R}^2$ through the homeomorphism of two pages to $\mathbb{R}^2$. Then this is a planar graph with a Hamiltonian cycle, so $G$ is a subgraph of a graph with a Hamiltonian cycle.
+
+\begin{proof}
+	Suppose $G$ is a subgraph of a planar graph $G'$ with a Hamiltonian cycle $C$. By the Jordan curve theorem, $\mathbb{R}^2 - C$ has two connected components $F_1$ and $F_2$. Choose a vertex $x_0$ and order the vertices with respect to the Hamiltonian cycle $C$ where $x_0$ is the first vertex. Give edges on $C$ colour $1$. For all edges which are a chord of $C$ that lies in $F_1$, give these edges colour $1$. For all edges which are a chord of $C$ that lies in $F_2$, give these edges colour $2$. This is a book-embedding of $G'$ on two pages. 
+	\par
+	Suppose $G$ has pagenumber $2$, and embedded in a book with two pages. Add all remaining spine edges to one of the pages. Then embed the two pages in $\mathbb{R}^2$ through the homeomorphism of two pages to $\mathbb{R}^2$, by flipping one page over. Then this is a planar graph with a Hamiltonian cycle, so $G$ is a subgraph of a graph with a Hamiltonian cycle.
+\end{proof}
 \subsection{Properties of pagenumber}\label{ssec:Related_Properties}
 \begin{lemma}[Bound on number of edges, from \textcite{bernhartBookThicknessGraph1979}]\label{lem:Edge_Bound}
 	If an \(n\)-vertex graph \(G\) has \(\pn(G) = k\), then \(G\) has at most \(n + k(n-3)\) edges.
