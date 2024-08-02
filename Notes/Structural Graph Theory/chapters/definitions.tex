@@ -157,7 +157,7 @@ Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lc
 There exists graphs with bounded chromatic number but bunbounded pagenumber. 
 \todo{ find graphs $G$ such that $\chi(G) \geq \pn(G)$}. 
 \subsection{Subdivision of edges}
-Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ is to delete $uv$ and add a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$, so the edge $e$ is replaced with a path $P$ of length $k$.\ \textcite{atneosenEmbeddabilityCompactaNbooks} proved that all graphs can be subdivided a finite number of times such the subdivision has pagenumber 3.\ \textcite{dujmovicLayoutsGraphSubdivisions2005} showed that the number of subdivision necessary is $O(\log\pn(G))$.
+Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$ and adds a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$, so the edge $e$ is replaced with a path $P$ of length $k$.\ \textcite{atneosenEmbeddabilityCompactaNbooks} proved that all graphs can be subdivided a finite number of times such the subdivision has pagenumber 3.\ \textcite{dujmovicLayoutsGraphSubdivisions2005} showed that the number of subdivision necessary is $O(\log\pn(G))$.
 
 \subsection{Layouts of expander graphs}
 An \textit{expander graph} is a sparse, highly connected graph. Expander graphs share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. We say a graph $G$ is a bipartite \varepsilon-expander if there exists a bipartition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, $|N(S)| \geq (1 + \varepsilon) |S|$. 
@@ -170,7 +170,7 @@ The project of finding upper and lower bounds of the pagenumber of planar graphs
 
 \textcite{malitzGraphsEdgesHave1994} proved that any graph with $e$ edges has pagenumber $O(\sqrt{e})$. Additionally, he proved that random $d$-regular graphs $G$ with $n$ vertices have the property that $\pn(G) \in \Omega(\sqrt{d} n^{1/2 - 1/d})$. For random 3-regular graphs $G$ with $n$ vertices, $\pn(G) \in \Omega(n^{1/6})$. These constructions of $\Omega(n^d)$ pagenumber graphs are not explicit.\ \textcite{eppsteinThreeDimensionalGraphProducts2024} showed that $\pn(P_n \boxtimes P_n \boxtimes P_n) \in \Theta(n^{1/3})$. This is an explicit construction of a graph which has pagenumber in $\Theta(n^{d})$. 
 \section{Treewidth}\label{sec:treewidth}
-The \textit{treewidth} of a graph \(G\) measures how far \(G\) is from being a forest.
+The \textit{treewidth} of a graph \(G\) measures how similar $G$ is to a forest.
 
 \begin{definition}[Tree-decomposition]\label{def:tree-decomposition}
 	A tree-decomposition \(\tree\) of a graph \(G\) is defined as a tree \(T\) with associated \textit{bags} \(\lbrace B_x : x \in V(T) \rbrace\) such that:
@@ -239,7 +239,7 @@ The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smal
 \end{proof}
 
 \subsection{Characteristics of treewidth}\label{ssec:characterising_Treewidth}
-We define a \(k\)-tree inductively. The complete graph \(K_k\) is a \(k\)-tree, and if \(G\) is a \(k\)-tree, then we add a new vertex to \(G\) that is adjacent to \(k\) vertices that form a clique of size \(k\) in \(G\) results in a \(k\)-tree.
+Define a \(k\)-tree inductively. The complete graph \(K_k\) is a \(k\)-tree, and if \(G\) is a \(k\)-tree, then add a new vertex to \(G\) that is adjacent to \(k\) vertices that form a clique of size \(k\) in \(G\) results in a \(k\)-tree.
 A \(k\)-tree is a maximal graph with treewidth \(k\).
 \begin{theorem}
 	For all graphs $G$, \(\tw(G) \leq k\) if and only if \(G\) is a subgraph of a \(k\)-tree.
@@ -256,55 +256,51 @@ A \(k\)-tree is a maximal graph with treewidth \(k\).
 \end{proof}
 
 \subsection{Historical discussion}\label{ssec:tw_historical}
-Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by \textcite{halinSfunctionsGraphs1976}. Neither of the papers above discuss treewidth with a concrete definition.
+Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by \textcite{halinSfunctionsGraphs1976}. Neither of the papers above discuss treewidth with an explicit construction.
 
-\textcite{robertsonGraphMinorsIII1984} defined treewidth with the definition \cref{def:tree-decomposition} which was introduced to prove the Graph Minor Theorem\cite{robertsonGraphMinorsXX2004}.
+\textcite{robertsonGraphMinorsIII1984} introduced tree-decompositions as defined in \cref{def:tree-decomposition}. This definition is concrete and could be calculated explicitly. They showed that if $\mathcal{F}$ is a graph family with bounded treewidth, then there exists a planar graph $H$ such that $H$ is a forbidden minor of $\mathcal{F}$. This was used to prove the Graph Minor Theorem.
 
 
 \section{Path-width}\label{sec:Pathwidth}
-Similarly to treewidth, the pathwidth of a graph \(G\) is how far a graph is from being a path.
+Similar to treewidth, the pathwidth of a graph \(G\) defines how similar $G$ is from a path.
 
-We define the path-decomposition of a graph \(G\) to be a sequence of bags \(B_i\) such that the subsequence of bags containing a vertex \(v\) induces a nontrivial subpath and each edge \(vw\) is in a bag \(B_i\). Then we define the width of a path-decomposition as \(\max_i \lbrace |B_i| \rbrace -1\), same as treewidth.
+Define the path-decomposition of a graph \(G\) to be a sequence of bags \(B_i\) such that the subsequence of bags containing a vertex \(v\) induces a nontrivial subpath and each edge \(vw\) is in a bag \(B_i\). Then define the width of a path-decomposition as \(\max_i \lbrace |B_i| \rbrace -1\), same as treewidth.
 
 If a graph has a path-decomposition \({(B_i)}_i\), then it has a tree-decomposition \(\left({(B_i)}_i, P\right)\). Therefore,
-\begin{equation}
+\begin{equation*}
 	\pw(G) \geq \tw(G).
-\end{equation}
+\end{equation*}
+The pathwidth of \(G\) is the largest pathwidth over all connected components.
 
-Similarly to treewidth, we have the following observation.
-\begin{lemma}
-	The pathwidth of \(G\) is the largest pathwidth over all connected components.
-\end{lemma}
-We say a graph \(G\) is a \textit{caterpillar} if \(G\) has a path \(P\) and every vertex is adjacent to a vertex on the path \(P\). Alternatively, \(G\) is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
-\begin{theorem}[Caterpillars]
+A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(P\) where every vertex not in $P$ is adjacent to a vertex on the path \(P\). Alternatively, a tree \(G\) is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
+\begin{theorem}
 	Graphs have pathwidth at most 1 if and only if every connected component is a caterpillar.
 \end{theorem}
 \begin{proof}
 	Suppose \(G\) is a caterpillar.
 	Denote \(P =\left( p_1, p_2, \dots, p_n\right)\) as the central path. The leaves of vertex \(p_i\) are denoted as \(v_{i, 1}, v_{i, 2} \dots, v_{i, k}\). Define the bags as \((v_{1, 1}, v_1)\), \((v_{1, 2}, v_1)\) \dots \((v_{1, j}, v_1)\),  \((v_1, v_2)\), \((v_{2, 1}, v_2)\), \((v_{2,2}, v_2,)\) \dots. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of \(G\) is 1. We can repeat this for every connected component.
 	\par
-	Suppose \(G\) has pathwidth 1. Then for each connected component of \(G\), we choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path must go through every bag, thus the non-path vertices must have neighbour only of the other one in the bag and thus the graph is a caterpillar. An example of this is in \cref{fig:caterpillar}.
+	Suppose \(G\) has pathwidth 1. Then for each connected component of \(G\), we choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path must go through every bag, thus the non-path vertices must have as their neighbour the path vertex in the bag and thus the graph is a caterpillar. An example of this is in \cref{fig:caterpillar}.
 \end{proof}
 \begin{figure}[ht]
 	\centering
-	\includesvg{figures/caterpillar}
-	\caption{A caterpillar graph. Notice that the path \(v_1, v_2, v_3, v_4, v_5, v_6\) is the central path.}
-	\label{fig:caterpillar}
+	\includesvg[pretex=\small, width = 0.8\textwidth]{figures/caterpillar}
+	\caption{A caterpillar graph with central path \((v_1, v_2, v_3, v_4, v_5, v_6)\).}\label{fig:caterpillar}
 \end{figure}
 
-\begin{example}[Complete graphs]
-	\(\pw(K_n) = \tw(K_n) = n - 1\).
+\begin{example}
+	Recall that $K_n$ is the complete graph on $n$ vertices. It holds that \(\pw(K_n) = \tw(K_n) = n - 1\).
 \end{example}
 \begin{proof}
 	The pathwidth of \(K_n\) is at least the treewidth of \(K_n\). But the pathwidth is at most \(n- 1\) (where all the vertices are in the same bag), but the treewidth of \(K_n\) is \(n - 1\). Therefore, \(\pw(K_n) = n - 1\).
 \end{proof}
 
 \begin{theorem}
-	The pathwidth of a tree \(T\) is \(\min_{P \subset T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace \) where \(P\) is a path.
+	The pathwidth of a tree \(T\) equals \(\min_{P \subseteq T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace \) where \(P\) is a path.
 \end{theorem}
 
-\begin{proof}[Proof of pathwidth of tree]
-	To show \(\pw(T) \leq 1 + \pw(T - V(P))\), if \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a path-width and we can order each connected component such that they appear in the order of the trees. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\).
+\begin{proof}[Proof]
+	Start by showing the upper bound, \(\pw(T) \leq 1 + \pw(T - V(P))\). If \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a minimal width path-decomposition. We can order each connected component such that they appear in the order of their parents on the paths. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\).
 	\par
 	To show there exists a path \(P\) such that \(\pw(T) \geq 1 + \pw(T - V(P))\), we proceed by induction. Let \(B_1, \ldots B_n\) be a path-decomposition of \(T\). Let \(x\) live in bag \(B_1\) and \(y\) live in bag \(B_n\), the final bag. Then let \(P\) be the unique path from \(x\) to \(y\). Then \(P\) traverses through every bag in the path-decomposition. Then \(\tw(T) \geq 1 + \tw(T - P)\) by induction.
 \end{proof}
