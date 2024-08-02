@@ -209,7 +209,7 @@ The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smal
 	If \(H\) is a minor of \(G\), then \(\tw(H) \leq \tw(G)\).
 \end{theorem}
 \begin{proof}
-	Let \(\tree\) be a tree-decomposition of \(G\). If an edge in \(G\) is deleted, then \(\tree\) remains a valid tree-decomposition. If a vertex $v$ in $G$ is deleted, then \(\tree\), where we remove \(v\) from every bag in \(\tree\), remains a valid tree-decomposition. If an edge \(vw\) is contracted to a vertex $u$, then relabeling \(v\) and \(w\) in all bags to \(u\) is a valid tree-decomposition. The induced subtree of \(u\) is the union of the induced subtrees of \(v\) and \(w\), and every neighbor of \(v\) or \(w\) is a neighbor of \(u\). The edges in the neighborhood do not change. Then $\tree$ remains a valid tree-decomposition. As this can be done for every tree-decomposition of $G$, it follows that any tree-decomposition of $G$ with treewidth $\tw(G)$ can be turned into a tree-decomposition of $H$ with width at most $\tw(G)$. 
+	Let \(\tree\) be a tree-decomposition of \(G\). If an edge in \(G\) is deleted, then \(\tree\) remains a valid tree-decomposition. If a vertex $v$ in $G$ is deleted, then \(\tree'\), where \(v\) is removed from every bag in \(\tree\), is a valid tree-decomposition of $G - v$. If an edge \(vw\) is contracted to a vertex $u$, define a new tree-decomposition $\tree'$ by  relabeling \(v\) and \(w\) in all bags to \(u\). $\tree'$ is a valid tree-decomposition of $G \setminus uv$. The induced subtree of \(u\) is the union of the induced subtrees of \(v\) and \(w\), and every neighbor of \(v\) or \(w\) is a neighbor of \(u\). The edges in the neighborhood do not change. As this can be done for every tree-decomposition of $G$, it follows that any tree-decomposition of $G$ with treewidth $\tw(G)$ can be turned into a tree-decomposition of $H$ with width at most $\tw(G)$. 
 \end{proof}
 
 \begin{lemma}\label{lem:treewidth_forest}
@@ -230,27 +230,25 @@ The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smal
 	\end{figure}
 \end{proof}
 
-
-Recall that an outerplanar graph is a planar graph where there exists a face such that all vertices lie on the boundary of that face.
 \begin{lemma}\label{ex:tw_outerplanar}
 	The treewidth of an outerplanar graph is at most 2.
 \end{lemma}
 \begin{proof}
-	Let \(G\) be an outerplanar graph, and let \(G'\) be the triangulation of \(G\). As \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). We look at the \textit{weak dual} of \(G'\). This is a tree \(T\), where every node \(v_f\) in \(T\) corresponds to a face \(f\) in \(G'\). Then let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\), where every bag has at most 3 vertices. Thus, \(\tw(G) \leq 2\).
+	Let \(G\) be an outerplanar graph, and let \(G'\) be a triangulation of \(G\). Since \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). We look at the \textit{weak dual} of \(G'\). This is a tree \(T\), where every node \(v_f\) in \(T\) corresponds to an internal face \(f\) in \(G'\). Then let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\). Every vertex is on the boundary of some internal face, so every vertex is in some bag.  where every bag has at most 3 vertices. Furthermore, every edge is on the boundary of some internal face, so every edge is in some bag. Finally, let $v$ be a vertex. Then the bags that contain $v$ must be connected in $T$ as there is a sequence of internal faces which are adjacent to $v$ and are connected in $T$. Thus, \(\tw(G) \leq 2\).
+	\todo{add picture!}
 \end{proof}
 
 \subsection{Characteristics of treewidth}\label{ssec:characterising_Treewidth}
-\subsubsection{\(k\)-trees}\label{sssec:k-trees}
 We define a \(k\)-tree inductively. The complete graph \(K_k\) is a \(k\)-tree, and if \(G\) is a \(k\)-tree, then we add a new vertex to \(G\) that is adjacent to \(k\) vertices that form a clique of size \(k\) in \(G\) results in a \(k\)-tree.
 A \(k\)-tree is a maximal graph with treewidth \(k\).
-\begin{theorem}[K-tree theorem]
-	\(\tw(G) \leq k\) if and only if \(G\) is a subgraph of a \(k\)-tree.
+\begin{theorem}
+	For all graphs $G$, \(\tw(G) \leq k\) if and only if \(G\) is a subgraph of a \(k\)-tree.
 \end{theorem}
 
 
 \subsubsection{Bounded treewidth graphs}\label{sssec:Graph_treewidth_Bounded}
 \begin{theorem}\label{thm:treewidth_clique-minor-free}
-	If \(\tw(G) \leq k\), then \(G\) is \(K_{k+2}\)-minor-free.
+	For all graphs $G$, if \(\tw(G) \leq k\), then \(G\) is \(K_{k+2}\)-minor-free.
 \end{theorem}
 \begin{proof}
 	We shall prove the contrapositive: If \(K_t\) is a minor of \(G\), then \(\tw(G) \geq t-1\).
@@ -258,7 +256,9 @@ A \(k\)-tree is a maximal graph with treewidth \(k\).
 \end{proof}
 
 \subsection{Historical discussion}\label{ssec:tw_historical}
-Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by \textcite{halinSfunctionsGraphs1976} before being used by \textcite{robertsonGraphMinorsIII1984}, which was introduced to prove the Graph Minor Theorem\cite{robertsonGraphMinorsXX2004}.
+Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. It was then rediscovered by \textcite{halinSfunctionsGraphs1976}. Neither of the papers above discuss treewidth with a concrete definition.
+
+\textcite{robertsonGraphMinorsIII1984} defined treewidth with the definition \cref{def:tree-decomposition} which was introduced to prove the Graph Minor Theorem\cite{robertsonGraphMinorsXX2004}.
 
 
 \section{Path-width}\label{sec:Pathwidth}
