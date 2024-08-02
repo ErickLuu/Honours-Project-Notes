@@ -1,32 +1,30 @@
-
 \section{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
-What is the structure of \(K_t\)-minor free graphs? We shall show that we can roughly characterise all \(K_t\)-minor free graphs as graphs that are products of a series of operations. This classification comes from \cite{robertsonGraphMinorsXVI2003}.
+What is the structure of \(K_t\)-minor free graphs? \textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of all \(K_t\)-minor free graphs. 
 \subsection{Clique-minor-free minor-closed families}\label{ssec:Kt_Minor_Closed_families}
-In this section, we lay out important properties of graphs related to \(K_t\)-minor free graphs. This section has four different graph parameters.
+In this section, we discuss graphs that are used to construct \(K_t\)-minor free graphs. Each graph that is $K_t$-minor-free can be constructed from the following ingredients.
 \begin{itemize}
-	\item Euler genus
-	\item Apex vertices
-	\item Treewidth
-	\item Vortices
+	\item Graphs with bounded Euler genus
+	\item Sets of apex vertices
+	\item Graphs of bounded treewidth
+	\item Sets of vortices on graphs.
 \end{itemize}
-It was shown by \textcite{robertsonGraphMinorsXX2004} that every \(K_t\)-minor free graph can be built up from smaller graphs with the above parameters bounded.
+It was shown by \textcite{robertsonGraphMinorsXVII1999} that every \(K_t\)-minor free graph can be built up from smaller graphs with the above ingredients.
 \subsection{Euler Genus g graphs}
 We begin our discussion of graphs on surfaces by discussing one aspect of planar graphs that we did not discuss before. 
-\subsubsection{Planar graphs}\label{sssec:K_5-free_Planar}
 \begin{theorem}\label{thm:K5_Free_Planar}
 	If \(G\) is a planar graph, then \(G\) is \(K_5\)-minor-free.
 \end{theorem}
 \begin{proof}
-	If \(G\) is planar with \(n\) vertices and \(m\) edges, then we have that \(m \leq 3n -6\). However, we have that \(K_5\) has \(5\) vertices and \(10\) edges, but we have that \( 10 > 3 \times 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, then if \(G\) is planar, then \(K_5\) is minor-free.
+	If \(G\) is planar with \(n\) vertices and \(m\) edges where $n \geq 3$, then \(m \leq 3n -6\).
+	\todo{discuss in planar graphs section} However \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \times 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
 \end{proof}
 
-\subsubsection{A short discussion of topology}\label{sssec:topology}
-This section comes from Mohar and Thomassen's book on Graphs on Surfaces \cite{moharGraphsSurfaces2001}. A surface \(\Sigma\) is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere \(S^2\), the torus \(T\), and the real projective plane \(P\).
+This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. A surface \(\Sigma\) is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere \(S^2\), the torus \(T\), and the real projective plane \(P\).
 \par
-We \textit{add} a \textit{handle} to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. We add a \textit{crosscap} by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. We add a \textit{twisted handle} to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that both go clockwise.
+We \textit{add} a \textit{handle} to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. We add a \textit{crosscap} by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. 
 \par
 \begin{definition}[Euler Genus]
-	The \textit{Euler genus} of a surface \(\Sigma\) obtained from a sphere by adding \(h\) handles, \(c\) crosscaps and \(t\) twisted handles is \(2h + 2t + c\).
+	The \textit{Euler genus} of a surface \(\Sigma\) obtained from a sphere by adding \(h\) handles, \(c\) crosscaps is\(2h + c\).
 \end{definition}
 
 \begin{example}
