@@ -109,7 +109,7 @@ Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\).
 \par
 Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_b)$. A \textit{$D$-vortex} is a graph $H$ such that $V(G) \cap V(H) = \Lambda$ and there is a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_b\) such that \(x_i \in B_i\) for all \(i\).
 \par
-The reason why vortices are important are graphs like \cref{fig:tenniscourt}. This graph $G_n$ is one where vortices are needed as an essential ingredient. $G$ is $K_8$-minor free. However, $G$ has around $n/3$ $K_{3,3}$ copies, so has genus around $2n/3$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. 
+The reason why vortices are important are because of graphs like \cref{fig:tenniscourt}. This graph $G_n$ is one where vortices are needed as an essential ingredient. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, there is a decomposition of $G_n$ into two graphs $G_0$ and $G_1$ where $G_0$ can be embedded on a surface and $G_1$ is a vortex on $G_0$ with path-width 6. 
 
 \begin{figure}[h]
 	\centering
@@ -118,7 +118,7 @@ The reason why vortices are important are graphs like \cref{fig:tenniscourt}. Th
 	\label{fig:tenniscourt}
 \end{figure}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
-Given \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) such that:
+Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) such that:
 \begin{itemize}
 	\item \(G - A = G_0 \cup G_1 \cup G_2 \cup \ldots \cup G_{p'}\),
 	\item \(p' \leq p\),
@@ -128,27 +128,35 @@ Given \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almos
 \end{itemize}
 
 \begin{theorem}[Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}]
-	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs which have tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). 
+	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs which have tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). Adhesion $\ell$ is implied. 
 \end{theorem}
 There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.\ \textcite{joretCompleteGraphMinors2013} found that
-\begin{theorem}[Bounds on Graph Minor Structure Theorem by \textcite{joretCompleteGraphMinors2013}:]\label{thm:graph_structure_bound_theorem}
-	For all graphs \(G\),
-	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, there exists an integer \(n \geq a + 1 4 k\sqrt{p + g}\) such that \(K_n\) is a minor of some \(\mathcal{G}(g, p, k, a)\) graph.
+\begin{theorem}[\textcite{joretCompleteGraphMinors2013}:]\label{thm:graph_structure_bound_theorem}
+	For all graphs \(G \in \mathcal{G}(g, p, k, a)\),
+	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, there exists an integer \(n \geq a + 1 4 k\sqrt{p + g}\) such that \(K_n\) is a minor of some graph in \(\mathcal{G}(g, p, k, a)\).
 \end{theorem}
 
 \section{Graph Minor Theorem}\label{sec:Graph Minor Theorem}
-We move on to the most important and deepest theorem in structural graph theory, the Graph Minor Theorem. This proof was proven in a series of 20 papers by Robertson and Seymour, from 1983 to 2004. As part of the proof, the Graph Minor Structure Theorem was developed, as we have outlined above. 
+We move on to one of the most important and deepest theorems in graph theory, the Graph Minor Theorem. This was proven in a series of 23 papers by Robertson and Seymour, from 1983 to 2004. As part of the proof, the Graph Minor Structure Theorem was developed. 
 \begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
 	Every infinite family of graphs contains two distinct graphs \(G\) and \(H\) such that \(H\) is a minor of \(G\).
 \end{theorem}
-Equivalently, this theorem states that:
+Let $\mathcal{F}$ be a minor-closed graph family. A graph $H$ is a \textit{minimal forbidden minor} of $\mathcal{F}$ if every graph $G$ in $\mathcal{F}$ is $H$-minor-free and every proper minor $H'$ of $H$ (meaning $H'$ is not $H$) is in $\mathcal{F}$. 
+The Graph Minor Theorem is equivalent to the statement:
 \begin{theorem}
-	Every minor-closed family of graphs can be characterised by a finite set of forbidden minors.
+	Every minor-closed graph family $\mathcal{F}$ is characterised by a finite set of minimal forbidden minors $\mathcal{H}$. A graph $G$ is in $\mathcal{F}$ if and only if $G$ is $\mathcal{H}$-minor free.
 \end{theorem}
-Importantly, graphs of bounded genus can be characterised as a set of forbidden minors.
-For planar graphs, the two forbidden minors are \(K_5\) and \(K_{3,3}\). This was proven by Wagner \cite{wagnerUeberEigenschaftEbenen1937}. 
-For graphs that can be embedded on a torus, there are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. 
+Importantly, graphs of bounded genus can be characterised as a set of forbidden minors. The family of graphs that can be embedded on a fixed surface $\sigma$ is minor-closed. 
+For planar graphs, the two minimal forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
+The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. $K_7$ is a toroidal graph but $K_8$ is not. 
+\begin{lemma}
+	$K_8$ is not embeddable on the torus.
+\end{lemma}
+\begin{proof}
+	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus by contradiction.
+\end{proof}
+\todo{insert image of $K_7$ on torus}
 
-We say a graph $G$ is \textit{linkless} if we can embed $G$ in 3-dimensional Euclidean space such that no two cycles are linked. If no embedding of $G$ has this property, we say $G$ is \textit{inherently linked}. We have that the family of linkless graphs is minor closed. If $G$ is linkless, then contracting any edge maintains the property that $G$ is linkless. In fact, the forbidden minor characterisation of the linkless graph family is only seven forbidden minors, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. Linkless graphs also appear in the proof that all $K_6$-minor free graphs are $5$-colourable, from \textcite{robertsonHadwigerConjectureK_61993}.
+A graph $G$ is \textit{linkless} if $G$ has an embedding in $\mathbb{R}^3$ such that no two cycles are linked. If no embedding of $G$ has this property, then $G$ is \textit{inherently linked}. The family of linkless graphs is minor-closed. If $G$ is linkless, then contracting any edge maintains the linkless property. There are only seven minimal forbidden minors of linkless graphs, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. 
 
-We say a graph $G$ is \textit{knotless} if there exist an embedding of $G$ in 3-dimensional Euclidean space such that every cycle is a simple knot. $G$ is \textit{fundamentally knotted} if this is not the case. It was shown by \textcite{conwayKnotsLinksSpatial1983} that $K_7$ is fundamentally knotted. The family of knotless graphs are also minor-closed, as contracting any edge preserves the knotless property. $K_7$ is an example of a minimal forbidden minor. It was found by \textcite{conwayKnotsLinksSpatial1983} and \textcite{foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003} that there exists at least three minimal minors, but it is unknown how many there really are. 
+A graph $G$ is \textit{knotless} if $G$ can be embedded in $\mathbb{R}^3$ such that every cycle of $C$ is a simple knot. $G$ is \textit{inherently knotted} if this is not the case. \textcite{conwayKnotsLinksSpatial1983} showed that $K_7$ is inherently knotted. The family of knotless graphs are also minor-closed, since contracting any edge preserves the knotless property. $K_7$ is an example of a minimal forbidden minor. It was found by \textcite{conwayKnotsLinksSpatial1983} and \textcite{foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003} that there exists at least three minimal minors, but it is unknown how many there really are. 
