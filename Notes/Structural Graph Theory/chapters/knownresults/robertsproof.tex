@@ -3,18 +3,19 @@
 
 This proof has been adapted into the language of tree-decompositions.
 \begin{theorem}[Hickingbotham and Wood \cite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
-	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\) where each torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and every torso \(G \langle B_x \rangle\) is \(c\)-colourable. Additionally, we have that the adhesion of this tree is at most \(\ell\).
+	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and is \(c\)-colourable. Further suppose the adhesion of the tree-decomposition is at most \(\ell\).
 	Then \(\pn(G) \leq cs + \ell \).
 \end{theorem}
 
 \subsubsection{Proof of above theorem.}
-This proof will involve gluing torsos along cliques of size at most \( \ell \).
+This proof involves gluing torsos along cliques of size at most \( \ell \).
 
 Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). For any arbitrary clique \(J\), we define a rainbow-vertex \(w \in V(J)\) as a vertex where for any \(x, y \in V(J)\), the edges \(wx\) and \(wy\) are on different pages. We want the book embedding to have the structure \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 
-To prove this theorem, we will use a common technique in graph theory. We will strengthen the lemma so that we may use induction to prove the statement.
+A vertex $v$
+To prove this theorem, we use a common technique in graph theory. We strengthen the lemma so that we may use induction to prove the statement.
 \begin{lemma}\label{lem:Hickingbotham_Lemma}
-	Let \(G\) be a graph where \(\pn(G) \leq s\) and \(\chi(G) \leq c\), and a clique \(C\) with an ordering \(\sigma_C\). Let \(|C| \leq \ell\). There exists a \(cs + \ell\)-stack layout \((\leq, \psi)\) of \(G\) where:
+	Let \(G\) be a graph where \(\pn(G) \leq s\) and \(\chi(G) \leq c\), and a clique \(C\) with an ordering \(\sigma_C\). Let \(|C| \leq \ell\). There exists a \(cs + \ell\)-page layout \((\leq, \psi)\) of \(G\) where:
 	\begin{enumerate}
 		\item The vertex ordering has the structure \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 		\item For every \(u \in V(C)\), the edges \(\lbrace uv \in E(G) : u \leq v \rbrace\) are a monochromatic star.
@@ -22,7 +23,7 @@ To prove this theorem, we will use a common technique in graph theory. We will s
 	\end{enumerate}
 \end{lemma}
 \begin{proof}[Proof of \cref{lem:Hickingbotham_Lemma}]
-	Let \((\leq_a, \psi_a)\) be a \(s\)-stack layout of \(G\) and let \(\rho: V(G) \rightarrow \lbrace 1, 2, \ldots, c\rbrace\) be a proper colouring of \(V(G)\).
+	Let \((\leq_a, \psi_a)\) be a \(s\)-page layout of \(G\) and let \(\rho: V(G) \rightarrow \lbrace 1, 2, \ldots, c\rbrace\) be a proper colouring of \(V(G)\).
 
 	Let \(u_1, \ldots, u_k\) be the vertices of \(C\) ordered by \(\sigma_C\). Note that \(k \leq \ell\). Then the new ordering starts with \(u_1 \leq u_2 \leq \ldots, \leq u_k\), and all vertices not in \(K\) are placed after, according to \(\leq_a\).
 	Then the stack assignment \(\psi\) is now defined. For every edge \(u_i v\) where \(u_i \in V(C)\) and \(u_i \leq v\), define \(u_i v = i\). Otherwise, if neither \(u\) or \(v\) are in \(V(C)\), and \(u \leq v\), then let \(\psi(uv) = (\rho(u), \psi_a(uv))\). Then we have at most \(|\rho| |\psi_a| + k \leq cs + \ell\) pages.
