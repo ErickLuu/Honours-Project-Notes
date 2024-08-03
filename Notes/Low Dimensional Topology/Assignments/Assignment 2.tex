@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{svg}
+\usepackage{cleveref}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\Star}{st}
+\DeclareMathOperator{\Lk}{lk}
+\newcommand{\atlas}{\mathcal{A}}
+
+%opening
+\title{Assignment 2}
+\author{Eric Luu}
+
+\begin{document}
+
+\section{Sheet 2}
+
+\subsection{Question 1}
+Let $L_1 = L_{1,1} \cup L_{1,2}$ and $L_2 = L_{2,1} \cup L_{2,2}$ be links in $S^2$. Then $S^2 - L_i$ has three components: $U_i$ and $W_i$ open discs, and $V_i$ an open annulus by the Schoenflies Annulus Theorem. As $V_i$ is an open annulus, we can draw two circles $K_1$ and $K_2$ such that $K_i$ lies on $V_i$. By the Jordan Curve Theorem, $S^2 - K_i$ has two components, $D_{i, 1}$ and $D_{i, 2}$. As $K_i$ lies on the open annulus, $D_{i, 1}$ and $D_{i, 2}$ can be defined so that $L_{i, 1}$ lies in $D_{i, 1}$ and $L_{i, 2}$ lies in $D_{i, 2}$.
+By 2.10, there exists an ambient isotopy between $K_1$ and $K_2$. This ambient isotopy will take $D_{1,1}$ to $D_{2,1}$ and $D_{1,2}$ to $D_{2,2}$, up to relabling. Then both $L_{i,1}$ and $L_{i,2}$ will be on the same open disk. From 2.10, there exists an ambient isotopy of $L_{i, 1}$ to $L_{i, 2}$ on $D_i$ with compact support. This is because $D_i$ is homeomorphic to $\mathbb{R}^2$. Because the map has compact support, the ambient isotopy restricted to the boundary $\partial D_{1,1}$ and $\partial D_{1,2}$ will be the identity map. This means that on the boundary of the disk, the ambient isotopy will agree at all times $t$. Then use the gluing lemma to form an ambient isotopy from $L_1$ to $L_2$ on $S^2$. 
+
+\subsection{Question 3}
+Suppose the Jordan Line Theorem is true. Let $L$ be a simple closed curve in $S^2$. Let $N$ be a point on $L$. Stereographically project $S^2 - N$ to $\mathbb{R}^2$. Let $L'$ be stereographic projection of $L$ on $\mathbb{R}^2$. By the Jordan Line Theorem, $\mathbb{R}^2 - L'$ will have two connected components $D_1$ and $D_2$. Take the inverse of the stereographic projection back to $S^2 - N$. Then $S^2 - L$ will have two connected components which will be the inverse of the stereographic projections of $D_1$ and $D_2$, as the map is a homeomorphism. 
+
+Suppose the Jordan Curve Theorem is true. Take a line $L$ in $\mathbb{R}^2$ homeomorphic to $\mathbb{R}$. Take the one-point compactification $\mathbb{R}^2 \cup \{\infty\}$ where $L$ passes through $\infty$. This one-point compactification is homeomorphic to $S^2$. By the Jordan Curve Theorem, $\mathbb{R}^2 \cup \{\infty\} - (L \cup \{\infty \})$ has two connected components, $D_1$ and $D_2$. Then this means that by removing the point at infinity, $\mathbb{R}^2 - L$ will also have two connected components, $D_1$ and $D_2$. 
+
+\subsection{4}
+Consider $\mathbb{R}^2 \times [-1,1]$ which is homotopy equivalent to $\mathbb{R}^2$, with line segment $L \times [-1,1]$. $\left(\mathbb{R}^2 - L \right)\times [-1,1]$ is connected as $\mathbb{R}^2 - L$ is connected. Now let $\mathbb{R}^3_+ = \{(x, y, z) | z > -1/2\}$ and $\mathbb{R}^3_- = \{(x, y, z) | z < 1/2\}$. Then $\mathbb{R}^3_+ - L \times [-1,1]$ and $\mathbb{R}^3_- - L \times [-1,1]$ are both simply connected, as a path between any two points can go above $L$. Then $\left(\mathbb{R}^3_+ \cap \mathbb{R}^3_-\right) - L \times [-1,1]$ is $(\mathbb{R}^2 - L) \times (-1/2, 1/2)$ which is homotopy equivalent to  $\mathbb{R}^2 - L$ which is path-connected. Then apply Theorem 3.1, so $\pi_1(\mathbb{R}^3 - L) \cong 1$. 
+
+
+
+\end{document}
