@@ -73,6 +73,13 @@ We can use this result to bound the number of edges in an outerplanar graph.
 	\end{equation*}
 	Therefore, \(m = 2n - 3\). Since every outerplanar graph is a spanning subgraph of a maximal planar graph, \(m \leq 2n - 3\).
 \end{proof}
+
+\begin{theorem}
+	Let $G$ be a planar graph with $n$ vertices and $m$ edges. Then $m \leq 3n - 6$.
+\end{theorem}
+\begin{proof}
+	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches exactly two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
+\end{proof}
 \section{Graph minors}\label{sec:Graph Minors}
 A graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges. Let $G$ be a graph and let $uv$ be an edge in $E(G)$. To \textit{contract} \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) with neighbourhood \(N(w) = N_G(u) \cup N_G(v)\). The graph obtained after contracting the edge \(uv\) in $G$ is written as \(G\setminus uv\).
 The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
@@ -102,8 +109,9 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
 A \textit{book} with \(k\) \textit{pages} consists of \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine}, and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes.\ \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} described fans in the 1960s.
 A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the spine, and we place each edge on a single page such that no two edges cross.
 The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. An embedding of $K_5$ in three pages is in \cref{fig:book-embedding}.
-\begin{figure}\label{fig:book-embedding}
-	\includesvg[pretex=\small, width = 0.8\textwidth]{figures/3page_K5.svg}
+\begin{figure}[h!]\label{fig:book-embedding}
+	\centering
+	\includesvg[height = 0.5\textheight]{figures/3page_K5.svg}
 	\caption{Book-embedding of $K_5$ on three pages. Image by \textcite{eppsteinBookEmbedding2014}}.
 \end{figure}
 \par
