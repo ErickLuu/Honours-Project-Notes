@@ -5,80 +5,96 @@
 \textcite{ganleyPagenumberTrees2001} considered the case where \(G\) is a \(k\)-tree. We will bypass using \(k\)-trees and consider a tree-decomposition of \(G\) directly.
 
 \begin{proof}
-	Consider a tree-decomposition of \(G\) with bags $B_x$ and tree $T$. Perform a depth-first search on \(T\), starting at an arbitrary root node \(r\). Let the ordering of the book-embedding \(\sigma(v)\) of a vertex \(v\) in \(V(G)\) be determined by the first time \(x \in T\) appears, where \(v \in B_x\). Within each bag, if two vertices appears in the bag first, then they are ordered arbitrarily in the book-embedding. Now consider the subtree \(T_v\) induced by the bags \(B_x\) containing \(v\). We now consider colouring the subtrees \(T_v\) for all \(v \in G\) such that no overlapping subtrees have the same colour. Let \(H\) be the intersection graph of the subtrees, where \(V(H) = \lbrace T_v : v \in G \rbrace\) and \(T_u T_v \in E(H)\) if there exists a bag \(B_x\) such that \(u, b \in B_x\). We have that \(H\) is perfect, and thus \(\chi(H) = \omega(H)\). Then as \(\tw(G) \leq k + 1\), then the size of a clique in \(H\) is at most \(k + 1\). Thus \(H\) is \(k + 1\)-colourable.
+	Consider a tree-decomposition of \(G\), $\{B_x: x \in V(T)\}$. Perform a depth-first search on \(T\), starting at an arbitrary root node \(r\). Let \(\sigma(v)\) of a vertex \(v\) in \(V(G)\) be the first time \(v \in B_x\), $x \in T$ appears in the depth-first search. $\sigma(v)$ determines when $v$ appears in the book-embedding. Within each bag $B_x$, if two vertices $v,w$ first appear in $B_x$, then $v$ and $w$ are ordered arbitrarily in the book-embedding. Now consider the subtree \(T_v\) induced by the bags \(B_x\) containing \(v\). Let \(H\) be the intersection graph of the subtrees, where \(V(H) = \lbrace T_v : v \in G \rbrace\) and \(T_u T_v \in E(H)\) if there exists a bag \(B_x\) such that \(u, v \in B_x\). \(H\) is perfect as all intersection graphs of subtrees are perfect. Therefore, \(\chi(H) = \omega(H)\). Then as \(\tw(G) \leq k + 1\), then the size of a clique in \(H\) is at most \(k + 1\). Thus \(H\) is \(k + 1\)-colourable. Let $z: V(H) \rightarrow [k + 1]$ be a proper colouring of $H$. 
 	\paragraph{}
-	We now use this to assign the edges of \(G\) a page. Let \(c(T_v)\) be the colour assigned to \(T_v\). Colour each edge \(uv \in E(G)\) as follows:
+	Then we assign the edges of \(G\) a colour. Colour each edge \(uv \in E(G)\) as follows:
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
-			c(T_u) & \text{ if } \sigma(u) \leq \sigma(v), \\
-			c(T_v) & \text{ if } \sigma(v) \leq \sigma(u)
+			z(T_u) & \text{ if } \sigma(u) \leq \sigma(v), \\
+			z(T_v) & \text{ if } \sigma(v) \leq \sigma(u)
 		\end{cases}
 	\end{equation}
-	Then we claim that this is a proper book-embedding of \(G\). Suppose we have that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that there exists a bag \(B\) such that \(u, x, v \in B\), as we have that \(uv\) is an edge in \(B\) and we do a depth-first search to establish the ordering. So \(u, x, v\) they are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Finally, the number of pages used is \(\chi(H) \leq k + 1\), so \(\pn(G) \leq k + 1\). Thus shown.
+	This is a proper book-embedding of \(G\). Suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that there exists a bag \(B\) such that \(u, x, v \in B\), as \(uv\) is an edge in \(B\) and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) they are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. Finally, the number of pages used is \(\chi(H) = k + 1\), so \(\pn(G) \leq k + 1\). Thus shown.
+\end{proof}
+\textcite{dujmovicGraphTreewidthGeometric2007} showed that when $k \leq 2$, all graphs with treewidth $k$ can be embedded on $k$ pages. However, when $k \geq 3$, there exist graphs with treewidth $k$ that cannot be embedded on $k$ pages. Therefore, when $k \geq 3$, the bound from \textcite{ganleyPagenumberTrees2001} is tight. 
+For a simpler example, consider the case when $T$ is a path. The proof given below is identical to \cref{thm:bded_treewidth_bded_pagenumber}.
+
+\begin{theorem}
+	Every graph \(G\) with \(\pw(G) \leq k\) can be embedded on $k + 1$ pages.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+	Let $G$ have path-decomposition $\{B_1, B_2, \ldots , B_k\}$. Let $\sigma(v)$ be the smallest $i$ such that $v \in B_i$. Colour each vertex such that in each bag, no two vertices are assigned the same colour. This is possible to do in $k+1$ colours as interval intersection graphs are perfect. Then colour edges such that edge $uv$ has the same colour as $u$ if $u \leq v$ in the book-embedding. This is a proper book-embedding.
 \end{proof}
 
-We have a simpler proof if the tree is a path. We go from one end of the path to the other, and add vertices to the book-embedding in the order of the first time they appear. Then we colour each vertex such that in each bag, no two vertices are assigned the same colour. We can do this as this is the same intersection graph as above. The rest of the proof follows.
-
 \subsection{Planar graphs}\label{ssec:Planar_Graphs}
-\begin{theorem}[Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}]\label{thm:4Pages_Planar}
-	Planar graphs can be embedded on at most four pages.
+\begin{theorem}[\textcite{yannakakisEmbeddingPlanarGraphs1989}]\label{thm:4Pages_Planar}
+	All planar graphs can be embedded on four pages.
 \end{theorem}
-We have shown above a proof that the number of pages necessary to embed a planar graph is bounded. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages \cite{yannakakisPlanarGraphsThat2020} \cite{kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber.
+From \cref{thm:Planar Graph Hickingbotham Bound}, it was shown all planar graphs can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020, kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber.
 
 \section{Graphs embedded on a surface of bounded genus}\label{sec:pagenumber_bounded_genus}
 
-\begin{theorem}[Heath and Istrail\cite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
-	Let \(g\) be the genus of a graph \(G\). For all graphs \(G\), \(\pn(G) \leq O(g)\).
+\begin{theorem}[\textcite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
+	For all graphs \(G\) of genus $g$, $G$ can be embedded in $O(g)$ pages.
 \end{theorem}
-Note that this bound extends the one found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus.
-The best known bound is \(O(\sqrt{g})\), found by Malitz\cite{malitzGenusGraphsHave1994}.
+Note that this bound extends the one found by \textcite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus.
+The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have genus $O(n^2)$, from Ringel and Young\cite{ringelMapColorTheorem1974}. Therefore if $K_n$ has genus $g$ then the pagenumber of $K_n$ is $O(\sqrt{g})$.
 
-It was shown by Heath and Istrail that the family of graphs of bounded genus have bounded pagenumber.
-We refer to the ``layout'' of the graph as the book-embedding of the graph and ``embedding'' as the surface-embedding. We refer to orientable surfaces as genus \(g\) as a sphere with \(g\) handles, and a nonorientable surface of genus \(g\) as a sphere with \(g\) cross-caps. We define the orientable genus of a graph \(G\), denoted \(\gamma(G)\), as the minimum orientable surface genus that \(G\) can be embedded on. The nonorientable genus of a graph \(G\), denoted \(\tilde{\gamma}(G)\), is the minimum nonorientable genus surface that \(G\) can be embedded on. Mohar\cite{moharOrientableGenusGraphs1998} claims that \(\tilde{\gamma}(G) \leq 2 \gamma(G) + 1\) for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded. Note that, Auslander et al.\cite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane who has arbitrarily large orientable genus.
-\paragraph{Proof}
-We say that the embedding is \(2\)-cell if every face is homeomorphic to an open disc in \(\mathbb{R}^2\). Any embedding of \(G\) onto an orientable surface is a 2-cell embedding, but this does not hold for nonorientable surfaces, but we assume there exists a \(2\)-cell embedding.
-Heath and Istrail rely on decomposing the graph \(G\) of genus \(\gamma(G)\) into a planar spanning subgraph \(G_p\) of \(G\) such that:
+Let $G$ be a graph and $\Sigma$ be a surface. In this section, embedding $G$ in a book is referred to as the \textit{layout} of $G$. Embedding $G$ in $\Sigma$ is referred to as the \textit{embedding} of $G$ in $\Sigma$. The orientable genus of a graph \(G\), denoted \(\gamma(G)\), is the minimum genus of an orientable surface $\Sigma$ such that $G$ has an embedding on $\Sigma$. The nonorientable genus of a graph \(G\), denoted \(\tilde{\gamma}(G)\), is the minimum genus of a non-orientable surface $\Sigma$ such that $G$ has an embedding on $\Sigma$.\ \textcite{moharOrientableGenusGraphs1998} showed that \(\tilde{\gamma}(G) \leq 2 \gamma(G) + 1\) for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded.\ \textcite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane that have arbitrarily large orientable genus. In fact, there exists a family of graphs such that $\tilde{\gamma}(G) \in \Omega(|V(G)|)$. Consider $n$ copies of $K_6$ with a single vertex in each copy identified to a single vertex. Then each $K_6$ will occupy a single crosscap with no room for another copy of $K_6$ to fit. Therefore, this graph is of non-orientable genus $2n$. 
+
+\subsection{Proving \cref{thm:Genus_pagenumber_bound}}
+An embedding of a graph $G$ on a surface $\Sigma$ is \textit{$2$-cell} if every face is homeomorphic to an open disc $D^2$. If $G$ is of genus $g$, then there exists a \textit{$2$-cell} embedding of $G$ to a surface of genus $g$. 
+
+Let $G$ be a graph of genus $g$.
+Heath and Istrail partition the edge-set of \(G\) to a planar spanning subgraph \(G_p\) and set of nonplanar edges $E_N$. This partition has the following properties:
 \begin{enumerate}
-	\item The edges in \(E(G) - E(G_p)\) attach to the boundary vertices of \(V(G_p)\).
-	\item Adding an edge from \(E(G) - E(G_p)\) to \(G_p\) breaks the above condition.
+	\item There exists a face $F_0$ in the embedding of $G_p$,
+	\item all edges in \(E_N\) are between vertices on the boundary of $F_0$, and
+	\item adding any edge from $E_N$ to \(G_p\) breaks the conditions above.
 \end{enumerate}
-To talk about graphs embedded in surfaces, we assign to each face a cyclic permutation \(\sigma_v\) which represents the sequence of vertices encountered when traversing the boundary of a face in counterclockwise order.
+$G_p$ is a maximal planar subgraph with respect to the conditions above. Through some stereographic projection from $S^2$ to $\mathbb{R}^2$, $F_0$ will be assumed to be the outerface. The set $(G_p, E_N)$ is a planar-nonplanar decomposition of $G$. 
+% To talk about graphs embedded in surfaces, we assign to each face a cyclic permutation \(\sigma_v\) which represents the sequence of vertices encountered when traversing the boundary of a face in counterclockwise order.
 
-This is enough to represent any graph in an orientable surface, but not enough for a non-orientable surface. We have to attach on an orientation to each edge, where each edge is either orientation-preserving or orientation-reversing.
+% $\sigma_v$ enough to represent any graph in an orientable surface, but not enough for a non-orientable surface. We have to attach on an orientation to each edge, where each edge is either orientation-preserving or orientation-reversing.
 
-We have that a planar-nonplanar decomposition of \(G\) is a triple \((R, G_P, E_N)\) where \(R\) is a rotation of \(G\) representing the surface embedding on the surface \(S\), \(G\) is a spanning planar graph, and \(E_N = E - E(G_P)\).
-This satisfies a list of properties:
-\begin{enumerate}
-	\item The subrotation induces a planar embedding of \(G_p\), so we can arrange \(G\) on the surface \(S\) such that the embedding of \(G_p\) is planar.
-	\item For each \(vw \in E_N\), we have that \(v\) and \(w\) live on the outerface \(F_0\).
-	\item \(E(G_P)\) is maximal, so we cannot add edges from \(E_N\) to \(G_P\) without breaking properties 1 and 2.
-\end{enumerate}
+% A planar-nonplanar decomposition of \(G\) is a triple \((R, G_P, E_N)\) where \(R\) is a rotation of \(G\) representing the surface embedding on the surface \(S\), \(G\) is a spanning planar graph, and \(E_N = E - E(G_P)\).
+% This satisfies a list of properties:
+% \begin{enumerate}
+% 	\item The subrotation induces a planar embedding of \(G_p\), so we can arrange \(G\) on the surface \(S\) such that the embedding of \(G_p\) is planar.
+%	\item For each \(vw \in E_N\), we have that \(v\) and \(w\) live on the outerface \(F_0\).
+%	\item \(E(G_P)\) is maximal, so we cannot add edges from \(E_N\) to \(G_P\) without breaking properties 1 and 2.
+%\end{enumerate}
 
 \subsubsection{Decomposing graphs on surfaces}\label{sssec:Planar_nonplanar_decomp}
-We first have to know that the planar-nonplanar decomposition exists.
 
-Suppose \(G\) is embedded on an surface \(\Sigma\). Then we wish to triangulate \(G\) to form \(G_T\). We choose a single triangle as the starting point and we add traces to the planar part incrementally. At each step, we set \(G_P\) to be the current planar part and \(E_N\) as the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints in \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\).
-
-We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\).
-\paragraph{Adding vertices to biconnected block}
-For a current boundary of the outerface of \(G_P\), if \(v_i \rightarrow v_j \rightarrow v_k\) is trace with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and we can add it to \(G_P\).
-\paragraph{Creating new biconnected block}
-If no \(v_k\) exists, then we find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). We then add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then we add all safe edges. This is so that every edge in \(E_p\) maintains the property that both endpoints are on the boundary.
-
-We claim that after repeating this operation, then we have that every edge in \(E_N\) (edges not in \(G_P\)) satisfy the two properties above. If we have that an edge \(vw\) has \(v\) added, then we should be able to add \(w\) as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) or \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage and therefore go to part 1. This has the corollary that every vertex is in \(G_P\).
-
-Now we have that \(E_N\) has every edge which cannot be added to \(G_P\) without crossing over another edge, and that \(G_P\) is maximal. Then we have that all edges in \(E_N\) satisfy the conditions lised above.
-\todo{Add pictures! this proof needs lots of pictures}
+\begin{claim}
+	There exists a planar-nonplanar decomposition of any graph $G$ embedded on a surface $\Sigma$. 
+\end{claim}
+\begin{proof}
+	Suppose \(G\) is embedded on an surface \(\Sigma\). Triangulate \(G\) to form \(G_T\). Start at a single triangle and define this triangle as $G_p$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\).
+	
+	We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\).
+	\paragraph{Adding vertices to biconnected block}
+	Suppose $F$ is the outerface of \(G_P\). Define an oriented walk around the boundary $F$ to be a trace. If \(v_i \rightarrow v_j \rightarrow v_k\) is a walk with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and can be added to \(G_P\). Add as many vertices $v_k$ as possible. 
+	\paragraph{Creating new biconnected block}
+	If no \(v_k\) exists, then we find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). We then add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then we add all safe edges. This is so that every edge in \(E_p\) maintains the property that both endpoints are on the boundary.
+	
+	We claim that after repeating this operation, then we have that every edge in \(E_N\) (edges not in \(G_P\)) satisfy the two properties above. If we have that an edge \(vw\) has \(v\) added, then we should be able to add \(w\) as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) or \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage and therefore go to part 1. This has the corollary that every vertex is in \(G_P\).
+	
+	Now we have that \(E_N\) has every edge which cannot be added to \(G_P\) without crossing over another edge, and that \(G_P\) is maximal. Then we have that all edges in \(E_N\) satisfy the conditions listed above.
+	\todo{Add pictures! this proof needs lots of pictures}
+\end{proof}
 
 \subsubsection{Level sets and cycles}
 On a planar graph \(G\), we want to separate out vertices depending on how far away they are from the outerface. We fix a single outerface \(F_0\) and define the first level set \(V_0\) as the vertices adjacent to \(F_0\). We then define the \(i\)-th level set, \(V_i\) inductively. Consider the induced graph on \(V(G) - \cup_{k = 0}^{i-1} V_k\). Then we define the vertices adjacent to \(F_0\) in this induced graph, where we expand \(F_0\) to include the vertices. This partitions \(V(G)\).
 
 We then define \(C_0\) to be the edges adjacent to \(F_0\) in this decomposition. Then we want \(C_i\) to be the edges adjacent to \(F_0\) in this decomposition. We define the chord edges \(K_i\) to be the edges between vertices in \(V_i\) that are not edges in \(C_i\). Finally, we define the edges between faces, \(E_i\) as the edges that are between vertices on level \(V_i\) and \(V_{i + 1}\).
 
-\begin{lemma}
+\begin{claim}
 	For all faces \(F\) in \(G\), the vertices around \(F\) are either all in one \(C_i\) or they are in \(C_i\) and \(C_{i + 1}\) for some \(i\).
-\end{lemma}
+\end{claim}
 
 \begin{proof}
 	Let \(i\) be the smallest value such that \(v \in V_i\) is on the boundary of \(F\). Now we have that \(G[V(G) - \cup_{j = 1}^{i} V_i]\) will also remove \(v\). However, this removes all the edges next to \(v\), therefore all vertices that are on the boundary of \(F\) will either be in \(V_i\) or \(V_{i + 1}\).
