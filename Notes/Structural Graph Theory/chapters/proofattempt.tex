@@ -1,49 +1,56 @@
+\chapter{Proof of Conjecture}\label{chap:Proving_The_Theorem}
+Our aim is to prove the following conjecture. Recall the definition of $\mathcal{G}(g, p, k, a)$ from \cref{thm:gmst}. 
+\begin{conjecture}\label{conj:gmst_conjecture_pagenumber}
+	All graphs $G$ in $\mathcal{G}(g, p, k, a)$ can be embedded on \(f(g, p, k, a)\) pages.
+\end{conjecture}
+Our aim is to show that all graphs of genus \(g\) containing \(p\) vortices of width \(k\) can be embedd on \(f(g, p, k)\) pages. If $G$ is a graph with a tree-decomposition where every torso is $(g, p, k)$-almost embeddable, then from \cref{thm:clique_sum_pagenumber_bound}, $G$ has bounded pagenumber. If there exists a set $A \subseteq V(G)$ such that $G - A$ has the tree-decomposition above, then from \cref{thm:apex_vertices_pagenumber}, the pagenumber of $G$ is bounded.
 
-\chapter{Proof of \cref{conj:bded_had_pn}}\label{chap:Proving_The_Theorem}
-Our aim is to show that graphs with bounded genus \(g\) containing \(p\) vortices of bounded width \(k\) have bounded pagenumber \(f(g, p, k)\).
-Using Robert's theorem \cref{thm:clique_sum_pagenumber_bound}, we can build clique-sums with adhesion \(\leq \ell\) and from a theorem below, we can add \(a\) apex vertices.
-Thus we can show that for fixed \(t\), all \(K_t\)-minor free graphs have bounded pagenumber \(f(g, p, k, a, \ell)\).
-We wish to find a book-embedding of a graph \(G\) of bounded genus \(g\) with vortices \(G_1, \ldots, G_p\) of adhesion \(k\) such that the pagenumber of \(G\) is at most \(f(g, p, k)\) for some constants \(g\) and \(p\). It is trivial to show that apex vertices only increase the number of pages by \(f(a)\) for a fixed function \(f\).
-\todo{Figure out a good way to restructure this proof.}
+It is trivial to show that $a$ apex vertices require at most $a$ additional pages.
 \section{Apex vertices}
-In this section, we will prove that apex vertices can be added with a bounded increase to the number of pages. Typically, apex vertices are the problematic component when applying the Graph Minor Structure theorem, but in this case they are a trivial addition.
+In this section, we prove that apex vertices can be added with a bounded increase to the number of pages. Typically, apex vertices are the most problematic ingredient when applying the Graph Minor Structure theorem, but in this case they are a trivial addition.
 \begin{theorem}\label{thm:apex_vertices_pagenumber}
-	If \(G\) is a graph with vertex partition \((A, B)\) such that \(G' = V[B]\) is a graph with pagenumber \(s\), \(|A| \leq a\), then \(G\) can be embedded on \(s + a \) pages.
+	If \(G\) is a graph with vertex partition \((A, B)\) such that \(G' = G[B]\) is embeddable on $s$ pages, then \(G\) is embeddable on \(s + |A| \) pages.
 \end{theorem}
 \begin{proof}
-	Let \(G'\) have book-embedding \((<, \rho)\). Then place the vertices of \(A\) at the very start of \((<)\), with order $u_1, u_2, ...$. For every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), we colour \(\rho(uv) = i\), and for any edge \(u_i u_j\) where $u_i, u_j \in A$, $i < j$, we colour $u_i u_j$ with colour $i$. Then this is a proper book-embedding. If two edges cross, then they either are edges in $A$ or one edge in $A$, one edge in $G'$, or both edges in $G'$. As $(< \rho)$ is a book-embedding, if two edges in $G'$ cross, then they have different colours. We also have that if two edges in $A$ cross, then they have different colours, and the same goes for edges from $A$ to $G'$. Therefore, there is only an increase of $|A|$ pages. Thus shown.
+	Let \(G'\) have book-embedding \((<, \rho)\) where $\rho : E(G) \rightarrow [s]$. Place the vertices of \(A\) at the very start of \((<)\), with order $u_1, u_2, \ldots, u_a$. For every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), colour \(\rho(uv) = i\), and for any edge \(u_i u_j\) where $u_i, u_j \in A$, $i < j$, colour $u_i u_j$ with colour $i$. Then this is a proper book-embedding. If two edges $uv$, $xy$ cross, then $uv$ and $xy$ are given different colours. If $uv, xy \in E(G')$, then $uv, xy$ are given different colours as $(< \rho)$ is a book-embedding of $G'$. If $u$ or $x$ are in $A$, then $uv, xy$ have different colours because their leftmost vertices are different. The number of pages necessary is $s + |A|$. 
 \end{proof}
 
-Therefore, adding \( \leq a\) apex vertices still maintains a bounded pagenumber.
+Therefore, a fixed number of apex vertices do not affect the pagenumber.
 
-\section{Vortices and pagenumber}
-The most problematic section is dealing with vortices on surfaces (for reference on vortices, see \cref{ssec:Robertson_Seymour_Graph_Structure}).
+\section{Almost-Embeddable Graphs}
+Recall the definition of $(g, p, k, a)$-almost-embeddable from \cref{ssec:Robertson_Seymour_Graph_Structure}. We say a graph $G$ is $(g, p, k)$-almost-embeddable if $G$ is $(g, p, k, a)$-almost-embeddable and $a = 0$, so $G$ has no apex set.
 
-We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vertex is added onto the face.
-
+We wish to find a book-embedding of $(g, p, k)$-almost-embeddable graphs.
+The most problematic section is dealing with vortices on surfaces.
+We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vortex is added onto the face.
 What we plan to show is this:
 \begin{conjecture}
-	Let \(G_0\) be a graph embedded on some surface \(\Sigma\). Suppose we have \(k\) vortices on \(G_0\), call them \(G_1, \cdot , G_k\). Suppose they are on disks \(D_1, \ldots, D_k\) on faces \(F_1, \ldots, F_k\). Now let these vortices have pathwidth \(\leq p\).
-	We have that \(G = G_0 \cup G_1 \cup \ldots \cup G_p\) has pagenumber \(\leq f(\pn(G), k, p)\).
+	Suppose $G$ is $(g, p, k)$-almost-embeddable.Then $G$ can be embedded on \(f(g, p, k)\) pages for some function $f$.
 \end{conjecture}
-The way we are planning to deal with vortices is to deal with the faces. We have the following lemma \cref{lem:vortices_mono_paths}. This lemma allows us to pay less attention to the vertex ordering of \(G_0\) and look at how the edges are arranged in the ordering. This will be useful when dealing with graphs on surfaces.
-The current plan for dealing with surfaces is thus:
-\begin{itemize}
-	\item First we start with \(G\) being a \(4\)-connected planar graph. We preserve all faces and all faces are monochromatic.
-	\item Then we move on to the situation where \(G\) is a connected planar graph. Faces are not preserved, but a bounded number of vertices are moved around. This is a small problem but we can deal with this by adding extra pages. What is an issue is how vortices interact with the graph.
-	\item We finally move onto the case where \(G\) is on an orientable surface. We use Heath and Istrail's \cite{heathPagenumberGenusGraphs1992} planar-nonplanar decomposition to move from the case where \(G\) is a connected planar graph to when \(G\) is of genus \(g\).
-\end{itemize}
+The way we are planning to deal with vortices is to deal with the faces. We have the following lemma \cref{lem:vortices_mono_paths}. 
+
+Let \(G\) be a graph. A vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \cdots < v_k\).
+A circular ordering \(<\) preserves a face \(F\) if we can start at any point in the circular ordering and have the condition above.
+Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A path \(P\) on the boundary of \(F\) is a \textit{monochromatic path} if all the edges on \(P\) are given the same colour with respect to \( \varphi \). 
+
+The list below are the steps taken to prove the conjecture.
+\begin{enumerate}
+	\item Let $G$ be a \(4\)-connected planar graph. We preserve all faces and all faces are monochromatic.
+	\item Suppose \(G\) is a connected planar graph. Faces are not preserved, but a fixed number of vertices are moved around on every face. Additional pages are necessary to embed $G$, but the number of monochromatic paths is fixed. 
+	\item Suppose \(G\) is $2$-cell embedded on a surface. Use Heath and Istrail's \cite{heathPagenumberGenusGraphs1992} planar-nonplanar decomposition to find a spanning planar subgraph of $G$ and nonplanar edges. Then apply the previous steps to the spanning planar subgraph.
+\end{enumerate}
 
 \subsection{Faces and Monochromatic paths}
-Let \(G\) be a graph. We say that a vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \cdots < v_k\). We say that a circular ordering \(<\) preserves a face \(F\) if we can start at any point in the circular ordering and have the condition above.
+
 Preserved faces are very important, because of this lemma.
 
 \begin{lemma}[Vortex on preserved faces]\label{lem:preserved_faces_pagenumber}
-	Let \(G\) be a graph where \(G = G_0 \cup G_1\). We have that \(G_0\) is embedded on a surface and \(G_1\) is a vortex on \(G\) with path-width at most \(k\). Suppose \(G_1\) is a vortex on a face \(F\) on \(G_0\). We also have a book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(\pn(G_0) + k + 1\) pages.
+	Suppose a graph \(G\) has partition \(G = G_0 \cup G_1\), where \(G_0\) is embedded on a surface $\Sigma$ and \(G_1\) is a vortex on a face $F$ of $G_0$ with width \(k\). Suppose $(<, \varphi)$ is a $p$-page book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(p + k + 1\) pages Furthermore, the new ordering restricted to $G_0$ is $(<, \varphi)$.
 \end{lemma}
+\todo{Add picture!}
 
 \begin{proof}
-	We repeat a similar argument to \cref{thm:bded_treewidth_bded_pagenumber}. For each vertex in \(G_0\), we give them all different colours inside each bag. We then order the vertices in \(G_1\). Let \(B_1, \ldots, B_i\) be the path-decomposition of \(G_1\). We let \(\sigma(v)\) be the first time \(v\) appears in the path-decomposition. We then colour the edges of \(G_1\) as such: If \(uv \in E(G_1)\), then:
+	We repeat a similar argument to \cref{thm:bded_treewidth_bded_pagenumber}. Let \(B_1, \ldots, B_i\) be the path-decomposition of \(G_1\). Let \(\sigma(v)\) be the first time \(v\) appears in the path-decomposition. Colour the edges of \(G_1\) as such. If \(uv \in E(G_1)\), then:
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
@@ -55,7 +62,6 @@ Preserved faces are very important, because of this lemma.
 	To add this book-embedding to \(G_0\), we add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours.
 \end{proof}
 
-Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Let \(F\) be a face on \(G\). Let \( (<, \phi) \) be a book-embedding of \(G\). A path \(P\) on the boundary of \(F\) is a \textit{monochromatic path} if all the edges on \(P\) are given the same colour with respect to \( \phi \). We have the following result:
 \begin{lemma}\label{lem:vortices_mono_paths}
 	Suppose \(G\) is a graph with components \(G_0\) and \(G'\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(d\)-clean disk on \(F\). Now suppose \(G'\) is a vortex on \(D\) with a path-decomposition \((B_0, \ldots B_l)\). Suppose \(G_0\) has a book-embedding \((<, \phi)\). Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\phi \)-monochromatic path on \(C\). Suppose there are \(m\) paths. Then \(G\) can be embedded on \(\pn(G) + f(m)\) pages.
 \end{lemma}
@@ -78,7 +84,6 @@ We shall prove an intermediate lemma.
 
 	This is a small tweak of \cref{lem:preserved_faces_pagenumber}. 
 \end{proof}
-
 
 \begin{figure}
 	\centering
@@ -113,7 +118,7 @@ As a consequence, we have that every 4-connected planar graph has a circular ord
 \subsection{Graphs on surfaces}
 
 We first do the planar-nonplanar decomposition of \(G\) first.
-Then we look at the planar subgraph \(G_p\) and decompose \(G_p\) into 4-connected components with adhesion at most 3, from \cref{corr:planar_graphs_4_connected_cliqesums}.
+Then we look at the planar subgraph \(G_p\) and decompose \(G_p\) into 4-connected components with adhesion at most 3, from \cref{lem:planar_graphs_4_connected_cliqesums}.
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if \(G\) is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\).
 In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face \(F\) which touches these vertices, the number of pages needed to embed \(F\) is bounded.
 
@@ -125,10 +130,10 @@ In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to mov
 	Consider the edges that are adjacent to \(x_1, x_2, \ldots, x_k \). Now we can simply assign every edge in this set its own individual page. Now we will break every face with $4k$ monochromatic paths as there are $2k$ edges that are given its own page. So there are $4k$ monochromatic paths on $F$.
 \end{proof}
 
-This means that for any connected planar graph \(G \), we have from \cref{corr:planar_graphs_4_connected_cliqesums} that \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, we have that \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then we have that we have that \(F \) has 12 monochromatic components, which is bounded. Now we suppose we are living on a surface which is orientable.
+This means that for any connected planar graph \(G \), from \cref{lem:planar_graphs_4_connected_cliqesums}, \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then \(F \) has 12 monochromatic components, which is bounded. Now suppose $G$ is embedded on a surface.
 
-\section{Orientable surfaces}
-In this section, we discuss orientable surfaces and a method for dealing with faces on an orientable surface. The non-orientable case has not been dealt with yet.
+\section{Surfaces}
+In this section, we discuss surfaces and a method for dealing with faces on surfaces.
 \subsection{Non-planar decomposition}
 Suppose we have a graph \(G\) embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition~\cite{heathPagenumberGenusGraphs1992} to break up the edges of \(G\) into \(E_p\) and \(E_n\), edges that are planar and nonplanar. If \(F\) is bounded by planar edges, then we have that we can add a vortex to \(F\) with a bounded number of pages. If \(F\) is bounded by some non-planar edges, then we need additional lemmas.
 We wish to show this statement:
@@ -188,7 +193,7 @@ We will prove this by starting with planar graphs, then bounded genus graphs. We
 	For every planar graph $G$, we have that every face of $G$ has a bounded number of monochromatic paths.
 \end{lemma}
 \begin{proof}
-	We can then decompose $G_p$ to a tree-decomposition with 4-connected torsos, with adhesion size 3, from \cref{corr:planar_graphs_4_connected_cliqesums}. Then we have that from \textcite{tutteTheoremPlanarGraphs1956} that every 4-connected planar graph is Hamiltonian. Additionally, every planar graph with at most 4 vertices has bounded pagenumber.
+	We can then decompose $G_p$ to a tree-decomposition with 4-connected torsos, with adhesion size 3, from \cref{lem:planar_graphs_4_connected_cliqesums}. Then we have that from \textcite{tutteTheoremPlanarGraphs1956} that every 4-connected planar graph is Hamiltonian. Additionally, every planar graph with at most 4 vertices has bounded pagenumber.
 	The faces that come out are monochromatic faces with respect to the vertex ordering from the Hamiltonian cycle.
 	We then use \cref{lem:Hickingbotham_Lemma} to glue the torsos together with a bounded number of pages. For every subgraph that we glue using the lemma, we only move 3 vertices to the start of the embedding. We then us \cref{thm:embedded_graph} to say that every face that we have has a bounded number of monochromatic paths.
 	Therefore, $G_p$ has a bounded number of pages and every face has a bounded number of monochromatic paths.
