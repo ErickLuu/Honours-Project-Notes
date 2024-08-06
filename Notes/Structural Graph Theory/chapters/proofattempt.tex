@@ -12,7 +12,7 @@ In this section, we prove that apex vertices can be added with a bounded increas
 	If \(G\) is a graph with vertex partition \((A, B)\) such that \(G' = G[B]\) is embeddable on $s$ pages, then \(G\) is embeddable on \(s + |A| \) pages.
 \end{theorem}
 \begin{proof}
-	Let \(G'\) have book-embedding \((<, \rho)\) where $\rho : E(G) \rightarrow [s]$. Place the vertices of \(A\) at the very start of \((<)\), with order $u_1, u_2, \ldots, u_a$. For every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), colour \(\rho(uv) = i\), and for any edge \(u_i u_j\) where $u_i, u_j \in A$, $i < j$, colour $u_i u_j$ with colour $i$. Then this is a proper book-embedding. If two edges $uv$, $xy$ cross, then $uv$ and $xy$ are given different colours. If $uv, xy \in E(G')$, then $uv, xy$ are given different colours as $(< \rho)$ is a book-embedding of $G'$. If $u$ or $x$ are in $A$, then $uv, xy$ have different colours because their leftmost vertices are different. The number of pages necessary is $s + |A|$. 
+	Let \(G'\) have a book-embedding \((<, \rho)\) on $s$ pages. Place the vertices of \(A\) at the very start of \((<)\), with order $u_1, u_2, \ldots, u_a$. For every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), colour \(\rho(uv) = i\), and for any edge \(u_i u_j\) where $u_i, u_j \in A$, $i < j$, colour $u_i u_j$ with colour $i$. Then this is a proper book-embedding. If two edges $uv$, $xy$ cross, then $uv$ and $xy$ are given different colours. If $uv, xy \in E(G')$, then $uv, xy$ are given different colours as $(< \rho)$ is a book-embedding of $G'$. If $u$ or $x$ are in $A$, then $uv, xy$ have different colours because their leftmost vertices are different. The number of pages necessary is $s + |A|$. 
 \end{proof}
 
 Therefore, a fixed number of apex vertices do not affect the pagenumber.
@@ -63,15 +63,15 @@ Preserved faces are very important, because of this lemma.
 \end{proof}
 
 \begin{lemma}\label{lem:vortices_mono_paths}
-	Suppose \(G\) is a graph with components \(G_0\) and \(G'\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(d\)-clean disk on \(F\). Now suppose \(G'\) is a vortex on \(D\) with a path-decomposition \((B_0, \ldots B_l)\). Suppose \(G_0\) has a book-embedding \((<, \phi)\). Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\phi \)-monochromatic path on \(C\). Suppose there are \(m\) paths. Then \(G\) can be embedded on \(\pn(G) + f(m)\) pages.
+	Suppose \(G\) is a graph with components \(G_0\) and \(G'\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G'\) is a vortex of width $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\). Suppose \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\varphi \)-monochromatic path on \(C\). Suppose there are \(m\) monochromatic paths. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
 \end{lemma}
 We shall prove an intermediate lemma.
 \begin{lemma}\label{lem:one_page_decomposition}
-	Let \((B_1, \ldots, B_n)\) be a path-decomposition of \(G\) with path-width \(k\). Let \(x_1, \ldots, x_n\) be vertices in \(G\) such that \(x_i \in B_i\) for all \(i\), and suppose \(P\) is an induced path \((x_1, x_2, \ldots, x_n)\) in \(G\). Then we have that for any one-page embedding of \(P\), \(G\) has a \(k + 1\)-page embedding.
+	Let \((B_1, \ldots, B_n)\) be a path-decomposition of \(G\) with path-width \(k\). Let \(x_1, \ldots, x_n\) be vertices in \(G\) such that \(x_i \in B_i\) for all \(i\), and suppose \(P\) is an induced path \((x_1, x_2, \ldots, x_n)\) in \(G\). Then for every one-page embedding of \(P\), \(G\) has a \((k + 1)\)-page embedding.
 \end{lemma}
 \begin{proof}
 	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. 
-	We claim that we can repeat the same scheme as in \cref{lem:preserved_faces_pagenumber}. For each vertex \(v\) in \(G\), we let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), we place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. We also colour the edges in the same way above: 
+	The proof given is very similar to the one in \cref{lem:preserved_faces_pagenumber}. For each vertex \(v\) in \(G\), we let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), we place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. We also colour the edges in the same way above: 
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
