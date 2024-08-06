@@ -45,12 +45,12 @@ The list below are the steps taken to prove the conjecture.
 Preserved faces are very important, because of this lemma.
 
 \begin{lemma}[Vortex on preserved faces]\label{lem:preserved_faces_pagenumber}
-	Let \(G\) be a graph where \(G = G_0 \cup G_1\), where \(G_0\) is embedded on a surface and \(G_1\) is a vortex on \(G\) with path-width at most \(k\). Suppose \(G_1\) is a vortex on a face \(F\) on \(G_0\). Suppose $(<, \varphi)$ is a book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(\pn(G_0) + k + 1\) pages.
+	Suppose a graph \(G\) has partition \(G = G_0 \cup G_1\), where \(G_0\) is embedded on a surface $\Sigma$ and \(G_1\) is a vortex on a face $F$ of $G_0$ with width \(k\). Suppose $(<, \varphi)$ is a $p$-page book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(p + k + 1\) pages Furthermore, the new ordering restricted to $G_0$ is $(<, \varphi)$.
 \end{lemma}
 \todo{Add picture!}
 
 \begin{proof}
-	We repeat a similar argument to \cref{thm:bded_treewidth_bded_pagenumber}. For each vertex in \(G_1\), we give them all different colours inside each bag. We then order the vertices in \(G_1\). Let \(B_1, \ldots, B_i\) be the path-decomposition of \(G_1\). We let \(\sigma(v)\) be the first time \(v\) appears in the path-decomposition. We then colour the edges of \(G_1\) as such: If \(uv \in E(G_1)\), then:
+	We repeat a similar argument to \cref{thm:bded_treewidth_bded_pagenumber}. Let \(B_1, \ldots, B_i\) be the path-decomposition of \(G_1\). Let \(\sigma(v)\) be the first time \(v\) appears in the path-decomposition. Colour the edges of \(G_1\) as such. If \(uv \in E(G_1)\), then:
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
@@ -84,7 +84,6 @@ We shall prove an intermediate lemma.
 
 	This is a small tweak of \cref{lem:preserved_faces_pagenumber}. 
 \end{proof}
-
 
 \begin{figure}
 	\centering
