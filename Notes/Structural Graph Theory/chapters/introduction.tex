@@ -6,11 +6,12 @@ The driving question of this report is the following:
 \begin{conjecture}\label{conj:bded_had_pn}
 	Suppose a graph $G$ is $K_t$-minor-free. Then the pagenumber of \(G\) is bounded by a function of \(t\).
 \end{conjecture}
-This report lays out the current literature related to this question. We use a result in one of the papers of the Graph Minor Theorem, by \textcite{robertsonGraphMinorsXVI2003}. The result we use is the Graph Minor Structure Theorem, which coarsely describes $K_t$-minor free graphs.
-In her PhD thesis, \textcite{Blankenship-PhD03} claimed to prove \cref{conj:bded_had_pn}. However, this result has not been published and has not been independently verified. We aim to fill this gap in knowledge.
+In her PhD thesis, \textcite{Blankenship-PhD03} claimed to prove \cref{conj:bded_had_pn}. However, this result has not been published and has not been independently verified. We aim to fill this gap in knowledge. 
+We begin this report by discussing the relevant literature. In their seminal work, \textcite{robertsonGraphMinorsXVI2003} proved the Graph Minor Theorem. In their papers, they introduced many important concepts and theorems that are still used to this day. The result we use is the Graph Minor Structure Theorem, which coarsely describes $K_t$-minor free graphs.
 
 We have good reason to believe \cref{conj:bded_had_pn} is true. Firstly, \textcite{yannakakisEmbeddingPlanarGraphs1989} showed that all planar graphs can be embedded on 4 pages.\ \textcite{malitzGenusGraphsHave1994} then showed that all graphs of Euler genus $g$ can be embedded on $O(\sqrt{g})$ pages. Finally, graphs with bounded treewidth have bounded pagenumber, from \textcite{ganleyPagenumberTrees2001} and \textcite{dujmovicGraphTreewidthGeometric2007}.
-\section{Our proof attempt}
+
+We discuss some relevant papers that are used to prove \cref{conj:bded_had_pn}.
 We aim to solve this question using the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}, which describes the structure of graphs that do not contain a \(K_t\) minor.
 Robertson and Seymour showed that graphs with no \(K_t\) minor can be built from smaller building blocks. This is a rough overview of the building blocks. We first start with a graph \(G\) embedded on a genus \(g\) surface. Then we add on \(p\) \textit{vortices} to \(G\), with \textit{pathwidth} at most \(k\). Then we add on \(a\) \textit{apex vertices} to \(G\). We say that \(G\) is \((g, p, k, a)\)-\textit{almost embeddable}. Robertson and Seymour \cite{robertsonGraphMinorsXVI2003} proved that all graphs with no \(K_t\) minor has a \textit{tree-decomposition} where every \textit{torso} is a \((g, p, k, a)\) almost-embeddable graph, with \((g, p, k, a)\) bounded by a function of \(t\).
 We have some useful results that can be paired with the Graph Minor Structure Theorem to prove \cref{conj:bded_had_pn}.
@@ -19,14 +20,14 @@ We have some useful results that can be paired with the Graph Minor Structure Th
 	\item From \textcite{ganleyPagenumberTrees2001}, and \textcite{dujmovicGraphTreewidthGeometric2007}, all graphs of bounded treewidth have bounded pagenumber.
 	\item From \textcite{hickingbothamStackNumberCliqueSum2023}, if a graph \(G\) has a \textit{tree-decomposition} where every \textit{torso} has bounded pagenumber, then \(G\) has bounded pagenumber.
 \end{itemize}
-These results individually show that the constituent ingredients of the GMST have bounded pagenumber. What this report aims to do is to combine these proofs together to show that the pagenumber is bounded for all $K_t$-minor free graphs.
-The biggest hurdle is showing that adding vortices on surfaces will not blow up the pagenumber. To address this issue, we introduce a new concept when considering faces on surfaces with a fixed book-embedding. This is referred to in the report as \textit{monochromatic paths}.
-\subsection{Layout of report}
+These results individually show that the constituent ingredients of the Graph Minor Structure Theorem have bounded pagenumber. Once stating the requisite technology, we may proceed with the main aim of the thesis of proving \cref{conj:bded_had_pn}. 
+The biggest hurdle is showing that adding vortices on surfaces will not blow up the pagenumber. To address this issue, we introduce a new concept when considering faces on surfaces with a fixed book-embedding. 
+
+We now discuss 
 \begin{itemize}
 	\item \cref{chap:Definitions} contains definitions and concepts that will be used throughout the rest of the report.
 	\item \cref{chap:Known results} discusses some known results from graph theory, including the Graph Minor Structure Theorem. We discuss some proofs related to bounded pagenumber that can be used to prove \cref{conj:bded_had_pn}.
 
 	\item \cref{chap:Proving_The_Theorem} is the proof to \cref{conj:bded_had_pn}. 
-	\item \cref{chap:consequences} discusses some corollaries from \cref{conj:bded_had_pn}. 
 \end{itemize}
 Readers are expected to have at least an undergraduate understanding in graph theory.
