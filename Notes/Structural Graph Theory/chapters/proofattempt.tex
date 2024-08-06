@@ -1,3 +1,4 @@
+
 \chapter{Proof of Conjecture}\label{chap:Proving_The_Theorem}
 Our aim is to prove the following conjecture. Recall the definition of $\mathcal{G}(g, p, k, a)$ from \cref{thm:gmst}. 
 \begin{conjecture}\label{conj:gmst_conjecture_pagenumber}
@@ -63,7 +64,7 @@ Preserved faces are very important, because of this lemma.
 \end{proof}
 
 \begin{lemma}\label{lem:vortices_mono_paths}
-	Suppose \(G\) is a graph with components \(G_0\) and \(G'\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G'\) is a vortex of width $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\). Suppose \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\varphi \)-monochromatic path on \(C\). Suppose there are \(m\) monochromatic paths. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
+	Suppose \(G\) is a graph with components \(G_0\) and \(G_1\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G_1\) is a vortex of width $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\) and \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\varphi \)-monochromatic path on \(C\). Suppose there are \(m\) monochromatic paths. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
 \end{lemma}
 We shall prove an intermediate lemma.
 \begin{lemma}\label{lem:one_page_decomposition}
@@ -95,42 +96,34 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 \begin{proof}[Book-embedding lemma]
 	We use the path-decomposition on \(G'\) as the set \((B_1, \cdot , B_n)\) in proving \cref{lem:vortices_mono_paths}. We apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, we add on the faces in the exact order. Then we have that the monochromatic paths are preserved in the ordering, and in fact they are bounded as from \cref{lem:one_page_decomposition} they are bounded.
 \end{proof}
-
-However, the issue that we run into is that the number of times each face changes colour is bounded. Let \(F\) be a face and suppose the edges are in some decomposition. We define a \textit{transition point} to be a point where, when traversing a face, we change colours. We wish to devise a systems such that every face we are dealing with has a bounded number of paths.
-
 \subsection{Planar graphs}
-
-We have a result for planar Hamiltonian graphs, that gets us partially where we need to be.
-\begin{theorem}
-	Let \(G\) be a planar graph. Then every Hamiltonian cycle in \(G\) preserves all faces.
-\end{theorem}
+\begin{lemma}\label{lem:Hamiltonian_preserved_faces}
+	Let \(G\) be a Hamiltonian planar graph. Then there exists a book-embedding $(\leq, \varphi)$ on two pages where every face of $G$ is preserved.
+\end{lemma}
 
 \begin{proof}
-	Let \(C\) be the Hamiltonian cycle of \(G\). Let \(D\) be the natural circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of \(C\). But this means that every face must be preserved in \(D\), as the surface we are dealing with is orientable and we can affix an orientation to every face \(F\) such that the order of the vertices in the orientation is the same order as the orientation in \(D\). Thus every face in this embedding is preserved.
-	\begin{figure}
+	Let \(C\) be the Hamiltonian cycle of \(G\). Let \(D\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of \(C\). But this means that every face must be preserved in \(D\), as the surface we are dealing with is orientable and we can affix an orientation to every face \(F\) such that the order of the vertices in the orientation is the same order as the orientation in \(D\). Thus every face in this embedding is preserved.
+	\begin{figure}[h]
 		\centering
 		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
 		\caption{An image of a Hamiltonian planar graph. If we have a circular ordering of the vertices, going clockwise around the Hamiltonian cycle, then every face is preserved.}\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
-As a consequence, we have that every 4-connected planar graph has a circular ordering which preserves every face.
+As a consequence, every 4-connected planar graph has a circular ordering which preserves every face.
 
-\subsection{Graphs on surfaces}
-
-We first do the planar-nonplanar decomposition of \(G\) first.
+We first do the planar-nonplanar decomposition of \(G\).
 Then we look at the planar subgraph \(G_p\) and decompose \(G_p\) into 4-connected components with adhesion at most 3, from \cref{lem:planar_graphs_4_connected_cliqesums}.
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, we have that if \(G\) is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\).
 In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face \(F\) which touches these vertices, the number of pages needed to embed \(F\) is bounded.
 
+
 \begin{theorem}\label{thm:embedded_graph}
-	Let \( G \) be a graph embedded on some surface \(\Sigma \) and let \(F\) be a face on \(G\). Suppose \(F \) is preserved in some book-embedding \( < \). Let \(x_1, x_2, \ldots, x_k \) be \(k \) vertices that lie on \(F \). Then $G$ can be embedded on $2k$ pages and \(F\) has \( 4k \) monochromatic paths.
+	Let \( G \) be a planar graph embedded on $\mathbb{R}^2$. Then $G$ can be embedded on 11 pages where every face has at most $12$ monochromatic paths. 
 \end{theorem}
 
 \begin{proof}
-	Consider the edges that are adjacent to \(x_1, x_2, \ldots, x_k \). Now we can simply assign every edge in this set its own individual page. Now we will break every face with $4k$ monochromatic paths as there are $2k$ edges that are given its own page. So there are $4k$ monochromatic paths on $F$.
+	Use theorem \cref{lem:planar_graphs_4_connected_cliqesums} to build a tree-decomposition $(B_x : x \in T)$ of $G$ with $4$-connected planar torsos of adhesion 3. Each torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to embed $G$ in a book. At most three vertices are moved to the front in each torso. By the construction of the $4$-connected planar graphs, every face $F$ has at most three vertices moved to the front. Each vertex moved forces two edges to be on an individual monochromatic path, and paths between front vertices are also chaged. Therefore, every face has at most $12$ monochromatic paths, as each vertex adds at most four additional monochromatic paths. By \cref{thm:Planar Graph Hickingbotham Bound}, $G$ can be embedded on $11$ pages.
 \end{proof}
-
-This means that for any connected planar graph \(G \), from \cref{lem:planar_graphs_4_connected_cliqesums}, \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then \(F \) has 12 monochromatic components, which is bounded. Now suppose $G$ is embedded on a surface.
 
 \section{Surfaces}
 In this section, we discuss surfaces and a method for dealing with faces on surfaces.
@@ -138,7 +131,7 @@ In this section, we discuss surfaces and a method for dealing with faces on surf
 Suppose we have a graph \(G\) embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition~\cite{heathPagenumberGenusGraphs1992} to break up the edges of \(G\) into \(E_p\) and \(E_n\), edges that are planar and nonplanar. If \(F\) is bounded by planar edges, then we have that we can add a vortex to \(F\) with a bounded number of pages. If \(F\) is bounded by some non-planar edges, then we need additional lemmas.
 We wish to show this statement:
 \begin{theorem}
-	For all graphs \(G\) of genus \(g\), for all faces \(F_1, \ldots, F_k\) of \(G\), there exists a \(f(g, k)\)-page book embedding such that \(F_i\) has at most \( h(g, k)\) monochromatic paths for some function $h$.
+	For all graphs \(G\) of genus \(g\), there exists a \(11g + 24\)-page book embedding such that all faces of $G$ have at most \( 12(g + 1)\) monochromatic paths.
 \end{theorem}
 Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), the faces \(F\) such that there exists an edge \(e\) in \(E_n\) which bounds \(F\). Then we claim that the number of edges that bound \(F\) is bounded. We first need an auxillary topological conjecture. We say a loop is \textit{null-homotopic} if it is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\). We denote a surface without some set of points $A$ as $\Sigma - A$. 
 
@@ -168,15 +161,16 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 	\end{equation}
 	so \(|F_2| \leq 2g\) and by symmetry so does \(|F_1|\). Thus shown.
 \end{proof}
+
 \todo{show why this does not work in the non-orientable case, or alternatively show this works on all surfaces}.
 
 \begin{corollary}\label{corr:orientable_nonplanar_faces}
-	Let \(G\) be a graph embedded on an orientable surface \(\Sigma\) with a planar-nonplanar decomposition and let \(F\) be a nonplanar face. Suppose \(G\) has genus \(g\). Then we have that \(F\) has \(\leq f(g)\) monochromatic paths.
+	Let \(G\) be a graph embedded on an orientable surface \(\Sigma\) with a planar-nonplanar decomposition and let \(F\) be a nonplanar face. Suppose \(G\) has genus \(g\). Then \(F\) transitions between edges on the boundary of $G_p$ and nonplanar edges at most $4g$ times.
 \end{corollary}
 
 \begin{proof}
-	Contract \(G\) to a point. Then \(F\) has at most \(2g\) edges on its surface, from above. Every loop that is maintained after contracting $G$ to a point is nontrivial as trivial loops are surface loops.
-	Then every nonplanar face alternates between having a planar trace and nonplanar edge at most \(4g\) times. Therefore, the number of monochromatic paths is bounded as the planar trace has a bounded number of monochromatic paths.
+	Contract \(G\) to a point. Then \(F\) has at most \(2g\) edges on its surface, from \cref{lem:orientable_facial_walks}. Every loop that is maintained after contracting $G$ to a point is nontrivial as trivial loops are surface loops.
+	Then every nonplanar face alternates between having a planar trace and nonplanar edge at most \(4g\) times.
 \end{proof}
 
 \section{Putting the pieces together}
@@ -189,35 +183,32 @@ The main theorem we want to prove is:
 
 We will prove this by starting with planar graphs, then bounded genus graphs. We show that the number of monochromatic paths on these graphs is bounded for every face. Then we will show that because the number of monochromatic paths for every face is bounded, we can add vortices.
 
-\begin{lemma}\label{lem:planargraphs_monochromatic_paths}
-	For every planar graph $G$, we have that every face of $G$ has a bounded number of monochromatic paths.
-\end{lemma}
-\begin{proof}
-	We can then decompose $G_p$ to a tree-decomposition with 4-connected torsos, with adhesion size 3, from \cref{lem:planar_graphs_4_connected_cliqesums}. Then we have that from \textcite{tutteTheoremPlanarGraphs1956} that every 4-connected planar graph is Hamiltonian. Additionally, every planar graph with at most 4 vertices has bounded pagenumber.
-	The faces that come out are monochromatic faces with respect to the vertex ordering from the Hamiltonian cycle.
-	We then use \cref{lem:Hickingbotham_Lemma} to glue the torsos together with a bounded number of pages. For every subgraph that we glue using the lemma, we only move 3 vertices to the start of the embedding. We then us \cref{thm:embedded_graph} to say that every face that we have has a bounded number of monochromatic paths.
-	Therefore, $G_p$ has a bounded number of pages and every face has a bounded number of monochromatic paths.
-\end{proof}
-
-
 \begin{lemma}\label{lem:orientablesurfaces_monochromatic_edges}
-	Let $G$ be a graph embedded on an orientable surface of genus at most $g$. Then every face of $G$ has $ \leq f(g)$ monochromatic paths.
+	Let $G$ be a graph embedded on a surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has $ \leq 4g$ monochromatic paths.
 \end{lemma}
 \begin{proof}
-	Let $G$ be such a graph. We have that $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. We then use \cref{lem:planargraphs_monochromatic_paths} to find a book-embedding of $G$ such that every face has a bounded number of monochromatic pages.
-	Now consider $G$, where $G_p$ is only a spanning subgraph. Then we have that from \cref{corr:orientable_nonplanar_faces} that every face has a bounded number of monochromatic paths with fixed $g$. Therefore, every face of $G$ has at most $f(g)$ monochromatic paths.
+	Let $G$ be such a graph. We have that $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable, and a similar scheme can be used when $G$ is nonorientable. The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
+	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \times 4g = 12(g + 1)$ monochromatic paths.
 \end{proof}
 \begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
-	Let $G$ be a graph $k$-almost embeddable on an orientable surface of genus at most $g$, with $p$ vortices on $G$. Then $G$ has a book-embedding with at most $f(g, p, k)$ pages for some function $f(g, p, k)$.
+	Let $G$ be a graph $k$-almost embeddable on an orientable surface of genus at most $g$, with $p$ vortices on $G$. Then $G$ has a book-embedding with at most $11 + 18g + 12(k + 1)(g + 1)$ pages.
 \end{lemma}
 
 \begin{proof}
-	Suppose $G$ is $k$-almost-embeddable on a surface of genus $g$. Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ where every face has $f(g)$ monochromatic edges, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{lem:vortices_mono_paths}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded in at most $f(g, p, k)$ pages. Thus shown.
+	Suppose $G$ is $k$-almost-embeddable on a surface of genus $g$. Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ with $11 + 18g$ pages where every face has $12(g+1)$ monochromatic paths, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{lem:vortices_mono_paths}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded in at most $11 + 18g + 12(k + 1)(g + 1)$ pages. Thus shown.
 \end{proof}
 
 Now to prove the main theorem:
 \begin{proof}
-	Let every torso of $G$ be $k$-almost-embeddable. Then we have that from \cref{lem:orientablesurfaces_almostembeddable} that every torso requires at most $f(g, p, k)$-pages with adhesion at most $\ell$. Then from \cref{corr:bded_pn_tree_decomp}, we have that $G$ needs at most $f(g, p, k, \ell)$ pages.
+	Let every torso of $G$ be $k$-almost-embeddable. Then from \cref{lem:orientablesurfaces_almostembeddable} that every torso requires at most $s = 11 + 18g + 12(k + 1)(g + 1)$-pages with adhesion at most $\ell$. Then from \cref{corr:bded_pn_tree_decomp},  $G$ needs at most $(2s + 2)(s) + \ell$ pages.
 \end{proof}
+
+As a corollary,
+
+\begin{corollary}
+	Suppose $G$ is in $\mathcal{G}(g, p, k, a)$. Then $G$ can be embedded on $(2s + 2)(s) + \ell + a$ pages. 
+\end{corollary}
 Finally, apex vertices are handled with \cref{thm:apex_vertices_pagenumber}. Thus we conclude a partial result using \textcite{robertsonGraphMinorsXVI2003} to show that some $K_t$-minor free graphs, ones where every torso is $k$-almost-embeddable on an orientable surface, satisfy the conjecture.
 \todo{Write the proof more carefully!}
+
+\input{chapters/consequences}
