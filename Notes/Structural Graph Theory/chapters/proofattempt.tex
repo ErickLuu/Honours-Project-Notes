@@ -131,10 +131,10 @@ In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to mov
 	Consider the edges that are adjacent to \(x_1, x_2, \ldots, x_k \). Now we can simply assign every edge in this set its own individual page. Now we will break every face with $4k$ monochromatic paths as there are $2k$ edges that are given its own page. So there are $4k$ monochromatic paths on $F$.
 \end{proof}
 
-This means that for any connected planar graph \(G \), we have from \cref{lem:planar_graphs_4_connected_cliqesums} that \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, we have that \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then we have that we have that \(F \) has 12 monochromatic components, which is bounded. Now we suppose we are living on a surface which is orientable.
+This means that for any connected planar graph \(G \), from \cref{lem:planar_graphs_4_connected_cliqesums}, \(G\) has a tree-decomposition where every torso is at most 4 vertices or is 4-connected. From the proof of \cref{lem:Hickingbotham_Lemma}, \(G\) moves at most 3 vertices to the start of any embedding, so every face has at most 3 vertices that are affected. Then \(F \) has 12 monochromatic components, which is bounded. Now suppose $G$ is embedded on a surface.
 
-\section{Orientable surfaces}
-In this section, we discuss orientable surfaces and a method for dealing with faces on an orientable surface. The non-orientable case has not been dealt with yet.
+\section{Surfaces}
+In this section, we discuss surfaces and a method for dealing with faces on surfaces.
 \subsection{Non-planar decomposition}
 Suppose we have a graph \(G\) embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition~\cite{heathPagenumberGenusGraphs1992} to break up the edges of \(G\) into \(E_p\) and \(E_n\), edges that are planar and nonplanar. If \(F\) is bounded by planar edges, then we have that we can add a vortex to \(F\) with a bounded number of pages. If \(F\) is bounded by some non-planar edges, then we need additional lemmas.
 We wish to show this statement:
