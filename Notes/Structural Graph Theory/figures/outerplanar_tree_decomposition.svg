@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="outerplanar_tree_decomposition.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.560962"
+     inkscape:cx="483.67609"
+     inkscape:cy="530.12181"
+     inkscape:window-width="3440"
+     inkscape:window-height="1417"
+     inkscape:window-x="3832"
+     inkscape:window-y="112"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       d="m 57.702738,74.580074 99.760222,7.119009"
+       id="path10" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       d="M 33.319611,121.17311 105.47215,198.95882 57.702738,74.580074 164.8741,161.19466"
+       id="path3" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.2"
+       id="path1"
+       cx="105.47215"
+       cy="128.48425"
+       rx="72.152542"
+       ry="70.474571" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2"
+       cx="57.70274"
+       cy="75.501022"
+       r="7.3111382" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2-0"
+       cx="33.319611"
+       cy="121.17311"
+       r="7.3111382" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2-5"
+       cx="57.70274"
+       cy="180.19249"
+       r="7.3111382" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2-4"
+       cx="105"
+       cy="199.97583"
+       r="7.3111382" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2-3"
+       cx="103.97443"
+       cy="58.536873"
+       r="7.3111382" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2-2"
+       cx="157.46297"
+       cy="80.332809"
+       r="7.3111382" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2-43"
+       cx="177.7247"
+       cy="117.21322"
+       r="7.3111382" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       id="path2-07"
+       cx="167.74864"
+       cy="164.30905"
+       r="7.3111382" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       d="M 167.74864,164.30905 157.46296,81.699083"
+       id="path11" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.2"
+       d="m 60.386226,166.21957 -1.85208,-37.03481"
+       id="path5" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.2"
+       d="m 58.534146,125.20915 45.440284,19.95134"
+       id="path6" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:0.2"
+       d="m 103.97443,145.16049 30.81782,-27.94727 m -17.07853,-46.929994 17.07853,46.929994 m 0,0 31.64571,0"
+       id="path6-7"
+       sodipodi:nodetypes="cccccc" />
+    <circle
+       style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.108755"
+       id="path2-0-7"
+       cx="103.97443"
+       cy="145.16049"
+       r="3.9756057" />
+    <circle
+       style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.108755"
+       id="path2-0-7-7"
+       cx="134.79225"
+       cy="117.21322"
+       r="3.9756057" />
+    <circle
+       style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.108755"
+       id="path2-0-7-1"
+       cx="166.43796"
+       cy="117.21322"
+       r="3.9756057" />
+    <circle
+       style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.108755"
+       id="path2-0-7-6"
+       cx="117.71372"
+       cy="70.283226"
+       r="3.9756057" />
+    <circle
+       style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.108755"
+       id="path2-0-7-6-7"
+       cx="58.534145"
+       cy="125.20915"
+       r="3.9756057" />
+    <circle
+       style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.108755"
+       id="path2-0-7-6-4"
+       cx="60.386227"
+       cy="166.21957"
+       r="3.9756057" />
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:0.2"
+       id="path12"
+       ry="38.131107"
+       rx="68.139061"
+       cy="86.583267"
+       cx="150.09857"
+       transform="rotate(41.101381)" />
+    <ellipse
+       style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:0.175017"
+       id="path12-0"
+       ry="34.735355"
+       rx="57.279972"
+       cy="-98.512184"
+       cx="244.44763"
+       transform="matrix(0.50258793,0.8645261,-0.40461417,0.91448749,0,0)" />
+  </g>
+</svg>
