@@ -16,7 +16,7 @@ We begin our discussion of graphs on surfaces by discussing one aspect of planar
 \end{theorem}
 \begin{proof}
 	If \(G\) is planar with \(n\) vertices and \(m\) edges where $n \geq 3$, then \(m \leq 3n -6\).
-	\todo{discuss in planar graphs section} However \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \times 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
+	However \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \times 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
 \end{proof}
 
 This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. A surface \(\Sigma\) is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere \(S^2\), the torus \(T\), and the real projective plane \(P\).
@@ -145,14 +145,20 @@ The Graph Minor Theorem is equivalent to the statement:
 \end{theorem}
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors. The family of graphs that can be embedded on a fixed surface $\sigma$ is minor-closed. 
 For planar graphs, the two minimal forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
-The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. $K_7$ is a toroidal graph but $K_8$ is not. 
+The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}
+
+\begin{figure}[h!]\label{fig:k7_on_torus}
+	\centering
+	\includesvg[width = 0.8\textwidth]{figures/k7 on torus.svg}
+	\caption{Figure of $K_7$ embedded on a torus}
+\end{figure}
+
 \begin{lemma}
 	$K_8$ is not embeddable on the torus.
 \end{lemma}
 \begin{proof}
 	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus by contradiction.
 \end{proof}
-\todo{insert image of $K_7$ on torus}
 
 A graph $G$ is \textit{linkless} if $G$ has an embedding in $\mathbb{R}^3$ such that no two cycles are linked. If no embedding of $G$ has this property, then $G$ is \textit{inherently linked}. The family of linkless graphs is minor-closed. If $G$ is linkless, then contracting any edge maintains the linkless property. There are only seven minimal forbidden minors of linkless graphs, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. 
 
