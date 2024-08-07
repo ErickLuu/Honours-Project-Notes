@@ -106,7 +106,7 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 	\begin{figure}[h]
 		\centering
 		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
-		\caption{An image of a Hamiltonian planar graph. If we have a circular ordering of the vertices, going clockwise around the Hamiltonian cycle, then every face is preserved.}\label{fig:hamiltonian_planar}
+		\caption{An image of a Hamiltonian planar graph. A circular ordering of the vertices, going clockwise around the Hamiltonian cycle, preserves every vertex.}\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
 As a consequence, every 4-connected planar graph has a circular ordering which preserves every face.
@@ -187,7 +187,7 @@ We will prove this by starting with planar graphs, then bounded genus graphs. We
 	Let $G$ be a graph embedded on a surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has $ \leq 4g$ monochromatic paths.
 \end{lemma}
 \begin{proof}
-	Let $G$ be such a graph. We have that $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable, and a similar scheme can be used when $G$ is nonorientable. The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
+	Let $G$ be such a graph. We have that $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable, and a similar scheme can be used when $G$ is nonorientable.\todo{are you sure??? verify that this holds!} The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
 	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \times 4g = 12(g + 1)$ monochromatic paths.
 \end{proof}
 \begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
