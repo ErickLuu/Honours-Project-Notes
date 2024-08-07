@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      inkscape:zoom="4.3509259"
      inkscape:cx="266.60992"
-     inkscape:cy="116.64184"
+     inkscape:cy="61.481167"
      inkscape:window-width="3440"
      inkscape:window-height="1417"
      inkscape:window-x="3832"
@@ -58,20 +58,25 @@
      inkscape:label="Layer 2"
      transform="matrix(1.1762961,0,0,1.1293858,-10.482469,-2.2642512)">
     <path
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
-       d="M 22.500002,17.5 H 96.418915"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.247602"
+       d="M 23.025774,20.272742 H 111.87534"
        id="path5" />
     <path
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
-       d="M 81.635131,17.5 V 7.6300821"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.247602"
+       d="M 94.105378,20.272742 V 8.4092321"
        id="path6" />
     <path
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
-       d="M 52.067565,7.6300821 V 17.5"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.247602"
+       d="M 58.565573,8.4092321 V 20.272742"
        id="path7" />
     <path
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
-       d="M 37.283784,27.369918 V 7.6300821"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.247602"
+       d="M 69.270374,7.3174738 59.068861,20.599029 M 106.67592,7.3174738 94.105381,20.272742"
+       id="path7-3"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.247602"
+       d="M 40.795688,32.136235 V 8.4092321"
        id="path8" />
   </g>
   <g
@@ -80,75 +85,89 @@
      id="layer1"
      transform="matrix(1.176296,0,0,1.2429713,-10.482462,-4.2519985)">
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path2"
-       cx="22.500002"
-       cy="17.5"
-       rx="2.5"
-       ry="2.4999998" />
+       cx="23.025148"
+       cy="19.85848"
+       rx="3.005008"
+       ry="2.9725869" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3"
-       ry="2.4999998"
-       rx="2.5"
-       cy="17.5"
-       cx="37.283783" />
+       cy="19.85848"
+       cx="40.795311"
+       ry="2.9725869"
+       rx="3.005008" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-5"
-       ry="2.4999998"
-       rx="2.5"
-       cy="17.5"
-       cx="52.067566" />
+       ry="2.9725869"
+       rx="3.005008"
+       cy="19.85848"
+       cx="58.565506" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-2"
-       ry="2.4999998"
-       rx="2.5"
-       cy="17.5"
-       cx="66.851349" />
+       ry="2.9725869"
+       rx="3.005008"
+       cy="19.85848"
+       cx="76.335556" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-9"
-       ry="2.4999998"
-       rx="2.5"
-       cy="17.5"
-       cx="81.635132" />
+       ry="2.9725869"
+       rx="3.005008"
+       cy="19.85848"
+       cx="94.105782" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-22"
-       ry="2.4999998"
-       rx="2.5"
-       cy="17.5"
-       cx="96.418915" />
+       ry="2.9725869"
+       rx="3.005008"
+       cy="19.85848"
+       cx="111.87586" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-0"
-       ry="2.4999998"
-       rx="2.5"
-       cy="7.6300821"
-       cx="37.283783" />
+       ry="2.9725869"
+       rx="3.005008"
+       cy="8.1228008"
+       cx="40.795311" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-91"
-       ry="2.4999998"
-       rx="2.5"
-       cy="27.369919"
-       cx="37.283783" />
+       cy="31.594151"
+       cx="40.795311"
+       ry="2.9725869"
+       rx="3.005008" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-08"
-       ry="2.4999998"
-       rx="2.5"
-       cy="7.6300821"
-       cx="52.067566" />
+       ry="2.9725869"
+       rx="3.005008"
+       cy="8.1228008"
+       cx="58.565506" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
+       id="path3-08-6"
+       ry="2.9725869"
+       rx="3.005008"
+       cy="8.158329"
+       cx="69.269516" />
+    <ellipse
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
        id="path3-8-3"
-       ry="2.4999998"
-       rx="2.5"
-       cy="7.6300821"
-       cx="81.635132" />
+       ry="2.9725869"
+       rx="3.005008"
+       cy="8.1228008"
+       cx="94.105782" />
+    <ellipse
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.246269"
+       id="path3-8-3-3"
+       ry="2.9725869"
+       rx="3.005008"
+       cy="8.8580551"
+       cx="106.95969" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -168,113 +187,135 @@
          y="9" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="51"
-       y="18.999998"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="57.328045"
+       y="21.737488"
        id="text4"><tspan
          sodipodi:role="line"
          id="tspan4"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="51"
-         y="18.999998">v3</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="57.328045"
+         y="21.737488">v3</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:0;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
        x="36.464703"
        y="17.498693"
        id="text4-8"
-       transform="translate(-0.76239131,0.68601979)"><tspan
+       transform="matrix(1.2019851,0,0,1.2019851,-4.8896843,-0.27566377)"><tspan
          id="tspan4-5"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
          x="36.464703"
          y="17.498693">v2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="21.102457"
-       y="18.321472"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="21.391563"
+       y="20.92189"
        id="text4-9"><tspan
          sodipodi:role="line"
          id="tspan4-8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="21.102457"
-         y="18.321472">v1</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="21.391563"
+         y="20.92189">v1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="65.37162"
-       y="18.620766"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="74.602608"
+       y="21.28166"
        id="text5"><tspan
          sodipodi:role="line"
          id="tspan5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="65.37162"
-         y="18.620766">v4</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="74.602608"
+         y="21.28166">v4</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="79.966217"
-       y="18.723766"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="92.144913"
+       y="21.405458"
        id="text6"><tspan
          sodipodi:role="line"
          id="tspan6"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="79.966217"
-         y="18.723766">v5</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="92.144913"
+         y="21.405458">v5</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="95.108109"
-       y="18.854671"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="110.34531"
+       y="21.562786"
        id="text7"><tspan
          sodipodi:role="line"
          id="tspan7"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="95.108109"
-         y="18.854671">v6</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="110.34531"
+         y="21.562786">v6</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="34.988834"
-       y="8.4724245"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="38.082741"
+       y="9.0834875"
        id="text8"><tspan
          sodipodi:role="line"
          id="tspan8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="34.988834"
-         y="8.4724245">v2,1</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="38.082741"
+         y="9.0834875">v2,1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="35.086151"
-       y="27.543533"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="38.199799"
+       y="32.006725"
        id="text9"><tspan
          sodipodi:role="line"
          id="tspan9"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="35.086151"
-         y="27.543533">v2,2</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="38.199799"
+         y="32.006725">v2,2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="50.03479"
-       y="8.4724255"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="56.167881"
+       y="9.0834885"
        id="text10"><tspan
          sodipodi:role="line"
          id="tspan10"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="50.03479"
-         y="8.4724255">v3,1</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="56.167881"
+         y="9.0834885">v3,1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.206"
-       x="79.539864"
-       y="8.460021"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="66.494957"
+       y="9.0834885"
+       id="text10-0"><tspan
+         sodipodi:role="line"
+         id="tspan10-4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="66.494957"
+         y="9.0834885">v3,2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="104.35038"
+       y="9.7596483"
+       id="text10-0-8"><tspan
+         sodipodi:role="line"
+         id="tspan10-4-3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="104.35038"
+         y="9.7596483">v5,2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#1a1a1a;stroke-width:0.247602"
+       x="91.6325"
+       y="9.0685797"
        id="text11"><tspan
          sodipodi:role="line"
          id="tspan11"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.206"
-         x="79.539864"
-         y="8.460021">v4,1</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.54404px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.247602"
+         x="91.6325"
+         y="9.0685797">v5,1</tspan></text>
   </g>
 </svg>
