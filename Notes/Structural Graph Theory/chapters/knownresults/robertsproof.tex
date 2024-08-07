@@ -7,7 +7,7 @@ This proof has been adapted into the language of tree-decompositions.
 	Then \(\pn(G) \leq cs + \ell \).
 \end{theorem}
 
-\subsubsection{Proof of above theorem.}
+\subsubsection{Proof of above theorem}
 This proof involves gluing torsos along cliques of size at most \( \ell \).
 
 Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). Let $J$ be a clique in $G$. A vertex $v$ is rainbow in $J$ in a book-embedding $(<, \psi)$ if the set of edges $\{u_i v | u_i < v, u_i \in J\}$ each have distinct colours. The structure of the book-embedding will look like this: \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
@@ -54,9 +54,7 @@ For a breadth-first search, we maintain the property that for all \(i\), \(T[v_0
 	Let \(J\) be a clique in \(G\). Then $J$ is either only in $G'$, only in $G\langle B_n \rangle$, or shares vertices with $C$ This is because $V(G') \cap V(G\langle B_n \rangle) = C$, so $C$ is a separator between $G'$ and $G \langle B_n \rangle$. If $J$ is only in $G'$ or only in $G\langle B_n \rangle$, then the last vertex of $J$ is a rainbow vertex by hypothesis. If $J$ shares vertices with $C$, then the last vertex of $J$ with $\leq$ is in $G\langle B_n \rangle$ by construction. However, this vertex is a rainbow vertex, as the last vertex in $J$ with respect to $\leq$ is the last vertex in $G\langle B_n \rangle$ with respect to $\leq_n$. 
 \end{proof}
 
-\subsubsection{Bounds on pagenumber of \(\ell\) and \(c\)}
-
-We have some bounds in terms of pagenumber on some of these constants. However, these constants are not tight. 
+We have some bounds in terms of pagenumber on some of these constants. However, these bounds are not tight, in the case of planar graphs. 
 
 \begin{lemma}
 	Suppose a graph $G$ can be embedded on $s$ pages where $s$ is at least $2$. Then \(G\) does not contain any cliques on more than \(2s+1\) vertices.
@@ -72,8 +70,7 @@ Let $G$ be a graph with the properties above. As \(\chi(G) \leq 2 \pn(G) + 2\), 
 	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\) where each torso \(G \langle B_x \rangle\) can be embedded on $s$ pages. Then from \cref{thm:clique_sum_pagenumber_bound}, with $\ell \leq 2s + 1$ and $\chi(G) \leq 2 s + 2$, \(G\) can be embedded on \(2s^2 + 4s + 1\) pages.
 \end{corollary}
 
-\subsubsection{Bounds on pagenumbers of planar graphs}
-This section finds a bound on the pagenumber of planar graphs. This upper bound is much worse than the tight upper bound found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}. However, this proof method is used in \cref{chap:Proving_The_Theorem} to find bounds. 
+This section finds a bound on the pagenumber of planar graphs. This upper bound is much worse than the tight upper bound found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}. However, this proof method is used in \cref{chap:Proving_The_Theorem}.  
 
 \begin{lemma}\label{lem:planar_graphs_4_connected_cliqesums}
 	Every planar graph \(G\) with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph (or a subgraph of $K_4$) with adhesion at most \(3\).
