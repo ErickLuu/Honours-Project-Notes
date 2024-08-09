@@ -43,10 +43,15 @@ A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \
 
 A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can be obtained from \(S^2\) by adding at least one crosscap or twisted handle. An example of a non-orientable surface is the projective plane or the Klein bottle. 
 
-The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be embedded on \(\Sigma\) without crossings (note that \(\Sigma\) can be orientable or nonorientable).
+The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be embedded on \(\Sigma\) without crossings (note that \(\Sigma\) can be orientable or nonorientable). 
 
 \begin{theorem}[Euler's formula on surfaces]\label{thm:Euler_surfaces}
 	Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = \chi = 2 - g\). 
+\end{theorem}
+
+Given graphs $G$ and $H$ with genus $g_1, g_2$, it is useful to construct a new graph with genus $g_1 + g_2$. 
+\begin{theorem}[\textcite{millerAdditivityTheoremGenus1987}]\label{thm:additivity_genus}
+	Let graphs $G$ and $H$ have genus $g_1$, $g_2$. Then the graph obtained from identifying a vertex in $G$ to a vertex in $H$ has genus $g_1 + g_2$. 
 \end{theorem}
 
 \begin{theorem}[Bounded genus]\label{thm:bounded_genus_kt_free}
@@ -90,7 +95,7 @@ The reverse does not hold.
 \end{lemma}
 
 \begin{proof}
-	Consider $n$ copies of $K_5$ and identify a single vertex $v$ in every $K_5$ to form $G$. Then $G$ is $K_6$-minor free. However, every copy of $K_5$ must be embedded on its own handle or crosscap. Therefore, the genus of $G$ is arbitrarily large dependent on $n$. 
+	Consider $n$ copies of $K_5$ and identify one vertex in every $K_5$ to a single vertex $v$ to form $G$. Then $G$ is $K_6$-minor free. However, from \cref{thm:additivity_genus}, $G$ has genus $n$. Thus, $G$ has unbounded genus. 
 \end{proof}
 
 \subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
