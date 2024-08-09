@@ -78,6 +78,13 @@ Take any arc and have an ambient isotopy from the plane to the $xy$-plane. Then 
 
 \section{3}
 
+\subsection{1}
+\subsubsection*{a}
+Take a point $(e^{2\pi i \theta}, e^{2 \pi i \varphi})$ on $T^2 \cong S^1 \times S^1$ where $S^1 \subset \mathbb{C}$. The preimage of this set in $\mathbb{C}$ is $(m + \theta) + i (n + \varphi)$ where $m, n \in \mathbb{Z}$. Consider the open neighbourhood $U = (e^{2 \pi i (\theta - 1/100)}, e^{2 \pi i (\theta + 1/100)}) \times (e^{2 \pi i (\varphi - 1/100)}, e^{2 \pi i (\varphi + 1/100)})$. Then $p^{-1}(U)$ are the points $x + i y$ where $x \in (\theta + m -1/100, \theta + m + 1/100)$, $y \in (\varphi + n - 1/100, \varphi + n + 1/1000)$, and $m, n \in \mathbb{Z}$. Then the open sheets are of the form $U_{m,n} = \{x + i y : m + \theta - 1/100 \leq x \leq m + \theta + 1/100, n + \varphi - 1/100 \leq y \leq n + \varphi + 1/100\}$ for some $m, n \in \mathbb{Z}$. These sheets are disconnected for each $m, n$. Finally, $p|_{U_{m,n}}$ is the map from $(\theta + m -1/100, \theta + m + 1/100) \times (\varphi + n - 1/100, \varphi + n + 1/100)$ to $(e^{2 \pi i (\theta - 1/100)}, e^{2 \pi i (\theta + 1/100)}) \times (e^{2 \pi i (\varphi - 1/100)}, e^{2 \pi i (\varphi + 1/100)})$. This is a bijection and a homeomorphism, as $n \mapsto e^{2 i \pi n}$ is a homeomorphism on the range $[\theta - 1/100, \theta + 1/100]$ for any $\theta$. 
+
+\subsubsection*{b}
+$\exp$ is a continuous map as it is entire. Let $R e^{i \theta}$ be a point in $\mathbb{C} - 0$. The preimage of this point are the points $(\ln(R), \theta + 2 \pi z)$ where $z \in Z$.
+
 \subsection{2}
 
 \begin{theorem}
@@ -97,4 +104,36 @@ Take a point $(x_1, x_2) \in X_1 \times X_2$. Then let $U$ be an evenly covered 
 We claim $U \times V$ is an evenly covered neighbourhood of $(x_1, x_2) \in X_1 \times X_2$. Firstly, $U \times V$ is connected by definition of the product of connected sets. Then the preimage, $(p_1 \times p_2)^{-1}(U \times V) = p_1^{-1}(U) \times p_2^{-1}(V)$ are the sets $\{U_\alpha \}_{\alpha \in A} \times \{V_\beta \}_{\beta \in B} = \{U_\alpha \times V_\beta : \alpha \times \beta \in A \times B\}$. These sets are open from the product topology. $U_i \times V_j$ is disconnected from $U_k \times V_\ell$. If $U_i \neq U_k$, then $U_i$ is disconnected from $U_k$. Therefore, the products are also disconnected. Repeat for $V_j, V_\ell$. Therefore, $\{U_\alpha \}_{\alpha \in A} \times \{V_\beta \}_{\beta \in B} $ is open and disconnected.
 
 Finally, $\rho_1 \times \rho_2 |_{U_\alpha \times V_\beta}: \cover_1 \times \cover_2 \rightarrow U \times V$ is a homeomorphism. It suffices to show this fact. If $f_1 : X_1 \rightarrow Y_1$ is a homeomorphism, $f_2 : X_2 \rightarrow Y_2$ is a homeomorphism, then $f_1 \times f_2 : X_1 \times X_2 \rightarrow Y_1 \times Y_2$ is a homeomorphism. This map is a bijection as $f_1, f_2$ is a bijection. This map is continuous by the product topology. Similarly,$(f_1 \times f_2 )^{-1} = f_1^{-1} \times f_2^{-1}$ is also continuous by the product topology. Therefore, $f_1 \times f_2 : X_1 \times X_2 \rightarrow Y_1 \times Y_2$ is a homeomorphism. Thus $\rho_1 \times \rho_2 |_{U_\alpha \times V_\beta}: \cover_1 \times \cover_2 \rightarrow U \times V$ is a homeomorphism. 
+
+\subsection{Exercise 4}
+For convenience, denote $\mathbb{C} - \{0\} = \mathbb{C}^*$. 
+Let $q(r e^{i \theta}) = (e^{i \ln(r)}, e^{i \theta})$ be a covering map. Suppose a loop in the homotopy class $(a, b)$ lifts to a loop in $\mathbb{C}^*$. Recall from algebraic topology (Hatcher, Prop 1.31) that the map $q_* : \pi_1(\mathbb{C}^*) \rightarrow \pi_1(T^2)$ is injective and that the image subgroup $q_*(\pi_1(\mathbb{C}^*))$ are precisely the loops of $X$ that lift to loops.
+
+As $\pi_1(\mathbb{C}^*) = \mathbb{Z}$ and $\pi_1(T^2) = \mathbb{Z} \times \mathbb{Z}$, it is enough to show that $1 \in \pi_1(\mathbb{C}^*)$ is sent to $(0, 1)$ in $\pi_1(T^2)$. This is from the injective property of $q_*$. 
+
+Take the loop $\gamma : I \rightarrow \mathbb{C}^*: \gamma(t) = e^{2 \pi i t}$, where $[\gamma]$ is the loop corresponding to $1 \in \mathbb{Z}$. Then $q \circ \gamma$ is the loop $(0, e^{2 \pi i t})$ in $T$, which is the meridian loop. The meridian loop is in the homotopy equivalence of $(0,1) \in \mathbb{Z} \times \mathbb{Z}$. Therefore, $q_\ast$ sends $1 \in \pi_1(\mathbb{C}^*)$ to $(0, 1)$ in $\pi_1(\mathbb{C}^*)$. Therefore loops of the form $(a, b) \in T^2$ will lift to a loop in $\mathbb{C}^*$ if and only if $a = 0$.
+
+\subsection{Exercise 6}
+
+Any two knots in $T^2$ in the homotopy class of $(0, \pm 1)$ are ambient isotopic.
+
+Recall that Lemma 3.15 goes as follows:
+\begin{lemma}
+    Suppose $K$ is a knot ambient isotopic to the standard meridian $\mu \simeq (0, 1)$ in $T^2$ and $K$ intersects $\mu$ transversally a finite number of times. Then $K$ is ambient isotopic to $\mu$. 
+\end{lemma}
+
+Recall that Theorem 3.16 goes as follows.
+
+\begin{theorem}
+    Suppose $J$ and $K$ are curves on a surface. Then within any $\varepsilon$-neighbourhood of $J$ lies a simple closed curve, ambient isotopic to $J$, and that $J'$ intersects $K$ transversally finitely many times at every point in their intersection.
+\end{theorem}
+
+We shall show that any knot $K$ in $(0, \pm 1)$ is ambient isotopic to $\mu$, the standard meridian. If this is the case, then as ambient isotopy is an equivalence relation, then any $J, K$ in the homotopy class of $(0, \pm 1)$ is ambient isotopic to each other.
+
+Let $K$ be a knot in $(0, \pm 1)$ and let $\mu$ be the standard meridian. Apply theorem 3.16 to an arbitrarily small neighbourhood around $K$. There exists a simple closed curve $K'$ ambient isotopic to $K$ such that $K'$ only transversally intersects $\mu$ and the number of intersection points is finite. Apply theorem 3.15 to $K'$. There exists an ambient isotopy from $K'$ to $\mu$. Therefore, $K$ is ambient isotopic to $\mu$ by the equivalence relation of ambient isotopy.
+
+
+\subsection{Ambient isotopy is an equivalence relation}
+Ambient isotopy is 
+
 \end{document}
