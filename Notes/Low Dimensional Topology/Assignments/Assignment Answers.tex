@@ -29,6 +29,7 @@
 \DeclareMathOperator{\Star}{st}
 \DeclareMathOperator{\Lk}{lk}
 \newcommand{\atlas}{\mathcal{A}}
+\newcommand{\cover}{\widetilde{X}}
 
 %opening
 \title{Low Dimensional Topology}
@@ -74,7 +75,26 @@ Take any arc $L$ in $\mathbb{R}^3$ and a plane $P$. There is an isotopy of $P$ t
 
 Take any arc and have an ambient isotopy from the plane to the $xy$-plane. Then there is an ambient isotopy to $S^1$. 
 
-\subsection{7}
 
-There is an ambient isotopy to the interior of a polygon. Then take the inclusion map to $\mathbb{R}^2$. 
+\section{3}
+
+\subsection{2}
+
+\begin{theorem}
+    Let $X$ be a topological space and let $p : \cover \rightarrow X$ be a covering space. Let $F: I \times I \rightarrow X$ be a homotopy of paths where $F(\cdot, 0) = \gamma_0$ and $F(\cdot, 1) = \gamma_1$ rel endpoints. Suppose $F(0,t) = x_0$ and $F(1, t)= x_1$. $\tilde{x}_0 \in p^{-1}(x_0)$ there exists a unique lifted homotopy $f_t: I \rightarrow \cover$ of paths starting at $x_0$.
+\end{theorem}
+
+\begin{proof}
+    For each $F(s, t) \in X$, there exists open sheets $U_{F(s, t)}$ that contains $F(s, t)$ and is evenly covered. Because $F(s, t)$ is continuous, then $F^{-1}(U_{F(s, t)})$ are open in $I \times I$. By the compactness of $I \times I$, there exists a finite number of intervals $0 = s_0 < s_1 < \cdots < s_m = 1$ and $0 = t_0 < t_1 \ldots < t_n = 1$ such that intervals $[s_i, s_{i + 1}] \times [t_j, t_{j + 1}]$ is contained inside some $U_{F(s,t)}$.
+
+    From the path lifting theorem, there exists a unique path $\widetilde{\gamma_0} : I \rightarrow \tilde{X}$ where $\widetilde{\gamma_0}(0) = \tilde{x}_0$. Now induct over $t_i$. Let $\gamma_i = F(\cdot, t_i)$. Suppose for induction, $\widetilde{\gamma_i}$ is the unique path of $\gamma_i$. Let $\widetilde{\gamma_i}(0) = \tilde{x}_0$. Then there exists a homotopy from $\widetilde{\gamma_i}$ to $\widetilde{\gamma_{i + 1}}$. Consider $[0, s_1] \times [t_i, t_{i + 1}]$. Then there exists a neighbourhood $U_{s, t}$ which contains $ \tilde{x}_0$ where $[0, s_1] \times [t_i, t_{i + 1}]$. Now define the path \todo{finish later!}
+\end{proof}
+
+\subsection{3}
+We will show that $\rho_1 \times \rho_2: \cover_1 \times \cover_2 \rightarrow X_1 \times X_2$ is a covering space. 
+Take a point $(x_1, x_2) \in X_1 \times X_2$. Then let $U$ be an evenly covered neighbourhood in $X_1$ such that $x_1 \in U$ and $p_1^{-1}(U) = \{U_\alpha \}_{\alpha \in A}$ be its sheets, where $p_1|_{U_\alpha}: \cover_1 \rightarrow U$ is a homeomorphism. Similarly, define an evenly covered neighbourhood $V \subseteq X_2$ such that $x_2 \in V$ and $p_2^{-1}(V) = \{V_\beta \}_{\beta \in B}$ be its sheets. 
+
+We claim $U \times V$ is an evenly covered neighbourhood of $(x_1, x_2) \in X_1 \times X_2$. Firstly, $U \times V$ is connected by definition of the product of connected sets. Then the preimage, $(p_1 \times p_2)^{-1}(U \times V) = p_1^{-1}(U) \times p_2^{-1}(V)$ are the sets $\{U_\alpha \}_{\alpha \in A} \times \{V_\beta \}_{\beta \in B} = \{U_\alpha \times V_\beta : \alpha \times \beta \in A \times B\}$. These sets are open from the product topology. $U_i \times V_j$ is disconnected from $U_k \times V_\ell$. If $U_i \neq U_k$, then $U_i$ is disconnected from $U_k$. Therefore, the products are also disconnected. Repeat for $V_j, V_\ell$. Therefore, $\{U_\alpha \}_{\alpha \in A} \times \{V_\beta \}_{\beta \in B} $ is open and disconnected.
+
+Finally, $\rho_1 \times \rho_2 |_{U_\alpha \times V_\beta}: \cover_1 \times \cover_2 \rightarrow U \times V$ is a homeomorphism. It suffices to show this fact. If $f_1 : X_1 \rightarrow Y_1$ is a homeomorphism, $f_2 : X_2 \rightarrow Y_2$ is a homeomorphism, then $f_1 \times f_2 : X_1 \times X_2 \rightarrow Y_1 \times Y_2$ is a homeomorphism. This map is a bijection as $f_1, f_2$ is a bijection. This map is continuous by the product topology. Similarly,$(f_1 \times f_2 )^{-1} = f_1^{-1} \times f_2^{-1}$ is also continuous by the product topology. Therefore, $f_1 \times f_2 : X_1 \times X_2 \rightarrow Y_1 \times Y_2$ is a homeomorphism. Thus $\rho_1 \times \rho_2 |_{U_\alpha \times V_\beta}: \cover_1 \times \cover_2 \rightarrow U \times V$ is a homeomorphism. 
 \end{document}
