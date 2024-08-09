@@ -73,7 +73,7 @@ Let $G$ be a graph with the properties above. As \(\chi(G) \leq 2 \pn(G) + 2\), 
 This section finds a bound on the pagenumber of planar graphs. This upper bound is much worse than the tight upper bound found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}. However, this proof method is used in \cref{chap:Proving_The_Theorem}.  
 
 \begin{lemma}\label{lem:planar_graphs_4_connected_cliqesums}
-	Every planar graph \(G\) with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph (or a subgraph of $K_4$) with adhesion at most \(3\).
+	Every planar graph with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph (or a subgraph of $K_4$) with adhesion at most \(3\).
 \end{lemma}
 
 \begin{proof}
@@ -96,7 +96,7 @@ As a corollary to \textcite{hickingbothamStackNumberCliqueSum2023}, pagenumbers 
 
 We will discuss the \(K_5\)-minor free case. If \(G\) is \(K_5\)-minor free, then we can use Wagner's theorem.
 \begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
-	If \(G\) is \(K_5\)-minor-free, then \(G\) has a tree-decomposition of adhesion $\leq 3$ where every torso is either a planar graph or the Wagner graph \(V_8\).
+	Let \(G\) be a \(K_5\)-minor-free graph. Then \(G\) has a tree-decomposition of adhesion $\leq 3$ where every torso is either a planar graph or the Wagner graph \(V_8\).
 \end{theorem}
 A description of the Wagner graph is in \cref{fig:wagner}. The edges are coloured such that the internal edges are on different pages. The spine edges (the edges that are on the outerface) are the ones which can go on any page.
 \begin{figure}[h!]
@@ -108,7 +108,7 @@ A description of the Wagner graph is in \cref{fig:wagner}. The edges are coloure
 \end{figure}
 
 \begin{theorem}
-	If \(G\) is \(K_5\)-minor free, then \(G\) has pagenumber \(\leq 19\).
+	Let \(G\) be a \(K_5\)-minor free graph. Then \(G\) has pagenumber \(\leq 19\).
 \end{theorem}
 
 \begin{proof}
