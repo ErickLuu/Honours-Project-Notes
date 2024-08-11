@@ -92,7 +92,12 @@ An important class of graph families are the \(K_t\)-minor free graphs. For a gr
 \end{conjecture}
 Much work has been done on solving Hadwiger's conjecture, with a document by \textcite{seymourHadwigerConjecture2016} on the latest progress. However, it remains unsolved. 
 
-A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which assigns to \(H\) vertex-disjoint connected subgraphs of \(G\). If $uv$ is an edge in \(E(H)\), then some edge in \(G\) joins the two subgraphs \(\rho(u)\) and \(\rho(v)\). 
+A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which assigns to \(H\) vertex-disjoint connected subgraphs of \(G\). If $uv$ is an edge in \(E(H)\), then some edge in \(G\) joins the two subgraphs \(\rho(u)\) and \(\rho(v)\). A description of a model is in \cref{fig:model_of_P5}.
+\begin{figure}[h!]\label{fig:model_of_P5}
+	\centering
+	\includesvg[width = 0.8\textwidth]{figures/model.svg}
+	\caption{Illustration of a model $H$ in a graph $G$. The coloured boxes are the connected subgraphs contracted to a single vertex on the right.}
+\end{figure}
 
 \begin{theorem}
 	\(H\) is a model of \(G\) if and only if $H$ is a minor of $G$.
@@ -102,14 +107,8 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
 	From \textcite{norinMath599GraphMinors2017}. Suppose \(H\) is a model of \(G\). Then for all \(x\) in \(V(H)\), contract \(\rho(x)\) in \(G\) to a single vertex. This is a well-defined operation as the image $\rho(x)$ is connected and disjoint from all $\rho(y)$ where $y$ is a distinct vertex in $H$. Then delete edges to form \(H\).
 
 	Suppose \(H \leq G\). Use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the first contracted edge and let \(G' := G \setminus uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, there is a model \(\rho\) of \(H\) in \(G'\). Then find $x \in V(H)$ such that $w \in V(\rho(x))$. If there is no such $x$, then it is obvious that $\rho$ is a model of $H$ in $G$. Otherwise, 
-	delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\).
-	\begin{figure}[h]
-		\centering
-		\includesvg[width = 0.8\textwidth]{figures/model.svg}
-		\caption{Illustration of a model $H$, a path on four vertices in a graph $G$. The coloured boxes are the connected subgraphs contracted to a single vertex on the right.}
-	\end{figure}
+	delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\). 
 \end{proof}
-\todo{Add pictures}
 
  Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
 
@@ -173,10 +172,14 @@ Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lc
 	Let \(\pn(G) = k\) and suppose \(G\) has \(n\) vertices and \(m\) edges. Then the average degree of \(G\), \(d(G) = 2m/n\) by the handshaking lemma. So \(2\frac{m}{n} \leq 2 \frac{n + k(n-3)}{n} = 2 + 2k \frac{n-3}{n} < 2k + 2\). But this implies that \(G\) has a vertex of degree \(\leq 2k + 1\), and as if \(G'\) is a subgraph of \(G\), then \(G'\) also has \(\pn(G') \leq k\), thus \(G'\) has a vertex of degree at most \(2k + 1\). However, this implies \(G\) is \((2k + 1)\)-degenerate, thus \(\chi(G) \leq 2k + 2\).
 \end{proof}
 
-There exists graphs with bounded chromatic number but bunbounded pagenumber. 
-\todo{ find graphs $G$ such that $\chi(G) \geq \pn(G)$}. 
-
 Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$ and adds a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$, so the edge $e$ is replaced with a path $P$ of length $k$.\ \textcite{atneosenEmbeddabilityCompactaNbooks} proved that all graphs can be subdivided a finite number of times such the subdivision has pagenumber 3.\ \textcite{dujmovicLayoutsGraphSubdivisions2005} showed that the number of subdivision necessary is $O(\log\pn(G))$.
+
+\begin{theorem}
+	There exists a family of 2-colourable graphs with arbitrarily pagenumber.
+\end{theorem}
+\begin{proof}
+	Let $G_n$ be the complete graph $K_n$ with every edge subdivided once. Then $G_n$ is bipartite, so is $2$-colourable. However, from \textcite{eppsteinSeparatingThicknessGeometric2002}, for every $t$ there exists an $n$ such that $G_n$ cannot be embedded in $t-1$ pages. This proof comes from \textit{Ramsey theory}, and explicit values of $n$ are difficult to find. 
+\end{proof}
 
 An \textit{expander graph} is a sparse, highly connected graph. Expander graphs share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. We say a graph $G$ is a bipartite \varepsilon-expander if there exists a bipartition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, $|N(S)| \geq (1 + \varepsilon) |S|$. 
 \textcite{dujmovicLayoutsExpanderGraphs2016} showed that all bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
