@@ -1,9 +1,9 @@
 \chapter{Definitions}\label{chap:Definitions}
 This chapter presents important notions in structural graph theory.
 \begin{itemize}
-	\item \cref{sec: Basic definitions} are basic graph theory definitions and notations.
-	\item \cref{sec:Planar graphs} discusses important information involving planar graphs.
-	\item \cref{sec:Graph Minors} discusses graph minors.
+	\item \cref{sec: Basic definitions} are basic graph theory definitions and notations. These include \textit{graphs}, \textit{subgraphs} and types of subgraphs, including \textit{induced subgraphs,} \textit{spanning subgraphs}, \textit{paths}, \textit{cycles} and \textit{Hamiltonian cycles}. 
+	\item \cref{sec:Planar graphs} discusses \textit{planar graphs}. The concepts of graphs \textit{embedded} on $\mathbb{R}^2$, \textit{faces} and \textit{Euler's formula}.
+	\item \cref{sec:Graph Minors} discusses \textit{graph minors}.
 	\item \cref{sec:Book Embedding} defines book-embeddings and discusses its importance.
 	\item \cref{sec:treewidth} defines \textit{treewidth}.
 	\item \cref{sec:Pathwidth} defines a related notion \textit{pathwidth}.
@@ -15,7 +15,7 @@ A graph $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$. $E(G)
 Let $G$ be a graph. A \textit{subgraph} $H$ in $G$ is a graph with vertex set $V(H) \subseteq V(G)$ and edge set $E(H)$ with the property that if $vw$ is an edge in $E(H)$, then $vw$ is an edge in $E(G)$.
 Let $G$ be a graph and let $S$ be a non-empty subset of the vertex set of $G$. The \textit{induced subgraph} of $S$ in $G$ is the graph $G[S]$ with vertex set $S$ and edge set containing precisely all edges in $G$ incident to two vertices in $S$. Removing a set of vertices $S \subseteq V(G)$ from $G$ forms the induced subgraph $G - S := G[V(G) - S]$. 
 $H$ is a \textit{spanning subgraph} of $G$ if $H$ is a subgraph of $G$ and $V(H) = V(G)$. 
-The neighborhood of a set of vertices $A \subseteq V(G)$ are precisely all vertices that are adjacent to a vertex in $A$ and not in $A$ and is denoted as $N_G(A)$. 
+The neighborhood of a set of vertices $A \subseteq V(G)$ are precisely all vertices that are adjacent to a vertex in $A$ and not in $A$ and is denoted as $N_G(A)$. Below are a list of useful subgraphs.
 
 \begin{itemize}
 	\item A \textit{path} in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell- 1}\) which join a sequence of vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\), and all the vertices are distinct.
@@ -103,8 +103,15 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
 
 	Suppose \(H \leq G\). Use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the first contracted edge and let \(G' := G \setminus uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, there is a model \(\rho\) of \(H\) in \(G'\). Then find $x \in V(H)$ such that $w \in V(\rho(x))$. If there is no such $x$, then it is obvious that $\rho$ is a model of $H$ in $G$. Otherwise, 
 	delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\).
+	\begin{figure}[h]
+		\centering
+		\includesvg[width = 0.8\textwidth]{figures/model.svg}
+		\caption{Illustration of a model $H$, a path on four vertices in a graph $G$. The coloured boxes are the connected subgraphs contracted to a single vertex on the right.}
+	\end{figure}
 \end{proof}
 \todo{Add pictures}
+
+ Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
 
 \section{Book embedding}\label{sec:Book Embedding}
 A \textit{book} with \(k\) \textit{pages} consists of \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine}, and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes.\ \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} described fans in the 1960s.

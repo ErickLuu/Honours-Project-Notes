@@ -31,7 +31,7 @@
      inkscape:window-x="3832"
      inkscape:window-y="112"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1" />
   <g
@@ -42,6 +42,10 @@
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2"
        d="m 57.702738,74.580074 99.760222,7.119009"
        id="path10" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2"
+       d="M 167.74864,164.30905 157.46296,81.699083"
+       id="path11" />
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2"
        d="M 33.319611,121.17311 105.47215,198.95882 57.702738,74.580074 164.8741,161.19466"
@@ -101,10 +105,6 @@
        cx="167.74864"
        cy="164.30905"
        r="7.3111382" />
-    <path
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2"
-       d="M 167.74864,164.30905 157.46296,81.699083"
-       id="path11" />
   </g>
   <g
      inkscape:groupmode="layer"
