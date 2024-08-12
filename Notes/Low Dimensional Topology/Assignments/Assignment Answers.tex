@@ -107,19 +107,19 @@ Finally, $\rho_1 \times \rho_2 |_{U_\alpha \times V_\beta}: \cover_1 \times \cov
 
 \subsection{Exercise 4}
 For convenience, denote $\mathbb{C} - \{0\} = \mathbb{C}^*$. 
-Let $q(r e^{i \theta}) = (e^{i \ln(r)}, e^{i \theta})$ be a covering map. Suppose a loop in the homotopy class $(a, b)$ lifts to a loop in $\mathbb{C}^*$. Recall from algebraic topology (Hatcher, Prop 1.31) that the map $q_* : \pi_1(\mathbb{C}^*) \rightarrow \pi_1(T^2)$ is injective and that the image subgroup $q_*(\pi_1(\mathbb{C}^*))$ are precisely the loops of $X$ that lift to loops.
+Let $q(r e^{i \theta}) = (e^{i \ln(r)}, e^{i \theta})$ be a covering map from $\mathbb{C}^* \rightarrow T^2$. Recall from algebraic topology (Hatcher, Prop 1.31) that the induced map $q_* : \pi_1(\mathbb{C}^*) \rightarrow \pi_1(T^2)$ is injective and that the image subgroup $q_*(\pi_1(\mathbb{C}^*))$ are precisely the loops of $X$ that lift to loops. 
 
-As $\pi_1(\mathbb{C}^*) = \mathbb{Z}$ and $\pi_1(T^2) = \mathbb{Z} \times \mathbb{Z}$, it is enough to show that $1 \in \pi_1(\mathbb{C}^*)$ is sent to $(0, 1)$ in $\pi_1(T^2)$. This is from the injective property of $q_*$. 
+As $\pi_1(\mathbb{C}^*) = \mathbb{Z}$ and $\pi_1(T^2) = \mathbb{Z} \times \mathbb{Z}$, it is enough to show that $1 \in \pi_1(\mathbb{C}^*)$ is sent to $\langle 0, 1 \rangle$ in $\pi_1(T^2)$. This is from the injective property of $q_*$. 
 
-Take the loop $\gamma : I \rightarrow \mathbb{C}^*: \gamma(t) = e^{2 \pi i t}$, where $[\gamma]$ is the loop corresponding to $1 \in \mathbb{Z}$. Then $q \circ \gamma$ is the loop $(0, e^{2 \pi i t})$ in $T$, which is the meridian loop. The meridian loop is in the homotopy equivalence of $(0,1) \in \mathbb{Z} \times \mathbb{Z}$. Therefore, $q_\ast$ sends $1 \in \pi_1(\mathbb{C}^*)$ to $(0, 1)$ in $\pi_1(\mathbb{C}^*)$. Therefore loops of the form $(a, b) \in T^2$ will lift to a loop in $\mathbb{C}^*$ if and only if $a = 0$.
+Take the loop $\gamma : I \rightarrow \mathbb{C}^*: \gamma(t) = e^{2 \pi i t}$, where $[\gamma]$ is the loop corresponding to $1 \in \mathbb{Z}$. Then $q \circ \gamma$ is the loop $(0, e^{2 \pi i t})$ in $T$, which is the meridian loop. The meridian loop is in the homotopy equivalence of $\langle 0, 1 \rangle \in \mathbb{Z} \times \mathbb{Z}$. Therefore, $q_\ast$ sends $1 \in \pi_1(\mathbb{C}^*)$ to $\langle 0, 1 \rangle$ in $\pi_1(\mathbb{C}^*)$. Therefore loops of the form $ \langle a, b \rangle \in T^2$ will lift to a loop in $\mathbb{C}^*$ if and only if $a = 0$.
 
 \subsection{Exercise 6}
 
-Any two knots in $T^2$ in the homotopy class of $(0, \pm 1)$ are ambient isotopic.
+Any two knots in $T^2$ in the homotopy class of $\langle 0, \pm 1 \rangle$ are ambient isotopic.
 
 Recall that Lemma 3.15 goes as follows:
 \begin{lemma}
-    Suppose $K$ is a knot ambient isotopic to the standard meridian $\mu \simeq (0, 1)$ in $T^2$ and $K$ intersects $\mu$ transversally a finite number of times. Then $K$ is ambient isotopic to $\mu$. 
+    Suppose $K$ is a knot ambient isotopic to the standard meridian $\mu \simeq \langle 0, 1 \rangle$ in $T^2$ and $K$ intersects $\mu$ transversally a finite number of times. Then $K$ is ambient isotopic to $\mu$. 
 \end{lemma}
 
 Recall that Theorem 3.16 goes as follows.
@@ -128,12 +128,29 @@ Recall that Theorem 3.16 goes as follows.
     Suppose $J$ and $K$ are curves on a surface. Then within any $\varepsilon$-neighbourhood of $J$ lies a simple closed curve, ambient isotopic to $J$, and that $J'$ intersects $K$ transversally finitely many times at every point in their intersection.
 \end{theorem}
 
-We shall show that any knot $K$ in $(0, \pm 1)$ is ambient isotopic to $\mu$, the standard meridian. If this is the case, then as ambient isotopy is an equivalence relation, then any $J, K$ in the homotopy class of $(0, \pm 1)$ is ambient isotopic to each other.
+We shall show that any knot $K$ in $\langle 0, \pm 1 \rangle$ is ambient isotopic to $\mu$, the standard meridian. If this is the case, then as ambient isotopy is an equivalence relation, then any $J, K$ in the homotopy class of $\langle 0, \pm 1 \rangle$ is ambient isotopic to each other.
 
-Let $K$ be a knot in $(0, \pm 1)$ and let $\mu$ be the standard meridian. Apply theorem 3.16 to an arbitrarily small neighbourhood around $K$. There exists a simple closed curve $K'$ ambient isotopic to $K$ such that $K'$ only transversally intersects $\mu$ and the number of intersection points is finite. Apply theorem 3.15 to $K'$. There exists an ambient isotopy from $K'$ to $\mu$. Therefore, $K$ is ambient isotopic to $\mu$ by the equivalence relation of ambient isotopy.
+Let $K$ be a knot in $\langle 0, \pm 1 \rangle$ and let $\mu$ be the standard meridian. Apply theorem 3.16 to an arbitrarily small neighbourhood around $K$. There exists a simple closed curve $K'$ ambient isotopic to $K$ such that $K'$ only transversally intersects $\mu$ and the number of intersection points is finite. Apply theorem 3.15 to $K'$. There exists an ambient isotopy from $K'$ to $\mu$. Therefore, $K$ is ambient isotopic to $\mu$ by the equivalence relation of ambient isotopy.
 
 
 \subsection{Ambient isotopy is an equivalence relation}
-Ambient isotopy is 
+Let $X$ be the topological space we are working over. Let $J, K, L$ be three knots in $X$. If $J$ and $K$ are ambient isotopic, then $J \cong K$.
+\paragraph{Ambient isotopy is reflexive}
+Show that $K \cong K$. Let $H : X \times I \rightarrow X$ where $H(x, t) = x$. Then $H(\cdot, 0) = Id$ and $H(K, 1) = K$ as $H(x, 1) = x$. Therefore, $K \cong K$. 
 
+\paragraph{Ambient isotopy is symmetric}
+Show that if $K \cong L$, then $L \cong K$. Let $H : X \times I \rightarrow X$ be an ambient isotopy from $K$ to $L$. Write $H( \cdot, t) = h_t : X \rightarrow X$. From the definition of ambient isotopy, $h_0 = Id$ and $h_1(K) = L$. Now let $G : X \times I \rightarrow X$ be defined as $G(x, t) = h_1^{-1}(H(x, 1-t))$. Then $G(\cdot, 0) = h_1^{-1}\circ h_1 = Id$. This is a continuous map as it is the composition of continuous maps. Furthermore, as $h_1$ is a homeomorphism and $H(\cdot, 1-t)$ is also a homeomorphism, $G(\cdot, t)$ is a homeomorphism. Finally, $G(L, 1) = h_1^{-1}(H(L, 0)) = h_1^{-1}(L) = K$. Therefore, $G$ is an ambient isotopy from $K$ to $L$. 
+
+\paragraph{Ambient isotopy is transitive}
+
+If $J \cong K$, $K \cong L$ then $J \cong L$. Suppose $F, G : X \times I \rightarrow X$ where $F$ is an ambient isotopy from $J$ to $K$ and $G$ is an ambient isotopy from $K$ to $L$. Then define:
+
+\begin{equation*}
+    H(x, t) =
+    \begin{cases}
+        F(x, 2t) & 0 \leq t \leq 1/2\\
+        G(F(x, 1), 2t-1) & 1/2 \leq t \leq 1
+    \end{cases}
+\end{equation*}
+On fixed $t$, $H$ is a homeomorphism as $H$ is a composition of homeomorphisms. $H$ is continuous as at time $t = 1/2$, $H(x, t) = G(F(x, 1) , 0) = F(x, 1)$. By the gluing lemma, the map is piecewise continuous. Finally, $H(x, 0) = x$ and $H(J, 1) = G(F(J, 1), 1) = G(K, 1) = L$. Therefore, $H$ is an ambient isotopy from $J$ to $L$. 
 \end{document}
