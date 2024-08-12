@@ -4,13 +4,13 @@ This chapter presents important notions in structural graph theory.
 	\item \cref{sec: Basic definitions} are basic graph theory definitions and notations. These include \textit{graphs}, \textit{subgraphs} and types of subgraphs, including \textit{induced subgraphs,} \textit{spanning subgraphs}, \textit{paths}, \textit{cycles} and \textit{Hamiltonian cycles}. 
 	\item \cref{sec:Planar graphs} discusses \textit{planar graphs}. The concepts of graphs \textit{embedded} on $\mathbb{R}^2$, \textit{faces} and \textit{Euler's formula}.
 	\item \cref{sec:Graph Minors} discusses \textit{graph minors}.
-	\item \cref{sec:Book Embedding} defines book-embeddings and discusses its importance.
+	\item \cref{sec:Book Embedding} defines \textit{book-embeddings} and pagenumber.
 	\item \cref{sec:treewidth} defines \textit{treewidth}.
 	\item \cref{sec:Pathwidth} defines a related notion \textit{pathwidth}.
 \end{itemize}
 These definitions will be useful in discussing the Graph Minor Structure Theorem and our conjecture.
 \section{Basic definitions}\label{sec: Basic definitions}
-A graph $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$. $E(G)$ is a set that contains two-element subsets of $V(G)$. An edge $ \{v, w\}$ \textit{joins} vertices $v$ and $w$. In this paper, all graphs are simple unless stated. A graph is \textit{simple} if all edges join two distinct vertices and there is at most one edge between any two vertices. Furthermore, all graphs $G$ are finite, so $|V(G)| < \infty$. The graph with all possible edges on $n$ vertices is the complete graph $K_n$.
+A graph $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$. $E(G)$ is a set that contains two-element subsets of $V(G)$. An edge $ \{v, w\}$ \textit{joins} vertices $v$ and $w$. A graph is \textit{simple} if all edges join two distinct vertices and there is at most one edge between any two vertices. In this paper, all graphs are simple unless stated. Furthermore, all graphs $G$ are finite, so $|V(G)| < \infty$. The graph with all possible edges on $n$ vertices is the complete graph $K_n$.
 
 Let $G$ be a graph. A \textit{subgraph} $H$ in $G$ is a graph with vertex set $V(H) \subseteq V(G)$ and edge set $E(H)$ with the property that if $vw$ is an edge in $E(H)$, then $vw$ is an edge in $E(G)$.
 Let $G$ be a graph and let $S$ be a non-empty subset of the vertex set of $G$. The \textit{induced subgraph} of $S$ in $G$ is the graph $G[S]$ with vertex set $S$ and edge set containing precisely all edges in $G$ incident to two vertices in $S$. Removing a set of vertices $S \subseteq V(G)$ from $G$ forms the induced subgraph $G - S := G[V(G) - S]$. 
@@ -48,7 +48,7 @@ As a corollary, all Hamiltonian graphs are biconnected. For any two distinct ver
 A graph \(G\) is \textit{planar} if \(G\) can be drawn in the Euclidean plane \( \mathbb{R}^2 \) such that no two edges cross. A drawing of $G$ in $\mathbb{R}^2$ is referred to as an \textit{embedding} of $G$ in $\mathbb{R}^2$. If \(G\) is embedded in \(\mathbb{R}^2 \), then we can topologically remove the set $G$ from $\mathbb{R}^2$. The connected components in $\mathbb{R}^2 - G$ are called \textit{faces}. The \textit{outerface} is the unbounded face in $\mathbb{R}^2$, meaning that the outerface goes to infinity. The \textit{internal faces} of $G$ are all the faces which are not the outerface. A set of vertices $S$ in $V(G)$ \textit{lie} on a face $F$, or \textit{bound} $F$ if $S$ is in the closure of $F$. A set of edges $T$ in $V(G)$ also bound a face $F$ if $T$ is in the closure of $F$. If an edge $e$ bounds a face $F$, then $e$ \textit{touches} $F$. \(G\) is \textit{outerplanar} if \(G\) is planar and there exists an embedding such that all vertices in \(G\) lie on the outerface.
 Let \(F(G)\) be the set of faces of \(G\) embedded on \(\mathbb{R}^2\). Then
 \begin{theorem}[Euler's formula]\label{thm:Euler_planar}
-	For all connected graphs $G$,
+	For all connected planar graphs $G$ embedded on $\mathbb{R}^2$,
 	\begin{equation}
 		|V(G)| - |E(G)| + |F(G)| = 2.
 	\end{equation}
@@ -113,7 +113,7 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
  Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
 
 \section{Book embedding}\label{sec:Book Embedding}
-A \textit{book} with \(k\) \textit{pages} consists of \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine}, and we refer to the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes.\ \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} described fans in the 1960s.
+A \textit{book} with \(k\) \textit{pages} consists of \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine}, and the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes.\ \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} described fans in the 1960s.
 A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the spine, and we place each edge on a single page such that no two edges cross.
 The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. An embedding of $K_5$ in three pages is in \cref{fig:book-embedding}.
 \begin{figure}[h!]\label{fig:book-embedding}
@@ -147,13 +147,13 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	If an \(n\)-vertex graph \(G\) can be embedded on $k$ pages, then \(G\) has at most \(n + k(n-3)\) edges.
 \end{lemma}
 \begin{proof}
-	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), the spine edges can appear on any page. Furthermore we have there are at most \(n-3\) non-spine edges on each page. The maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the spine edges, with \(n\) edges on the spine. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
+	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), the spine edges can appear on any page. Furthermore, there are at most \(n-3\) non-spine edges on each page. The maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the spine edges, with \(n\) edges on the spine. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
 \end{proof}
 \begin{theorem}[]\label{thm:Pagenumber_Complete_Graph}
 	The complete graph $K_n$ has $\pn(K_n) = \lceil \frac{n}{2} \rceil$ when $n \geq 4$.
 \end{theorem}
 \begin{proof}
-	To show the upper bound, arrange the vertices in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then we colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. As an example, we refer to \cref{fig:k8 coloured with colours} to show what zig-zagging pattern we are referring to. We rotate this pattern $\lceil n/2 \rceil$ times. 
+	To show the upper bound, arrange the vertices in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. As an example, refer to \cref{fig:k8 coloured with colours} for a description of a zig-zagging pattern. We rotate this pattern $\lceil n/2 \rceil$ times. 
 	\par
 	To show the lower bound, we use \cref{lem:Edge_Bound}. \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\). As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality.
 \end{proof}
