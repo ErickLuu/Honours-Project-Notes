@@ -838,6 +838,41 @@ Therefore, $k$-planar graphs also have the product structure.
 	If $G_0 \subseteq H \boxtimes P$, and $G$ is an $r$-shallow minor of $G_0 \boxtimes K_L$, then $G \subseteq H' \boxtimes P$ where $\tw(H) \leq f(\tw(H), r, c)$. 
 \end{lemma}
 As an example, if $G$ is $k$-planar, then $G$ is a $\approx k/2$-shallow minor of $G_0 \boxtimes K_2$ where $G_0$ is planar. 
+
+\section{Erdos-Posa property}
+Recall that the Erdos-Posa theorem states that for any graph $G$, there exists $k$ disjoint cycles or there exists a vertex set $|S|$ where  $|S| \leq f(k) \in \Theta(k \log k)$ vertices in $G$ such that $G - S$ has no cycles.
+
+A graph $H$ has the\textit{ Erdos-Posa property }if for any graph $G$, there exists $k$ disjoint subgraphs of $G$ each containing a $H$-minor or there exists a vertex set $|S|$ where  $|S| \leq f_H(k)$ vertices in $G$ such that $G - S$ is $H$-minor-free.
+
+There is a paper by Raymond et al where $f_H(k) = C_H k \log k$ where $C_H$ is some constant. 
+
+\begin{theorem}
+	If $H$ is planar, then $H$ has the Erdos-Posa property.
+\end{theorem}
+\begin{proof}
+	Suppose $H$ is planar and connected. Then $K = 1$ is trivial for any graph $H$. Now suppose $K \geq 2$. Let $H' = H \sqcup \ldots \sqcup H$ $k$ times. $H'$ is planar. From GMT 3, For all planar graphs $H$, if $G$ has no $H$ minor, then $\tw(G) \leq C_H$ for some $H$. Now consider a tree-decomposition of $G$, $(B_x, x \in T)$. The size of each bag is $\leq C_{H'} + 1$. Consider all models of $H$ in $G$ and see what subtree each model spans. Let $\mathcal{F}$ be the family of subtrees whose subgraph contains a minor of $H$. As none of $k$ subtrees are disjoint, then every $k$ subtrees in $\mathcal{F}$ must intersect at some bag. By the Helly property, there exists a set $S$ of bags of size $k - 1$ bags such that every subtree in $T$ intersects with $S$. Then remove $S' = \cup_{x \in S} B_x$ from $G$. Then there is no minor of $H$ in this induced subgraph. 
+\end{proof}
+$|S'| \leq |S| (\tw(G) + 1) = |S|(c(H, k) + 1)$. But $C(H, k) = O(k^9 |V(H)|^9)$, so $|S'| = O(K^{10} |V(H)|^9)$. 
+
+\begin{theorem}
+	Let $\mathcal{F}$ be a family of subtrees trees on a tree $T$. Let $k$ be an integer $\geq 1$. Then if every $k$-subset of $\mathcal{F}$ are not disjoint, then there exists a vertex set $S \subseteq V(T), |S| \leq k - 1$ such that every tree in $\mathcal{F}$ intersects with $S$.
+\end{theorem}
+\begin{proof}
+	Use induction on $|\mathcal{F}| + k$. If $|V(T)| = 1$, then this is trivial. Let $v$ be a leaf in $T$. If $\{v\} \in \mathcal{F}$, then delete $v$ from $T$ and remove $v$ from all trees in $\mathcal{F}$. Then use the induction hypothesis. If $\{v\}$ is not a tree, then if two bags intersect on $v$, they must intersect on its neighbour $w$. Delete $v$ from $T$ and from $\mathcal{F}$.
+\end{proof}
+
+\begin{theorem}
+	Suppose $H$ is a nonplanar graph, and an integer $f_H(2) \geq 1$. Then there exists a graph $G$ where $G$ has no two disjoint copies of $H$ and there exists no set $C \subseteq V(G), |C| \leq f_H(2)$ such that $G - C$ has no $H$ minor. 
+\end{theorem}
+
+\begin{proof}
+	Suppose $H$ has oriented genus $g$. Then $H' = H \sqcup H$ has oriented genus $2g$.
+	Embed $H' H$ onto a $g$-torus. Each component is vertex disjoint but edges can cross. At most 2 edges are at each crossing. Let $G'$ be the embedding but with a vertex on each crossing of the embedding. Suppose $EP$ holds for $H$. Then for $G'$, $G'$ has a minor of $H'$ or has a set of bounded size of no $H$ minor. The genus of $H'$ is $2 g$ which is bigger than $g$. Therefore, $G'$ has no $H'$ minor. Suppose there exists a set $S$. Then $|S| \leq f_H(2)$. $S$ hits $2 |S|$ copies which is $< \ell$. Therefore, $G - S$ contains a $H$ minor.
+\end{proof}
+
+Why $k \log k$? There exists infinitely many integers $n$ such that there is an $n$-vertex graph with treewidth $\Theta(n)$ and girth $g = \Theta(\log n)$. These are Ramanujan graphs.
+
+Take $k = \lfloor n/g \rfloor + 1$. Then $k = \lfloor n/g \rfloor + 2$. $G$ has $\leq n/g < k - 1$ disjoint cycles. Therefore it fails property 1. Suppose $S \leq V(G)$ has no cycles. As $\Omega(g) \leq \tw(G) \leq |S| + 1$, then $|S| \in \Omega(n)$. Then as $n \approx k g$, $n \approx k \log n$, so $n \approx k \log k$ with some bootstrap. Therefore, $|S| \geq \omega(n) = \Theta(k \log k)$. 
 \end{document}
 
 
