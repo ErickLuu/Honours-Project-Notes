@@ -142,7 +142,7 @@ Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)
 	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs which have tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). Adhesion $\ell$ is implied. 
 \end{theorem}
 There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.\ \textcite{joretCompleteGraphMinors2013} found that
-\begin{theorem}[\textcite{joretCompleteGraphMinors2013}:]\label{thm:graph_structure_bound_theorem}
+\begin{theorem}[\textcite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
 	For all graphs \(G \in \mathcal{G}(g, p, k, a)\),
 	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, there exists an integer \(n \geq a + 1 4 k\sqrt{p + g}\) such that \(K_n\) is a minor of some graph in \(\mathcal{G}(g, p, k, a)\).
 \end{theorem}
@@ -159,12 +159,12 @@ The Graph Minor Theorem is equivalent to the statement:
 \end{theorem}
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors. The family of graphs that can be embedded on a fixed surface $\sigma$ is minor-closed. 
 For planar graphs, the two minimal forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
-The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}
+The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
 
-\begin{figure}[h!]\label{fig:k7_on_torus}
+\begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/k7 on torus.svg}
-	\caption{Figure of $K_7$ embedded on a torus}
+	\caption{Figure of $K_7$ embedded on a torus}\label{fig:k7_on_torus}
 \end{figure}
 
 \begin{lemma}
