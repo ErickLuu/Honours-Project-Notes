@@ -840,6 +840,24 @@ Therefore, $k$-planar graphs also have the product structure.
 As an example, if $G$ is $k$-planar, then $G$ is a $\approx k/2$-shallow minor of $G_0 \boxtimes K_2$ where $G_0$ is planar. 
 
 \section{Erdos-Posa property}
+\begin{theorem}[Erdos-Posa]
+	Every graph $G$ has either $k$ disjoint cycles or a vertex set $S \subseteq V(G)$ where $|S| \leq c k \log k$ where $G - S$ has no cycles. 
+\end{theorem}
+
+We prove some small lemmas that build to the Erdos-Posa theorem.
+\begin{lemma}
+	Every graph $G$ with $\delta(G) \geq 3k$ has $k$ cycles.
+\end{lemma}
+\begin{proof}
+	We shall prove this by induction. For $k = 1$, this is trivial. Now suppose $k \geq 2$. Let $C$ be the smallest cycle in $G$. Then every vertex has at most three neighbours on $C$. If $v$ has four neighbours on $C$, then there exists a smaller cycle that goes through $v$. Then $G - C$ has smallest degree $\geq 3(k - 1)$. By induction, $G - C$ has $k - 1$ cycles. Add $C$ back on for the $k$-th cycle. 
+\end{proof}
+
+\begin{lemma}
+	Every graph of minimum degree at least $G$ and girth at least $c \log q$ contains $K_q$ as a minor. 
+\end{lemma}
+
+
+
 Recall that the Erdos-Posa theorem states that for any graph $G$, there exists $k$ disjoint cycles or there exists a vertex set $|S|$ where  $|S| \leq f(k) \in \Theta(k \log k)$ vertices in $G$ such that $G - S$ has no cycles.
 
 A graph $H$ has the\textit{ Erdos-Posa property }if for any graph $G$, there exists $k$ disjoint subgraphs of $G$ each containing a $H$-minor or there exists a vertex set $|S|$ where  $|S| \leq f_H(k)$ vertices in $G$ such that $G - S$ is $H$-minor-free.
