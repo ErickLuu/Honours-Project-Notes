@@ -853,10 +853,17 @@ We prove some small lemmas that build to the Erdos-Posa theorem.
 \end{proof}
 
 \begin{lemma}
-	Every graph of minimum degree at least $G$ and girth at least $c \log q$ contains $K_q$ as a minor. 
+	Every graph of minimum degree at least $q$ and girth at least $c \log q$ contains $K_q$ as a minor. 
 \end{lemma}
 
+Now is the proof of the Erdos-Posa theorem.
+\begin{proof}
+	We will do induction on $k + |V(G)|$. Suppose $G$ has a cycle $C$ of length $\leq c \log k$. Then by induction, $G - C$ will either have $k - 1$ disjoint cycles or a vertex set $S$ of size at most $c (k - 1) \log (k-1) \leq c k \log k -  c \log k$ such that $G - C$ has no cycles. In the first case, add $C$ as a cycle for $k$ total cycles, or let $S' = C \cup S$ to have a set of size at most $c k \log k$ where $G - S$ has no cycles.
 
+	Then suppose there is a vertex $v$ of degree $2$ in $G$, and $G$ has girth $\geq 4$. Then let $x$ and $y$ be the edges of $v$ and contract $v$ to $y$. Then if $G \setminus vy$ has $k$ cycles, then any cycle including $x$ and $y$ can be uncontracted to include $v$. Any cycle missing either $x$ or $y$ are untouched by the contraction operation. Therefore, $G$ has $k$ cycles. Otherwise, suppose $G \setminus vy$ has $c k \log k$ sized feedback set $S$. Then this hitting set is the same in $G$. Any cycle that goes through $v$ must go through $x$ and $y$. 
+
+	Finally, suppose $G$ has girth $\geq$ $\log k$ and every edge 
+\end{proof}
 
 Recall that the Erdos-Posa theorem states that for any graph $G$, there exists $k$ disjoint cycles or there exists a vertex set $|S|$ where  $|S| \leq f(k) \in \Theta(k \log k)$ vertices in $G$ such that $G - S$ has no cycles.
 
