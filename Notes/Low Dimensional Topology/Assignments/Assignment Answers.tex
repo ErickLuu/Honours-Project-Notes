@@ -28,6 +28,7 @@
 \DeclareMathOperator{\Int}{int}
 \DeclareMathOperator{\Star}{st}
 \DeclareMathOperator{\Lk}{lk}
+\DeclareMathOperator{\Homeo}{Homeo}
 \newcommand{\atlas}{\mathcal{A}}
 \newcommand{\cover}{\widetilde{X}}
 
@@ -96,5 +97,33 @@ $\exp$ is a continuous map as it is entire. Let $R e^{i \theta}$ be a point in $
 
     From the path lifting theorem, there exists a unique path $\widetilde{\gamma_0} : I \rightarrow \tilde{X}$ where $\widetilde{\gamma_0}(0) = \tilde{x}_0$. Now induct over $t_i$. Let $\gamma_i = F(\cdot, t_i)$. Suppose for induction, $\widetilde{\gamma_i}$ is the unique path of $\gamma_i$. Let $\widetilde{\gamma_i}(0) = \tilde{x}_0$. Then there exists a homotopy from $\widetilde{\gamma_i}$ to $\widetilde{\gamma_{i + 1}}$. Consider $[0, s_1] \times [t_i, t_{i + 1}]$. Then there exists a neighbourhood $U_{s, t}$ which contains $ \tilde{x}_0$ where $[0, s_1] \times [t_i, t_{i + 1}]$. Now define the path \todo{finish later!}
 \end{proof}
+
+\section{4}
+\subsection{2}
+Let $K$ and $K'$ be two null-homotopic knots on $T^2$. Then there exists an ambient isotopy of $T^2$ taking $K$ to $K'$. 
+
+Let $h : \mathbb{C} \rightarrow T^2$ be its cover.
+Since $K$ and $K'$ are null-homotopic, they lift to loops $\widetilde{K}, \widetilde{K'}$  in $\mathbb{C}$ from Hatcher 1.31. Then there exists an ambient isotopy $\gamma$ in $\mathbb{C} \cong \mathbb{R}^2$ from $\widetilde{K}$ to $\widetilde{K'}$ by Corr 2.6. Therefore, $h \circ \gamma \circ h^{-1}$ is an ambient isotopy from $K$ to $K'$. 
+
+Note that $T^2$ can be replaced by any surface $S$ which have a universal cover of $\mathbb{C}$ or $\mathbb{R}$. 
+
+\subsection{3}
+Firstly, we will show that $N$ is a subgroup of $\Homeo(S)$. 
+Let $f \in \Homeo(S)$. Then $f N f^{-1} = N$. 
+
+\subsection{4}
+Suppose $\begin{bmatrix}
+    a & b\\
+    c & d\\
+\end{bmatrix} \in GL(2, \mathbb{Z})$. Therefore, $ad - bc = \pm 1$.
+
+\subsection{5}
+Call all homeomorphisms isotopic to $id$ null-isotopies. 
+
+Between any two points $p_0, p_1 \in S^2$, there is a homeomorphism isotopic to the identity such that $f(p_0) = p_1$. This is done by rotating the sphere around. 
+
+Take any $f$ which is orientation preserving. Then pick a point $p_0$. Then there exists a null-isotopy $\gamma : S^2 \rightarrow S^2$ such that $\gamma(f(p_0)) = p_0$, through a rotation of the sphere. Then $ \gamma \circ f$ is an isotopy that takes $p_0$ to $p_0$ (This step could be simplified with a Brower-type proof). However, $S^2 \cong D^2/{\partial D^2}$. Consider the quotient map $q : D^2 \rightarrow S^2$, where $p_0$ is the point on $\partial D^2$. Let $g : D^2 \rightarrow D^2$ such that $g \circ q = \gamma \circ f$. This map exists as $\gamma \circ f$ keeps $p_0$ fixed and changes $S^2 - \{p_0\}$, so $g = \gamma \circ f$ on the open disk under the map. Then $g|_{\partial D^2} = Id$. Then by Alexander's isotopy lemma, $g$ is an isotopy. Therefore, $\gamma \circ f$ is also an isotopy, therefore $f$ is an isotopy. Thus shown. 
+
+Orientation-reversing homeomorphims cannot be transformed to orienting preserving homeomorphisms on $S^2$. 
 
 \end{document}
