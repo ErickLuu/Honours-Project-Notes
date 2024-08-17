@@ -8,7 +8,15 @@ Let \(F(G)\) be the set of faces of \(G\) embedded on \(\mathbb{R}^2\). Then
 	\end{equation}
 \end{theorem}
 
-We can use this result to bound the number of edges in an outerplanar graph.
+The most immediate application is bounding the number of edges in any planar graph.
+\begin{theorem}\label{thm:planar_graph_edge_bound}
+	Let $G$ be a planar graph with $n$ vertices and $m$ edges. Then $m \leq 3n - 6$.
+\end{theorem}
+\begin{proof}
+	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches exactly two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
+\end{proof}
+
+Another application of Euler's formula is to bound the number of edges in an outerplanar graph.
 \begin{theorem}\label{thm:outerplanar_bound}
 	If \(G\) is an outerplanar graph with \(n\) vertices and \(m\) edges, then \(m \leq 2n - 3\).
 \end{theorem}
@@ -27,11 +35,4 @@ We can use this result to bound the number of edges in an outerplanar graph.
 		2n = 3 + m.
 	\end{equation*}
 	Therefore, \(m = 2n - 3\). Since every outerplanar graph is a spanning subgraph of a maximal planar graph, \(m \leq 2n - 3\).
-\end{proof}
-
-\begin{theorem}\label{thm:planar_graph_edge_bound}
-	Let $G$ be a planar graph with $n$ vertices and $m$ edges. Then $m \leq 3n - 6$.
-\end{theorem}
-\begin{proof}
-	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches exactly two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
 \end{proof}
