@@ -2,6 +2,7 @@
 \section{Basic definitions}\label{sec: Basic definitions}
 A graph $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$. $E(G)$ is a set that contains two-element subsets of $V(G)$. An edge $ \{v, w\}$ \textit{joins} vertices $v$ and $w$. A graph is \textit{simple} if all edges join two distinct vertices and there is at most one edge between any two vertices. In this paper, all graphs are simple unless stated. Furthermore, all graphs $G$ are finite, so $|V(G)| < \infty$. The graph with all possible edges on $n$ vertices is the complete graph $K_n$. Graphs are defined up to isomorphism, or up to relabeling of the vertices. 
 
+\subsection{Graphs and subgraphs}
 Let $G$ be a graph. A \textit{subgraph} $H$ in $G$ is a graph with vertex set $V(H) \subseteq V(G)$ and edge set $E(H)$ with the property that if $vw$ is an edge in $E(H)$, then $vw$ is an edge in $E(G)$.
 Let $G$ be a graph and let $S$ be a non-empty subset of the vertex set of $G$. The \textit{induced subgraph} of $S$ in $G$ is the graph $G[S]$ with vertex set $S$ and edge set containing precisely all edges in $G$ incident to two vertices in $S$. Removing a set of vertices $S \subseteq V(G)$ from $G$ forms the induced subgraph $G - S := G[V(G) - S]$. 
 $H$ is a \textit{spanning subgraph} of $G$ if $H$ is a subgraph of $G$ and $V(H) = V(G)$. 
@@ -16,6 +17,7 @@ The neighborhood of a set of vertices $A \subseteq V(G)$ are precisely all verti
 
 The disjoint union of two graphs $G_1$ and $G_2$ is the graph $G_1 \sqcup G_2$ with vertex set $V(G_1) \sqcup V(G_2)$ and edge set $V(G_1) \sqcup V(G_2)$. 
 
+\subsection{Connected graphs}
 A graph $G$ is \textit{connected} if between any two distinct vertices $x$ and $y$ there exists a path which starts and ends at $x$ and $y$ respectively. 
 A connected graph \(G\) is \textit{\(k\)-connected} if \(G\) has more than \(k\) vertices and for any vertex set $S \subseteq V(G)$ where $|S| \leq k - 1$ it holds that $G - S$ is connected.\ \textit{Biconnected} graphs are $2$-connected graphs. 
 
@@ -33,3 +35,21 @@ Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B 
 	A graph \(G\) is \(k\)-connected if and only if for any two distinct vertices, there are at least \(k\) internally disjoint paths between the two vertices.
 \end{theorem}
 As a corollary, all Hamiltonian graphs are biconnected. For any two distinct vertices in a Hamiltonian graph, there are two internally disjoint paths by traversing the Hamiltonian cycle.
+\subsection{Block-cut diagram}
+A \textit{cut-vertex} $v$ in a connected graph $G$ has the property that $G - v$ is disconnected.
+A subgraph $H$ of a graph $G$ is a \textit{block} if:
+\begin{itemize}
+	\item $H$ is a maximal biconnected component of $G$,
+	\item $H$ is a bridge edge of $G$ with its two endpoints or
+	\item $H$ is an isolated vertex.
+\end{itemize}
+
+\begin{theorem}
+	For all graphs $G$, blocks partition $E(G)$.
+\end{theorem}
+
+A \textit{block-cut tree} is a tree $T$ whose vertices are the blocks and cut-vertices of $G$, and $uv$ is an edge in $T$ whenever one block is adjacent to a cut-vertex. 
+
+\begin{theorem}\label{thm:block-cut tree}
+	Every graph has a block-cut tree.
+\end{theorem}

@@ -1,34 +1,6 @@
 % !TEX root = ./thesis.tex
 
-\section{Bounded treewidth and page number}\label{sec:Bounded_Treewidth}
-\begin{theorem}[\textcite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
-	Every graph \(G\) with \(\tw(G) \leq k\) can be embedded on $k + 1$ pages.
-\end{theorem}
-\textcite{ganleyPagenumberTrees2001} considered the case where \(G\) is a \(k\)-tree. We will bypass using \(k\)-trees and consider a tree-decomposition of \(G\) directly.
-
-\begin{proof}
-	Consider a tree-decomposition of \(G\), $\{B_x: x \in V(T)\}$. Perform a depth-first search on \(T\), starting at an arbitrary root node \(r\). Let \(\sigma(v)\) of a vertex \(v\) in \(V(G)\) be the first time \(v \in B_x\), $x \in T$ appears in the depth-first search. $\sigma(v)$ determines when $v$ appears in the book-embedding. Within each bag $B_x$, if two vertices $v,w$ first appear in $B_x$, then $v$ and $w$ are ordered arbitrarily in the book-embedding. Now consider the subtree \(T_v\) induced by the bags \(B_x\) containing \(v\). Let \(H\) be the intersection graph of the subtrees, where \(V(H) = \lbrace T_v : v \in G \rbrace\) and \(T_u T_v \in E(H)\) if there exists a bag \(B_x\) such that \(u, v \in B_x\). \(H\) is perfect as all intersection graphs of subtrees are perfect. Therefore, \(\chi(H) = \omega(H)\). Then as \(\tw(G) \leq k + 1\), then the size of a clique in \(H\) is at most \(k + 1\). Thus \(H\) is \(k + 1\)-colourable. Let $z: V(H) \rightarrow [k + 1]$ be a proper colouring of $H$. 
-	\paragraph{}
-	Then we assign the edges of \(G\) a colour. Colour each edge \(uv \in E(G)\) as follows:
-	\begin{equation}
-		c(uv) =
-		\begin{cases}
-			z(T_u) & \text{ if } \sigma(u) \leq \sigma(v), \\
-			z(T_v) & \text{ if } \sigma(v) \leq \sigma(u)
-		\end{cases}
-	\end{equation}
-	This is a proper book-embedding of \(G\). Suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that there exists a bag \(B\) such that \(u, x, v \in B\), as \(uv\) is an edge in \(B\) and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) they are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. Finally, the number of pages used is \(\chi(H) = k + 1\), so \(\pn(G) \leq k + 1\). Thus shown.
-\end{proof}
-\textcite{dujmovicGraphTreewidthGeometric2007} showed that when $k \leq 2$, all graphs with treewidth $k$ can be embedded on $k$ pages. However, when $k \geq 3$, there exist graphs with treewidth $k$ that cannot be embedded on $k$ pages. Therefore, when $k \geq 3$, the bound from \textcite{ganleyPagenumberTrees2001} is tight. 
-For a simpler example, consider the case when $T$ is a path. The proof given below is identical to \cref{thm:bded_treewidth_bded_pagenumber}.
-
-\begin{theorem}
-	Every graph \(G\) with \(\pw(G) \leq k\) can be embedded on $k + 1$ pages.
-\end{theorem}
-
-\begin{proof}[Proof sketch]
-	Let $G$ have path-decomposition $\{B_1, B_2, \ldots , B_k\}$. Let $\sigma(v)$ be the smallest $i$ such that $v \in B_i$. Colour each vertex such that in each bag, no two vertices are assigned the same colour. This is possible to do in $k+1$ colours as interval intersection graphs are perfect. Then colour edges such that edge $uv$ has the same colour as $u$ if $u \leq v$ in the book-embedding. This is a proper book-embedding.
-\end{proof}
+\section{Graphs embedded on a surface of bounded genus}\label{sec:pagenumber_bounded_genus}
 
 \subsection{Planar graphs}\label{ssec:Planar_Graphs}
 \begin{theorem}[\textcite{yannakakisEmbeddingPlanarGraphs1989}]\label{thm:4Pages_Planar}
@@ -36,10 +8,8 @@ For a simpler example, consider the case when $T$ is a path. The proof given bel
 \end{theorem}
 From \cref{thm:Planar Graph Hickingbotham Bound}, it was shown all planar graphs can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020, kaufmannFourPagesAre2020}. We need the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber.
 
-\section{Graphs embedded on a surface of bounded genus}\label{sec:pagenumber_bounded_genus}
-
 \begin{theorem}[\textcite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
-	For all graphs \(G\) of genus $g$, $G$ can be embedded in $18g$ pages.
+	For all orientable graphs \(G\) of genus $g$, $G$ can be embedded in $18g$ pages.
 \end{theorem}
 Note that this bound extends the one found by \textcite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus.
 The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have genus $O(n^2)$, from Ringel and Young\cite{ringelMapColorTheorem1974}. Therefore if $K_n$ has genus $g$ then the pagenumber of $K_n$ is $O(\sqrt{g})$.
@@ -153,19 +123,7 @@ Two traces $(T_1, T_2)$ are orientable if \(T_1\) and \(T_2\) go in opposite dir
 \end{proof}
 
 \subsubsection{Proving graphs with bounded number of homotopy classes have bounded pagenumber}\label{sssec:bounded_pagenumber_homotopy}
-A cut-vertex $v$ in a connected graph $G$ has the property that $G - v$ is disconnected.
-A subgraph $H$ of a graph $G$ is a \textit{block} if:
-\begin{itemize}
-	\item $H$ is a maximal biconnected component of $G$,
-	\item $H$ is a bridge edge of $G$ with its two endpoints or
-	\item $H$ is an isolated vertex.
-\end{itemize}
-
-\begin{theorem}
-	For all graphs $G$, blocks partition $E(G)$.
-\end{theorem}
-
-A \textit{block-cut tree} is a tree $T$ whose vertices are the blocks and cut-vertices of $G$, and $uv$ is an edge in $T$ whenever one block is adjacent to a cut-vertex. This definition is important in the next section.
+This definition is important in the next section.
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on at most \(18g - 5\) pages.
 \end{lemma}
