@@ -1,4 +1,5 @@
 
+\newcommand{\gpk}{12gpk + 12gp + 18g + 12kp + 12p + 11}
 \chapter{Proof of Conjecture}\label{chap:Proving_The_Theorem}
 Our aim is to prove the following conjecture. Recall the definition of $\mathcal{G}(g, p, k, a)$ from \cref{thm:gmst}. 
 \begin{conjecture}\label{conj:gmst_conjecture_pagenumber}
@@ -145,7 +146,7 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 	Let \(G'\) be the dual multigraph of $G$, where the vertex set is \(F_1, \ldots, F_j\) and the edge set are the loops, where two faces are incident if there is a loop that is touching both faces. Then take a spanning tree \(T\) of \(G'\), and let \(L''\) be the loops in $L$ that cross an edge in \(T\). Let $L'$ be the remaining loops, so $L - L'$. 
 	Then consider the surface \(\Sigma - L'\), so the surface $\Sigma - L$ with the loops $L''$ added back in. Now this bounds a face homeomorphic to a disk, call the face \(F_0\). 
 	
-	We can show that this is homeomorphic to a disk using induction. We can treat forming the face $F_0$ as the following operation on the surface $\Sigma - L$ by adding back in the loops in $L''$. Suppose a loop $\gamma$ is on the boundary of two faces $F_i$ and $F_j$, and is in $L''$. Then adding the loop $\gamma$ to $\Sigma$ will maintain the fact that concatenating $F_i$ and $F_j$ is still a disk. Then as we add back in a tree of loops, then there will be no cycles formed from this operation, and as the tree is spanning, then every face is added to $F_0$. Therefore, there is only one face left, $F_0$, and that $F_0$ is homeomorphic to a disk. 
+	We can show that this is homeomorphic to a disk using induction. We can treat forming the face $F_0$ as the following operation on the surface $\Sigma - L$ by adding back in the loops in $L''$. Suppose a loop $\gamma$ is on the boundary of two faces $F_i$ and $F_j$, and is in $L''$. Then adding the loop $\gamma$ to $\Sigma$ will maintain the fact that concatenating $F_i$ and $F_j$ is still a disk, as we glue along an edge such that $F_i \cup F_j$ is still $2$-cell. Then as we add back in a tree of loops, then there will be no cycles formed from this operation, and as the tree is spanning, then every face is added to $F_0$. Therefore, there is only one face left, $F_0$, and that $F_0$ is homeomorphic to a disk. 
 
 	Now there is one vertex, \(|L'|\) edges, and one face \(F_0\). Then by Euler's formula:
 	\begin{equation}
@@ -174,17 +175,16 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed.
 The main theorem we want to prove is:
 \begin{theorem}\label{thm:orientablevortices}
-	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$.  Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ has bounded pagenumber.
+	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$.  Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where $s = \gpk$. 
 \end{theorem}
-\todo{calculate expicit bounds of the pagenumber wrt k, g, p}.
 
 We will prove this by starting with planar graphs, then bounded genus graphs. We show that the number of monochromatic paths on these graphs is bounded for every face. Then we will show that because the number of monochromatic paths for every face is bounded, we can add vortices.
 
 \begin{lemma}\label{lem:orientablesurfaces_monochromatic_edges}
-	Let $G$ be a graph embedded on a surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has $ \leq 4g$ monochromatic paths.
+	Let $G$ be a graph embedded on an orientable surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has $ \leq 4g$ monochromatic paths.
 \end{lemma}
 \begin{proof}
-	Let $G$ be such a graph. $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable, and a similar scheme can be used when $G$ is nonorientable.\todo{are you sure??? verify that this holds!} The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
+	Let $G$ be such a graph. $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable. The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
 	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \times 4g = 12(g + 1)$ monochromatic paths.
 \end{proof}
 \begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
@@ -192,20 +192,30 @@ We will prove this by starting with planar graphs, then bounded genus graphs. We
 \end{lemma}
 
 \begin{proof}
-	Suppose $G$ is $k$-almost-embeddable on a surface of genus $g$. Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ with $11 + 18g$ pages where every face has $12(g+1)$ monochromatic paths, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{lem:vortices_mono_paths}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded in at most $11 + 18g + 12(k + 1)(g + 1)$ pages. Thus shown.
+	Suppose $G$ is $k$-almost-embeddable on a surface of genus $g$. Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ with $11 + 18g$ pages where every face has $12(g+1)$ monochromatic paths, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{lem:vortices_mono_paths}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded in at most $11 + 18g + 12p(k + 1)(g + 1) = \gpk $ pages. Thus shown.
 \end{proof}
 
 Now to prove the main theorem:
 \begin{proof}
-	Let every torso of $G$ be $k$-almost-embeddable. Then from \cref{lem:orientablesurfaces_almostembeddable} that every torso requires at most $s = 11 + 18g + 12(k + 1)(g + 1)$-pages with adhesion at most $\ell$. Then from \cref{corr:bded_pn_tree_decomp},  $G$ needs at most $(2s + 2)(s) + \ell$ pages.
+	Let every torso of $G$ be $k$-almost-embeddable. Then from \cref{lem:orientablesurfaces_almostembeddable} that every torso requires at most $s = \gpk $-pages with adhesion at most $\ell$. Then from \cref{corr:bded_pn_tree_decomp}, $G$ needs at most $(2s + 2)(s) + \ell$ pages.
 \end{proof}
 
-As a corollary,
 
 \begin{corollary}
-	Suppose $G$ is in $\mathcal{G}(g, p, k, a)$. Then $G$ can be embedded on $(2s + 2)(s) + \ell + a$ pages. 
+	Suppose $G$ is in $\mathcal{G}(g, p, k, a)$. Then $G$ can be embedded on $(2s + 2)(s) + \ell + a$ pages, where $s = \gpk$. 
 \end{corollary}
 Finally, apex vertices are handled with \cref{thm:apex_vertices_pagenumber}. Thus we conclude a partial result using \textcite{robertsonGraphMinorsXVI2003} to show that some $K_t$-minor free graphs, ones where every torso is $k$-almost-embeddable on an orientable surface, satisfy the conjecture.
-\todo{Write the proof more carefully!}
+
+For the nonorientable case, we wish to show that:
+
+\begin{theorem}\label{thm:orientablevortices}
+	Let $G$ be a graph where all torsos are $k$ almost-embeddable on a surface of genus at most $g$.  Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where $s = \gpk$. 
+\end{theorem}
+
+To prove this for the most general case, the following must be shown:
+
+\begin{conjecture}
+	For any graph $G$ with nonorientable genus $g$ on a surface $\Sigma$, $G$ can be embedded on $\leq f(g)$ pages such that for any face $F$ on $\Sigma - G$, the number of monochromatic paths is bounded by some $h(g)$. 
+\end{conjecture}
 
 \input{chapters/consequences}
