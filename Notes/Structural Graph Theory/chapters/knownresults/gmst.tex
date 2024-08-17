@@ -1,7 +1,7 @@
 \section{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
-In this section, we discuss a coarse characterisation of \(K_t\)-minor free graphs.\ \textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of all \(K_t\)-minor free graphs. 
+\textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of all \(K_t\)-minor free graphs. 
 
-Each graph that is $K_t$-minor-free can be constructed from the following ingredients.
+Each graph that is $K_t$-minor-free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor free graphs, meaning that a subset, or a single one of these ingredients constitute a $K_t$-minor free graph. 
 \begin{itemize}
 	\item Graphs of bounded Euler genus
 	\item Sets of apex vertices
@@ -44,7 +44,7 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are graphs which are $K_t$-minor-free. Then $G \oplus_k H$ is $K_{t}$-minor free. 
 \end{lemma}
 \begin{proof}
-	Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. Suppose $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$. Suppose $\rho(x) \cap V(G) \neq \emptyset$ for all $x \in K_t$. Then contract the subgraphs which also contain vertices in $H$ to only have vertices in $G$. Then this is a $K_t$ model in $G$, which is a contradiction. However, there cannot also be vertices $x, y \in V(K_t)$ where $\rho(x)$ is in $G - C$ and $\rho(y)$ is in $H - C$ as these subgraphs are disconnected. Therefore, if $\rho(x)$ is in $G - C$, then all subgraphs have a vertex in $G$. But this means that $\rho$ cannot exist, as the two possibilities are mutually exclusive. Therefore, $\rho$ cannot exist. 
+	Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. Suppose $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that would mean that $G$ or $H$ has a $K_t$ minor. Suppose $\rho(x) \cap V(G) \neq \emptyset$ for all $x \in K_t$. Then contract the subgraphs which also contain vertices in $H$ to only have vertices in $G$. Then this is a $K_t$ model in $G$, which is a contradiction. However, there cannot also be vertices $x, y \in V(K_t)$ where $\rho(x)$ is in $G - C$ and $\rho(y)$ is in $H - C$ as these subgraphs are disconnected. Therefore, if $\rho(x)$ is in $G - C$, then all subgraphs have a vertex in $G$. But this means that $\rho$ cannot exist, as the two possibilities are mutually exclusive. Therefore, $\rho$ cannot exist. 
 \end{proof}
 
 \begin{corollary}\label{corr:clique_sum_genus}
@@ -72,12 +72,12 @@ Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\).
 \par
 Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_b)$. A \textit{$D$-vortex} is a graph $H$ such that $V(G) \cap V(H) = \Lambda$ and there is a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_b\) such that \(x_i \in B_i\) for all \(i\).
 \par
-The reason why vortices are important are because of graphs like \cref{fig:tenniscourt}. This graph $G_n$ is one where vortices are needed as an essential ingredient. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, there is a decomposition of $G_n$ into two graphs $G_0$ and $G_1$ where $G_0$ can be embedded on a surface and $G_1$ is a vortex on $G_0$ with path-width 6. 
+The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, there is a decomposition of $G_n$ into two graphs $G_0$ and $G_1$ where $G_0$ can be embedded on a surface and $G_1$ is a vortex on $G_0$ with path-width 6. 
 
 \begin{figure}[h]
 	\centering
 	\includesvg{figures/tenniscourt}
-	\caption{An example of an $n \times n$ \textit{tennis-court} graph $G_n$ which are \(K_8\) minor free.}
+	\caption{An example of an $n \times n$ \textit{tennis-court} graph $G_n$ which is \(K_8\) minor free.}
 	\label{fig:tenniscourt}
 \end{figure}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
@@ -111,7 +111,7 @@ The Graph Minor Theorem is equivalent to the statement:
 \end{theorem}
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors. The family of graphs that can be embedded on a fixed surface $\sigma$ is minor-closed. 
 For planar graphs, the two minimal forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
-The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
+The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of minimal forbidden minors has not been found yet. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
 
 \begin{figure}[h!]
 	\centering
@@ -128,4 +128,4 @@ The family of graphs that can be embedded on a torus are the toroidal graphs. Th
 
 A graph $G$ is \textit{linkless} if $G$ has an embedding in $\mathbb{R}^3$ such that no two cycles are linked. If no embedding of $G$ has this property, then $G$ is \textit{inherently linked}. The family of linkless graphs is minor-closed. If $G$ is linkless, then contracting any edge maintains the linkless property. There are only seven minimal forbidden minors of linkless graphs, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. 
 
-A graph $G$ is \textit{knotless} if $G$ can be embedded in $\mathbb{R}^3$ such that every cycle of $G$ is a simple knot. $G$ is \textit{inherently knotted} if this is not the case.\ \textcite{conwayKnotsLinksSpatial1983} showed that $K_7$ is inherently knotted. The family of knotless graphs is also minor-closed, since contracting any edge preserves the knotless property. $K_7$ is an example of a minimal forbidden minor. It was found by \textcite{conwayKnotsLinksSpatial1983} and \textcite{foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003} that there exists at least three minimal minors, but it is unknown how many there really are.
+A graph $G$ is \textit{knotless} if $G$ can be embedded in $\mathbb{R}^3$ such that every cycle of $G$ is a simple knot. $G$ is \textit{inherently knotted} if this is not the case.\ \textcite{conwayKnotsLinksSpatial1983} showed that $K_7$ is inherently knotted. The family of knotless graphs is also minor-closed, since contracting any edge preserves the knotless property. $K_7$ is an example of a minimal forbidden minor. It was found by \textcite{conwayKnotsLinksSpatial1983} and \textcite{foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003} that there exists at least three minimal minors, but a complete enumeration of minimal forbidden minors have not been found. 
