@@ -9,58 +9,6 @@ Each graph that is $K_t$-minor-free can be constructed from the following ingred
 	\item Sets of vortices on graphs.
 \end{itemize}
 It was shown by \textcite{robertsonGraphMinorsXVII1999} that every \(K_t\)-minor free graph can be built up from smaller graphs with the above ingredients.
-\subsection{Euler Genus g graphs}
-We begin our discussion of graphs on surfaces by discussing one aspect of planar graphs that we did not discuss before. 
-\begin{theorem}\label{thm:K5_Free_Planar}
-	If \(G\) is a planar graph, then \(G\) is \(K_5\)-minor-free.
-\end{theorem}
-\begin{proof}
-	If \(G\) is planar with \(n\) vertices and \(m\) edges where $n \geq 3$, then \(m \leq 3n -6\).
-	However \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \times 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
-\end{proof}
-
-This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. A surface \(\Sigma\) is a topological space which, at every point, has a neighbourhood homeomorphic to a disk. There are three important surfaces to know- the sphere \(S^2\), the torus \(T\), and the real projective plane \(P\).
-\par
-We \textit{add} a \textit{handle} to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. We add a \textit{crosscap} by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. 
-\par
-\begin{definition}[Euler Genus]
-	The \textit{Euler genus} of a surface \(\Sigma\), obtained from a sphere by adding \(h\) handles and \(c\) crosscaps, is \(2h + c\).
-\end{definition}
-
-\begin{example}
-	This is the Euler genus of some surfaces.
-	\begin{enumerate}
-		\item The Euler genus of the sphere is \(0\).
-		\item The Euler genus of the torus is \(2\).
-		\item The Euler genus of the projective plane is \(1\). 
-		\item The Euler genus of the Klein bottles is \(2\). 
-	\end{enumerate}
-\end{example}
-
-Note that ``genus'' and ``Euler genus'' are two distinct concepts in topology. In this paper, when we discuss genus, we will always discuss \underline{Euler genus}.
-
-A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \(S^2\) by only adding handles. An example of an orientable surface is the torus.
-
-A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can be obtained from \(S^2\) by adding at least one crosscap or twisted handle. An example of a non-orientable surface is the projective plane or the Klein bottle. 
-
-The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be embedded on \(\Sigma\) without crossings (note that \(\Sigma\) can be orientable or nonorientable). 
-
-\begin{theorem}[Euler's formula on surfaces]\label{thm:Euler_surfaces}
-	Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = \chi = 2 - g\). 
-\end{theorem}
-
-Given graphs $G$ and $H$ with genus $g_1, g_2$, it is useful to construct a new graph with genus $g_1 + g_2$. 
-\begin{theorem}[\textcite{millerAdditivityTheoremGenus1987}]\label{thm:additivity_genus}
-	Let graphs $G$ and $H$ have genus $g_1$, $g_2$. Then the graph obtained from identifying a vertex in $G$ to a vertex in $H$ has genus $g_1 + g_2$. 
-\end{theorem}
-
-\begin{theorem}[Bounded genus]\label{thm:bounded_genus_kt_free}
-	If \(G\) is a genus \(g\) graph, then \(G\) is \(K_t\)-minor free, where \(t > \sqrt{6g} + 4\). 
-\end{theorem}
-\begin{proof}
-	This proof mimics the above proof for planarity, but on surfaces of higher genus. 
-	Suppose \(G\) has \(n\) vertices and \(m\) edges and of genus $g$. Then \(n - m + f = \chi = 2-g\), from \cref{thm:Euler_surfaces}. As at least three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on a genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). Thus \(t \leq \sqrt{6g} + 4\). So if a graph has genus \(g\), then it is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\). 
-\end{proof}
 
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - A$ has some bounded parameter. Common parameters are planarity or bounded genus. 

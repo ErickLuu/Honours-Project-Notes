@@ -1,36 +1,4 @@
-
-\section{Graph minors}\label{sec:Graph Minors}
-A graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges. Let $G$ be a graph and let $uv$ be an edge in $E(G)$. To \textit{contract} \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) with neighbourhood \(N(w) = N_G(u) \cup N_G(v)\). The graph obtained after contracting the edge \(uv\) in $G$ is written as \(G\setminus uv\).
-The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
-An example of a minor-closed class is the class of planar graphs.
-An important class of graph families are the \(K_t\)-minor free graphs. For a graph \(G\), we define \(\had(G)\) to be the largest \(t\) such that \(K_t\) is a minor of \(G\). This is named after Hugo Hadwiger and his most famous conjecture.
-
-\begin{conjecture}[Hadwiger's conjecture]
-	For all graphs \(G\), \(\chi(G) \leq \had(G)\)\cite{hadwigerUeberKlassifikationStreckenkomplexe1943}.
-\end{conjecture}
-Much work has been done on solving Hadwiger's conjecture, with a document by \textcite{seymourHadwigerConjecture2016} on the latest progress. However, it remains unsolved. 
-
-A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which assigns to \(H\) vertex-disjoint connected subgraphs of \(G\). If $uv$ is an edge in \(E(H)\), then some edge in \(G\) joins the two subgraphs \(\rho(u)\) and \(\rho(v)\). A description of a model is in \cref{fig:model_of_P5}.
-\begin{figure}[h!]\label{fig:model_of_P5}
-	\centering
-	\includesvg[width = 0.8\textwidth]{figures/model.svg}
-	\caption{Illustration of a model $H$ in a graph $G$. The coloured boxes are the connected subgraphs contracted to a single vertex on the right.}
-\end{figure}
-
-\begin{theorem}
-	\(H\) is a model of \(G\) if and only if $H$ is a minor of $G$.
-\end{theorem}
-
-\begin{proof}
-	From \textcite{norinMath599GraphMinors2017}. Suppose \(H\) is a model of \(G\). Then for all \(x\) in \(V(H)\), contract \(\rho(x)\) in \(G\) to a single vertex. This is a well-defined operation as the image $\rho(x)$ is connected and disjoint from all $\rho(y)$ where $y$ is a distinct vertex in $H$. Then delete edges to form \(H\).
-
-	Suppose \(H \leq G\). Use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the first contracted edge and let \(G' := G \setminus uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, there is a model \(\rho\) of \(H\) in \(G'\). Then find $x \in V(H)$ such that $w \in V(\rho(x))$. If there is no such $x$, then it is obvious that $\rho$ is a model of $H$ in $G$. Otherwise, 
-	delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\). 
-\end{proof}
-
- Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
-
-\section{Book embedding}\label{sec:Book Embedding}
+\section{Book-Embeddings and Pagenumber}\label{sec:Book Embedding}
 A \textit{book} with \(k\) \textit{pages} consists of \(k\) half-planes glued together on a common boundary. We refer to the boundary as the \textit{spine}, and the individual half-planes as \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes.\ \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} described fans in the 1960s.
 A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the spine, and we place each edge on a single page such that no two edges cross.
 The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. An embedding of $K_5$ in three pages is in \cref{fig:book-embedding}.
@@ -107,5 +75,3 @@ Book-embeddings of graphs were has applications in VLSI and processor designs, b
 The project of finding upper and lower bounds of the pagenumber of planar graphs was started by \textcite{bernhartBookThicknessGraph1979} when they conjectured that planar graphs had unbounded pagenumber. However, \textcite{bussPagenumberPlanarGraphs1984} showed that all graphs could be embedded in nine pages, and \textcite{heathEmbeddingPlanarGraphs1984} brought down the number of needed pages to seven.\ \textcite{yannakakisEmbeddingPlanarGraphs1989} devised an algorithm to embed a graph in four pages. Yannakakis, in this paper, claimed that there exists planar graphs which cannot be embedded in three pages. However, his proof was incomplete and the full proof was left unpublished. In 2020, Yannanakis published his full proof \cite{yannakakisPlanarGraphsThat2020}. At around the same time, \textcite{kaufmannFourPagesAre2020} published the same lower bound.
 
 \textcite{malitzGraphsEdgesHave1994} proved that any graph with $e$ edges has pagenumber $O(\sqrt{e})$. Additionally, he proved that random $d$-regular graphs $G$ with $n$ vertices have the property that $\pn(G) \in \Omega(\sqrt{d} n^{1/2 - 1/d})$. For random 3-regular graphs $G$ with $n$ vertices, $\pn(G) \in \Omega(n^{1/6})$. These constructions of $\Omega(n^d)$ pagenumber graphs are not explicit.\ \textcite{eppsteinThreeDimensionalGraphProducts2024} showed that $\pn(P_n \boxtimes P_n \boxtimes P_n) \in \Theta(n^{1/3})$. This is an explicit construction of a graph which has pagenumber in $\Theta(n^{d})$. 
-\section{Treewidth}\label{sec:treewidth}
-The \textit{treewidth} of a graph \(G\) measures how similar $G$ is to a forest.
