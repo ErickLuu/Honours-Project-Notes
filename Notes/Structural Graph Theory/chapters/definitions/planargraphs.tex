@@ -1,0 +1,37 @@
+\section{Planar graphs}\label{sec:Planar graphs}
+A graph \(G\) is \textit{planar} if \(G\) can be drawn in the Euclidean plane \( \mathbb{R}^2 \) such that no two edges cross. A drawing of $G$ in $\mathbb{R}^2$ is referred to as an \textit{embedding} of $G$ in $\mathbb{R}^2$. If \(G\) is embedded in \(\mathbb{R}^2 \), then we can topologically remove the set $G$ from $\mathbb{R}^2$. The connected components in $\mathbb{R}^2 - G$ are called \textit{faces}. The \textit{outerface} is the unbounded face in $\mathbb{R}^2$, meaning that the outerface goes to infinity. The \textit{internal faces} of $G$ are all the faces which are not the outerface. A set of vertices $S$ in $V(G)$ \textit{lie} on a face $F$, or \textit{bound} $F$ if $S$ is in the closure of $F$. A set of edges $T$ in $V(G)$ also bound a face $F$ if $T$ is in the closure of $F$. If an edge $e$ bounds a face $F$, then $e$ \textit{touches} $F$. \(G\) is \textit{outerplanar} if \(G\) is planar and there exists an embedding such that all vertices in \(G\) lie on the outerface.
+Let \(F(G)\) be the set of faces of \(G\) embedded on \(\mathbb{R}^2\). Then
+\begin{theorem}[Euler's formula]\label{thm:Euler_planar}
+	For all connected planar graphs $G$ embedded on $\mathbb{R}^2$,
+	\begin{equation}
+		|V(G)| - |E(G)| + |F(G)| = 2.
+	\end{equation}
+\end{theorem}
+
+We can use this result to bound the number of edges in an outerplanar graph.
+\begin{theorem}\label{thm:outerplanar_bound}
+	If \(G\) is an outerplanar graph with \(n\) vertices and \(m\) edges, then \(m \leq 2n - 3\).
+\end{theorem}
+
+\begin{proof}
+	Suppose \(G\) is \textit{maximal outerplanar}, meaning adding any edge will break the outerplanar property. Let there be \(f\) internal faces in $G$. Then the outerface has \(n\) edges on the boundary as every vertex in $G$ is on the boundary of the outerface. Each internal face will have exactly \(3\) edges on the boundary. However, each edge is touching exactly two distinct faces. By counting the number of edges on every face,
+	\begin{equation*}
+		3 f + n = 2m.
+	\end{equation*}
+	Combining with \cref{thm:Euler_planar},
+	\begin{equation*}
+		n - m + (f + 1) = 2
+	\end{equation*}
+	we have, after some rearrangement,
+	\begin{equation*}
+		2n = 3 + m.
+	\end{equation*}
+	Therefore, \(m = 2n - 3\). Since every outerplanar graph is a spanning subgraph of a maximal planar graph, \(m \leq 2n - 3\).
+\end{proof}
+
+\begin{theorem}\label{thm:planar_graph_edge_bound}
+	Let $G$ be a planar graph with $n$ vertices and $m$ edges. Then $m \leq 3n - 6$.
+\end{theorem}
+\begin{proof}
+	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches exactly two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
+\end{proof}

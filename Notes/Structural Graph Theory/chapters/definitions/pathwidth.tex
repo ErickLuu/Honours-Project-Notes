@@ -1,0 +1,43 @@
+\section{Path-width}\label{sec:Pathwidth}
+Similar to treewidth, the pathwidth of a graph \(G\) defines how similar $G$ is from a path.
+
+Define the path-decomposition of a graph \(G\) to be a sequence of bags \(B_i\) such that the subsequence of bags containing a vertex \(v\) induces a nontrivial subpath and each edge \(vw\) is in a bag \(B_i\). Then define the width of a path-decomposition as \(\max_i \lbrace |B_i| \rbrace -1\), same as treewidth.
+
+If a graph has a path-decomposition \({(B_i)}_i\), then it has a tree-decomposition \(\left({(B_i)}_i, P\right)\). Therefore,
+\begin{equation*}
+	\pw(G) \geq \tw(G).
+\end{equation*}
+The pathwidth of \(G\) is the largest pathwidth over all connected components.
+
+A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(P\) where every vertex not in $P$ is adjacent to a vertex on the path \(P\). Alternatively, a tree \(G\) is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
+\begin{theorem}
+	Graphs have pathwidth at most 1 if and only if every connected component is a caterpillar.
+\end{theorem}
+\begin{proof}
+	Suppose \(G\) is a caterpillar.
+	Denote \(P =\left( p_1, p_2, \dots, p_n\right)\) as the central path. The leaves of vertex \(p_i\) are denoted as \(v_{i, 1}, v_{i, 2} \dots, v_{i, k}\). Define the bags as \((v_{1, 1}, v_1)\), \((v_{1, 2}, v_1)\) \dots \((v_{1, j}, v_1)\),  \((v_1, v_2)\), \((v_{2, 1}, v_2)\), \((v_{2,2}, v_2,)\) \dots. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of \(G\) is 1. We can repeat this for every connected component.
+	\par
+	Suppose \(G\) has pathwidth 1. Then for each connected component of \(G\), we choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path must go through every bag, thus the non-path vertices must have as their neighbour the path vertex in the bag and thus the graph is a caterpillar. An example of this is in \cref{fig:caterpillar}.
+\end{proof}
+\begin{figure}[ht]
+	\centering
+	\includesvg[pretex=\small, width = 0.8\textwidth]{figures/caterpillar}
+	\caption{A caterpillar graph with central path \((v_1, v_2, v_3, v_4, v_5, v_6)\).}\label{fig:caterpillar}
+\end{figure}
+
+\begin{example}
+	Recall that $K_n$ is the complete graph on $n$ vertices. It holds that \(\pw(K_n) = \tw(K_n) = n - 1\).
+\end{example}
+\begin{proof}
+	The pathwidth of \(K_n\) is at least the treewidth of \(K_n\). But the pathwidth is at most \(n- 1\) (where all the vertices are in the same bag), but the treewidth of \(K_n\) is \(n - 1\). Therefore, \(\pw(K_n) = n - 1\).
+\end{proof}
+
+\begin{theorem}
+	The pathwidth of a tree \(T\) equals \(\min_{P \subseteq T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace \) where \(P\) is a path.
+\end{theorem}
+
+\begin{proof}[Proof]
+	Start by showing the upper bound, \(\pw(T) \leq 1 + \pw(T - V(P))\). If \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a minimal width path-decomposition. We can order each connected component such that they appear in the order of their parents on the paths. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\).
+	\par
+	To show there exists a path \(P\) such that \(\pw(T) \geq 1 + \pw(T - V(P))\), we proceed by induction. Let \(B_1, \ldots B_n\) be a path-decomposition of \(T\). Let \(x\) live in bag \(B_1\) and \(y\) live in bag \(B_n\), the final bag. Then let \(P\) be the unique path from \(x\) to \(y\). Then \(P\) traverses through every bag in the path-decomposition. Then \(\tw(T) \geq 1 + \tw(T - P)\) by induction.
+\end{proof}
