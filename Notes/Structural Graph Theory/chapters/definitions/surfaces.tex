@@ -1,13 +1,11 @@
 \section{Surfaces and graphs on surfaces}
 This section discusses surfaces, and graphs on surfaces. Graphs on surfaces is a natural extension to graphs on planes. Furthermore, graphs on fixed surfaces are an essential ingredient to the Graph Minor Structure Theorem.
 
-
-
 \subsection{Surfaces}
 
 This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. A \textit{surface} \(\Sigma\) is a topological space which, at every point, has a neighbourhood homeomorphic to an open disk. There are three important surfaces to know- the sphere \(S^2\), the torus \(T\), and the real projective plane \(P\). 
 
-\textit{Handles} are added to a surface to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. We add a \textit{crosscap} by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. 
+\textit{Handles} are added to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise and the other goes counterclockwise. \textit{Crosscaps} are added to a surface $\Sigma$ by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. 
 \par
 \begin{definition}[Euler Genus]
 	The \textit{Euler genus} of a surface \(\Sigma\), obtained from a sphere by adding \(h\) handles and \(c\) crosscaps, is \(2h + c\).
@@ -37,6 +35,7 @@ The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \
 \begin{theorem}[Euler's formula on surfaces]\label{thm:Euler_surfaces}
 	Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = \chi = 2 - g\). 
 \end{theorem}
+The value $\chi$ is known as the \textit{Euler characteristic} of a topological space, in this case a surface. Calculating the Euler characteristic of any space is done through \textit{homological algebra}. 
 
 Given graphs $G$ and $H$ with genus $g_1, g_2$, it is useful to construct a new graph with genus $g_1 + g_2$. 
 \begin{theorem}[\textcite{millerAdditivityTheoremGenus1987}]\label{thm:additivity_genus}
