@@ -3,12 +3,16 @@ In this section, we discuss a coarse characterisation of \(K_t\)-minor free grap
 
 Each graph that is $K_t$-minor-free can be constructed from the following ingredients.
 \begin{itemize}
-	\item Graphs with bounded Euler genus
+	\item Graphs of bounded Euler genus
 	\item Sets of apex vertices
 	\item Graphs of bounded treewidth
 	\item Sets of vortices on graphs.
 \end{itemize}
 It was shown by \textcite{robertsonGraphMinorsXVII1999} that every \(K_t\)-minor free graph can be built up from smaller graphs with the above ingredients.
+
+\subsection{Graphs of bounded Euler genus}
+
+Graphs which can be embedded on a surface of Euler genus $g$ are $K_t$ minor-free, where \(t > \sqrt{6g} + 4\). This comes from \cref{thm:bounded_genus_kt_free}. 
 
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - A$ has some bounded parameter. Common parameters are planarity or bounded genus. 
