@@ -1,3 +1,5 @@
+% !TEX root = ./thesis.tex
+
 \section{Bounded treewidth and page number}\label{sec:Bounded_Treewidth}
 \begin{theorem}[\textcite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
 	Every graph \(G\) with \(\tw(G) \leq k\) can be embedded on $k + 1$ pages.
@@ -169,23 +171,4 @@ A \textit{block-cut tree} is a tree $T$ whose vertices are the blocks and cut-ve
 \end{lemma}
 \begin{proof}
 	\textcite{yannakakisEmbeddingPlanarGraphs1989} has a method to lay out the planar spanning subgraph \(G_P\) on four pages. The layout also preserves the ordering of vertices when traversing the boundary of the outerface. For each homotopy class in \(E_P\), we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, we need at most \(4 + 3(6g - 3) = 18g-5\) pages if \(G\) has a planar-nonplanar decomposition.
-\end{proof}
-
-\begin{lemma}\label{lem:planar_nonplanar_nonorientable}
-	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a non-orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on at most \(9g - 1\) pages.
-\end{lemma}
-\begin{proof}
-	\todo{Flesh out details completely}
-	We want to add edges in a controlled way so that the traces that are reversed become non-reversed. This is done by adding edges between vertices so that we can invert the ordering on the circle so the vertices in one homotopy class do not cross in the page embedding. However, an issue is chords that go between traces that are inverted. We go around this problem by removing chords and adding them to a separate page. The number of pages is bounded by $g$. Let \(\mathcal{C}_{i,j}\) be a chord class when it is the set of chords that go between traces \(T_i\) and \(T_j\), where \(T_i\) and \(T_j\) both go clockwise or counterclockwise. Note that the number of chord classes \(\mathcal{C}_{i,j}\) is bounded by the genus of the graph, and we can embed the chord classes that share a trace onto a single page. As there is a bounded number of chord classes, it must hold that the number of pages is finite.
-
-	Consider the scenario where the graph $G_p$ is a cycle with a cyclic ordering. Then every trace on the boundary is a path on the cycle. Recall that a trace $T_1$ and $T_2$ are paired if there is a nonplanar edge between the two traces. For every two pairs of traces that are non-orientable, we label one to be non-reversed and one to be reversed, with arbitrary allocation. We then merge all the consecutive reversed and non-reversed traces together. Then we add an edge around each reversed trace, called bypassing edges. We then use Heath's algorithm to find an edge colouring with seven colours.
-
-	Now consider the case where $G_p$ is outerplanar. We cannot do the unreversing trick anymore, because of edges inside of the graph. However, we can form a path with these edges and colour them with a finite number of colours as well.
-	\todo{finish this case!}
-	We bundle chords together and the number of chords that exist is $O(g)$ as there are at most $g$ reversed-unreversed trace changes on the boundary of the surface. As no chords cross, then there are $O(g)$ chords. 
-
-	Finally, consider the case where $G_p$ has a block-cut tree. We still have the same chords from before, and now chords can be used to draw a path that goes back and forth between traces.
-	\todo{finish this proof!}
-
-	We first merge traces, and then build a boundary between two vertices. Then we have two subgraphs and two traces. 
 \end{proof}
