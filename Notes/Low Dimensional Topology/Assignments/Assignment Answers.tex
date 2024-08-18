@@ -108,8 +108,23 @@ Since $K$ and $K'$ are null-homotopic, they lift to loops $\widetilde{K}, \widet
 Note that $T^2$ can be replaced by any surface $S$ which have a universal cover of $\mathbb{C}$ or $\mathbb{R}$. 
 
 \subsection{3}
-Firstly, we will show that $N$ is a subgroup of $\Homeo(S)$. 
-Let $f \in \Homeo(S)$. Then $f N f^{-1} = N$. 
+Show that the homeomorphisms isotopic to the identity is a normal subgroup and that two maps are isotopic iff they are in the same coset mod identity homeomorphisms.
+Firstly, we will show that $N$ is a subgroup of $\Homeo(S)$. Firstly, if $g \in N$, then $g^{-1} \in N$. Let $H(x, t) : S \times I \rightarrow S$ be an isotopy where $h_0 = Id$ and $h_1 = g$. Then $G(x, t) = h_1^{-1}(H(x, 1-t))$ is a continuous map by composition. Furthermore, $G(x, 0) = h_1^{-1}(H(x, 1)) = Id$ and $G(x, 1) = h_1^{-1}(H(x, 0)) = g^{-1}$. Therefore, $g^{-1}$ is isotopic to $N$. If $f$ and $g$ are isotopic to $N$ with isotopies $F$ and $G$ with $F_1 = f$, $G_1 = g$, $F_0 = G_0 = Id$, then $f \circ g$ is isotopic to $Id$ with isotopy:
+\begin{equation*}
+    H(x, t) =
+    \begin{cases}
+        F(x, 2t) & 0 \leq t \leq 1/2\\
+        G(F(x, 1), 2t-1) & 1/2 \leq t \leq 1
+    \end{cases}
+\end{equation*}
+This is continuous as this is a composition of continuous functions and at time $t = 1/2$, the two maps agree. At time $t = 0$, $H_0 = Id$ and at $t = 1$, $H_t = g \circ f$. Therefore, if $f, g \in N$, then $g \circ f \in N$. 
+
+Now we will show that $N$ is normal in $\Homeo(S)$. 
+Let $f \in \Homeo(S)$, $g \in N$. Then $f g f^{-1} \in N$. Let $G: S \times I \rightarrow S$ be an isotopy with $G_0 = Id$, $G_1 = g$. Then $H(x, t) = f \circ G(\cdot, t) \circ f^{-1} (x) $ is an isotopy. Firstly, $H(x, t)$ is continuous as it is a composition of continuous functions for fixed $x$ and fixed $t$. Then $H(x, 0) = f \circ g_0 \circ f^{-1} = f \circ Id \circ f^{-1} = f \circ f^{-1} = Id$. Then $H(x, 1) = f \circ g_1 \circ f^{-1} = f \circ g \circ f^{-1}$. Therefore, $f \circ g \circ f^{-1} \in N$. Therefore, $N$ is normal.
+
+Finally, suppose $f$ is isotopic to $g$. Then $f^{-1} g \in N$. Take an isotopy $F : S \times I \rightarrow S$ where $F_0 = f$ and $F_1 = g$. Then take $H(x, t) = f^{-1}(F(x, t))$. This is continuous, as this is the composition of two continuous functions. Then $H_0 = f^{-1} \circ f = Id$ and $H_1 = f^{-1} \circ g$. Therefore, $f$ and $g$ are in the same coset. 
+
+Suppose $f^{-1} g \in N$. Then there exists a isotopy $F : S \times I \rightarrow I$ where $F_0 = Id$ and $F_1 = f^{-1} g$. Then take $H = f \circ F$. This is continuous as it is the composition of two continuous functions. Furthermore, $F_0 = f \circ Id = f$ and $F_1 = f \circ f^{-1} \circ g = g$. Therefore, $f$ and $g$ are isotopic.  
 
 \subsection{4}
 Suppose $\begin{bmatrix}
