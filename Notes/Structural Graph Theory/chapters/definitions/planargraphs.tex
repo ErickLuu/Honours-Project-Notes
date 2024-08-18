@@ -1,11 +1,21 @@
 \section{Planar graphs}\label{sec:Planar graphs}
 A graph \(G\) is \textit{planar} if \(G\) can be drawn in the Euclidean plane \( \mathbb{R}^2 \) such that no two edges cross. A drawing of $G$ in $\mathbb{R}^2$ is referred to as an \textit{embedding} of $G$ in $\mathbb{R}^2$. If \(G\) is embedded in \(\mathbb{R}^2 \), then we can topologically remove the set $G$ from $\mathbb{R}^2$. The connected components in $\mathbb{R}^2 - G$ are called \textit{faces}. The \textit{outerface} is the unbounded face in $\mathbb{R}^2$, meaning that the outerface goes to infinity. The \textit{internal faces} of $G$ are all the faces which are not the outerface. A set of vertices $S$ in $V(G)$ \textit{lie} on a face $F$, or \textit{bound} $F$ if $S$ is in the closure of $F$. A set of edges $T$ in $V(G)$ also bound a face $F$ if $T$ is in the closure of $F$. If an edge $e$ bounds a face $F$, then $e$ \textit{touches} $F$. \(G\) is \textit{outerplanar} if \(G\) is planar and there exists an embedding such that all vertices in \(G\) lie on the outerface.
-Let \(F(G)\) be the set of faces of \(G\) embedded on \(\mathbb{R}^2\). Then
+
+Let \(F(G)\) be the set of faces of \(G\) embedded on \(\mathbb{R}^2\). 
+
+A \textit{dual graph} $G*$ of a connected planar graph $G$ has vertex set $F(G)$, and edges between faces are from drawing a curve $e^*$ through a shared edge $e$. Note that $G^*$ is a multigraph. There is a natural dual between $E(G*)$ and $E(G)$ where an edge $e \in E(G)$ corresponds with the edge $f \in E(G*)$ being the edge that crosses $e$. 
+
 \begin{theorem}[Euler's formula]\label{thm:Euler_planar}
 	For all connected planar graphs $G$ embedded on $\mathbb{R}^2$,
 	\begin{equation}
 		|V(G)| - |E(G)| + |F(G)| = 2.
 	\end{equation}
+\end{theorem}
+
+A simple proof of this fact is from \textcite{staudtGeometrieLage1847}.
+
+\begin{theorem}
+	Choose any spanning tree $T$ in $G$. $T$ is connected and without cycles. Now consider the edges $E(G - T)$ and consider the corresponding edge set in $G*$. $T$ is not a simple closed curve, therefore $\mathbb{R}^2 - T$ has a single connected component. Therefore, the corresponding edge set in $G^*$ is connected. Furthermore, this edge set is acyclic, as if a cycle exists then the cycle of faces bounds some vertex, contradicting $T$ being spanning. Therefore, $G^*$ has a corresponding spanning tree, partitioning the edges of $G$. Therefore, $|E(G)| = (|V(G)| - 1) + (|F(G)| - 1)$, so $|V(G)| - |E(G)| + |F(G)| = 2$. 
 \end{theorem}
 
 The most immediate application is bounding the number of edges in any planar graph.
