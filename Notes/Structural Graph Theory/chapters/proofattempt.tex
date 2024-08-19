@@ -171,7 +171,7 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 	Then every nonplanar face alternates between having a planar trace and nonplanar edge at most \(4g\) times.
 \end{proof}
 
-\section{Putting the pieces together}
+\section{Proof for orientable surfaces}
 So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed.
 The main theorem we want to prove is:
 \begin{theorem}\label{thm:orientablevortices}
@@ -217,5 +217,16 @@ To prove this for the most general case, the following must be shown:
 \begin{conjecture}
 	For any graph $G$ with nonorientable genus $g$ on a surface $\Sigma$, $G$ can be embedded on $\leq f(g)$ pages such that for any face $F$ on $\Sigma - G$, the number of monochromatic paths is bounded by some $h(g)$. 
 \end{conjecture}
+
+
+\section{non-orientable surfaces}
+For nonorientable surfaces, this is more complicated. \textcite{heathEmbeddingPlanarGraphs1984} did not sufficiently prove the case for non-orientable graphs. \textcite{nakamotoBookEmbeddingProjectiveplanar2015} showed that every projective-planar graph can be embedded in $9$ pages, which was improved to 6 with a more complex proof. However, we want to prove a book-embedding for all nonorientable surfaces. 
+
+We want to show the following:
+\begin{conjecture}
+	Let $G$ be a graph with a 2-cell embedding on a non-orientable surface $\Sigma$ of genus $g$. Then $G$ can be embedded in $O(g)$ pages.
+\end{conjecture}
+
+For the case that $g = 1$, then $G$ can be embedded in 6 pages, from \textcite{ozekiBookEmbeddingGraphs2019}. However, it is not known for higher $g$, and in fact the case when $g = 2$ was stated to be an open problem. 
 
 \input{chapters/consequences}
