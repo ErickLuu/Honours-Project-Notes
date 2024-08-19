@@ -11,6 +11,16 @@ However, the proof given in their paper only holds in the case when the graph $G
 	Every graph embedded on the projective plane has a book-embedding with $9$ pages.
 \end{theorem}
 
+This proof relies on a \textit{triangulated} projective plane graphs. This means that every face has three distinct vertices on its boundary. 
+
+\begin{theorem}
+    Every projective-planar graph is a subgraph of a triangulated projective-planar graph.
+\end{theorem}
+
+\begin{proof}
+    Let $G$ be a projective-planar graph. If a face is bounded by a cycle $C$ of length $\geq 4$, then add a vertex $v$ in the centre of the face and have every vertex $w \in C$ be adjacent to $v$. Suppose a face $F$ has indistinct vertices on its boundary $v_1, \ldots, v_k$. Then as $G$ is simple, the reappearing vertices must be nonconsecutive, and $k \geq 4$. Add a maximal outerplanar graph with $k$ vertices on $F$ with boundary $w_1, \ldots, w_k$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ modulo $k$ for $i = 1, \ldots, k$. Then this is a triangulation of $\mathbb{C}$. 
+\end{proof}
+
 A cycle $C$ in $G$ embedded on $\Sigma$ is \textit{contractible} if $C$ in $\Sigma$ as a loop is null-homotopic. Otherwise $C$ is non-contractibe. 
 A \textit{link} of a vertex $v$ is the boundary of the union of the faces that touch $v$. This coincides with the definition of a link in a simplicial complex.
 
@@ -39,4 +49,4 @@ Now we will prove \cref{thm:proj_planar_graphs_9pages}.
     Now for edges in $E_N$. Let $W = B_1[x, y) xy B_2(y, x]$ be a walk which starts and ends in $x$. Let $R$ be the subgraph of $G$ bounded by $W$. Note that all edges of $R$ must go from $B_1$ to $B_2$ because they all must pairwise cross. Since $G$ is a triangulation, $R$ has edges from one half to the other half. Then $R'$ is maximal outerplanar. $R'$ has a 1-page embedding with the same $(<, \sigma)$. Add all edges to a new page. For the inner pages from $B_1$ to $x$, or from $B_2$ to $y$, add to an old page. 
 \end{proof}
 
-This is a very short proof embedding a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle}. 
+This is a very short proof embedding a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find book-embeddings of every graph.  
