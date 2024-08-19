@@ -4,5 +4,8 @@
     "ltex.dictionary": {
         
     },
-    "ltex.additionalRules.motherTongue": "en-AU"
+    "ltex.additionalRules.motherTongue": "en-AU",
+    "cSpell.words": [
+        "embeddable"
+    ]
 }
