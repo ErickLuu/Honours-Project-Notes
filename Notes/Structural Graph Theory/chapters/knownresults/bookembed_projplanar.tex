@@ -18,7 +18,7 @@ This proof relies on a \textit{triangulated} projective plane graphs. This means
 \end{theorem}
 
 \begin{proof}
-    Let $G$ be a projective-planar graph. If a face is bounded by a cycle $C$ of length $\geq 4$, then add a vertex $v$ in the centre of the face and have every vertex $w \in C$ be adjacent to $v$. Suppose a face $F$ has indistinct vertices on its boundary $v_1, \ldots, v_k$. Then as $G$ is simple, the reappearing vertices must be nonconsecutive, and $k \geq 4$. Add a maximal outerplanar graph with $k$ vertices on $F$ with boundary $w_1, \ldots, w_k$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ modulo $k$ for $i = 1, \ldots, k$. Doing this operation on every face of $G$ is a triangulation of the projective plane, with $G$ a subgraph of this graph.  
+    Let $G$ be a projective-planar graph. If a face is bounded by a cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_1, \ldots, v_k$. Then as $G$ is simple, the reappearing vertices must be nonconsecutive, and $k \geq 4$. Add a maximal outerplanar graph with $k$ vertices on $F$ with boundary $w_1, \ldots, w_k$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 1, \ldots, k$. Doing this operation on every face of $G$ is a triangulation of the projective plane, with $G$ a subgraph of this graph.  
 \end{proof}
 
 A cycle $C$ in $G$ embedded on $\Sigma$ is \textit{contractible} if $C$ in $\Sigma$ as a loop is null-homotopic. Otherwise $C$ is non-contractibe. 
