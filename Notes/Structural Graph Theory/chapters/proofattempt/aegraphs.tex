@@ -69,7 +69,7 @@ We shall prove an intermediate lemma.
 \begin{figure}
 	\centering
 	\includesvg[pretex=\tiny, width = 0.8 \textwidth]{figures/one_page_embedding.svg}
-	\caption{Description of \cref{lem:one_page_decomposition}.\(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways stil maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\) as it is more compact to draw.}\label{fig:preserving_pages}
+	\caption{Description of \cref{lem:one_page_decomposition}.\(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\) as it is more compact to draw.}\label{fig:preserving_pages}
 \end{figure}
 
 We shall now prove \cref{lem:vortices_mono_paths}.
@@ -102,5 +102,5 @@ In Hickingbotham's proof \cref{ssec:Clique_sum_Pagenumber_bound}, we have to mov
 \end{theorem}
 
 \begin{proof}
-	Use theorem \cref{lem:planar_graphs_4_connected_cliqesums} to build a tree-decomposition $(B_x : x \in T)$ of $G$ with $4$-connected planar torsos of adhesion 3. Each torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to embed $G$ in a book. At most three vertices are moved to the front in each torso. By the construction of the $4$-connected planar graphs, every face $F$ has at most three vertices moved to the front. Each vertex moved forces two edges to be on an individual monochromatic path, and paths between front vertices are also chaged. Therefore, every face has at most $12$ monochromatic paths, as each vertex adds at most four additional monochromatic paths. By \cref{thm:Planar Graph Hickingbotham Bound}, $G$ can be embedded on $11$ pages.
+	Use theorem \cref{lem:planar_graphs_4_connected_cliqesums} to build a tree-decomposition $(B_x : x \in T)$ of $G$ with $4$-connected planar torsos of adhesion 3. Each torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to embed $G$ in a book. At most three vertices are moved to the front in each torso. By the construction of the $4$-connected planar graphs, every face $F$ has at most three vertices moved to the front. Each vertex moved forces two edges to be on an individual monochromatic path, and paths between front vertices are also changed. Therefore, every face has at most $12$ monochromatic paths, as each vertex adds at most four additional monochromatic paths. By \cref{thm:Planar Graph Hickingbotham Bound}, $G$ can be embedded on $11$ pages.
 \end{proof}
