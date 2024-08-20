@@ -1,0 +1,34 @@
+\section{Proof for orientable surfaces}
+So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed.
+The main theorem we want to prove is:
+\begin{theorem}\label{thm:orientablevortices}
+	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$.  Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where $s = \gpk$. 
+\end{theorem}
+
+We will prove this by starting with planar graphs, then bounded genus graphs. We show that the number of monochromatic paths on these graphs is bounded for every face. Then we will show that because the number of monochromatic paths for every face is bounded, we can add vortices.
+
+\begin{lemma}\label{lem:orientablesurfaces_monochromatic_edges}
+	Let $G$ be a graph embedded on an orientable surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has $ \leq 4g$ monochromatic paths.
+\end{lemma}
+\begin{proof}
+	Let $G$ be such a graph. $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable. The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
+	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \times 4g = 12(g + 1)$ monochromatic paths.
+\end{proof}
+\begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
+	Let $G$ be a graph $k$-almost embeddable on an orientable surface of genus at most $g$, with $p$ vortices on $G$. Then $G$ has a book-embedding with at most $11 + 18g + 12(k + 1)(g + 1)$ pages.
+\end{lemma}
+
+\begin{proof}
+	Suppose $G$ is $k$-almost-embeddable on a surface of genus $g$. Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ with $11 + 18g$ pages where every face has $12(g+1)$ monochromatic paths, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{lem:vortices_mono_paths}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded in at most $11 + 18g + 12p(k + 1)(g + 1) = \gpk $ pages. Thus shown.
+\end{proof}
+
+Now to prove the main theorem:
+\begin{proof}
+	Let every torso of $G$ be $k$-almost-embeddable. Then from \cref{lem:orientablesurfaces_almostembeddable} that every torso requires at most $s = \gpk $-pages with adhesion at most $\ell$. Then from \cref{corr:bded_pn_tree_decomp}, $G$ needs at most $(2s + 2)(s) + \ell$ pages.
+\end{proof}
+
+
+\begin{corollary}
+	Suppose $G$ is in $\mathcal{G}(g, p, k, a)$. Then $G$ can be embedded on $(2s + 2)(s) + \ell + a$ pages, where $s = \gpk$. 
+\end{corollary}
+Finally, apex vertices are handled with \cref{thm:apex_vertices_pagenumber}. Thus we conclude a partial result using \textcite{robertsonGraphMinorsXVI2003} to show that some $K_t$-minor free graphs, ones where every torso is $k$-almost-embeddable on an orientable surface, satisfy the conjecture.

@@ -11,22 +11,32 @@ However, the proof given in their paper only holds in the case when the graph $G
 	Every graph embedded on the projective plane has a book-embedding with $9$ pages.
 \end{theorem}
 
-A cycle $C$ in $G$ embedded on $\Sigma$ is \textit{contractible} if $C$ in $\Sigma$ as a loop is null-homotopic. Otherwise $C$ is non-contractibe. 
+This proof relies on a \textit{triangulated} projective plane graphs. This means that every face has three distinct vertices on its boundary. 
+
+\begin{theorem}
+    Every projective-planar graph is a subgraph of a triangulated projective-planar graph.
+\end{theorem}
+
+\begin{proof}
+    Let $G$ be a projective-planar graph. If a face is bounded by a cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_1, \ldots, v_k$. Then as $G$ is simple, the reappearing vertices must be non-consecutive, and $k \geq 4$. Add a maximal outerplanar graph with $k$ vertices on $F$ with boundary $w_1, \ldots, w_k$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 1, \ldots, k$. Doing this operation on every face of $G$ is a triangulation of the projective plane, with $G$ a subgraph of this graph.  
+\end{proof}
+
+A cycle $C$ in $G$ embedded on $\Sigma$ is \textit{contractible} if $C$ in $\Sigma$ as a loop is null-homotopic. Otherwise $C$ is non-contractible. 
 A \textit{link} of a vertex $v$ is the boundary of the union of the faces that touch $v$. This coincides with the definition of a link in a simplicial complex.
 
-To prove this theorem, we prove an auxillary lemma. 
+To prove this theorem, we prove an auxiliary lemma. 
 
 \begin{lemma}\label{lem:proj_planar triangulation}
-    Let $G$ be a triangulated projective-planar graph. Then there exists a planar spanning subgraph $G_P$ with outer cycle $B$ that is contractible, nonplanar edges $E_N$, and a noncontractible cycle $C$. Furthermore, there exists two vertices $x, y$ such that $\{x, y \} = V(C) \cap V(B)$, $xy \in E_N$ and $C - xy$ has no edges in $E_N$. 
+    Let $G$ be a triangulated projective-planar graph. Then there exists a planar spanning subgraph $G_P$ with outer cycle $B$ that is contractible, nonplanar edges $E_N$, and a non-contractible cycle $C$. Furthermore, there exists two vertices $x, y$ such that $\{x, y \} = V(C) \cap V(B)$, $xy \in E_N$ and $C - xy$ has no edges in $E_N$. 
 \end{lemma}
 
 \begin{proof}
     Let $C$ be the shortest non-contractible cycle of $G$. This exists as every face of $G$ is a disk, so if there are no non-contractible cycles in $G$, then $G$ is planar. Therefore, $G$ is not projective-planar. Let $xy$ be an edge in $C$. Let $P = C - xy$ be a path starting at $x$ and ending at $y$. 
     Number the vertices of $P = v_1, \ldots, v_m$. 
 
-    Locally define the left hand side and right hand side of $P$. Take $r_i$ to be the vertex on the right hand of $P$ such that $v_i v_{i + 1} r_i$ bounds a face in $G$. Let $R_i$ be the right hand path from $r_i$ to $r_{i + 1}$ on the link of $v_i$, disjoint from $P$. Then let the walk $R'$ start at $v_1 r_1$, be the concatentation of all $R_i$ to $m-1$, and then go $r_{m-1} v_m$. This is a walk from $x$ to $y$ disjoint from $P$. Then take $R$ to be a path from $x$ to $y$, $R \subseteq R'$. Then repeat for $L$, the left hand side path from $x$ to $Y$. Now these three paths are disjoint. Suppose $R$ and $L$ have a common inner vertex, call it $x$. Then this means that for two vertices $x_i, x_j$, $x$ is a right hand neighbour of $x_i$ and a left hand neighbour of $x_j$. Now the cycle $(x v_i) (v_i v_{i + 1}), \ldots , (v_j x)$ noncontractible, as the cycle must pass through $C$ and thus must lie on a crosscap. However, $i, j$ is not $1$ or $m$ because we go to $r_2$ or $r_{m-1}$. Therefore, $C'$ is shorter than $C$, breaking the assumption that $C$ is the smallest non-contractible cycle.
+    Locally define the left hand side and right hand side of $P$. Take $r_i$ to be the vertex on the right hand of $P$ such that $v_i v_{i + 1} r_i$ bounds a face in $G$. Let $R_i$ be the right hand path from $r_i$ to $r_{i + 1}$ on the link of $v_i$, disjoint from $P$. Then let the walk $R'$ start at $v_1 r_1$, be the concatenation of all $R_i$ to $m-1$, and then go $r_{m-1} v_m$. This is a walk from $x$ to $y$ disjoint from $P$. Then take $R$ to be a path from $x$ to $y$, $R \subseteq R'$. Then repeat for $L$, the left hand side path from $x$ to $Y$. Now these three paths are disjoint. Suppose $R$ and $L$ have a common inner vertex, call it $x$. Then this means that for two vertices $x_i, x_j$, $x$ is a right hand neighbour of $x_i$ and a left hand neighbour of $x_j$. Now the cycle $(x v_i) (v_i v_{i + 1}), \ldots , (v_j x)$ non-contractible, as the cycle must pass through $C$ and thus must lie on a crosscap. However, $i, j$ is not $1$ or $m$ because we go to $r_2$ or $r_{m-1}$. Therefore, $C'$ is shorter than $C$, breaking the assumption that $C$ is the smallest non-contractible cycle.
 
-    Now $P, R, L$ are three-internally disjoint paths from $x$ to $y$ where $P, R$ and $P, L$ are null-homotopic. As $P$ is a contractible path, the union of the two disks are also a disk, therefore $R, L$ bounds a disk $D$. If every vertex is contained in $D$, we are done. Othewise, find a vertex $v$ not in $D$. Since triangulations are 3-connected, there are three disjoint paths $P_1, P_2, P_3$ from $v$ to $D$, ending at vertices $v_1, v_2, v_3$ respectively. Then two vertices will be distinct, suppose they are $v_1, v_2$. Then there is a path $R'$ from $v_1$ to $v_2$ on the boundary of $D$ such that $R' \cup P_1 \cup P_2$ is a contractibel cycle. Then add this disk to $D$ to enlargen $D$. As this procedure can be repeated for every vertex, there exists a planar graph $G_p = D$ of $G$. 
+    Now $P, R, L$ are three-internally disjoint paths from $x$ to $y$ where $P, R$ and $P, L$ are null-homotopic. As $P$ is a contractible path, the union of the two disks are also a disk, therefore $R, L$ bounds a disk $D$. If every vertex is contained in $D$, we are done. Otherwise, find a vertex $v$ not in $D$. Since triangulations are 3-connected, there are three disjoint paths $P_1, P_2, P_3$ from $v$ to $D$, ending at vertices $v_1, v_2, v_3$ respectively. Then two vertices will be distinct, suppose they are $v_1, v_2$. Then there is a path $R'$ from $v_1$ to $v_2$ on the boundary of $D$ such that $R' \cup P_1 \cup P_2$ is a contractible cycle. Then add this disk to $D$ to enlarge $D$. As this procedure can be repeated for every vertex, there exists a planar graph $G_p = D$ of $G$. 
 \end{proof}
 
 Now we will prove \cref{thm:proj_planar_graphs_9pages}.
@@ -39,4 +49,4 @@ Now we will prove \cref{thm:proj_planar_graphs_9pages}.
     Now for edges in $E_N$. Let $W = B_1[x, y) xy B_2(y, x]$ be a walk which starts and ends in $x$. Let $R$ be the subgraph of $G$ bounded by $W$. Note that all edges of $R$ must go from $B_1$ to $B_2$ because they all must pairwise cross. Since $G$ is a triangulation, $R$ has edges from one half to the other half. Then $R'$ is maximal outerplanar. $R'$ has a 1-page embedding with the same $(<, \sigma)$. Add all edges to a new page. For the inner pages from $B_1$ to $x$, or from $B_2$ to $y$, add to an old page. 
 \end{proof}
 
-This is a very short proof embedding a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle}. 
+This is a very short proof embedding a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find book-embeddings of every graph.  
