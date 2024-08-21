@@ -44,7 +44,7 @@ Now we will prove \cref{thm:proj_planar_graphs_9pages}.
     Let $H$ be a projective-planar graph. Let $G$ be a triangulation of $H$.
     Now apply \cref{lem:proj_planar triangulation}. Let $G_P$ be the spanning planar subgraph in $G$, let $B$ be its planar boundary, let $E_N$ be the nonplanar edges and let $C$ be the non-contractible cycle, with edges $x, y$ on $B$. $G_P$ is edge-maximal planar. Let $B_1, B_2$ be the two paths from $x$ to $y$ on the boundary of $B$. Let $D_1$ be the planar subgraph bounded by $P \cup B_1$, similarly for $D_2$. 
 
-    From \textcite{yannakakisEmbeddingPlanarGraphs1989}, there exists a $4$-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P B_1$. Similarly, there exists $4$-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P B_2$. Combine these two embeddings along $P$ (interlace $<_1, <_2$ along $P$) to form a book-embedding $(<, \sigma)$ in $8$ pages of $G$. 
+    From \cref{thm:4Pages_Planar}, there exists a $4$-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P \cup B_1$. Similarly, there exists a $4$-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P \cup B_2$. Combine these two embeddings along $P$ (interlace $<_1, <_2$ along $P$) to form a book-embedding $(<, \sigma)$ with $8$ pages of $G$. 
 
     Now for edges in $E_N$. Let $W = B_1[x, y) xy B_2(y, x]$ be a walk which starts and ends in $x$. Let $R$ be the subgraph of $G$ bounded by $W$. Note that all edges of $R$ must go from $B_1$ to $B_2$ because they all must pairwise cross. Since $G$ is a triangulation, $R$ has edges from one half to the other half. Then $R'$ is maximal outerplanar. $R'$ has a 1-page embedding with the same $(<, \sigma)$. Add all edges to a new page. For the inner pages from $B_1$ to $x$, or from $B_2$ to $y$, add to an old page. 
 \end{proof}
@@ -56,4 +56,4 @@ An open problem in \textcite{ozekiBookEmbeddingGraphs2019} is this:
     Every graph embedded on a Klein Bottle can be embedded in a bounded number of pages.
 \end{conjecture}
 
-A possible approach would be to find a way to divide the Klein bottle into a planar spanning subgraph and nonplanar edges where each edge goes through a single crosscap. Then find a way to partition the planar subgraph so that the boundary of each region can go through one edge. 
+A possible approach would be to find a way to divide the Klein bottle into a planar spanning subgraph and nonplanar edges where each edge goes through a single crosscap. Then find a way to partition the planar subgraph so that the boundary of each region can go through one edge. Furthermore, the boundary of $G_P$ has to be oriented so that edges that go through a crosscap is reversed and edges that go through two crosscaps are in the same direction. 
