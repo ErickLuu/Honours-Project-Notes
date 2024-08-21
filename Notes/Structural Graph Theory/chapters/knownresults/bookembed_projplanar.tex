@@ -3,9 +3,9 @@
 \section{Pagenumber of projective-planar graphs}
 In the non-orientable case, Heath and Istrail claim to prove the below conjecture.
 \begin{conjecture}\label{lem:planar_nonplanar_nonorientable}
-	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a non-orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on \(9g - 1\) pages.
+	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a non-orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on \( O(g)\) pages.
 \end{conjecture}
-However, the proof given in their paper only holds in the case when the graph $G_P$ is a cycle, or with a bounded number of chords in the cycle. \textcite{nakamotoBookEmbeddingProjectiveplanar2015} also notices this error and proves the following theorem.
+However, the proof given in their paper is far too vague and is insufficient to prove the theorem. \textcite{nakamotoBookEmbeddingProjectiveplanar2015} also notices this error and proves the following theorem.
 
 \begin{theorem}\label{thm:proj_planar_graphs_9pages}
 	Every graph embedded on the projective plane has a book-embedding with $9$ pages.
@@ -50,3 +50,10 @@ Now we will prove \cref{thm:proj_planar_graphs_9pages}.
 \end{proof}
 
 This is a very short proof embedding a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find book-embeddings of every graph.  
+
+An open problem in \textcite{ozekiBookEmbeddingGraphs2019} is this:
+\begin{conjecture}
+    Every graph embedded on a Klein Bottle can be embedded in a bounded number of pages.
+\end{conjecture}
+
+A possible approach would be to find a way to divide the Klein bottle into a planar spanning subgraph and nonplanar edges where each edge goes through a single crosscap. Then find a way to partition the planar subgraph so that the boundary of each region can go through one edge. 

@@ -8,7 +8,7 @@ A \textit{topological space} is a set $(X, \mathcal{F})$ where $\mathcal{F} \sub
     \item $\mathcal{F}$ is closed under arbitrary union,
     \item $\mathcal{F}$ is closed under finite intersection.
 \end{itemize} 
-If $U \in \mathcal{F}$, then $U$ is open in $X$. A function $f : X \rightarrow Y$ between two topological spaces is \textit{continuous} if the preimage of any open set in $Y$ is open in $X$. Furthermore, if a function $f : X \rightarrow Y$ is continuous, bijective and the inverse $f^{-1}$ is also continuous, then $X$ and $Y$ are homeomorphic with homeomorphism $f$. 
+If $U \in \mathcal{F}$, then $U$ is open in $X$. A function $f : X \rightarrow Y$ between two topological spaces is \textit{continuous} if the preimage of any open set in $Y$ is open in $X$. Furthermore, if a function $f : X \rightarrow Y$ is continuous, bijective and the inverse $f^{-1}$ is also continuous, then $X$ and $Y$ are \textit{homeomorphic} with homeomorphism $f$. 
 
 Let $X$ be a set. $S \subseteq 2^X$ \textit{generates} a topology $\tau(S)$ on $X$ such that $\tau(S)$ is the intersection of all topologies on $X$ where $S$ is open. 
 
@@ -19,13 +19,14 @@ A \textit{loop} is a continuous function $\gamma : I \rightarrow X$ where $\gamm
 
 \subsection{Surfaces}
 
-This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. A \textit{surface} \(\Sigma\) is a topological space which, at every point, has a neighbourhood homeomorphic to an open disk. There are three important surfaces to know- the sphere \(S^2\), the torus \(T\), and the real projective plane \(P\). 
+This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. A \textit{surface} \(\Sigma\) is a topological space which, at every point, has a neighbourhood homeomorphic to an open disk. There are four important surfaces to know- the sphere \(S^2\), the torus \(T\), the projective plane \(P\) and the Klein bottle $K$. 
 
 \textit{Handles} are added to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise and the other goes counter-clockwise. \textit{Crosscaps} are added to a surface $\Sigma$ by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. 
 \par
 \begin{definition}[Euler Genus]
 	The \textit{Euler genus} of a surface \(\Sigma\), obtained from a sphere by adding \(h\) handles and \(c\) crosscaps, is \(2h + c\).
 \end{definition}
+A sphere with one handle and one crosscap is homeomorphic to a sphere with three crosscaps. 
 
 \begin{example}
 	This is the Euler genus of some surfaces.
