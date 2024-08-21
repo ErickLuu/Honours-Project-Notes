@@ -31,7 +31,7 @@
      inkscape:window-x="3832"
      inkscape:window-y="112"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer2" />
   <defs
      id="defs1" />
   <g
@@ -160,20 +160,20 @@
        cy="166.21957"
        r="3.9756057" />
     <ellipse
-       style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:0.2"
+       style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:0.180695"
        id="path12"
-       ry="38.131107"
-       rx="68.139061"
-       cy="86.583267"
-       cx="150.09857"
-       transform="rotate(41.101381)" />
+       ry="34.645824"
+       rx="61.214909"
+       cy="52.485283"
+       cx="189.7251"
+       transform="matrix(0.61323321,0.78990191,-0.97611852,0.21723867,0,0)" />
     <ellipse
-       style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:0.175017"
+       style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:0.158326"
        id="path12-0"
-       ry="34.735355"
-       rx="57.279972"
-       cy="-98.512184"
-       cx="244.44763"
-       transform="matrix(0.50258793,0.8645261,-0.40461417,0.91448749,0,0)" />
+       ry="31.029749"
+       rx="52.47398"
+       cy="-155.50818"
+       cx="256.24924"
+       transform="matrix(0.26595097,0.96398656,-0.61495241,0.78856422,0,0)" />
   </g>
 </svg>
