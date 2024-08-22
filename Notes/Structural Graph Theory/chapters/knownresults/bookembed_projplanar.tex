@@ -5,27 +5,28 @@ In the non-orientable case, Heath and Istrail claim to prove the below conjectur
 \begin{conjecture}\label{lem:planar_nonplanar_nonorientable}
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a non-orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on \( O(g)\) pages.
 \end{conjecture}
-However, the proof given in their paper is far too vague and is insufficient to prove the theorem. An example of a projective-planar graph is in \cref{fig:projectiveplanar}.
+However, the outline given in their paper is insufficient to prove \cref*{lem:planar_nonplanar_nonorientable}. In fact, their proof method fails when a graph is projective-planar. 
+An example of a projective-planar graph is in \cref{fig:projectiveplanar}.
 
 \begin{figure}[h]
     \centering
     \includesvg[width = 0.8 \textwidth]{figures/projective_planar_graph.svg}
     \caption{Projective planar graph}\label{fig:projectiveplanar}
 \end{figure}
-\textcite{nakamotoBookEmbeddingProjectiveplanar2015} also notices this error and proves the following theorem.
+\textcite{nakamotoBookEmbeddingProjectiveplanar2015} also notice this error and proves the following theorem.
 
-\begin{theorem}\label{thm:proj_planar_graphs_9pages}
+\begin{theorem}[\textcite{nakamotoBookEmbeddingProjectiveplanar2015}]\label{thm:proj_planar_graphs_9pages}
 	Every graph embedded on the projective plane has a book-embedding with $9$ pages.
 \end{theorem}
 
-This proof relies on a \textit{triangulated} projective plane graphs. This means that every face has three distinct vertices on its boundary. 
+This proof relies on a \textit{triangulated} projective plane graphs. This means that every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation. \textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph. Therefore, vertices will need to be added to every graph. 
 
 \begin{theorem}
     Every projective-planar graph is a subgraph of a triangulated projective-planar graph.
 \end{theorem}
 
 \begin{proof}
-    Let $G$ be a projective-planar graph. If a face is bounded by a cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_1, \ldots, v_k$. Then as $G$ is simple, the reappearing vertices must be non-consecutive, and $k \geq 4$. Add a maximal outerplanar graph with $k$ vertices on $F$ with boundary $w_1, \ldots, w_k$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 1, \ldots, k$. Doing this operation on every face of $G$ is a triangulation of the projective plane, with $G$ a subgraph of this graph.  
+    Let $G$ be a projective-planar graph. If a face is bounded by a cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_0, \ldots, v_{k-1}$. Then as $G$ is simple, the reappearing vertices must be non-consecutive, and $k \geq 4$. Add a maximal outerplanar graph with $k$ vertices on $F$ with boundary $w_0, \ldots, w_{k-1}$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 0, \ldots, {k-1}$ modulo $k$. Doing this operation on every face of $G$ is a triangulation of the projective plane, with $G$ a subgraph of this graph.  
 \end{proof}
 
 A cycle $C$ in $G$ embedded on $\Sigma$ is \textit{contractible} if $C$ in $\Sigma$ as a loop is null-homotopic. Otherwise $C$ is non-contractible. 
