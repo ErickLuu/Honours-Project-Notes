@@ -1,6 +1,6 @@
 \section{Consequences}
-We will finish by discussing some consequences of the above theorem. 
-We say a family of graphs $\mathcal{F}$ is \textit{proper} if $\mathcal{F}$ is not the set of all graphs. 
+We will finish by discussing the importance of \cref{conj:bded_had_pn}. We discuss some consequences of \cref{conj:bded_had_pn} if it is proven. 
+A family of graphs $\mathcal{F}$ is \textit{proper} if $\mathcal{F}$ is not the set of all graphs. 
 
 \begin{lemma}\label{lem:minor-closed-Kt}
     Every proper minor-closed graph family $\mathcal{F}$ has a fixed $t$ such that $\mathcal{F}$ is $K_t$-minor free. 
@@ -11,13 +11,15 @@ We say a family of graphs $\mathcal{F}$ is \textit{proper} if $\mathcal{F}$ is n
 \end{proof}
 
 \begin{lemma}\label{lem:Minor-Closed_Pagenumber}
-    Every proper minor-closed graph family has bounded pagenumber.
+    Every proper minor-closed graph family can be embedded on a bounded number of pages.
 \end{lemma}
 \begin{proof}
-    From \cref{lem:minor-closed-Kt}, every proper minor-closed graph family is also $K_t$-minor free. Therefore, $\pn(G) \leq f(\ell)$.
+    From \cref{lem:minor-closed-Kt}, every proper minor-closed graph family is also $K_t$-minor free. Therefore, every graph in a proper minor-closed gaph family can be embedded in a bounded number of pages.
 \end{proof}
 
 This does not say that $\pn(H) \leq \pn(G)$ when $H$ is a minor of $G$. Subdivide $K_n$ $n$ times. From \textcite{atneosenEmbeddabilityCompactaNbooks}, the subdivision of $K_n$ can be embedded on three pages. But $K_n$ is a minor of its subdivision, and from \cref{thm:Pagenumber_Complete_Graph}, $\pn(K_n) = \lceil \frac{n}{2} \rceil$. Therefore, pagenumber is not a minor-closed property. 
+
+This will imply that linklessly embeddable graphs or knotlessly embeddable graphs have bounded pagenumber. 
 
 \subsection{Similarities with Blankenship's PhD}
 Blankenship also uses \textcite{heathPagenumberGenusGraphs1992} to do a planar-nonplanar decomposition. Apex vertices are handled the same. However, Blankenship deals with vortices very differently. They use a ``cap edges'' solution to deal with vortices to embed a graph. This is much different to our approach using monochromatic paths on vortices, and using a tree-decomposition. 
