@@ -79,3 +79,20 @@ Given graphs $G$ and $H$ with genus $g_1, g_2$, it is useful to construct a new 
 	This proof mimics the above proof for planarity, but on surfaces of higher genus. 
 	Suppose \(G\) has \(n\) vertices and \(m\) edges and of genus $g$. Then \(n - m + f = \chi = 2-g\), from \cref{thm:Euler_surfaces}. As at least three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on a genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). Thus \(t \leq \sqrt{6g} + 4\). So if a graph has genus \(g\), then it is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\). 
 \end{proof}
+
+\subsection{Colouring graphs on surfaces}
+The problem of colouring planar graphs has been studied extensively for the past hundred years. This has led to many generalisations, including Hadwiger's conjecture \cref{conj:Hadwiger's Conjecture}. One particular generalisation was by \textcite{heawoodMapcolourTheorem1890} who proved that:
+
+\begin{theorem}
+	Every graph embedded on a surface of genus $g \geq 1$ is
+	\begin{equation*}
+		\left\lfloor 
+		\frac{7 + \sqrt{1 + 24g}}{2}
+		\right\rfloor
+	\end{equation*}
+	-colourable. 
+\end{theorem}
+
+Equality in the case when the graph $G$ is a map was shown by \textcite{ringelMapColorTheorem1974}.
+
+\todo{expand out!}
