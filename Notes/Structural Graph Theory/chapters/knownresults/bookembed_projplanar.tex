@@ -5,15 +5,13 @@ In the non-orientable case, Heath and Istrail claim to prove the below conjectur
 \begin{conjecture}\label{lem:planar_nonplanar_nonorientable}
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a non-orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on \( O(g)\) pages.
 \end{conjecture}
-However, the outline given in their paper is insufficient to prove \cref*{lem:planar_nonplanar_nonorientable}. In fact, their proof method fails when a graph is projective-planar. 
-An example of a projective-planar graph is in \cref{fig:projectiveplanar}.
+However, the outline given in their paper is insufficient to prove \cref*{lem:planar_nonplanar_nonorientable}. In fact, their proof method fails when a graph is projective-planar, as stated by \textcite{nakamotoBookEmbeddingProjectiveplanar2015} and \textcite{ozekiBookEmbeddingGraphs2019}. An example of a projective-planar graph is in \cref{fig:projectiveplanar}. As \textcite{Blankenship-PhD03} relies on Heath and Istrail's result, we are fairly confident that the approach taken by Blankenship is incomplete and therefore \cref{conj:bded_had_pn} is still an open problem. However, \textcite{nakamotoBookEmbeddingProjectiveplanar2015} prove the following theorem:
 
 \begin{figure}[h]
     \centering
     \includesvg[width = 0.8 \textwidth]{figures/projective_planar_graph.svg}
     \caption{Projective planar graph}\label{fig:projectiveplanar}
 \end{figure}
-\textcite{nakamotoBookEmbeddingProjectiveplanar2015} also notice this error and proves the following theorem.
 
 \begin{theorem}[\textcite{nakamotoBookEmbeddingProjectiveplanar2015}]\label{thm:proj_planar_graphs_9pages}
 	Every graph embedded on the projective plane has a book-embedding with $9$ pages.
@@ -57,7 +55,7 @@ Now we will prove \cref{thm:proj_planar_graphs_9pages}.
     Now for edges in $E_N$. Let $W = B_1[x, y) xy B_2(y, x]$ be a walk which starts and ends in $x$. Let $R$ be the subgraph of $G$ bounded by $W$. Note that all edges of $R$ must go from $B_1$ to $B_2$ because they all must pairwise cross. Since $G$ is a triangulation, $R$ has edges from one half to the other half. Then $R'$ is maximal outerplanar. $R'$ has a 1-page embedding with the same $(<, \sigma)$. Add all edges to a new page. For the inner pages from $B_1$ to $x$, or from $B_2$ to $y$, add to an old page. 
 \end{proof}
 
-This is a very short proof embedding a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find book-embeddings of every graph.  
+This embeds a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find book-embeddings of every graph. 
 
 An open problem in \textcite{ozekiBookEmbeddingGraphs2019} is this:
 \begin{conjecture}
