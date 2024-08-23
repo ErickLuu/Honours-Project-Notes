@@ -242,4 +242,96 @@ Take any $f$ which is orientation preserving. Then pick a point $p_0$. Then ther
 
 Orientation-reversing homeomorphims cannot be transformed to orienting preserving homeomorphisms on $S^2$. 
 
+
+\newcommand*{\inter}{\hat{i}}
+\newcommand*{\twequiv}{\sim_c}
+\section{5}
+\subsection{2}
+\subsubsection{a}
+Let $\alpha, \alpha'$ and $\beta, \beta'$ be isotopic with isotopies $h_\alpha$ and $h_\beta$. We want to show firstly that $\inter(\alpha, \beta) = \inter(\alpha, \beta')$. Firstly, let $h_\beta(\alpha, 1) = h_\beta(\alpha)$. Then the homeomorphism $h_\beta( \cdot, 1)$ sends $\alpha$ to $h_\beta(\alpha)$ and $\beta$ to $\beta'$. $h$ sends the intersection points to intersection points and non-intersection points on $\beta$ to non-intersection points. 
+
+\subsubsection{b}
+Proof by picture. At every point in $\alpha \cap \beta$, consider traversing along $\alpha$ and then traversing along $\beta$. If at this point $i = \pm 1$ along $\alpha$ then along $\beta$ $i = \mp 1$. Red is $\alpha$, black is $\beta$. 
+
+\begin{figure}[ht]
+    \centering
+    \includesvg{Figures/w5Q2svg.svg}
+\end{figure}
+
+Therefore, $\inter(\alpha, \beta) = - \inter(\beta, \alpha)$. 
+As a consequence, setting $\beta = \alpha$, $\inter(\alpha, \alpha) = - \inter(\alpha, \alpha)$. Therefore, $\inter(\alpha, \alpha) = 0$. 
+
+\subsection{3}
+\subsubsection{a}
+use induction??
+
+\subsubsection{b}
+Let $\alpha$ be an essential simple closed curve. Suppose for contradiction $T^k_\alpha$ is the identity in $MCG(S)$, and $k$ is the smallest integer that has this property. Then for all curves $\beta$, $T_a^k(\beta) \sim beta$. But this means that $i(T^k_a(\beta), \beta) = 2n$ for natural number $n$, as $\inter(T^k_a(\beta), \beta) = 0$. But this means that $2n = k i(a, \beta)^2$. As $a$ is essential, there exists a curve $\beta$ such that $i(a, \beta) = 1$. Therefore, $2n = k$, so $n = k/2$. 
+finish later
+
+\subsection{4}
+\subsubsection{a}
+
+DO AGAIN, NO BIGONS. 
+Let $T_a$, $T_b$ be two Dehn twists around simple closed curves.
+
+If $a$ and $b$ are essential and do not intersect, consider $S - \{a, b\}$. This surface is one with boundary. Now label the boundary of $S$ corresponding to $a$ as $\partial S_a$, and likewise for $b$ as $\partial S_b$. Then there exists a curve $c'$ which is on the interior of $S - \{a, b\}$ on a connected component with boundary in $\partial S_b$, as $S$ is a manifold. Then extend $c'$ slightly to touch only $b$. Then take $c'$ back to $S$, and pull on $c'$ even more so that $c'$ touches $b$ transversally. This can be done without touching $a$ as $a$ and $b$ have nonintersecting tubular neighbourhoods, and $c'$ can live inside the tubular neighbourhood of $b$. Then this curve $c'$ will not touch $a$ and will touch $b$ twice. 
+
+\subsubsection{b}
+Let $c$ be a curve which follows $a$ but does not cross $a$. Then $c$ will cross $b$ near where $a$ crosses $b$. Thus shown. 
+
+\subsubsection{c}
+Suppose $a$ and $b$ do not cross. Take $c$ to be the curve from part $a$. Then $i(T_a(c), c) = 0$ as $T_a(c) \sim c$ up to ambient isotopy, meaning $T_a(c)$ is just $c$ but pushed to the side. But $T_b(c), c$ is not 0, as $c$ crosses $T_b(c)$. Let $x, y$ be two crossings in $c \cap b$. Consider the twist at $x$. It wraps around and returns to $x$. But then this twist must pass by $y$, which is a crossing in $x$. Therefore, $T_b(c)$ must cross $c$.
+
+\subsection{d}
+Suppose $a = b$. Then $T_a = T_b$ up to isotopy. Now suppose $a \neq b$. Then there exists a curve $c$ such that $i(T_a(c), c) = 0$ but $i(T_b(c), c) \neq 0$. Therefore, $T_a \neq T_b$ as it does not preserve the intersection number of curves up to isotopy. Thus shown both directions.
+
+\subsection{5}
+\subsubsection{a}
+
+Let $f \in MCG(S)$. Let $a, b$ be isotopy classes of $SCC$ in $S$. Show $T_{f(a)} f = f T_a$. Hit both sides with $b$. Then $T_{f(a)} f(b)$ is a Dehn twist of $f(b)$ around $f(a)$. $T_a b$ is a Dehn twist of $b$ around $a$. However, outside of a neighbourhood of $f(a)$, $T_f(a) f(b) = f(T_a(b))$. Therefore, what is important is what goes on inside the neighbourhood of $b$. By homeomorphisms, $f(a \cap b) = f(a) \cap f(b)$. Therefore, the places where the point twists right are the same in both sections. Therefore, $T_{f(a)} f = f T_a$ and $T_{f(a)} = f T_a f^{-1}$. 
+
+\subsubsection{b}
+
+If both $a$ and $b$ are nonseparating, there exists a homeomorphism $f$ from $S^2 \rightarrow S^2$ that take $a$ to $b$, by question 6 week 4. Then $T_b = f T_a f^{-1}$. 
+
+\subsubsection{c}
+
+If $f$ commutes with $T_a$, then $T_{f(a)} = T_{a}$. Therefore, $f(a) = a$. If $f(a) = a$, then $T_{f(a)} = T_{a}$. Therefore, $T_{f(a)} = f T_{a} f^{-1} = T_a$, so $f T_a = T f_a$.
+
+\subsection{6}
+
+\subsubsection{Reflexive}
+For all scc $a$, $a \twequiv a$, through no twists.
+
+\subsection{Symmetric}
+Suppose $a \twequiv b$ through $b = T_1 T_2 ... T_m a$. Then $a = T_m^{-1} ... T_1^{-1}b$. 
+
+\subsubsection{Transitive}
+Let $a, b, c$ be curves such that $a \twequiv b$ and $b \twequiv c$. Then $a \twequiv c$. 
+
+Let $a = T_1 T_2 ... T_m b$ and $b = T_{m + 1} T_{m + 2}... T_{m + n} c$. Then $a = T_1 T_2 ... T_m T_{m + 1} ... T_{m + n} c$. Therefore, $a \twequiv c$. 
+
+\subsection{7}
+
+\subsubsection{a}
+If $p$ is disjoint from $H_i$ then $P$ lives on the component of $S - c_1, ..., c_g$ homeomorphic to the sphere with $g$ holes. As every scc on a sphere minus holes is separating, $p$ must be separating. 
+
+\subsubsection{b}
+\paragraph*{i}
+Suppose $p \subseteq H_i$ for some $H_i$. Then use the diagrams!!!
+
+
+\paragraph*{ii}
+
+Use more diagrams!
+
+\subsection{Exercise 8}
+
+\paragraph*{i}
+If $T_a T_b T_a = T_b T_a T_b$, then 
+
+\paragraph*{ii}
+\paragraph*{iii}
+
 \end{document}
