@@ -246,9 +246,11 @@ Orientation-reversing homeomorphims cannot be transformed to orienting preservin
 \newcommand*{\inter}{\hat{i}}
 \newcommand*{\twequiv}{\sim_c}
 \section{5}
+\subsection{1}
+There exists a homeomorphism from $\alpha$ to the side of a fundamental polygon. Now there exists a cycle that passes through $\alpha$ once that 
 \subsection{2}
 \subsubsection{a}
-Let $\alpha, \alpha'$ and $\beta, \beta'$ be isotopic with isotopies $h_\alpha$ and $h_\beta$. We want to show firstly that $\inter(\alpha, \beta) = \inter(\alpha, \beta')$. Firstly, let $h_\beta(\alpha, 1) = h_\beta(\alpha)$. Then the homeomorphism $h_\beta( \cdot, 1)$ sends $\alpha$ to $h_\beta(\alpha)$ and $\beta$ to $\beta'$. $h$ sends the intersection points to intersection points and non-intersection points on $\beta$ to non-intersection points. 
+Let $\alpha, \alpha'$ and $\beta, \beta'$ be isotopic with isotopies $h_\alpha$ and $h_\beta$. Firstly, $h_\beta$ maps $\beta$ to $\beta'$ along a strict homeomorphism. For every intersection in $\alpha$ and $\beta'$, when the homotopy $h_\beta$ goes back in time, either the intersection was from $\beta$ or induced by a new crossing at some point. However, the only way that new intersections can be introduced if they are added by some bigon, therefore $\inter(\alpha, \beta')$ restricted to the bigon is going left and right and therefore must add to 0. Repeating this argument for every crossing, it must hold that $\alpha$ and $\beta'$ cross either when $\alpha$ crosses $\beta$ or when a bigon is introduced. Therefore, $\inter(\alpha, \beta') =  \inter(\alpha, \beta)$. Now repeat this argument for $\inter(\alpha, \beta')$ and $\inter(\alpha', \beta')$ but traverse along $\beta'$ instead, and use subsection $b$. 
 
 \subsubsection{b}
 Proof by picture. At every point in $\alpha \cap \beta$, consider traversing along $\alpha$ and then traversing along $\beta$. If at this point $i = \pm 1$ along $\alpha$ then along $\beta$ $i = \mp 1$. Red is $\alpha$, black is $\beta$. 
@@ -263,26 +265,23 @@ As a consequence, setting $\beta = \alpha$, $\inter(\alpha, \alpha) = - \inter(\
 
 \subsection{3}
 \subsubsection{a}
-use induction??
+Outside of a neighbourhood of $a$, $T_a^k b$ and $b$ do not intersect. On this neighbourhood, when $b$ crosses $a$, the Dehn twist will cross over $b$ $|k| i(a, b)$ times. This is because the twist passes by every point in $a \cap b$ $|k|$ times. As this is done for every point in $a \cap b$, then the number of crossings is $|k| i(a, b)^2$. 
 
 \subsubsection{b}
-Let $\alpha$ be an essential simple closed curve. Suppose for contradiction $T^k_\alpha$ is the identity in $MCG(S)$, and $k$ is the smallest integer that has this property. Then for all curves $\beta$, $T_a^k(\beta) \sim beta$. But this means that $i(T^k_a(\beta), \beta) = 2n$ for natural number $n$, as $\inter(T^k_a(\beta), \beta) = 0$. But this means that $2n = k i(a, \beta)^2$. As $a$ is essential, there exists a curve $\beta$ such that $i(a, \beta) = 1$. Therefore, $2n = k$, so $n = k/2$. 
-finish later
+Let $\alpha$ be an essential simple closed curve. Suppose for contradiction $T^k_\alpha$ is the identity in $MCG(S)$, and $k$ is the smallest nonzero that has this property. Then for all curves $\beta$, $T_a^k(\beta) \sim \beta$. But this means that $i(T^k_a(\beta), \beta) = 0$ for all $\beta$. But as $a$ is essential, let $\beta$ be a curve such that $i(a, \beta) = 1$. Therefore, $0 = |k| i(a, b)^2$, so $0 = |k|$. Thus contradiction. 
 
 \subsection{4}
 \subsubsection{a}
 
-DO AGAIN, NO BIGONS. 
 Let $T_a$, $T_b$ be two Dehn twists around simple closed curves.
 
-If $a$ and $b$ are essential and do not intersect, consider $S - \{a, b\}$. This surface is one with boundary. Now label the boundary of $S$ corresponding to $a$ as $\partial S_a$, and likewise for $b$ as $\partial S_b$. Then there exists a curve $c'$ which is on the interior of $S - \{a, b\}$ on a connected component with boundary in $\partial S_b$, as $S$ is a manifold. Then extend $c'$ slightly to touch only $b$. Then take $c'$ back to $S$, and pull on $c'$ even more so that $c'$ touches $b$ transversally. This can be done without touching $a$ as $a$ and $b$ have nonintersecting tubular neighbourhoods, and $c'$ can live inside the tubular neighbourhood of $b$. Then this curve $c'$ will not touch $a$ and will touch $b$ twice. 
-
+If $a$ and $b$ are essential and do not intersect, consider $S - \{a\}$. Then one of the components of $S - \{a\}$ will contain $b$. Now this is a surface with $k$ holes, and $b$ is an essential curve on this component of $S - \{a\}$. Then removing $b$ from this component will yield some components. No component is an annulus nor disk, as $b$ is essential. Then take a curve $c$ which goes around one hole in $b$ and then goes around a hole not in $b$ on $S - \{a\}$. This will intersect with $b$ but will not intersect with $a$. Furthermore, as it goes around a hole in $b$, then $i(b, c)$ is not zero. 
 \subsubsection{b}
 Let $c$ be a curve which follows $a$ but does not cross $a$. Then $c$ will cross $b$ near where $a$ crosses $b$. Thus shown. 
 
 \subsubsection{c}
-Suppose $a$ and $b$ do not cross. Take $c$ to be the curve from part $a$. Then $i(T_a(c), c) = 0$ as $T_a(c) \sim c$ up to ambient isotopy, meaning $T_a(c)$ is just $c$ but pushed to the side. But $T_b(c), c$ is not 0, as $c$ crosses $T_b(c)$. Let $x, y$ be two crossings in $c \cap b$. Consider the twist at $x$. It wraps around and returns to $x$. But then this twist must pass by $y$, which is a crossing in $x$. Therefore, $T_b(c)$ must cross $c$.
-
+Suppose $a$ and $b$ do not cross. Take $c$ to be the curve from part $a$. Then $i(T_a(c), c) = 0$ as $T_a(c) \sim c$ up to ambient isotopy, since $T_a(c)$ is just $c$ but pushed to the side. But $i(T_b(c), c)$ is not 0, as $c$ crosses $T_b(c)$. Let $x, y$ be two crossings in $c \cap b$. Consider the twist at $x$. It wraps around and returns to $x$. But then this twist must pass by $y$, which is a crossing in $x$. Therefore, $T_b(c)$ must cross $c$.
+FINISH LATER. 
 \subsection{d}
 Suppose $a = b$. Then $T_a = T_b$ up to isotopy. Now suppose $a \neq b$. Then there exists a curve $c$ such that $i(T_a(c), c) = 0$ but $i(T_b(c), c) \neq 0$. Therefore, $T_a \neq T_b$ as it does not preserve the intersection number of curves up to isotopy. Thus shown both directions.
 
@@ -293,7 +292,7 @@ Let $f \in MCG(S)$. Let $a, b$ be isotopy classes of $SCC$ in $S$. Show $T_{f(a)
 
 \subsubsection{b}
 
-If both $a$ and $b$ are nonseparating, there exists a homeomorphism $f$ from $S^2 \rightarrow S^2$ that take $a$ to $b$, by question 6 week 4. Then $T_b = f T_a f^{-1}$. 
+If both $a$ and $b$ are nonseparating, there exists a homeomorphism $f$ from $S^2 \rightarrow S^2$ that takes $a$ to $b$, by sheet 5, question 6. Then $T_b = f T_a f^{-1}$. 
 
 \subsubsection{c}
 
@@ -305,12 +304,12 @@ If $f$ commutes with $T_a$, then $T_{f(a)} = T_{a}$. Therefore, $f(a) = a$. If $
 For all scc $a$, $a \twequiv a$, through no twists.
 
 \subsection{Symmetric}
-Suppose $a \twequiv b$ through $b = T_1 T_2 ... T_m a$. Then $a = T_m^{-1} ... T_1^{-1}b$. 
+Suppose $a \twequiv b$ through $b = T_1 T_2 ... T_m a$. Then $a = T_m^{-1} ... T_1^{-1}b$. This comes out of $T_i$ being a group element in $MCG^+(S)$ so group elements are associative and have inverses. Additionally, the inverse of $T_i$ is $T_i^{-1}$, the left Dehn twist as applying both to any curve returns something isotopic to the original curve. 
 
 \subsubsection{Transitive}
 Let $a, b, c$ be curves such that $a \twequiv b$ and $b \twequiv c$. Then $a \twequiv c$. 
 
-Let $a = T_1 T_2 ... T_m b$ and $b = T_{m + 1} T_{m + 2}... T_{m + n} c$. Then $a = T_1 T_2 ... T_m T_{m + 1} ... T_{m + n} c$. Therefore, $a \twequiv c$. 
+Let $a = T_1 T_2 ... T_m b$ and $b = T_{m + 1} T_{m + 2}... T_{m + n} c$. Then $a = T_1 T_2 ... T_m T_{m + 1} ... T_{m + n} c$. Therefore, $a \twequiv c$. This comes from $T_i$ being a 
 
 \subsection{7}
 
@@ -329,9 +328,11 @@ Use more diagrams!
 \subsection{Exercise 8}
 
 \paragraph*{i}
-If $T_a T_b T_a = T_b T_a T_b$, then 
+If $T_a T_b a = b$ is equivalent to $T_{T_a T_b(a)} = T_b$. But this is equivalent to $(T_a T_b) T_a (T_a T_b)^{-1} = T_b$ from the definition of conjugation in exercise $5$. But this is equivalent to $T_a T_b T_a = T_b T_a T_b$. Therefore, this satisfies the braid relation. 
 
 \paragraph*{ii}
+If $T_a T_b a = b$, then $i(a, T_b(a))$ is 0 outside of a neighbourhood of $b$. However, inside of this neighbourhood, at every point in $b \cap a$, the Dehn twist $T_b(a)$ will intersect at every point near $b \cap a$. Therefore, $i(a, T_b(a)) = i(a, b)$. Therefore, $i (a, b) = i(a, T_b(a)) = i(a, b)^2$ from exercise 3. Therefore, $i(a, b) = 1$.
 \paragraph*{iii}
+$T_a T_b a = b$ if and only if $i(a, b) = 1$ and $T_a T_b a = b$ if and only if $T_a T_b T_a = T_b T_a T_b$. Therefore, $i(a, b) = 1$ if and only if $T_a T_b T_a = T_b T_a T_b$.
 
 \end{document}
