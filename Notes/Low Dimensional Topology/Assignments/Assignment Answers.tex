@@ -247,10 +247,13 @@ Orientation-reversing homeomorphims cannot be transformed to orienting preservin
 \newcommand*{\twequiv}{\sim_c}
 \section{5}
 \subsection{1}
-There exists a homeomorphism from $\alpha$ to the side of a fundamental polygon. Now there exists a cycle that passes through $\alpha$ once that 
+Let $S$ be homeomorphic to the surface $K = (S^2)_g \# T_1 \# ... \# T_g$, where all boundaries are on $S^2$. Then let $a_0, ... a_{g-1}$ be sccs where $a_i$ is on the intersection of $T_{i}$ and $T_{i + 1}$ and $a_0$ is on the intersection of $(S^2)_g$ and $T_1$. Then let $\alpha$ be a nonseparating scc on $K$. There exists a homeomorphism $j : K \rightarrow K$ such that $j(\alpha)$ is the meridian loop only on $T_g$. Now let $\gamma$ be $a_h$. Then $K - \gamma \cup j(\alpha)$ will have components of genus $h$ and another component of genus $g - h - 1$. Therefore, $K - j^{-1}(\gamma) \cup \alpha$ will also have components of genus $h$ and $g - h - 1$. Thus shown. 
 \subsection{2}
 \subsubsection{a}
-Let $\alpha, \alpha'$ and $\beta, \beta'$ be isotopic with isotopies $h_\alpha$ and $h_\beta$. Firstly, $h_\beta$ maps $\beta$ to $\beta'$ along a strict homeomorphism. For every intersection in $\alpha$ and $\beta'$, when the homotopy $h_\beta$ goes back in time, either the intersection was from $\beta$ or induced by a new crossing at some point. However, the only way that new intersections can be introduced if they are added by some bigon, therefore $\inter(\alpha, \beta')$ restricted to the bigon is going left and right and therefore must add to 0. Repeating this argument for every crossing, it must hold that $\alpha$ and $\beta'$ cross either when $\alpha$ crosses $\beta$ or when a bigon is introduced. Therefore, $\inter(\alpha, \beta') =  \inter(\alpha, \beta)$. Now repeat this argument for $\inter(\alpha, \beta')$ and $\inter(\alpha', \beta')$ but traverse along $\beta'$ instead, and use subsection $b$. 
+Let $\alpha, \alpha'$ and $\beta, \beta'$ be isotopic with isotopies $h_\alpha$ and $h_\beta$. Firstly, $h_\beta$ maps $\beta$ to $\beta'$ along a strict homeomorphism. Because this map is an ambient isotopy, all transverse intersections between $\beta$ and $\alpha$ must either be moved along $\alpha$, be removed as part of some bigon, or added as some part of a bigon. 
+
+However, every bigon on a surface bounds a disk so traversing the boundary of the bigon must hold that the crossing must go left and then right. Therefore, the algebraic sum of the bigon is $0$. 
+Therefore, $\inter(\alpha, \beta') =  \inter(\alpha, \beta)$. Now repeat this argument for $\inter(\alpha, \beta')$ and $\inter(\alpha', \beta')$ but traverse along $\beta'$ instead, and use subsection $b$. 
 
 \subsubsection{b}
 Proof by picture. At every point in $\alpha \cap \beta$, consider traversing along $\alpha$ and then traversing along $\beta$. If at this point $i = \pm 1$ along $\alpha$ then along $\beta$ $i = \mp 1$. Red is $\alpha$, black is $\beta$. 
@@ -275,13 +278,16 @@ Let $\alpha$ be an essential simple closed curve. Suppose for contradiction $T^k
 
 Let $T_a$, $T_b$ be two Dehn twists around simple closed curves.
 
-If $a$ and $b$ are essential and do not intersect, consider $S - \{a\}$. Then one of the components of $S - \{a\}$ will contain $b$. Now this is a surface with $k$ holes, and $b$ is an essential curve on this component of $S - \{a\}$. Then removing $b$ from this component will yield some components. No component is an annulus nor disk, as $b$ is essential. Then take a curve $c$ which goes around one hole in $b$ and then goes around a hole not in $b$ on $S - \{a\}$. This will intersect with $b$ but will not intersect with $a$. Furthermore, as it goes around a hole in $b$, then $i(b, c)$ is not zero. 
+If $a$ and $b$ are essential and do not intersect, consider $S - a \cup b$ be a cut along $a$ and $b$. Then this cut has halves $b_1$ and $b_2$ which are glued together to form $S - a$. Then if $b_1$ and $b_2$ are on the same component of $S - a \cup b$, draw an arc $c$ from $b_1$ to $b_2$ at points which are identified to be the same point in $S$. Then as $c$ only touches $b$ once, $i(b, c) = 1$ as there is no operation to turn a single crossing into no crossing, and $i(a, c) = 0$. 
+
+Now suppose if $b_1$ and $b_2$ are on different components $S_1, S_2$. Since $b$ is essential, $S_1$ and $S_2$ contain a either boundary components or a handle. Then there is an arc that can be drawn on $S_1$ to two points $s_1, s_2$ on $b_1$ that either goes through a handle or around a disk. Do this for $s_1$ and $s_2$ on $S_2$. Call this curve $c$.
+
+If either $S_1$ or $S_2$ have a handle, then $c$ will go on the handle. Then $c$ and $b$ do not form a bigon and therefore must intersect at least once. Then if either $S_1$ or $S_2$ have more than 2 holes, then $c$ cannot be moved through $a$ to not intersect $b$, by going around both holes. Since $a$ is not equal to $b$, neither $S_1$ nor $S_2$ is a disk, so there must be either two holes in one component as the total number of holes on the surface is at least 3 if there are no handles. Therefore, $c$ does exist. 
 \subsubsection{b}
 Let $c$ be a curve which follows $a$ but does not cross $a$. Then $c$ will cross $b$ near where $a$ crosses $b$. Thus shown. 
 
 \subsubsection{c}
-Suppose $a$ and $b$ do not cross. Take $c$ to be the curve from part $a$. Then $i(T_a(c), c) = 0$ as $T_a(c) \sim c$ up to ambient isotopy, since $T_a(c)$ is just $c$ but pushed to the side. But $i(T_b(c), c)$ is not 0, as $c$ crosses $T_b(c)$. Let $x, y$ be two crossings in $c \cap b$. Consider the twist at $x$. It wraps around and returns to $x$. But then this twist must pass by $y$, which is a crossing in $x$. Therefore, $T_b(c)$ must cross $c$.
-FINISH LATER. 
+Let $a$ and $b$ be curves. Take $c$ to be the curve from part a or b, so $i(a, c) = 0$ and $i(b, c) \neq 0$. Then $i(T_a(c), c) = i(a, c)^2 = 0$, but $i(T_b(c), c) = i(b, c)^2 \neq 0$. This is from part 3. 
 \subsection{d}
 Suppose $a = b$. Then $T_a = T_b$ up to isotopy. Now suppose $a \neq b$. Then there exists a curve $c$ such that $i(T_a(c), c) = 0$ but $i(T_b(c), c) \neq 0$. Therefore, $T_a \neq T_b$ as it does not preserve the intersection number of curves up to isotopy. Thus shown both directions.
 
@@ -328,11 +334,12 @@ Use more diagrams!
 \subsection{Exercise 8}
 
 \paragraph*{i}
-If $T_a T_b a = b$ is equivalent to $T_{T_a T_b(a)} = T_b$. But this is equivalent to $(T_a T_b) T_a (T_a T_b)^{-1} = T_b$ from the definition of conjugation in exercise $5$. But this is equivalent to $T_a T_b T_a = T_b T_a T_b$. Therefore, this satisfies the braid relation. 
+Firstly, $T_a T_b a = b$ is equivalent to $T_{T_a T_b(a)} = T_b$ from exercise 4. But this is equivalent to $(T_a T_b) T_a (T_a T_b)^{-1} = T_b$ from the definition of conjugation in exercise $5$. But this is equivalent to $T_a T_b T_a = T_b T_a T_b$. Therefore, this satisfies the braid relation. 
 
 \paragraph*{ii}
-If $T_a T_b a = b$, then $i(a, T_b(a))$ is 0 outside of a neighbourhood of $b$. However, inside of this neighbourhood, at every point in $b \cap a$, the Dehn twist $T_b(a)$ will intersect at every point near $b \cap a$. Therefore, $i(a, T_b(a)) = i(a, b)$. Therefore, $i (a, b) = i(a, T_b(a)) = i(a, b)^2$ from exercise 3. Therefore, $i(a, b) = 1$.
+We want to show that for all curves $c$, $i(a, c) = i(a, T_a(c))$. Take any curve $c$. Then doing a Dehn twist of $c$ around $a$ only shifts the intersection point to another place on $a$. Furthermore, this operation introduces no bigons as any new bigon in the Dehn twist is already a bigon in $c$. Therefore, $i(a, c) = i(a, T_a(c))$. Therefore, $i(a, T_b a) = i(a, T_a T_b a) = i(a, b)$. 
+Therefore, $i (a, b) = i(a, T_b(a)) = i(a, b)^2$ from exercise 3. Therefore, $i(a, b) = 1$.
 \paragraph*{iii}
-$T_a T_b a = b$ if and only if $i(a, b) = 1$ and $T_a T_b a = b$ if and only if $T_a T_b T_a = T_b T_a T_b$. Therefore, $i(a, b) = 1$ if and only if $T_a T_b T_a = T_b T_a T_b$.
+From part ii, $T_a T_b a = b$ if and only if $i(a, b) = 1$. From part i, $T_a T_b a = b$ if and only if $T_a T_b T_a = T_b T_a T_b$. Therefore, $i(a, b) = 1$ if and only if $T_a T_b T_a = T_b T_a T_b$.
 
 \end{document}
