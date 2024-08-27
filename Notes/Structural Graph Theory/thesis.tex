@@ -72,12 +72,13 @@ maxbibnames=99
 
 %includeonly
 \includeonly{
-chapters/introduction,
-chapters/definitions,
-chapters/knownresults,
-chapters/proofattempt,
-chapters/consequences,
-chapters/conclusion
+%chapters/introduction,
+%chapters/definitions,
+%chapters/knownresults,
+%chapters/proofattempt,
+%chapters/consequences,
+%chapters/conclusion
+chapters/kleinbottlecase
 }
 
 %opening
@@ -87,7 +88,7 @@ chapters/conclusion
 \begin{document}
 
 \maketitle
-\input{chapters/abstract.tex}
+%\input{chapters/abstract.tex}
 \listoftodos
 
 \setcounter{tocdepth}{1}
@@ -104,5 +105,7 @@ chapters/conclusion
 \include{chapters/proofattempt}
 
 \include{chapters/conclusion}
+
+\include{chapters/kleinbottlecase}
 \printbibliography{}
 \end{document}

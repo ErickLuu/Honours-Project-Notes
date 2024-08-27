@@ -1,4 +1,49 @@
 \section{Book-embeddings of Klein Bottle-graphs}
-
+The Klein Bottle is written as $K$.
 This is an attempt at proving that all Klein bottle-graphs can be embedded on a book with a bounded number of pages.
 
+\subsection{Irreducible triangulations}
+Recall a \textit{triangulation} of a surface $\Sigma$ is a simple graph embedded on $\Sigma$ such that every face is bounded by a triangle. A triangulation $G$ of $\Sigma$ is \textit{reducible} if there exists an edge $vw$ such that $G \setminus vw$ is a triangulation of $\Sigma$. A triangulation $G$ of $\Sigma$ is \textit{irreducible} if there exists no such edge. A large corpus of work on graphs on surfaces depends on understanding the properties of irreducible triangulations. An important fact to know about triangulations, and what makes them computationally useful, is this:
+
+\begin{theorem}[\textcite{barnetteAll2manifoldsHave1989}]
+    Every surface $\Sigma$ has a finite number of irreducible triangulations.
+\end{theorem}
+
+. An upper bound on the size of an irreducible triangulation is given by \textcite{joretIrreducibleTriangulationsAre2010}.
+
+\begin{theorem}\textcite{joretIrreducibleTriangulationsAre2010}
+    Every irreducible triangulation of a surface with Euler genus $g \geq 1$ has at most $13g - 4$ vertices. 
+\end{theorem}
+
+Irreducible triangulations are useful in proving properties on graphs embedded on a surface. From \todo{insert your proof here}, every graph $G$ embedded on a surface $\Sigma$ is a subgraph of a triangulation $G'$ embedded on $\Sigma$. Furthermore, every triangulation of a surface $\Sigma$ can be edge contracted to one of finitely many irreducible triangulations. Note that the choice of edge contraction matters in determining an irreducible triangulation. If a list of irreducible triangulations is known, then it is possible to use an argument by induction under edge contraction to prove that every embedding of a graph has this property. We will use this strategy to show that every graph embedded on a Klein bottle has a book-embedding with a bounded number of pages. 
+
+In the case of the Klein bottle, the full list of irreducible triangulations of the Klein bottle is known. 
+\begin{theorem}[\textcite{sulankeNoteIrreducibleTriangulations2006}]
+    There are 29 irreducible triangulations of the Klein bottle. 
+\end{theorem} 
+In a previous paper, \textcite{lawrencenkoIrreducibleTriangulationsKlein1997} claimed that there were precisely 25. However, Sulanke found 4 more graphs, a modification of one of the original irreducible triangulations that was missed. 
+
+\begin{theorem}
+    Every Klein-Bottle graph has a book-embedding with 500 pages.
+\end{theorem}
+
+To prove this theorem, we need some other lemmas. Let $G$ be a triangulation of the Klein bottle. Let a \textit{$\phi$-structure} of $G$ be a decomposition of the vertices and edges of $G$ with the following properties:
+\begin{itemize}
+    \item $G$ has vertex set $A \cup \{v\}$ where $A$ is a set of vertices and $v$ is a single vertex in $G$,
+    \item $G_P$ is a spanning planar subgraph of $G[A]$ which is edge-maximal, meaning that adding any edge not in $G_P$ to $G_P$ breaks the planarity condition,
+    \item $G_P$ has a boundary cycle $B$
+    \item There exists a noncontractible cycle $C$ in $G$ such that $\{x, y\} = C \cap B$ and the edge $xy$ is the only edge in $C - G_P$. 
+    \item Four edges from $v$ to $G$ divide $B$ into regions such that all edges that pass through one region preserve their orientation, and edges that pass through another region pass through a crosscap. 
+\end{itemize}
+
+A description of this arrangement is seen on the Klein bottle's fundamental polygon. 
+\begin{claim}
+    Every Klein-bottle graph $G$ with the $\phi$-structure can be embedded on $10$ pages. 
+\end{claim}
+\begin{proof}
+    Take a $\phi$-structure on $G$. 
+\end{proof}
+
+\begin{lemma}
+    Every triangulation of the Klein bottle has 
+\end{lemma}
