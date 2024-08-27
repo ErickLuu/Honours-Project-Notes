@@ -31,19 +31,30 @@ To prove this theorem, we need some other lemmas. Let $G$ be a triangulation of 
 \begin{itemize}
     \item $G$ has vertex set $A \cup \{v\}$ where $A$ is a set of vertices and $v$ is a single vertex in $G$,
     \item $G_P$ is a spanning planar subgraph of $G[A]$ which is edge-maximal, meaning that adding any edge not in $G_P$ to $G_P$ breaks the planarity condition,
-    \item $G_P$ has a boundary cycle $B$
+    \item $G_P$ has a boundary cycle $B$,
     \item There exists a noncontractible cycle $C$ in $G$ such that $\{x, y\} = C \cap B$ and the edge $xy$ is the only edge in $C - G_P$. 
     \item Four edges from $v$ to $G$ divide $B$ into regions such that all edges that pass through one region preserve their orientation, and edges that pass through another region pass through a crosscap. 
+    \item The boundary can be partitioned paths $a, b, c, d, e, f$ like in \cref{fig:phiembedding}. 
 \end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includesvg{figures/kleinbottlegraph.svg}
+    \caption{$\phi$-embedding on a Klein Bottle graph}\label{fig:phiembedding}
+\end{figure}
 
 A description of this arrangement is seen on the Klein bottle's fundamental polygon. 
 \begin{claim}
-    Every Klein-bottle graph $G$ with the $\phi$-structure can be embedded on $10$ pages. 
+    Every Klein-bottle graph $G$ with the $\phi$-structure can be embedded on $11$ pages. 
 \end{claim}
 \begin{proof}
-    Take a $\phi$-structure on $G$. 
+    Take a $\phi$-structure on $G$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis's algorithm on $B_1$ and $B_2$. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented correctly. $b$ and $e$ go on another book, and $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page. Then this is a book-embedding on $11$ pages. 
 \end{proof}
 
 \begin{lemma}
-    Every triangulation of the Klein bottle has 
+    Every irreducible Klein bottle graph has a $\phi$-embedding. 
 \end{lemma}
+
+\begin{proof}
+    We label every path as such:
+\end{proof}
