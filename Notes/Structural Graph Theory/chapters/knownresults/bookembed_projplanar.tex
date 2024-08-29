@@ -45,7 +45,11 @@ To prove this theorem, we prove an auxiliary lemma.
     Let $C$ be the shortest non-contractible cycle of $G$. This exists as every face of $G$ is a disk, so if there are no non-contractible cycles in $G$, then $G$ is planar. Therefore, $G$ is not projective-planar. Let $xy$ be an edge in $C$. Let $P = C - xy$ be a path starting at $x$ and ending at $y$. 
     Number the vertices of $P = v_1, \ldots, v_m$. 
 
-    Locally define the left hand side and right hand side of $P$. Take $r_i$ to be the vertex on the right hand of $P$ such that $v_i v_{i + 1} r_i$ bounds a face in $G$. Let $R_i$ be the right hand path from $r_i$ to $r_{i + 1}$ on the link of $v_i$, disjoint from $P$. Then let $R' = v_1 r_1 + \bigcup_{i = 1}^n R_i + r_{m-1} v_m$ be a walk from $x$ to $y$ disjoint from $P$. Then take $R$ to be a path from $x$ to $y$, $R \subseteq R'$. Then repeat for $L$, the left hand side path from $x$ to $Y$. Now $P, R, L$ are internally-disjoint paths. Suppose $R$ and $L$ have a common inner vertex, call it $x$. Then this means that for two vertices $x_i, x_j$, $x$ is a right hand neighbour of $x_i$ and a left hand neighbour of $x_j$. Now the cycle $(x v_i) (v_i v_{i + 1}), \ldots , (v_j x)$ non-contractible, as the cycle must pass through $C$ and thus must lie on a crosscap. However, $i, j$ is not $1$ or $m$ because we go to $r_2$ or $r_{m-1}$ and we have assumed that $C$ is the shortest non-contractible cycle. Therefore, $C'$ is shorter than $C$, breaking the assumption that $C$ is the smallest non-contractible cycle.
+    Locally define the left hand side and right hand side of $P$. Take $r_i$ to be the vertex on the right hand of $P$ such that $v_i v_{i + 1} r_i$ bounds a face in $G$. Let $R_i$ be the right hand path from $r_i$ to $r_{i + 1}$ on the link of $v_i$, disjoint from $P$. Then let 
+    \begin{equation*}
+        R' = v_1 r_1 + \bigcup_{i = 1}^n R_i + r_{m-1} v_m
+    \end{equation*}
+    be a walk from $x$ to $y$ disjoint from $P$. Then take $R$ to be a path from $x$ to $y$, $R \subseteq R'$. Then repeat for $L$, the left hand side path from $x$ to $Y$. Now $P, R, L$ are internally-disjoint paths. Suppose $R$ and $L$ have a common inner vertex, call it $x$. Then this means that for two vertices $x_i, x_j$, $x$ is a right hand neighbour of $x_i$ and a left hand neighbour of $x_j$. Now the cycle $(x v_i) (v_i v_{i + 1}), \ldots , (v_j x)$ non-contractible, as the cycle must pass through $C$ and thus must lie on a crosscap. However, $i, j$ is not $1$ or $m$ because we go to $r_2$ or $r_{m-1}$ and we have assumed that $C$ is the shortest non-contractible cycle. Therefore, $C'$ is shorter than $C$, breaking the assumption that $C$ is the smallest non-contractible cycle.
 
     Now $P, R, L$ are three-internally disjoint paths from $x$ to $y$ where $P \cup R$ and $P \cup L$ are null-homotopic cycles that bound disks $D_1, D_2$. As $P$ is a contractible path, $D_1 \cup D_2$ is also a disk, therefore $R \cup L$ bounds a disk $D$. If every vertex is contained in $D$, we are done. Otherwise, find a vertex $v$ not in $D$. Since triangulations are 3-connected, there are three internally-disjoint paths $P_1, P_2, P_3$ from $v$ to $D$, ending at vertices $v_1, v_2, v_3$ respectively. Then two vertices will be distinct, suppose they are $v_1, v_2$. Then there is a path $R'$ from $v_1$ to $v_2$ on the boundary of $D$ such that $R' \cup P_1 \cup P_2$ is a contractible cycle. This is because if $P_1 \cup P_2 \cup R'$ contains a crosscap, then either $P_3 \cup P_2 \cup R'$ contains no crosscap and is a disk, or $P_1 \cup P_3 \cup R'$ is a disk. Relabel if necessary. Then add this disk to $D$ to grow $D$. As this procedure can be repeated for every vertex, there exists a spanning planar subgraph $G_p$ of $G$, where $G_P = D$, the subgraph contained in $D$. Finally, $C$ is a noncontractible cycle where $C \cap \partial D = \{x, y\}$ by construction of the disk $D$. 
 \end{proof}
@@ -59,24 +63,27 @@ A description of what this construction looks like is in \cref{fig:projectivepla
 Now we will prove \cref{thm:proj_planar_graphs_9pages}.
 \begin{proof}
     Let $H$ be a projective-planar graph. Let $G$ be a triangulation of the projective plane, where $H$ is a subgraph.
-    Now apply \cref{lem:proj_planar triangulation}. Let $G_P$ be the spanning planar subgraph in $G$, let $B$ be its planar boundary, let $E_N$ be the nonplanar edges and let $C$ be the non-contractible cycle, with edges $x, y$ on $B$. $G_P$ is edge-maximal planar. Let $B_1, B_2$ be the two paths from $x$ to $y$ on the boundary of $B$. Let $D_1$ be the planar subgraph bounded by $P \cup B_1$, similarly for $D_2$. Let $s$ be the vertex clockwise to $x$ on $B$, and let $t$ be the vertex clockwise to $y$ on $B$.
+    Now apply \cref{lem:proj_planar triangulation} to $G$. Let $B_1, B_2$ be the two paths from $x$ to $y$ on the boundary of $B$. Let $D_1$ be the planar subgraph bounded by $P \cup B_1$, similarly for $D_2$. Let $s$ be the vertex clockwise to $x$ on $B$, and let $t$ be the vertex clockwise to $y$ on $B$.
 
-    From \cref{thm:4Pages_Planar}, there exists a $4$-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P \cup B_1$. Similarly, there exists a $4$-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P \cup B_2$. Combine these two embeddings along $P$ (interlace $<_1, <_2$ along $P$) to form a book-embedding $(<, \sigma)$ with $8$ pages of $G$. 
+    From \cref{thm:4Pages_Planar}, there exists a $4$-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P \cup B_1$. Similarly, there exists a $4$-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P \cup B_2$.
+    Now have that $t$ is at the start of the vertex ordering of $<_1$ and $s$ is at the end of the vertex ordering of $<_2$. 
+    Combine these two embeddings along $P$ (interlace $<_1, <_2$ along $P$) to form a book-embedding $(<, \sigma)$ of $G_P$ with eight pages. This is a vertex ordering of every edge in $G$ as $G_P$ is spanning. 
 
-    Now for edges in $E_N$. Let $W = B_1[y, x] xy B_2[y, x]$ be a walk which starts and ends in $x$. Let $R$ be the subgraph of $G$ bounded by $W$. Note that all edges of $R$ must go from $B_1$ to $B_2$ because they all must pairwise cross. Since $G$ is a triangulation, $R$ has edges from one half to the other half. Then $R'$ is maximal outerplanar. $R'$ has a 1-page embedding with the same $(<, \sigma)$. Add all edges to a new page. For the inner pages from $B_1$ to $x$, or from $B_2$ to $y$, add to an old page. 
+    Now for edges in $E_N$. Let $W = B_1[t, x] xy B_2[y, s]$ be a walk which starts at $t$ and ends at $s$. Note that all edges of $E_N$ must go from $B_1$ to $B_2$ because they pairwise cross. Now as we go from $t$ to $x$ and from $s$ to $y$ in $<$, every edge in $E_N$ not adjacent to $x$ is nested. Therefore, we can add all edges to a new page. For the inner pages from $B_1$ to $x$, or from $B_2$ to $y$, add to an old page in $D_2$ or $D_1$ respectively. 
+
+    An example of the book-embedding is in \cref{fig:projectiveplanarbookembedding}. The path given is the book-embedding of $B \cup P$, the coloured regions are the book-embeddings of $D_1$ and $D_2$, and the other edges are edges in $E_N$. 
+    This embeds a projective-planar graph in 9 pages.
 \end{proof}
 
-An example of the book-embedding is in \cref{fig:projectiveplanarbookembedding}
 
 \begin{figure}[h]
     \centering
     \includesvg[width = 0.6 \textwidth]{figures/projectiveplanar_bookembedding.svg}
     \caption[Projective-Planar book-embedding]{A book-embedding of a projective plane in 9 pages}\label{fig:projectiveplanarbookembedding}
 \end{figure}
+ This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find better book-embeddings. 
 
-This embeds a projective-planar graph in 9 pages. This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find book-embeddings of every graph. 
-
-An open problem in \textcite{ozekiBookEmbeddingGraphs2019} is this:
+An open problem in \textcite{ozekiBookEmbeddingGraphs2019} is the case of the Klein Bottle:
 \begin{conjecture}
     Every graph embedded on a Klein Bottle can be embedded in a bounded number of pages.
 \end{conjecture}
