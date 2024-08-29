@@ -10,25 +10,30 @@ However, the outline given in their paper is insufficient to prove \cref*{lem:pl
 \begin{figure}[h]
     \centering
     \includesvg[width = 0.8 \textwidth]{figures/projective_planar_graph.svg}
-    \caption{Projective planar graph}\label{fig:projectiveplanar}
-\end{figure}
+    \caption[Projective planar graph]{Graph embedded on the projective plane, the purple circle. This graph is not a triangulation of the projective plane as the edges that pass through the projective plane do not bound a triangle.}\label{fig:projectiveplanar}\end{figure}
 
 \begin{theorem}[\textcite{nakamotoBookEmbeddingProjectiveplanar2015}]\label{thm:proj_planar_graphs_9pages}
 	Every graph embedded on the projective plane has a book-embedding with $9$ pages.
 \end{theorem}
 
-This proof relies on a \textit{triangulated} projective plane graphs. This means that every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation. \textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph. Therefore, vertices will need to be added to every graph. 
+This proof relies on triangulations of surfaces. A graph $G$ is a \textit{triangulation} of a surface $\Sigma$ if every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation. \textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph embedded on a torus. 
 
-\begin{theorem}
-    Every projective-planar graph is a subgraph of a triangulated projective-planar graph.
+\begin{theorem}\label{thm:triangulation_subgraph}
+    Every graph embedded on a surface $\Sigma$ is a subgraph of a triangulation of $\Sigma$.
 \end{theorem}
 
 \begin{proof}
-    Let $G$ be a projective-planar graph. If a face is bounded by a cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_0, \ldots, v_{k-1}$. Then as $G$ is simple, the reappearing vertices must be non-consecutive, and $k \geq 4$. Add a maximal outerplanar graph with $k$ vertices on $F$ with boundary $w_0, \ldots, w_{k-1}$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 0, \ldots, {k-1}$ modulo $k$. Doing this operation on every face of $G$ is a triangulation of the projective plane, with $G$ a subgraph of this graph.  
+    Let $G$ be a graph embedded on $\Sigma$. If a face is bounded by a simple cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_0, \ldots, v_{k-1}$. Then as $G$ is simple and therefore loopless, the reappearing vertices must be non-consecutive. Add a maximal outerplanar graph with $k$ vertices on the interior of $F$ with boundary $w_0, \ldots, w_{k-1}$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 0, \ldots, {k-1}$ modulo $k$. Doing this operation on every face of $G$ is a triangulation of $\Sigma$, with $G$ a subgraph of this graph.  
 \end{proof}
+\begin{figure}[h]
+    \centering
+    \includesvg[width = 0.8 \textwidth]{figures/facetriangulation.svg}
+    \caption[Face triangulation]{A triangulation of a face with five vertices on its boundary, where there exists a duplicate green vertex.}\label{fig:triangulation}
+\end{figure}
+As a consequence, every projective-planar graph is a subgraph of a triangulation of the projective plane. 
 
-A cycle $C$ in $G$ embedded on $\Sigma$ is \textit{contractible} if $C$ in $\Sigma$ as a loop is null-homotopic. Otherwise $C$ is non-contractible. 
-A \textit{link} of a vertex $v$ is the boundary of the union of the faces that touch $v$. This coincides with the definition of a link in a simplicial complex.
+A cycle $C$ in $G$ embedded on $\Sigma$ is \textit{contractible} if $C$ in $\Sigma$ as a loop is null-homotopic. Otherwise $C$ is \textit{ non-contractible}. 
+A \textit{link} of a vertex $v$ is the cycle that goes around the boundary of the union of the faces incident to $v$. This coincides with the definition of a link in a simplicial complex from topology. 
 
 To prove this theorem, we prove an auxiliary lemma. 
 
