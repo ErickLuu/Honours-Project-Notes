@@ -322,21 +322,20 @@ To show orientability, take an orientation of $M_1 \sqcup M_2$. Since we glue ou
 
 \subsection{3}
 
-\paragraph*{$2 \Rightarrow 1$} Suppose $\gamma$ bounds a disk $D^2 \subseteq V$. Now take the homeomorphism $f : D^2 \times I \rightarrow D^2$ by the function $f(x, t) = xt$. At time $t = 1$, this is the identity map, but at time $t = 0$, this sends the disk to a single point. This is also a homotopy of $\partial D^2$ to a point. Therefore, $\gamma = \partial D^2$ is homotopic to a point on $D^2$, therefore it is homotopic to a point on $V$.
+\paragraph*{$2 \Rightarrow 1$} Suppose $\gamma$ bounds a disk $D^2 \subseteq V$. Now take the deformation retraction $f : D^2 \times I \rightarrow D^2$ by the function $f(x, t) = xt$. At time $t = 1$, this is the identity map, but at time $t = 0$, this sends the disk to a single point. This is also a homotopy of $\partial D^2$ to a point. Therefore, $\gamma = \partial D^2$ is homotopic to a point on $D^2$, therefore it is homotopic to a point on $V$.
 
 \paragraph*{$3 \Rightarrow 2$} Take the image $h({1} \times D^2)$. The boundary of this image is $\gamma$ and as this is a framing then the image is homeomorphic to a disk. Therefore, $\gamma$ bounds a disk in $V$.
 
 \paragraph{$2 \Rightarrow 3$} Cut $V$ along $\gamma$ and the disk it bounds. Then this is a 2-ball, where $\gamma$ is on the boundary of the $2$-ball twice. By the annulus theorem, there exists a homeomorphism of the closed cylinder $D^2 \times I$ that takes $\partial D^2 \times {0}$ to one copy of $\gamma$ and $\partial D^2 \times {1}$ to another copy of $\gamma$. Gluing these two disks togehter in $D^2 \times I$ in the orientable way yields a framing $h : S^1 \times D^2$ where $h(\{1\} \times \partial D^2) = \gamma$. 
 
-\paragraph{$1 \Rightarrow 2$} Take the union of the families of curves the homotopy traces out. Then this will form a disk and $\gamma$ is on the boundary of the disk. 
+\paragraph{$1 \Rightarrow 2$} Let $f : S^1 \rightarrow V$ be a null-homotopic map, so there exists an $F: S^1 \times I \rightarrow V$ be a homotopy from $f$ to $V$. Now $F(x, 1) = x_1$ for all $x \in S^1$. Futhermore, the space $S^1 \times I$ where $S^1 \times \{1\}$ is homeomorphic to $D^2$. Therefore, $F : D^2 \rightarrow V$ is a map where $\gamma = \partial D^2$ is the map, therefore $\gamma$ bounds a disk in $V$.
 
 \subsection{4}
-\paragraph{$1 \Rightarrow 2$} Firstly, $\gamma$ is homeomorphic thus homotopic to $S^1 \times {1}$ as it is homeomorphic to this loop through $h$. Then $\gamma$ is homotopic to $S^1 \times {0}$ through the homotopy $S^1 \times {t}$.
-
-
+\paragraph{$1 \Rightarrow 2$} Suppose $\gamma : S^1 \rightarrow V$ is a 
 
 \subsection{5}
-There is an ambient isotopy $h : \partial V \times I \rightarrow \partial V$ such that $h(\alpha, 0) = h(\alpha, 1) = \beta$, as all meridians on the torus are ambient isotopic. Then all meridians bound a disk, and by the Sphere lemma, $h$ has an extension on this disk, so $h : \partial V \cup D^2 \times I \rightarrow \partial V$ is an ambient isotopy. Then if we cut $V$ along $D$, then this is a closed ball, so $h$ has an extension from the boundary of the ball to the whole ball by the sphere lemma. Then this extension is an ambient isotopy $H$ such that $H(\alpha, 0) = \alpha$ and $H(\alpha, 1) = \beta$. 
+
+There is an ambient isotopy $h : \partial V \times I \rightarrow \partial V$ such that $h(\alpha, 1) = \beta$, as all meridians on the torus are ambient isotopic. But this induces an isotopy from $h_0 = Id$ to $h_1$ which is a homeomorphism from $\alpha$ to $\beta$. Therefore, $h_t$ can be extended to be a homeomorphism from a disk in $\alpha$ to a disk in $h_t(\alpha)$. Using Alexander's isotopy lemma from the identity to $h_1$, $h : \partial V \cup D^2 \times I \rightarrow \partial V$ is an ambient isotopy. Then if we cut $V$ along $D$, then this is a closed ball $B$, so $h$ has an extension from the boundary of the ball to the whole ball by Alexander's isotopy. Now because $\alpha$ becomes two circles on $B$, then we use the annulus theorem to split $\partial B$ into two disks and an annulus. Since $h: \partial B_n \rightarrow \partial B_n$ takes both copies of $\alpha$ to both copies of $\beta$ in the cut, then it also takes disks to disks and therefore this is an ambient isotopy. Therefore, we can extend $h : B_n \times I \rightarrow B_n$ for an ambient isotopy of $B_n$ from $Id$ to a map which takes both copies of $\alpha$ to $\beta$. Gluing along the boundaries again, we get a map $V \times I \rightarrow V$ that takes $\alpha $ to $\beta$. 
 
 \subsection{6}
 \subsubsection{a}
