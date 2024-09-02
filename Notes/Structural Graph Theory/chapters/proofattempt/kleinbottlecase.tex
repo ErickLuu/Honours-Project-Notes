@@ -3,7 +3,17 @@ The Klein Bottle is written as $K$.
 This is an attempt at proving that all Klein bottle-graphs can be embedded on a book with a bounded number of pages.
 
 \subsection{Irreducible triangulations}
-Recall a \textit{triangulation} of a surface $\Sigma$ is a simple graph embedded on $\Sigma$ such that every face is bounded by a triangle. A triangulation $G$ of $\Sigma$ is \textit{reducible} if there exists an edge $vw$ such that $G \setminus vw$ is a triangulation of $\Sigma$. A triangulation $G$ of $\Sigma$ is \textit{irreducible} if there exists no such edge. A large corpus of work on graphs on surfaces depends on understanding the properties of irreducible triangulations. An important fact to know about triangulations, and what makes them computationally useful, is this:
+Recall a \textit{triangulation} of a surface $\Sigma$ is a simple graph embedded on $\Sigma$ such that every face is bounded by a triangle. A triangulation $G$ of $\Sigma$ is \textit{reducible} if there exists an edge $vw$ such that $G \setminus vw$ is a triangulation of $\Sigma$. A triangulation $G$ of $\Sigma$ is \textit{irreducible} if there exists no such edge. 
+
+\begin{lemma}
+    Suppose $\Sigma$ has genus $> 0$, A triangulation $G$ of $\Sigma$ is irreducible if and only if every edge in $G$ is in a triangle that is a noncontractible cycle.
+\end{lemma}
+
+\begin{proof}
+    Suppose $G$ is a triangulation and there exists an edge $e$ where every triangle 
+\end{proof}
+
+A large corpus of work on graphs on surfaces depends on understanding the properties of irreducible triangulations. An important fact to know about triangulations, and what makes them computationally useful, is this:
 
 \begin{theorem}[\textcite{barnetteAll2manifoldsHave1989}]
     Every surface $\Sigma$ has a finite number of irreducible triangulations.
