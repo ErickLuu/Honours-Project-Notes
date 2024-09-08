@@ -10,9 +10,9 @@ Recall a \textit{triangulation} of a surface $\Sigma$ is a simple graph embedded
 \end{lemma}
 
 \begin{proof}
-    Proof that if $G$ is irreducible then every edge is in a noncontractible $3$-cycle. Suppose $G$ is a triangulation of $\Sigma$ and there exists an edge $e$ where every triangle that $e$ is in is a contractible cycle. Then $G \setminus e$ will contract every edge to a single point and contract every triangle to a single edge. Since every triangle bounds a disk, then $G \setminus e$ is also a triangulation of $\Sigma$. Therefore, $G$ is reducible. 
+    Suppose $G$ is a triangulation of $\Sigma$ and there exists an edge $e$ where every triangle that $e$ is in is a contractible cycle. Then $G \setminus e$ will contract every edge to a single point and contract every triangle to a single edge. Since every triangle bounds a disk, then $G \setminus e$ is also a triangulation of $\Sigma$. Therefore, $G$ is reducible. 
 
-    Proof that if every edge of $G$ is in a noncontractible $3$-cycle then $G$ is irreducible. Now suppose $G$ is a triangulation of $\Sigma$ and every edge in $G$ is in a noncontractible triangle. Then $G$ is irreducible. If this was not the case, then there exists an edge $e$ so that $G \setminus e$ is a triangulation of $\Sigma$. But this means that expanding $e$ will yield that every triangle that $e$ is part of bounds a disk, therefore contractible. Therefore, $G$ is not irreducible. Thus shown. 
+    Now suppose $G$ is a triangulation of $\Sigma$ and every edge in $G$ is in a noncontractible triangle. Then $G$ is irreducible. If this was not the case, then there exists an edge $e$ so that $G \setminus e$ is a triangulation of $\Sigma$. But this means that expanding $e$ will yield that every triangle that $e$ is part of bounds a disk, therefore contractible. Therefore, $G$ is not irreducible. Thus shown. 
 \end{proof}
 
 A large corpus of work on graphs on surfaces depends on understanding the properties of irreducible triangulations. An important fact to know about triangulations, and what makes them computationally useful, is this:
@@ -65,14 +65,11 @@ A description of this arrangement is seen on the Klein bottle's fundamental poly
     Take a $\phi$-structure on $G$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis's algorithm on $B_1$ and $B_2$. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented correctly. $b$ and $e$ go on another book, and $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page. Then this is a book-embedding on $11$ pages. 
 \end{proof}
 
-\begin{lemma}
+\begin{conjecture}
     Every irreducible Klein bottle graph has a $\phi$-structure. 
-\end{lemma}
+\end{conjecture}
 
-\begin{proof}
-    This is done by looking at every irreducible Klein bottle graph and identifying a $\phi$-structure. This is handled by case analysis below.
-    \todo{are you sure about this? try finding another structure that's more amenable}
-\end{proof}
+This is a conjecture as we have not solved this completely. The only vertex-transitive structure does not satisfy this structure, so we will need to use some different structure as well. 
 
 \begin{lemma}
     Every Klein-bottle graph has a $\phi$-structure. 
