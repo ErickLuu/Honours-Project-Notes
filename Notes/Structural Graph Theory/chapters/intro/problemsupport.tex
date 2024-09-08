@@ -1,0 +1,13 @@
+
+We have good reason to believe \cref{conj:bded_had_pn} is true. Firstly, \textcite{yannakakisEmbeddingPlanarGraphs1989} showed that all planar graphs can be embedded on 4 pages.\ \textcite{malitzGenusGraphsHave1994} then showed that all graphs of orientable genus $g$ can be embedded on $O(\sqrt{g})$ pages. Finally, graphs with bounded treewidth have bounded pagenumber, from \textcite{ganleyPagenumberTrees2001} and \textcite{dujmovicGraphTreewidthGeometric2007}.
+We discuss some relevant papers that are used to prove \cref{conj:bded_had_pn}.
+We aim to solve this question using the Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}, which describes the structure of graphs that do not contain a \(K_t\) minor. 
+We have some useful results that can be paired with the Graph Minor Structure Theorem to prove \cref{conj:bded_had_pn}.
+\begin{itemize}
+	\item From \textcite{heathPagenumberGenusGraphs1992}, all graphs of bounded orientable genus have bounded pagenumber.
+	\item From \textcite{ganleyPagenumberTrees2001}, and \textcite{dujmovicGraphTreewidthGeometric2007}, all graphs of bounded treewidth have bounded pagenumber.
+	\item From \textcite{hickingbothamStackNumberCliqueSum2023}, if a graph \(G\) has a \textit{tree-decomposition} where every \textit{torso} has bounded pagenumber, then \(G\) has bounded pagenumber.
+	\item From \textcite{nakamotoBookEmbeddingProjectiveplanar2015}, all planar-projective graphs have bounded pagenumber.
+\end{itemize}
+These results individually show that the constituent ingredients of the Graph Minor Structure Theorem have bounded pagenumber. Once stating the requisite technology, we may proceed with the main aim of the thesis of proving \cref{conj:bded_had_pn}. 
+The biggest hurdle is showing that adding vortices on surfaces will not blow up the pagenumber. To address this issue, we introduce a new concept when considering faces on surfaces with a fixed book-embedding. 
