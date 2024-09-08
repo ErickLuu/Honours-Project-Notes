@@ -1,0 +1,30 @@
+\section{Graph minors}\label{sec:Graph Minors}
+A graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges. Let $G$ be a graph and let $uv$ be an edge in $E(G)$. To \textit{contract} \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) with neighbourhood \(N(w) = N_G(u) \cup N_G(v)\). The graph obtained after contracting the edge \(uv\) in $G$ is written as \(G\setminus uv\).
+The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
+An example of a minor-closed class is the class of planar graphs.
+An important class of graph families are the \(K_t\)-minor free graphs. For a graph \(G\), \(\had(G)\) is the the largest \(t\) such that \(K_t\) is a minor of \(G\). $\had(G)$ is named after Hugo Hadwiger due to his conjecture below.
+
+\begin{conjecture}[Hadwiger's conjecture]\label{conj:Hadwiger's Conjecture}
+	For all graphs \(G\), \(\chi(G) \leq \had(G)\)\cite{hadwigerUeberKlassifikationStreckenkomplexe1943}.
+\end{conjecture}
+Much work has been done on solving Hadwiger's conjecture, with a document by \textcite{seymourHadwigerConjecture2016} on the latest progress. However, \cref{conj:Hadwiger's Conjecture} remains unsolved. 
+
+ Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
+
+ \section{Graph Minor Theorem}\label{sec:Graph Minor Theorem}
+The Graph Minor Theorem is one of the deepest and most important theorems in graph theory. 
+\begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
+	Every infinite family of graphs contains two distinct graphs \(G\) and \(H\) such that \(H\) is a minor of \(G\).
+\end{theorem}
+This was proven in a series of 23 papers by Robertson and Seymour, from 1983 to 2004.
+Let $\mathcal{F}$ be a minor-closed graph family. A graph $H$ is a \textit{minimal forbidden minor} of $\mathcal{F}$ if every graph $G$ in $\mathcal{F}$ is $H$-minor-free and every proper minor $H'$ of $H$ (meaning $H'$ is not $H$) is in $\mathcal{F}$. 
+The Graph Minor Theorem is equivalent to the statement:
+\begin{theorem}
+	Every minor-closed graph family $\mathcal{F}$ is characterised by a finite set of minimal forbidden minors $\mathcal{H}$. A graph $G$ is in $\mathcal{F}$ if and only if $G$ is $\mathcal{H}$-minor free.
+\end{theorem}
+Importantly, graphs of bounded genus can be characterised as a set of forbidden minors. The family of graphs that can be embedded on a fixed surface $\sigma$ is minor-closed. 
+For planar graphs, the two minimal forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
+The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of minimal forbidden minors has not been found yet. $K_7$ is a toroidal graph but $K_8$ is not.
+A graph $G$ is \textit{linkless} if $G$ has an embedding in $\mathbb{R}^3$ such that no two cycles are linked. If no embedding of $G$ has this property, then $G$ is \textit{inherently linked}. The family of linkless graphs is minor-closed. If $G$ is linkless, then contracting any edge maintains the linkless property. There are only seven minimal forbidden minors of linkless graphs, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. 
+
+A graph $G$ is \textit{knotless} if $G$ can be embedded in $\mathbb{R}^3$ such that every cycle of $G$ is a simple knot. $G$ is \textit{inherently knotted} if this is not the case.\ \textcite{conwayKnotsLinksSpatial1983} showed that $K_7$ is inherently knotted. The family of knotless graphs is also minor-closed, since contracting any edge preserves the knotless property. $K_7$ is an example of a minimal forbidden minor. It was found by \textcite{conwayKnotsLinksSpatial1983} and \textcite{foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003} that there exists at least three minimal minors, but a complete enumeration of minimal forbidden minors have not been found. 
