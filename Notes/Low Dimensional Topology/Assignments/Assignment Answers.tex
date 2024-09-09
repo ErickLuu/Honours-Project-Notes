@@ -375,32 +375,13 @@ The shape left by removing this cylinder from the sphere is also a torus $V_2$. 
 
 Now let the section $x^2 + y^2 = \frac{1}{4}, z^2 = 3/4$ be the meridian of $V_1$. Then this curve runs along the edge of $V_2$ as well. Now the number of twists that it does is $p$ longitudinal curves and $q$ meridinal curves, as the top and the bottom are twisted around by $q/p$ full turns. Therefore, the meridinal curve is a $p, q$ curve on $V_2$. Since by definition, $p$ and $q$ are coprime, then $p$ and $q$ are the only unique natural numbers that fulfil this definition. 
 
-If $p = 0$, then this is an issue. 
+We assume that $p > 0$ always. If this is not the case, then the manifold is $S^2 \times S^1$. 
 
 \section{7}
 
 \subsection{1}
 Let $X, Y$ be two handlebodies of genus $0$. Then $X$ and $Y$ are $2$-balls and are therefore homeomorphic. Now suppose $X$ and $Y$ are two handlebodies of genus $g$. 
 
-\subsection{2}
-The Heegaard diagram below is $S^3$ on a genus $g$ handlebody. The Heegaard diagram maps a meridian from handlebody $H_1$ to each longitude in $H_2$. If we glue a neighbourhood of each meridian to the longitude, then $H_1$ cut along every meridian yields $B^2$, and gluing neighbourhoods of meridians to $H_2$ in the usual way fills out each hole, yielding $B^2$, the surface is $B^2 \cup_f B^2$ for some orientable homeomorphism $f$. But as every gluing of $B^2$ to itself is homeomorphic to $S^3$, this is $S^3$ for all surfaces. 
-\begin{figure}[h]
-    \includesvg[width = 0.8 \textwidth]{Figures/W7Q2heegarddiagram.svg}
-\end{figure}
-
-\subsection{3}
-Let $M = (H_1, H_2, f)$ be a Heegaard splitting of $M$ into handlebodies $H_1$, $H_2$ of genus $g$ with a homeomorphism $f$ from $\partial H_1 \rightarrow \partial H_2$. 
-The fundamental group of a genus $g$ handlebody is $F_g$, by taking the homotopy of every handle to a point, yielding $g$ wedges of circles. Using Seifert Van-Kampen, the fundamental group of $M$ is $\pi_1(H_1) * \pi_1(H_2)/N_f$ where $N_f$ is the normal subgroup of identity loops. 
-
-As $f$ is a homeomorphism, the map $f_*$ that takes loops in $\pi_1(\partial H_1)$ to $\pi_1(\partial H_2)$ must be an isomorphism by the definition of the fundamental group. As $\pi_1(H_1)\leq \pi_1(\partial H_1)$, then the map $f': \pi_1(H_1) \rightarrow \pi_1(H_2)$ is also an isomorphism. Therefore, the elements $\{g_1, ..., g_n\}$ corresponding to meridinal loops of $\pi_1(H_1)$ has a corresponding basis $\{\ell_1, ..., \ell_n\}$ in $\pi_1(H_2)$. Furthermore, $g_1 \ell_1^{-1}$ is the trivial loop on $\partial H_1$, so is in $N_f$. Therefore, the fundamental group of $M$ is $\langle g_1, ..., g_m | R \rangle$ where $R$ are relations derived from taking the meridians of $H_2$ to $\{\ell_1, ... \ell_g\}$. 
-
-\subsection{4}
-The contrapositive of question $3$ is that if the fundamental group of $M$ has at $g$ generators, then $M$ has genus at least $g$. 
-
-The fundamental group of $T^3$ has no presentation with two generators, as the fundamental group of $T^3$ is $\mathbb{Z} \times \mathbb{Z} \times \mathbb{Z}$. Since $(1, 0, 0)$, $(0, 1, 0)$, and $(0,0, 1)$ are linearly independent in this group, then every representation must have at least three generators. By question3, the genus must be at least 3. 
-
-\subsection{5}
-Let $M_g = H_1 \cup_{Id} H_2$ where $H_1$, $H_2$ is the handlebody of genus $g$. $\pi_1(M_g) = \pi_1(H_1) * \pi_1(H_2)/N$. But $\pi_1(H_1) = \langle x_1, x_2, ..., x_g \rangle$ and $\pi_1(H_2) = \langle y_1, y_2, ..., y_g \rangle$. But the only relators are $x_i = y_i$. Therefore, $\pi_1(M_g) = F_g$, the free group on $g$ generators. However, $F_g$ has no presentation with $g-1$ generators. From section 3, $M_g$ has no Heegaard splitting of smaller genus. 
 
 \subsection{6}
 
