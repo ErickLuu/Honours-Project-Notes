@@ -1,4 +1,4 @@
-\section{Graph minors}\label{sec:Graph Minors}
+\subsection{Graph minors}\label{sec:Graph Minors}
 A graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges. Let $G$ be a graph and let $uv$ be an edge in $E(G)$. To \textit{contract} \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) with neighbourhood \(N(w) = N_G(u) \cup N_G(v)\). The graph obtained after contracting the edge \(uv\) in $G$ is written as \(G\setminus uv\).
 The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
 An example of a minor-closed class is the class of planar graphs.
@@ -11,13 +11,12 @@ Much work has been done on solving Hadwiger's conjecture, with a document by \te
 
  Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
 
- \section{Graph Minor Theorem}\label{sec:Graph Minor Theorem}
+ \subsection{Graph Minor Theorem}\label{sec:Graph Minor Theorem}
 The Graph Minor Theorem is one of the deepest and most important theorems in graph theory. 
 \begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
 	Every infinite family of graphs contains two distinct graphs \(G\) and \(H\) such that \(H\) is a minor of \(G\).
 \end{theorem}
 This was proven in a series of 23 papers by Robertson and Seymour, from 1983 to 2004.
-Let $\mathcal{F}$ be a minor-closed graph family. A graph $H$ is a \textit{minimal forbidden minor} of $\mathcal{F}$ if every graph $G$ in $\mathcal{F}$ is $H$-minor-free and every proper minor $H'$ of $H$ (meaning $H'$ is not $H$) is in $\mathcal{F}$. 
 The Graph Minor Theorem is equivalent to the statement:
 \begin{theorem}
 	Every minor-closed graph family $\mathcal{F}$ is characterised by a finite set of minimal forbidden minors $\mathcal{H}$. A graph $G$ is in $\mathcal{F}$ if and only if $G$ is $\mathcal{H}$-minor free.

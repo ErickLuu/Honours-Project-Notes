@@ -1,18 +1,9 @@
-\section{Graph minors}\label{sec:Graph Minors}
-A graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges. Let $G$ be a graph and let $uv$ be an edge in $E(G)$. To \textit{contract} \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) with neighbourhood \(N(w) = N_G(u) \cup N_G(v)\). The graph obtained after contracting the edge \(uv\) in $G$ is written as \(G\setminus uv\).
-The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
-An example of a minor-closed class is the class of planar graphs.
-An important class of graph families are the \(K_t\)-minor free graphs. For a graph \(G\), we define \(\had(G)\) to be the largest \(t\) such that \(K_t\) is a minor of \(G\). This is named after Hugo Hadwiger and his most famous conjecture.
-
-\begin{conjecture}[Hadwiger's conjecture]\label{conj:Hadwiger's Conjecture}
-	For all graphs \(G\), \(\chi(G) \leq \had(G)\)\cite{hadwigerUeberKlassifikationStreckenkomplexe1943}.
-\end{conjecture}
-Much work has been done on solving Hadwiger's conjecture, with a document by \textcite{seymourHadwigerConjecture2016} on the latest progress. However, it remains unsolved. 
-
+\section{Graph minors}
+Recall a graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges.
 A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which assigns to \(H\) vertex-disjoint connected subgraphs of \(G\). If $uv$ is an edge in \(E(H)\), then some edge in \(G\) joins the two subgraphs \(\rho(u)\) and \(\rho(v)\). A description of a model is in \cref{fig:model_of_P5}.
 \begin{figure}[h!]\label{fig:model_of_P5}
 	\centering
-	\includesvg[width = 0.5\textwidth]{figures/model.svg}
+	\includesvg[width = 0.8\textwidth]{figures/model.svg}
 	\caption{Illustration of a model $H$ in a graph $G$. The coloured boxes are the connected subgraphs contracted to a single vertex on the right.}
 \end{figure}
 
@@ -26,5 +17,3 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
 	Suppose \(H \leq G\). Use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the first contracted edge and let \(G' := G \setminus uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, there is a model \(\rho\) of \(H\) in \(G'\). Then find $x \in V(H)$ such that $w \in V(\rho(x))$. If there is no such $x$, then it is obvious that $\rho$ is a model of $H$ in $G$. Otherwise, 
 	delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\). 
 \end{proof}
-
- Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 

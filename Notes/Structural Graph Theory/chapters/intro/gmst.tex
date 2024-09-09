@@ -1,4 +1,4 @@
-\section{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
+\subsection{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
 \textcite{robertsonGraphMinorsXVII1999} provides a rough characterisation of all \(K_t\)-minor free graphs. 
 
 Each graph that is $K_t$-minor-free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor free graphs, meaning that a subset, or a single one of these ingredients constitute a $K_t$-minor free graph. 
@@ -9,39 +9,3 @@ Each graph that is $K_t$-minor-free can be constructed from the following ingred
 	\item Sets of vortices on graphs.
 \end{itemize}
 It was shown by \textcite{robertsonGraphMinorsXVII1999} that every \(K_t\)-minor free graph can be built up from smaller graphs with the above ingredients.
-
-\subsection{Graphs of bounded Euler genus}
-
-Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - A$ has some bounded parameter. Common parameters are planarity or bounded genus. 
-
-The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph formed from both $G$ and $H$ by identifying two cliques together. The clique-sum of $G$ and $H$ is \(G \oplus_k H\), and is defined as follows. Find cliques in \(G\) and \(H\), \(C_G\) and \(C_H\) respectively, such that both \(C_G\) and \(C_H\) have size \(k\). Identify the vertices in \(C_G\) and \(C_H\) to glue \(G\) and \(H\) together, and possibly delete edges in $C_G$. 
-
-Given a graph \(G\) and a tree-decomposition \(\tree\), the \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\), with vertex set $B_x$ and edge set defined as follows: \(vw\) is an edge in \(G\langle B_x \rangle\) if and only if \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
-The \textit{adhesion set} is the set \(B_x \cap B_y\). 
-The \textit{adhesion} of a tree is defined as \(\max(|B_x \cap B_y|)\) where \(xy\) is an edge in \(T\).
-
-Given \(G\) and a tree-decomposition \(\tree\), \(G\) is a clique-sum of the torsos \(G\langle B_x \rangle\) where the size of the cliques that we paste over is at most the adhesion of $\tree$. This holds for any arbitrary tree-decomposition.
-We will discuss decomposing graphs in the language of tree-decompositions, rather than clique-sums. This is because we can discuss the structure of the tree-decomposition.
-
-Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ is \textit{$G$-clean} if $D$ is a subset of some $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\). The ordering of $\Lambda$ is around the boundary of $D$. 
-\par
-Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_b)$. A \textit{$D$-vortex} is a graph $H$ such that $V(G) \cap V(H) = \Lambda$ and there is a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_b\) such that \(x_i \in B_i\) for all \(i\).
-\subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
-Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) such that:
-\begin{itemize}
-	\item \(G - A = G_0 \cup G_1 \cup G_2 \cup \ldots \cup G_{p'}\),
-	\item \(p' \leq p\),
-	\item there is an embedding of \(G_0\) onto a surface \(\Sigma\) of genus \(\leq g\),
-	\item there exists pairwise disjoint \(G_0\)-clean discs \(D_1, D_2, \ldots, D_{p'}\) in \(\Sigma\),
-	\item \(G_i\) is a \(D_i\)-vortex of width at most \(k\).
-\end{itemize}
-
-\begin{theorem}[Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}]\label{thm:gmst}
-	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs which have tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). Adhesion $\ell$ is implied. 
-\end{theorem}
-There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.\ \textcite{joretCompleteGraphMinors2013} found that
-\begin{theorem}[\textcite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
-	For all graphs \(G \in \mathcal{G}(g, p, k, a)\),
-	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, there exists an integer \(n \geq a + 1 4 k\sqrt{p + g}\) such that \(K_n\) is a minor of some graph in \(\mathcal{G}(g, p, k, a)\).
-\end{theorem}
-
