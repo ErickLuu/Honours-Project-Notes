@@ -13,9 +13,9 @@ A \textit{dual graph} $G*$ of a connected planar graph $G$ has vertex set $F(G)$
 
 A simple proof of this fact is from \textcite{staudtGeometrieLage1847}.
 
-\begin{theorem}
+\begin{proof}
 	Choose any spanning tree $T$ in $G$. $T$ is connected and without cycles. Now consider the edges $E(G - T)$ and consider the corresponding edge set in $G*$. $T$ is not a simple closed curve, therefore $\mathbb{R}^2 - T$ has a single connected component. Therefore, the corresponding edge set in $G^*$ is connected. Furthermore, this edge set is acyclic, as if a cycle exists then the cycle of faces bounds some vertex, contradicting $T$ being spanning. Therefore, $G^*$ has a corresponding spanning tree, partitioning the edges of $G$. Therefore, $|E(G)| = (|V(G)| - 1) + (|F(G)| - 1)$, so $|V(G)| - |E(G)| + |F(G)| = 2$. 
-\end{theorem}
+\end{proof}
 
 The most immediate application is bounding the number of edges in any planar graph.
 \begin{theorem}\label{thm:planar_graph_edge_bound}
