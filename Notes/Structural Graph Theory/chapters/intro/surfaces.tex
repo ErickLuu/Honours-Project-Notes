@@ -1,0 +1,37 @@
+\subsection{Surfaces and graphs on surfaces}
+This section discusses surfaces, and graphs on surfaces. Graphs on surfaces are a natural extension to graphs on planes. Readers are expected to be familiar with point-set topology. This section is based on \textcite{moharGraphsSurfaces2001}.
+
+An $n$-manifold $M$ is a second-countable Hausdorff space where every point in $M$ has an open neighbourhood homeomorphic to an open ball in $\mathbb{R}^n$.  
+A \textit{surface} is a $2$-manifold. Surfaces are typically denoted as $\Sigma$. Examples of surfaces are the sphere $S^2$, the torus $T^2$, the real projective plane $\mathbb{R}P^2$, and the Klein bottle $K$. 
+
+\textit{Handles} are added to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise and the other goes counter-clockwise. \textit{Crosscaps} are added to a surface $\Sigma$ by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. 
+
+\begin{theorem}[Classification of surfaces]
+	Every surface is homeomorphic to a sphere with some added crosscaps or handles. 
+\end{theorem}
+
+\begin{definition}[Euler Genus]
+	The \textit{Euler genus} of a surface \(\Sigma\), obtained from a sphere by adding \(h\) handles and \(c\) crosscaps, is \(2h + c\).
+\end{definition}
+
+The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be embedded on \(\Sigma\) without crossings (note that \(\Sigma\) can be orientable or nonorientable). 
+
+An extension of Euler's formula to surfaces is given below. 
+\begin{theorem}[Euler's formula on surfaces]\label{thm:Euler_surfaces}
+	Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = 2 - g = \chi\). 
+\end{theorem}
+The value $\chi$ is known as the \textit{Euler characteristic} of a topological space, in this case a surface. Calculating the Euler characteristic of any space is done through \textit{homological algebra}. 
+
+Graphs that can be embedded on the plane are called \textit{planar} graphs. Graphs that can be 2-cell embedded on the torus are called \textit{toroidal} graphs, and graphs that can be 2-cell embedded on the projective plane are called \textit{projective-planar} graphs.
+
+
+Graphs on surfaces have been studied extensively. A famous conjecture involving graphs on surfaces is Heawood's conjecture, which states that:
+\begin{theorem}
+	The minimum number of colours sufficient to colour all Euler genus $g$ graphs, $g \geq 0$, is
+	\begin{equation*}
+		\gamma(g) := \left\lfloor 
+		\frac{7 + \sqrt{1 + 24g}}{2}
+		\right\rfloor.
+	\end{equation*}
+\end{theorem}
+\textcite{ringelMapColorTheorem1974} showed that for almost every case, $\gamma(g)$ is also necessary. The case where this does not hold is the Klein bottle case. There exists a 6-colourable Klein bottle graph, but $\gamma(g) = 7$. 

@@ -72,16 +72,19 @@ maxbibnames=99
 
 %includeonly
 \includeonly{
-%chapters/introduction,
-%chapters/definitions,
-%chapters/knownresults,
-chapters/proofattempt,
-%chapters/consequences,
-%chapters/conclusion
+chapters/introduction,
+chapters/GraphMinorStructureTheorem,
+chapters/Book-Embeddings,
+chapters/orientable,
+chapters/nonorientable,
 }
 
+
+\newcommand{\gpk}{12gpk + 12gp + 18g + 12kp + 12p + 11}
+
+
 %opening
-\title{Towards a proof that all \(K_t\)-minor-free graphs have bounded pagenumber}
+\title{Graph Minors and Book-Embeddings}
 \author{Eric Luu}
 
 \begin{document}
@@ -97,11 +100,15 @@ chapters/proofattempt,
 
 \include{chapters/introduction}
 
-\include{chapters/definitions}
+\include{chapters/GraphMinorStructureTheorem}
 
-\include{chapters/knownresults}
+\include{chapters/Book-Embeddings}
 
-\include{chapters/proofattempt}
+\include{chapters/orientable}
+
+\include{chapters/nonorientable}
+
+\input{chapters/openproblems/consequences.tex}
 
 \include{chapters/conclusion}
 \printbibliography{}

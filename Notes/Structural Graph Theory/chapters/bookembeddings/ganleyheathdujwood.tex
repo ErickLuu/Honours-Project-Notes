@@ -6,6 +6,8 @@
 \end{theorem}
 \textcite{ganleyPagenumberTrees2001} considered the case where \(G\) is a \(k\)-tree. We will bypass using \(k\)-trees and consider a tree-decomposition of \(G\) directly.
 
+Let $G$ be a graph. A clique in $G$ is a subgraph of $G$ is a subgra The clique-number $\omega(G)$ is the largest clique in $G$
+
 \begin{proof}
 	Consider a tree-decomposition of \(G\), $\{B_x: x \in V(T)\}$. Perform a depth-first search on \(T\), starting at an arbitrary root node \(r\). Let \(\sigma(v)\) of a vertex \(v\) in \(V(G)\) be the first time \(v \in B_x\), $x \in T$ appears in the depth-first search. $\sigma(v)$ determines when $v$ appears in the book-embedding. Within each bag $B_x$, if two vertices $v,w$ first appear in $B_x$, then $v$ and $w$ are ordered arbitrarily in the book-embedding. Now consider the subtree \(T_v\) induced by the bags \(B_x\) containing \(v\). Let \(H\) be the intersection graph of the subtrees, where \(V(H) = \lbrace T_v : v \in G \rbrace\) and \(T_u T_v \in E(H)\) if there exists a bag \(B_x\) such that \(u, v \in B_x\). \(H\) is perfect as all intersection graphs of subtrees are perfect. Therefore, \(\chi(H) = \omega(H)\). Then as \(\tw(G) \leq k + 1\), then the size of a clique in \(H\) is at most \(k + 1\). Thus \(H\) is \(k + 1\)-colourable. Let $z: V(H) \rightarrow [k + 1]$ be a proper colouring of $H$. 
 	\paragraph{}

@@ -369,5 +369,23 @@ If two curves are ambient isotopic on $V$, then there exists an isotopy $F: V \t
 
 \subsection{10}
 
-Firstly $V_1$ is a solid torus as the two ends are glued to each other. It is obvious that the cylinder cut out is a torus with a twist of length $p/q$. Similarly, $V_2$ is a solid torus because we fold the side of the sphere in on itself so that the only boundary is the closure of what remains. The amount that is twisted is homeomorphic to adding a loop of $p$ on one side of the torus and $q$ on the other side of the torus, therefore this gluing forms the lens space $L(p, q)$. 
+Cut the sphere into sections with radius $\frac{2\pi}{p}$. Start at the point $(0, 1, 0)$ and label the sections going counterclockwise $1 ... p$. Then section $1$ on the top is glued to $q + 1$ on the bottom, in this construction. Now cut out the cylinder $x^2 + y^2 \leq \frac{1}{4}$. This cylinder is a torus $V_1$ but with a twist of $\frac{p}{q}$ around the centre.
+
+The shape left by removing this cylinder from the sphere is also a torus $V_2$. $V_2$ can be viewed as rotating each section around and gluing together to form a big wheel. However, there is still a longitudinal loop that is noncontractible in this big wheel by traversing through every shape. Since this space was connected before the quotient map, it is still connected after. 
+
+Now let the section $x^2 + y^2 = \frac{1}{4}, z^2 = 3/4$ be the meridian of $V_1$. Then this curve runs along the edge of $V_2$ as well. Now the number of twists that it does is $p$ longitudinal curves and $q$ meridinal curves, as the top and the bottom are twisted around by $q/p$ full turns. Therefore, the meridinal curve is a $p, q$ curve on $V_2$. Since by definition, $p$ and $q$ are coprime, then $p$ and $q$ are the only unique natural numbers that fulfil this definition. 
+
+We assume that $p > 0$ always. If this is not the case, then the manifold is $S^2 \times S^1$. 
+
+\section{7}
+
+\subsection{1}
+Let $X, Y$ be two handlebodies of genus $0$. Then $X$ and $Y$ are $2$-balls and are therefore homeomorphic. Now suppose $X$ and $Y$ are two handlebodies of genus $g$. 
+
+
+\subsection{6}
+
+Let $h$ be a homeomorphism of $H_1$ taking the images of meridians to itself. First cut along $f(m_1), ..., f(m_g)$ in $\partial H_1$. Call this shape $X$. Now $h$ restricted to $(X, \partial X)$ is a homeomorphism. Now this means that cutting along $h(m_1), ..., h(m_g)$ in $\partial H_1$ yields $(X, \partial X)$. 
+Now in $H_2$, cut along $m_1$. Call this shape $Y$. Then the shape $H_1 \cup_f H_2$ can be viewed as taking $X \cup_f Y$ and regluing along meridians in $Y$ and $X$. But $X \cup_f Y \cong X \cup_h Y$ as there is a homeomorphism of $Y$ preserving boundary. Therefore, $H_1 \cup_f H_2 \cong H_1 \cup_h H_2$. 
+
 \end{document}

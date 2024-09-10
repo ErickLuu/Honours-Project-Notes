@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{svg}
+\usepackage{cleveref}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\Star}{st}
+\DeclareMathOperator{\Lk}{lk}
+\newcommand{\atlas}{\mathcal{A}}
+\newcommand{\cover}{\widetilde{X}}
+\DeclareMathOperator{\Homeo}{Homeo}
+\newcommand*{\inter}{\hat{i}}
+\newcommand*{\twequiv}{\sim_c}
+
+
+%opening
+\title{Assignment 7}
+\author{Eric Luu}
+
+\begin{document}
+\section{6}
+\subsection{10}
+
+Cut the sphere into sections with radius $\frac{2\pi}{p}$. Start at the point $(0, 1, 0)$ and label the sections going counterclockwise $1 ... p$. Then section $1$ on the top is glued to $q + 1$ on the bottom, in this construction. Now cut out the cylinder $x^2 + y^2 \leq \frac{1}{4}$. This cylinder is a torus $V_1$ but with a twist of $\frac{p}{q}$ around the centre.
+
+The shape left by removing this cylinder from the sphere is also a torus $V_2$. $V_2$ can be viewed as rotating each section around and gluing together to form a big wheel. However, there is still a longitudinal loop that is noncontractible in this big wheel by traversing through every shape. Since this space was connected before the quotient map, it is still connected after. 
+
+Now let the section $x^2 + y^2 = \frac{1}{4}, z^2 = 3/4$ be the meridian of $V_1$. Then this curve runs along the edge of $V_2$ as well. Now the number of twists that it does is $p$ longitudinal curves and $q$ meridinal curves, as the top and the bottom are twisted around by $q/p$ full turns. Therefore, the meridinal curve is a $p, q$ curve on $V_2$. Since by definition, $p$ and $q$ are coprime, then $p$ and $q$ are the only unique natural numbers that fulfil this definition. 
+
+We assume that $p > 0$ always. If this is not the case, then the manifold is $S^2 \times S^1$. 
+\section{7}
+
+\subsection{2}
+The Heegaard diagram below is $S^3$ on a genus $g$ handlebody. The Heegaard diagram maps a meridian from handlebody $H_1$ to each longitude in $H_2$. If we glue a neighbourhood of each meridian to the longitude, then $H_1$ cut along every meridian yields $B^2$, and gluing neighbourhoods of meridians to $H_2$ in the usual way fills out each hole, yielding $B^2$, the surface is $B^2 \cup_f B^2$ for some orientable homeomorphism $f$. But as every gluing of $B^2$ to itself is homeomorphic to $S^3$, this is $S^3$ for all surfaces. 
+\begin{figure}[h]
+    \includesvg[width = 0.8 \textwidth]{Figures/W7Q2heegarddiagram.svg}
+\end{figure}
+
+\subsection{4}
+The contrapositive of question $3$ is that if the fundamental group of $M$ has at $g$ generators, then $M$ has genus at least $g$. 
+
+The fundamental group of $T^3$ has no presentation with two generators, as the fundamental group of $T^3$ is $\mathbb{Z} \times \mathbb{Z} \times \mathbb{Z}$. Since $(1, 0, 0)$, $(0, 1, 0)$, and $(0,0, 1)$ are linearly independent in this group, then every representation must have at least three generators. By question 3, the genus must be at least 3. 
+
+\subsection{5}
+Let $M_g = H_1 \cup_{Id} H_2$ where $H_1$, $H_2$ is the handlebody of genus $g$. $\pi_1(M_g) = \pi_1(H_1) * \pi_1(H_2)/N$. But $\pi_1(H_1) = \langle x_1, x_2, ..., x_g \rangle$ and $\pi_1(H_2) = \langle y_1, y_2, ..., y_g \rangle$. But the only relators are $x_i = y_i$. Therefore, $\pi_1(M_g) = F_g$, the free group on $g$ generators. However, $F_g$ has no presentation with $g-1$ generators. From section 3, $M_g$ has no Heegaard splitting of smaller genus. 
+
+\end{document}

@@ -14,6 +14,22 @@ It was shown by \textcite{robertsonGraphMinorsXVII1999} that every \(K_t\)-minor
 
 Graphs which can be embedded on a surface of Euler genus $g$ are $K_t$ minor-free, where \(t > \sqrt{6g} + 4\). This comes from \cref{thm:bounded_genus_kt_free}. 
 
+In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[width = 0.8\textwidth]{figures/k7 on torus.svg}
+	\caption{Figure of $K_7$ embedded on a torus}\label{fig:k7_on_torus}
+\end{figure}
+
+\begin{lemma}
+	$K_8$ is not embeddable on the torus.
+\end{lemma}
+\begin{proof}
+	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus by contradiction.
+\end{proof}
+
+
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - A$ has some bounded parameter. Common parameters are planarity or bounded genus. 
 \begin{theorem}
@@ -22,7 +38,7 @@ Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - 
 \begin{proof}
 	We shall prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model in \(G\) and denote the model function as \(\rho\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(a\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - a\), as \(G - \rho(v)\) does not contain \(a\). So \(G - a\) has a \(K_t\) minor. 
 \end{proof}
-\subsection{Clique-sums}\label{sssec:Clique_Sums}
+\subsection{Treewidth and clique-sums}\label{sssec:Clique_Sums}
 The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph formed from both $G$ and $H$ by identifying two cliques together. The clique-sum of $G$ and $H$ is \(G \oplus_k H\), and is defined as follows. Find cliques in \(G\) and \(H\), \(C_G\) and \(C_H\) respectively, such that both \(C_G\) and \(C_H\) have size \(k\). Identify the vertices in \(C_G\) and \(C_H\) to glue \(G\) and \(H\) together, and possibly delete edges in $C_G$. An illustration can be found in \cref{fig:clique-sum}. 
 
 \begin{figure}[h]
@@ -111,20 +127,7 @@ The Graph Minor Theorem is equivalent to the statement:
 \end{theorem}
 Importantly, graphs of bounded genus can be characterised as a set of forbidden minors. The family of graphs that can be embedded on a fixed surface $\sigma$ is minor-closed. 
 For planar graphs, the two minimal forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
-The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of minimal forbidden minors has not been found yet. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
-
-\begin{figure}[h!]
-	\centering
-	\includesvg[width = 0.8\textwidth]{figures/k7 on torus.svg}
-	\caption{Figure of $K_7$ embedded on a torus}\label{fig:k7_on_torus}
-\end{figure}
-
-\begin{lemma}
-	$K_8$ is not embeddable on the torus.
-\end{lemma}
-\begin{proof}
-	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus by contradiction.
-\end{proof}
+The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of minimal forbidden minors has not been found yet. 
 
 A graph $G$ is \textit{linkless} if $G$ has an embedding in $\mathbb{R}^3$ such that no two cycles are linked. If no embedding of $G$ has this property, then $G$ is \textit{inherently linked}. The family of linkless graphs is minor-closed. If $G$ is linkless, then contracting any edge maintains the linkless property. There are only seven minimal forbidden minors of linkless graphs, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. 
 
