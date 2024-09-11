@@ -2,33 +2,22 @@
 
 \section{Non-orientable surfaces}
 
-For the nonorientable case, we wish to show that:
+\textcite{heathEmbeddingPlanarGraphs1984} did not sufficiently prove the case for non-orientable graphs. \textcite{nakamotoBookEmbeddingProjectiveplanar2015} showed that every projective-planar graph can be embedded in $9$ pages, which was improved to 6 with a more complex proof. However, we want to prove a book-embedding for all nonorientable surfaces. 
+\textcite{ozekiBookEmbeddingGraphs2019} states that they were unable to prove that all Klein-Bottle graphs can be embedded on a bounded number of pages. We have also attempted to solve this conjecture, but was unsuccessful. 
 
-\begin{theorem}\label{thm:orientablevortices}
-	Let $G$ be a graph where all torsos are $k$ almost-embeddable on a surface of genus at most $g$.  Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where $s = \gpk$. 
-\end{theorem}
-
-To prove this for the most general case, the following must be shown:
-
-\begin{conjecture}
-	For any graph $G$ with nonorientable genus $g$ on a surface $\Sigma$, $G$ can be embedded on $\leq f(g)$ pages such that for any face $F$ on $\Sigma - G$, the number of monochromatic paths is bounded by some $h(g)$. 
-\end{conjecture}
-
-For nonorientable surfaces, this is more complicated. \textcite{heathEmbeddingPlanarGraphs1984} did not sufficiently prove the case for non-orientable graphs. \textcite{nakamotoBookEmbeddingProjectiveplanar2015} showed that every projective-planar graph can be embedded in $9$ pages, which was improved to 6 with a more complex proof. However, we want to prove a book-embedding for all nonorientable surfaces. 
-
-We want to show the following:
-\begin{conjecture}\label{conj:embedding_nonorientable_graphs}
-	Let $G$ be a graph with a 2-cell embedding on a non-orientable surface $\Sigma$ of genus $g$. Then $G$ can be embedded in $O(g)$ pages.
+\begin{conjecture}\label{conj:nonorientable}
+	For a fixed natural number $g > 0$, every nonorientable genus $g$ graph can be embedded in $f(g)$ pages for some function $f$. 
 \end{conjecture}
 
 For the case that $g = 1$, then $G$ can be embedded in 6 pages, from \textcite{ozekiBookEmbeddingGraphs2019}. However, it is not known for higher $g$, and in fact the case when $g = 2$ (Klein-Bottle graphs) was stated to be an open problem. 
 
-We want to show:
+To be compatible with the proof of orientable surfaces, the following strengthening is necessary. 
 \begin{conjecture}\label{conj:nonorientable_monochromatic_paths}
 	Every graph embedded on a surface of genus $g$ has a book-embedding of $f(g)$ pages where every face has $h(g)$ monochromatic paths. 
 \end{conjecture}
-This was shown in the case when the surface is orientable. However, the case when the surface is nonorientable has not been solved yet. This statement is a strengthening of \cref{conj:embedding_nonorientable_graphs}, with an extra condition on the faces of the graph.
-This implies the following:
+
+\cref{conj:nonorientable_monochromatic_paths} is a strengthening of \cref{conj:nonorientable}. This is known when the surface is orientable or a projective plane. However, it is not known in the case when $G$ is a higher genus nonorientable surfaces.
+\cref{conj:nonorientable_monochromatic_paths} implies the following:
 
 \begin{corollary}
 	Every $(g, p, k)$-almost-embeddable graph is embeddable on $p h(g) (k + 1) + f(g)$ pages.
@@ -38,7 +27,7 @@ This implies the following:
 	Let $G$ be a $(g, p, k)$-almost-embeddable graph, on a nonorientable surface of genus $g$. By \cref{conj:nonorientable_monochromatic_paths}, there is a book-embedding of $G$ where every face has $h(g)$ monochromatic paths. Then by \cref{lem:vortices_mono_paths}, $G$ can be embedded in $f(g) + h(g) p (k+1)$ pages. 
 \end{proof}
 
-This implies \cref{conj:bded_had_pn}, in the case when every surface is orientable. 
+This implies \cref{conj:bded_had_pn}.
 \begin{corollary}
 	Every $\mathcal{G}(g, p, k, a)$ graph can be embedded on $2s^2 + 4s + 1$ pages, where $s =  4g h(g) (k + 1) + f(g) + a$. 
 \end{corollary}
@@ -46,3 +35,5 @@ This implies \cref{conj:bded_had_pn}, in the case when every surface is orientab
 \begin{proof}
 	Let $G \in \mathcal{G}(g, p, k, a)$. Then $G$ has a tree-decomposition where every torso is $(g, p, k, a)$-almost embeddable. From \cref{thm:apex_vertices_pagenumber}, every torso is embeddable on $s = 4g h(g) (k + 1) + f(g) + a$ pages. Then from \cref{corr:bded_pn_tree_decomp}, $G$ is embeddable on $2s^2 + 4s + 1$ pages.
 \end{proof}
+
+Therefore, finding a book-embedding of graphs on nonorientable surface with some certain extra properties proves \cref{conj:bded_had_pn}. Finding any book-embedding of graphs on nonorientable surfaces is difficult enough. 
