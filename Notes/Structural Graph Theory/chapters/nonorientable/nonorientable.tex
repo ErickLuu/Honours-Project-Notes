@@ -13,13 +13,13 @@ For the case that $g = 1$, then $G$ can be embedded in 6 pages, from \textcite{o
 
 To be compatible with the proof of orientable surfaces, the following strengthening is necessary. 
 \begin{conjecture}\label{conj:nonorientable_monochromatic_paths}
-	Every graph embedded on a surface of genus $g$ has a book-embedding of $f(g)$ pages where every face has $h(g)$ monochromatic paths. 
+	Every graph embedded on a surface of genus $g$ can be embedded on $f(g)$ pages where every face has $h(g)$ monochromatic paths. 
 \end{conjecture}
 
-\cref{conj:nonorientable_monochromatic_paths} is a strengthening of \cref{conj:nonorientable}. This is known when the surface is orientable or a projective plane. However, it is not known in the case when $G$ is a higher genus nonorientable surfaces.
+\cref{conj:nonorientable_monochromatic_paths} is a strengthening of \cref{conj:nonorientable}. This is known when the surface is orientable or a projective plane. However, it is not known in the case when $G$ is a higher genus nonorientable surface.
 \cref{conj:nonorientable_monochromatic_paths} implies the following:
 
-\begin{corollary}
+\begin{corollary}\label{corr:aegraphs}
 	Every $(g, p, k)$-almost-embeddable graph is embeddable on $p h(g) (k + 1) + f(g)$ pages.
 \end{corollary}
 
@@ -33,7 +33,7 @@ This implies \cref{conj:bded_had_pn}.
 \end{corollary}
 
 \begin{proof}
-	Let $G \in \mathcal{G}(g, p, k, a)$. Then $G$ has a tree-decomposition where every torso is $(g, p, k, a)$-almost embeddable. From \cref{thm:apex_vertices_pagenumber}, every torso is embeddable on $s = 4g h(g) (k + 1) + f(g) + a$ pages. Then from \cref{corr:bded_pn_tree_decomp}, $G$ is embeddable on $2s^2 + 4s + 1$ pages.
+	Let $G \in \mathcal{G}(g, p, k, a)$. Then $G$ has a tree-decomposition where every torso is $(g, p, k, a)$-almost embeddable. From \cref{corr:aegraphs} and \cref{thm:apex_vertices_pagenumber}, every torso is embeddable on $s = 4g h(g) (k + 1) + f(g) + a$ pages. Then from \cref{corr:bded_pn_tree_decomp}, $G$ is embeddable on $2s^2 + 4s + 1$ pages.
 \end{proof}
 
 Therefore, finding a book-embedding of graphs on nonorientable surface with some certain extra properties proves \cref{conj:bded_had_pn}. Finding any book-embedding of graphs on nonorientable surfaces is difficult enough. 
