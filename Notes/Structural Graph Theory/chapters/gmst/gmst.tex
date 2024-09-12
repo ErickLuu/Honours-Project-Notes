@@ -106,6 +106,8 @@ Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)
 	\item \(G_i\) is a \(D_i\)-vortex of width at most \(k\).
 \end{itemize}
 
+If we restrict $G_0$ to live only on orientable surfaces, then the graph $G$ is $(g, p, k, a)^+$-almost embeddable. If the apex set $A$ is empty, then the graph $G$ is $(g, p, k)$-almost embeddable. 
+
 \begin{theorem}[Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}]\label{thm:gmst}
 	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs which have tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). Adhesion $\ell$ is implied. 
 \end{theorem}
@@ -114,21 +116,3 @@ There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomp
 	For all graphs \(G \in \mathcal{G}(g, p, k, a)\),
 	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, there exists an integer \(n \geq a + 1 4 k\sqrt{p + g}\) such that \(K_n\) is a minor of some graph in \(\mathcal{G}(g, p, k, a)\).
 \end{theorem}
-
-\section{Graph Minor Theorem}\label{sec:Graph Minor Theorem}
-We move on to one of the most important and deepest theorems in graph theory, the Graph Minor Theorem. This was proven in a series of 23 papers by Robertson and Seymour, from 1983 to 2004. As part of the proof, the Graph Minor Structure Theorem was developed. 
-\begin{theorem}[Graph Minor Theorem \cite{robertsonGraphMinorsXX2004}]
-	Every infinite family of graphs contains two distinct graphs \(G\) and \(H\) such that \(H\) is a minor of \(G\).
-\end{theorem}
-Let $\mathcal{F}$ be a minor-closed graph family. A graph $H$ is a \textit{minimal forbidden minor} of $\mathcal{F}$ if every graph $G$ in $\mathcal{F}$ is $H$-minor-free and every proper minor $H'$ of $H$ (meaning $H'$ is not $H$) is in $\mathcal{F}$. 
-The Graph Minor Theorem is equivalent to the statement:
-\begin{theorem}
-	Every minor-closed graph family $\mathcal{F}$ is characterised by a finite set of minimal forbidden minors $\mathcal{H}$. A graph $G$ is in $\mathcal{F}$ if and only if $G$ is $\mathcal{H}$-minor free.
-\end{theorem}
-Importantly, graphs of bounded genus can be characterised as a set of forbidden minors. The family of graphs that can be embedded on a fixed surface $\sigma$ is minor-closed. 
-For planar graphs, the two minimal forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
-The family of graphs that can be embedded on a torus are the toroidal graphs. There are at least 17,523 graphs which are forbidden minors, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of minimal forbidden minors has not been found yet. 
-
-A graph $G$ is \textit{linkless} if $G$ has an embedding in $\mathbb{R}^3$ such that no two cycles are linked. If no embedding of $G$ has this property, then $G$ is \textit{inherently linked}. The family of linkless graphs is minor-closed. If $G$ is linkless, then contracting any edge maintains the linkless property. There are only seven minimal forbidden minors of linkless graphs, including $K_6$ and the Petersen graph, from \textcite{robertsonSachsLinklessEmbedding1995}. 
-
-A graph $G$ is \textit{knotless} if $G$ can be embedded in $\mathbb{R}^3$ such that every cycle of $G$ is a simple knot. $G$ is \textit{inherently knotted} if this is not the case.\ \textcite{conwayKnotsLinksSpatial1983} showed that $K_7$ is inherently knotted. The family of knotless graphs is also minor-closed, since contracting any edge preserves the knotless property. $K_7$ is an example of a minimal forbidden minor. It was found by \textcite{conwayKnotsLinksSpatial1983} and \textcite{foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003} that there exists at least three minimal minors, but a complete enumeration of minimal forbidden minors have not been found. 
