@@ -33,7 +33,7 @@ In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is 
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - A$ has some bounded parameter. Common parameters are planarity or bounded genus. 
 \begin{theorem}
-	Let $G$ be a graph. If \(G\) is \(K_{t + 1}\)-minor free, then for any vertex $a \in V(G)$, $G - a$ is \(K_t\)- minor free. 
+	Let $G$ be a graph. If \(G-a\) is \(K_{t}\)-minor free, then $G$ is $K_{t+1}$-minor free. 
 \end{theorem}
 \begin{proof}
 	We shall prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model in \(G\) and denote the model function as \(\rho\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(a\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - a\), as \(G - \rho(v)\) does not contain \(a\). So \(G - a\) has a \(K_t\) minor. 
