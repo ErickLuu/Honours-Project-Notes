@@ -106,12 +106,19 @@ Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)
 	\item \(G_i\) is a \(D_i\)-vortex of width at most \(k\).
 \end{itemize}
 
-If we restrict $G_0$ to live only on orientable surfaces, then the graph $G$ is $(g, p, k, a)^+$-almost embeddable. If the apex set $A$ is empty, then the graph $G$ is $(g, p, k)$-almost embeddable. 
+If we restrict $G_0$ to live only on orientable surfaces, then the graph $G$ is ${(g, p, k, a)}^+$-almost embeddable. If the apex set $A$ is empty, then the graph $G$ is $(g, p, k)$-almost embeddable. 
 
 \begin{theorem}[Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}]\label{thm:gmst}
 	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs which have tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). Adhesion $\ell$ is implied. 
 \end{theorem}
-There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.\ \textcite{joretCompleteGraphMinors2013} found that
+There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.
+
+\textcite{kawarabayashiQuicklyExcludingNonplanar2021} found bounds for $g, p, k, a$. 
+\begin{theorem}[\textcite{kawarabayashiQuicklyExcludingNonplanar2021}]
+	Let $t \geq 1$ be a positive integer. Let $G$ be a $K_t$-minor free graph. Then let $\alpha = t^{18 \cdot 10^{7} t^{26} + c}$ for a constant $c$. Then setting $g = t(t+1)$, $p = 4\alpha$, $k = \alpha$ and $a = 3\alpha$, $G \in \mathcal{G}(g,p,k,a)$. 
+\end{theorem}
+
+\textcite{joretCompleteGraphMinors2013} found that
 \begin{theorem}[\textcite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
 	For all graphs \(G \in \mathcal{G}(g, p, k, a)\),
 	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, there exists an integer \(n \geq a + 1 4 k\sqrt{p + g}\) such that \(K_n\) is a minor of some graph in \(\mathcal{G}(g, p, k, a)\).
