@@ -91,11 +91,11 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 \end{lemma}
 
 \begin{proof}
-	Let \(C\) be the Hamiltonian cycle of \(G\). Let \(D\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every face is inside either the interior or exterior of \(C\). But this means that every face must be preserved in \(D\), as the surface we are dealing with is orientable and we can affix an orientation to every face \(F\) such that the order of the vertices in the orientation is the same order as the orientation in \(D\). Thus every face in this embedding is preserved.
+	Let \(C\) be the Hamiltonian cycle of \(G\). Let \(<\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every edge in $G - C$ is inside either the interior or exterior of \(C\). Colour every edge in $C$ and on the interior of $\mathbb{R}^2 - C$ red and colour the other edges blue. This is a book-embedding as both regions can be embedded on a single page with the same cyclic ordering. Furthermore, every face is preserved. Because $\mathbb{R}$ is orientable, we can affix an orientation to every face \(F\) on $G$ such that the order of the vertices in the orientation is the same order as the orientation in \(D\).
 	\begin{figure}[h]
 		\centering
 		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
-		\caption{An image of a Hamiltonian planar graph. A circular ordering of the vertices, going clockwise around the Hamiltonian cycle, preserves every vertex.}\label{fig:hamiltonian_planar}
+		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
 As a consequence, every 4-connected planar graph has a circular ordering which preserves every face.

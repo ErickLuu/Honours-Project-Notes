@@ -19,7 +19,7 @@ In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is 
 \begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/k7 on torus.svg}
-	\caption{Figure of $K_7$ embedded on a torus}\label{fig:k7_on_torus}
+	\caption[Toroidal graph]{An example of a toroidal graph $K_7$ embedded on a torus.}\label{fig:k7_on_torus}
 \end{figure}
 
 \begin{lemma}
@@ -88,7 +88,7 @@ Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\).
 \par
 Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_b)$. A \textit{$D$-vortex} is a graph $H$ such that $V(G) \cap V(H) = \Lambda$ and there is a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_b\) such that \(x_i \in B_i\) for all \(i\).
 \par
-The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, there is a decomposition of $G_n$ into two graphs $G_0$ and $G_1$ where $G_0$ can be embedded on a surface and $G_1$ is a vortex on $G_0$ with path-width 6. 
+The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, there is a decomposition of $G_n$ into two graphs $G_0$ and $G_1$ where $G_0$ can be embedded on a surface and $G_1$ is a vortex on $G_0$ with path-width 6. $G_0$ is the $n \times n - 1$ grid and $G_1$ is the $n \times 2$ grid in the back plus the apex vertices. 
 
 \begin{figure}[h]
 	\centering
@@ -113,13 +113,13 @@ If we restrict $G_0$ to live only on orientable surfaces, then the graph $G$ is 
 \end{theorem}
 There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.
 
-\textcite{kawarabayashiQuicklyExcludingNonplanar2021} found bounds for $g, p, k, a$. 
+\textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. 
 \begin{theorem}[\textcite{kawarabayashiQuicklyExcludingNonplanar2021}]
 	Let $t \geq 1$ be a positive integer. Let $G$ be a $K_t$-minor free graph. Then let $\alpha = t^{18 \cdot 10^{7} t^{26} + c}$ for a constant $c$. Then setting $g = t(t+1)$, $p = 4\alpha$, $k = \alpha$ and $a = 3\alpha$, $G \in \mathcal{G}(g,p,k,a)$. 
 \end{theorem}
 
-\textcite{joretCompleteGraphMinors2013} found that
+\textcite{joretCompleteGraphMinors2013} studies the question of the maximum order of a complete graph minor of a graph in $\mathcal{G}(g, p, k, a)$. 
 \begin{theorem}[\textcite{joretCompleteGraphMinors2013}]\label{thm:graph_structure_bound_theorem}
 	For all graphs \(G \in \mathcal{G}(g, p, k, a)\),
-	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, there exists an integer \(n \geq a + 1 4 k\sqrt{p + g}\) such that \(K_n\) is a minor of some graph in \(\mathcal{G}(g, p, k, a)\).
+	\(\had(G) \leq a + 48(k + 1)\sqrt{g + p} + \sqrt{6g} + 5\). Moreover, for some constant $c$, for all $g, a \geq 0$, $p \geq 1, k \geq 2$, there exists a graph $G$ in \(\mathcal{G}(g, p, k, a)\) such that in \(n \geq a + c k\sqrt{p + g}\) such that \(K_n\) is a minor of $G$.
 \end{theorem}
