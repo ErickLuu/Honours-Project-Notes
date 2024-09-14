@@ -58,10 +58,10 @@ Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lc
 	Let \(\pn(G) = k\) and suppose \(G\) has \(n\) vertices and \(m\) edges. Then the average degree of \(G\), \(d(G) = 2m/n\) by the handshaking lemma. So \(2\frac{m}{n} \leq 2 \frac{n + k(n-3)}{n} = 2 + 2k \frac{n-3}{n} < 2k + 2\). But this implies that \(G\) has a vertex of degree \(\leq 2k + 1\), and as if \(G'\) is a subgraph of \(G\), then \(G'\) also has \(\pn(G') \leq k\), thus \(G'\) has a vertex of degree at most \(2k + 1\). However, this implies \(G\) is \((2k + 1)\)-degenerate, thus \(\chi(G) \leq 2k + 2\).
 \end{proof}
 
-Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$ and adds a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$, so the edge $e$ is replaced with a path $P$ of length $k$.\ \textcite{atneosenEmbeddabilityCompactaNbooks} proved that all graphs can be subdivided a finite number of times such the subdivision has pagenumber 3.\ \textcite{dujmovicLayoutsGraphSubdivisions2005} showed that the number of subdivision necessary is $O(\log\pn(G))$.
+Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$ and adds a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$, so the edge $e$ is replaced with a path $P$ of length $k$.\ \textcite{atneosenEmbeddabilityCompactaNbooks} proved that all graphs can be subdivided a finite number of times such the subdivision has pagenumber 3.\ \textcite{dujmovicLayoutsGraphSubdivisions2005} showed that the number of subdivision necessary is $O(\log\pn(G))$. Subdivisions of graphs can also show that the chromatic number can remain constant but the pagenumber of the graph can be arbitrarily large.
 
 \begin{theorem}
-	There exists a family of 2-colourable graphs with arbitrarily pagenumber.
+	There exists a family of 2-colourable graphs with arbitrarily large pagenumber.
 \end{theorem}
 \begin{proof}
 	Let $G_n$ be the complete graph $K_n$ with every edge subdivided once. Then $G_n$ is bipartite, so is $2$-colourable. However, from \textcite{eppsteinSeparatingThicknessGeometric2002}, for every $t$ there exists an $n$ such that $G_n$ cannot be embedded in $t-1$ pages. This proof comes from \textit{Ramsey theory}, and explicit values of $n$ are difficult to find. 
