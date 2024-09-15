@@ -70,10 +70,12 @@ The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smal
 \end{proof}
 
 Define a \(k\)-tree inductively. The complete graph \(K_k\) is a \(k\)-tree, and if \(G\) is a \(k\)-tree, then add a new vertex to \(G\) that is adjacent to \(k\) vertices that form a clique of size \(k\) in \(G\) results in a \(k\)-tree.
-A \(k\)-tree is a maximal graph with treewidth \(k\).
+A \(k\)-tree is a maximal graph with treewidth \(k\). The following is a well-known fact about $k$-trees. \todo{should there be a proof of this statement?}
 \begin{theorem}
 	For all graphs $G$, \(\tw(G) \leq k\) if and only if \(G\) is a subgraph of a \(k\)-tree.
 \end{theorem}
+
+$k$-trees characterise edge-maximal graphs with bounded treewidth.
 
 
 \begin{theorem}\label{thm:treewidth_clique-minor-free}
