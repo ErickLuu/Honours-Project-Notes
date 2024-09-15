@@ -4,9 +4,9 @@ This is an attempt at proving that all Klein bottle-graphs can be embedded on a 
 \subsection{Irreducible triangulations}
 Recall a \textit{triangulation} of a surface $\Sigma$ is a simple graph embedded on $\Sigma$ such that every face is bounded by a triangle. A triangulation $G$ of $\Sigma$ is \textit{reducible} if there exists an edge $vw$ such that $G \setminus vw$ is a triangulation of $\Sigma$. A triangulation $G$ of $\Sigma$ is \textit{irreducible} if there exists no such edge. The opposite operation to edge contraction is \textit{edge splitting}. 
 
-\begin{lemma}
+\begin{proposition}
     Suppose $\Sigma$ has genus $> 0$, A triangulation $G$ of $\Sigma$ is irreducible if and only if every edge in $G$ is in a triangle that is a noncontractible cycle.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
     Suppose $G$ is a triangulation of $\Sigma$ and there exists an edge $e$ where every triangle that $e$ is in is a contractible cycle. Then $G \setminus e$ will contract every edge to a single point and contract every triangle to a single edge. Since every triangle bounds a disk, then $G \setminus e$ is also a triangulation of $\Sigma$. Therefore, $G$ is reducible. 
