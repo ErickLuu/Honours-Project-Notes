@@ -7,9 +7,9 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
 	\caption[Illustration of a model $H$ in a graph $G$.]{The coloured boxes are the connected subgraphs contracted to a single vertex on the right. Note that one vertex is deleted.}
 \end{figure}
 
-\begin{theorem}
+\begin{lemma}
 	\(H\) is a model of \(G\) if and only if $H$ is a minor of $G$.
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 	From \textcite{norinMath599GraphMinors2017}. Suppose \(H\) is a model of \(G\). Then for all \(x\) in \(V(H)\), contract \(\rho(x)\) in \(G\) to a single vertex. This is a well-defined operation as the image $\rho(x)$ is connected and disjoint from all $\rho(y)$ where $y$ is a distinct vertex in $H$. Then delete edges to form \(H\).

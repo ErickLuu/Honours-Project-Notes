@@ -2,7 +2,7 @@
 So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed.
 The main theorem we want to prove is:
 \begin{theorem}\label{thm:orientablevortices}
-	Let $G$ be a graph where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$.  Now suppose there are $p$ vortices which are embedded on $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where $s = \gpk$. 
+	Let $G$ be a graph with a book-embedding where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$. Now suppose there are $p$ vortices of width $k$ which are embedded on each torso of $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where $s = \gpk$. 
 \end{theorem}
 
 We will prove this by starting with planar graphs, then bounded genus graphs. We show that the number of monochromatic paths on these graphs is bounded for every face. Then we will show that because the number of monochromatic paths for every face is bounded, we can add vortices.
@@ -12,7 +12,7 @@ We will prove this by starting with planar graphs, then bounded genus graphs. We
 \end{lemma}
 \begin{proof}
 	Let $G$ be such a graph. $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable. The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
-	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \times 4g = 12(g + 1)$ monochromatic paths.
+	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \cdot 4g = 12(g + 1)$ monochromatic paths.
 \end{proof}
 \begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
 	Let $G$ be a graph $k$-almost embeddable on an orientable surface of genus at most $g$, with $p$ vortices on $G$. Then $G$ has a book-embedding with at most $11 + 18g + 12(k + 1)(g + 1)$ pages.

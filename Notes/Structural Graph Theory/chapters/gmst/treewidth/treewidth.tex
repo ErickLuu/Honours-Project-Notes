@@ -11,16 +11,18 @@ We refer to the vertices of the tree \(T\) as \textit{nodes}.
 The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x \in V(T) \rbrace\).
 The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree decompositions of the graph \(G\).
 
-\begin{lemma}[Helly Property]\label{lem:Helly}
-	Let \(T_1, \ldots, T_k\) be subtrees of a tree \(T\) such that for every pair of trees $T_i$, $T_j \in T_1, \ldots, T_k$, $V(T_i) \cap V(T_j) \neq \emptyset$. Then there exists a vertex which is common to all trees.
+\begin{lemma}\label{lem:Helly}
+	Let \(T_1, \ldots, T_k\) be subtrees of a tree \(T\) such that for every pair of trees $T_i$, $T_j \in T_1, \ldots, T_k$, $V(T_i) \cap V(T_j) \neq \emptyset$. Then there exists a vertex which is common to all trees. This is known as the Helly property.
 \end{lemma}
 \begin{proof}
 	This proof is by induction on the number of vertices of $T$. Suppose $T$ has a single vertex. Then it is obvious that the Helly property holds. By induction, suppose the Helly property holds for all trees with at most $n$ vertices. Suppose $T$ has $n + 1$ vertices and \(T_1, \ldots, T_k\) are subtrees which satisfy the property above. Let $v$ be a leaf vertex of $T$ with neighbour $w$. If one of the subtrees $T_i = \{v\}$, then by non-empty intersection, all trees contain $v$. $v$ is the common intersection. Otherwise, consider $T - v$ and the subtrees $(T_1 - v, \ldots, T_k - v)$. If $v \in T_i \cap T_j$, then as none of the subtrees is the single vertex $\{v\}$, $w \in T_i \cap T_j$. Therefore, $T_i - v \cap T_j - v$ is non-empty. By the induction hypothesis, $T - v$ has a vertex common to all $(T_1 - v, \ldots, T_k - v)$, so \(T_1, \ldots, T_k\) has a common vertex in $T$. 
 \end{proof}
 
-\begin{lemma}[Clique lemma]\label{lem:clique}
+The Helly property is most commonly associated with convex subsets of a Euclidean space, but has generalisations to other spaces. 
+
+\begin{proposition}\label{lem:clique}
 	For every graph $G$, in any tree-decomposition of \(G\), for every clique \(C\) in \(G\), there exists a node \(x \in V(T)\) such that \(C \subseteq B_x\).
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 	Let \(\tree\) be a tree-decomposition. Every vertex \(v\) induces a connected subtree in \(T\), call it \(T_v\). Then for any two vertices \(x, y\) in \(C\), \(T_x\) and \(T_y\) must intersect as the edge \(xy\) is inside a bag \(B_z\) corresponding to a node \(z\). Then by the Helly property, there exists a node \(v\) such that \(C \subseteq B_v\).
@@ -33,16 +35,16 @@ The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smal
 	By \cref{lem:clique}, $\tw(K_n)\geq n-1$. Placing all vertices of $K_n$ in a single bag is a tree-decomposition of width $n-1$. Therefore, $\tw(K_n) = n-1$. 
 \end{proof}
 
-\begin{theorem}\label{thm:tw_minor_closure}
+\begin{proposition}\label{thm:tw_minor_closure}
 	If \(H\) is a minor of \(G\), then \(\tw(H) \leq \tw(G)\).
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Let \((B_x : x \in V(T))\) be a tree-decomposition of \(G\). Remove an edge $e$ from $G$. Then \((B_x : x \in V(T))\) is a tree-decomposition of $G - e$. Remove a vertex $v$ from $G$. Then \((B_x - v : x \in V(T))\) is a tree-decomposition of $G - v$. Contract an edge $vw$ in $G$ to $u$. Define a new tree-decomposition $\tree'$ by relabelling \(v\) and \(w\) in all $B_x$ to \(u\). $\tree'$ is a valid tree-decomposition of $G \setminus uv$. The induced subtree of \(u\) is the union of the induced subtrees of \(v\) and \(w\), which is a subtree. As $v$ and $w$ share the edge $vw$, then there exists a bag $B_x$ such that $v, w \in B_x$. Every neighbour of \(v\) or \(w\) is a neighbour of \(u\). The edges in the neighbourhood do not change. Notice that the size of each bag in each operation does not increase. Therefore, if $H \leq G$ by a series of vertex deletions, edge deletions, and edge contractions, the tree-decomposition \((B_x : x \in V(T))\) of $G$ can have the algorithm applied above to build a tree-decomposition of $H$ with width at most the tree-decomposition of $G$. Then by the minimality of the treewidth, \(\tw(H) \leq \tw(G)\). 
 \end{proof}
 
-\begin{lemma}\label{lem:treewidth_forest}
+\begin{proposition}\label{lem:treewidth_forest}
 	\(\tw(G) = 1\) if and only if \(G\) is a forest.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 	Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\) and \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\) and $x \neq r$. The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so it will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(B_x\) and the children of \(B_x\), which is a connected subtree.
@@ -58,29 +60,30 @@ The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smal
 	\end{figure}
 \end{proof}
 
-\begin{lemma}\label{ex:tw_outerplanar}
+\begin{proposition}\label{ex:tw_outerplanar}
 	The treewidth of an outerplanar graph is at most 2.
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	Let \(G\) be an outerplanar graph, and let \(G'\) be a \textit{weak triangulation} of \(G\), meaning that every face except for the outerface has three vertices. Since \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). We look at the \textit{weak dual} of \(G'\). This is a tree \(T\), where every node \(v_f\) in \(T\) corresponds to an internal face \(f\) in \(G'\). Then let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\). Every vertex is on the boundary of some internal face, so every vertex is in some bag. Every bag has at most 3 vertices. Furthermore, every edge is on the boundary of some internal face, so every edge is in some bag. Finally, let $v$ be a vertex. Then the bags that contain $v$ must be connected in $T$ as there is a sequence of internal faces which are adjacent to $v$ and are connected in $T$. Thus, \(\tw(G) \leq 2\). Refer to \cref{fig:outerplanar_treedecomp} for an example of a tree-decomposition. The green vertices and black edges are an outerplanar graph. The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.
 	\begin{figure}[h]\label{fig:outerplanar_treedecomp}
-		\includesvg[width = 0.8\textwidth]{figures/outerplanar_tree_decomposition.svg}
+		\centering
+		\includesvg[width = 0.7\textwidth]{figures/outerplanar_tree_decomposition.svg}
 		\caption[Tree-decomposition of outerplanar graph.]{The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.}
 	\end{figure}
 \end{proof}
 
-Define a \(k\)-tree inductively. The complete graph \(K_k\) is a \(k\)-tree, and if \(G\) is a \(k\)-tree, then add a new vertex to \(G\) that is adjacent to \(k\) vertices that form a clique of size \(k\) in \(G\) results in a \(k\)-tree.
+Define a \(k\)-tree inductively. The complete graph \(K_{k+1}\) is a \(k\)-tree. If \(G\) is a \(k\)-tree, then adding any new vertex to \(G\) that is adjacent to a $k$-clique in \(G\) results in another \(k\)-tree.
 A \(k\)-tree is a maximal graph with treewidth \(k\). The following is a well-known fact about $k$-trees. \todo{should there be a proof of this statement?}
-\begin{theorem}
+\begin{proposition}
 	For all graphs $G$, \(\tw(G) \leq k\) if and only if \(G\) is a subgraph of a \(k\)-tree.
-\end{theorem}
+\end{proposition}
 
 $k$-trees characterise edge-maximal graphs with bounded treewidth.
 
 
-\begin{theorem}\label{thm:treewidth_clique-minor-free}
+\begin{proposition}\label{thm:treewidth_clique-minor-free}
 	For all graphs $G$, if \(\tw(G) \leq k\), then \(G\) is \(K_{k+2}\)-minor-free.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	We shall prove the contrapositive: If \(K_t\) is a minor of \(G\), then \(\tw(G) \geq t-1\).
 	If \(K_t\) is a minor of \(G\), then from \cref{thm:tw_minor_closure} that \(\tw(K_t) \leq \tw(G)\). As \(\tw(K_t) = t-1\), then \(\tw(G) \geq t - 1\).

@@ -22,9 +22,9 @@ In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is 
 	\caption[Toroidal graph]{An example of a toroidal graph $K_7$ embedded on a torus.}\label{fig:k7_on_torus}
 \end{figure}
 
-\begin{lemma}
+\begin{proposition}
 	$K_8$ is not embeddable on the torus.
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus by contradiction.
 \end{proof}
@@ -32,11 +32,11 @@ In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is 
 
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - A$ has some bounded parameter. Common parameters are planarity or bounded genus. 
-\begin{theorem}
+\begin{proposition}
 	Let $G$ be a graph. If \(G-a\) is \(K_{t}\)-minor free, then $G$ is $K_{t+1}$-minor free. 
-\end{theorem}
+\end{proposition}
 \begin{proof}
-	We shall prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model in \(G\) and denote the model function as \(\rho\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(a\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - a\), as \(G - \rho(v)\) does not contain \(a\). So \(G - a\) has a \(K_t\) minor. 
+	We shall prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model in \(G\). Denote the model function as \(\rho\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(a\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - a\), as \(G - \rho(v)\) does not contain \(a\). So \(G - a\) has a \(K_t\) minor. 
 \end{proof}
 \subsection{Treewidth and clique-sums}\label{sssec:Clique_Sums}
 The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph formed from both $G$ and $H$ by identifying two cliques together. The clique-sum of $G$ and $H$ is \(G \oplus_k H\), and is defined as follows. Find cliques in \(G\) and \(H\), \(C_G\) and \(C_H\) respectively, such that both \(C_G\) and \(C_H\) have size \(k\). Identify the vertices in \(C_G\) and \(C_H\) to glue \(G\) and \(H\) together, and possibly delete edges in $C_G$. An illustration can be found in \cref{fig:clique-sum}. 
@@ -49,16 +49,16 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 \end{figure}
 
 
-\begin{lemma}
+\begin{proposition}
 	Let $t$ be an integer $\geq 1$. Let $G_1, G_2$ be two graphs with treewidth $t$. Then for all $k \leq t + 1$, $G_1 \oplus_k G_2$ has treewidth $t$. 
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	Suppose $C = V(G_1) \cap V(G_2)$ be the clique that is glued over, where $|C| = k$. Let $(B_x: x \in T_1)$ be a tree-decomposition of $G_1$ of minimum width. Let $(B_x : x \in T_2)$ be a tree-decomposition of $G_2$ of minimum width. Then $C$ must appear in some bag $A_x$ and $B_y$ by \cref{lem:clique}. Let $T = T_1 \sqcup T_2$. Add a new node $u$ to $T$ and let $B_u = C$. Then add edges $ux, uy$ to $E(T)$ to form a new tree. Every vertex not in $C$ has a subtree in $T$. If $v \in C$, then the induced subgraph in $T$ is the graph $T_1(v) \cup T_2(v) \cup u$ which is a subtree. Finally, every edge in $G_1 \cup G_2$ remains in $T$. Therefore, $T$ is a tree-decomposition of $G_1 \oplus_k G_2$. The size of each bag in $T$ is still at most $t + 1$, so the treewidth of $G_1 \oplus_k G_2 \leq t$.
 \end{proof}
 
-\begin{lemma}
+\begin{proposition}
 	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are graphs which are $K_t$-minor-free. Then $G \oplus_k H$ is $K_{t}$-minor free. 
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. Suppose $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that would mean that $G$ or $H$ has a $K_t$ minor. Suppose $\rho(x) \cap V(G) \neq \emptyset$ for all $x \in K_t$. Then contract the subgraphs which also contain vertices in $H$ to only have vertices in $G$. Then this is a $K_t$ model in $G$, which is a contradiction. However, there cannot also be vertices $x, y \in V(K_t)$ where $\rho(x)$ is in $G - C$ and $\rho(y)$ is in $H - C$ as these subgraphs are disconnected. Therefore, if $\rho(x)$ is in $G - C$, then all subgraphs have a vertex in $G$. But this means that $\rho$ cannot exist, as the two possibilities are mutually exclusive. Therefore, $\rho$ cannot exist. 
 \end{proof}
@@ -67,9 +67,9 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 	If \(G\) is the clique-sum of Euler genus \(g\) graphs, then \(G\) is \(K_{\lceil \sqrt{6g} + 5 \rceil}\)-minor-free.
 \end{corollary}
 The reverse does not hold. 
-\begin{lemma}
+\begin{proposition}
 	There exists graphs $G$ such that \(G\) has arbitrarily large genus, but $G$ is \(K_{6}\)-minor-free.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 	Consider $n$ copies of $K_5$ and identify one vertex in every $K_5$ to a single vertex $v$ to form $G$. Then $G$ is $K_6$-minor free. However, from \cref{thm:additivity_genus}, $G$ has genus $n$. Thus, $G$ has unbounded genus. 

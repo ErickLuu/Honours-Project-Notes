@@ -18,17 +18,17 @@ A simple proof of this fact is from \textcite{staudtGeometrieLage1847}.
 \end{proof}
 
 The most immediate application is bounding the number of edges in any planar graph.
-\begin{theorem}\label{thm:planar_graph_edge_bound}
+\begin{proposition}\label{thm:planar_graph_edge_bound}
 	Let $G$ be a planar graph with $n$ vertices and $m$ edges. Then $m \leq 3n - 6$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches exactly two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
 \end{proof}
 
 Another application of Euler's formula is to bound the number of edges in an outerplanar graph.
-\begin{theorem}\label{thm:outerplanar_bound}
+\begin{proposition}\label{thm:outerplanar_bound}
 	If \(G\) is an outerplanar graph with \(n\) vertices and \(m\) edges, then \(m \leq 2n - 3\).
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 	Suppose \(G\) is \textit{maximal outerplanar}, meaning adding any edge will break the outerplanar property. Let there be \(f\) internal faces in $G$. Then the outerface has \(n\) edges on the boundary as every vertex in $G$ is on the boundary of the outerface. Each internal face will have exactly \(3\) edges on the boundary. However, each edge is touching exactly two distinct faces. By counting the number of edges on every face,

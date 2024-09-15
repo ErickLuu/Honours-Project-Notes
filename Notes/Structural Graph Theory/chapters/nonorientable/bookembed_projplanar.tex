@@ -13,10 +13,10 @@ However, the outline given in their paper is insufficient to prove \cref*{lem:pl
     \caption[Projective planar graph]{Graph embedded on the projective plane, the purple circle. This graph is not a triangulation of the projective plane as the edges that pass through the projective plane do not bound a triangle.}\label{fig:projectiveplanar}\end{figure}
 
 \begin{theorem}[\textcite{nakamotoBookEmbeddingProjectiveplanar2015}]\label{thm:proj_planar_graphs_9pages}
-	Every graph embedded on the projective plane has a book-embedding with $9$ pages.
+	Every graph embedded on the projective plane has a book-embedding with nine pages.
 \end{theorem}
 
-This proof relies on triangulations of surfaces. Recall a graph $G$ is a \textit{triangulation} of a surface $\Sigma$ if every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation.\textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph embedded on a torus. 
+This proof relies on triangulations of surfaces. Recall a graph $G$ is a \textit{triangulation} of a surface $\Sigma$ if every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation. \textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph embedded on a torus. 
 
 \begin{theorem}\label{thm:triangulation_subgraph}
     Every graph embedded on a surface $\Sigma$ is a subgraph of a triangulation of $\Sigma$.
@@ -65,23 +65,23 @@ Now we will prove \cref{thm:proj_planar_graphs_9pages}.
     Let $H$ be a projective-planar graph. Let $G$ be a triangulation of the projective plane, where $H$ is a subgraph.
     Now apply \cref{lem:proj_planar triangulation} to $G$. Let $B_1, B_2$ be the two paths from $x$ to $y$ on the boundary of $B$. Let $D_1$ be the planar subgraph bounded by $P \cup B_1$, similarly for $D_2$. Let $s$ be the vertex clockwise to $x$ on $B$, and let $t$ be the vertex clockwise to $y$ on $B$.
 
-    From \cref{thm:4Pages_Planar}, there exists a $4$-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P \cup B_1$. Similarly, there exists a $4$-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P \cup B_2$.
+    From \cref{thm:4Pages_Planar}, there exists a four-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P \cup B_1$. Similarly, there exists a four-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P \cup B_2$.
     Now have that $t$ is at the start of the vertex ordering of $<_1$ and $s$ is at the end of the vertex ordering of $<_2$. 
     Combine these two embeddings along $P$ (interlace $<_1, <_2$ along $P$) to form a book-embedding $(<, \sigma)$ of $G_P$ with eight pages. This is a vertex ordering of every edge in $G$ as $G_P$ is spanning. 
 
     Now for edges in $E_N$. Let $W = B_1[t, x] xy B_2[y, s]$ be a walk which starts at $t$ and ends at $s$. Note that all edges of $E_N$ must go from $B_1$ to $B_2$ because they pairwise cross. Now as we go from $t$ to $x$ and from $s$ to $y$ in $<$, every edge in $E_N$ not adjacent to $x$ is nested. Therefore, we can add all edges to a new page. For the inner pages from $B_1$ to $x$, or from $B_2$ to $y$, add to an old page in $D_2$ or $D_1$ respectively. 
 
     An example of the book-embedding is in \cref{fig:projectiveplanarbookembedding}. The path given is the book-embedding of $B \cup P$, the coloured regions are the book-embeddings of $D_1$ and $D_2$, and the other edges are edges in $E_N$. 
-    This embeds a projective-planar graph in 9 pages.
+    This embeds a projective-planar graph in nine pages.
 \end{proof}
 
 
 \begin{figure}[h]
     \centering
-    \includesvg[width = 0.6 \textwidth]{figures/projectiveplanar_bookembedding.svg}
-    \caption[Projective-Planar book-embedding]{A book-embedding of a projective plane in 9 pages. The blue regions are a book-embedding of $D_1$ and $D_2$ respectively. The central path is the path $B_1 xy B_2$, with the vertices in $D_1$ and $D_2$ in between. The long edge are edges that pass through the crosscap. These edges are nested, so do not pairwise cross in this embedding. These edges can be embedded on a single page. }\label{fig:projectiveplanarbookembedding}
+    \includesvg[width = 0.8 \textwidth]{figures/projectiveplanar_bookembedding.svg}
+    \caption[Projective-Planar book-embedding]{A book-embedding of a projective plane in nine pages. The blue regions are a book-embedding of $D_1$ and $D_2$ respectively. The central path is the path $B_1 xy B_2$, with the vertices in $D_1$ and $D_2$ in between. The long edge are edges that pass through the crosscap. These edges are nested, so do not pairwise cross in this embedding. These edges can be embedded on a single page. }\label{fig:projectiveplanarbookembedding}
 \end{figure}
- This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in 6 pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find better book-embeddings. 
+ This upper bound was improved by \textcite{ozekiBookEmbeddingGraphs2019}. They showed that all projective-planar graphs can be embedded in six pages. Their proof used \textit{Tutte paths}, which are paths in planar graphs with certain properties. They tie Tutte paths with the observation in \cref{thm:4-connected_planar_ham_cycle} to find better book-embeddings. 
 
 An open problem in \textcite{ozekiBookEmbeddingGraphs2019} is the case of the Klein Bottle:
 \begin{conjecture}

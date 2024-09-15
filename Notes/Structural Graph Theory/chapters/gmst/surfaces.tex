@@ -9,11 +9,9 @@ A \textit{loop} is a continuous function $\gamma : I \rightarrow X$ where $\gamm
 
 \subsection{Surfaces}
 
-This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. Recall a surface is a compact $2$-manifold. Further recall that every surface is homeomorphic to a sphere with $h$ handles and $c$ crosscaps for some natural number $h$ and $c$. 
-\begin{definition}[Euler Genus]
-	The \textit{Euler genus} of a surface \(\Sigma\), obtained from a sphere by adding \(h\) handles and \(c\) crosscaps, is \(2h + c\).
-\end{definition}
-Furthermore, a sphere with one handle and one crosscap is homeomorphic to a sphere with three crosscaps. Therefore, any sphere with a mix of handles and crosscaps is homeomorphic to one with all crosscaps. Euler genus is an invariant under homeomorphism. 
+This section comes from Mohar and Thomassen's\cite{moharGraphsSurfaces2001} book on graphs on surfaces. Recall a surface is a compact $2$-manifold. Further recall that every surface is homeomorphic to a sphere with $h$ handles and $c$ crosscaps for some natural number $h$ and $c$. The \textit{Euler genus} of a surface \(\Sigma\), obtained from a sphere by adding \(h\) handles and \(c\) crosscaps, is \(2h + c\).
+
+Furthermore, a sphere with one handle and one crosscap is homeomorphic to a sphere with three crosscaps. Therefore, any sphere with a mix of handles and crosscaps is homeomorphic to one with all crosscaps. Note that Euler genus is an invariant under homeomorphism. 
 
 \begin{example}
 	This is the Euler genus of some surfaces.
@@ -43,13 +41,15 @@ Given graphs $G$ and $H$ with genus $g_1, g_2$, it is useful to construct a new 
 	Let graphs $G$ and $H$ have genus $g_1$, $g_2$. Then the graph obtained from identifying a vertex in $G$ to a vertex in $H$ has genus $g_1 + g_2$. 
 \end{theorem}
 
-\begin{theorem}\label{thm:K5_Free_Planar}
+\begin{lemma}\label{thm:K5_Free_Planar}
 	If \(G\) is a planar graph, then \(G\) is \(K_5\)-minor-free.
-\end{theorem}
+\end{lemma}
 \begin{proof}
 	If \(G\) is planar with \(n\) vertices and \(m\) edges where $n \geq 3$, then \(m \leq 3n -6\).
-	However \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \times 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
+	However \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \cdot 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
 \end{proof}
+
+This forms a part of Wagner's theorem, which states that a graph $G$ is planar if and only if $G$ is $K_5$-minor free and $K_{3,3}$-minor free. 
 
 \begin{theorem}[Bounded genus]\label{thm:bounded_genus_kt_free}
 	If \(G\) is a genus \(g\) graph, then \(G\) is \(K_t\)-minor free, where \(t > \sqrt{6g} + 4\). 

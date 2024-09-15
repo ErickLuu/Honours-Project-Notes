@@ -109,19 +109,17 @@ Two traces $(T_1, T_2)$ are orientable if \(T_1\) and \(T_2\) go in opposite dir
 	Let $G$ be a graph. If \(G\) is \(2\)-cell embedded on a surface of Euler genus \(g\), then any planar-nonplanar decomposition has at most \(3g-3\) homotopy classes.
 \end{lemma}
 \begin{proof}
-	Decompose \(G\) to a \((G_P, E_N)\) decomposition of \(G\). Suppose \(E_N \neq \emptyset\). Then identify \(G_P\) to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point \(G_P\), and place vertices where the circle intersects all edges. Then delete the vertex \(G_P\), and call the new graph \(H\). Then \(n = |V(H)|\), \(m = |E(H)|\), where \(h\) is the number of homotopy classes, and \(f\) is the number of faces. From Euler's theorem on surfaces, \(n - m + f = 2 - g\). Since \(H\) is cubic as every vertex has two edges on the circle and one on the homotopy class, then \(3n = 2m\) by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, \(n = 2h\). The interior face of \(H\) has \(v\) incident edges, and the remaining \(f-1\) faces have at least 3 incident edges each. If a face has four edges, then the two nonplanar edges are homotopy equivalent. Therefore, \(3(f-1) + n \leq 2m\), by double counting faces and edges. Thus,
-	\begin{align*}
-		3n  & \geq 6(f - 1) + n         \\
-		2n  & \geq 6f + 6               \\
-		\\
-		4h  & \geq 5 f - 6              \\
-		4h  & \geq 5(2 - g + m - n) - 6 \\
-		4h  & \geq 6 - 6g + 3n          \\
-		4h  & \geq 6 - 6g + 6h          \\
-		-2h & \geq 6 - 6g               \\
-		h   & \leq 3g - 3
-	\end{align*}
-	Therefore, \(h \leq 3g - 3 \) by manipulating the inequalities.
+	Decompose \(G\) to a \((G_P, E_N)\) decomposition of \(G\). Suppose \(E_N \neq \emptyset\). Then identify \(G_P\) to a single point, and identify each homotopy class to a single edge. Then draw a circle around the point \(G_P\), and place vertices where the circle intersects all edges. Then delete the vertex \(G_P\), and call the new graph \(H\). Then \(n = |V(H)|\), \(m = |E(H)|\), where \(h\) is the number of homotopy classes, and \(f\) is the number of faces. From Euler's theorem on surfaces, \(n - m + f = 2 - g\). Since \(H\) is cubic as every vertex has two edges on the circle and one on the homotopy class, then \(3n = 2m\) by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, \(n = 2h\). The interior face of \(H\) has \(v\) incident edges, and the remaining \(f-1\) faces have at least 3 incident edges each. If a face has four edges, then the two nonplanar edges are homotopy equivalent. Therefore, \(3(f-1) + n \leq 2m\), by double counting faces and edges. Use the previous facts that $n = 2h$ and $n - m + f = 2 - g$. After an algebraic manipulation, \(h \leq 3g - 3 \). 
+	%\begin{align*}
+	%	3n  & \geq 6(f - 1) + n         \\
+	%	2n  & \geq 6f + 6               \\
+	%	4h  & \geq 5 f - 6              \\
+	%	4h  & \geq 5(2 - g + m - n) - 6 \\
+	%	4h  & \geq 6 - 6g + 3n          \\
+	%	4h  & \geq 6 - 6g + 6h          \\
+	%	-2h & \geq 6 - 6g               \\
+	%	h   & \leq 3g - 3
+	%\end{align*}
 \end{proof}
 
 \subsubsection{Proving graphs with bounded number of homotopy classes have bounded pagenumber}\label{sssec:bounded_pagenumber_homotopy}
@@ -130,5 +128,5 @@ This definition is important in the next section.
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on at most \(18g - 5\) pages.
 \end{lemma}
 \begin{proof}
-	\textcite{yannakakisEmbeddingPlanarGraphs1989} has a method to lay out the planar spanning subgraph \(G_P\) on four pages. The layout also preserves the ordering of vertices when traversing the boundary of the outerface. For each homotopy class in \(E_P\), we allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, we need at most \(4 + 3(6g - 3) = 18g-5\) pages if \(G\) has a planar-nonplanar decomposition.
+	Use the algorithm from \cref{thm:4Pages_Planar} to embed $G_P$ on four pages with the property that the outercycle remains in order. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.
 \end{proof}

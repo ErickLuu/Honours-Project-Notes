@@ -10,9 +10,9 @@ If a graph has a path-decomposition \({(B_i)}_i\), then it has a tree-decomposit
 The pathwidth of \(G\) is the largest pathwidth over all connected components.
 
 A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(P\) where every vertex not in $P$ is adjacent to a vertex on the path \(P\). Alternatively, a tree \(G\) is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
-\begin{theorem}
+\begin{proposition}
 	Graphs have pathwidth at most 1 if and only if every connected component is a caterpillar.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Suppose \(G\) is a caterpillar.
 	Denote \(P =\left( p_1, p_2, \dots, p_n\right)\) as the central path. The leaves of vertex \(p_i\) are denoted as \(v_{i, 1}, v_{i, 2} \dots, v_{i, k}\). Define the bags as \((v_{1, 1}, v_1)\), \((v_{1, 2}, v_1)\) \dots \((v_{1, j}, v_1)\),  \((v_1, v_2)\), \((v_{2, 1}, v_2)\), \((v_{2,2}, v_2,)\) \dots. We can see that each leaf appears once and each vertex on the central path is on a subpath of the path. Therefore, the pathwidth of \(G\) is 1. We can repeat this for every connected component.
@@ -32,9 +32,9 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 	The pathwidth of \(K_n\) is at least the treewidth of \(K_n\). But the pathwidth is at most \(n- 1\) (where all the vertices are in the same bag), but the treewidth of \(K_n\) is \(n - 1\). Therefore, \(\pw(K_n) = n - 1\).
 \end{proof}
 
-\begin{theorem}
+\begin{proposition}
 	The pathwidth of a tree \(T\) equals \(\min_{P \subseteq T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace \) where \(P\) is a path.
-\end{theorem}
+\end{proposition}
 
 \begin{proof}[Proof]
 	Start by showing the upper bound, \(\pw(T) \leq 1 + \pw(T - V(P))\). If \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a minimal width path-decomposition. We can order each connected component such that they appear in the order of their parents on the paths. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\).

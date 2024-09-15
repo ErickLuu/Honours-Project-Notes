@@ -12,15 +12,15 @@ There is an equivalent combinatorial definition. A \textit{book embedding} of a 
 We refer to the total ordering of \(V(G)\) in the book embedding as \((<)\) or as \((\leq)\). For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), we refer to the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}v_{|G|}, v_{|G|}v_{1} \right\} \) as \textit{spine edges}.
 We may use a \textit{circular ordering} of the vertices rather than a linear ordering. This means that we order the vertices in a circle rather than on a straight line. The book-embedding of a circular ordering is exactly the same as for a linear ordering, and we can convert between a circular and linear ordering by choosing a vertex to be at the start of the sequence.
 Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974, ollmannBookThicknessVarious1973} in the 1970s. A paper by \textcite{bernhartBookThicknessGraph1979} calculated the book-thickness of complete and bipartite graphs.
-\begin{lemma}\label{lem:Pagenumber_1}
+\begin{proposition}\label{lem:Pagenumber_1}
 	A graph \(G\) can be embedded on a single page if and only if \(G\) is an outerplanar graph.
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	Suppose $G$ is outerplanar, and embedded in $\mathbb{R}^2$. Then we choose a single vertex $v_0$, and traverse anticlockwise around the outerface to form an ordering. If a vertex $v_i$ appears more than once, then add $v_i$ the first time we see it in the traversal and no other times. Then this is a one-page book embedding, as when $v_a < v_b < v_c < v_d$ and edges $v_a v_c$, $v_b v_d$ in $G$, then $v_a v_c$ or $v_b v_d$ have to lie on the outerface, which breaks the condition that $G$ is outerplanar. This is because either $v_b$ or $v_c$ is not on the outerface. If $G$ has a $1$-page book-embedding, then embedding the page in $\mathbb{R}^2$ through the inclusion map is an outerplanar embedding of $G$. 
 \end{proof}
-\begin{lemma}\label{lem:Pagenumber_2}
+\begin{proposition}\label{lem:Pagenumber_2}
 	A graph \(G\) can be embedded on two pages if and only if \(G\) is a subgraph of a planar graph with a Hamiltonian cycle.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 	Suppose $G$ is a subgraph of a planar graph $G'$ with a Hamiltonian cycle $C$. By the Jordan curve theorem, $\mathbb{R}^2 - C$ has two connected components $F_1$ and $F_2$. Choose a vertex $x_0$ and order the vertices with respect to the Hamiltonian cycle $C$ where $x_0$ is the first vertex. Give edges on $C$ colour $1$. For all edges which are a chord of $C$ that lies in $F_1$, give these edges colour $1$. For all edges which are a chord of $C$ that lies in $F_2$, give these edges colour $2$. This is a book-embedding of $G'$ on two pages. 
@@ -29,15 +29,15 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 \end{proof}
 \subsection{Properties of pagenumber}\label{ssec:Related_Properties}
 \cref{lem:Edge_Bound} comes from \textcite{bernhartBookThicknessGraph1979}.
-\begin{lemma}\label{lem:Edge_Bound}
+\begin{proposition}\label{lem:Edge_Bound}
 	If an \(n\)-vertex graph \(G\) can be embedded on $k$ pages, then \(G\) has at most \(n + k(n-3)\) edges.
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), the spine edges can appear on any page. Furthermore, there are at most \(n-3\) non-spine edges on each page. The maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the spine edges, with \(n\) edges on the spine. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
 \end{proof}
-\begin{theorem}[]\label{thm:Pagenumber_Complete_Graph}
+\begin{proposition}\label{thm:Pagenumber_Complete_Graph}
 	The complete graph $K_n$ has $\pn(K_n) = \lceil \frac{n}{2} \rceil$ when $n \geq 4$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	To show the upper bound, arrange the vertices in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. As an example, refer to \cref{fig:k8 coloured with colours} for a description of a zig-zagging pattern. We rotate this pattern $\lceil n/2 \rceil$ times. 
 	\par
@@ -51,9 +51,9 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 The proof of \cref{thm:Pagenumber_Complete_Graph} is from \textcite{bernhartBookThicknessGraph1979}
 This is an upper bound of any graph \(G\) with \(n\) vertices.
 Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\). The next theorem bounds the chromatic number, from \textcite{bernhartBookThicknessGraph1979}
-\begin{theorem}\label{thm:Colouring_Bound}
+\begin{proposition}\label{thm:Colouring_Bound}
 	For all graphs \(G\), \(\chi(G) \leq 2 \pn(G) + 2\).
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Let \(\pn(G) = k\) and suppose \(G\) has \(n\) vertices and \(m\) edges. Then the average degree of \(G\), \(d(G) = 2m/n\) by the handshaking lemma. So \(2\frac{m}{n} \leq 2 \frac{n + k(n-3)}{n} = 2 + 2k \frac{n-3}{n} < 2k + 2\). But this implies that \(G\) has a vertex of degree \(\leq 2k + 1\), and as if \(G'\) is a subgraph of \(G\), then \(G'\) also has \(\pn(G') \leq k\), thus \(G'\) has a vertex of degree at most \(2k + 1\). However, this implies \(G\) is \((2k + 1)\)-degenerate, thus \(\chi(G) \leq 2k + 2\).
 \end{proof}
