@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{svg}
+\usepackage{cleveref}
+
+% Environments
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+
+\numberwithin{theorem}{section}
+\numberwithin{equation}{section}
+
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\Star}{st}
+\DeclareMathOperator{\Lk}{lk}
+\newcommand{\atlas}{\mathcal{A}}
+\newcommand{\cover}{\widetilde{X}}
+\DeclareMathOperator{\Homeo}{Homeo}
+\newcommand*{\inter}{\hat{i}}
+\newcommand*{\twequiv}{\sim_c}
+
+
+%opening
+\title{Assignment 8}
+\author{Eric Luu}
+
+\begin{document}
+
+\section{7}
+
+\subsection{1}
+We strengthen the induction assumption. Suppose $X$ and $Y$ are surfaces of genus $g$ and there exists a $h: \partial X \rightarrow \partial Y$. Then there is a $f : X \rightarrow Y$ homeomorphism where $f|_{\partial X}= h$. 
+
+Let $X, Y$ be two handlebodies of genus $0$. Then $X$ and $Y$ are $3$-balls and are therefore homeomorphic. Furthermore, any homeomorphism on the boundary of the $3$-ball has an extension to $X$. Suppose this holds for all surfaces $< g$. Now suppose $X$ and $Y$ are two handlebodies of genus $g$. There exists a homeomorphism $h: \partial X \rightarrow \partial Y$ from the classification of surfaces. Now take a meridian $m$ in $X$. Now $m$ bounds a disk $D$ in $X$, therefore there is an extension of $h$ to $\partial X \cup D \rightarrow \partial Y \cup h(D)$. Cut $X$ along $D$ and $Y$ along $h(D)$. Then these two surfaces are of genus $g-1$. Then there exists an extension of $h$ on this surface to the cut $X$ and cut $Y$. Call this homeomorphism $f : X \setminus D \rightarrow Y \setminus h(D)$. Then taking the quotient space of $D$ to itself, $f$ is a homeomorphism from $X$ to $Y$. Therefore, $X$ and $Y$ are homeomorphic. 
+
+
+\section{8}
+
+\subsection{2}
+Recall that $S^3 - V$ where $V$ is a solid torus is also a solid torus. Call $V_1 = N(K)$ and $V_2 = S^3 - N(K)$. The Dehn filling is a homeomorphism of $\partial V_1 \rightarrow \partial V_2$, therefore the Dehn filling will be a lens space. Now the kind of lens space depends on where the meridian of $V_2$ is sent to. The meridian is sent on a surgery slope of $3/4$, meaning that it is sent to $3m + 4 \ell$. Therefore, this is the same as a $L(3,4)$ lens space. From a previous question, this is a $L(3, 1)$ lens space. 
+
+Let $K_1$ be the left link and $K_2$ be the right link. Let $V_1 = N(K_1)$, $V_2 = N(K_2)$. Now $V_3 = S^3 - N(K_1)$ is homeomorphic to a solid torus. Now $V_3 - V_2$ is homeomorphic to a solid torus with a solid torus drilled out inside. Recall that $S^3$ minus a 3-ball is homeomorphic to a 3-ball by how $S^3$ is glued. Take $X$ to be a solid ball around $V_2$ in the interior of $V_3$. Now let $Y$ be $V_3 - B$, and glue $V_1$ to $Y$ with slop $0$. Then this is homeomorphic to $S^2 \times S^1$ minus a $3$-ball. Now gluing $V_2$ to the boundary component of $B$ with twist 0 is homeomorphic to $S^2 \times S^1$ minus a $3$-ball, as this is homeomorphic to $S^3$ with a twist of $0$ inside minus a $3$-ball. Then gluing $X$ and $Y$ along the boundary (there is only one way to glue back the 3-ball boundary) yields $S^2 \times S^1 \# S^2 \times S^1$. 
+
+\subsection{3}
+Recall that $S^3 - B^3 \cong B^3$. Let the ball $B$ be the ball that separates the two sublinks. Then the two balls from separating $S^3$ along the 2-sphere are homeomorphic to $S^3 - B^3$. Do a Dehn filling of $S^3 - B^3$ along both sublinks, and then glue back together. Then since there is only one way to glue along a 3-ball, the gluing is a connected sum of the two manifolds resulting from the Dehn filling of the two sublinks. 
+
+\subsection{4}
+Let $M$ be the manifold and let $V$ be the gluing of the manifold. Take $M - V \cup_f V$ to be the gluing of coefficient $1/0$. 
+Recall that Dehn fillings of coefficient $1/0$ is isotopic to gluing a meridian back to itself. But this gluing is isotopic to the identity map of the torus boundary. Therefore, $M - V \cup_f V$ is homeomorphic to $M - V \cup_{Id} V$ along the boundary. However, this is homeomorphic to the identity map on $V$ as there is only one way to glue a torus to itself with the identity homeomorphism. Therefore, $M - V \cup_{Id} V$ is homeomorphic to $M$, so doing the surgery manifold of $1/0$ does nothing. 
+\end{document}
