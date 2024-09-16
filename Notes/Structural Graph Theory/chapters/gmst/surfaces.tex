@@ -56,5 +56,5 @@ This forms a part of Wagner's theorem, which states that a graph $G$ is planar i
 \end{theorem}
 \begin{proof}
 	This proof mimics the above proof for planarity, but on surfaces of higher genus. 
-	Suppose \(G\) has \(n\) vertices and \(m\) edges and of genus $g$. Then \(n - m + f = \chi = 2-g\), from \cref{thm:Euler_surfaces}. As at least three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on a genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). Thus \(t \leq \sqrt{6g} + 4\). So if a graph has genus \(g\), then it is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\). 
+	Suppose \(G\) has \(n\) vertices and \(m\) edges and of genus $g$. Then \(n - m + f = \chi = 2-g\), from Euler's theorem on surfaces. As at least three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on a genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). Thus \(t \leq \sqrt{6g} + 4\). So if a graph has genus \(g\), then it is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\). 
 \end{proof}
