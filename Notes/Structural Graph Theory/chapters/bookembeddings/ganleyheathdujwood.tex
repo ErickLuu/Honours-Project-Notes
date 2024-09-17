@@ -22,7 +22,7 @@ Let $G$ be a graph. A clique in $G$ is a subgraph of $G$ is a subgra The clique-
 	This is a proper book-embedding of \(G\). Suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that there exists a bag \(B\) such that \(u, x, v \in B\), as \(uv\) is an edge in \(B\) and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) they are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. Finally, the number of pages used is \(\chi(H) = k + 1\), so \(\pn(G) \leq k + 1\). Thus shown.
 \end{proof}
 \textcite{dujmovicGraphTreewidthGeometric2007} showed that when $k \leq 2$, all graphs with treewidth $k$ can be embedded on $k$ pages. However, when $k \geq 3$, there exist graphs with treewidth $k$ that cannot be embedded on $k$ pages. Therefore, when $k \geq 3$, the bound from \textcite{ganleyPagenumberTrees2001} is tight. 
-For a simpler example, consider the case when $T$ is a path. The proof given below is identical to \cref{thm:bded_treewidth_bded_pagenumber}.
+For a simpler example, consider the case when $T$ is a path. The proof given below is identical in spirit to \cref{thm:bded_treewidth_bded_pagenumber}, but omits many of the details that are missed. 
 
 \begin{theorem}
 	Every graph \(G\) with \(\pw(G) \leq k\) can be embedded on $k + 1$ pages.
