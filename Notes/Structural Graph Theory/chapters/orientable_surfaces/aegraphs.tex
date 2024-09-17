@@ -49,12 +49,17 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 \end{figure}
 
 \begin{lemma}\label{lem:vortices_mono_paths}
-	Suppose \(G\) is a graph with components \(G_0\) and \(G_1\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G_1\) is a vortex of width $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\) and \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Then partition the edges \(e_i = v_i v_{i + 1}\) (modulo \(k\)) such that the edges form a maximal \(\varphi \)-monochromatic path on \(C\). Suppose there are \(m\) monochromatic paths. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
+	Suppose \(G\) is a graph with components \(G_0\) and \(G_1\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G_1\) is a vortex of width $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\) and \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Suppose there are \(m\) monochromatic paths for every face on $G_0$. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
 \end{lemma}
 
-This implies that if $G$ has $p$ vortices of width $k$, then $G$ can be embedded on $s + pm(k + 1)$ pages. 
+\cref{lem:vortices_mono_paths} implies \cref{corr:vortices_paths_pn}.
 
-\todo{rewrite this lemma!}
+\begin{corollary}\label{corr:vortices_paths_pn}
+	Suppose $G$ is a graph with components $G_0, G_1, \ldots, G_p$ such that $V(G) = V(G_0) \cup V_(G_1) \cup \ldots \cup V_(G_p)$, $G_0$ is embedded on a surface $\Sigma$ of genus $g$, and $G_1, \ldots G_p$ are vortices on $G_0$. Suppose further that $G_0$ has $m$ monochromatic paths on each of its faces on $\Sigma$. Then $G$ can be embedded on $s + pm(k+1)$ faces.
+\end{corollary}
+
+This is proven by adding $G_1, \ldots, G_p$ to $G_0$ one at a time and running \cref{lem:vortices_mono_paths} on each section. 
+
 We shall prove an intermediate lemma.
 \begin{lemma}\label{lem:one_page_decomposition}
 	Let \((B_1, \ldots, B_n)\) be a path-decomposition of \(G\) with path-width \(k\). Let \(x_1, \ldots, x_n\) be vertices in \(G\) such that \(x_i \in B_i\) for all \(i\), and suppose \(P\) is an induced path \((x_1, x_2, \ldots, x_n)\) in \(G\). Then for every one-page embedding of \(P\), \(G\) has a \((k + 1)\)-page embedding.
