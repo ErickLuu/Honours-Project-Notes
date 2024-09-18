@@ -72,6 +72,28 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 	\end{figure}
 \end{proof}
 
+In fact, graphs of treewidth $\leq 2$ have a very simple characterisation.
+
+\begin{proposition}\label{prop:k4-minor}
+	A graph $G$ has treewidth $\leq 2$ if and only if $G$ is $K_4$-minor free. 
+\end{proposition}
+
+To prove \cref{prop:k4-minor}, we want to show the following fact:
+\begin{lemma}
+	Suppose a graph $G$ is $3$-connected. Then $G$ has a $K_4$ minor. 
+\end{lemma}
+\begin{proof}
+	Suppose $G$ is $3$-connected and $G$ is $K_4$ minor free. Then let $u, v \in V(G)$ be distinct vertices. By $3$-connectedness, there are three internally disjoint paths $P, Q, R$ from $u$ to $v$. Then without loss of generality, there exists a vertex $p$ on $P -\{u, v\}$ and $q$ on $Q -\{u, v\}$ where there exists a path $S$ on $G - \{u, v\}$. Then by finding a minimal path, there is a path $S'$ internally disjoint from $P, Q, R$ which goes from a vertex in $P - \{u, v\}$ to a vertex in $Q - \{u, v\}$. Then $P \cup Q \cup R \cup S'$ is a $K_4$ minor in $G$. 
+\end{proof}
+
+This implies that every $K_4$-minor free is not $3$-connected, therefore contains a vertex of degree $\leq 2$. 
+
+\begin{proof}
+	Suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
+
+	Suppose $G$ is $K_4$ minor free. We will prove this using induction on the number of vertices. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition with every bag containing $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. By induction on the number of vertices, $G\setminus \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. In fact, there exists a bag $B$ that contains $u$ and $w$ as $uw$ is an edge. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
+\end{proof}
+
 Define a \(k\)-tree inductively. The complete graph \(K_{k+1}\) is a \(k\)-tree. If \(G\) is a \(k\)-tree, then adding any new vertex to \(G\) that is adjacent to a $k$-clique in \(G\) results in another \(k\)-tree.
 A \(k\)-tree is a maximal graph with treewidth \(k\). The following is a well-known fact about $k$-trees. \todo{should there be a proof of this statement?}
 \begin{proposition}
