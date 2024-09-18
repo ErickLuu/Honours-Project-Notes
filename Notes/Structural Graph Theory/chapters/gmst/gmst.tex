@@ -57,7 +57,7 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 \end{proof}
 
 \begin{proposition}
-	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are graphs which are $K_t$-minor-free. Then $G \oplus_k H$ is $K_{t}$-minor free. 
+	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are graphs which are $K_t$-minor-free. Then $G \oplus_k H$ is $K_{t}$-minor free, $k < t$.  
 \end{proposition}
 \begin{proof}
 	Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. Suppose $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that would mean that $G$ or $H$ has a $K_t$ minor. Suppose $\rho(x) \cap V(G) \neq \emptyset$ for all $x \in K_t$. Then contract the subgraphs which also contain vertices in $H$ to only have vertices in $G$. Then this is a $K_t$ model in $G$, which is a contradiction. However, there cannot also be vertices $x, y \in V(K_t)$ where $\rho(x)$ is in $G - C$ and $\rho(y)$ is in $H - C$ as these subgraphs are disconnected. Therefore, if $\rho(x)$ is in $G - C$, then all subgraphs have a vertex in $G$. But this means that $\rho$ cannot exist, as the two possibilities are mutually exclusive. Therefore, $\rho$ cannot exist. 
