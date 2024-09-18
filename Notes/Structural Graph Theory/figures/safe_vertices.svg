@@ -24,8 +24,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.1037668"
-     inkscape:cx="-44.846428"
-     inkscape:cy="499.65263"
+     inkscape:cx="-44.84643"
+     inkscape:cy="354.69449"
      inkscape:window-width="3440"
      inkscape:window-height="1417"
      inkscape:window-x="3832"
@@ -40,7 +40,7 @@
      id="layer1">
     <path
        style="fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
-       d="M 73.801758,172.63598 71.359571,140.85464"
+       d="M 152.42646,37.439522 149.98427,5.6581823"
        id="path6" />
     <path
        style="fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.402024;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -108,44 +108,44 @@
     <ellipse
        style="fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.239423;stroke-linejoin:bevel;stroke-opacity:0.922481"
        id="path1-6"
-       cx="79.567909"
-       cy="212.05161"
+       cx="158.19261"
+       cy="76.855148"
        rx="44.523201"
        ry="39.750393" />
     <circle
        style="fill:#00ff00;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
        id="path3-6"
-       cx="74.054596"
-       cy="172.30121"
+       cx="152.67929"
+       cy="37.104752"
        r="5.5133171" />
     <circle
        style="fill:#00ff00;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
        id="path3-2-5"
-       cx="71.061897"
-       cy="140.89677"
+       cx="149.6866"
+       cy="5.7003164"
        r="5.5133171" />
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
-       x="64.83242"
-       y="169.5903"
+       x="143.45712"
+       y="34.393845"
        id="text4-4"><tspan
          sodipodi:role="line"
          id="tspan4-2"
          style="stroke-width:0.374"
-         x="64.83242"
-         y="169.5903">w'</tspan></text>
+         x="143.45712"
+         y="34.393845">w'</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
-       x="62.578701"
-       y="148.51025"
+       x="141.2034"
+       y="13.313796"
        id="text5-8"><tspan
          sodipodi:role="line"
          id="tspan5-2"
          style="stroke-width:0.374"
-         x="62.578701"
-         y="148.51025">w</tspan></text>
+         x="141.2034"
+         y="13.313796">w</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -160,13 +160,13 @@
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
-       x="74.789345"
-       y="213.3414"
+       x="153.41405"
+       y="78.144943"
        id="text8"><tspan
          sodipodi:role="line"
          id="tspan8"
          style="stroke-width:0.374"
-         x="74.789345"
-         y="213.3414">Gp</tspan></text>
+         x="153.41405"
+         y="78.144943">Gp</tspan></text>
   </g>
 </svg>

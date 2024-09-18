@@ -58,8 +58,16 @@ $G_p$ is a maximal planar subgraph with respect to the conditions above. Through
 	After repeating this operation, every edge in \(E_N\) satisfy the two properties above. If an edge \(vw\) has \(v\) in $G_p$ and $w$ not in $G_p$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) or \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage. This has the corollary that every vertex is in \(G_P\).
 	
 	Now every edge in \(E_N\) cannot be added to \(G_P\) without crossing over another edge, and \(G_P\) is maximal. Therefore, all edges in \(E_N\) satisfy the conditions listed above.
-	\todo{Add pictures! this proof needs lots of pictures}
 \end{proof}
+
+A description of safe vertices and unsafe vertices is in \cref{fig:safe_vertices}.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[width = 0.8\textwidth]{figures/safe_vertices.svg}
+	\caption[Safe and unsafe vertices]{On the left is a safe vertex $v_k$. Notice how this is is not on $G_P$ but can be added without breaking the biconnected planarity condition. On the right is an unsafe vertex $w$. This cannot be added to a block in $G_P$ as there is a bridge edge. Therefore, this must be added as its own separate block.}
+	\label{fig:safe_vertices}
+\end{figure}
 
 \subsubsection{Level sets and cycles}
 On a planar graph \(G\), we want to separate out vertices depending on how far away they are from the outerface. Fix a single outerface \(F_0\) and define the first level set \(V_0\) as the vertices adjacent to \(F_0\). Define the \(i\)-th level set, \(V_i\) inductively. Consider the induced graph on \(V(G) - \cup_{k = 0}^{i-1} V_k\). Define the vertices adjacent to \(F_0\) in this induced graph, where we expand \(F_0\) after deleting the vertices. This partitions \(V(G)\).

@@ -1,12 +1,7 @@
 \subsection{Book-Embeddings}\label{sec:Book Embedding}
 A \textit{book} with \(k\) \textit{pages} consists of \(k\) half-planes glued together on a common boundary. The boundary is the \textit{spine}, and the individual half-planes are \textit{pages}. In topology, these are referred to as \textit{fans} of half-planes.\ \textcite{persingerSubsetsNbooksE31966,atneosenOnedimensionalNleavedContinua1972} described fans in the 1960s.
 A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book. We place the vertices of \(G\) on the spine, and we place each edge on a single page such that no two edges cross.
-The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. An embedding of $K_5$ in three pages is in \cref{fig:book-embedding}.
-\begin{figure}[h!]\label{fig:book-embedding}
-	\centering
-	\includesvg[height = 0.5\textheight]{figures/3page_K5.svg}
-	\caption[Book-embedding of $K_5$ on three pages]{Image by \textcite{eppsteinBookEmbedding2014}. Every edge is embedded on a page, and is given a single colour. }
-\end{figure}
+The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. 
 
 Book-embeddings of graphs have applications in VLSI and processor designs, bioinformatics by \textcite{haslingerRNAStructuresPseudoknots1999}, and in graph drawings by \textcite{woodBoundedDegreeBook2002}. 
 \textcite{malitzGraphsEdgesHave1994} proved that any graph with $e$ edges has pagenumber $O(\sqrt{e})$. Additionally, he proved that random $d$-regular graphs $G$ with $n$ vertices have the property that $\pn(G) \in \Omega(\sqrt{d} n^{1/2 - 1/d})$. For random 3-regular graphs $G$ with $n$ vertices, $\pn(G) \in \Omega(n^{1/6})$. These constructions of $\Omega(n^d)$ pagenumber graphs are not explicit.\ \textcite{eppsteinThreeDimensionalGraphProducts2024} showed that $\pn(P_n \boxtimes P_n \boxtimes P_n) \in \Theta(n^{1/3})$. This is an explicit construction of a graph which has pagenumber in $\Theta(n^{d})$. 

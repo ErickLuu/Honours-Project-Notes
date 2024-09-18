@@ -12,7 +12,13 @@ The way we are planning to deal with vortices is to deal with the faces. We have
 
 Let \(G\) be a graph. A vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \cdots < v_k\).
 A circular ordering \(<\) preserves a face \(F\) if we can start at any point in the circular ordering and have the condition above.
-Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is in the preimage of some colour in $\varphi$. \todo{draw a picture of a monochromatic path!}
+Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is in the preimage of some colour in $\varphi$.
+
+\begin{figure}[h!]
+	\includesvg[width = 0.8 \textwidth]{figures/monochromatic_paths.svg}
+	\caption[Monochromatic paths]{An example of a monochromatic path on a face. Above is a face embedded on $\mathbb{R}^2$. Around in some book-embedding are some edges coloured red and blue. This face has four monochromatic paths. Below is a circular ordering of the vertices on the boundary of the face. Every edge coloured red is embedded on a single page.}
+\end{figure}
+
 
 The list below are the steps taken to prove \cref{thm:bounded_almost_embeddable}.
 \begin{enumerate}
@@ -39,7 +45,7 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 		\end{cases}
 	\end{equation}
 	then is a book-embedding of \(G_1\) with \(k+1\) colours for the same reason as \cref{thm:bded_treewidth_bded_pagenumber}.
-	To add this book-embedding to \(G_0\), we add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours.
+	To add this book-embedding to \(G_0\), we add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. An illustration of such a book-embedding is in \cref{fig:preserved_face}.
 \end{proof}
 
 \begin{figure}
