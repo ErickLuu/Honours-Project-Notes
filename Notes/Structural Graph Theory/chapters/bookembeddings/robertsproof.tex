@@ -82,11 +82,11 @@ We first prove an auxillary lemma.
 \end{lemma}
 
 \begin{proof}
-	Suppose there is a separating triangle. Then there is a separator of size 3. So the planar triangulation is not 4-connected. Suppose a planar triangulation is $3$-connected. As 
+	Suppose there is a separating triangle. Then there is a separator of size 3. So the planar triangulation is not 4-connected. Suppose a planar triangulation is $3$-connected. Then as $G$ is chordal, any separator of size 3 is also a clique. Therefore, the separator is a triangle. 
 \end{proof}
 
 \begin{proof}
-	Suppose that $G$ is not $4$-connected, meaning there exists at most $3$ vertices $u, v, w$ in $G$ that separate $G$. There exists graphs $G_1$, $G_2$ such that $G = G_1 \oplus_3 G_2$, $\{u, v, w\} = V(G_1 \cap G_2)$ and $G$ embedded on the plane has that $G_2$ is a subset of a face on $G_1$ with boundary $\{u, v, w\}$. If this is not the case, then $G_1$ or $G_2$ is not $4$-connected. This comes from the fact that $G$ is planar. This is the only arrangement as every separator from a cut-set $A$ to $B$ can be pushed along until the separator bounds a face, which is $u, v, w$. Therefore, repeating this operation for every face of $G$ yields a tree-decomposition with the property listed above. 
+	Suppose that $G$ is not $4$-connected. Then as $G$ is planar, there exists a triangulation of $G$ with a separating triangle. Then use the separating triangle in the book-embedding so every torso is a planar graph. 
 	\todo{Finish proof!}
 \end{proof}
 
