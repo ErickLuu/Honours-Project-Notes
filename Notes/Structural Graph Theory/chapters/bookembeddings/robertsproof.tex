@@ -72,8 +72,11 @@ Let $G$ be a graph with the properties above. As \(\chi(G) \leq 2 \pn(G) + 2\), 
 
 This section finds a bound on the pagenumber of planar graphs. This upper bound is much worse than the tight upper bound found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}. 
 
+Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle $u,v,w$ on $G$ such that the triangle $uvw$ separates $\mathbb{R}^2$ into two components, and $G - \{uvw\}$ is nonempty on each component.
+\todo{draw picture!}
+
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
-	Every planar graph with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, there exists a rooting of the tree-decomposition such that every torso is contained within a face of another torso. 
+	Every planar graph with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
 
 \begin{proof}
