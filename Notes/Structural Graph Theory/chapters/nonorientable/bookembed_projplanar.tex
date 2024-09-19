@@ -26,9 +26,9 @@ This proof relies on triangulations of surfaces. Recall a graph $G$ is a \textit
 \end{theorem}
 
 \begin{proof}
-    Let $G$ be a graph embedded on $\Sigma$. If a face is bounded by a simple cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_0, \ldots, v_{k-1}$. Then as $G$ is simple and therefore loopless, the reappearing vertices must be non-consecutive. Add a maximal outerplanar graph with $k$ vertices on the interior of $F$ with boundary $w_0, \ldots, w_{k-1}$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 0, \ldots, {k-1}$ modulo $k$. Doing this operation on every face of $G$ is a triangulation of $\Sigma$, with $G$ a subgraph of this graph.  
+    Let $G$ be a graph embedded on $\Sigma$. If a face is bounded by a simple cycle $C$ of length $k \geq 4$, then add a vertex $v$ in the centre of the face and have every vertex in $C$ be adjacent to $v$. Suppose a face $F$ has reappearing vertices on its boundary walk, $v_0, \ldots, v_{k-1}$. Then as $G$ is simple and therefore loopless, the reappearing vertices must be non-consecutive. Add a maximal outerplanar graph with $k$ vertices on the interior of $F$ with boundary $w_0, \ldots, w_{k-1}$ and add edges $v_i w_i$ and $v_i w_{i + 1}$ for $i = 0, \ldots, {k-1}$ modulo $k$. Doing this operation on every face of $G$ is a triangulation of $\Sigma$, with $G$ a subgraph of this graph. An example of such a triangulation is \cref{fig:triangulation}.
 \end{proof}
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includesvg[width = 0.8 \textwidth]{figures/facetriangulation.svg}
     \caption[Face triangulation]{A triangulation of a face with five vertices on its boundary, where there exists a duplicate green vertex.}\label{fig:triangulation}

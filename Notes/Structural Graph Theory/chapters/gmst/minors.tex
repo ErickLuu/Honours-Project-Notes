@@ -1,10 +1,17 @@
 \section{Graph minors}
 Recall a graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[width = 0.8\textwidth]{figures/edge_contraction.svg}
+	\caption[Edge contraction]{This is an edge contraction of the edge $\{u, v\}$ to the single edge $w$. Note that edges incident to the common neighbour to both $u$ and $v$ becomes a single edge in the contraction. This maintains the property that the graph after edge contraction is simple.}
+\end{figure}
+
 A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which assigns to \(H\) vertex-disjoint connected subgraphs of \(G\). If $uv$ is an edge in \(E(H)\), then some edge in \(G\) joins the two subgraphs \(\rho(u)\) and \(\rho(v)\). A description of a model is in \cref{fig:model_of_P5}.
-\begin{figure}[h!]\label{fig:model_of_P5}
+\begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/model.svg}
-	\caption[Illustration of a model $H$ in a graph $G$.]{The coloured boxes are the connected subgraphs contracted to a single vertex on the right. Note that one vertex is deleted.}
+	\caption[A model $H$ in a graph $G$.]{An illustration of a model $H$ in a graph $G$. The coloured boxes are the connected subgraphs contracted to a single vertex on the right. Note that one vertex is deleted.}\label{fig:model_of_P5}
 \end{figure}
 
 \begin{lemma}
