@@ -7,7 +7,10 @@ We wish to show this statement:
 \begin{theorem}
 	For all graphs \(G\) of genus \(g\), there exists a \(11g + 24\)-page book embedding such that all faces of $G$ have at most \( 12(g + 1)\) monochromatic paths.
 \end{theorem}
-Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), the faces \(F\) such that there exists an edge \(e\) in \(E_n\) which bounds \(F\). Then we claim that the number of edges that bound \(F\) is bounded. We first need some topological definitions. A loop is \textit{null-homotopic} if it is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\). We denote a surface without some set of points $A$ as $\Sigma - A$. 
+
+Two loops $\gamma_1, \gamma_2$ are homotopy equivalent if there exists a continuous family of loops which takes $\gamma_1$ to $\gamma_2$. 
+
+Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), the faces \(F\) such that there exists an edge \(e\) in \(E_n\) which bounds \(F\). Then we claim that the number of edges that bound \(F\) is bounded. We first need some topological definitions. A loop $\gamma$ is \textit{null-homotopic} if $\gamma$ is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\). We denote a surface without some set of points $A$ as $\Sigma - A$. 
 
 \begin{lemma}\label{lem:orientable_facial_walks}
 	Let \(\Sigma \) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be an arbitrary set of nontrivial, non-intersecting loops that start and end at \(x_0\) on \(\Sigma \). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma - L\), such that each \(F_i\) is homeomorphic to a disk. Let $G$ be the graph with vertex set $\{x_0 \}$ and vertex set $L$. Then the length of the facial walk for all \(F\) is at most \(2g\).
