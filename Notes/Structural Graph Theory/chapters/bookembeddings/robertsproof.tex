@@ -73,13 +73,8 @@ Let $G$ be a graph with the properties above. As \(\chi(G) \leq 2 \pn(G) + 2\), 
 This section finds a bound on the pagenumber of planar graphs. This upper bound is much worse than the tight upper bound found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}. 
 
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
-	Every planar graph with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph (or a subgraph of $K_4$) with adhesion at most \(3\). Furthermore, there exists a rooting of the tree-decomposition such that every torso is contained within a face of another torso. 
+	Every planar graph with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, there exists a rooting of the tree-decomposition such that every torso is contained within a face of another torso. 
 \end{proposition}
-
-We first prove an auxillary lemma. 
-\begin{lemma}
-	A planar triangulation is 4-connected if and only if the triangulation has no separating triangle. 
-\end{lemma}
 
 \begin{proof}
 	Suppose there is a separating triangle. Then there is a separator of size 3. So the planar triangulation is not 4-connected. Suppose a planar triangulation is $3$-connected. Then as $G$ is chordal, any separator of size 3 is also a clique. Therefore, the separator is a triangle. 

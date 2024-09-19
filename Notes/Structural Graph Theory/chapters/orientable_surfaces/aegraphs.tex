@@ -15,7 +15,7 @@ A circular ordering \(<\) preserves a face \(F\) if we can start at any point in
 Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is in the preimage of some colour in $\varphi$.
 
 \begin{figure}[h!]
-	\includesvg[width = 0.8 \textwidth]{figures/monochromatic_paths.svg}
+	\includesvg[width = 0.7 \textwidth]{figures/monochromatic_paths.svg}
 	\caption[Monochromatic paths]{An example of a monochromatic path on a face. Above is a face embedded on $\mathbb{R}^2$. Around in some book-embedding are some edges coloured red and blue. This face has four monochromatic paths. Below is a circular ordering of the vertices on the boundary of the face. Every edge coloured red is embedded on a single page.}
 \end{figure}
 
@@ -23,7 +23,7 @@ Now consider when \(G\) does not have a preserved face, but we can partition the
 The list below are the steps taken to prove \cref{thm:bounded_almost_embeddable}.
 \begin{enumerate}
 	\item Let $G$ be a \(4\)-connected planar graph. We preserve all faces and all faces are monochromatic.
-	\item Suppose \(G\) is a connected planar graph. Faces are not preserved, but a fixed number of vertices are moved around on every face. Additional pages are necessary to embed $G$, but the number of monochromatic paths is fixed. 
+	\item Suppose \(G\) is a connected planar graph. Faces are not preserved, but a fixed number of vertices are moved around on every face. Additional pages are necessary to embed $G$, but the number of monochromatic paths is bounded. 
 	\item Suppose \(G\) is $2$-cell embedded on a surface. Use Heath and Istrail's \cite{heathPagenumberGenusGraphs1992} planar-nonplanar decomposition to find a spanning planar subgraph of $G$ and nonplanar edges. Then apply the previous steps to the spanning planar subgraph.
 \end{enumerate}
 
@@ -48,7 +48,7 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 	To add this book-embedding to \(G_0\), we add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. An illustration of such a book-embedding is in \cref{fig:preserved_face}.
 \end{proof}
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width = 0.8 \textwidth]{figures/bookembedding_preserved_face.svg}
 	\caption[Book-embedding of a preserved face]{A book-embedding of a preserved face (vertices $v_1, \ldots , v_8$) with a vortex on the face. This graph can be embedded on $3$ pages as the path-width of the vortex attached is 3. }\label{fig:preserved_face}
@@ -85,7 +85,7 @@ We shall prove an intermediate lemma.
 	This is a small tweak of \cref{lem:preserved_faces_pagenumber}. 
 \end{proof}
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width = 0.8 \textwidth]{figures/one_page_embedding.svg}
 	\caption[One-page decomposition]{Description of \cref{lem:one_page_decomposition}.\(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\) as it is more compact to draw.}\label{fig:preserving_pages}
@@ -102,7 +102,7 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 
 \begin{proof}
 	Let \(C\) be the Hamiltonian cycle of \(G\). Let \(<\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every edge in $G - C$ is inside either the interior or exterior of \(C\). Colour every edge in $C$ and on the interior of $\mathbb{R}^2 - C$ red and colour the other edges blue. This is a book-embedding as both regions can be embedded on a single page with the same cyclic ordering. Furthermore, every face is preserved. Because $\mathbb{R}$ is orientable, we can affix an orientation to every face \(F\) on $G$ such that the order of the vertices in the orientation is the same order as the orientation in \(D\).
-	\begin{figure}[h]
+	\begin{figure}[h!]
 		\centering
 		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
 		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
