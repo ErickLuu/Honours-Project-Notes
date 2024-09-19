@@ -72,21 +72,25 @@ Let $G$ be a graph with the properties above. As \(\chi(G) \leq 2 \pn(G) + 2\), 
 
 This section finds a bound on the pagenumber of planar graphs. This upper bound is much worse than the tight upper bound found by Yannakakis \cite{yannakakisEmbeddingPlanarGraphs1989}. 
 
-Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle $u,v,w$ on $G$ such that the triangle $uvw$ separates $\mathbb{R}^2$ into two components, and $G - \{uvw\}$ is nonempty on each component.
+Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle $u,v,w$ on $G$ such that the triangle $uvw$ separates $\mathbb{R}^2$ into two components $U, V$ and there are vertices in the interior of $U$ and $V$. 
 \todo{draw picture!}
 
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
 	Every planar graph with at least 5 vertices has a tree-decomposition such that each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
 
+To prove this lemma, we need the following theorem:
+
+\begin{theorem}
+	Every graph $H$ with $u, v, w$ has a rooted triangle on $u, v, w$ if and only if there is no vertex $x \in H$ such that $H - x$ disconnects $u, v, w$ into separate components.
+\end{theorem}
+
+Now to prove the theorem. 
 \begin{proof}
 	Suppose there is a separating triangle. Then there is a separator of size 3. So the planar triangulation is not 4-connected. Suppose a planar triangulation is $3$-connected. Then as $G$ is chordal, any separator of size 3 is also a clique. Therefore, the separator is a triangle. 
-\end{proof}
-
-\begin{proof}
-	Suppose that $G$ is not $4$-connected. Then as $G$ is planar, there exists a triangulation of $G$ with a separating triangle. Then use the separating triangle in the book-embedding so every torso is a planar graph. 
 	\todo{Finish proof!}
 \end{proof}
+
 
 \begin{theorem}[Tutte\cite{tutteTheoremPlanarGraphs1956}]\label{thm:4-connected_planar_ham_cycle}
 	All 4-connected planar graphs are Hamiltonian.
