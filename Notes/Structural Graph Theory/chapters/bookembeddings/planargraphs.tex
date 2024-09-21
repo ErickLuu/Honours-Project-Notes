@@ -1,0 +1,41 @@
+
+
+\section{Planar graph bounds}
+Then use a theorem of Tutte to prove a fact for all $4$-connected planar graphs. 
+
+\begin{theorem}[Tutte\cite{tutteTheoremPlanarGraphs1956}]\label{thm:4-connected_planar_ham_cycle}
+	All 4-connected planar graphs are Hamiltonian.
+\end{theorem}
+
+As a corollary to \textcite{hickingbothamStackNumberCliqueSum2023}, the pagenumber of planar graphs are bounded.
+
+\begin{corollary}\label{thm:Planar Graph Hickingbotham Bound}
+	Let \(G\) be a 2-connected planar graph. Then $G$ can be embedded on $11$ pages, with book-embedding $(<, \rho)$. $<$ restricted to the outer cycle $C$ is $C$. Furthermore, for every face cycle $C$, $<_{V(C) - \{u, v, w\}} = C - \{u, v, w\}$ for some vertices $u$, $v$, $w$. 
+\end{corollary}
+\begin{proof}
+	From \cref{thm:clique_sum_pagenumber_bound} with tree-decomposition from \cref{lem:planar_graphs_4_connected_cliqesums}, the pagenumber is at most \(2 \cdot 4 + 3 = 11\).
+
+	Furthermore, from the construction given in \cref{lem:planar_graphs_4_connected_cliqesums}, every $4$-connected class are glued on faces. Therefore, every face only changes by $3$ vertices, from \cref{thm:clique_sum_pagenumber_bound}. Therefore removing $3$ vertices from every face preserves the cyclic ordering of every face.
+\end{proof}
+
+We will discuss the \(K_5\)-minor free case. If \(G\) is \(K_5\)-minor free, then we can use Wagner's theorem.
+\begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
+	Let \(G\) be a \(K_5\)-minor-free graph. Then \(G\) has a tree-decomposition of adhesion $\leq 3$ where every torso is either a planar graph or the Wagner graph \(V_8\).
+\end{theorem}
+A description of the Wagner graph is in \cref{fig:wagner}. The edges are coloured such that the internal edges are on different pages. The spine edges (the edges that are on the outerface) are the ones which can go on any page.
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[thick,scale=2, every node/.style={scale=2}]
+		\input{figures/wagner-graph}
+	\end{tikzpicture}
+	\caption[Wagner graph]{The Wagner graph $V_8$. Notice how the clockwise circular ordering of the vertices of the Wagner graph needs 4 pages to embed the graph. }\label{fig:wagner}
+\end{figure}
+
+\begin{theorem}
+	Let \(G\) be a \(K_5\)-minor free graph. Then \(G\) has pagenumber \(\leq 19\).
+\end{theorem}
+
+\begin{proof}
+	Suppose \(G\) is \(K_5\)-minor free. Then by Wagner's theorem \cite{wagnerUeberEigenschaftEbenen1937}, \(G\) has a tree-decomposition of adhesion at most 3 where every torso is either a planar graph or the Wagner graph.
+	Planar graphs are \(4\)-colourable and can be embedded on four pages. The Wagner graph is \(3\)-colourable and can be embedded on four pages. Therefore, if \(G\) is \(K_5\)-minor free, then \(G\) has pagenumber at most \(4 \cdot 4 + 3 = 19\) from \cref{thm:clique_sum_pagenumber_bound}.
+\end{proof}

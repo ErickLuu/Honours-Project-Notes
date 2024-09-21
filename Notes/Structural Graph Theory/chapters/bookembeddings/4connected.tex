@@ -1,0 +1,69 @@
+\section{Decomposing planar graphs}
+In this section, we decompose planar graphs into smaller components that are more useful to applying \cref{thm:clique_sum_pagenumber_bound}. We start with Menger's theorem, then move onto proving a decomposition of planar graphs into smaller subgraphs. 
+
+Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem which is used throughout this section. 
+Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) which starts in \(A\) and ends in \(B\) with no internal vertices in \(A \cup B\). An \(AB\)-connector is a set of disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S \subseteq V(G)\) such that \(G - S\) contains no \(AB\)-path. Then:
+\begin{theorem}[Menger's theorem]\label{thm:Menger}
+	Let $G$ be a graph and let $A, B \subseteq V(G)$. Then the size of the smallest \(AB\)-separator of \(G\) is equal to the size of the largest \(AB\)-connector.
+\end{theorem}
+Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B = N_G(y) \cup \{y\} \). Then \cref{thm:Menger} implies that:
+\begin{theorem}[Menger's theorem, vertex-connectivity version]\label{thm:Menger_Vertex}
+	A graph \(G\) is \(k\)-connected if and only if for any two distinct vertices, there are at least \(k\) internally disjoint paths between the two vertices.
+\end{theorem}
+
+Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle $u,v,w$ on $G$ such that the triangle $uvw$ separates $\mathbb{R}^2$ into two components $U, V$ and there are vertices in the interior of $U$ and $V$. All nonseparating triangles bound faces. 
+\todo{draw picture!}
+
+\begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
+	Every planar graph has a tree-decomposition such that each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
+\end{proposition}
+
+To prove this proposition, we need the following lemma. A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$ in $G$ where $u, v, w$ are in separate components. 
+
+\begin{lemma}\label{lem:rooted_triangle}
+	Every graph $H$ with vertices $u, v, w$ has a rooted $K_3$ on $u, v, w$ if and only if there exists a cut-set $S$ where $|S| \leq 1$ and $H - S$ places the set $\{u,v,w\} \setminus S$ each in different components. 
+\end{lemma}
+\todo{prove this!}
+
+This lemma proves the following lemma.
+
+\begin{lemma}\label{thm:cutset_added_edges}
+	Suppose $G$ is a $3$-connected planar graph with cut-set $u,v,w$. Then $G + uv, uw, vw$ is planar. 
+\end{lemma}
+
+\begin{proof}
+	Let $G_1$ and $G_2$ be the two subgraphs that are disconnected in $G - \{u,v,w\}$. Then if $G_1 + \{u,v,w\}$ has a rooted $K_3$ minor on $u,v,w$, then contract this minor to $K_3$ and delete all other vertices in $G_1$. Repeat for $G_2$. Then as for each subgraph $G_i + uv + uw + vw$ is a planar graph, then because $uvw$ is not a separating triangle in $G_i$, then $uvw$ bounds a face in $G_1$ and $G_2$. Draw $G_1$ and $G_2$ on the sphere and stereographically project $G_2$ so that $uvw$ bounds the outerface. Then draw $G_2$ on $uvw$ in $G_1$ for a graph drawing of $G + uv, uw, vw$. 
+	
+	Suppose $G_2 + \{u,v,w\}$ has no rooted $K_3$ minor. By \cref{lem:rooted_triangle}, $G_2$ has a cut-set $S$, $|S| \leq 1$, where $G_2 - S$ places $u,v,w - S$ in different components. Call the components of $G_2 - S$ that contain $u,v,w$, $G_u, G_v, G_w$ respectively. If $S$ is empty, then $G_2$ has components $G_u, G_v, G_w$. But this implies that $u$ is a cut vertex from $G_u$ to $G$, so $G$ is not $3$-connected. Suppose $S = x$ distinct from $u,v,w$. Without loss of generality, suppose $G_u$ contains a vertex distinct from $u$. Then $x, u$ disconnects $G_u$ from $G$, so there is a cutset of size 2. Now suppose $G_u, G_v, G_w$ only contain $u,v,w$ respectively. Then we can add the edges $uv, uw, vw$ without any crossings around $x$. \todo{draw pictures!}. Suppose without loss of generality that $S = v$. Then suppose without loss of generalisation $G_u$ contains another vertex distinct from $u$. Then $G - u - v$ separates $G_u$ from $G$, which is a small cutset. Finally, suppose $G_u, G_w$ only contain $u$ and $w$ respectively. Then $v$ is a separator, so $G$ is not $3$-connected, or $G - u,v,w$ separates nothing. Then $u,v,w$ is not a separator. 
+\end{proof}
+\todo{prove this!}
+
+Now to prove the theorem. 
+\begin{proof}
+	We do induction on the number of vertices of $G$. 
+	
+	Suppose $|V(G)| \leq 3$. Then $\mathcal{T}$ has nodes $x$, $y$ and edge $xy$, and $B_x = B_y = V(G)$. Then $G \langle B_x \rangle = G \langle B_y \rangle = K_3$. \todo{draw pictures!}
+	
+	Suppose $|V(G)| = 4$, say $V(G) = \{a,b,c,d\}$.  Then $\mathcal{T}$ has nodes $u, i,j,k,l$ and edges $ui, uj, uk, ul$. Let $B_u = \{a,b,c,d\}$, $B_i = \{b,c,d\}$, $B_j = \{a,c,d\}$, $B_k = \{a,b,d\}$, $B_l = \{a,b,c\}$. Then $G\langle B_u \rangle = K_4$, $G\langle B_i \rangle =G\langle B_j\rangle = G\langle B_k \rangle = G\langle B_l \rangle = K_3$. Then this also satisfies the proposition. 
+
+	Now suppose $G$ is $4$-connected. Then place the entirety of $G$ in a single bag.
+
+	Suppose $G$ is disconnected. Then run this algorithm on every component and add arbitrary edges between each subtree to make a tree-decomposition.
+
+	Suppose $G$ is connected but not $2$-connected, so there exists a cut vertex $v$. Now let $G_1, G_2$ be the two disconnected subgraphs of $G - v$, where both $G_1$ and $G_2$ are nonempty subgraphs. $G_1 + v$ and $G_2 + v$ are planar graphs as they are planar subgraphs. Then $|V(G_i + v)| < |V(G)|$, so use induction on $G_1 + v$ and $G_2 + v$. This yields a tree-decomposition $\tree_1, \tree_2$ with the properties above. Add an edge between a bag $B_1$ in $\tree_1$ containing $v$ and a bag $B_2$ in $\tree_2$ containing $v$. Then the adhesion of these two bags is $1$, so it satisfies the property above. 
+
+	Suppose $G$ is $2$-connected but not $3$-connected, so there exists a cut-set $\{u,v\}$. Let $G_1, G_2$ be the two subgraphs that are separated by $G - \{u, v\}$. Firstly, $G_1' := G_1 + \{u,v\} + uv$ is a planar graph. As $G$ is $2$-connected, there is a cycle of $u$ and $v$, so there either exists an edge $uv$ or there exists a path in $G_2$ from $u$ to $v$. Contracting this path to an edge yields another planar graph $G_1'$ where $uv$ is an edge. Repeating this, $G_2' := G_2 + \{u,v\} + uv$ is also a planar graph. Then use induction on $G_1'$ and $G_2'$ with tree-decomposition $\tree_1, \tree_2$ respectively. As $uv$ is an edge in both subgraphs, there exists a bag $B_1, B_2$ in $\tree_1, \tree_2$ that contains both $u$ and $v$. Add an edge between both bags. Finally, we want that the edge $uv$ is in every torso $G\langle B_x \rangle$ where $u, v \in B_x$. Without loss of generality, suppose $B_x$ was originally in $\tree_1$. If $u$ and $v$ are in a bag $B_x$, then there is a unique path of nodes from $B_x$ to $B_1$ containing $u$ and $v$. This is because of the property that the bags that contain $u$ are connected, and between any two vertices on a tree there is a unique path. Then $B_x$ is adjacent to a bag that contains $u$ and $v$, so $G \langle B_x \rangle$ contains $uv$. 
+
+	To show that $G$ has a graph drawing with $uv$ as an edge, take an embedding of $G_1'$ on the sphere and project this embedding to the plane such that $uv$ is adjacent to the outerface. Do the same for $G_2'$. Then glue these two embeddings along $uv$ both on the outerface. 
+
+	Suppose that $G$ is $3$-connected but not $4$-connected. Then $G$ has a cut-set $u,v,w$. Then let $G' = G + \{uv, uw, vw\}$. Then $G'$ is planar, from \cref{thm:cutset_added_edges}. 
+	
+	If $uvw$ does not bound a face, then $uvw$ is a separating triangle. Use the Jordan curve theorem to split $\mathbb{R}^2 - uvw$ into two regions, an interior and an exterior. Let $G_1$ be the interior of $uvw$ and the triangle $uvw$ and let $G_2$ be the exterior of $uvw$ and the triangle $uvw$. 
+
+	If $uvw$ bounds a face, take $G_1$ and $G_2$ to be the nonempty separating components of $G - \{u,v,w\}$. Then $G_1' = G_1 + uv + uw + vw$ is a planar graph where $uvw$ bounds a face, and $G_2' = G_2 + uv + uw + vw$ is a planar graph where $uvw$ bounds a face. Embed $G_2'$ on a sphere. Then there is a stereographic projection of $G_2'$ where $uvw$ is the outerface, and place this embedding in $G_1'$. 
+
+	Use induction on $G_1$ and $G_2$ with tree-decompositions $\tree_1$ and $\tree_2$ respectively. As $uvw$ is a clique, there exists a bag $B_1$ and a bag $B_2$ that contains $uvw$. Add an edge between bags $uvw$. However, the edge must propagate in every torso. To show that every torso $G\langle B_x \rangle$ that contains $u$ and $v$ must contain $uv$, we repeat the same argument for the $2$-connected case. As $B_x$ must have a neighbouring bag that contains $u$ and $v$, where this neighbour lies on the unique path from $B_x$ to $B_1$, then $G\langle B_x \rangle$ must contain $u, v$. Repeat this argument for $w$. Then every torso is $4$-connected as no edges are deleted in the torso operation and every torso is planar as adding $uv, uw, vw$ preserves planarity. 
+
+	Since all torso edges are edges which preserve planarity in $G$, then $G$ with all torso edges is also planar. Therefore, every torso of $G$ in this tree-decomposition is planar.
+	As this handles every case, then by induction, $G \langle B_x \rangle$ is a 4-connected planar graph or $K_{\leq 4}$. 
+\end{proof}
