@@ -1,18 +1,20 @@
 \section{Bounds of pagenumber of graphs}\label{sec:BoundedPagenumber}
+This section discusses tree-decompositions and book-embeddings of graphs where every component has a tree-decomposition. There is aproof by Robert Hickingbotham that every graph with a tree-decomposition where every component that can be embedded on $s$ pages can be embedded on $f(s)$ pages for a fixed function $f$. This proof is then applied to planar graphs, using a lemma that every planar graph has an embedding and tree-decomposition where every torso is either $K_{\leq 4}$ or a $4$-connected planar graph. 
+
 \subsection{Tree-decomposition into bounded page number torsos}\label{ssec:Clique_sum_Pagenumber_bound}
 
-This proof has been adapted into the language of tree-decompositions.
+This section proves that every graph with a tree-decomposition where every torso can be embedded on $s$ pages has a book-embedding of $2s^2 + 4s + 1$ pages. 
+
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and is \(c\)-colourable. Further suppose the adhesion of the tree-decomposition is at most \(\ell\).
 	Then $G$ can be embedded in \(\leq cs + \ell \) pages.
 \end{theorem}
 
-\subsubsection{Proof of above theorem}
-This proof involves gluing torsos along cliques of size at most \( \ell \).
+\subsubsection{Proof of \cref{thm:clique_sum_pagenumber_bound}}
 
-Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). Let $J$ be a clique in $G$. A vertex $v$ is rainbow in $J$ in a book-embedding $(<, \psi)$ if the set of edges $\{u_i v | u_i < v, u_i \in J\}$ each have distinct colours. The structure of the book-embedding will look like this: \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
+Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). Let $J$ be a clique in $G$. A vertex $v$ is a \textit{rainbow vertex} in $J$ in a book-embedding $(<, \psi)$ if the set of edges $\{u_i v | u_i < v, u_i \in J\}$ each have distinct colours. The structure of the book-embedding will look like this: \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 
-To prove this theorem, we use a common technique in graph theory. We strengthen the lemma so that we may use induction to prove the statement.
+\cref{lem:Hickingbotham_Lemma} is a strengthening of \cref{thm:clique_sum_pagenumber_bound} in the case that the tree-decomposition of $G$ is simply a single bag. The reason for the strengthening is to apply the induction hypothesis.
 \begin{lemma}\label{lem:Hickingbotham_Lemma}
 	Let \(G\) be a graph where \(\pn(G) \leq s\) and \(\chi(G) \leq c\), and a clique \(C\) with an ordering \(\sigma_C\). Let \(|C| \leq \ell\). There exists a \(cs + \ell\)-page layout \((\leq, \psi)\) of \(G\) where:
 	\begin{enumerate}
