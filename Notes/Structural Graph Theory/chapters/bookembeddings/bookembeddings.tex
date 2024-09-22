@@ -69,7 +69,7 @@ To prove this theorem, there is a simple lemma for $k$-degenerate graphs and chr
 	Every $k$-degenerate graph is $k + 1$-colourable.
 \end{lemma}
 \begin{proof}
-	Let $G$ be a $k$-degenerate graph. If $G$ has a single vertex, then $G$ can be coloured in $k + 1$ colours. Now suppose this holds for all $k$-degenerate graphs with $|V(G)|- 1 \geq 1$ vertices. Let $v$ be a vertex in $G$ with degree $k$. Then $G - v$ can be coloured inductively with $k + 1$ colours as $G - v$ is also $k$-degenerate. Now look at the neighbours of $v$ and colour $v$ with a colour that is not one of its neighbours. This can be done as $v$ has $n$ neighbours but there are $n + 1$ colours that can be used. Thus shown. 
+	Let $G$ be a $k$-degenerate graph. If $G$ has a single vertex, then $G$ can be coloured in $k + 1$ colours. Now suppose this holds for all $k$-degenerate graphs with $|V(G)|- 1 \geq 1$ vertices. Let $v$ be a vertex in $G$ with degree $k$. Then $G - v$ can be coloured inductively with $k + 1$ colours as $G - v$ is also $k$-degenerate. Now look at the neighbours of $v$ and colour $v$ with a colour that is not used by one of its neighbours. This can be done as $v$ has $n$ neighbours but there are $n + 1$ colours that can be used. Thus shown. 
 \end{proof}
 Now apply this lemma to prove \cref{thm:Colouring_Bound}. 
 \begin{proof}
