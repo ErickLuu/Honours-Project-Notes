@@ -11,7 +11,7 @@ The pathwidth of \(G\) is the largest pathwidth over all connected components.
 
 A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(P\) where every vertex not in $P$ is adjacent to a vertex on the path \(P\). Alternatively, a tree \(G\) is a caterpillar if removing every leaf yields a path. We refer to the path where every leaf is connected to as the \textit{central path}.
 \begin{proposition}
-	Graphs have pathwidth at most 1 if and only if every connected component is a caterpillar.
+	A graph $G$ has pathwidth at most 1 if and only if every connected component of $G$ is a caterpillar.
 \end{proposition}
 \begin{proof}
 	Suppose \(G\) is a caterpillar.
@@ -26,14 +26,14 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 \end{figure}
 
 \begin{example}
-	Recall that $K_n$ is the complete graph on $n$ vertices. \(\pw(K_n) = \tw(K_n) = n - 1\).
+	Recall that $K_n$ is the complete graph on $n$ vertices. It holds that \(\pw(K_n) = \tw(K_n) = n - 1\).
 \end{example}
 \begin{proof}
 	The pathwidth of \(K_n\) is at least the treewidth of \(K_n\). But the pathwidth is at most \(n- 1\) (where all the vertices are in the same bag), but the treewidth of \(K_n\) is \(n - 1\). Therefore, \(\pw(K_n) = n - 1\).
 \end{proof}
 
 \begin{proposition}
-	The pathwidth of a tree \(T\) equals \(\min_{P \subseteq T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace \) where \(P\) is a path.
+	The pathwidth of a tree \(T\) is \(\min_{P \subseteq T} \left\lbrace 1 + \pw(T - V(P))\right\rbrace \) where \(P\) is a path.
 \end{proposition}
 
 \begin{proof}[Proof]

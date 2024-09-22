@@ -12,16 +12,16 @@ The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbr
 The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree decompositions of the graph \(G\).
 
 \begin{lemma}\label{lem:Helly}
-	Let \(T_1, \ldots, T_k\) be subtrees of a tree \(T\) such that for every pair of trees $T_i$, $T_j \in T_1, \ldots, T_k$, $V(T_i) \cap V(T_j) \neq \emptyset$. Then there exists a vertex which is common to all trees. This is known as the Helly property.
+	Let \(T_1, \ldots, T_k\) be subtrees of a tree \(T\) such that for every pair of trees $T_i$, $T_j \in T_1, \ldots, T_k$, $V(T_i) \cap V(T_j)$ is nonempty. Then there exists a vertex which is common to all trees.
 \end{lemma}
 \begin{proof}
 	This proof is by induction on the number of vertices of $T$. Suppose $T$ has a single vertex. Then it is obvious that the Helly property holds. By induction, suppose the Helly property holds for all trees with at most $n$ vertices. Suppose $T$ has $n + 1$ vertices and \(T_1, \ldots, T_k\) are subtrees which satisfy the property above. Let $v$ be a leaf vertex of $T$ with neighbour $w$. If one of the subtrees $T_i = \{v\}$, then by non-empty intersection, all trees contain $v$. $v$ is the common intersection. Otherwise, consider $T - v$ and the subtrees $(T_1 - v, \ldots, T_k - v)$. If $v \in T_i \cap T_j$, then as none of the subtrees is the single vertex $\{v\}$, $w \in T_i \cap T_j$. Therefore, $T_i - v \cap T_j - v$ is non-empty. By the induction hypothesis, $T - v$ has a vertex common to all $(T_1 - v, \ldots, T_k - v)$, so \(T_1, \ldots, T_k\) has a common vertex in $T$. 
 \end{proof}
-
+This property is known as the Helly property. 
 The Helly property is most commonly associated with convex subsets of a Euclidean space, but has generalisations to other spaces. 
 
 \begin{proposition}\label{lem:clique}
-	For every graph $G$, in any tree-decomposition of \(G\), for every clique \(C\) in \(G\), there exists a node \(x \in V(T)\) such that \(C \subseteq B_x\).
+	Let $G$ be a graph and $(T, (B_x)_{x \in V(T)})$ be a tree-decomposition. Then for every clique \(C\) in \(G\), there exists a node \(x \in V(T)\) such that \(C \subseteq B_x\).
 \end{proposition}
 
 \begin{proof}
@@ -29,21 +29,21 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 \end{proof}
 
 \begin{corollary}\label{cor:complete_tw}
-	\(\tw(K_n) = n-1\).
+	Recall that $K_n$ is the complete graph on $n$ vertices. It holds that \(\tw(K_n) = n-1\).
 \end{corollary}
 \begin{proof}
 	By \cref{lem:clique}, $\tw(K_n)\geq n-1$. Placing all vertices of $K_n$ in a single bag is a tree-decomposition of width $n-1$. Therefore, $\tw(K_n) = n-1$. 
 \end{proof}
 
 \begin{proposition}\label{thm:tw_minor_closure}
-	If \(H\) is a minor of \(G\), then \(\tw(H) \leq \tw(G)\).
+	Let $G, H$ be graphs. If \(H\) is a minor of \(G\), then \(\tw(H) \leq \tw(G)\).
 \end{proposition}
 \begin{proof}
 	Let \((B_x : x \in V(T))\) be a tree-decomposition of \(G\). Remove an edge $e$ from $G$. Then \((B_x : x \in V(T))\) is a tree-decomposition of $G - e$. Remove a vertex $v$ from $G$. Then \((B_x - v : x \in V(T))\) is a tree-decomposition of $G - v$. Contract an edge $vw$ in $G$ to $u$. Define a new tree-decomposition $\tree'$ by relabelling \(v\) and \(w\) in all $B_x$ to \(u\). $\tree'$ is a valid tree-decomposition of $G / uv$. The induced subtree of \(u\) is the union of the induced subtrees of \(v\) and \(w\), which is a subtree. As $v$ and $w$ share the edge $vw$, then there exists a bag $B_x$ such that $v, w \in B_x$. Every neighbour of \(v\) or \(w\) is a neighbour of \(u\). The edges in the neighbourhood do not change. Notice that the size of each bag in each operation does not increase. Therefore, if $H \leq G$ by a series of vertex deletions, edge deletions, and edge contractions, the tree-decomposition \((B_x : x \in V(T))\) of $G$ can have the algorithm applied above to build a tree-decomposition of $H$ with width at most the tree-decomposition of $G$. Then by the minimality of the treewidth, \(\tw(H) \leq \tw(G)\). 
 \end{proof}
 
 \begin{proposition}\label{lem:treewidth_forest}
-	\(\tw(G) = 1\) if and only if \(G\) is a forest.
+	Let $G$ be a graph. \(\tw(G) = 1\) if and only if \(G\) is a forest.
 \end{proposition}
 
 \begin{proof}
@@ -89,9 +89,9 @@ To prove \cref{prop:k4-minor}, we want to show the following fact:
 This implies that every $K_4$-minor free is not $3$-connected, therefore contains a vertex of degree $\leq 2$. 
 
 \begin{proof}
-	Suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
+	$\Rightarrow$ Suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
 
-	Suppose $G$ is $K_4$ minor free. We will prove this using induction on the number of vertices. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition with every bag containing $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. In fact, there exists a bag $B$ that contains $u$ and $w$ as $uw$ is an edge. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
+	$\Leftarrow$ Suppose $G$ is $K_4$ minor free. We will prove this using induction on the number of vertices. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition with every bag containing $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. In fact, there exists a bag $B$ that contains $u$ and $w$ as $uw$ is an edge. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
 \end{proof}
 
 Define a \(k\)-tree inductively. The complete graph \(K_{k+1}\) is a \(k\)-tree. If \(G\) is a \(k\)-tree, then adding any new vertex to \(G\) that is adjacent to a $k$-clique in \(G\) results in another \(k\)-tree.

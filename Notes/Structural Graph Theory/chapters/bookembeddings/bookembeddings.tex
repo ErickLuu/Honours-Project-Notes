@@ -47,9 +47,9 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	The complete graph $K_n$ has $\pn(K_n) = \lceil \frac{n}{2} \rceil$ when $n \geq 4$.
 \end{proposition}
 \begin{proof}
-	To show the upper bound, arrange the vertices in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. As an example, refer to \cref{fig:k8 coloured with colours} for a description of a zig-zagging pattern. We rotate this pattern $\lceil n/2 \rceil$ times. 
+	$\pn(K_n) \leq \lceil \frac{n}{2} \rceil$: Arrange the vertices of $K_n$ in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. As an example, refer to \cref{fig:k8 coloured with colours} for a description of a zig-zagging pattern. We rotate this pattern $\lceil n/2 \rceil$ times. 
 	\par
-	To show the lower bound, we use \cref{lem:Edge_Bound}. \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\). As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality.
+	$\pn(K_n) \geq \lceil \frac{n}{2} \rceil$: Use \cref{lem:Edge_Bound}. \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\). As \(\pn(K_n)\) is an integer, we take the ceiling of \(\frac{n}{2}\). This concludes the equality.
 \end{proof}
 \begin{figure}[ht]
 	\caption{Circular embedding of \(K_8\) with 4 colours, the minimum possible.}
@@ -58,10 +58,20 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 \end{figure}
 The proof of \cref{thm:Pagenumber_Complete_Graph} is from \textcite{bernhartBookThicknessGraph1979}
 This is an upper bound of any graph \(G\) with \(n\) vertices.
-Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\). The next theorem bounds the chromatic number, from \textcite{bernhartBookThicknessGraph1979}
+Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\). The next theorem bounds the chromatic number, from \textcite{bernhartBookThicknessGraph1979}.
+
+The next proof use degeneracy. A graph $G$ is \textit{$k$-degenerate} if every subgraph $H \subseteq G$ has a vertex of degree at most $k$. 
 \begin{proposition}\label{thm:Colouring_Bound}
 	For all graphs \(G\), \(\chi(G) \leq 2 \pn(G) + 2\).
 \end{proposition}
+To prove this theorem, there is a simple lemma for $k$-degenerate graphs and chromatic number.
+\begin{lemma}
+	Every $k$-degenerate graph is $k + 1$-colourable.
+\end{lemma}
+\begin{proof}
+	Let $G$ be a $k$-degenerate graph. If $G$ has a single vertex, then $G$ can be coloured in $k + 1$ colours. Now suppose this holds for all $k$-degenerate graphs with $|V(G)|- 1 \geq 1$ vertices. Let $v$ be a vertex in $G$ with degree $k$. Then $G - v$ can be coloured inductively with $k + 1$ colours as $G - v$ is also $k$-degenerate. Now look at the neighbours of $v$ and colour $v$ with a colour that is not one of its neighbours. This can be done as $v$ has $n$ neighbours but there are $n + 1$ colours that can be used. Thus shown. 
+\end{proof}
+Now apply this lemma to prove \cref{thm:Colouring_Bound}. 
 \begin{proof}
 	Let \(\pn(G) = k\) and suppose \(G\) has \(n\) vertices and \(m\) edges. Then the average degree of \(G\), \(d(G) = 2m/n\) by the handshaking lemma. So \(2\frac{m}{n} \leq 2 \frac{n + k(n-3)}{n} = 2 + 2k \frac{n-3}{n} < 2k + 2\). But this implies that \(G\) has a vertex of degree \(\leq 2k + 1\), and as if \(G'\) is a subgraph of \(G\), then \(G'\) also has \(\pn(G') \leq k\), thus \(G'\) has a vertex of degree at most \(2k + 1\). However, this implies \(G\) is \((2k + 1)\)-degenerate, thus \(\chi(G) \leq 2k + 2\).
 \end{proof}
@@ -76,7 +86,7 @@ Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$
 \end{proof}
 
 An \textit{expander graph} is a sparse, highly connected graph. Expander graphs share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. We say a graph $G$ is a bipartite \varepsilon-expander if there exists a bipartition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, $|N(S)| \geq (1 + \varepsilon) |S|$. 
-\textcite{dujmovicLayoutsExpanderGraphs2016} showed that all bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
+\textcite{dujmovicLayoutsExpanderGraphs2016} showed that every bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
 
 
 Book-embeddings of graphs were has applications in VLSI and processor designs, bioinformatics by \textcite{haslingerRNAStructuresPseudoknots1999}, and in graph drawings by \textcite{woodBoundedDegreeBook2002}. 
