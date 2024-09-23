@@ -90,7 +90,7 @@ We then define \(C_0\) to be the edges adjacent to \(F_0\) in this decomposition
 \end{proof}
 We refer to the faces that have vertices in only \(V_i\) as chordal and the faces that are between \(V_i\) and \(V_{i + 1}\) as non-chordal.
 
-We define a weak triangulation of \(G\) to be a triangulation \(G'\) such that all faces except for the outerface is a triangulation.
+Recall a weak triangulation of \(G\) is a triangulation \(G'\) where all faces except for the outerface is a triangulation.
 \begin{claim}
 	There exists a weak triangulation $G'$ of \(G\) that preserves the level sets \(V_i\) and edge sets \(E_i\), \(C_i\), \(K_i\) for all \(i\).
 \end{claim}
@@ -106,10 +106,11 @@ Form a directed cycle \(C_0\) induced by \(F_0\). Each vertex on the boundary of
 	\item \(u_1v_1\) and \(u_2v_2\) are the only edges of \(E_N\) on the boundary of \(F\).
 	\item There exist traces \(T_u = u_1 \rightarrow \cdots \rightarrow u_2\) and \(T_v = v_1 \rightarrow \cdots \rightarrow v_2\) such that \(T_u\) and \(T_v\) are on the boundary of \(F\).
 \end{enumerate}
-We may think of \(G_n\) as living on a disk on \(S\) and the homotopy class \(u_1v_1\) and \(u_2 v_2\) living on a handle (alternatively, passing through a crosscap such that they bound a face). Then if we take \(G_n\) to a point, there exists a \textit{homotopy} (in the topological sense) from \(u_1v_1\) to \(u_2v_2\). The definition above can be extended to form equivalence classes of the nonplanar edges.
+Extend the relation to form an equivalence class. 
+Think of \(G_n\) as living on a disk on \(S\) and the homotopy class \(u_1v_1\) and \(u_2 v_2\) living on a handle or passing through a crosscap. Taking \(G_n\) to a point, \(u_1v_1\) and \(u_2v_2\) are homotopic if and only if the two curves are homotopic in a topological sense. 
 
 \begin{claim}
-	If \(C\) is a homotopy class of edges \(u_1 v_1, \ldots, u_k v_k\) with a natural order, then we can build traces \(T_1\) and \(T_2\) by building the trace from \(u_1\) to \(u_k\) passing through all \(u_i\), and \(v_1\) to \(v_k\) passing through all \(v_i\).
+	If \(C\) is a homotopy class of edges \(u_1 v_1, \ldots, u_k v_k\) with a natural order, then there exist traces \(T_1\) and \(T_2\) by building the trace from \(u_1\) to \(u_k\) passing through all \(u_i\), and \(v_1\) to \(v_k\) passing through all \(v_i\).
 \end{claim}
 Two traces $(T_1, T_2)$ are orientable if \(T_1\) and \(T_2\) go in opposite directions, and non-orientable if \(T_1\) and \(T_2\) go in the same direction.
 

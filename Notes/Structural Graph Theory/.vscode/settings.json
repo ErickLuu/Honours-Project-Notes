@@ -18,6 +18,7 @@
         "multigraph",
         "nonorientable",
         "nonplanar",
+        "nonseparating",
         "nontrivial",
         "outerface",
         "outerplanar",

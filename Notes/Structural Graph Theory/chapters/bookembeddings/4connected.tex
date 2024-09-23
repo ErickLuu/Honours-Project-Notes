@@ -3,8 +3,8 @@ In this section, we decompose planar graphs into smaller components that are mor
 
 \subsubsection{Menger's theorem}
 
-Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem which is used throughout this section. 
-Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) which starts in \(A\) and ends in \(B\) with no internal vertices in \(A \cup B\). An \(AB\)-connector is a set of disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S \subseteq V(G)\) such that \(G - S\) contains no \(AB\)-path. Then:
+Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem and is used throughout this section. 
+Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) that starts in \(A\) and ends in \(B\) with no internal vertices in \(A \cup B\). An \(AB\)-connector is a set of disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S \subseteq V(G)\) such that \(G - S\) contains no \(AB\)-path. Then:
 \begin{theorem}[Menger's theorem]\label{thm:Menger}
 	Let $G$ be a graph and let $A, B \subseteq V(G)$. Then the size of the smallest \(AB\)-separator of \(G\) is equal to the size of the largest \(AB\)-connector.
 \end{theorem}
@@ -16,9 +16,9 @@ Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B 
 \subsubsection{Planar Graph Decomposition}
 This section proves \cref{lem:planar_graphs_4_connected_cliqesums}.
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
-	Every planar graph has a tree-decomposition such that each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
+	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
-Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle $u,v,w$ on $G$ such that the triangle $uvw$ separates $\mathbb{R}^2$ into two components $U, V$ and there are vertices in the interior of $U$ and $V$. All nonseparating triangles bound faces. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
+Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two components $U, V$ and there are vertices in the interior of $U$ and $V$. All nonseparating triangles bound faces. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
 \begin{figure}[h!]
 	\includesvg[width = 0.8\textwidth]{figures/separating triangle.svg}
 	\caption[Separating faces]{Two plane graphs. The one on the left has a blue separating face and the one on the right has a blue nonseparating face.}
@@ -44,7 +44,7 @@ Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle $u
 
 	If $G$ is connected but not $2$-connected, take $x$ to be a cut-vertex. Since $G - x$ does not place $u,v,w$ in separate components, then without loss of generality, $u,v$ are in the same component. Let $y$ be a vertex that is a neighbour of $x$ in a component that does not contain $u,v$. Let $G'$ be the graph obtained by contracting $xy$ to a vertex $z$. It is possible that $y = w$, in this case $z = w$. In $G'$, $u,v$ are also in the same component of $G' - z$. Furthermore, any other vertex in $G'$ also is not a cut vertex, as it would be a cut vertex in $G$. Then $|V(G')| < |V(G)|$, therefore apply induction on $G'$. 
 
-	If $G$ is 2-connected, then choose a vertex $x \in V(G)$ that is not $u,v,w$. Then there is an edge $xy$ such that contracting $xy$ is $2-connected$. Therefore, no vertex can be a cut vertex in $G/xy$. Applying induction, $G/xy$, therefore $G$ has a $K_3$ minor rooted at $u,v,w$.
+	If $G$ is 2-connected, then choose a vertex $x \in V(G)$ that is not $u,v,w$. Then there is an edge $xy$ where $G/xy$ is $2$-connected. Therefore, no vertex can be a cut vertex in $G/xy$. Applying induction, $G/xy$, therefore $G$ has a $K_3$ minor rooted at $u,v,w$.
 \end{proof}
 
 
@@ -89,7 +89,7 @@ Finally, this is the proof of \cref{lem:planar_graphs_4_connected_cliqesums}.
 
 	Suppose $G$ is $2$-connected but not $3$-connected, so there exists a cut-set $\{u,v\}$. Let $G_1, G_2$ be the two subgraphs that are separated by $G - \{u, v\}$. Firstly, $G_1' := G_1 + \{u,v\} + uv$ is a planar graph. As $G$ is $2$-connected, there is a cycle of $u$ and $v$, so there either exists an edge $uv$ or there exists a path in $G_2$ from $u$ to $v$. Contracting this path to an edge yields another planar graph $G_1'$ where $uv$ is an edge. Repeating this, $G_2' := G_2 + \{u,v\} + uv$ is also a planar graph. Then use induction on $G_1'$ and $G_2'$ with tree-decomposition $\tree_1, \tree_2$ respectively. As $uv$ is an edge in both subgraphs, there exists a bag $B_1, B_2$ in $\tree_1, \tree_2$ that contains both $u$ and $v$. Add an edge between both bags. Finally, the edge $uv$ is in every torso $G\langle B_x \rangle$ where $u, v \in B_x$. Without loss of generality, suppose $B_x$ was originally in $\tree_1$. If $u$ and $v$ are in a bag $B_x$, then there is a unique path of nodes from $B_x$ to $B_1$ containing $u$ and $v$. This is because of the property that the bags that contain $u$ are connected, and between any two vertices on a tree there is a unique path. Then $B_x$ is adjacent to a bag that contains $u$ and $v$, so $G \langle B_x \rangle$ contains $uv$. 
 
-	To show that $G$ has a graph drawing with $uv$ as an edge, take an embedding of $G_1'$ on the sphere and project this embedding to the plane such that $uv$ is adjacent to the outerface. Do the same for $G_2'$. Then glue these two embeddings along $uv$ both on the outerface. 
+	To show that $G$ has a graph drawing with $uv$ as an edge, take an embedding of $G_1'$ on the sphere and project this embedding to the plane so that $uv$ is adjacent to the outerface. Do the same for $G_2'$. Then glue these two embeddings along $uv$ both on the outerface. 
 
 	Suppose that $G$ is $3$-connected but not $4$-connected. Then $G$ has a cut-set $u,v,w$. Then let $G' = G + \{uv, uw, vw\}$. Then $G'$ is planar, from \cref{thm:cutset_added_edges}. 
 	

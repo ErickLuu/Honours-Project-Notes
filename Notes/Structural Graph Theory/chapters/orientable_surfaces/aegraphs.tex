@@ -46,7 +46,7 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 		\end{cases}
 	\end{equation}
 	then is a book-embedding of \(G_1\) with \(k+1\) colours for the same reason as \cref{thm:bded_treewidth_bded_pagenumber}.
-	To add this book-embedding to \(G_0\), we add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. An illustration of such a book-embedding is in \cref{fig:preserved_face}.
+	To add this book-embedding to \(G_0\), add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. An illustration of such a book-embedding is in \cref{fig:preserved_face}.
 \end{proof}
 
 \begin{figure}[h!]
@@ -73,7 +73,7 @@ We shall prove an intermediate lemma.
 \end{lemma}
 \begin{proof}
 	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. 
-	The proof given is very similar to the one in \cref{lem:preserved_faces_pagenumber}. For each vertex \(v\) in \(G\), we let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), we place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. We also colour the edges in the same way above: 
+	The proof given is very similar to the one in \cref{lem:preserved_faces_pagenumber}. For each vertex \(v\) in \(G\), let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. Colour the edges in the same way above: 
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
@@ -94,7 +94,7 @@ We shall prove an intermediate lemma.
 
 We shall now prove \cref{lem:vortices_mono_paths}.
 \begin{proof}
-	We use the path-decomposition on \(G'\) as the set \((B_1, \ldots , B_n)\) in proving \cref{lem:vortices_mono_paths}. We apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, we add on the faces in the exact order. Then the monochromatic paths are preserved in the ordering, and in fact they are bounded as from \cref{lem:one_page_decomposition} they are bounded.
+	Use the path-decomposition on \(G'\) as the set \((B_1, \ldots , B_n)\) in proving \cref{lem:vortices_mono_paths}. Then apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, add on the faces in the exact order. Then the monochromatic paths are preserved in the ordering, and in fact from \cref{lem:one_page_decomposition}, they are bounded.
 \end{proof}
 \subsection{Planar graphs}
 \begin{lemma}\label{lem:Hamiltonian_preserved_faces}
@@ -102,7 +102,7 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 \end{lemma}
 
 \begin{proof}
-	Let \(C\) be the Hamiltonian cycle of \(G\). Let \(<\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every edge in $G - C$ is inside either the interior or exterior of \(C\). Colour every edge in $C$ and on the interior of $\mathbb{R}^2 - C$ red and colour the other edges blue. This is a book-embedding as both regions can be embedded on a single page with the same cyclic ordering. Furthermore, every face is preserved. Because $\mathbb{R}$ is orientable, we can affix an orientation to every face \(F\) on $G$ such that the order of the vertices in the orientation is the same order as the orientation in \(D\).
+	Let \(C\) be the Hamiltonian cycle of \(G\). Let \(<\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every edge in $G - C$ is inside either the interior or exterior of \(C\). Colour every edge in $C$ and on the interior of $\mathbb{R}^2 - C$ red and colour the other edges blue. This is a book-embedding as both regions can be embedded on a single page with the same cyclic ordering. Furthermore, every face is preserved. Because $\mathbb{R}$ is orientable, affix an orientation to every face \(F\) on $G$ such that the order of the vertices in the orientation is the same order as the orientation in \(D\).
 	\begin{figure}[h!]
 		\centering
 		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
@@ -111,10 +111,10 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 \end{proof}
 As a consequence, every 4-connected planar graph has a circular ordering which preserves every face.
 
-We first do the planar-nonplanar decomposition of \(G\).
-Then we look at the planar subgraph \(G_p\) and decompose \(G_p\) into 4-connected components with adhesion at most 3, from \cref{lem:planar_graphs_4_connected_cliqesums}.
+First do a planar-nonplanar decomposition of \(G\).
+Then decompose the planar subgraph \(G_p\) into 4-connected components with adhesion at most 3, from \cref{lem:planar_graphs_4_connected_cliqesums}.
 From Tutte's theorem on planar graphs \cite{tutteTheoremPlanarGraphs1956}, if \(G\) is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\).
-In \cref{ssec:Clique_sum_Pagenumber_bound}, we have to move three vertices to the start of the decomposition. This will be a problem, but we claim that for every distinguished face \(F\) which touches these vertices, the number of pages needed to embed \(F\) is bounded.
+In \cref{ssec:Clique_sum_Pagenumber_bound}, at most three vertices will be moved to the start of the decomposition. The number of pages needed to embed \(F\) is bounded.
 
 
 \begin{theorem}\label{thm:embedded_graph}
