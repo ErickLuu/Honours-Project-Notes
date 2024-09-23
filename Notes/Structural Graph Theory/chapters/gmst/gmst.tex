@@ -1,18 +1,18 @@
 \section{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
 \textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of all \(K_t\)-minor free graphs. 
 
-Each graph that is $K_t$-minor-free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor free graphs, meaning that a subset, or a single one of these ingredients constitute a $K_t$-minor free graph. 
+Every graph that is $K_t$-minor-free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor free graphs, meaning that a subset, or a single one of these ingredients constitutes a $K_t$-minor free graph. 
 \begin{itemize}
-	\item Graphs of bounded Euler genus
-	\item Sets of apex vertices
-	\item Graphs of bounded treewidth
+	\item Graphs of bounded Euler genus.
+	\item Sets of apex vertices.
+	\item Graphs of bounded treewidth.
 	\item Sets of vortices on graphs.
 \end{itemize}
 \textcite{robertsonGraphMinorsXVII1999} showed that every \(K_t\)-minor free graph can be built up from smaller graphs with the above ingredients.
 
 \subsection{Graphs of bounded Euler genus}
 
-Graphs which can be embedded on a surface of Euler genus $g$ are $K_t$ minor-free, where \(t > \sqrt{6g} + 4\). This comes from \cref{thm:bounded_genus_kt_free}. 
+Graphs embeddable on a surface of Euler genus $g$ are $K_t$ minor-free, where \(t > \sqrt{6g} + 4\). This comes from \cref{thm:bounded_genus_kt_free}. 
 
 In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
 
@@ -26,7 +26,7 @@ In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is 
 	$K_8$ is not embeddable on the torus.
 \end{proposition}
 \begin{proof}
-	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus by contradiction.
+	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus.
 \end{proof}
 
 
@@ -36,7 +36,7 @@ Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - 
 	Let $G$ be a graph. If \(G-a\) is \(K_{t}\)-minor free, then $G$ is $K_{t+1}$-minor free. 
 \end{proposition}
 \begin{proof}
-	We shall prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model in \(G\). Denote the model function as \(\rho\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(a\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - a\), as \(G - \rho(v)\) does not contain \(a\). So \(G - a\) has a \(K_t\) minor. 
+	We shall prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model $\rho$ in \(G\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(a\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - a\), as \(G - \rho(v)\) does not contain \(a\). So \(G - a\) has a \(K_t\) minor. 
 \end{proof}
 \subsection{Treewidth and clique-sums}\label{sssec:Clique_Sums}
 The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph formed from both $G$ and $H$ by identifying two cliques together. The clique-sum of $G$ and $H$ is \(G \oplus_k H\), and is defined as follows. Find cliques in \(G\) and \(H\), \(C_G\) and \(C_H\) respectively, such that both \(C_G\) and \(C_H\) have size \(k\). Identify the vertices in \(C_G\) and \(C_H\) to glue \(G\) and \(H\) together, and possibly delete edges in $C_G$. An illustration can be found in \cref{fig:clique-sum}. 
@@ -115,7 +115,7 @@ There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomp
 
 \textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. 
 \begin{theorem}[\textcite{kawarabayashiQuicklyExcludingNonplanar2021}]
-	Let $t \geq 1$ be a positive integer. Let $G$ be a $K_t$-minor free graph. Then let $\alpha = t^{18 \cdot 10^{7} t^{26} + c}$ for a constant $c$, which is defined in the paper. Then setting $g = t(t+1)$, $p = 4\alpha$, $k = \alpha$ and $a = 3\alpha$, $G \in \mathcal{G}(g,p,k,a)$. 
+	Let $t \geq 1$ be a positive integer. Let $G$ be a $K_t$-minor free graph. Then let $\alpha = t^{18 \cdot 10^{7} t^{26} + c}$ for a constant $c$, which is defined in the paper. Then setting $g = t(t+1)$, $p = 2t^2$, $k = \alpha$, $\ell = 4\alpha$, and $a = 3\alpha$, $G \in \mathcal{G}(g,p,k,a)$. 
 \end{theorem}
 
 \textcite{joretCompleteGraphMinors2013} studies the question of the maximum order of a complete graph minor of a graph in $\mathcal{G}(g, p, k, a)$. 
