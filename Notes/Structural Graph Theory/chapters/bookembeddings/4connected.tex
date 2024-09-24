@@ -25,7 +25,9 @@ Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle th
 	\label{fig:separating_triangle}
 \end{figure}
 
-\cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$ in $G$ where $u, v, w$ are in separate components. 
+\cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. \cref{lem:rooted_triangle} comes from \textcite{woodThomassensChoosabilityArgument2010}.
+
+A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$ in $G$ where $u, v, w$ are in separate components. 
 
 \begin{lemma}\label{lem:edge_contraction_2connected}
 	Let $v$ be a vertex in a 2-connected graph $G$. Then $v$ has a neighbour $w$ such that $G/vw$ is 2-connected.
@@ -42,7 +44,7 @@ Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle th
 
 	$\Leftarrow$ This is proven by induction. Suppose $|V(G)| = 3$, but no $K_3$ minor exists. Without loss of generality, $V(G)$ is a subgraph of a path $uvw$. Then setting $S = v$, $u$ and $w$ are disconnected. No such $S$ exists when $G = K_3$. 
 
-	If $G$ is connected but not $2$-connected, take $x$ to be a cut-vertex. Since $G - x$ does not place $u,v,w$ in separate components, then without loss of generality, $u,v$ are in the same component. Let $y$ be a vertex that is a neighbour of $x$ in a component that does not contain $u,v$. Let $G'$ be the graph obtained by contracting $xy$ to a vertex $z$. It is possible that $y = w$, in this case $z = w$. In $G'$, $u,v$ are also in the same component of $G' - z$. Furthermore, any other cut-vertex in $G'$ is also a cut-vertex in $G$. $|V(G')| < |V(G)|$, so induction can be applied on $G'$. 
+	If $G$ is connected but not $2$-connected, take $x$ to be a cut-vertex. Since $G - x$ does not place $u,v,w$ in separate components, then without loss of generality, $u,v$ are in the same component. Let $y$ be a vertex that is a neighbour of $x$ in a component that does not contain $u,v$. Let $G'$ be the graph obtained by contracting $xy$ to a vertex $z$. If $y = w$, then $z = w$. In $G'$, $u,v$ are also in the same component of $G' - z$. Furthermore, any other cut-vertex in $G'$ is also a cut-vertex in $G$. $|V(G')| < |V(G)|$, so induction can be applied on $G'$. 
 
 	If $G$ is 2-connected, then choose a vertex $x \in V(G)$ that is not $u,v,w$. Then there exists an edge $xy$ where $G/xy$ is $2$-connected. Therefore, no vertex can be a cut vertex in $G/xy$. Applying induction, $G/xy$, therefore $G$ has a $K_3$ minor rooted at $u,v,w$.
 \end{proof}
