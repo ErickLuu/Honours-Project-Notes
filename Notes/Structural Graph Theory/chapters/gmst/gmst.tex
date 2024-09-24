@@ -86,9 +86,9 @@ We will discuss decomposing graphs in the language of tree-decompositions, rathe
 \subsection{Vortices}\label{sssec:vortices}
 Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ is \textit{$G$-clean} if $D$ is an open subset of $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\). No vertex appears more than once in $\Lambda$. The ordering of $\Lambda$ is around the boundary of $D$. 
 \par
-Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_k)$. A \textit{$D$-vortex} is a graph $H$ such that $V(G) \cap V(H) = \Lambda$ and there is a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_k\) such that \(x_i \in B_i\) for all \(i\). The \textit{depth} of the vortex $H$ is the path-width of $H$. 
+Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_k)$. A \textit{$D$-vortex} is a graph $H$ where $V(G) \cap V(H) = \Lambda$. Furthermore, there exists a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_k\) and \(x_i \in B_i\) for all \(i\). The \textit{depth} of the vortex $H$ is the path-width of $H$. 
 \par
-The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, there is a decomposition of $G_n$ into two graphs $G_0$ and $G_1$ where $G_0$ can be embedded on a surface and $G_1$ is a vortex on $G_0$ with depth 6. $G_0$ is the $n \times n - 1$ grid and $G_1$ is the $n \times 2$ grid in the back plus the apex vertices. 
+The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As $G$ has an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, let $G_0$ is the $n \times n - 1$ grid and $G_1$ is the $n \times 2$ grid in the back plus the apex vertices. Then $G_0$ is planar and $G_1$ is a vortex on $G_0$, on the outerface. 
 
 \begin{figure}[h]
 	\centering
@@ -99,10 +99,10 @@ The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vorti
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
 Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) such that:
 \begin{itemize}
-	\item \(G - A = G_0 \cup G_1 \cup G_2 \cup \ldots \cup G_{p'}\),
-	\item \(p' \leq p\),
-	\item there is an embedding of \(G_0\) onto a surface \(\Sigma\) of genus \(\leq g\),
-	\item there exists pairwise disjoint \(G_0\)-clean discs \(D_1, D_2, \ldots, D_{p'}\) in \(\Sigma\),
+	\item \(G - A = G_0 \cup G_1 \cup G_2 \cup \ldots \cup G_{p'}\).
+	\item The number of vortices $p'$ is at most $p$.
+	\item There exists an embedding of \(G_0\) onto a surface \(\Sigma\) of genus \(\leq g\).
+	\item There exists pairwise disjoint \(G_0\)-clean discs \(D_1, D_2, \ldots, D_{p'}\) in \(\Sigma\).
 	\item \(G_i\) is a \(D_i\)-vortex of depth at most \(k\).
 \end{itemize}
 

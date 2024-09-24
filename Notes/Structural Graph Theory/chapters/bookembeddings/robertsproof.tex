@@ -1,9 +1,9 @@
 \section{Bounds of pagenumber of graphs}\label{sec:BoundedPagenumber}
-This section discusses tree-decompositions and book-embeddings of graphs where every component has a tree-decomposition. There is aproof by Robert Hickingbotham that every graph with a tree-decomposition where every component that can be embedded on $s$ pages can be embedded on $f(s)$ pages for a fixed function $f$. This proof is then applied to planar graphs, using a lemma that every planar graph has an embedding and tree-decomposition where every torso is either $K_{\leq 4}$ or a $4$-connected planar graph. 
+This section discusses tree-decompositions and book-embeddings of graphs where every component has a tree-decomposition. Robert Hickingbotham proved that every graph with a tree-decomposition where every torso is embeddable on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. This proof is then applied to planar graphs, using a lemma that every planar graph has an embedding and tree-decomposition where every torso is either $K_{\leq 4}$ or a $4$-connected planar graph. 
 
 \subsection{Tree-decomposition into bounded page number torsos}\label{ssec:Clique_sum_Pagenumber_bound}
 
-This section proves that every graph with a tree-decomposition where every torso can be embedded on $s$ pages has a book-embedding of $2s^2 + 4s + 1$ pages. 
+This section proves that every graph with a tree-decomposition where every torso can be embedded on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. 
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and is \(c\)-colourable. Further suppose the adhesion of the tree-decomposition is at most \(\ell\).
@@ -35,13 +35,13 @@ Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a v
 \end{proof}
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]
-	Suppose a graph \(G\) has a tree-decomposition \((B_x: x \in V(T))\) with torsos \(G \langle B_x \rangle\) and adhesion at most \(\ell\). Order the vertices \(v_0, \ldots, v_k\) in $T$ with respect to a breath-first search. Let $B_i = B_{v_i}$. Suppose that for all torsos $G\langle B_i \rangle$, \(\pn(G\langle B_i \rangle) \leq s\) and \(\chi(G\langle B_i \rangle) \leq c\). Then there is a book-embedding of \(G\) with at most \(cs + \ell\) pages.
+	Suppose a graph \(G\) has a tree-decomposition \((B_x: x \in V(T))\) with torsos \(G \langle B_x \rangle\) and adhesion at most \(\ell\). Order the vertices \(v_0, \ldots, v_k\) in $T$ with respect to a breath-first search. Let $B_i = B_{v_i}$. Suppose that for all torsos $G\langle B_i \rangle$, \(\pn(G\langle B_i \rangle) \leq s\) and \(\chi(G\langle B_i \rangle) \leq c\). Then \(G\) can be embedded on \(cs + \ell\) pages.
 \end{theorem}
 For a breadth-first search, we maintain the property that for all \(i\), \(T[v_0, \ldots, v_{i}]\) is a tree and \(v_i\) is a leaf in \(T[v_0, \ldots, v_{i}]\).
 \begin{proof}
 	We prove the stronger statement that there exists a book-embedding with the property that the last vertex of any clique \(J\) is a rainbow vertex. For short, this property is the \textit{rainbow-clique} property. 
 
-	Suppose $G$ has a tree-decomposition consisting of a single torso with the properties above. Then \(G\langle B_0 \rangle\) is a single graph with \(\pn(G) \leq s\). Choose \(C\) to be an arbitrary vertex \(v\) in \(G\langle B_0 \rangle\). Then by \cref{lem:Hickingbotham_Lemma}, there is a book-embedding with pagenumber at most \(cs + 1\) and every last vertex in a clique is a rainbow vertex.
+	Suppose $G$ has a tree-decomposition consisting of a single torso with the properties above. Then \(G\langle B_0 \rangle\) is a single graph with \(\pn(G) \leq s\). Choose \(C\) to be an arbitrary vertex \(v\) in \(G\langle B_0 \rangle\). Then by \cref{lem:Hickingbotham_Lemma}, $G$ can be embedded on \(cs + 1\) pages and every last vertex in a clique is a rainbow vertex.
 
 	Suppose $G$ has a tree-decomposition $(B_x: x \in V(T))$ with the properties above. Take a breadth-first search of $T$, with vertex ordering $v_0, \ldots, v_n$. For the induction hypothesis, suppose that the induced subgraph $G' := G[B_0 \cup B_1 \cup \ldots \cup B_{n-1}]$ maintains the rainbow-clique property with pagenumber of at most \(cs + \ell\).  
 	Let \(C\) be the adhesion clique between \(G \langle B_n \rangle\) and $G'$. Then let \((\leq_n, \psi_n)\) be the \(cs + \ell\)-pagenumber book-embedding of \(G \langle B_n \rangle\) that starts with \(V(C)\). Let \((\leq_{n-1}, \psi_{n-1})\) be the book-embedding of \(G'\). By the induction hypothesis, \((\leq_{n-1}, \psi_{n-1})\) is a \(cs + \ell\)-page book-embedding with the rainbow-clique property.
