@@ -13,10 +13,12 @@ The value $\chi$ is known as the \textit{Euler characteristic} of a topological 
 
 Graphs that can be embedded on the plane are called \textit{planar} graphs. Graphs that can be 2-cell embedded on the torus are called \textit{toroidal} graphs, and graphs that can be 2-cell embedded on the projective plane are called \textit{projective-planar} graphs. Graphs that can be 2-cell embedded on a surface of genus $g$ are called \textit{genus $g$} graphs. Similarly to plane graphs, graph drawings on the torus are called torus graphs, and graphs drawings on the projective plane are called projective-plane graphs. 
 
-Graphs on surfaces have been studied extensively. A famous conjecture involving graphs on surfaces is Heawood's conjecture, from \textcite{heawoodMapcolourTheorem1890}. Heawood showed that the minimum number of colours sufficient to colour all Euler genus $g$ graphs when $g \geq 1$ is
+Graphs on surfaces have been studied extensively. A famous theorem involving graphs on surfaces is Heawood's conjecture, from \textcite{heawoodMapcolourTheorem1890}. This theorem is also called the Map Colour Theorem. Heawood showed that the minimum number of colours sufficient to colour all Euler genus $g$ graphs when $g \geq 1$ is
 	\begin{equation*}
 		\gamma(g) := \left\lfloor 
 		\frac{7 + \sqrt{1 + 24g}}{2}
 		\right\rfloor.
-	\end{equation*}\todo{is this right?}
-\textcite{ringelMapColorTheorem1974} showed that for almost every case, $\gamma(g)$ is also necessary. The case where this does not hold is the Klein bottle case. There exists a 6-colourable Klein bottle graph, but $\gamma(g) = 7$. 
+	\end{equation*}
+When $g = 0$, this is the Four-Colour theorem, which was unproven when \textcite{ringelMapColorTheorem1974} was written.  
+However, Heawood did not show that $\gamma(g)$ is necessary, which became Heawood's conjecture. 
+\textcite{ringelMapColorTheorem1974} showed that for almost every case, $\gamma(g)$ is also necessary, and proved Heawood's conjecture. The case where this does not hold is the Klein bottle case. Every Klein-bottle graph is $6$-colourable, but $\gamma(g) = 7$. 
