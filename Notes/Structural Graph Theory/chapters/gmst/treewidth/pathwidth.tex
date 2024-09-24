@@ -27,7 +27,7 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 	\end{equation*}
 	Each leaf appears once and each vertex on the central path is on a subpath of the path. Every edge is in one bag. Therefore, the pathwidth of \(G\) is 1. If every component of $G$ is a caterpillar, then repeat for every component.
 
-	$\Rightarrow$ Suppose \(G\) has pathwidth 1. Then for each connected component of \(G\), choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path must go through every bag, and furthermore every vertex not on this path is adjacent to a single vertex on this path. So $G$ is a tree, and therefore $G$ is a caterpillar. 
+	$\Rightarrow$ Suppose \(G\) has pathwidth 1. Then $G$ is a tree, because $G$ having pathwidth 1 implies $G$ has treewidth 1. Then for each connected component of \(G\), choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path goes through every bag. Every vertex not on this path is adjacent to a vertex on this path. Therefore $G$ is a caterpillar. 
 	
 	An example of a caterpillar is in \cref{fig:caterpillar}.
 \end{proof}

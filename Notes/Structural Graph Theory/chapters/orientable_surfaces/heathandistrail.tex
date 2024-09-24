@@ -72,7 +72,7 @@ A description of safe vertices and unsafe vertices is in \cref{fig:safe_vertices
 \begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/safe_vertices.svg}
-	\caption[Safe and unsafe vertices]{On the left is a safe vertex $v_k$. Notice how this is is not on $G_P$ but can be added without breaking the biconnected planarity condition. On the right is an unsafe vertex $w$. This cannot be added to a block in $G_P$ as there is a bridge edge. Therefore, this must be added as its own separate block.}
+	\caption[Safe and unsafe vertices]{On the left is a safe vertex $v_k$. Notice how this is is not on $G_P$ but can be added without breaking the biconnected planarity condition. On the right is an unsafe vertex $w$. This cannot be added to a block in $G_P$ as there is a bridge edge. Therefore, $w$ is added as on its own separate block.}
 	\label{fig:safe_vertices}
 \end{figure}
 
@@ -115,10 +115,10 @@ Think of \(G_n\) as living on a disk on \(S\) and the homotopy class \(u_1v_1\) 
 Two traces $(T_1, T_2)$ are orientable if \(T_1\) and \(T_2\) go in opposite directions, and non-orientable if \(T_1\) and \(T_2\) go in the same direction.
 
 \begin{lemma}
-	Let $G$ be a graph. If \(G\) is embedded in an orientable surface, then every homotopy class is orientable.
+	Let $G$ be a graph. If \(G\) is embedded in an orientable surface $\Sigma$, then every homotopy class is orientable.
 \end{lemma}
 \begin{proof}
-	This proof is a sketch of the full argument. If a homotopy class is non-orientable, then on the handle the class sits on, the edges must cross. However, the graph is embedded on the surface, therefore the graph on the surface can be viewed as a topological orientable polygon. Therefore, the traces must be orientable.
+	Embed the graph on $\Sigma$. Then each homotopy class lives on some handle. Then this implies that going clockwise around the boundary of the planar component, the graph is nested as the homotopy class lives on a single handle. Therefore, all homotopy classes are orientable. 
 \end{proof}
 
 \begin{lemma}
