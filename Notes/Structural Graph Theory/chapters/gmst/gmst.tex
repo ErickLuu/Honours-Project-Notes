@@ -60,7 +60,7 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free, $k < t$.  
 \end{proposition}
 \begin{proof}
-	Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. Suppose $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that would mean that $G$ or $H$ has a $K_t$ minor. Therefore, every connected subgraph of $\rho$ must use a vertex in $C$. But $C$ has only $k$ vertices, and $k < t$. Since $\rho$ has disjoint subgraphs, every vertex in $C$ belongs in at most one subgraph in $\rho$. Therefore, $\rho$ cannot have $t$ subgraphs, which is a contradiction. Therefore, $G \oplus_k H$ is also $K_t$ minor free. 
+	Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. Suppose $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Therefore, every connected subgraph of $\rho$ must use a vertex in $C$. But $C$ has only $k$ vertices, and $k < t$. Since $\rho$ has disjoint subgraphs, every vertex in $C$ belongs in at most one subgraph in $\rho$. Therefore, $\rho$ cannot have $t$ subgraphs, which is a contradiction. Therefore, $G \oplus_k H$ is also $K_t$ minor free. 
 \end{proof}
 
 \begin{corollary}\label{corr:clique_sum_genus}
@@ -81,7 +81,7 @@ The \textit{adhesion set} is the set \(B_x \cap B_y\).
 The \textit{adhesion} of a tree is defined as \(\max(|B_x \cap B_y|)\) where \(xy\) is an edge in \(T\).
 
 Given \(G\) and a tree-decomposition \(\tree\), \(G\) is a clique-sum of the torsos \(G\langle B_x \rangle\) where the size of the cliques that we paste over is at most the adhesion of $\tree$. This holds for any arbitrary tree-decomposition.
-We will discuss decomposing graphs in the language of tree-decompositions, rather than clique-sums. This is because we can discuss the structure of the tree-decomposition.
+We prefer to use tree-decompositions and torsos over clique-sums. This is because the structure of tree-decompositions can be discussed more easily with respect to a set tree.
 
 \subsection{Vortices}\label{sssec:vortices}
 Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ is \textit{$G$-clean} if $D$ is an open subset of $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\). No vertex appears more than once in $\Lambda$. The ordering of $\Lambda$ is around the boundary of $D$. 
