@@ -33,7 +33,7 @@ The list below are the steps taken to prove \cref{thm:bounded_almost_embeddable}
 Preserved faces allow us to embed vortices with a bounded number of pages. 
 
 \begin{lemma}[Vortex on preserved faces]\label{lem:preserved_faces_pagenumber}
-	Suppose a graph \(G\) has partition \(G = G_0 \cup G_1\), where \(G_0\) is embedded on a surface $\Sigma$ and \(G_1\) is a vortex on a face $F$ of $G_0$ with width \(k\). Suppose $(<, \varphi)$ is a $p$-page book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(p + k + 1\) pages. Furthermore, the new ordering restricted to $G_0$ is $(<, \varphi)$.
+	Suppose a graph \(G\) has partition \(G = G_0 \cup G_1\), where \(G_0\) is embedded on a surface $\Sigma$ and \(G_1\) is a vortex on a face $F$ of $G_0$ with depth \(k\). Suppose $(<, \varphi)$ is a $p$-page book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(p + k + 1\) pages. Furthermore, the new ordering restricted to $G_0$ is $(<, \varphi)$.
 \end{lemma}
 
 \begin{proof}
@@ -52,11 +52,11 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 \begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width = 0.8 \textwidth]{figures/bookembedding_preserved_face.svg}
-	\caption[Book-embedding of a preserved face]{A book-embedding of a preserved face (vertices $v_1, \ldots , v_8$) with a vortex on the face. This graph can be embedded on $3$ pages as the path-width of the vortex attached is 3. }\label{fig:preserved_face}
+	\caption[Book-embedding of a preserved face]{A book-embedding of a preserved face (vertices $v_1, \ldots , v_8$) with a vortex on the face. This graph can be embedded on $3$ pages as the depth of the vortex attached is 3. }\label{fig:preserved_face}
 \end{figure}
 
 \begin{lemma}\label{lem:vortices_mono_paths}
-	Suppose \(G\) is a graph with components \(G_0\) and \(G_1\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G_1\) is a vortex of width $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\) and \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Suppose there are \(m\) monochromatic paths for every face on $G_0$. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
+	Suppose \(G\) is a graph with components \(G_0\) and \(G_1\). Suppose \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\) and let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\), and let \(C\) be the cycle bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G_1\) is a vortex of depth $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\) and \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Suppose there are \(m\) monochromatic paths for every face on $G_0$. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
 \end{lemma}
 
 \cref{lem:vortices_mono_paths} implies \cref{corr:vortices_paths_pn}.

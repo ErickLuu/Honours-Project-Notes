@@ -84,9 +84,9 @@ Given \(G\) and a tree-decomposition \(\tree\), \(G\) is a clique-sum of the tor
 We will discuss decomposing graphs in the language of tree-decompositions, rather than clique-sums. This is because we can discuss the structure of the tree-decomposition.
 
 \subsection{Vortices}\label{sssec:vortices}
-Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ is \textit{$G$-clean} if $D$ is a subset of some $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\). The ordering of $\Lambda$ is around the boundary of $D$. 
+Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ is \textit{$G$-clean} if $D$ is an open subset of $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\). No vertex appears more than once in $\Lambda$. The ordering of $\Lambda$ is around the boundary of $D$. 
 \par
-Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_b)$. A \textit{$D$-vortex} is a graph $H$ such that $V(G) \cap V(H) = \Lambda$ and there is a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_b\) such that \(x_i \in B_i\) for all \(i\).
+Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_k)$. A \textit{$D$-vortex} is a graph $H$ such that $V(G) \cap V(H) = \Lambda$ and there is a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_k\) such that \(x_i \in B_i\) for all \(i\). The \textit{depth} of the vortex is the path-width of $H$. 
 \par
 The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As there is an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, there is a decomposition of $G_n$ into two graphs $G_0$ and $G_1$ where $G_0$ can be embedded on a surface and $G_1$ is a vortex on $G_0$ with path-width 6. $G_0$ is the $n \times n - 1$ grid and $G_1$ is the $n \times 2$ grid in the back plus the apex vertices. 
 
@@ -103,7 +103,7 @@ Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)
 	\item \(p' \leq p\),
 	\item there is an embedding of \(G_0\) onto a surface \(\Sigma\) of genus \(\leq g\),
 	\item there exists pairwise disjoint \(G_0\)-clean discs \(D_1, D_2, \ldots, D_{p'}\) in \(\Sigma\),
-	\item \(G_i\) is a \(D_i\)-vortex of width at most \(k\).
+	\item \(G_i\) is a \(D_i\)-vortex of depth at most \(k\).
 \end{itemize}
 
 If we restrict $G_0$ to live only on orientable surfaces, then the graph $G$ is ${(g, p, k, a)}^+$-almost embeddable. If the apex set $A$ is empty, then the graph $G$ is $(g, p, k)$-almost embeddable. 
