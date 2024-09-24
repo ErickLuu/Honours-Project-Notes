@@ -1,5 +1,5 @@
 \section{Book-embeddings of Klein Bottle-graphs}
-This is an attempt at proving that all Klein bottle-graphs can be embedded on a book with a bounded number of pages. The technologies used are irreducible triangulations and edge contraction, with an induction argument to reduce all Klein Bottle graphs to a finite set of irreducible triangulations.
+This section provides some strategies in proving that all Klein bottle-graphs can be embedded on a book with a bounded number of pages. The technologies used are irreducible triangulations and edge contraction, with an induction argument to reduce all Klein Bottle graphs to a finite set of irreducible triangulations.
 
 \subsection{Irreducible triangulations}
 Recall a \textit{triangulation} of a surface $\Sigma$ is a simple graph embedded on $\Sigma$ such that every face is bounded by a triangle. A triangulation $G$ of $\Sigma$ is \textit{reducible} if there exists an edge $vw$ such that $G / vw$ is a triangulation of $\Sigma$. A triangulation $G$ of $\Sigma$ is \textit{irreducible} if there exists no such edge. The opposite operation to edge contraction is \textit{edge splitting}. 
@@ -26,7 +26,7 @@ An upper bound on the size of an irreducible triangulation is given by \textcite
     Every irreducible triangulation of a surface with Euler genus $g \geq 1$ has at most $13g - 4$ vertices. 
 \end{theorem}
 
-Irreducible triangulations are useful in proving properties on graphs embedded on a surface. From \cref{thm:triangulation_subgraph} every graph $G$ embedded on a surface $\Sigma$ is a subgraph of a triangulation $G'$ embedded on $\Sigma$. Furthermore, every triangulation of a surface $\Sigma$ can be edge contracted to one of finitely many irreducible triangulations. Note that the choice of edge contraction matters in determining an irreducible triangulation. If a list of irreducible triangulations is known, then it is possible to use an argument by induction under edge splitting to prove that every embedding of a graph has this property. We will use this strategy to attempt to show that every graph embedded on a Klein bottle has a book-embedding with a bounded number of pages. 
+Irreducible triangulations are useful in proving properties on graphs embedded on a surface. From \cref{thm:triangulation_subgraph} every graph $G$ embedded on a surface $\Sigma$ is a subgraph of a triangulation $G'$ embedded on $\Sigma$. Furthermore, every triangulation of a surface $\Sigma$ can be edge contracted to one of finitely many irreducible triangulations. Note that the choice of edge contraction matters in determining an irreducible triangulation. If a list of irreducible triangulations is known, an argument by induction under edge splitting can be used to prove that every embedding of a graph has this property. This is a potential strategy to show that every graph embedded on a Klein bottle has a book-embedding with a bounded number of pages. 
 
 In the case of the Klein bottle, the full list of irreducible triangulations of the Klein bottle is known. 
 \begin{theorem}[\textcite{sulankeNoteIrreducibleTriangulations2006}]
