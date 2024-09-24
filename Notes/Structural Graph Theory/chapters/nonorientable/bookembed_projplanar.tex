@@ -45,7 +45,7 @@ To prove this theorem, we prove an auxiliary lemma.
 \end{lemma}
 
 \begin{proof}
-    Let $C$ be the shortest non-contractible cycle of $G$. This exists as every face of $G$ is a disk, so if there are no non-contractible cycles in $G$, then $G$ is planar. Therefore, $G$ is not projective-planar. Let $xy$ be an edge in $C$. Let $P = C - xy$ be a path starting at $x$ and ending at $y$. 
+     Firstly, we want to show the existence of a non-contractible cycle in $G$. If every cycle of $G$ is contractible, then $G$ is planar. Then $G$ is not projective-planar. Therefore, $G$ has a non-contractible cycle. Now let $C$ be the shortest non-contractible cycle. Let $xy$ be an edge in $C$. Let $P = C - xy$ be a path starting at $x$ and ending at $y$. 
     Number the vertices of $P = v_1, \ldots, v_m$. 
 
     Locally define the left hand side and right hand side of $P$. Take $r_i$ to be the vertex on the right hand of $P$ such that $v_i v_{i + 1} r_i$ bounds a face in $G$. Let $R_i$ be the right hand path from $r_i$ to $r_{i + 1}$ on the link of $v_i$, disjoint from $P$. Then let 

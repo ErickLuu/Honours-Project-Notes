@@ -41,7 +41,7 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	If an \(n\)-vertex graph \(G\) can be embedded on $k$ pages, then \(G\) has at most \(n + k(n-3)\) edges.
 \end{proposition}
 \begin{proof}
-	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), the spine edges can appear on any page. Furthermore, there are at most \(n-3\) non-spine edges on each page. The maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the spine edges, with \(n\) edges on the spine. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
+	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), the spine edges can appear on any page. Furthermore, at most \(n-3\) non-spine edges appear on each page. The maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but we remove the spine edges, with \(n\) edges on the spine. Therefore, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
 \end{proof}
 \begin{proposition}\label{thm:Pagenumber_Complete_Graph}
 	The complete graph $K_n$ has $\pn(K_n) = \lceil \frac{n}{2} \rceil$ when $n \geq 4$.
@@ -69,7 +69,7 @@ A simple lemma connecting $k$-degenerate graphs and chromatic number helps prove
 	Every $k$-degenerate graph is $k + 1$-colourable.
 \end{lemma}
 \begin{proof}
-	Let $G$ be a $k$-degenerate graph. If $G$ has a single vertex, then $G$ can be coloured in $k + 1$ colours. Now suppose this holds for all $k$-degenerate graphs with $|V(G)|- 1 \geq 1$ vertices. Let $v$ be a vertex in $G$ with degree $k$. Then $G - v$ can be coloured inductively with $k + 1$ colours as $G - v$ is also $k$-degenerate. Now look at the neighbours of $v$ and colour $v$ with a colour that is not used by one of its neighbours. This can be done as $v$ has $n$ neighbours but there are $n + 1$ colours that can be used. Thus shown. 
+	Let $G$ be a $k$-degenerate graph. If $G$ has a single vertex, then $G$ can be coloured in $k + 1$ colours. Now suppose this holds for all $k$-degenerate graphs with $|V(G)|- 1 \geq 1$ vertices. Let $v$ be a vertex in $G$ with degree $k$. Then $G - v$ can be coloured inductively with $k + 1$ colours as $G - v$ is also $k$-degenerate. Now look at the neighbours of $v$ and colour $v$ with a colour that is not used by one of its neighbours. This can be done as $v$ has $n$ neighbours but $n + 1$ colours can be used. 
 \end{proof}
 Now apply this lemma to prove \cref{thm:Colouring_Bound}. 
 \begin{proof}

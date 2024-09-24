@@ -34,7 +34,7 @@ Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(
 \end{theorem}
 Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B = N_G(y) \cup \{y\} \). Then \cref{thm:Menger} implies that:
 \begin{theorem}[Menger's theorem, vertex-connectivity version]\label{thm:Menger_Vertex}
-	A graph \(G\) is \(k\)-connected if and only if for any two distinct vertices, there are at least \(k\) internally disjoint paths between the two vertices.
+	A graph \(G\) is \(k\)-connected if and only if for any two distinct vertices $u,v \in V(G)$, there are at least \(k\) internally disjoint paths between $u$ and $v$.
 \end{theorem}
 As a corollary, all Hamiltonian graphs are biconnected. For any two distinct vertices in a Hamiltonian graph, there are two internally disjoint paths by traversing the Hamiltonian cycle.
 \subsection{Block-cut diagram}
