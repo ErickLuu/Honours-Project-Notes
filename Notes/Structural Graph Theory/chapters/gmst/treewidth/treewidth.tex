@@ -105,11 +105,11 @@ This implies that every $K_4$-minor free graph is not $3$-connected, therefore i
 
 
 \begin{proposition}\label{thm:treewidth_clique-minor-free}
-	For all graphs $G$, if \(\tw(G) \leq k\), then \(G\) is \(K_{k+2}\)-minor-free.
+	The class of graphs $\mathcal{F}$, consisting of graphs with treewidth less than $t$, is $K_{t+2}$-minor-free. 
 \end{proposition}
 \begin{proof}
-	We shall prove the contrapositive: If \(K_t\) is a minor of \(G\), then \(\tw(G) \geq t-1\).
-	If \(K_t\) is a minor of \(G\), then from \cref{thm:tw_minor_closure} that \(\tw(K_t) \leq \tw(G)\). As \(\tw(K_t) = t-1\), then \(\tw(G) \geq t - 1\).
+	Prove the contrapositive. Let $G$ be a graph with a $K_t$ minor. Then \(\tw(G) \geq t-1\).
+	If \(K_t\) is a minor of \(G\), then from \cref{thm:tw_minor_closure} that \(\tw(K_t) \leq \tw(G)\). As \(\tw(K_t) = t-1\), then \(\tw(G) \geq t - 1\). Therefore, if $\tw(G) \leq t$, then $K_{t+1}$ is the largest complete minor in $G$. Therefore, $G$ is $K_{t + 2}$-minor-free. 
 \end{proof}
 
 Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. Treewidth was then rediscovered by \textcite{halinSfunctionsGraphs1976}. Neither of the papers above discuss treewidth with an explicit construction.
