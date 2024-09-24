@@ -7,9 +7,9 @@ A family of graphs $\mathcal{F}$ is \textit{proper} if $\mathcal{F}$ is not the 
 \end{lemma}
 
 \begin{proof}
-    From \textcite{robertsonGraphMinorsXX2004} Graph Minor Theorem, every proper minor-closed graph family has a finite forbidden minor characterisation. Let $\mathcal{H}$ be the finite forbidden minor characterisation of $\mathcal{F}$. Let $H \in \mathcal{H}$ be the forbidden minor with the largest number of vertices, say $|V(H)| = t$. Then $\mathcal{F}$ is also $K_t$-minor free, as if $K_t$ appears as a minor in $G$ in $\mathcal{F}$, then the subgraph $H$ also appears in $G$. As $H$ is the largest forbidden minor, all other graphs in $\mathcal{H}$ are also minors of $K_t$. Therefore, every graph $G$ in $\mathcal{F}$ is $K_t$-minor free.
+    As $\mathcal{F}$ is proper, there exists a graph $H$ which is not in $\mathcal{F}$. But this means that $H$ is not a minor of any graph in $\mathcal{F}$. Then $K_t$ is not a minor of $\mathcal{F}$, where $t = |V(H)|$. Then $\mathcal{F}$ is $K_t$ minor free. 
 \end{proof}
-
+Note that $H$ may not be the smallest forbidden graph in $\mathcal{F}$, but the existence of such a $H$ is sufficient. 
 \begin{lemma}\label{lem:Minor-Closed_Pagenumber}
     If \cref{conj:bded_had_pn} is true, then every proper minor-closed graph family can be embedded on a bounded number of pages.
 \end{lemma}
@@ -19,4 +19,4 @@ A family of graphs $\mathcal{F}$ is \textit{proper} if $\mathcal{F}$ is not the 
 
 This does not say that $\pn(H) \leq \pn(G)$ when $H$ is a minor of $G$. Subdivide $K_n$ $n$ times. From \textcite{atneosenEmbeddabilityCompactaNbooks}, the subdivision of $K_n$ can be embedded on three pages. But $K_n$ is a minor of its subdivision, and from \cref{thm:Pagenumber_Complete_Graph}, $\pn(K_n) = \lceil \frac{n}{2} \rceil$. Therefore, pagenumber is not a minor-closed property. 
 
-This will imply that linklessly embeddable graphs or knotlessly embeddable graphs have bounded pagenumber, which is difficult to prove directly. 
+Proving \cref{lem:Minor-Closed_Pagenumber} will imply that linklessly embeddable graphs or knotlessly embeddable graphs have bounded pagenumber, which is difficult to prove directly. 
