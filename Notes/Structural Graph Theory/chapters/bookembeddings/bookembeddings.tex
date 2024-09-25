@@ -85,6 +85,12 @@ Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$
 	Let $G_n$ be the complete graph $K_n$ with every edge subdivided once. Then $G_n$ is bipartite, so is $2$-colourable. However, from \textcite{eppsteinSeparatingThicknessGeometric2002}, for every $t$ there exists an $n$ such that $G_n$ cannot be embedded in $t-1$ pages. This proof comes from \textit{Ramsey theory}, and explicit values of $n$ are difficult to find. 
 \end{proof}
 
+However, the class of graphs with pagenumber $\leq p$ is not a minor-closed class.
+This does not say that $\pn(H) \leq \pn(G)$ when $H$ is a minor of $G$. Subdivide $K_n$ $n$ times. From \textcite{atneosenEmbeddabilityCompactaNbooks}, the subdivision of $K_n$ can be embedded on three pages. But $K_n$ is a minor of its subdivision, and from \cref{thm:Pagenumber_Complete_Graph}, $\pn(K_n) = \lceil \frac{n}{2} \rceil$. Therefore, pagenumber is not a minor-closed property. 
+
+Proving \cref{lem:Minor-Closed_Pagenumber} will imply that linklessly embeddable graphs or knotlessly embeddable graphs have bounded pagenumber, which is difficult to prove directly. 
+
+
 An \textit{expander graph} is a sparse, highly connected graph. Expander graphs share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. We say a graph $G$ is a bipartite \varepsilon-expander if there exists a bipartition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, $|N(S)| \geq (1 + \varepsilon) |S|$. 
 \textcite{dujmovicLayoutsExpanderGraphs2016} showed that every bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
 
