@@ -2,15 +2,12 @@
 \section{Surfaces}
 In this section, we discuss surfaces. We also introduce some machinery to deal with vortices on surfaces. Surfaces are an ingredient to the Graph Minor Structure Theorem and having a way to bound the number of pages of graphs embedded on a surface is crucial for applying the Graph Minor Structure Theorem to this problem. This section mainly discusses orientable surfaces but some proofs apply to nonorientable surfaces. 
 \subsection{Non-planar decomposition}
-Suppose we have a graph \(G\) embedded on a surface. We apply Heath and Istrail's planar-nonplanar decomposition~\cite{heathPagenumberGenusGraphs1992} to break up the edges of \(G\) into \(E_p\) and \(E_n\), edges that are planar and nonplanar. If \(F\) is bounded by planar edges, then we can add a vortex to \(F\) with a bounded number of pages. If \(F\) is bounded by some non-planar edges, then we need additional lemmas.
-We wish to show this statement:
+Suppose a graph \(G\) is embedded on a surface $\Sigma$. The edges of $G$ can be partitioned into planar and nonplanar edges, from \textcite{heathPagenumberGenusGraphs1992} If \(F\) is bounded by planar edges, a vortex can be added to \(F\) with a bounded number of pages. If the boundary of $F$ have non-planar edges, then additional machinery is necessary.
 \begin{theorem}
 	Every graph \(G\) of genus \(g\) has a \(11g + 24\)-page book embedding where all faces of $G$ have at most \( 12(g + 1)\) monochromatic paths.
 \end{theorem}
 
-Two loops $\gamma_1, \gamma_2$ are homotopy equivalent if there exists a continuous family of loops which takes $\gamma_1$ to $\gamma_2$. 
-
-Consider \(E_n\), the edges not in the planar decomposition. Consider \(F_n\), the faces \(F\) such that there exists an edge \(e\) in \(E_n\) which bounds \(F\). Then we claim that the number of edges that bound \(F\) is bounded. We first need some topological definitions. A loop $\gamma$ is \textit{null-homotopic} if $\gamma$ is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\). We denote a surface without some set of points $A$ as $\Sigma - A$. 
+Recall a loop $\gamma$ is \textit{null-homotopic} if $\gamma$ is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\).
 
 \begin{lemma}\label{lem:orientable_facial_walks}
 	Let \(\Sigma \) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be an arbitrary set of nontrivial, non-intersecting loops that start and end at \(x_0\) on \(\Sigma \). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma - L\), such that each \(F_i\) is homeomorphic to a disk. Let $G$ be the graph with vertex set $\{x_0 \}$ and vertex set $L$. Then the length of the facial walk for all \(F\) is at most \(2g\).
