@@ -1,18 +1,18 @@
 \section{Almost-Embeddable Graphs}
-Recall the definition of $(g, p, k, a)$-almost-embeddable from \cref{ssec:Robertson_Seymour_Graph_Structure}. We say a graph $G$ is $(g, p, k)$-almost-embeddable if $G$ is $(g, p, k, a)$-almost-embeddable and $a = 0$, so $G$ has no apex set.
+Recall the definition of $(g, p, k, a)$-almost-embeddable from \cref{ssec:Robertson_Seymour_Graph_Structure}. A graph $G$ is $(g, p, k)$-almost-embeddable if $G$ is $(g, p, k, a)$-almost-embeddable and $a = 0$, so $G$ has no apex set.
 
 We wish to find a book-embedding of almost-embeddable graph on a 
 The most problematic section is dealing with vortices on surfaces.
-We aim to work with vortices by considering how an ordering affects the face that the vortex is sitting on, and seeing what happens when the vortex is added onto the face.
+To work with vortices, consider how an ordering affects the face that the vortex is sitting on. Then see what happens when the vortex is added onto the face.
 What we plan to show is this:
 \begin{theorem}\label{thm:bounded_almost_embeddable}
 	Suppose $G$ is $(g, p, k)$-almost embeddable on an orientable surface. Then $G$ can be embedded on \(f(g, p, k)\) pages for some function $f$.
 \end{theorem}
-The way we are planning to deal with vortices is to deal with the faces. We have the following lemma \cref{lem:vortices_mono_paths}. 
+The way to deal with vortices is to deal with the faces. We have the following lemma \cref{lem:vortices_mono_paths}. 
 
 Let \(G\) be a graph. A vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \cdots < v_k\).
-A circular ordering \(<\) preserves a face \(F\) if we can start at any point in the circular ordering and have the condition above.
-Now consider when \(G\) does not have a preserved face, but we can partition the edges into sections where each section is preserved. Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is in the preimage of some colour in $\varphi$.
+A circular ordering \(<\) preserves a face \(F\) if the induced linear ordering has the condition above. Preservation of faces 
+Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is in the preimage of some colour in $\varphi$.
 
 \begin{figure}[h!]
 	\centering
@@ -23,7 +23,7 @@ Now consider when \(G\) does not have a preserved face, but we can partition the
 
 The list below are the steps taken to prove \cref{thm:bounded_almost_embeddable}.
 \begin{enumerate}
-	\item Let $G$ be a \(4\)-connected planar graph. We preserve all faces and all faces are monochromatic.
+	\item Let $G$ be a \(4\)-connected planar graph. There is a book-embedding where every book is monochromatic. 
 	\item Suppose \(G\) is a connected planar graph. Faces are not preserved, but a fixed number of vertices are moved around on every face. Additional pages are necessary to embed $G$, but the number of monochromatic paths is bounded. 
 	\item Suppose \(G\) is $2$-cell embedded on a surface. Use Heath and Istrail's \cite{heathPagenumberGenusGraphs1992} planar-nonplanar decomposition to find a spanning planar subgraph of $G$ and nonplanar edges. Then apply the previous steps to the spanning planar subgraph.
 \end{enumerate}

@@ -7,7 +7,7 @@ The \textit{treewidth} of a graph \(G\) measures how similar $G$ is to a forest.
 		\item For all edges \(vw \in E(G)\), there exists a bag \(B_x\) such that both \(v\) and \(w\) are in \(B_x\).
 	\end{itemize}
 \end{definition}
-We refer to the vertices of the tree \(T\) as \textit{nodes}.
+The vertices of the tree \(T\) are \textit{nodes}, to distinguish them from the vertices of $G$. 
 The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x \in V(T) \rbrace\).
 The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree decompositions of the graph \(G\). 
 
@@ -50,7 +50,7 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 \begin{proof}
 	$\Leftarrow$ Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\). For all non-root vertices $x$, let \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\). The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so the edge $vw$ will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(B_x\) and the children of \(B_x\), which is a connected subtree.
 	\par
-	If \(G\) is a forest, then we perform this operation on every connected component of \(G\) and connect the roots to form a new tree. Then this tree is a tree-decomposition of $G$. This forms a tree-decomposition of width at most 1. An example is in \cref{fig:tree-treedecomp}.
+	If \(G\) is a forest, then perform this operation on every connected component of \(G\) and connect the root vertices to form a new tree. Then this tree is a tree-decomposition of $G$. This forms a tree-decomposition of width at most 1. An example is in \cref{fig:tree-treedecomp}.
 	\par
 	$\Rightarrow$ Suppose $G$ is not a forest. Then \(G\) has a cycle \(C\), so $G$ has a $K_3$-minor. By \cref{cor:complete_tw}, $\tw(K_3) = 2$. By \cref{thm:tw_minor_closure}, $2 \leq \tw(G)$. Therefore, $G$ has treewidth at least two. 
 	\begin{figure}[ht]
@@ -65,7 +65,7 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 	The treewidth of an outerplanar graph is at most 2.
 \end{proposition}
 \begin{proof}
-	Let \(G\) be an outerplanar graph, and let \(G'\) be a \textit{weak triangulation} of \(G\), meaning that every face except for the outerface has three vertices. Since \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). We look at the \textit{weak dual} of \(G'\). This is a tree \(T\), where every node \(v_f\) in \(T\) corresponds to an internal face \(f\) in \(G'\). Then let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\). Every vertex is on the boundary of some internal face, so every vertex is in some bag. Every bag has at most 3 vertices. Furthermore, every edge is on the boundary of some internal face, so every edge is in some bag. Finally, let $v$ be a vertex. Then the bags that contain $v$ are connected in $T$. This is because the sequence of internal faces which are adjacent to $v$ are connected in $T$. Thus, \(\tw(G) \leq 2\). Refer to \cref{fig:outerplanar_treedecomp} for an example of a tree-decomposition. The green vertices and black edges are an outerplanar graph. The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.
+	Let \(G\) be an outerplanar graph, and let \(G'\) be a \textit{weak triangulation} of \(G\), meaning that every face except for the outerface has three vertices. Since \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). Then look at the \textit{weak dual} of \(G'\). This is a tree \(T\), where every node \(v_f\) in \(T\) corresponds to an internal face \(f\) in \(G'\). Then let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\). Every vertex is on the boundary of some internal face, so every vertex is in some bag. Every bag has at most 3 vertices. Furthermore, every edge is on the boundary of some internal face, so every edge is in some bag. Finally, let $v$ be a vertex. Then the bags that contain $v$ are connected in $T$. This is because the sequence of internal faces which are adjacent to $v$ are connected in $T$. Thus, \(\tw(G) \leq 2\). Refer to \cref{fig:outerplanar_treedecomp} for an example of a tree-decomposition. The green vertices and black edges are an outerplanar graph. The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.
 	\begin{figure}[h!]
 		\centering
 		\includesvg[width = 0.7\textwidth]{figures/outerplanar_tree_decomposition.svg}
@@ -79,7 +79,7 @@ In fact, graphs of treewidth at most two have a simple characterisation.
 	A graph $G$ has treewidth at most two if and only if $G$ is $K_4$-minor free. 
 \end{proposition}
 
-To prove \cref{prop:k4-minor}, we want to show the following fact:
+To prove \cref{prop:k4-minor}, the following lemma is used:
 \begin{lemma}
 	Suppose a graph $G$ is $3$-connected. Then $G$ has a $K_4$ minor. 
 \end{lemma}
@@ -92,7 +92,7 @@ This implies that every $K_4$-minor free graph is not $3$-connected, therefore i
 \begin{proof}
 	$\Rightarrow$ Suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
 
-	$\Leftarrow$ Suppose $G$ is $K_4$ minor free. We will prove this using induction on the number of vertices. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
+	$\Leftarrow$ This is proven using induction on the number of vertices. Suppose $G$ is $K_4$ minor free. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
 \end{proof}
 
 %Define a \(k\)-tree inductively. The complete graph \(K_{k+1}\) is a \(k\)-tree. If \(G\) is a \(k\)-tree, then adding any new vertex to \(G\) that is adjacent to a $k$-clique in \(G\) results in another \(k\)-tree.

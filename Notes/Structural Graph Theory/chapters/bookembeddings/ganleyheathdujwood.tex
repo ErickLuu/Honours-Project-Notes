@@ -4,7 +4,7 @@
 \begin{theorem}[\textcite{ganleyPagenumberTrees2001}]\label{thm:bded_treewidth_bded_pagenumber}
 	Every graph \(G\) with \(\tw(G) \leq k\) can be embedded on $k + 1$ pages.
 \end{theorem}
-\textcite{ganleyPagenumberTrees2001} considered the case where \(G\) is a \(k\)-tree. We will bypass using \(k\)-trees and consider a tree-decomposition of \(G\) directly.
+\textcite{ganleyPagenumberTrees2001} considered the case where \(G\) is a \(k\)-tree. $k$-trees are not used in this proof, and a tree-decomposition of \(G\) is used instead. 
 
 Let $G$ be a graph. Recall a clique is a subgraph that is a complete graph. The clique-number $\omega(G)$ is the largest clique in $G$. A \textit{perfect} graph $G$ is one where $\chi(G) = \omega(G)$. An \textit{intersection} graph $G$ of a tree $T$ with a set of subtrees $\mathcal{T}$ has vertex set $V(G) = \mathcal{T}$ and edge set $T_u T_v \in E(G)$ if and only if $T_u$ and $T_v$ have a vertex in common. Intersection graphs are perfect graphs. 
 
