@@ -56,10 +56,13 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 \end{proof}
 
 \begin{proposition}
-	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free, $k < t$.  
+	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free. 
 \end{proposition}
 \begin{proof}
-	Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. Suppose $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Therefore, every connected subgraph of $\rho$ uses a vertex in $C$. But $C$ has only $k$ vertices, and $k < t$. Since $\rho$ has disjoint subgraphs, every vertex in $C$ belongs in at most one subgraph in $\rho$. Therefore, $\rho$ cannot have $t$ subgraphs, which is a contradiction. Therefore, $G \oplus_k H$ is also $K_t$ minor free. 
+	Firstly, $k < t$. If $G$ has a clique of size $t$ then $G$ has a $K_t$ minor. Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. As $G$ and $H$ are $K_t$-minor free, then $|C| \leq k - 1$. 
+
+	Suppose, for the sake of contradiction, $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Furthermore, $\rho$ cannot have one subgraph in $G - C$ and another in $H - C$, as $C$ is a separator of $G - C$ and $H - C$.
+	Therefore, every connected subgraph of $\rho$ uses a vertex in $C$ or is completely contained in $G - C$, without loss of generalisation. But the set of connected subgraphs which intersect $C$ are pairwise adjacent as $C$ is a clique. Therefore, restricting these connected subgraphs to only $C$ is also a valid model. But this is a model of $K_t$ in only $G$, which contradicts $G$ being $K_t$ minor free. 
 \end{proof}
 
 \begin{corollary}\label{corr:clique_sum_genus}
