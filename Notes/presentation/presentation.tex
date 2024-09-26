@@ -159,14 +159,14 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Main Conjecture}
-		\begin{conjecture}
-		Every $K_t$-minor free graph is embeddable on $f(t)$ pages.
-	\end{conjecture}
+  \frametitle{Main Conjecture}
+  \begin{conjecture}
+  Every $K_t$-minor free graph is embeddable on $f(t)$ pages.
+  \end{conjecture}
 	
-	\begin{corollary}
-		Every minor-closed family can be embedded on bounded number of pages.
-	\end{corollary}
+  \begin{corollary}
+    Every minor-closed family can be embedded on bounded number of pages.
+  \end{corollary}
 	\note{Minor-closed family is family closed under taking minors
 		Examples of minor-closed families: planar graphs, Graphs embedded on surfaces etc}
 \end{frame}
@@ -174,16 +174,45 @@
 \begin{frame}
     \frametitle{Graph Minor Structure Theorem}
     \begin{itemize}
-      \item $K_t$ minors can be built up from 4 ingredients
+      \item $K_t$ minor-free graphs can be built from 4 ingredients. \begin{itemize}
+        \item Graphs on surfaces
+        \item Vortices on surfaces
+        \item Apex sets
+        \item Clique-Sums
+      \end{itemize}
     \end{itemize}
+    \note{By Robertson and Seymour.}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Ingredients}
+  \frametitle{Solved ingredients}
+  Adding these ingredients bounds page-number of a graph.
+  \begin{itemize}
+    \item Apex sets
+    \item Clique-Sums
+    \item Graphs on orientable surfaces 
+    \item Vortices on orientable surfaces
+    \item Graphs + vortices on projective plane
+  \end{itemize}
+  \note{nonorientable graphs cannot be moved onto an orientable surface because the orientable genus may be arbitrarily large with fixed nonorientable genus.}
 \end{frame}
 
 \begin{frame}
   \frametitle{Open Problems}
+  \begin{conjecture}
+    Every graph embedded on a Klein Bottle can be embedded with a bounded number of pages
+  \end{conjecture}
+  \begin{conjecture}
+    Every graph embedded on a nonorientable surface can be embedded with a bounded number of pages
+  \end{conjecture}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Final conjecture}
+  \begin{conjecture}
+      Every graph embedded on a surface of genus $g$ can be embedded on $k(g)$ pages with every face having a bounded number of monochromatic paths.
+  \end{conjecture}
+  Stronger than previous conjecture, but implies main conjecture. 
 \end{frame}
 
 
