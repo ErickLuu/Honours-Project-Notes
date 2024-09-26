@@ -56,8 +56,6 @@ For a breadth-first search, we maintain the property that for all \(i\), \(T[v_0
 	Let \(J\) be a clique in \(G\). Then $J$ is either only in $G'$, only in $G\langle B_n \rangle$, or shares vertices with $C$ This is because $V(G') \cap V(G\langle B_n \rangle) = C$, so $C$ is a separator between $G'$ and $G \langle B_n \rangle$. If $J$ is only in $G'$ or only in $G\langle B_n \rangle$, then the last vertex of $J$ is a rainbow vertex by hypothesis. If $J$ shares vertices with $C$, then the last vertex of $J$ with $\leq$ is in $G\langle B_n \rangle$ by construction. However, this vertex is a rainbow vertex, as the last vertex in $J$ with respect to $\leq$ is the last vertex in $G\langle B_n \rangle$ with respect to $\leq_n$. 
 \end{proof}
 
-We have some bounds in terms of pagenumber on some of these constants. However, these bounds are not tight, in the case of planar graphs. 
-
 \begin{lemma}
 	Suppose a graph $G$ can be embedded on $s$ pages where $s$ is at least $2$. Then \(G\) does not contain any cliques on more than \(2s+1\) vertices.
 \end{lemma}
