@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="surfaces.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.2075337"
+     inkscape:cx="530.90923"
+     inkscape:cy="354.01499"
+     inkscape:window-width="3440"
+     inkscape:window-height="1417"
+     inkscape:window-x="3832"
+     inkscape:window-y="112"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+    <marker
+       style="overflow:visible"
+       id="Triangle-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-5" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:#ffffff;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
+       id="path1"
+       cx="93.846252"
+       cy="63.882565"
+       rx="68.676758"
+       ry="22.892252" />
+    <path
+       style="fill:#ffffff;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
+       d="m 62.084746,66.639225 c 0.479417,0.159805 0.958836,0.319611 5.393545,-1.318438 4.434709,-1.638048 12.824371,-5.073815 21.334143,-5.393399 8.509771,-0.319585 17.139136,2.476969 25.768676,5.27358"
+       id="path2"
+       inkscape:path-effect="#path-effect2"
+       inkscape:original-d="m 62.084746,66.639225 c 0.479417,0.159806 0.958836,0.319611 1.438256,0.479417 8.389998,-3.435903 16.779661,-6.871668 25.169492,-10.307505 8.629711,2.796667 17.259076,5.59322 25.888616,8.389831"
+       transform="rotate(-178.22198,88.332186,64.591633)" />
+    <path
+       style="fill:#ffffff;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
+       d="m 72.514808,63.465368 c 5.232757,2.975628 10.465511,5.951256 16.099035,5.810765 5.633525,-0.140491 11.667577,-3.396968 17.701747,-6.653511"
+       id="path3"
+       inkscape:path-effect="#path-effect3"
+       inkscape:original-d="m 72.514808,63.465368 c 5.232757,2.975628 10.465512,5.951254 15.698266,8.926883 6.034294,-3.256608 12.068346,-6.513084 18.102516,-9.769629"
+       transform="rotate(-178.22198,88.332186,64.591633)" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:#ffffff;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
+       x="67.837776"
+       y="32.840195"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="stroke-width:0.374"
+         x="67.837776"
+         y="32.840195">Torus. Genus 2</tspan></text>
+    <circle
+       style="fill:#ffffff;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481;paint-order:normal;marker-end:url(#Triangle)"
+       id="path5"
+       cx="80.682083"
+       cy="135.26114"
+       r="32.374535" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481;marker-end:url(#Triangle-2);paint-order:normal"
+       id="path5-5"
+       cx="-84.65889"
+       cy="-132.79903"
+       transform="rotate(-178.29395)"
+       rx="32.374535"
+       ry="32.374638" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:#ffffff;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481;paint-order:normal"
+       x="56.571426"
+       y="95.404358"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="stroke-width:0.374"
+         x="56.571426"
+         y="95.404358">Projective Plane, genus 1</tspan></text>
+  </g>
+</svg>
