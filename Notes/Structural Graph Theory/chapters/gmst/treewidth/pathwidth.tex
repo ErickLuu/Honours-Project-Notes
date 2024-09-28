@@ -20,14 +20,14 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 	A graph $G$ has pathwidth at most 1 if and only if every connected component of $G$ is a caterpillar.
 \end{proposition}
 \begin{proof}
-	$\Leftarrow$ Suppose \(G\) is a caterpillar.
+	$\impliedby$ Suppose \(G\) is a caterpillar.
 	Denote \(P =\left( v_1, v_2, \ldots, v_n\right)\) as the central path. The leaves of vertex \(p_i\) are denoted as \(v_{i, 1}, v_{i, 2} \dots, v_{i, k}\). Define the bags as
 	\begin{equation*}
 		(v_{1, 1}, v_1), (v_{1, 2}, v_1) ,\ldots ,(v_{1, j}, v_1),  (v_1, v_2), (v_{2, 1}, v_2), (v_{2,2}, v_2,),\ldots ,(v_{n-1}, v_n), (v_{n,1}, v_n), (v_{n,2}, v_n) .
 	\end{equation*}
 	Each leaf appears once and each vertex on the central path is on a subpath of the path. Every edge is in one bag. Therefore, the pathwidth of \(G\) is 1. If every component of $G$ is a caterpillar, then repeat for every component.
 
-	$\Rightarrow$ Suppose \(G\) has pathwidth 1. Then $G$ is a tree, because $G$ having pathwidth 1 implies $G$ has treewidth 1. Then for each connected component of \(G\), choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path goes through every bag. Every vertex not on this path is adjacent to a vertex on this path. Therefore $G$ is a caterpillar. 
+	$\implies$ Suppose \(G\) has pathwidth 1. Then $G$ is a tree, because $G$ having pathwidth 1 implies $G$ has treewidth 1. Then for each connected component of \(G\), choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path goes through every bag. Every vertex not on this path is adjacent to a vertex on this path. Therefore $G$ is a caterpillar. 
 	
 	An example of a caterpillar is in \cref{fig:caterpillar}.
 \end{proof}

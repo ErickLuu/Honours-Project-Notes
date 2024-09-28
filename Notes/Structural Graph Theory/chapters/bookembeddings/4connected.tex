@@ -39,9 +39,9 @@ A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$
 	Every graph $G$ with vertices $u, v, w$ has a rooted $K_3$ on $u, v, w$ if and only if there exists no cut-set $S$ where $|S| \leq 1$ and $H - S$ places the set $\{u,v,w\} \setminus S$ each in separate components. 
 \end{lemma}
 \begin{proof}
-	$\Rightarrow$ Let $U,V,W$ be the three subgraphs that contain $u, v, w$ respectively, and contracting $U, V, W$ to a single vertex creates a $K_3$ subgraph. Let $x \in V(G)$ be a vertex. Then without loss of generality, $x$ is not in $U$ or $V$. Therefore, $G - x$ has $U$ and $V$ in the same component. No cut-set $S$ which places $\{u,v,w\} \setminus S$ in separate components exists. 
+	$\implies$ Let $U,V,W$ be the three subgraphs that contain $u, v, w$ respectively, and contracting $U, V, W$ to a single vertex creates a $K_3$ subgraph. Let $x \in V(G)$ be a vertex. Then without loss of generality, $x$ is not in $U$ or $V$. Therefore, $G - x$ has $U$ and $V$ in the same component. No cut-set $S$ which places $\{u,v,w\} \setminus S$ in separate components exists. 
 
-	$\Leftarrow$ This is proven by induction. Suppose $|V(G)| = 3$, but no $K_3$ minor exists. Without loss of generality, $V(G)$ is a subgraph of a path $uvw$. Then setting $S = v$, $u$ and $w$ are disconnected. No such $S$ exists when $G = K_3$. 
+	$\impliedby$ This is proven by induction. Suppose $|V(G)| = 3$, but no $K_3$ minor exists. Without loss of generality, $V(G)$ is a subgraph of a path $uvw$. Then setting $S = v$, $u$ and $w$ are disconnected. No such $S$ exists when $G = K_3$. 
 
 	If $G$ is connected but not $2$-connected, take $x$ to be a cut-vertex. Since $G - x$ does not place $u,v,w$ in separate components, then without loss of generality, $u,v$ are in the same component. Let $y$ be a vertex that is a neighbour of $x$ in a component that does not contain $u,v$. Let $G'$ be the graph obtained by contracting $xy$ to a vertex $z$. If $y = w$, then $z = w$. In $G'$, $u,v$ are also in the same component of $G' - z$. Furthermore, any other cut-vertex in $G'$ is also a cut-vertex in $G$. $|V(G')| < |V(G)|$, so induction can be applied on $G'$. 
 

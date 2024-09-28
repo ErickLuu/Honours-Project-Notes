@@ -90,9 +90,9 @@ To prove \cref{prop:k4-minor}, the following lemma is used:
 This implies that every $K_4$-minor free graph is not $3$-connected, therefore it contains a vertex of degree $\leq 2$. The next proof is a proof of \cref{prop:k4-minor}.
 
 \begin{proof}
-	$\Rightarrow$ Suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
+	$\implies$ Suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
 
-	$\Leftarrow$ This is proven using induction on the number of vertices. Suppose $G$ is $K_4$ minor free. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
+	$\impliedby$ This is proven using induction on the number of vertices. Suppose $G$ is $K_4$ minor free. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
 \end{proof}
 
 %Define a \(k\)-tree inductively. The complete graph \(K_{k+1}\) is a \(k\)-tree. If \(G\) is a \(k\)-tree, then adding any new vertex to \(G\) that is adjacent to a $k$-clique in \(G\) results in another \(k\)-tree.
