@@ -49,9 +49,9 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 
 \begin{proof}
 	$\impliedby$ Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\). For all non-root vertices $x$, let \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\). The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so the edge $vw$ will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(B_x\) and the children of \(B_x\), which is a connected subtree.
-	\par
+	
 	If \(G\) is a forest, then perform this operation on every connected component of \(G\) and connect the root vertices to form a new tree. Then this tree is a tree-decomposition of $G$. This forms a tree-decomposition of width at most 1. An example is in \cref{fig:tree-treedecomp}.
-	\par
+
 	$\implies$ Suppose $G$ is not a forest. Then \(G\) has a cycle \(C\), so $G$ has a $K_3$-minor. By \cref{cor:complete_tw}, $\tw(K_3) = 2$. By \cref{thm:tw_minor_closure}, $2 \leq \tw(G)$. Therefore, $G$ has treewidth at least two. 
 	\begin{figure}[ht]
 		\centering
