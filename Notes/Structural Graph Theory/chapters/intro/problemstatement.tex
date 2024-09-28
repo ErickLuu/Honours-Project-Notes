@@ -2,12 +2,12 @@
 \section{Problem Statement}
 
 A \textit{book-embedding} of a graph $G$ arranges the vertices of $G$ on the ``spine'' of a book and arranges the edges of $G$ on ``pages'' of a book. The \textit{pagenumber} of a graph \(G\) is the minimum number of pages necessary in a book-embedding of \(G\). The concept of the \textit{pagenumber} of a graph was introduced by \textcite{ollmannBookThicknessVarious1973} in the context of VLSI design and integrated circuitry. 
-The driving question of this report is the following:
+The driving question of this report is \cref{conj:bded_had_pn}. This conjecture proves that every graph in a proper minor-closed graph family can be embedded on a constant number of pages. 
 \begin{conjecture}\label{conj:bded_had_pn}
 	There exists a function $f$ such that for all integers $t \geq 1$, every $K_t$ minor free graph $G$ can be embedded on $f(g)$ pages.
 \end{conjecture}
 
-This conjecture proves a much more general theorem that every graph in a proper minor-closed graph family $\mathcal{F}$ can be embedded on a constant number of pages. 
+
 
 In her PhD thesis, \textcite{Blankenship-PhD03} claimed to prove \cref{conj:bded_had_pn}. However, this result has not been published and has not been independently verified. Furthermore, a key proof used by Blankenship, from \textcite{heathPagenumberGenusGraphs1992}, was lacking in detail when discussing book-embeddings of nonorientable surfaces. \textcite{nakamotoBookEmbeddingProjectiveplanar2015} agrees with ths assessment of \textcite{heathPagenumberGenusGraphs1992}.\footnote{
 	We did not read Blankenship's thesis in the course of writing this thesis. Only at the very end did we read over her thesis to see how she handled some cases. 
@@ -23,4 +23,4 @@ Robertson and Seymour showed that graphs with no \(K_t\) minor can be built from
 
 This honours project has two goals. The first goal is to investigate and learn more about structural graph theory. We will discuss some important machinery in structural graph theory, the main ones being the Graph Minor Theorem and the Graph Minor Structure Theorem. The second goal is to address an open problem within this field. To this end, an entire chapter building on the techniques discussed in previous chapters discusses this open problem. 
 
-We prove that graphs that are almost-embeddable on a surface of genus $g$ with $p$ vortices of depth $k$ on some faces is embeddable in $f(g, p, k)$ pages, when the surface is orientable or the projective plane. We also state a conjecture that every graph embeddable on a surface of genus $g$ can be embedded on $f(g)$ pages where every face has a bounded number of monochromatic paths. If this conjecture is true, then it proves \cref{conj:bded_had_pn}. 
+We prove that when a surface $\Sigma$ is orientable or the projective plane, all graphs that are almost-embeddable on a surface of genus $g$ with $p$ vortices of depth $k$ on some faces is embeddable in $f(g, p, k)$ pages. We also state a conjecture that every graph embeddable on a surface of genus $g$ can be embedded on $f(g)$ pages where every face has a bounded number of monochromatic paths. If this conjecture is true, then it proves \cref{conj:bded_had_pn}. 
