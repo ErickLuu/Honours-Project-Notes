@@ -7,7 +7,6 @@ What we plan to show is this:
 \begin{theorem}\label{thm:bounded_almost_embeddable}
 	Suppose $G$ is $(g, p, k)$-almost embeddable on an orientable surface. Then $G$ can be embedded on \(f(g, p, k)\) pages for some function $f$.
 \end{theorem}
-The way to deal with vortices is to deal with the faces. We have the following lemma \cref{lem:vortices_mono_paths}. 
 
 Let \(G\) be a graph. A vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \cdots < v_k\).
 A circular ordering \(<\) preserves a face \(F\) if the induced linear ordering has the condition above. Preservation of faces 
@@ -64,15 +63,15 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 	Suppose $G$ is a graph with components $G_0, G_1, \ldots, G_p$ such that $V(G) = V(G_0) \cup V_(G_1) \cup \ldots \cup V_(G_p)$, $G_0$ is embedded on a surface $\Sigma$ of genus $g$, and $G_1, \ldots G_p$ are vortices on $G_0$. Suppose further that $G_0$ has $m$ monochromatic paths on each of its faces on $\Sigma$. Then $G$ can be embedded on $s + pm(k+1)$ faces.
 \end{corollary}
 
-This is proven by adding $G_1, \ldots, G_p$ to $G_0$ one at a time and running \cref{lem:vortices_mono_paths} on each section. 
+This is proven by adding $G_1, \ldots, G_p$ to $G_0$ one at a time and running \cref{lem:vortices_mono_paths} each time. 
 
 We shall prove an intermediate lemma.
 \begin{lemma}\label{lem:one_page_decomposition}
 	Let \((B_1, \ldots, B_n)\) be a path-decomposition of \(G\) with path-width \(k\). Let \(x_1, \ldots, x_n\) be vertices in \(G\) such that \(x_i \in B_i\) for all \(i\), and suppose \(P\) is an induced path \((x_1, x_2, \ldots, x_n)\) in \(G\). Then for every one-page embedding of \(P\), \(G\) has a \((k + 1)\)-page embedding.
 \end{lemma}
 \begin{proof}
-	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. 
-	The proof given is similar to the one in \cref{lem:preserved_faces_pagenumber}. For each vertex \(v\) in \(G\), let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. Colour the edges in the same way above: 
+	The proof given is similar to the one in \cref{lem:preserved_faces_pagenumber}. 
+	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. For each vertex \(v\) in \(G\), let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. Colour the edges in the same way above: 
 	\begin{equation}
 		c(uv) =
 		\begin{cases}

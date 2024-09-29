@@ -18,18 +18,14 @@ These are the Euler genus of some surfaces.
 
 Note that ``genus'' and ``Euler genus'' are two distinct concepts. ``Genus'' refers to the orientable genus, but distinguishing between orientable and nonorientable genus is not important in this thesis. Genus is a synonym \underline{Euler genus} unless stated otherwise.
 
-A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \(S^2\) by only adding handles. An example of an orientable surface is the torus.
-
-A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can only be obtained from \(S^2\) by adding at least one crosscap. An example of a non-orientable surface is the projective plane or the Klein bottle. 
+The orientability of a surface is an important tool to distinguish surfaces. A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \(S^2\) by only adding handles. An example of an orientable surface is the torus.A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can only be obtained from \(S^2\) by adding at least one crosscap. An example of a non-orientable surface is the projective plane or the Klein bottle. Compact orientable surfaces can be embedded on $\mathbb{R}^3$, but nonorientable surfaces cannot. This implies that a sphere with $n$ handles can be viewed as a subset of $\mathbb{R}^3$. 
 
 The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be embedded on \(\Sigma\) without crossings. If $G$ is restricted to be embedded on only orientable surfaces, then in the literature this is referred to as the ``genus'' of the graph. This thesis does not use this definition of genus, and in fact the orientability of the surface plays an important role throughout this paper.
 
 
 \subsection{Graphs on surfaces}
 The family of graphs embeddable on a fixed surface $\Sigma$ is a minor-closed family. If $G$ is embedded on $\Sigma$, then $G - v$ for any vertex $v$ and $G - e$ for any edge $e$ is also embeddable on $\Sigma$. Furthermore, contracting any edge $e$ in $G$ maintains the property that no two edges cross. Edge contraction is a topological action on a graph and can be viewed as an ambient isotopy of $G$ on $\Sigma$. 
-If $G$ is 2-cell embedded on a surface $\Sigma$ and every face in $G$ has three distinct vertices on its boundary, then $G$ is a \textit{triangulation} of $\Sigma$. 
-
-Given graphs $G$ and $H$ with genus $g_1, g_2$,a new graph with genus $g_1 + g_2$ can be constructed.
+If $G$ is 2-cell embedded on a surface $\Sigma$ and every face in $G$ has three distinct vertices on its boundary, then $G$ is a \textit{triangulation} of $\Sigma$. Given graphs $G$ and $H$ with genus $g_1, g_2$,a new graph with genus $g_1 + g_2$ can be constructed.
 \begin{theorem}[\textcite{millerAdditivityTheoremGenus1987}]\label{thm:additivity_genus}
 	Let graphs $G$ and $H$ have genus $g_1$, $g_2$. Then the graph obtained from identifying a vertex in $G$ to a vertex in $H$ has genus $g_1 + g_2$. 
 \end{theorem}

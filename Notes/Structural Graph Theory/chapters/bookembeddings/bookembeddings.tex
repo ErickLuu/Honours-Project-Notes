@@ -11,6 +11,7 @@ The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required
 
 Book-embeddings have an equivalent combinatorial definition. A \textit{book embedding} of a graph \(G\) is an arrangement of the vertices of \(G\) in a total ordering \(v_1 < v_2 < \cdots < v_n\). The edges in \(E(G)\) are coloured such that if there are vertices with ordering \(v_a < v_b < v_c < v_d\) and edges \(v_a v_c\) and \(v_b v_d\) in $E(G)$, then $v_a v_c$ and $v_b v_d$ are assigned different colours.
 The ordering of \(V(G)\) in the book embedding is denoted as \((<)\) or as \((\leq)\). For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}v_{|G|}, v_{|G|}v_{1} \right\} \) are called \textit{spine edges}.
+
 A circular ordering of a set $S$ is an ordering where the elements of $S$ are in a circle rather than on a straight line. A circular ordering of a book-embedding is equivalent to a linear ordering of a book-embedding. The book-embedding of a circular ordering is exactly the same as for a linear ordering. By choosing a vertex to be at the start of the sequence, there is a way to convert from a circular ordering to a linear ordering. Another book-embedding of $K_5$, this time with a circular embedding, is in \cref{fig:circular_book-embedding}.
 
 \begin{figure}[h!]
@@ -60,10 +61,7 @@ The proof of \cref{thm:Pagenumber_Complete_Graph} is from \textcite{bernhartBook
 This is an upper bound of any graph \(G\) with \(n\) vertices.
 Therefore for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\). The next theorem bounds the chromatic number, from \textcite{bernhartBookThicknessGraph1979}.
 
-The next proof use degeneracy. A graph $G$ is \textit{$k$-degenerate} if every subgraph $H \subseteq G$ has a vertex of degree at most $k$. 
-\begin{proposition}\label{thm:Colouring_Bound}
-	For all graphs \(G\), \(\chi(G) \leq 2 \pn(G) + 2\).
-\end{proposition}
+The next proof uses degeneracy. A graph $G$ is \textit{$k$-degenerate} if every subgraph $H \subseteq G$ has a vertex of degree at most $k$. 
 A simple lemma connecting $k$-degenerate graphs and chromatic number helps prove this theorem. 
 \begin{lemma}
 	Every $k$-degenerate graph is $k + 1$-colourable.
@@ -71,7 +69,12 @@ A simple lemma connecting $k$-degenerate graphs and chromatic number helps prove
 \begin{proof}
 	Let $G$ be a $k$-degenerate graph. If $G$ has a single vertex, then $G$ can be coloured in $k + 1$ colours. Now suppose this holds for all $k$-degenerate graphs with $|V(G)|- 1 \geq 1$ vertices. Let $v$ be a vertex in $G$ with degree $k$. Then $G - v$ can be coloured inductively with $k + 1$ colours as $G - v$ is also $k$-degenerate. Now look at the neighbours of $v$ and colour $v$ with a colour that is not used by one of its neighbours. This can be done as $v$ has $n$ neighbours but $n + 1$ colours can be used. 
 \end{proof}
-Now apply this lemma to prove \cref{thm:Colouring_Bound}. 
+
+This lemma is applied to \cref{thm:Colouring_Bound}.
+
+\begin{proposition}\label{thm:Colouring_Bound}
+	For all graphs \(G\), \(\chi(G) \leq 2 \pn(G) + 2\).
+\end{proposition}
 \begin{proof}
 	Let \(\pn(G) = k\) and suppose \(G\) has \(n\) vertices and \(m\) edges. Then the average degree of \(G\), \(d(G) = 2m/n\) by the handshaking lemma. So \(2\frac{m}{n} \leq 2 \frac{n + k(n-3)}{n} = 2 + 2k \frac{n-3}{n} < 2k + 2\). But this implies that \(G\) has a vertex of degree \(\leq 2k + 1\), and as if \(G'\) is a subgraph of \(G\), then \(G'\) also has \(\pn(G') \leq k\), thus \(G'\) has a vertex of degree at most \(2k + 1\). However, this implies \(G\) is \((2k + 1)\)-degenerate, thus \(\chi(G) \leq 2k + 2\).
 \end{proof}
@@ -86,10 +89,7 @@ Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$
 \end{proof}
 
 However, the class of graphs with pagenumber $\leq p$ is not a minor-closed class.
-This does not say that $\pn(H) \leq \pn(G)$ when $H$ is a minor of $G$. Subdivide $K_n$ $n$ times. From \textcite{atneosenEmbeddabilityCompactaNbooks}, the subdivision of $K_n$ can be embedded on three pages. But $K_n$ is a minor of its subdivision, and from \cref{thm:Pagenumber_Complete_Graph}, $\pn(K_n) = \lceil \frac{n}{2} \rceil$. Therefore, pagenumber is not a minor-closed property. 
-
-Proving \cref{lem:Minor-Closed_Pagenumber} will imply that linklessly embeddable graphs or knotlessly embeddable graphs have bounded pagenumber, which is difficult to prove directly. 
-
+This does not say that $\pn(H) \leq \pn(G)$ when $H$ is a minor of $G$. Subdivide $K_n$ $n$ times. From \textcite{atneosenEmbeddabilityCompactaNbooks}, the subdivision of $K_n$ can be embedded on three pages. But $K_n$ is a minor of its subdivision, and from \cref{thm:Pagenumber_Complete_Graph}, $\pn(K_n) = \lceil \frac{n}{2} \rceil$. Therefore, pagenumber is not a minor-closed property. Proving \cref{lem:Minor-Closed_Pagenumber} will imply that linklessly embeddable graphs or knotlessly embeddable graphs have bounded pagenumber, which is difficult to prove directly. 
 
 An \textit{expander graph} is a sparse, highly connected graph. Expander graphs share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$.A graph $G$ is a bipartite \varepsilon-expander if there exists a bipartition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, $|N(S)| \geq (1 + \varepsilon) |S|$. 
 \textcite{dujmovicLayoutsExpanderGraphs2016} showed that every bipartite \varepsilon-expander graphs can be embedded in 3 pages. 
