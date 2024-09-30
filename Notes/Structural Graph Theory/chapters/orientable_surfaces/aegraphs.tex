@@ -11,8 +11,8 @@ The most problematic section is dealing with vortices on surfaces.
 To work with vortices, consider how an ordering affects the face that the vortex is sitting on. Then see what happens when the vortex is added onto the face. 
 
 To solve this problem, we define some new concepts. Let \(G\) be a graph. A vertex ordering \((<)\) \textit{preserves} a face \(F\) if there is a vertex \(v_0\) on the boundary of \(F\) and a vertex ordering \((v_0, v_1, \ldots, v_k)\) around the boundary of \(F\) such that \(v_0 < v_1 < \cdots < v_k\).
-A circular ordering \(<\) preserves a face \(F\) if the induced linear ordering has the condition above. Preservation of faces 
-Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is in the preimage of some colour in $\varphi$.
+A circular ordering \(<\) preserves a face \(F\) if the induced linear ordering has the condition above. 
+Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is in the preimage of some colour in $\varphi$. $F$ being a preserved face implies that $F$ has a single monochromatic path, but not the other way around. 
 
 \begin{figure}[h!]
 	\centering
@@ -23,7 +23,7 @@ Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\
 
 The list below are the steps taken to prove \cref{thm:bounded_almost_embeddable}.
 \begin{enumerate}
-	\item Let $G$ be a \(4\)-connected planar graph. There is a book-embedding where every book is monochromatic. 
+	\item Suppose $G$ is a \(4\)-connected planar graph. There is a book-embedding where every book is monochromatic. 
 	\item Suppose \(G\) is a connected planar graph. Faces are not preserved, but a fixed number of vertices are moved around on every face. Additional pages are necessary to embed $G$, but the number of monochromatic paths is bounded. 
 	\item Suppose \(G\) is $2$-cell embedded on a surface. \textcite{heathPagenumberGenusGraphs1992} gives a planar-nonplanar decomposition to find a spanning planar subgraph of $G$ and nonplanar edges. Then apply the previous steps to the spanning planar subgraph.
 \end{enumerate}
@@ -65,9 +65,7 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 	Suppose $G$ is a graph with components $G_0, G_1, \ldots, G_p$ such that $V(G) = V(G_0) \cup V_(G_1) \cup \ldots \cup V_(G_p)$, $G_0$ is embedded on a surface $\Sigma$ of genus $g$, and $G_1, \ldots G_p$ are vortices on $G_0$. Suppose further that $G_0$ has $m$ monochromatic paths on each of its faces on $\Sigma$. Then $G$ can be embedded on $s + pm(k+1)$ faces.
 \end{corollary}
 
-This is proven by adding $G_1, \ldots, G_p$ to $G_0$ one at a time and running \cref{lem:vortices_mono_paths} each time. 
-
-We shall prove an intermediate lemma.
+This is proven by adding $G_1, \ldots, G_p$ to $G_0$ one at a time and running \cref{lem:vortices_mono_paths} each time. To prove \cref{lem:vortices_mono_paths}, we prove \cref{lem:one_page_decomposition}.
 \begin{lemma}\label{lem:one_page_decomposition}
 	Let \((B_1, \ldots, B_n)\) be a path-decomposition of \(G\) with path-width \(k\). Let \(x_1, \ldots, x_n\) be vertices in \(G\) such that \(x_i \in B_i\) for all \(i\), and suppose \(P\) is an induced path \((x_1, x_2, \ldots, x_n)\) in \(G\). Then for every one-page embedding of \(P\), \(G\) has a \((k + 1)\)-page embedding.
 \end{lemma}
@@ -110,9 +108,9 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 	\end{figure}
 \end{proof}
 As a consequence, every 4-connected planar graph has a circular ordering which preserves every face.
-First do a planar-nonplanar decomposition of \(G\).
-Then decompose the planar subgraph \(G_p\) into 4-connected components with adhesion at most 3, from \cref{lem:planar_graphs_4_connected_cliqesums}.
 From \textcite{tutteTheoremPlanarGraphs1956}, if \(G\) is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\).
+
+Then this can be extended to every connected planar graph, adding a constant number of monochromatic paths.
 In \cref{ssec:Clique_sum_Pagenumber_bound}, at most three vertices will be moved to the start of the decomposition. The number of pages needed to embed \(F\) is bounded.
 
 
