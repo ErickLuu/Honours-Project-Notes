@@ -1,11 +1,10 @@
 \section{Proof for orientable surfaces}
-So we have gone from 4-connected planar graphs, to planar graphs, to graphs on orientable surfaces while bounding the number of monochromatic paths of all faces. This allows us to place vortices with only a bounded increase in the number of pages needed.
+
 The main theorem we want to prove is:
 \begin{theorem}\label{thm:orientablevortices}
 	Let $G$ be a graph with a book-embedding where all torsos are $k$ almost-embeddable on an orientable surface of genus at most $g$. Now suppose there are $p$ vortices of depth $k$ which are embedded on each torso of $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where $s = \gpk$. 
 \end{theorem}
-
-We will prove this by starting with planar graphs, then bounded genus graphs. We show that the number of monochromatic paths on these graphs is bounded for every face. Then we will show that because the number of monochromatic paths for every face is bounded, we can add vortices.
+We first start with 4-connected planar graphs, then move onto planar graphs, then move onto graphs on orientable surfaces. We have shown that the number of monochromatic paths on each of these surfaces is bounded. This allows us to place vortices with only a bounded increase in the number of pages needed. We show that the number of monochromatic paths on these graphs is bounded for every face. Then we will show that because the number of monochromatic paths for every face is bounded, we can add vortices.
 
 \begin{lemma}\label{lem:orientablesurfaces_monochromatic_edges}
 	Let $G$ be a graph embedded on an orientable surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has $ \leq 4g$ monochromatic paths.
