@@ -1,6 +1,7 @@
-\section{Almost-Embeddable Graphs}
+\section{Almost-Embeddable Graphs on orientable surfaces}
 
-We wish to find a book-embedding of almost-embeddable graph on a 
+We wish to find a book-embedding of an almost-embeddable graph on some orientable surface. 
+
 The most problematic section is dealing with vortices on surfaces.
 To work with vortices, consider how an ordering affects the face that the vortex is sitting on. Then see what happens when the vortex is added onto the face.Recall the definition of $(g, p, k, a)$-almost-embeddable from \cref{ssec:Robertson_Seymour_Graph_Structure}. A graph $G$ is $(g, p, k)$-almost-embeddable if $G$ is $(g, p, k, a)$-almost-embeddable and $a = 0$, so $G$ has no apex set.
 What we plan to show is this:
@@ -108,7 +109,6 @@ We shall now prove \cref{lem:vortices_mono_paths}.
 	\end{figure}
 \end{proof}
 As a consequence, every 4-connected planar graph has a circular ordering which preserves every face.
-
 First do a planar-nonplanar decomposition of \(G\).
 Then decompose the planar subgraph \(G_p\) into 4-connected components with adhesion at most 3, from \cref{lem:planar_graphs_4_connected_cliqesums}.
 From \textcite{tutteTheoremPlanarGraphs1956}, if \(G\) is a 4-connected planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\).
@@ -121,4 +121,4 @@ In \cref{ssec:Clique_sum_Pagenumber_bound}, at most three vertices will be moved
 
 \begin{proof}
 	Use theorem \cref{lem:planar_graphs_4_connected_cliqesums} to build a tree-decomposition $(B_x : x \in T)$ of $G$ with $4$-connected planar torsos of adhesion 3. Each torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to embed $G$ in a book. At most three vertices are moved to the front in each torso. By the construction of the $4$-connected planar graphs, every face $F$ has at most three vertices moved to the front. Each vertex moved forces two edges to be on an individual monochromatic path, and paths between front vertices are also changed. Therefore, every face has at most $12$ monochromatic paths, as each vertex adds at most four additional monochromatic paths. By \cref{thm:Planar Graph Hickingbotham Bound}, $G$ can be embedded on $11$ pages.
-\end{proof}
+\end{proof}	

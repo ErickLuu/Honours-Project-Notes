@@ -20,6 +20,7 @@
         "nonplanar",
         "nonseparating",
         "nontrivial",
+        "orientability",
         "outerface",
         "outerplanar",
         "pagenumber",
