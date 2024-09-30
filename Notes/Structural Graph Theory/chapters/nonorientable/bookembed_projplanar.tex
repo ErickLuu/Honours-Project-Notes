@@ -19,7 +19,7 @@ However, \textcite{nakamotoBookEmbeddingProjectiveplanar2015} prove the followin
 	Every graph embedded on the projective plane has a book-embedding with nine pages.
 \end{theorem}
 
-This proof relies on triangulations of surfaces. Recall a graph $G$ is a \textit{triangulation} of a surface $\Sigma$ if every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation. \textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph embedded on a torus. 
+This proof relies on triangulations of surfaces. Recall a graph $G$ is a \textit{triangulation} of a surface $\Sigma$ if every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation. \textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph embedded on a torus. Firstly, a planar spanning disk is found with nonplanar edges. Then a non-contactible is found which intersects the boundary of the disk twice. Finally, a book-embedding is found of a projective-planar graph.
 
 \begin{theorem}\label{thm:triangulation_subgraph}
     Every graph embedded on a surface $\Sigma$ is a subgraph of a triangulation of $\Sigma$.
@@ -63,7 +63,7 @@ A description of what this construction looks like is in \cref{fig:projectivepla
     \caption[Projective-Planar decomposition]{A decomposition of a projective-planar graph into components in \cref{lem:proj_planar triangulation}.}\label{fig:projectiveplanardecomp}
 \end{figure}
 
-Now we will prove \cref{thm:proj_planar_graphs_9pages}.
+Now we will prove \cref{thm:proj_planar_graphs_9pages}. This is done by breaking the disk into two halves and finding a book-embedding where the non-orientable edges are nested.
 \begin{proof}
     Let $H$ be a projective-planar graph. Let $G$ be a triangulation of the projective plane, where $H$ is a subgraph.
     Now apply \cref{lem:proj_planar triangulation} to $G$. Let $B_1, B_2$ be the two paths from $x$ to $y$ on the boundary of $B$. Let $D_1$ be the planar subgraph bounded by $P \cup B_1$, similarly for $D_2$. Let $s$ be the vertex clockwise to $x$ on $B$, and let $t$ be the vertex clockwise to $y$ on $B$.
@@ -90,5 +90,3 @@ An open problem in \textcite{ozekiBookEmbeddingGraphs2019} is the case of the Kl
 \begin{conjecture}\label{conj:klein_bottle}
     Every graph embedded on a Klein Bottle can be embedded in a bounded number of pages.
 \end{conjecture}
-
-A possible approach is to find a way to divide the Klein bottle into a planar spanning subgraph and nonplanar edges where each edge goes through a single crosscap. Then find a way to partition the planar subgraph so that the boundary of each region can go through one edge. Furthermore, the boundary of $G_P$ has to be oriented so that edges that go through a crosscap is reversed and edges that go through two crosscaps are in the same direction. 
