@@ -1,0 +1,1 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qfigures/kleinbottlegraph.svg [\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-embedding of a Klein bottle graph.]\\E$"}

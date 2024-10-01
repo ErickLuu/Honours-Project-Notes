@@ -9,7 +9,7 @@ The \textit{treewidth} of a graph \(G\) measures how similar $G$ is to a forest.
 \end{definition}
 The vertices of the tree \(T\) are \textit{nodes}, to distinguish them from the vertices of $G$. 
 The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x \in V(T) \rbrace\).
-The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree decompositions of the graph \(G\). 
+The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree-decompositions of the graph \(G\). 
 
 \cref{lem:Helly} discusses the \textit{Helly property} of trees, which will be used to prove some statements on tree-decomposition. 
 
@@ -69,7 +69,7 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 	\begin{figure}[h!]
 		\centering
 		\includesvg[width = 0.7\textwidth]{figures/outerplanar_tree_decomposition.svg}
-		\caption[Tree-decomposition of outerplanar graph.]{The green vertices and black edges is the outerplanar graph. The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.}\label{fig:outerplanar_treedecomp}
+		\caption[Tree-decomposition of outerplanar graph.]{ The green vertices and black edges is the outerplanar graph. The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.}\label{fig:outerplanar_treedecomp}
 	\end{figure}
 \end{proof}
 
@@ -84,7 +84,7 @@ To prove \cref{prop:k4-minor}, the following lemma is used:
 	Suppose a graph $G$ is $3$-connected. Then $G$ has a $K_4$ minor. 
 \end{lemma}
 \begin{proof}
-	Suppose $G$ is $3$-connected. Then let $u, v \in V(G)$ be distinct vertices. By $3$-connectedness, there are three internally disjoint paths $P, Q, R$ from $u$ to $v$. Then without loss of generality, there exists a vertex $p$ on $P -\{u, v\}$ and $q$ on $Q -\{u, v\}$ where there exists a path $S$ on $G - \{u, v\}$. Then by finding a minimal path, there exists a path $S'$ internally disjoint from $P, Q, R$ which goes from a vertex in $P - \{u, v\}$ to a vertex in $Q - \{u, v\}$. Then $P \cup Q \cup R \cup S'$ is a $K_4$ minor in $G$. 
+	Suppose $G$ is $3$-connected. Let $u, v \in V(G)$ be distinct vertices. By $3$-connectedness, there are three internally disjoint paths $P, Q, R$ from $u$ to $v$. Without loss of generality, there exists a vertex $p$ on $P -\{u, v\}$ and $q$ on $Q -\{u, v\}$ where there exists a path $S$ on $G - \{u, v\}$. By finding a minimal path, there exists a path $S'$ internally disjoint from $P, Q, R$ which goes from a vertex in $P - \{u, v\}$ to a vertex in $Q - \{u, v\}$. Then $P \cup Q \cup R \cup S'$ is a $K_4$ minor in $G$. 
 \end{proof}
 
 This implies that every $K_4$-minor free graph is not $3$-connected, therefore it contains a vertex of degree $\leq 2$. The next proof is a proof of \cref{prop:k4-minor}.

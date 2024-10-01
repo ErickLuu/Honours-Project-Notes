@@ -39,7 +39,7 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 
 \begin{figure}[h]
 	\centering
-	\includesvg[width=0.7 \textwidth]{figures/Clique-sum}
+	\includesvg[width=0.7\textwidth]{figures/Clique-sum}
 	\caption[Clique-sum]{Figure of clique-sum. Public domain image from \textcite{eppsteinCliquesum2023}.}\label{fig:clique-sum}
 \end{figure}
 
@@ -74,7 +74,7 @@ The reverse proposition, that if $G$ is $K_t$-minor-free, then $G$ has bounded g
 \end{proof}
 
 \subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
-Given a graph \(G\) and a tree-decomposition \(\tree\), the \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\), with vertex set $B_x$ and edge set where \(vw\) is an edge in \(G\langle B_x \rangle\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $uv \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
+Given a graph \(G\) and a tree-decomposition \(\tree\), the \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\). The vertex set of \(G\langle B_x \rangle\) is $B_x$. \(vw\) is an edge in \(G\langle B_x \rangle\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $uv \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
 The \textit{adhesion set} is the set \(B_x \cap B_y\). 
 The \textit{adhesion} of a tree is defined as \(\max(|B_x \cap B_y|)\) where \(xy\) is an edge in \(T\).
 
@@ -110,7 +110,7 @@ Almost-embeddable graphs are a key component of the Graph Minor Structure Theore
 Note that $\ell$ is implied to be less than $t$, as this would imply that the torsos have a $K_t$ clique. In fact $\ell$ is at most $a + 2k + \left\lfloor 
 \frac{1}{2} (7 + \sqrt{1 + 24g})
 \right\rfloor$, from 
-There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.\textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. 
+There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor. \textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. 
 
 \begin{theorem}[\textcite{kawarabayashiQuicklyExcludingNonplanar2021}]
 	Let $t \geq 1$ be a positive integer. Let $G$ be a $K_t$-minor free graph. Then let $\alpha = t^{18 \cdot 10^{7} t^{26} + c}$ for a constant $c$, which is defined in the paper. Then setting $g = t(t+1)$, $p = 2t^2$, $k = \alpha$, $\ell = 4\alpha$, and $a = 3\alpha$, $G \in \mathcal{G}(g,p,k,a)$. 
