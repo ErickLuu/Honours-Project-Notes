@@ -39,13 +39,14 @@ In the case of the Klein bottle, the full list of irreducible triangulations of 
 \begin{theorem}[\textcite{sulankeNoteIrreducibleTriangulations2006}]
     The Klein Bottle has 29 irreducible triangulations. 
 \end{theorem} 
+This approach cannot be generalised to higher genus $g$ graphs, as the number of irreducible triangulations for large genus $g$ surfaces is unknown.
 In a previous paper, \textcite{lawrencenkoIrreducibleTriangulationsKlein1997} claimed that there were 25. However, Sulanke found 4 more graphs, a modification of one of the original irreducible triangulations. 
 
 In an attempt to prove \cref{conj:klein_bottle}, a structure of a Klein bottle graph was devised. Let $G$ be a triangulation of the Klein bottle. Let a \textit{$\phi$-structure} of $G$ be a decomposition of the vertices and edges of $G$ with the following properties:
 \begin{itemize}
-    \item $G$ has vertex set $A \cup \{v\}$ where $A$ is a set of vertices and $v$ is a single vertex in $G$,
-    \item $G_P$ is a spanning planar subgraph of $G[A]$ which is edge-maximal, meaning that adding any edge not in $G_P$ to $G_P$ breaks the planarity condition,
-    \item $G_P$ has a boundary cycle $B$,
+    \item $G$ has vertex set $A \cup \{v\}$ where $A$ is a set of vertices and $v$ is a single vertex in $G$.
+    \item $G_P$ is a spanning planar subgraph of $G[A]$ which is edge-maximal, meaning that adding any edge not in $G_P$ to $G_P$ breaks the planarity condition.
+    \item $G_P$ has a boundary cycle $B$.
     \item There exists a noncontractible cycle $C$ in $G$ such that $\{x, y\} = C \cap B$ and the edge $xy$ is the only edge in $C - G_P$. 
     \item Six edges from $v$ to $G$ divide $B$ into regions such that all edges that pass through one region preserve their orientation, and edges that pass through another region pass through a crosscap. 
     \item The boundary can be partitioned paths $a, b, c, d, e, f$ like in \cref{fig:phiembedding}. 
@@ -72,5 +73,3 @@ What is not known is if Klein-bottle graphs with the $\phi$-structure maintains 
 \begin{conjecture}
     Every Klein-bottle graph has a structure invariant under edge splitting and every irreducible triangulation of the Klein bottle contains this structure. Furthermore, the existence of this structure allows Klein bottle graphs to be embedded on a bounded number of pages.
 \end{conjecture}
-
-This approach cannot be generalised to higher genus $g$ graphs, as the number of irreducible triangulations becomes arbitrarily large. 
