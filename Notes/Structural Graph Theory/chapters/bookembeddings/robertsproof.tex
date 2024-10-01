@@ -11,6 +11,8 @@ This section proves that every graph with a tree-decomposition where every torso
 \end{theorem}
 
 \subsubsection{Proof of \cref{thm:clique_sum_pagenumber_bound}}
+The proof of \cref{thm:clique_sum_pagenumber_bound} goes as follows.
+The hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that induction can be applied. This strengthening is in \cref{lem:Hickingbotham_Lemma}. Then given a tree-decomposition, a leaf is removed.Then induction is done on the rest of the tree. Finally, the leaf is added back in so that the stronger induction hypothesis can be shown to hold. 
 
 Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). Let $J$ be a clique in $G$. A vertex $v$ is a \textit{rainbow vertex} in $J$ in a book-embedding $(<, \psi)$ if the set of edges $\{u_i v | u_i < v, u_i \in J\}$ each have distinct colours. The structure of the book-embedding will look like this: \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 
