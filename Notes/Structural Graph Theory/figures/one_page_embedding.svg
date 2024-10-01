@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:version="1.4-rc1 (61ec3f2, 2024-09-26)"
    sodipodi:docname="one_page_embedding.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,11 +26,11 @@
      showgrid="true"
      inkscape:zoom="2.175463"
      inkscape:cx="417.38241"
-     inkscape:cy="256.72696"
-     inkscape:window-width="3440"
+     inkscape:cy="440.59586"
+     inkscape:window-width="2560"
      inkscape:window-height="1417"
-     inkscape:window-x="3832"
-     inkscape:window-y="112"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2">
     <inkscape:grid
@@ -342,7 +342,9 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-1);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="77.46875"
          y="347.60875"
-         id="tspan1">x2
+         id="tspan51">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan50">2</tspan>
 </tspan></text>
     <g
        id="g1"
@@ -354,7 +356,9 @@
          style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-2);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
            x="77.46875"
            y="347.60875"
-           id="tspan2">x3
+           id="tspan53">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan52">3</tspan>
 </tspan></text>
     </g>
     <text
@@ -364,7 +368,9 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-7);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="77.46875"
          y="347.60875"
-         id="tspan3">x4</tspan></text>
+         id="tspan55">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan54">4</tspan></tspan></text>
     <g
        id="g1-1"
        transform="translate(32.41826,-46.205399)">
@@ -375,7 +381,9 @@
          style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-0);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
            x="77.46875"
            y="347.60875"
-           id="tspan4">x5
+           id="tspan57">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan56">5</tspan>
 </tspan></text>
       <g
          id="g1-3"
@@ -387,7 +395,9 @@
            style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-87);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
              x="77.46875"
              y="347.60875"
-             id="tspan5">x6
+             id="tspan59">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan58">6</tspan>
 </tspan></text>
       </g>
     </g>
@@ -445,7 +455,9 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="77.46875"
          y="347.60875"
-         id="tspan10">x1
+         id="tspan61">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan60">1</tspan>
 </tspan></text>
     <ellipse
        style="fill:#00ff00;stroke:#000000;stroke-width:0.521846;stroke-dasharray:none"
@@ -462,7 +474,9 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-68);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="77.46875"
          y="347.60875"
-         id="tspan15">x1
+         id="tspan63">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan62">1</tspan>
 </tspan></text>
     <text
        xml:space="preserve"
@@ -471,7 +485,9 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-8);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="77.46875"
          y="347.60875"
-         id="tspan19">x1
+         id="tspan65">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan64">1</tspan>
 </tspan></text>
     <text
        xml:space="preserve"
@@ -481,9 +497,11 @@
        id="text6"><tspan
          sodipodi:role="line"
          id="tspan6"
-         style="stroke-width:0.2;fill:#000000;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.2"
          x="13.007644"
-         y="21.316765">x2</tspan></text>
+         y="21.316765">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan27">2</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.2"
@@ -492,9 +510,11 @@
        id="text7"><tspan
          sodipodi:role="line"
          id="tspan7"
-         style="stroke-width:0.2;fill:#000000;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.2"
          x="44.679676"
-         y="7.6846323">x3</tspan></text>
+         y="7.6846323">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan30">3</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.2"
@@ -503,9 +523,11 @@
        id="text8"><tspan
          sodipodi:role="line"
          id="tspan8"
-         style="stroke-width:0.2;fill:#000000;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.2"
          x="49.009804"
-         y="100.18462">x4</tspan></text>
+         y="100.18462">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan36">4</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';fill:#b9b9b9;fill-opacity:1;stroke:#000000;stroke-width:0.2"
@@ -525,9 +547,11 @@
        id="text11"><tspan
          sodipodi:role="line"
          id="tspan11"
-         style="stroke-width:0.2;fill:#000000;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.2"
          x="69.085945"
-         y="10.4569">x5</tspan></text>
+         y="10.4569">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan31">5</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.2"
@@ -536,9 +560,11 @@
        id="text12"><tspan
          sodipodi:role="line"
          id="tspan12"
-         style="stroke-width:0.2;fill:#000000;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.2"
          x="77.587151"
-         y="90.339104">x6</tspan></text>
+         y="90.339104">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan35">6</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.2"
@@ -547,9 +573,11 @@
        id="text13"><tspan
          sodipodi:role="line"
          id="tspan13"
-         style="stroke-width:0.2;fill:#000000;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.2"
          x="95.546333"
-         y="59.516006">x7</tspan></text>
+         y="59.516006">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan34">7</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.2"
@@ -558,9 +586,11 @@
        id="text14"><tspan
          sodipodi:role="line"
          id="tspan14"
-         style="stroke-width:0.2;fill:#000000;fill-opacity:1"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.2"
          x="87.926865"
-         y="29.556467">x8</tspan></text>
+         y="29.556467">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan33">8</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,1.6344344,-8.8462443)"
@@ -568,7 +598,7 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect15);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="38.978516"
          y="299.79625"
-         id="tspan20">v</tspan></text>
+         id="tspan66">v</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';fill:#b9b9b9;fill-opacity:1;stroke:#000000;stroke-width:0.2"
@@ -631,9 +661,11 @@
        id="text18"><tspan
          sodipodi:role="line"
          id="tspan18"
-         style="stroke-width:0.2;fill:#008000;fill-opacity:1;stroke:#008000"
+         style="fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:0.2"
          x="10.038663"
-         y="87.684631">B1</tspan></text>
+         y="87.684631">B<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan28">1</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';display:inline;fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:0.2"
@@ -642,9 +674,11 @@
        id="text18-0"><tspan
          sodipodi:role="line"
          id="tspan18-8"
-         style="stroke-width:0.2;fill:#008000;fill-opacity:1;stroke:#008000"
+         style="fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:0.2"
          x="175.49535"
-         y="98.586609">B1</tspan></text>
+         y="98.586609">B<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan43">1</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';display:inline;fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:0.2"
@@ -653,9 +687,11 @@
        id="text18-11"><tspan
          sodipodi:role="line"
          id="tspan18-6"
-         style="stroke-width:0.2;fill:#008000;fill-opacity:1;stroke:#008000"
+         style="fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:0.2"
          x="158.02145"
-         y="10.260794">B3</tspan></text>
+         y="10.260794">B<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan37">3</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';display:inline;fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:0.2"
@@ -664,9 +700,11 @@
        id="text18-1"><tspan
          sodipodi:role="line"
          id="tspan18-5"
-         style="stroke-width:0.2;fill:#008000;fill-opacity:1;stroke:#008000"
+         style="fill:#008000;fill-opacity:1;stroke:#008000;stroke-width:0.2"
          x="85.798477"
-         y="21.927147">B5</tspan></text>
+         y="21.927147">B<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan32">5</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,161.11187,12.110463)"
@@ -674,7 +712,7 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect15-3);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="38.978516"
          y="299.79625"
-         id="tspan21">v</tspan></text>
+         id="tspan67">v</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,152.43822,-59.522328)"
@@ -682,7 +720,7 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect15-2);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="38.978516"
          y="299.79625"
-         id="tspan22">w</tspan></text>
+         id="tspan68">w</tspan></text>
     <ellipse
        style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.2"
        id="path23"
@@ -740,7 +778,9 @@
          style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-5);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
            x="77.46875"
            y="347.60875"
-           id="tspan23">x2
+           id="tspan70">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan69">2</tspan>
 </tspan></text>
       <g
          id="g1-15"
@@ -765,7 +805,9 @@
            style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-3);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
              x="77.46875"
              y="347.60875"
-             id="tspan24">x3
+             id="tspan72">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan71">3</tspan>
 </tspan></text>
       </g>
     </g>
@@ -792,7 +834,9 @@
          style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-81);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
            x="77.46875"
            y="347.60875"
-           id="tspan25">x4
+           id="tspan74">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan73">4</tspan>
 </tspan></text>
     </g>
     <ellipse
@@ -810,7 +854,9 @@
        style="font-size:14.6667px;font-family:Consolas;-inkscape-font-specification:'Consolas, Normal';white-space:pre;shape-inside:url(#rect5-74);display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.755906"><tspan
          x="77.46875"
          y="347.60875"
-         id="tspan26">x5
+         id="tspan76">x<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan75">5</tspan>
 </tspan></text>
     <text
        xml:space="preserve"

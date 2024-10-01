@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:version="1.4-rc1 (61ec3f2, 2024-09-26)"
    sodipodi:docname="bookembedding_preserved_face.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,14 +24,14 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="2.2075337"
-     inkscape:cx="376.6647"
-     inkscape:cy="551.52047"
-     inkscape:window-width="3440"
+     inkscape:cx="376.89119"
+     inkscape:cy="696.47861"
+     inkscape:window-width="2560"
      inkscape:window-height="1417"
-     inkscape:window-x="3832"
-     inkscape:window-y="112"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer2" />
   <defs
      id="defs1">
     <inkscape:path-effect
@@ -121,7 +121,9 @@
            id="tspan11-8"
            style="stroke-width:0.268989"
            x="22.34277"
-           y="199.14859">B1</tspan></text>
+           y="199.14859">B<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan23">1</tspan></tspan></text>
       <ellipse
          style="fill:#ff0000;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
          id="path10-7"
@@ -140,7 +142,9 @@
            id="tspan11-9"
            style="stroke-width:0.374"
            x="155.26019"
-           y="61.051258">B3</tspan></text>
+           y="61.051258">B<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1">3</tspan></tspan></text>
       <ellipse
          style="fill:#ff0000;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
          id="path10-7-9"
@@ -159,7 +163,9 @@
            id="tspan11-9-7"
            style="stroke-width:0.374"
            x="56.055897"
-           y="58.593559">B7</tspan></text>
+           y="58.593559">B<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan16">7</tspan></tspan></text>
       <path
          style="fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
          d="m 18.171935,209.57602 c 26.583122,-20.35867 53.166249,-40.71735 82.031575,-40.71714 28.86532,2e-4 60.01159,20.35847 91.15849,40.71714"
@@ -232,7 +238,9 @@
          id="tspan2"
          style="stroke-width:0.374"
          x="85.936584"
-         y="21.851831">v1</tspan></text>
+         y="21.851831">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan14">1</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -243,15 +251,21 @@
          id="tspan2-6"
          style="stroke-width:0.374"
          x="12.936061"
-         y="223.39265">v1</tspan></text>
+         y="223.39265">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan24">1</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
        x="190.10287"
        y="217.66055"
        id="text2-6-7"><tspan
          sodipodi:role="line"
-         id="tspan13">v8</tspan></text>
+         id="tspan13"
+         x="190.10287"
+         y="217.66055">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan22">8</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -262,7 +276,9 @@
          id="tspan3"
          style="stroke-width:0.374"
          x="126.74931"
-         y="36.509087">v2</tspan></text>
+         y="36.509087">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan12">2</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -273,7 +289,9 @@
          id="tspan4"
          style="stroke-width:0.374"
          x="143.74464"
-         y="66.222748">v3</tspan></text>
+         y="66.222748">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan21">3</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -284,7 +302,9 @@
          id="tspan5"
          style="stroke-width:0.374"
          x="135.01828"
-         y="104.77663">v4</tspan></text>
+         y="104.77663">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan20">4</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -306,7 +326,9 @@
          id="tspan7"
          style="stroke-width:0.374"
          x="88.987587"
-         y="135.76964">v5</tspan></text>
+         y="135.76964">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan19">5</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -317,7 +339,9 @@
          id="tspan8"
          style="stroke-width:0.374"
          x="55.76556"
-         y="117.69095">v6</tspan></text>
+         y="117.69095">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan18">6</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -328,7 +352,9 @@
          id="tspan9"
          style="stroke-width:0.374"
          x="34.315479"
-         y="75.427574">v7</tspan></text>
+         y="75.427574">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan17">7</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -339,7 +365,9 @@
          id="tspan10"
          style="stroke-width:0.374"
          x="56.301323"
-         y="36.029602">v8</tspan></text>
+         y="36.029602">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan15">8</tspan></tspan></text>
     <path
        style="fill:#ff0000;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
        d="m 14.262712,170.07385 c 57.730023,0 115.460048,0 173.190068,0"
