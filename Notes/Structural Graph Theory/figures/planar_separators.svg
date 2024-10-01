@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:version="1.4-rc1 (61ec3f2, 2024-09-26)"
    sodipodi:docname="planar_separators.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,13 +23,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="2.2075337"
-     inkscape:cx="457.07117"
-     inkscape:cy="649.82021"
-     inkscape:window-width="3440"
-     inkscape:window-height="1417"
-     inkscape:window-x="3832"
-     inkscape:window-y="112"
+     inkscape:zoom="1.560962"
+     inkscape:cx="397.19095"
+     inkscape:cy="333.44821"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -124,7 +124,9 @@
          id="tspan7"
          style="stroke-width:0.374"
          x="163.00243"
-         y="46.983051">Gu</tspan></text>
+         y="46.983051">G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1">u</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:#ff0000;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -135,7 +137,9 @@
          id="tspan8"
          style="stroke-width:0.374"
          x="162.76271"
-         y="68.796608">Gv</tspan></text>
+         y="68.796608">G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2">v</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:#ff0000;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -146,7 +150,9 @@
          id="tspan9"
          style="stroke-width:0.374"
          x="162.52301"
-         y="104.75303">Gw</tspan></text>
+         y="104.75303">G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3">w</tspan></tspan></text>
     <path
        style="fill:#ff0000;fill-opacity:0.314136;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
        d="m 98.943696,59.252992 26.664044,-13.7082"

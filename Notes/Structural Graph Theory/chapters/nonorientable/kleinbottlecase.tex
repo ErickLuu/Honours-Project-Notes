@@ -16,9 +16,9 @@ Recall a \textit{triangulation} of a surface $\Sigma$ is a simple graph embedded
 \end{proposition}
 
 \begin{proof}
-    $\implies$ Suppose $G$ is a triangulation of $\Sigma$ and there exists an edge $e$ where every triangle that $e$ is in is a contractible cycle. Then $G/ e$ will contract every edge to a single point and contract every triangle to a single edge. Since every triangle bounds a disk, then $G / e$ is also a triangulation of $\Sigma$. Therefore, $G$ is reducible. 
+    For the forwards direction, suppose $G$ is a triangulation of $\Sigma$ and there exists an edge $e$ where every triangle that $e$ is in is a contractible cycle. Then $G/ e$ will contract every edge to a single point and contract every triangle to a single edge. Since every triangle bounds a disk, then $G / e$ is also a triangulation of $\Sigma$. Therefore, $G$ is reducible. 
 
-    $\impliedby$ Now suppose $G$ is a triangulation of $\Sigma$ and every edge in $G$ is in a noncontractible triangle. Then $G$ is irreducible. If this was not the case, then there exists an edge $e$ so that $G / e$ is a triangulation of $\Sigma$. But this means that expanding $e$ will yield that every triangle that $e$ is part of bounds a disk, therefore contractible. Therefore, $G$ is not irreducible. Thus shown. 
+    For the backwards direction, suppose $G$ is a triangulation of $\Sigma$ and every edge in $G$ is in a noncontractible triangle. Then $G$ is irreducible. If this was not the case, then there exists an edge $e$ so that $G / e$ is a triangulation of $\Sigma$. But this means that expanding $e$ will yield that every triangle that $e$ is part of bounds a disk, therefore contractible. Therefore, $G$ is not irreducible. Thus shown. 
 \end{proof}
 
 A large corpus of work on graphs on surfaces depends on understanding the properties of irreducible triangulations. The following is an important fact on triangulations on surfaces. In particular, this is useful for proving results on triangulations of fixed surfaces. 
@@ -56,7 +56,7 @@ A description of the figure is in \cref{fig:phiembedding}.
 \begin{figure}[h]
     \centering
     \includesvg{figures/kleinbottlegraph.svg}
-    \caption[$\phi$-embedding of a Klein bottle graph.]{$\phi$-embedding on a Klein Bottle graph. If this structure exists on a Klein bottle, then the graph can be embedded on a bounded number of pages. }\label{fig:phiembedding}
+    \caption[$\phi$-embedding of a Klein bottle graph.]{ A $\phi$-embedding on a Klein Bottle graph. If this structure exists on a Klein bottle, then the graph can be embedded on a bounded number of pages. }\label{fig:phiembedding}
 \end{figure}
 
 A description of this arrangement is seen on the Klein bottle's fundamental polygon. 
@@ -64,7 +64,7 @@ A description of this arrangement is seen on the Klein bottle's fundamental poly
     Every Klein-bottle graph $G$ with the $\phi$-structure can be embedded on $11$ pages. 
 \end{claim}
 \begin{proof}
-    Take a $\phi$-structure on $G$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis's algorithm on $B_1$ and $B_2$. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented correctly. $b$ and $e$ go on another book, and $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page. Then this is a book-embedding on $11$ pages. 
+    Take a $\phi$-structure on $G$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis' algorithm on $B_1$ and $B_2$. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented correctly. $b$ and $e$ go on another book, and $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page. Then this is a book-embedding on $11$ pages. 
 \end{proof}
 
 What is not known is if Klein-bottle graphs with the $\phi$-structure maintains the $\phi$-structure under edge splitting. In fact, we are not sure if the $\phi$-structure even exists on irreducible triangulations of the Klein bottle. This will be an open question for any future research on this question.
@@ -73,4 +73,4 @@ What is not known is if Klein-bottle graphs with the $\phi$-structure maintains 
     Every Klein-bottle graph has a structure invariant under edge splitting and every irreducible triangulation of the Klein bottle contains this structure. Furthermore, the existence of this structure allows Klein bottle graphs to be embedded on a bounded number of pages.
 \end{conjecture}
 
-Furthermore, this approach cannot be generalised to higher genus $g$ graphs, as the number of irreducible triangulations becomes arbitrarily large. 
+This approach cannot be generalised to higher genus $g$ graphs, as the number of irreducible triangulations becomes arbitrarily large. 

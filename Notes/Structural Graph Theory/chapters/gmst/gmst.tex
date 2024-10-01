@@ -10,7 +10,7 @@
 
 \subsection{Graphs of bounded Euler genus}
 
-Graphs embeddable on a surface of Euler genus $g$ are $K_t$ minor-free, where \(t > \sqrt{6g} + 4\). This comes from \cref{thm:bounded_genus_kt_free}. In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
+Graphs embeddable on a surface of Euler genus $g$ are $K_t$ minor-free, where \(t > \sqrt{6g} + 4\), from \cref{thm:bounded_genus_kt_free}. In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
 
 \begin{figure}[h!]
 	\centering
@@ -39,23 +39,23 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 
 \begin{figure}[h]
 	\centering
-	\includesvg[width=0.7 \textwidth]{figures/Clique-sum}
+	\includesvg[width=0.7\textwidth]{figures/Clique-sum}
 	\caption[Clique-sum]{Figure of clique-sum. Public domain image from \textcite{eppsteinCliquesum2023}.}\label{fig:clique-sum}
 \end{figure}
 
 
 \begin{proposition}
-	Let $t$ be an integer $\geq 1$. Let $G_1, G_2$ be two graphs with treewidth $t$. Then for all $k \leq t + 1$, $G_1 \oplus_k G_2$ has treewidth $t$. 
+	Let $t$ be an integer greater than $ 1$. Let $G_1, G_2$ be two graphs with treewidth $t$. Then for all $k \leq t + 1$, $G_1 \oplus_k G_2$ has treewidth $t$. 
 \end{proposition}
 \begin{proof}
 	Suppose $C = V(G_1) \cap V(G_2)$ be the clique that is glued over, where $|C| = k$. Let $(B_x: x \in T_1)$ be a tree-decomposition of $G_1$ of minimum width. Let $(B_x : x \in T_2)$ be a tree-decomposition of $G_2$ of minimum width. Then $C$ appears in some bag $A_x$ and $B_y$ by \cref{lem:clique}. Let $T = T_1 \sqcup T_2$. Add a new node $u$ to $T$ and let $B_u = C$. Then add edges $ux, uy$ to $E(T)$ to form a new tree. Every vertex not in $C$ has a subtree in $T$. If $v \in C$, then the induced subgraph in $T$ is the graph $T_1(v) \cup T_2(v) \cup u$. $T_1(v) \cup T_2(v) \cup u$ is a subtree of $T$. Finally, every edge in $G_1 \cup G_2$ remains in $T$. Therefore, $T$ is a tree-decomposition of $G_1 \oplus_k G_2$. The size of each bag in $T$ is still at most $t + 1$, so the treewidth of $G_1 \oplus_k G_2 \leq t$.
 \end{proof}
 
 \begin{proposition}
-	Let $t$ be an integer $\geq 1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free. 
+	Let $t$ be an integer greater than $1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free. 
 \end{proposition}
 \begin{proof}
-	Firstly, $k < t$. If $G$ has a clique of size $t$ then $G$ has a $K_t$ minor. Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. Furthermore, suppose that no edges in $C$ were deleted when pasting cliques. Adding more edges does not remove a $K_t$ minor. 
+	Firstly, $k$ is less than $t$. If $G$ has a clique of size $t$ then $G$ has a $K_t$ minor. Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. Furthermore, suppose that no edges in $C$ were deleted when pasting cliques. Adding more edges does not remove a $K_t$ minor. 
 
 	Suppose, for the sake of contradiction, that $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Furthermore, $\rho$ cannot have one subgraph in $G - C$ and another in $H - C$, as $C$ is a separator of $G - C$ and $H - C$.
 	Therefore, every connected subgraph of $\rho$ uses a vertex in $C$, or is completely contained in $G - C$, or is contained in $H - C$. But the set of connected subgraphs which intersect $C$ are pairwise adjacent as $C$ is a clique. Therefore, restricting these connected subgraphs to only $C$ is also a valid model. But this is a model of $K_t$ in only $G$, which contradicts $G$ being $K_t$ minor free. 
@@ -74,7 +74,7 @@ The reverse proposition, that if $G$ is $K_t$-minor-free, then $G$ has bounded g
 \end{proof}
 
 \subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
-Given a graph \(G\) and a tree-decomposition \(\tree\), the \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\), with vertex set $B_x$ and edge set where \(vw\) is an edge in \(G\langle B_x \rangle\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $uv \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
+Given a graph \(G\) and a tree-decomposition \(\tree\), the \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\). The vertex set of \(G\langle B_x \rangle\) is $B_x$. \(vw\) is an edge in \(G\langle B_x \rangle\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $uv \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
 The \textit{adhesion set} is the set \(B_x \cap B_y\). 
 The \textit{adhesion} of a tree is defined as \(\max(|B_x \cap B_y|)\) where \(xy\) is an edge in \(T\).
 
@@ -110,7 +110,7 @@ Almost-embeddable graphs are a key component of the Graph Minor Structure Theore
 Note that $\ell$ is implied to be less than $t$, as this would imply that the torsos have a $K_t$ clique. In fact $\ell$ is at most $a + 2k + \left\lfloor 
 \frac{1}{2} (7 + \sqrt{1 + 24g})
 \right\rfloor$, from 
-There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor.\textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. 
+There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor. \textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. 
 
 \begin{theorem}[\textcite{kawarabayashiQuicklyExcludingNonplanar2021}]
 	Let $t \geq 1$ be a positive integer. Let $G$ be a $K_t$-minor free graph. Then let $\alpha = t^{18 \cdot 10^{7} t^{26} + c}$ for a constant $c$, which is defined in the paper. Then setting $g = t(t+1)$, $p = 2t^2$, $k = \alpha$, $\ell = 4\alpha$, and $a = 3\alpha$, $G \in \mathcal{G}(g,p,k,a)$. 

@@ -2,7 +2,7 @@
 Recall a graph \(G\) is \textit{planar} if \(G\) can be drawn in the Euclidean plane \( \mathbb{R}^2 \) or the $2$-sphere $S^2$ such that no two edges cross.  A drawing of $G$ in $\mathbb{R}^2$ is referred to as an \textit{embedding} of $G$ in $\mathbb{R}^2$. A drawing of $G$ is also referred to as a \textit{plane} graph. If \(G\) is embedded in \(\mathbb{R}^2 \), then remove the drawing of $G$ from $\mathbb{R}^2$. The connected components in $\mathbb{R}^2 - G$ are called \textit{faces}. The \textit{outerface} is the unbounded face in $\mathbb{R}^2$, meaning that the outerface goes to infinity. If the graph is embedded on $S^2$, then no outerface exists. Any arbitrary face can become the outerface through stereographic projection from $\mathbb{R}^2$ to $S^2$ and back to $\mathbb{R}^2$. The \textit{internal faces} of $G$ are all the faces which are not the outerface. A set of vertices $S$ in $V(G)$ \textit{lie} on a face $F$, or \textit{bound} $F$ if $S$ is in the closure of $F$. A set of edges $T$ in $V(G)$ also bound a face $F$ if $T$ is in the closure of $F$. If an edge $e$ bounds a face $F$, then $e$ \textit{touches} $F$. \(G\) is \textit{outerplanar} if \(G\) is planar and there exists an embedding such that all vertices in \(G\) lie on the outerface.
 
 Let \(F(G)\) be the set of faces of \(G\) embedded on \(\mathbb{R}^2\). 
-A \textit{dual graph} $G^*$ of a connected planar graph $G$ has vertex set $F(G)$ and $F_i$ and $F_j$ are adjacent in $G^*$ if and only if there exists an edge $e$ that lies on the common boundary of $F_i$ and $F_j$. For every edge on the common boundary of $F_i$ and $F_j$, add one edge. Note that faces may have multiple edges on their boundary, so $G^*$ may not be simple. There exists a natural dual between $E(G^*)$ and $E(G)$ where an edge $e \in E(G)$ corresponds with the edge $e^* \in E(G^*)$, where $e^*$ crosses over $e$. 
+A \textit{dual graph} $G^*$ of a connected planar graph $G$ is the graph obtained by looking at the faces. $G^*$ has vertex set $F(G)$. $F_i$ and $F_j$ are adjacent in $G^*$ if and only if there exists an edge $e$ that lies on the common boundary of $F_i$ and $F_j$. For every edge on the common boundary of $F_i$ and $F_j$, add one edge. Note that faces may have multiple edges on their boundary, so $G^*$ may not be simple. There exists a natural dual between $E(G^*)$ and $E(G)$ where an edge $e \in E(G)$ corresponds with the edge $e^* \in E(G^*)$, where $e^*$ crosses over $e$. 
 
 \begin{theorem}[Euler's formula]\label{thm:Euler_planar}
 	For every connected plane graph $G$, 
@@ -51,7 +51,7 @@ Another application of Euler's formula is to bound the number of edges in an out
 \end{lemma}
 \begin{proof}
 	If \(G\) is planar with \(n\) vertices and \(m\) edges where $n \geq 3$, then \(m \leq 3n -6\).
-	However \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \cdot 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
+	However, \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \cdot 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
 \end{proof}
 
 This forms a part of Wagner's theorem, which states that a graph $G$ is planar if and only if $G$ is $K_5$-minor free and $K_{3,3}$-minor free. 

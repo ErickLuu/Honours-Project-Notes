@@ -1,0 +1,2 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qfigures/kleinbottlegraph.svg [\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q-embedding of a Klein bottle graph.]\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_AU","sentence":"^\\QCrosscaps are added to a surface \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q by removing a disk in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and identifying opposite points on the boundary.\\E$"}

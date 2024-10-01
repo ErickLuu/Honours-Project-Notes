@@ -3,7 +3,7 @@ This subsection discusses a decomposition of planar graphs using a tree-decompos
 
 \subsubsection{Menger's theorem}
 
-Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem and is used throughout this section. 
+Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an essential theorem and is used throughout this section. 
 Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) that starts in \(A\) and ends in \(B\) with no internal vertices in \(A \cup B\). An \(AB\)-connector is a set of disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S \subseteq V(G)\) such that \(G - S\) contains no \(AB\)-path. Then:
 \begin{theorem}[Menger's theorem]\label{thm:Menger}
 	Let $G$ be a graph and let $A, B \subseteq V(G)$. Then the size of the smallest \(AB\)-separator of \(G\) is equal to the size of the largest \(AB\)-connector.
@@ -16,15 +16,17 @@ Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B 
 \subsubsection{Planar Graph Decomposition}
 The aim of this section is to prove \cref{lem:planar_graphs_4_connected_cliqesums}. This is done by an argument by induction to decompose a graph into smaller elements. 
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
-	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
+	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{\leq 4}$, with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
+This proof is built from the observation that a planar triangulation is $4$-connected if and only if it has no separating triangle. This observation is then extended through the proof to deal with all planar graphs rather than triangulations. Finally, induction is used to reduce the graph to smaller components. We first prove some properties about planar graphs, namely that a triangle can be added without breaking the property that the graph is planar.
+
 Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two components $U, V$ and there exist vertices in both the interior of $U$ and $V$. All nonseparating triangles bound faces. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
 \begin{figure}[h!]
 	\includesvg[width = 0.8\textwidth]{figures/separating triangle.svg}
 	\caption[Separating faces]{Two plane graphs. The one on the left has a blue separating face and the one on the right has a blue nonseparating face.}\label{fig:separating_triangle}
 \end{figure}
 
-\cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. \cref{lem:rooted_triangle} comes from \textcite{woodThomassensChoosabilityArgument2010}.
+\cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. \cref{lem:rooted_triangle} is contained within \textcite{woodThomassensChoosabilityArgument2010}.
 
 A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$ in $G$ where $u, v, w$ are in separate components. 
 
@@ -39,9 +41,9 @@ A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$
 	Every graph $G$ with vertices $u, v, w$ has a rooted $K_3$ on $u, v, w$ if and only if there exists no cut-set $S$ where $|S| \leq 1$ and $H - S$ places the set $\{u,v,w\} \setminus S$ each in separate components. 
 \end{lemma}
 \begin{proof}
-	$\implies$ Let $U,V,W$ be the three subgraphs that contain $u, v, w$ respectively, and contracting $U, V, W$ to a single vertex creates a $K_3$ subgraph. Let $x \in V(G)$ be a vertex. Then without loss of generality, $x$ is not in $U$ or $V$. Therefore, $G - x$ has $U$ and $V$ in the same component. No cut-set $S$ which places $\{u,v,w\} \setminus S$ in separate components exists. 
+	For the forwards direction, let $U,V,W$ be the three subgraphs that contain $u, v, w$ respectively, and contracting $U, V, W$ to a single vertex creates a $K_3$ subgraph. Let $x \in V(G)$ be a vertex. Then without loss of generality, $x$ is not in $U$ or $V$. Therefore, $G - x$ has $U$ and $V$ in the same component. No cut-set $S$ which places $\{u,v,w\} \setminus S$ in separate components exists. 
 
-	$\impliedby$ This is proven by induction. Suppose $|V(G)| = 3$, but no $K_3$ minor exists. Without loss of generality, $V(G)$ is a subgraph of a path $uvw$. Then setting $S = v$, $u$ and $w$ are disconnected. No such $S$ exists when $G = K_3$. 
+	For the backwards direction, we use induction. Suppose $|V(G)| = 3$, but no $K_3$ minor exists. Without loss of generality, $V(G)$ is a subgraph of a path $uvw$. Then setting $S = v$, $u$ and $w$ are disconnected. No such $S$ exists when $G = K_3$. 
 
 	If $G$ is connected but not $2$-connected, take $x$ to be a cut-vertex. Since $G - x$ does not place $u,v,w$ in separate components, then without loss of generality, $u,v$ are in the same component. Let $y$ be a vertex that is a neighbour of $x$ in a component that does not contain $u,v$. Let $G'$ be the graph obtained by contracting $xy$ to a vertex $z$. If $y = w$, then $z = w$. In $G'$, $u,v$ are also in the same component of $G' - z$. Furthermore, any other cut-vertex in $G'$ is also a cut-vertex in $G$. $|V(G')| < |V(G)|$, so induction can be applied on $G'$. 
 
@@ -92,7 +94,7 @@ Finally, this is the proof of \cref{lem:planar_graphs_4_connected_cliqesums}.
 
 	To show that $G$ has a graph drawing with $uv$ as an edge, take an embedding of $G_1'$ on the sphere and project this embedding to the plane so that $uv$ is adjacent to the outerface. Do the same for $G_2'$. Then glue these two embeddings along $uv$ both on the outerface. 
 
-	Suppose that $G$ is $3$-connected but not $4$-connected. Then $G$ has a cut-set $u,v,w$. Then let $G' = G + \{uv, uw, vw\}$. Then $G'$ is planar, from \cref{thm:cutset_added_edges}. 
+	Suppose that $G$ is $3$-connected but not $4$-connected. Then $G$ has a cut-set $u,v,w$. Let $G' = G + \{uv, uw, vw\}$. $G'$ is planar, from \cref{thm:cutset_added_edges}. 
 	
 	If $uvw$ does not bound a face, then $uvw$ is a separating triangle. Use the Jordan curve theorem to split $\mathbb{R}^2 - uvw$ into two regions, an interior and an exterior. Let $G_1$ be the interior of $uvw$ and the triangle $uvw$ and let $G_2$ be the exterior of $uvw$ and the triangle $uvw$. 
 
