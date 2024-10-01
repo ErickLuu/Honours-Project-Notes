@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:version="1.4-rc1 (61ec3f2, 2024-09-26)"
    sodipodi:docname="safe_vertices.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      inkscape:zoom="1.1037668"
      inkscape:cx="299.88219"
-     inkscape:cy="239.63395"
+     inkscape:cy="238.72796"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
@@ -82,7 +82,9 @@
          id="tspan4"
          style="stroke-width:0.374"
          x="22.292978"
-         y="43.027843">vi</tspan></text>
+         y="43.027843">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2">i</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -93,7 +95,9 @@
          id="tspan5"
          style="stroke-width:0.374"
          x="45.904362"
-         y="12.464891">vk</tspan></text>
+         y="12.464891">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan1">k</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -104,7 +108,9 @@
          id="tspan6"
          style="stroke-width:0.374"
          x="98.520576"
-         y="39.671913">vj</tspan></text>
+         y="39.671913">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3">j</tspan></tspan></text>
     <ellipse
        style="fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.239423;stroke-linejoin:bevel;stroke-opacity:0.922481"
        id="path1-6"
@@ -156,7 +162,9 @@
          id="tspan7"
          style="stroke-width:0.374"
          x="60.17358"
-         y="77.052177">Gp</tspan></text>
+         y="77.052177">G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan9">p</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
@@ -167,6 +175,8 @@
          id="tspan8"
          style="stroke-width:0.374"
          x="154.61259"
-         y="79.065773">Gp</tspan></text>
+         y="79.065773">G<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan10">p</tspan></tspan></text>
   </g>
 </svg>
