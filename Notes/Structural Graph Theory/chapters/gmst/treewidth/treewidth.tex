@@ -48,11 +48,11 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 \end{proposition}
 
 \begin{proof}
-	$\impliedby$ Suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\). For all non-root vertices $x$, let \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\). The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so the edge $vw$ will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(B_x\) and the children of \(B_x\), which is a connected subtree.
+	For the forwards direction, suppose $G$ is not a forest. Then \(G\) has a cycle \(C\), so $G$ has a $K_3$-minor. By \cref{cor:complete_tw}, $\tw(K_3) = 2$. By \cref{thm:tw_minor_closure}, $2 \leq \tw(G)$. Therefore, $G$ has treewidth at least two. 
+
+	For the backwards direction, suppose \(G\) is a tree. Root the graph \(G\) at the vertex \(r\). Then let \(T = G\). For all non-root vertices $x$, let \(B_x:= \lbrace x, p \rbrace\) where \(p\) is the parent of \(x\). The bag \(B_r\) will just contain \(r\). Then all edges \(vw\) will be between parent \(v\) and child \(w\), so the edge $vw$ will be in bag \(B_w\). Finally, the subgraph induced by vertex \(x\) in \(T\) will be \(B_x\) and the children of \(B_x\), which is a connected subtree.
 
 	If \(G\) is a forest, then perform this operation on every connected component of \(G\) and connect the root vertices to form a new tree. Then this tree is a tree-decomposition of $G$. This forms a tree-decomposition of width at most 1. An example is in \cref{fig:tree-treedecomp}.
-
-	$\implies$ Suppose $G$ is not a forest. Then \(G\) has a cycle \(C\), so $G$ has a $K_3$-minor. By \cref{cor:complete_tw}, $\tw(K_3) = 2$. By \cref{thm:tw_minor_closure}, $2 \leq \tw(G)$. Therefore, $G$ has treewidth at least two. 
 	\begin{figure}[ht]
 		\centering
 		\input{figures/treewidth-tree}
@@ -90,9 +90,9 @@ To prove \cref{prop:k4-minor}, the following lemma is used:
 This implies that every $K_4$-minor free graph is not $3$-connected, therefore it contains a vertex of degree $\leq 2$. The next proof is a proof of \cref{prop:k4-minor}.
 
 \begin{proof}
-	$\implies$ Suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
+	For the forwards direction, suppose $G$ contains $K_4$ as a minor. Then $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth $> 2$. 
 
-	$\impliedby$ This is proven using induction on the number of vertices. Suppose $G$ is $K_4$ minor free. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
+	For the backwards direction, we use induction on the number of vertices. Suppose $G$ is $K_4$ minor free. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree $\leq 2$. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$ minor free and has a tree-decomposition of width two. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth $\leq 2$. Thus shown. 
 \end{proof}
 
 %Define a \(k\)-tree inductively. The complete graph \(K_{k+1}\) is a \(k\)-tree. If \(G\) is a \(k\)-tree, then adding any new vertex to \(G\) that is adjacent to a $k$-clique in \(G\) results in another \(k\)-tree.
