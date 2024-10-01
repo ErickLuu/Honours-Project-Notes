@@ -24,12 +24,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.1037668"
-     inkscape:cx="-44.84643"
-     inkscape:cy="354.69449"
-     inkscape:window-width="3440"
-     inkscape:window-height="1417"
-     inkscape:window-x="3832"
-     inkscape:window-y="112"
+     inkscape:cx="299.88219"
+     inkscape:cy="239.63395"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -149,24 +149,24 @@
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
-       x="54.653751"
-       y="74.309929"
+       x="60.17358"
+       y="77.052177"
        id="text7"><tspan
          sodipodi:role="line"
          id="tspan7"
          style="stroke-width:0.374"
-         x="54.653751"
-         y="74.309929">Gp</tspan></text>
+         x="60.17358"
+         y="77.052177">Gp</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:none;fill-opacity:0.850129;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-opacity:0.922481"
-       x="153.41405"
-       y="78.144943"
+       x="154.61259"
+       y="79.065773"
        id="text8"><tspan
          sodipodi:role="line"
          id="tspan8"
          style="stroke-width:0.374"
-         x="153.41405"
-         y="78.144943">Gp</tspan></text>
+         x="154.61259"
+         y="79.065773">Gp</tspan></text>
   </g>
 </svg>

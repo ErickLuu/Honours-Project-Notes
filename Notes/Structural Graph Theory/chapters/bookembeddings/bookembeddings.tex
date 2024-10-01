@@ -45,7 +45,7 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	Given a vertex ordering \(v_1 \leq v_2 \leq \cdots \leq v_n\), the spine edges can appear on any page. Furthermore, at most \(n-3\) non-spine edges appear on each page. The maximum number of edges in an outerplanar graph is \(2n - 3\) from \cref{thm:outerplanar_bound}, but spine edges are counted multiple times. Excluding spine edges, there are $n-3$ edges per page. Adding back on $n$ spine edges, \(m\), the number of edges, satisfies \(m \leq n + k (n - 3)\).
 \end{proof}
 \begin{proposition}\label{thm:Pagenumber_Complete_Graph}
-	The complete graph $K_n$ has $\pn(K_n) = \lceil \frac{n}{2} \rceil$ when $n \geq 4$.
+	The complete graph $K_n$ has pagenumber equal to  $\lceil \frac{n}{2} \rceil$ when $n \geq 4$.
 \end{proposition}
 \begin{proof}
 	$\pn(K_n) \leq \lceil \frac{n}{2} \rceil$: Arrange the vertices of $K_n$ in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. As an example, refer to \cref{fig:k8 coloured with colours} for a description of a zig-zagging pattern. Rotate this pattern $\lceil n/2 \rceil$ times. 

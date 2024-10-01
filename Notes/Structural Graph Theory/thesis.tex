@@ -19,12 +19,16 @@
 \usepackage{tikz}
 \usetikzlibrary{graphs,graphdrawing, graphs.standard}
 \usegdlibrary{trees}
+\usepackage{graphicx}
 \usepackage{svg}
 \svgsetup{inkscapeexe="C:/Program Files/Inkscape/bin/inkscape.exe"}
 
-\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tablefootnote}
+
+\usepackage[titles]{tocloft}
+
+\renewcommand{\cftdot}{}
 
 \usepackage[style = numeric,
 isbn=false,
@@ -71,6 +75,7 @@ maxbibnames=99
 \theoremstyle{definition}
 \numberwithin{theorem}{section}
 \numberwithin{equation}{section}
+
 
 %includeonly
 \includeonly{

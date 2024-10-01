@@ -16,8 +16,10 @@ Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B 
 \subsubsection{Planar Graph Decomposition}
 The aim of this section is to prove \cref{lem:planar_graphs_4_connected_cliqesums}. This is done by an argument by induction to decompose a graph into smaller elements. 
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
-	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{\leq 4}$ with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
+	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{\leq 4}$, with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
+This proof is built from the observation that a planar triangulation is $4$-connected if and only if it has no separating triangle. This observation is then extended through the proof to deal with all planar graphs rather than triangulations. This proof uses an induction argument to reduce the graph to smaller components. We first prove some properties about planar graphs, namely that a triangle can be added without breaking the property that the graph is planar.
+
 Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two components $U, V$ and there exist vertices in both the interior of $U$ and $V$. All nonseparating triangles bound faces. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
 \begin{figure}[h!]
 	\includesvg[width = 0.8\textwidth]{figures/separating triangle.svg}
