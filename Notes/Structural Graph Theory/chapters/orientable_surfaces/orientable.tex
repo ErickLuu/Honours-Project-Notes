@@ -10,7 +10,7 @@ We first start with 4-connected planar graphs, then move onto planar graphs, the
 	Let $G$ be a graph embedded on an orientable surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has $ \leq 4g$ monochromatic paths.
 \end{lemma}
 \begin{proof}
-	Let $G$ be such a graph. $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable. The reason this works is because the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
+	Let $G$ be such a graph. $G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable. The reason this works is that the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and nonorientable case.
 	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \cdot 4g = 12(g + 1)$ monochromatic paths.
 \end{proof}
 \begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
@@ -30,4 +30,4 @@ Now to prove \cref{thm:orientablevortices}.
 \begin{corollary}
 	Suppose $G$ is in $\mathcal{G}(g, p, k, a)$ where every torso is embedded on an orientable surface. Then $G$ can be embedded on $(2s + 2)(s) + \ell + a$ pages, where $s = \gpk$. 
 \end{corollary}
-Finally, apex vertices are handled with \cref{thm:apex_vertices_pagenumber}. Thus we conclude a partial result using \textcite{robertsonGraphMinorsXVI2003} to show that some $K_t$-minor free graphs, ones where every torso is $k$-almost-embeddable on an orientable surface, satisfy the conjecture.
+Finally, apex vertices are handled with \cref{thm:apex_vertices_pagenumber}. Thus, we conclude a partial result using \textcite{robertsonGraphMinorsXVI2003} to show that some $K_t$-minor free graphs, ones where every torso is $k$-almost-embeddable on an orientable surface, satisfy the conjecture.

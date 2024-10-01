@@ -6,13 +6,13 @@ This section discusses tree-decompositions and book-embeddings of graphs where e
 This section proves that every graph with a tree-decomposition where every torso can be embedded on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. 
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
-	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and is \(c\)-colourable. Further suppose the adhesion of the tree-decomposition is at most \(\ell\).
+	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
 	Then $G$ can be embedded in \(\leq cs + \ell \) pages.
 \end{theorem}
 
 \subsubsection{Proof of \cref{thm:clique_sum_pagenumber_bound}}
 The proof of \cref{thm:clique_sum_pagenumber_bound} goes as follows.
-The hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that induction can be applied. This strengthening is in \cref{lem:Hickingbotham_Lemma}. Then given a tree-decomposition, a leaf is removed.Then induction is done on the rest of the tree. Finally, the leaf is added back in so that the stronger induction hypothesis can be shown to hold. 
+The hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that induction can be applied. This strengthening is in \cref{lem:Hickingbotham_Lemma}. Then given a tree-decomposition, a leaf is removed. Then induction is done on the rest of the tree. Finally, the leaf is added back in so that the stronger induction hypothesis can be shown to hold. 
 
 Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). Let $J$ be a clique in $G$. A vertex $v$ is a \textit{rainbow vertex} in $J$ in a book-embedding $(<, \psi)$ if the set of edges $\{u_i v | u_i < v, u_i \in J\}$ each have distinct colours. The structure of the book-embedding will look like this: \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 
@@ -26,14 +26,14 @@ Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a v
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	Let \((\leq_a, \psi_a)\) be a \(s\)-page layout of \(G\) and let \(\rho: V(G) \rightarrow [c]\) be a proper colouring of \(V(G)\).
+	Let \((\leq_a, \psi_a)\) be an \(s\)-page layout of \(G\) and let \(\rho: V(G) \rightarrow [c]\) be a proper colouring of \(V(G)\).
 
 	Let \(u_1, \ldots, u_k\) be the vertices of \(C\) ordered by \(\sigma_C\). Note that \(k \leq \ell\). Then the new ordering starts with \(u_1 \leq u_2 \leq \ldots, \leq u_k\), and all vertices not in \(K\) are placed after, according to \(\leq_a\).
 	The edge-colouring \(\psi\) is defined as follows. For every edge \(u_i v\) where \(u_i \in V(C)\) and \(u_i \leq v\), \(\psi(u_i v) = i\). If neither \(u\) nor \(v\) are in \(V(C)\), and \(u \leq v\), then let \(\psi(uv) = (\rho(u), \psi_a(uv))\). Then this edge-colouring requires \(|\rho| |\psi_a| + k \leq cs + \ell\) pages.
 
-	Now we show \((\leq, \psi)\) is a proper book-embedding. Suppose there exists edges \(uv\) and \(xy\) where \(\psi(uv) = \psi(xy)\). Suppose that \(u\) is the smallest vertex in the ordering \(\leq\). If \(u \in V(C)\), then the edge \(uv\) is assigned the page consisting of only edges adjacent to $u$. So \(x = u\), but this is a star. Therefore, the edges do not cross. Therefore \(u, v, x, y\) are not in \(V(C)\). But \((\leq, \psi)\) restricted to the subgraph $G - C$ looks like \((\leq_a, \psi_a)\), if pages with different colours where identified. Therefore, \((\leq, \psi)\) is a proper book-embedding.  
+	Now we show \((\leq, \psi)\) is a proper book-embedding. Suppose there exists edges \(uv\) and \(xy\) where \(\psi(uv) = \psi(xy)\). Suppose that \(u\) is the smallest vertex in the ordering \(\leq\). If \(u \in V(C)\), then the edge \(uv\) is assigned the page consisting of only edges adjacent to $u$. So \(x = u\), but this is a star. Therefore, the edges do not cross. Therefore, \(u, v, x, y\) are not in \(V(C)\). But \((\leq, \psi)\) restricted to the subgraph $G - C$ looks like \((\leq_a, \psi_a)\), if pages with different colours where identified. Therefore, \((\leq, \psi)\) is a proper book-embedding.  
 	\par
-	Properties 1 and 2 are immediate from the definition \((\leq, \psi)\). For property 3, consider a clique \(J\) in \(G\). Then the last vertex of \(J\) is rainbow. Suppose the last vertex of \(J\) is \(w\), and let \(u, v\) be earlier vertices. Since \(u\) and \(v\) necessarily are assigned different colours in the colouring, then \(\psi(uw) = (\rho(u), \psi_a(uw))\) and \(\psi(vw) = (\rho(v), \psi_a(vw))\). Therefore, the two edges are on different pages. Thus \(w\) is a rainbow vertex.
+	Properties 1 and 2 are immediate from the definition \((\leq, \psi)\). For property 3, consider a clique \(J\) in \(G\). Then the last vertex of \(J\) is rainbow. Suppose the last vertex of \(J\) is \(w\), and let \(u, v\) be earlier vertices. Since \(u\) and \(v\) necessarily are assigned different colours in the colouring, then \(\psi(uw) = (\rho(u), \psi_a(uw))\) and \(\psi(vw) = (\rho(v), \psi_a(vw))\). Therefore, the two edges are on different pages. Thus, \(w\) is a rainbow vertex.
 \end{proof}
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]

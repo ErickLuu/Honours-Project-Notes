@@ -3,7 +3,7 @@ This subsection discusses a decomposition of planar graphs using a tree-decompos
 
 \subsubsection{Menger's theorem}
 
-Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an important theorem and is used throughout this section. 
+Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an essential theorem and is used throughout this section. 
 Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) that starts in \(A\) and ends in \(B\) with no internal vertices in \(A \cup B\). An \(AB\)-connector is a set of disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S \subseteq V(G)\) such that \(G - S\) contains no \(AB\)-path. Then:
 \begin{theorem}[Menger's theorem]\label{thm:Menger}
 	Let $G$ be a graph and let $A, B \subseteq V(G)$. Then the size of the smallest \(AB\)-separator of \(G\) is equal to the size of the largest \(AB\)-connector.
@@ -18,7 +18,7 @@ The aim of this section is to prove \cref{lem:planar_graphs_4_connected_cliqesum
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
 	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{\leq 4}$, with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
-This proof is built from the observation that a planar triangulation is $4$-connected if and only if it has no separating triangle. This observation is then extended through the proof to deal with all planar graphs rather than triangulations. This proof uses an induction argument to reduce the graph to smaller components. We first prove some properties about planar graphs, namely that a triangle can be added without breaking the property that the graph is planar.
+This proof is built from the observation that a planar triangulation is $4$-connected if and only if it has no separating triangle. This observation is then extended through the proof to deal with all planar graphs rather than triangulations. Finally, induction is used to reduce the graph to smaller components. We first prove some properties about planar graphs, namely that a triangle can be added without breaking the property that the graph is planar.
 
 Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two components $U, V$ and there exist vertices in both the interior of $U$ and $V$. All nonseparating triangles bound faces. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
 \begin{figure}[h!]
@@ -94,7 +94,7 @@ Finally, this is the proof of \cref{lem:planar_graphs_4_connected_cliqesums}.
 
 	To show that $G$ has a graph drawing with $uv$ as an edge, take an embedding of $G_1'$ on the sphere and project this embedding to the plane so that $uv$ is adjacent to the outerface. Do the same for $G_2'$. Then glue these two embeddings along $uv$ both on the outerface. 
 
-	Suppose that $G$ is $3$-connected but not $4$-connected. Then $G$ has a cut-set $u,v,w$. Then let $G' = G + \{uv, uw, vw\}$. Then $G'$ is planar, from \cref{thm:cutset_added_edges}. 
+	Suppose that $G$ is $3$-connected but not $4$-connected. Then $G$ has a cut-set $u,v,w$. Let $G' = G + \{uv, uw, vw\}$. $G'$ is planar, from \cref{thm:cutset_added_edges}. 
 	
 	If $uvw$ does not bound a face, then $uvw$ is a separating triangle. Use the Jordan curve theorem to split $\mathbb{R}^2 - uvw$ into two regions, an interior and an exterior. Let $G_1$ be the interior of $uvw$ and the triangle $uvw$ and let $G_2$ be the exterior of $uvw$ and the triangle $uvw$. 
 

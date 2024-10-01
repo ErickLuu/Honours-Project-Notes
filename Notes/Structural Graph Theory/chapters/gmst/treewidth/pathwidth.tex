@@ -24,7 +24,7 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 	\end{equation*}
 	Each leaf appears once and each vertex on the central path is on a subpath of the path. Every edge is in one bag. Therefore, the pathwidth of \(G\) is 1. If every component of $G$ is a caterpillar, then repeat for every component.
 
-	$\implies$ Suppose \(G\) has pathwidth 1. Then $G$ is a forest, because $G$ having pathwidth 1 implies $G$ has treewidth 1. Then choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path goes through every bag. Every vertex not on this path is adjacent to a vertex on this path. Therefore $G$ is a caterpillar. 
+	$\implies$ Suppose \(G\) has pathwidth 1. Then $G$ is a forest, because $G$ having pathwidth 1 implies $G$ has treewidth 1. Then choose a vertex \(v\) in \(B_1\) and a vertex \(w\) in \(B_n\), the final bag, and look at a path from \(v\) to \(w\). This path goes through every bag. Every vertex not on this path is adjacent to a vertex on this path. Therefore, $G$ is a caterpillar. 
 	
 	An example of a caterpillar is in \cref{fig:caterpillar}.
 \end{proof}
@@ -46,7 +46,7 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 \end{proposition}
 
 \begin{proof}[Proof]
-	Show \(\pw(T) \leq 1 + \pw(T - V(P))\) for all $P$. If \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a path-decomposition of width $\pw(T - P)$. Order each connected component such that they appear in the order of their parents on the paths. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\).
+	We show \(\pw(T) \leq 1 + \pw(T - V(P))\) for all $P$. If \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a path-decomposition of width $\pw(T - P)$. Order each connected component such that they appear in the order of their parents on the paths. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\).
 
-	Show there exists $P$ such that \(\pw(T) \geq 1 + \pw(T - V(P))\). Proceed by construction. Let \(B_1, \ldots B_n\) be a path-decomposition of \(T\). Let \(x\) live in bag \(B_1\) and \(y\) live in bag \(B_n\), the final bag. Then let \(P\) be the unique path from \(x\) to \(y\). Then \(P\) traverses through every bag in the path-decomposition. Then \(\pw(T) \geq 1 + \pw(T - P)\) by adding every parent to the bag of each component. 
+	We show there exists $P$ such that \(\pw(T) \geq 1 + \pw(T - V(P))\). Proceed by construction. Let \(B_1, \ldots B_n\) be a path-decomposition of \(T\). Let \(x\) live in bag \(B_1\) and \(y\) live in bag \(B_n\), the final bag. Then let \(P\) be the unique path from \(x\) to \(y\). Then \(P\) traverses through every bag in the path-decomposition. Therefore, \(\pw(T) \geq 1 + \pw(T - P)\) by adding every parent to the bag of each component. 
 \end{proof}
