@@ -22,7 +22,7 @@ The most immediate application is bounding the number of edges in any planar gra
 	Let $G$ be a planar graph with $n$ vertices and $m$ edges. Then $m \leq 3n - 6$.
 \end{proposition}
 \begin{proof}
-	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches exactly two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
+	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches at most two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
 \end{proof}
 
 Another application of Euler's formula is to bound the number of edges in an outerplanar graph.
@@ -31,7 +31,7 @@ Another application of Euler's formula is to bound the number of edges in an out
 \end{proposition}
 
 \begin{proof}
-	Suppose \(G\) is \textit{maximal outerplanar}, meaning adding any edge will break the outerplanar property. Let there be \(f\) internal faces in $G$. Then the outerface has \(n\) edges on the boundary as every vertex in $G$ is on the boundary of the outerface. Each internal face will have exactly \(3\) edges on the boundary. However, each edge is touching exactly two distinct faces. By counting the number of edges on every face,
+	Suppose \(G\) is \textit{maximal outerplanar}, meaning adding any edge will break the outerplanar property. Let $G$ have \(f\) internal faces. Then the outerface has \(n\) edges on the boundary as every vertex in $G$ is on the boundary of the outerface. Each internal face will have exactly \(3\) edges on the boundary. However, each edge is touching exactly two distinct faces. By counting the number of edges on every face,
 	\begin{equation*}
 		3 f + n = 2m.
 	\end{equation*}

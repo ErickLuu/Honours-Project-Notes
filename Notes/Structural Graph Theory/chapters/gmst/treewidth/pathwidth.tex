@@ -1,9 +1,9 @@
 \section{Path-width}\label{sec:Pathwidth}
-Similar to treewidth, the pathwidth of a graph \(G\) defines how similar $G$ is from a path. A \textit{path-decomposition} of a graph \(G\) is defined as a path $P$ of some length $n$ with associated \textit{bags} \(\lbrace B_i : 1 \leq i \leq n \rbrace\) such that:
+Similar to treewidth, the pathwidth of a graph \(G\) defines how similar $G$ is from a path. A \textit{path-decomposition} of a graph \(G\) is defined as a path $P$ of some length $n$ with associated \textit{bags} \(\lbrace B_i : 1 \leq i \leq n \rbrace\). The following conditions must hold:
 \begin{itemize}
 	\item $\bigcup_{1 \leq i \leq n} B_i = V(G)$.
-	\item For all \(v \in V(G)\), the subset of vertices \(\left\lbrace x \in V(P): v \in B_x \right\rbrace\) induces a connected subpath in \(V(P)\).
-	\item For all edges \(vw \in E(G)\), there exists a bag \(B_x\) such that both \(v\) and \(w\) are in \(B_x\).
+	\item For all $v$ in $V(G)$, the subset of vertices \(\left\lbrace x \in V(P): v \in B_x \right\rbrace\) induces a connected subpath in \(V(P)\).
+	\item For all edges $vw$ in $E(G)$, there exists a bag \(B_x\) such that both \(v\) and \(w\) are in \(B_x\).
 \end{itemize}
 
 Typically, $P$ is suppressed, so the bags are placed in order from 1 to $n$. Like for treewidth, The pathwidth of \(G\) is the largest pathwidth over all connected components.
