@@ -22,6 +22,7 @@ This proof is built from the observation that a planar triangulation is $4$-conn
 
 Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two components $U, V$ and there exist vertices in both the interior of $U$ and $V$. All nonseparating triangles bound faces. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
 \begin{figure}[h!]
+	\centering
 	\includesvg[width = 0.8\textwidth]{figures/separating triangle.svg}
 	\caption[Separating faces]{Two plane graphs. The one on the left has a blue separating face and the one on the right has a blue nonseparating face.}\label{fig:separating_triangle}
 \end{figure}
@@ -67,6 +68,7 @@ A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$
 An example of the cut-set vertices and the particular cases that arise is in \cref{fig:cutsets}.
 
 \begin{figure}[h!]
+	\centering
 	\includesvg[width = 0.8\textwidth]{figures/planar_separators.svg}
 	\caption[Decomposition of graph]{An illustration of the cases that are handled when dealing with cut-sets.}\label{fig:cutsets}
 \end{figure}
@@ -78,6 +80,7 @@ Finally, this is the proof of \cref{lem:planar_graphs_4_connected_cliqesums}.
 	Suppose $|V(G)| \leq 3$. Then $\mathcal{T}$ has nodes $x$, $y$ and edge $xy$, and $B_x = B_y = V(G)$. Then $G \langle B_x \rangle = G \langle B_y \rangle = K_3$. An example of this is in \cref{fig:treedecomp_k4}. 
 
 	\begin{figure}[h!]
+		\centering
 		\includesvg[width = 0.8\textwidth]{figures/decomposition4.svg}
 		\caption[Tree-decomposition of $K_4$]{This is a tree-decomposition of $K_3$ and $K_4$ of adhesion $\leq 3$. Every torso is either $K_3$ or $K_4$.}\label{fig:treedecomp_k4}
 	\end{figure}
