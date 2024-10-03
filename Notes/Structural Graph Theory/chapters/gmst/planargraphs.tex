@@ -19,7 +19,7 @@ A simple proof of this fact is from \textcite{staudtGeometrieLage1847}.
 
 The most immediate application is bounding the number of edges in any planar graph.
 \begin{proposition}\label{thm:planar_graph_edge_bound}
-	Let $G$ be a planar graph with $n$ vertices and $m$ edges. Then $m \leq 3n - 6$.
+	Let $G$ be a planar graph with $n \geq 3$ vertices and $m$ edges. Then $m \leq 3n - 6$.
 \end{proposition}
 \begin{proof}
 	Suppose $G$ is embedded on $\mathbb{R}^2$. Then $G$ has $f$ faces, where every edge touches at most two faces. Every face touches at least three edges. Therefore, $3f \leq 2m$. From Euler's formula, $n - m + f = 2$, so $m \leq 3n - 6$. 
@@ -27,7 +27,7 @@ The most immediate application is bounding the number of edges in any planar gra
 
 Another application of Euler's formula is to bound the number of edges in an outerplanar graph.
 \begin{proposition}\label{thm:outerplanar_bound}
-	If \(G\) is an outerplanar graph with \(n\) vertices and \(m\) edges, then \(m \leq 2n - 3\).
+	If \(G\) is an outerplanar graph with \(n \geq 2\) vertices and \(m\) edges, then \(m \leq 2n - 3\).
 \end{proposition}
 
 \begin{proof}
