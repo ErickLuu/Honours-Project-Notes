@@ -6,34 +6,37 @@ This section is a compilation of important information on small $K_t$ minor free
     \begin{tabular*}{\textwidth}{@{}lll@{}}
         \toprule
         $K_n$ minor free graph  & Characterisation  & Reference \\
+        \midrule
         1                       & Empty graph       &           \\
         2                       & Edgeless graph    &           \\
         3                       & Forests           &           \\
         4                       & Treewidth $\leq 2$&  {\textcite{norinMath599GraphMinors2017}}         \\
-        5                       & Clique-sums of planar and Wagner graphs & {\textcite{wagnerUeberEigenschaftEbenen1937}}
+        5                       & Clique-sums of planar and Wagner graphs & {\textcite{wagnerUeberEigenschaftEbenen1937}}\\
+        \bottomrule
     \end{tabular*}
 \end{table}
 
-
-\cref{tab:minor-closed families} compiles a list of minor-closed graph families and its forbidden minors. \# MFM stands for ``Number of forbidden inors''.
+\cref{tab:minor-closed families} compiles a list of minor-closed graph families and its forbidden minors. \# MFM stands for ``Number of forbidden minors''.
+This is listed in no particular order. There are infinitely many minor-closed graph families. As an example, a family $\mathcal{F}_G$ could be the family of graphs that do not contain graph $G$ as a minor. This is minor-closed, and there are infinitely many of these families.
 
 \begin{table}[h!]
     
     \centering
     \begin{tabular*}{\textwidth}{@{}llll@{}}
     \toprule
-    Family name                  & \# MFM & List/Partial list of minors                      & Refs \\ \midrule
+    Family name                  & \# MFM & List/Partial list of minors                      & References \\ \midrule
     Forests                      & 1                                  & $K_3$                                            &            \\
     Planar Graphs                & 2                                  & $K_5$, $K_{3,3}$                                 & \tablefootnote{\textcite{wagnerUeberEigenschaftEbenen1937}}           \\
     Toroidal Graphs              & $\geq 17523$                       & $K_8$                                            & \tablefootnote{\textcite{myrvoldLargeSetTorus2018}}           \\
-    Projective-Planar Graphs     & 35                                 & Petersen Family                                  & \tablefootnote{\textcite{moharGraphsSurfaces2001}}           \\
+    Projective-Planar Graphs     & 35                                 &                                   & \tablefootnote{\textcite{archdeaconKuratowskiTheoremProjective1980}}           \\
     Graphs embedded on a fixed surface & & &\\
     $\tw(G) \leq 2$              & 1                                  & $K_4$                                            &            \\
     $\tw(G) \leq 3$              & 4                                  & $K_5$, $K_{2,2,2}$, $P_2 \square C_5$, Wagner graph & \tablefootnote{\textcite{arnborgForbiddenMinorsCharacterization1990}}           \\
     $\tw(G) \leq 4$              & $\geq 75$                          & $K_6$                                            & \tablefootnote{\textcite{sandersLinearAlgorithmsGraphs1993}}           \\
     $\tw(G) \leq k$              &                                    &                                                  &            \\
-    Linklessly Embeddable graphs & 7                                  & $K_6$, Petersen Family                           & \tablefootnote{\textcite{conwayKnotsLinksSpatial1983}} \\
-    Knotlessly Embeddable graphs & $\geq 3$                           &                                                  & \tablefootnote{\textcite{conwayKnotsLinksSpatial1983,foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003}}          
-    \end{tabular*}
-    \caption[Table of Minor-Closed Families of graphs]{A table of minor-closed families of graphs. This is listed in no particular order. There are infinitely many minor-closed graph families. As an example, a family $\mathcal{F}_G$ could be the family of graphs that do not contain graph $G$ as a minor. This is minor-closed, and there are infinitely many of these families.}\label{tab:minor-closed families}
-    \end{table}
+    Linklessly Embeddable graphs & 7                                  & $K_6$, Petersen Family                           & \tablefootnote{\textcite{robertsonLinklessEmbeddingsGraphs1993}} \\
+    Knotlessly Embeddable graphs & $\geq 3$                           &                                                  & \tablefootnote{\textcite{conwayKnotsLinksSpatial1983,foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003}}\\
+    \bottomrule
+    \end{tabular*}\label{tab:minor-closed families}
+    
+\end{table}
