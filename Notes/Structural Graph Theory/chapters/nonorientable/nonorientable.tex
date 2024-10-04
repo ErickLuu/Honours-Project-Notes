@@ -2,15 +2,15 @@
 
 \section{Future Work}
 
-\textcite{heathEmbeddingPlanarGraphs1984} did not sufficiently prove that graphs embedded on nonorientable surfaces of genus $g$ can be bounded on $k$ pages where $k = k(g)$. For the case when the surface is of genus $1$, \textcite{nakamotoBookEmbeddingProjectiveplanar2015} showed that every projective-planar graph can be embedded in $9$ pages, which was improved to 6 in \textcite{ozekiBookEmbeddingGraphs2019}. However, we want to prove a book-embedding for all nonorientable surfaces. 
-\textcite{ozekiBookEmbeddingGraphs2019} states that they were unable to prove that all Klein-Bottle graphs can be embedded on a bounded number of pages. This section discusses some strategies to embed Klein Bottle graphs, but the problem remains open. The Klein Bottle case is just one example in the much broader class of nonorientable surfaces, which is stated in \cref{conj:nonorientable}. For the case that the surface is a projective plane, then $G$ can be embedded in 6 pages, from \textcite{ozekiBookEmbeddingGraphs2019}. 
+\textcite{heathEmbeddingPlanarGraphs1984} did not sufficiently prove that graphs embedded on nonorientable surfaces of genus $g$ can be bounded on $k$ pages where $k = k(g)$. For the case when the surface is of genus $1$, \textcite{nakamotoBookEmbeddingProjectiveplanar2015} showed that every projective-planar graph can be embedded in $9$ pages, which was improved to 6 by \textcite{ozekiBookEmbeddingGraphs2019}. However, we want to prove a book-embedding for all nonorientable surfaces. 
+\textcite{ozekiBookEmbeddingGraphs2019} states that they were unable to prove that all Klein-Bottle graphs can be embedded on a bounded number of pages. \cref{sec:kleinbottle} discusses some strategies to embed Klein Bottle graphs, but the problem remains open. The Klein Bottle case is just one example in the much broader class of nonorientable surfaces, which is stated in \cref{conj:nonorientable}. For the case that the surface is a projective plane, then $G$ can be embedded in 6 pages, from \textcite{ozekiBookEmbeddingGraphs2019}. 
 \begin{conjecture}\label{conj:nonorientable}
 	Every nonorientable genus $g$ graph can be embedded in $f(g)$ pages for some function $f$. 
 \end{conjecture}
 
-What may be the case for higher genus $g$ graphs is that the surface is homeomorphic to a sphere with $n$ handles and one or two crosscaps. Then techniques from the Klein Bottle case and the projective-planar case can be extended with multiple handles. This will need to be developed further in future work.
+What may be the case for higher genus $g$ graphs is that the surface is homeomorphic to a sphere with $n$ handles and one or two crosscaps. Then techniques from the Klein Bottle case and the projective-planar case may be extended to multiple handles. This will need to be developed further in future work.
 
-To be compatible with the proof of orientable surfaces, the following strengthening is necessary. 
+To be compatible with \cref{thm:orientablevortices}, the following strengthening is necessary. 
 \begin{conjecture}\label{conj:nonorientable_monochromatic_paths}
 	Every graph embedded on a surface of genus $g$ can be embedded on $f(g)$ pages where every face has $h(g)$ monochromatic paths. 
 \end{conjecture}
@@ -40,7 +40,7 @@ This implies \cref{conj:bded_had_pn}.
 \end{corollary}
 
 \begin{proof}
-	Applying the Graph Minor Structure Theorem to \cref{corr:bound_gmst} every $K_t$ minor-free graph is in $\mathcal{G}(g, p, k, a)$ for some $g, p, k, a$ as a function of $t$. Therefore, every $K_t$ minor-free graph has a bounded number of pages. 
+	Applying the Graph Minor Structure Theorem to \cref{corr:bound_gmst} every $K_t$ minor-free graph is in $\mathcal{G}(g, p, k, a)$ for some $g, p, k, a$ as a function of $t$. Therefore, every $K_t$ minor-free graph can be embedded on a bounded number of pages. 
 \end{proof}
 
-Therefore, finding a book-embedding of graphs on nonorientable surface with some certain extra properties proves \cref{conj:bded_had_pn}. Finding any book-embedding of graphs on nonorientable surfaces is difficult enough, and having the additional condition of monochromatic paths may be more difficult. Nevertheless, finding any bound, even if extremely large with relation to the genus, is useful. 
+Therefore, finding a book-embedding of graphs on nonorientable surface with every face having a bounded number of monochromatic paths proves \cref{conj:bded_had_pn}. Finding any book-embedding of graphs on nonorientable surfaces is difficult enough, and having the additional condition of monochromatic paths may be more difficult. Nevertheless, finding any bound will be useful.

@@ -10,8 +10,8 @@ Recall the definition of almost-embeddable from \cref{thm:gmst}.
 	Every projective-planar graph with $p$ vortices of depth $k$ can be embedded on $23 + 24pk$ pages.
 \end{lemma}
 \begin{proof}
-	Let $G$ be an almost-projective-planar graph, so there are subgraphs $G_0, \ldots, G_p$ where $G_0$ is a projective-planar graph, $G_1, \ldots, G_p$ are vortices on $G_0$ of depth $\leq k$. 
-	Run Nakamoto's algorithm on a triangulation of $G_0$, but instead of implementing Yannakakis's algorithm on the planar section, use \cref{thm:Planar Graph Hickingbotham Bound}. Then $G_0$ can be embedded in at most $23$ pages. However, every face of this embedding has at most $24$ monochromatic paths, from \cref{corr:orientable_nonplanar_faces}. Therefore, from \cref{lem:orientablesurfaces_monochromatic_edges}, every book-embedding requires $23 + 24pk$ pages.
+	Let $G$ be a graph almost-embeddable on the projective plane, so there are subgraphs $G_0, \ldots, G_p$ where $G_0$ is a projective-planar graph, $G_1, \ldots, G_p$ are vortices on $G_0$ of depth $\leq k$. 
+	Run Nakamoto's algorithm on $G_0$, but instead of implementing Yannakakis's algorithm on the planar section, use \cref{thm:Planar Graph Hickingbotham Bound}. Then $G_0$ can be embedded in at most $23$ pages. However, every face of this embedding has at most $24$ monochromatic paths, from \cref{corr:orientable_nonplanar_faces}. Therefore, from \cref{lem:orientablesurfaces_monochromatic_edges}, every book-embedding requires $23 + 24pk$ pages.
 \end{proof}
 
 Using \cref{lem:proj_planar vortices}, we can now prove \cref{thm:projective_planar_be}.
