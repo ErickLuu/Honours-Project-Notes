@@ -18,7 +18,7 @@ A \textit{loop} is a continuous function $\gamma : I \rightarrow X$ where $\gamm
 \subsection{Book-embeddings of orientable graphs}
 
 \begin{theorem}[\textcite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
-	For all orientable graphs \(G\) of genus $g$, $G$ can be embedded in $18g$ pages.
+	Every orientable genus $g$ graph can be embedded in $18g$ pages.
 \end{theorem}
 Note that this bound extends the one found by \textcite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus.
 The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have genus $O(n^2)$, from \textcite{ringelMapColorTheorem1974}. Therefore, if $K_n$ has genus $g$ then the pagenumber of $K_n$ is $O(\sqrt{g})$.
@@ -26,7 +26,8 @@ The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHav
 We now discuss some terminology of graphs on surfaces. Let $G$ be a graph and $\Sigma$ be a surface. Embedding $G$ in $\Sigma$ is referred to as the \textit{embedding} of $G$ in $\Sigma$, whereas embedding $G$ in a book is referred to as the \textit{layout} of $G$. The orientable genus of a graph \(G\), denoted \(\gamma(G)\), is the minimum genus of an orientable surface $\Sigma$ such that $G$ has an embedding on $\Sigma$. The nonorientable genus of a graph \(G\), denoted \(\tilde{\gamma}(G)\), is the minimum genus of a non-orientable surface $\Sigma$ such that $G$ has an embedding on $\Sigma$. An embedding of $G$ on a surface $\Sigma$ is \textit{$2$-cell} if every face is homeomorphic to an open disc $D^2$. If $G$ is of genus $g$, then there exists a \textit{$2$-cell} embedding of $G$ to a surface of genus $g$. 
 
 
-\textcite{moharOrientableGenusGraphs1998} showed that \(\tilde{\gamma}(G) \leq 2 \gamma(G) + 1\) for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded.\ \textcite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane that have arbitrarily large orientable genus. In fact, there exists a family of graphs such that $\tilde{\gamma}(G) \in \Omega(|V(G)|)$ for all graphs $G$ in the family. Consider $n$ copies of $K_6$ with a single vertex in each copy identified to a single vertex. Then each $K_6$ will occupy a single crosscap with no room for another copy of $K_6$ to fit. Therefore, this graph is of non-orientable genus $2n$. 
+\textcite{moharOrientableGenusGraphs1998} showed that \(\tilde{\gamma}(G) \leq 2 \gamma(G) + 1\) for all graphs, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded.\ \textcite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane that have arbitrarily large orientable genus. 
+%In fact, there exists a family of graphs such that $\tilde{\gamma}(G) \in \Omega(|V(G)|)$ for all graphs $G$ in the family. Consider $n$ copies of $K_6$ with a single vertex in each copy identified to a single vertex. Then each $K_6$ will occupy a single crosscap with no room for another copy of $K_6$ to fit. Therefore, this graph is of non-orientable genus $2n$. 
 
 \subsection{Proving \cref{thm:Genus_pagenumber_bound}}
 This section is a proof of \cref{thm:Genus_pagenumber_bound}. We first decompose a graph on an orientable surface into a planar spanning subgraph and nonplanar edges. Then this decomposition can be used to embed a graph on a book with a bounded number of pages.
@@ -34,7 +35,7 @@ This section is a proof of \cref{thm:Genus_pagenumber_bound}. We first decompose
 Let $G$ be a graph of genus $g$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning subgraph \(G_p\) embedded on $\mathbb{R}^2$ and set of nonplanar edges $E_N$. This partition has the following properties:
 \begin{enumerate}
 	\item All edges in \(E_N\) are between vertices on the boundary of $F_0$, the outerface.
-	\item Adding any edge from $E_N$ to \(G_p\) breaks the conditions above.
+	\item Adding any edge from $E_N$ to \(G_p\) breaks the conditions 1
 \end{enumerate}
 $G_p$ is a maximal planar subgraph with respect to the conditions above. Through some stereographic projection from $S^2$ to $\mathbb{R}^2$, $F_0$ will be assumed to be the outerface. The set $(G_p, E_N)$ is a \textit{planar-nonplanar decomposition} of $G$. 
 % To talk about graphs embedded in surfaces, we assign to each face a cyclic permutation \(\sigma_v\) which represents the sequence of vertices encountered when traversing the boundary of a face in counterclockwise order.
@@ -52,16 +53,16 @@ $G_p$ is a maximal planar subgraph with respect to the conditions above. Through
 \subsubsection{Decomposing graphs on surfaces}\label{sssec:Planar_nonplanar_decomp}
 
 \begin{claim}
-	There exists a planar-nonplanar decomposition of any graph $G$ embedded on a surface $\Sigma$. 
+	There exists a planar-nonplanar decomposition of any graph 2-cell embedded on a surface. 
 \end{claim}
 \begin{proof}
-	Suppose \(G\) is embedded on a surface \(\Sigma\). Triangulate \(G\) to form \(G_T\). Start at a single triangle and define this triangle as $G_p$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\).
+	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single cycle and define this cycle as $G_p$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\).
 	\paragraph{Adding vertices to biconnected block}
 	Suppose $F$ is the outerface of \(G_P\). Define an oriented walk around the boundary $F$ to be a trace. If \(v_i \rightarrow v_j \rightarrow v_k\) is a walk with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and can be added to \(G_P\). Add as many vertices $v_k$ as possible. 
 	\paragraph{Creating a new biconnected block}
 	If no \(v_k\) exists, then find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). Add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then add all safe edges. This is so that every edge in \(E_p\) maintains the property that both endpoints are on the boundary.
 	
-	After repeating this operation, every edge in \(E_N\) satisfy the two properties above. If an edge \(vw\) has \(v\) in $G_p$ and $w$ not in $G_p$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) nor \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage. This has the corollary that every vertex is in \(G_P\).
+	After repeating this operation, every edge in \(E_N\) satisfies the two properties above. If an edge \(vw\) has \(v\) in $G_p$ and $w$ not in $G_p$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) nor \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage. This has the corollary that every vertex is in \(G_P\).
 	
 	Now every edge in \(E_N\) cannot be added to \(G_P\) without crossing over another edge, and \(G_P\) is maximal. Therefore, all edges in \(E_N\) satisfy the conditions listed above.
 \end{proof}
@@ -100,9 +101,9 @@ A description of safe vertices and unsafe vertices is in \cref{fig:safe_vertices
 
 \subsubsection{Classifying nonplanar edges according to homotopy class}
 
-This section builds an equivalence class of nonplanar edges. Let \(C_0\) be the walk on the boundary of \(F_0\). Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
+This section builds an equivalence class of nonplanar edges. Let \(C_0\) be the walk on the boundary of \(F_0\), the outerface of $G_P$. Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
 
-There needs to be a way to classify nonplanar edges such that they can be embedded on a book. Suppose that \(u_1v_1, u_2v_2 \in E_N\) are part of the boundary of the same face \(F\) on the embedding of \(G\). Then \(u_1v_1\) and \(u_2v_2\) are \textit{homotopic} if:
+Nonplanar edges need to be classified so that they can be embedded on a book. Suppose that \(u_1v_1, u_2v_2 \in E_N\) are part of the boundary of the same face \(F\) on the embedding of \(G\). Then \(u_1v_1\) and \(u_2v_2\) are \textit{homotopic} if:
 \begin{enumerate}
 	\item \(u_1v_1\) and \(u_2v_2\) are the only edges of \(E_N\) on the boundary of \(F\).
 	\item There exist traces \(T_u = u_1 \rightarrow \cdots \rightarrow u_2\) and \(T_v = v_1 \rightarrow \cdots \rightarrow v_2\) such that \(T_u\) and \(T_v\) are on the boundary of \(F\).
@@ -138,8 +139,8 @@ Two traces $(T_1, T_2)$ are \textit{orientable} if \(T_1\) and \(T_2\) go in opp
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
-	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an orientable surface \(\Sigma\) of genus $g$. Then \(G\) can be embedded on at most \(18g - 5\) pages.
+	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a genus $g$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g - 5\) pages.
 \end{lemma}
 \begin{proof}
-	Use the algorithm from \cref{thm:4Pages_Planar} to embed $G_P$ on four pages with the property that the outercycle remains in order. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.
+	Use the algorithm from \cref{thm:4Pages_Planar} to embed $G_P$ on four pages with the property that the outercycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.
 \end{proof}
