@@ -1,5 +1,5 @@
 \subsection{Decomposing planar graphs}
-This subsection discusses a decomposition of planar graphs using a tree-decomposition into $4$-connected components. Then this decomposition can be applied to \cref{thm:clique_sum_pagenumber_bound}. Firstly, Menger's theorem is discussed as this is important for future proofs. Then a decomposition of planar graphs into $4$-connected torsos is proven.
+This subsection discusses a tree-decomposition of planar graphs into $4$-connected components. Then this tree-decomposition can be applied to \cref{thm:clique_sum_pagenumber_bound}. Firstly, Menger's theorem is discussed as this is important for future proofs. Then a decomposition of planar graphs into $4$-connected torsos is proven.
 
 \subsubsection{Menger's theorem}
 
@@ -24,7 +24,7 @@ Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle th
 \begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/separating triangle.svg}
-	\caption[Separating faces]{Two plane graphs. The one on the left has a blue separating face and the one on the right has a blue nonseparating face.}\label{fig:separating_triangle}
+	\caption[Separating faces]{Two plane graphs. The one on the left has a blue separating triangle and the one on the right has a blue nonseparating triangle.}\label{fig:separating_triangle}
 \end{figure}
 
 \cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. \cref{lem:rooted_triangle} is contained within \textcite{woodThomassensChoosabilityArgument2010}.
@@ -48,7 +48,7 @@ A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$
 
 	If $G$ is connected but not $2$-connected, take $x$ to be a cut-vertex. Since $G - x$ does not place $u,v,w$ in separate components, then without loss of generality, $u,v$ are in the same component. Let $y$ be a vertex that is a neighbour of $x$ in a component that does not contain $u,v$. Let $G'$ be the graph obtained by contracting $xy$ to a vertex $z$. If $y = w$, then $z = w$. In $G'$, $u,v$ are also in the same component of $G' - z$. Furthermore, any other cut-vertex in $G'$ is also a cut-vertex in $G$. $|V(G')| < |V(G)|$, so induction can be applied on $G'$. 
 
-	If $G$ is 2-connected, then choose a vertex $x \in V(G)$ that is not $u,v,w$. Then there exists an edge $xy$ where $G/xy$ is $2$-connected. Therefore, no vertex can be a cut vertex in $G/xy$. Applying induction, $G/xy$, therefore $G$ has a $K_3$ minor rooted at $u,v,w$.
+	If $G$ is 2-connected, then choose a vertex $x \in V(G)$ that is not $u,v,w$. Then there exists an edge $xy$ where $G/xy$ is $2$-connected. Therefore, no vertex can be a cut vertex in $G/xy$. Applying induction on $G/xy$, $G$ has a $K_3$ minor rooted at $u,v,w$.
 \end{proof}
 
 
@@ -59,7 +59,7 @@ A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$
 \end{lemma}
 
 \begin{proof}
-	Let $G_1$ and $G_2$ be the two subgraphs that are disconnected in $G - \{u,v,w\}$. Then if $G_1 + \{u,v,w\}$ has a rooted $K_3$ minor on $u,v,w$, then contract this minor to $K_3$ and delete all other vertices in $G_1$. Repeat for $G_2$. Then as for each subgraph $G_i + uv + uw + vw$ is a planar graph, then because $uvw$ is not a separating triangle in $G_i$, then $uvw$ bounds a face in $G_1$ and $G_2$. Draw $G_1$ and $G_2$ on the sphere and stereographically project $G_2$ so that $uvw$ bounds the outerface. Then draw $G_2$ on $uvw$ in $G_1$ for a graph drawing of $G + uv, uw, vw$. 
+	Let $G_1$ and $G_2$ be the two subgraphs that are disconnected in $G - \{u,v,w\}$. Then if $G_i + \{u,v,w\}$ has a rooted $K_3$ minor on $u,v,w$ for $i = 1,2$, then contract this minor to $K_3$ and delete all other vertices in $G_1$. Repeat for $G_2$. Then $G_i + uv + uw + vw$ is a planar graph, $i = 1,2$. Because $uvw$ is not a separating triangle in $G_i$, then $uvw$ bounds a face in $G_1$ and $G_2$. Draw $G_1$ and $G_2$ on the sphere and stereographically project $G_2$ so that $uvw$ bounds the outerface. Then draw $G_2$ on $uvw$ in $G_1$ for a graph drawing of $G + uv, uw, vw$. 
 	
 	Suppose $G_2 + \{u,v,w\}$ has no rooted $K_3$ minor. By \cref{lem:rooted_triangle}, $G_2$ has a cut-set $S$, $|S| \leq 1$, where $G_2 - S$ places $u,v,w - S$ in different components. Call the components of $G_2 - S$ that contain $u,v,w$, $G_u, G_v, G_w$ respectively. If $S$ is empty, then $G_2$ has components $G_u, G_v, G_w$, and assume without loss of generality that $G_u$ contains a vertex distinct from $u$. But this implies that $u$ is a cut vertex from $G_u$ to $G$, so $G$ is not $3$-connected. Now suppose that $G_u,G_v, G_w$ only contain $u$, $v$, $w$ respectively. Then $\{u,v,w\}$ is not a cutset. 
 	

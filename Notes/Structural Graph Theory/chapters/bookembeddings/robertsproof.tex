@@ -6,8 +6,8 @@ This section discusses tree-decompositions and book-embeddings of graphs where e
 This section proves that every graph with a tree-decomposition where every torso can be embedded on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. 
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
-	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) has pagenumber \(\leq s\) and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
-	Then $G$ can be embedded in \(\leq cs + \ell \) pages.
+	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) can be embedded on \(s\) pages and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
+	Then $G$ can be embedded on \( cs + \ell \) pages.
 \end{theorem}
 
 \subsubsection{Proof of \cref{thm:clique_sum_pagenumber_bound}}
@@ -16,9 +16,9 @@ The hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that
 
 Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). Let $J$ be a clique in $G$. A vertex $v$ is a \textit{rainbow vertex} in $J$ in a book-embedding $(<, \psi)$ if the set of edges $\{u_i v | u_i < v, u_i \in J\}$ each have distinct colours. The structure of the book-embedding will look like this: \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 
-\cref{lem:Hickingbotham_Lemma} is a strengthening of \cref{thm:clique_sum_pagenumber_bound} in the case that the tree-decomposition of $G$ is simply a single bag. The reason for the strengthening is to apply the induction hypothesis.
+\cref{lem:Hickingbotham_Lemma} is a strengthening of \cref{thm:clique_sum_pagenumber_bound} in the case that the tree-decomposition of $G$ is a single bag. The reason for the strengthening is to apply the induction hypothesis.
 \begin{lemma}\label{lem:Hickingbotham_Lemma}
-	Let \(G\) be a graph where \(\pn(G) \leq s\) and \(\chi(G) \leq c\), and a clique \(C\) with an ordering \(\sigma_C\). Let \(|C| \leq \ell\). There exists a \(cs + \ell\)-page layout \((\leq, \psi)\) of \(G\) where:
+	Let \(G\) be an $s$-page embeddable, $c$-colourable graph. Let $C$ be a clique in $G$ with an ordering \(\sigma_C\), and $|C| \leq \ell$. There exists a \(cs + \ell\)-page layout \((\leq, \psi)\) of \(G\) where:
 	\begin{enumerate}
 		\item The vertex ordering has the structure \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 		\item For every \(u \in V(C)\), the edges \(\lbrace uv \in E(G) : u \leq v \rbrace\) are a monochromatic star.
@@ -31,58 +31,58 @@ Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a v
 	Let \(u_1, \ldots, u_k\) be the vertices of \(C\) ordered by \(\sigma_C\). Note that \(k \leq \ell\). Then the new ordering starts with \(u_1 \leq u_2 \leq \ldots, \leq u_k\), and all vertices not in \(K\) are placed after, according to \(\leq_a\).
 	The edge-colouring \(\psi\) is defined as follows. For every edge \(u_i v\) where \(u_i \in V(C)\) and \(u_i \leq v\), \(\psi(u_i v) = i\). If neither \(u\) nor \(v\) are in \(V(C)\), and \(u \leq v\), then let \(\psi(uv) = (\rho(u), \psi_a(uv))\). Then this edge-colouring requires \(|\rho| |\psi_a| + k \leq cs + \ell\) pages.
 
-	Now we show \((\leq, \psi)\) is a proper book-embedding. Suppose there exists edges \(uv\) and \(xy\) where \(\psi(uv) = \psi(xy)\). Suppose that \(u\) is the smallest vertex in the ordering \(\leq\). If \(u \in V(C)\), then the edge \(uv\) is assigned the page consisting of only edges adjacent to $u$. So \(x = u\), but this is a star. Therefore, the edges do not cross. Therefore, \(u, v, x, y\) are not in \(V(C)\). But \((\leq, \psi)\) restricted to the subgraph $G - C$ looks like \((\leq_a, \psi_a)\), if pages with different colours where identified. Therefore, \((\leq, \psi)\) is a proper book-embedding.  
-	\par
-	Properties 1 and 2 are immediate from the definition \((\leq, \psi)\). For property 3, consider a clique \(J\) in \(G\). Then the last vertex of \(J\) is rainbow. Suppose the last vertex of \(J\) is \(w\), and let \(u, v\) be earlier vertices. Since \(u\) and \(v\) necessarily are assigned different colours in the colouring, then \(\psi(uw) = (\rho(u), \psi_a(uw))\) and \(\psi(vw) = (\rho(v), \psi_a(vw))\). Therefore, the two edges are on different pages. Thus, \(w\) is a rainbow vertex.
+	Now we show \((\leq, \psi)\) is a proper book-embedding. Suppose there exists edges \(uv\) and \(xy\) where \(\psi(uv) = \psi(xy)\). Suppose that \(u\) is the smallest vertex in the ordering \(\leq\). If \(u \in V(C)\), then the edge \(uv\) is assigned the page consisting of only edges adjacent to $u$. So \(x = u\), but this is a star. Therefore, the edges do not cross. Therefore, \(u, v, x, y\) are not in \(V(C)\). But \((\leq, \psi)\) restricted to the subgraph $G - C$ is \((\leq_a, \psi_a)\), which is a proper book-embedding. Therefore, \((\leq, \psi)\) is a proper book-embedding.  
+
+	Properties 1 and 2 are immediate from the construction of \((\leq, \psi)\). For property 3, consider a clique \(J\) in \(G\). Then the last vertex of \(J\) is rainbow. Suppose the last vertex of \(J\) is \(w\), and let \(u, v\) be earlier vertices. Since \(u\) and \(v\) necessarily are assigned different colours in the colouring, then \(\psi(uw) = (\rho(u), \psi_a(uw))\) and \(\psi(vw) = (\rho(v), \psi_a(vw))\). Therefore, the two edges are on different pages. Thus, \(w\) is a rainbow vertex.
 \end{proof}
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]
-	Suppose a graph \(G\) has a tree-decomposition \((B_x: x \in V(T))\) with torsos \(G \langle B_x \rangle\) and adhesion at most \(\ell\). Order the vertices \(v_0, \ldots, v_k\) in $T$ with respect to a breath-first search. Let $B_i = B_{v_i}$. Suppose that for all torsos $G\langle B_i \rangle$, \(\pn(G\langle B_i \rangle) \leq s\) and \(\chi(G\langle B_i \rangle) \leq c\). Then \(G\) can be embedded on \(cs + \ell\) pages.
+	Suppose a graph \(G\) has a tree-decomposition \((B_x: x \in V(T))\) with torsos \(G \langle B_x \rangle\) and adhesion at most \(\ell\). Suppose that for all torsos $G\langle B_i \rangle$, \(\pn(G\langle B_i \rangle) \leq s\) and \(\chi(G\langle B_i \rangle) \leq c\). Then \(G\) can be embedded on \(cs + \ell\) pages.
 \end{theorem}
-For a breadth-first search, we maintain the property that for all \(i\), \(T[v_0, \ldots, v_{i}]\) is a tree and \(v_i\) is a leaf in \(T[v_0, \ldots, v_{i}]\).
+Order the nodes \(v_0, \ldots, v_k\) in $T$ with respect to a breath-first search. Let $B_i = B_{v_i}$. 
+A breadth-first search maintains the property that for all \(i\), \(T[v_0, \ldots, v_{i}]\) is a tree and \(v_i\) is a leaf in \(T[v_0, \ldots, v_{i}]\).
 \begin{proof}
 	We prove the stronger statement that there exists a book-embedding with the property that the last vertex of any clique \(J\) is a rainbow vertex. For short, this property is the \textit{rainbow-clique} property. 
 
-	Suppose $G$ has a tree-decomposition consisting of a single torso with the properties above. Then \(G\langle B_0 \rangle\) is a single graph with \(\pn(G) \leq s\). Choose \(C\) to be an arbitrary vertex \(v\) in \(G\langle B_0 \rangle\). Then by \cref{lem:Hickingbotham_Lemma}, $G$ can be embedded on \(cs + 1\) pages and every last vertex in a clique is a rainbow vertex.
+	Suppose $G$ has a tree-decomposition consisting of a single torso with the properties above. Then \(G\langle B_0 \rangle\) is a single graph with \(\pn(G) \leq s\). Choose \(C\) to be the first vertex \(v\) in \( < \). Then by \cref{lem:Hickingbotham_Lemma}, $G$ can be embedded on \(cs + 1\) pages and every last vertex in a clique is a rainbow vertex.
 
 	Suppose $G$ has a tree-decomposition $(B_x: x \in V(T))$ with the properties above. Take a breadth-first search of $T$, with vertex ordering $v_0, \ldots, v_n$. For the induction hypothesis, suppose that the induced subgraph $G' := G[B_0 \cup B_1 \cup \ldots \cup B_{n-1}]$ maintains the rainbow-clique property with pagenumber of at most \(cs + \ell\).  
 	Let \(C\) be the adhesion clique between \(G \langle B_n \rangle\) and $G'$. Then let \((\leq_n, \psi_n)\) be the \(cs + \ell\)-pagenumber book-embedding of \(G \langle B_n \rangle\) that starts with \(V(C)\). Let \((\leq_{n-1}, \psi_{n-1})\) be the book-embedding of \(G'\). By the induction hypothesis, \((\leq_{n-1}, \psi_{n-1})\) is a \(cs + \ell\)-page book-embedding with the rainbow-clique property.
 
-	\paragraph{Construction of new book-embedding}
 	We construct a new book-embedding \((\leq, \psi)\).
 	Let \(w \in V(C)\) be the last vertex of \(C\) with respect to \(\leq_{n-1}\). Then insert \(V(G \langle B_n \rangle) - C\) between \(w\) and its successor in $G'$ with the order of \(\leq_{n-1}\) to make $\leq$. For the page assignment \(\psi\), if \(uv \in E(G')\), then \(\psi(uv) = \psi_{n-1}(uv)\). For edges in $G \langle B_n \rangle$, permute the edge assignments of \(\psi_n\) such that for all \(u \in V(C)\), \(\psi(uv) = \psi_n(uw)\) for $v \in C$ and $u \leq_n v$. This is possible as \(w\) is a rainbow vertex and the edges \(\{uv : v \in C, u \leq_n v\}\) are assigned to a unique page in \(\psi_n\). Finally, let \(\psi(uv) = \psi_n(uv)\) for all remaining edges in $G \langle B_n \rangle$. 
-	\paragraph{Proof that this is a valid book-embedding}
-	We claim that \((\leq , \psi)\) is a stack layout that satisfies the induction hypothesis. Suppose that \(\psi(uv) = \psi(xy)\). If \(uv, xy \in E(G')\), then by the induction hypothesis, they do not cross. Similarly, if \(uv, xy \in E(G \langle B_n \rangle)\), then they do not cross as well. If \(uv\) is in \(E(G')\) and \(xy \in E(G \langle B_n \rangle)\), then they will go over each other or be sequential and therefore will not cross.
-	Finally, if \(u, v, x, y \in C\), then by the induction hypothesis on \(G'\), they do not cross either. The final case is if \(uv \in E(G\langle B_{n} \rangle)\) and \(u \in V(C)\), \(v \notin V(C)\), \(xy \in E(G')\). If \(uv\) and \(xy\) cross, then \(xy\) and \(uw\) will cross. But this will contradict the page-embedding of \(G'\) as $u, w, x, y$ are in $G'$.
 
-	Let \(J\) be a clique in \(G\). Then $J$ is either only in $G'$, only in $G\langle B_n \rangle$, or shares vertices with $C$ This is because $V(G') \cap V(G\langle B_n \rangle) = C$, so $C$ is a separator between $G'$ and $G \langle B_n \rangle$. If $J$ is only in $G'$ or only in $G\langle B_n \rangle$, then the last vertex of $J$ is a rainbow vertex by hypothesis. If $J$ shares vertices with $C$, then the last vertex of $J$ with $\leq$ is in $G\langle B_n \rangle$ by construction. However, this vertex is a rainbow vertex, as the last vertex in $J$ with respect to $\leq$ is the last vertex in $G\langle B_n \rangle$ with respect to $\leq_n$. 
+	We claim that \((\leq , \psi)\) is a book-embedding that satisfies the induction hypothesis. Suppose that \(\psi(uv) = \psi(xy)\). If \(uv, xy \in E(G')\), then by the induction hypothesis, they do not cross. Similarly, if \(uv, xy \in E(G \langle B_n \rangle)\), then they do not cross as well. If \(uv\) is in \(E(G')\) and \(xy \in E(G \langle B_n \rangle)\), then they will go over each other or be sequential and therefore will not cross.
+	Finally, if \(u, v, x, y \in C\), then by the induction hypothesis on \(G'\), they do not cross either. The final case is if \(uv \in E(G\langle B_{n} \rangle)\) and \(u \in V(C)\), \(v \notin V(C)\), \(xy \in E(G')\). If \(uv\) and \(xy\) cross, then \(xy\) and \(uw\) will cross. But this will contradict the book-embedding of \(G'\) as $u, w, x, y$ are in $G'$.
+
+	Let \(J\) be a clique in \(G\). Then $J$ is either only in $G'$, only in $G\langle B_n \rangle$, or shares vertices with $C$. This is because $V(G') \cap V(G\langle B_n \rangle) = C$, so $C$ is a separator between $G'$ and $G \langle B_n \rangle$. If $J$ is only in $G'$ or only in $G\langle B_n \rangle$, then the last vertex of $J$ is a rainbow vertex by hypothesis. If $J$ shares vertices with $C$, then the last vertex of $J$ with $\leq$ is in $G\langle B_n \rangle$ by construction. However, this vertex is a rainbow vertex, as the last vertex in $J$ with respect to $\leq$ is the last vertex in $G\langle B_n \rangle$ with respect to $\leq_n$. 
 \end{proof}
 
 \begin{lemma}
-	Suppose a graph $G$ can be embedded on $s$ pages where $s$ is at least $2$. Then \(G\) does not contain any cliques on more than \(2s+1\) vertices.
+	Suppose a graph $G$ can be embedded on $s$ pages where $s$ is at least $2$. Then \(G\) does not have $K_{2s + 1}$ as a subgraph.
 \end{lemma}
 
 \begin{proof}
-	If \(G\) has a clique $K$ of size \(k\), then embedding $K$ requires at least \(\lceil \frac{k}{2} \rceil\) pages, from \cref{thm:Pagenumber_Complete_Graph}. Therefore, if we can embed \(G\) in \(s\) pages, then every clique in $G$ has at most \(2s + 1\) vertices.
+	If \(G\) has a clique $K$ of size \(k\), then embedding $K$ requires at least \(\lceil \frac{k}{2} \rceil\) pages, from \cref{thm:Pagenumber_Complete_Graph}. Therefore, if \(G\) has an embedding on \(s\) pages, then every clique in $G$ has at most \(2s + 1\) vertices.
 \end{proof}
 Therefore, \(\ell \leq 2s + 1\).
 
-Let $G$ be a graph with the properties above. As \(\chi(G) \leq 2 \pn(G) + 2\), from \cref{thm:Colouring_Bound}, there exists a bound that does not depend on the chromatic number or largest clique of \(G\).
+Let $G$ be a graph with a book-embedding on $s$ pages. Then $G$ is $2s + 2$-colourable, from \cref{thm:Colouring_Bound}.
 \begin{corollary}[\textcite{hickingbothamStackNumberCliqueSum2023}]\label{corr:bded_pn_tree_decomp}
 	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\) where each torso \(G \langle B_x \rangle\) can be embedded on $s$ pages. Then from \cref{thm:clique_sum_pagenumber_bound}, with $\ell \leq 2s + 1$ and $\chi(G) \leq 2 s + 2$, \(G\) can be embedded on \(2s^2 + 4s + 1\) pages.
 \end{corollary}
 
-We can apply \cref{thm:clique_sum_pagenumber_bound} to prove that every $K-5$ minor free graph has bounded pagenumber. \cref{thm:WagnersTheorem} provides a useful characterisation of $K_5$ minor free graphs. 
+We can apply \cref{thm:clique_sum_pagenumber_bound} to prove that every $K_5$-minor-free graph has bounded pagenumber. \cref{thm:WagnersTheorem} provides a useful characterisation of $K_5$-minor-free graphs. 
 \begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
 	Let \(G\) be a \(K_5\)-minor-free graph. Then \(G\) has a tree-decomposition of adhesion $\leq 3$ where every torso is either a planar graph or the Wagner graph \(V_8\).
 \end{theorem}
-A description of the Wagner graph is in \cref{fig:wagner}. The edges are coloured such that the internal edges are on different pages. The spine edges (the edges that are on the outerface) are the ones which can go on any page.
+A description of the Wagner graph is in \cref{fig:wagner}. 
 \begin{figure}[h!]
 	\centering
 	\begin{tikzpicture}[thick,scale=2, every node/.style={scale=2}]
 		\input{figures/wagner-graph}
 	\end{tikzpicture}
-	\caption[Wagner graph]{The Wagner graph $V_8$. Notice how the clockwise circular ordering of the vertices of the Wagner graph needs 4 pages to embed the graph. }\label{fig:wagner}
+	\caption[Wagner graph]{The Wagner graph $V_8$, which can be embedded on four pages. The circular ordering is the clockwise circular ordering around the outerface. The edges are coloured such that the internal edges are on different pages. The spine edges can go on any page.}\label{fig:wagner}
 \end{figure}
 
 \begin{theorem}
@@ -91,5 +91,5 @@ A description of the Wagner graph is in \cref{fig:wagner}. The edges are coloure
 
 \begin{proof}
 	Suppose \(G\) is \(K_5\)-minor free. Then by Wagner's theorem \cite{wagnerUeberEigenschaftEbenen1937}, \(G\) has a tree-decomposition of adhesion at most 3 where every torso is either a planar graph or the Wagner graph.
-	Planar graphs are \(4\)-colourable and can be embedded on four pages. The Wagner graph is \(3\)-colourable and can be embedded on four pages. Therefore, if \(G\) is \(K_5\)-minor free, then \(G\) has pagenumber at most \(4 \cdot 4 + 3 = 19\) from \cref{thm:clique_sum_pagenumber_bound}.
+	Planar graphs are \(4\)-colourable and can be embedded on four pages. The Wagner graph is \(3\)-colourable and can be embedded on four pages, from \textcite{yannakakisEmbeddingPlanarGraphs1989}. Therefore, if \(G\) is \(K_5\)-minor free, then \(G\) has pagenumber at most \(4 \cdot 4 + 3 = 19\) from \cref{thm:clique_sum_pagenumber_bound}.
 \end{proof}
