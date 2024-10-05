@@ -19,6 +19,17 @@ Using \cref{lem:proj_planar vortices}, we can now prove \cref{thm:projective_pla
 	Let $G \in \mathcal{G}(g, p, k)$ where $g = 1$. Then every torso has at most $p$ vortices of depth $k$, so every torso can be embedded in $23 + 24 pk$ pages. Then from \cref{corr:bded_pn_tree_decomp}, $G$ can be embedded on $2s^2 + 4s + 1$ pages, whee $s = 23 + 24pk$. Therefore, $G$ can be embedded on $1152p^2 k^2 + 2304 pk + 1151$ pages.
 \end{proof}
 
-For every projective-planar graph $H$, there exists a value $c = c(H)$ such that $H$-minor-free graphs can be embedded on $c$ pages. Apply the Graph Minor Structure Theorem to a $H$-minor-free graph $G$. Since $H$ is embedded on a projective-plane, $G$ has a tree-decomposition where every torso is $(g,p,k,a)$-almost-embeddable on an orientable surface. $g, p, k,a$ depend on $H$. Then $G$ has bounded pagenumber, from \cref{corr:orientable_surfaces_gpka}.
+\begin{proposition}
+	For every projective-planar graph $H$, there exists a function $c = c(H)$ where every $H$-minor-free graph can be embedded on $c$ pages. 
+\end{proposition}
+\begin{proof}
+	Apply the Graph Minor Structure Theorem to a $H$-minor-free graph $G$. Since $H$ is embedded on a projective-plane, $G$ has a tree-decomposition where every torso is $(g,p,k,a)$-almost-embeddable on an orientable surface. $g, p, k,a$ depend on $H$. Then $G$ has bounded pagenumber, from \cref{corr:orientable_surfaces_gpka}.
+\end{proof}
 
-Since $K_6$ is a projective-planar graph, then every $K_6$-minor-free graph can be embedded on a bounded number of pages. In fact, if a graph $G$ is $K_6$-minor-free, then there exists a tree-decomposition of $G$ where every torso is almost-embeddable on a plane, as $K_6$ embeds on both the torus and the projective plane. 
+\begin{corollary}
+	Every $K_6$-minor-free graph $G$ can be embedded on a bounded number of pages.
+\end{corollary}
+
+\begin{proof}
+	Since $K_6$ is a projective-planar graph, then every $K_6$-minor-free graph can be embedded on a bounded number of pages. In fact, if a graph $G$ is $K_6$-minor-free, then there exists a tree-decomposition of $G$ where every torso is almost-embeddable on a plane, as $K_6$ embeds on both the torus and the projective plane. 
+\end{proof}
