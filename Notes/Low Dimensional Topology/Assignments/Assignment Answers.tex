@@ -439,4 +439,25 @@ The figure eight knot has presentation
     \right\rangle.
 \end{equation*}
 
+\section{9}
+\subsection{1}
+The standard longitude is unique up to ambient isotopy. 
+
+Suppose $\lambda, \lambda'$ are longitudes of $N(K)$ which are homologically trivial in $S^3 - N(K)$. Then 
+
+\subsection{2}
+The surface on the left has two Seifert circles, four crossings and two components. Then the genus of the Seifert surface is $1 - \frac{2 + 2 - 4}{2} = 1$. The surface on the right has four Seifert circles, four crossings and two components. Then the genus of the Seifert surface is $1 - \frac{4 + 2 - 4}{2} = 0$. Then the genus of the link is 0 as this is the smallest genus surface possible. 
+
+\subsection{3}
+If a PL knot has genus 0, then the fundamental longitude bounds a disk. Then this means that $\pi_1(S^3 - K)$ is $\mathbb{Z}$ because we can generate $\pi_1$ with only the fundamental longitude. Then the knot is the unknot. Not for link. See subsection 2.
+
+
+\subsection{4}
+Let $S$ be the Seifert surface. 
+Deformation retract the Seifert disks to a point and deformation retract the crossings to edges. There is one crossing per edge and there is one Seifert circle per Seifert disk. Then the Euler characteristic $\chi$ is invariant under homotopy, so we can calculate the Euler characteristic of this surface. Then $\chi(S) = s - c$, which is the number of vertices minus the number of edges. Secondly, $\chi(S) = 2 - 2g - n$, where $g$ is the genus of $S$ with disks added, and $n$ are the number of disks removed from the surface. However, $n$ is also equal to the number of boundary components as every disk added to $S$ removes one boundary component. Therefore, $s - c = 2 - 2g - n$, so by some manipulation, $g = 1 - (s + n - c)/2$. 
+
+\subsection{5}
+Draw $p$ concentric circles, and from the centre draw $q$ straight lines. Then add points of crossing and label them $x_{i,j}$ where $i$ is the $i$-th circle from the inside out, and $j$ is the $j$-th straight line clockwise. Draw a line from $x_{p, j}$ to $x_{1, j+1}$. Then draw strands from $x_{i, j}$ to $x_{i + 1, j + 1}$, going under the other strand. Then this is a $(p, q)$ torus knot. Every strand is going clockwise around the circle. Each concentric circle is a Seifert circle, with the Seifert disks stacked on top of each other. There are $p$ Seifert disks. The only crossings are the two lines on $x_{p, j} - x_{1, j+1}$ and $x_{i, j} - x_{i + 1, j}$. There are $q(p-1)$ crossings. There is one boundary component. From question 3, the genus $g$ is
+\[1 - \frac{p + 1 - q(p-1)}{2} = (p-1)(q-1)/2.\]
+
 \end{document}
