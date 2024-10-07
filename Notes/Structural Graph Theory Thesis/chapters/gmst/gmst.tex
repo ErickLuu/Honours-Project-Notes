@@ -44,7 +44,7 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 	Suppose, for the sake of contradiction, that $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Furthermore, $\rho$ cannot have one subgraph in $G - C$ and another in $H - C$, as $C$ is a separator of $G - C$ and $H - C$.
 	Therefore, every connected subgraph of $\rho$ uses a vertex in $C$, or is completely contained in $G - C$, or is contained in $H - C$. But the set of connected subgraphs which intersect $C$ are pairwise adjacent as $C$ is a clique. Therefore, restricting these connected subgraphs to only $C$ is also a valid model. But this is a model of $K_t$ in only $G$, which contradicts $G$ being $K_t$ minor free. 
 \end{proof}
-
+\subsection{Graphs on surfaces}
 \begin{corollary}\label{corr:clique_sum_genus}
 	If \(G\) is the clique-sum of Euler genus \(g\) graphs, then \(G\) is \(K_{\lceil \sqrt{6g} + 5 \rceil}\)-minor-free.
 \end{corollary}

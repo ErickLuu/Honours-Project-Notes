@@ -1,9 +1,5 @@
 \section{Surfaces and graphs on surfaces}
 
-This section goes into more detail about graphs on surfaces. 
-
-\subsection{Surfaces}
-
 The terminology in this section is based on \textcite{moharGraphsSurfaces2001} Graphs on Surfaces. Recall a surface is a compact $2$-manifold. 
 
 \textit{Handles} are added to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise, and the other goes counter-clockwise. \textit{Crosscaps} are added to a surface $\Sigma$ by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. Every surface is homeomorphic to a sphere with $m$ handles and $n$ crosscaps. This is known as the classification of surfaces. The \textit{Euler genus} of a surface \(\Sigma\) with $m$ handles and $n$ crosscaps is $2m + n$.
@@ -32,7 +28,6 @@ The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \
 An extension for Euler's formula is below. Suppose $G$ is $2$-cell embedded on a surface $\Sigma$ of genus $g$. Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = 2 - g = \chi\). When $g = 0$, then $\Sigma$ is a $2$-sphere and this is the original Euler's formula. 
 The value $\chi$ is known as the \textit{Euler characteristic} of a topological space, in this case a surface. The Euler characteristic is invariant under homeomorphism. Calculating the Euler characteristic of any space is done through \textit{homological algebra}, specifically by looking at the free rank of homology groups. 
 
-\subsection{Graphs on surfaces}
 The family of graphs embeddable on a fixed surface $\Sigma$ is a minor-closed family. If $G$ is embedded on $\Sigma$, then $G - v$ for any vertex $v$ and $G - e$ for any edge $e$ is also embeddable on $\Sigma$. Furthermore, contracting any edge $e$ in $G$ maintains the property that no two edges cross. Edge contraction is a topological action on a graph and can be viewed as an ambient isotopy of $G$ on $\Sigma$. 
 If $G$ is 2-cell embedded on a surface $\Sigma$ and every face in $G$ has three distinct vertices on its boundary, then $G$ is a \textit{triangulation} of $\Sigma$. Given graphs $G$ and $H$ with genus $g_1, g_2$,a new graph with genus $g_1 + g_2$ can be constructed.
 \begin{theorem}[\textcite{millerAdditivityTheoremGenus1987}]\label{thm:additivity_genus}
