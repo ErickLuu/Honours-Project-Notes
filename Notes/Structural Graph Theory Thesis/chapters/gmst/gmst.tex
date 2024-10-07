@@ -1,5 +1,5 @@
 \section{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
-\textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of all \(K_t\)-minor free graphs. Every graph that is $K_t$-minor-free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor free graphs, meaning that a subset, or a single one of these ingredients constitutes a $K_t$-minor free graph. The ingredients are listed below.
+\textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of all \(K_t\)-minor free graphs. Every graph that is $K_t$-minor free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor free graphs, meaning that a subset, or a single one of these ingredients constitutes a $K_t$-minor free graph. The ingredients are listed below.
 \begin{itemize}
 	\item Graphs of bounded Euler genus.
 	\item Sets of apex vertices.
@@ -36,21 +36,21 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 \end{proof}
 
 \begin{proposition}
-	Let $t$ be an integer greater than $1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free. 
+	Let $t$ be an integer greater than $1$. Suppose $G$ and $H$ are $K_t$-minor free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free. 
 \end{proposition}
 \begin{proof}
 	Firstly, $k$ is less than $t$. If $G$ has a clique of size $t$ then $G$ has a $K_t$ minor. Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. Furthermore, suppose that no edges in $C$ were deleted when pasting cliques. Adding more edges does not remove a $K_t$ minor. 
 
 	Suppose, for the sake of contradiction, that $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Furthermore, $\rho$ cannot have one subgraph in $G - C$ and another in $H - C$, as $C$ is a separator of $G - C$ and $H - C$.
-	Therefore, every connected subgraph of $\rho$ uses a vertex in $C$, or is completely contained in $G - C$, or is contained in $H - C$. But the set of connected subgraphs which intersect $C$ are pairwise adjacent as $C$ is a clique. Therefore, restricting these connected subgraphs to only $C$ is also a valid model. But this is a model of $K_t$ in only $G$, which contradicts $G$ being $K_t$ minor free. 
+	Therefore, every connected subgraph of $\rho$ uses a vertex in $C$, or is completely contained in $G - C$, or is contained in $H - C$. But the set of connected subgraphs which intersect $C$ are pairwise adjacent as $C$ is a clique. Therefore, restricting these connected subgraphs to only $C$ is also a valid model. But this is a model of $K_t$ in only $G$, which contradicts $G$ being $K_t$-minor free. 
 \end{proof}
 \subsection{Graphs on surfaces}
 \begin{corollary}\label{corr:clique_sum_genus}
-	If \(G\) is the clique-sum of Euler genus \(g\) graphs, then \(G\) is \(K_{\lceil \sqrt{6g} + 5 \rceil}\)-minor-free.
+	If \(G\) is the clique-sum of Euler genus \(g\) graphs, then \(G\) is \(K_{\lceil \sqrt{6g} + 5 \rceil}\)-minor free.
 \end{corollary}
-The reverse proposition, that if $G$ is $K_t$-minor-free, then $G$ has bounded genus, does not hold.
+The reverse proposition, that if $G$ is $K_t$-minor free, then $G$ has bounded genus, does not hold.
 \begin{proposition}
-	There exists graphs $G$ where \(G\) has arbitrarily large genus, but $G$ is \(K_{6}\)-minor-free.
+	There exists graphs $G$ where \(G\) has arbitrarily large genus, but $G$ is \(K_{6}\)-minor free.
 \end{proposition}
 
 \begin{proof}
@@ -74,7 +74,7 @@ The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vorti
 \begin{figure}[h]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/tenniscourt}
-	\caption[Tennis-Court graph]{An example of an $n \times n$ grid with a path $G_n$ which is \(K_8\) minor free.}\label{fig:tenniscourt}
+	\caption[Tennis-Court graph]{An example of an $n \times n$ grid with a path $G_n$ which is \(K_8\)-minor free.}\label{fig:tenniscourt}
 \end{figure}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
 Almost-embeddable graphs are a key component of the Graph Minor Structure Theorem. Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) where the following holds:
@@ -89,7 +89,7 @@ Almost-embeddable graphs are a key component of the Graph Minor Structure Theore
  If the apex set $A$ is empty, then the graph $G$ is $(g, p, k)$-almost embeddable. 
 
 \begin{theorem}[Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}]\label{thm:gmst}
-	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs with tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). 
+	For all \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs with tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). 
 \end{theorem}
 There is a strengthening of this conjecture. $g$ is the minimal Euler genus over all surfaces where $K_t$ does not embed on.
 

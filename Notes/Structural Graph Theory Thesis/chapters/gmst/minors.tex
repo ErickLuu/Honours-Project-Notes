@@ -7,7 +7,7 @@ A description of edge contraction is in \cref{fig:edge_contraction}.
 	\caption[Edge contraction]{This is an edge contraction of the edge $\{u, v\}$ to the single edge $w$. Note that edges incident to the common neighbour to both $u$ and $v$ becomes a single edge in the contraction. This maintains the property that the graph after edge contraction is simple.}\label{fig:edge_contraction}
 \end{figure}
 
-The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
+The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
 
 An example of a minor-closed class is the class of planar graphs.
 
@@ -39,13 +39,13 @@ The Graph Minor Theorem is one of the deepest and most important theorems in gra
 For planar graphs, the two forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
 The family of graphs that can be embedded on a torus are the toroidal graphs.  17,523 forbidden toroidal graphs have been found, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of forbidden toroidal minors has not been found yet.
 
-Any result on $K_t$-minor-free graphs can be generalised to minor-closed classes. This is due to \cref{lem:minor-closed-Kt}. 
+Any result on $K_t$-minor free graphs can be generalised to minor-closed classes. This is due to \cref{lem:minor-closed-Kt}. 
 
 \begin{lemma}\label{lem:minor-closed-Kt}
     Every proper minor-closed class is $K_t$-minor free for some $t$. 
 \end{lemma}
 \begin{proof}
-    As $\mathcal{F}$ is proper, there exists a graph $H$ which is not in $\mathcal{F}$. But this means that $H$ is not a minor of any graph in $\mathcal{F}$. Then $K_t$ is not a minor of $\mathcal{F}$, where $t = |V(H)|$. Then $\mathcal{F}$ is $K_t$ minor free. 
+    As $\mathcal{F}$ is proper, there exists a graph $H$ which is not in $\mathcal{F}$. But this means that $H$ is not a minor of any graph in $\mathcal{F}$. Then $K_t$ is not a minor of $\mathcal{F}$, where $t = |V(H)|$. Then $\mathcal{F}$ is $K_t$-minor free. 
 \end{proof}
 Note that $H$ may not be the smallest forbidden graph in $\mathcal{F}$, but the existence of such an $H$ is sufficient. 
 Then \cref{conj:bded_had_pn} implies \cref{lem:Minor-Closed_Pagenumber}. From \cref{lem:minor-closed-Kt}, every proper minor-closed graph family is $K_t$-minor free. Therefore, every graph in a proper minor-closed graph family can be embedded in a bounded number of pages.
