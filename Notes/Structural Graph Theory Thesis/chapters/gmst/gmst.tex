@@ -10,22 +10,6 @@
 
 \subsection{Graphs of bounded Euler genus}
 
-Graphs embeddable on a surface of Euler genus $g$ are $K_t$ minor-free, where \(t > \sqrt{6g} + 4\), from \cref{thm:bounded_genus_kt_free}. In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}.
-
-\begin{figure}[h!]
-	\centering
-	\includesvg[width = 0.8\textwidth]{figures/k7 on torus.svg}
-	\caption[Toroidal graph]{An example of a toroidal graph $K_7$ embedded on a torus.}\label{fig:k7_on_torus}
-\end{figure}
-
-\begin{proposition}
-	$K_8$ is not embeddable on the torus.
-\end{proposition}
-\begin{proof}
-	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus.
-\end{proof}
-
-
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 Let $G$ be a graph. A set of vertices $A \subseteq V(G)$ is an apex set if $G - A$ has some bounded parameter. Common parameters are planarity or bounded genus. 
 \begin{proposition}
