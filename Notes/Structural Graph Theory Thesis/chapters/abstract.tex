@@ -1,10 +1,11 @@
 % !TEX root = ./thesis.tex
 \begin{abstract}
-	This thesis discusses graph minors and graphs embedded on topological spaces. A graph $H$ is a minor of a graph $G$ if $H$ can be obtained from $G$ through vertex deletion, edge deletion and edge contraction. The class of graphs that we focus on are $K_t$-minor free graphs. The spaces that we focus on are books, which are half-planes joined on the boundary. An embedding of a graph on a book places the vertices of the graph on the common boundary of the half-planes. Edges of the graph are placed on a single page so that no two edges cross. The smallest number of half-planes necessary to embed a graph on a book is the pagenumber of the graph. A long-standing conjecture in structural graph theory is that every proper minor-closed class can be embedded on a book with a bounded number of pages. 
+	This thesis discusses graph minors and graphs embedded on topological spaces. A graph $H$ is a minor of a graph $G$ if $H$ can be obtained from $G$ through vertex deletion, edge deletion and edge contraction. The class of graphs that we focus on are $K_t$-minor free graphs. The spaces that we focus on are books, which are half-planes joined on the boundary. An embedding of a graph on a book places the vertices on the common boundary of the half-planes. Edges are placed on a single page so that no two edges cross. The smallest number of half-planes necessary to embed a graph on a book is the pagenumber. A long-standing conjecture in structural graph theory is that every proper minor-closed class can be embedded on a book with a bounded number of pages. We identify issues with a claimed proof by Heath and Istrail for book-embeddings of non-orientable surfaces.
 
-	We use Robertson and Seymour's Graph Minor Structure Theorem to obtain results on $K_t$-minor free graphs. This theorem states that every $K_t$-minor free graph can be built up from four ingredients. The four ingredients that the Graph Minor Structure Theorem uses are graphs embedded on surfaces, vortices on graphs, apex sets, and clique-sums. The major contribution of this thesis is a partial result for when the Graph Minor Structure Theorem is restricted to only using graphs embedded on orientable surfaces or the projective plane. Then the graph can be embedded on a bounded number of pages.
+	We use Robertson and Seymour's Graph Minor Structure Theorem to obtain results on $K_t$-minor free graphs. This theorem states that every $K_t$-minor free graph can be built up from four ingredients: graphs embedded on surfaces, vortices, apex sets, and clique-sums. The major contribution of this thesis is a partial result for when the Graph Minor Structure Theorem is restricted to only using graphs embedded on orientable surfaces or the projective plane. Then the graph can be embedded on a bounded number of pages.
+	We prove that $K_6$-minor free graphs (or any minor-closed family of graphs which exclude a Klein-bottle graph) have bounded pagenumber. 
 	
-	%However, the problem of bounding the pagenumber of graphs embedded on a nonorientable surface of higher genus is still open. It is open when the surface is the Klein Bottle. We also discuss some approaches to solving this open problem. 
+	%However, the problem of bounding the pagenumber of graphs embedded on a nonorientable surface of higher genus is still open. It is open when the surface is the Klein bottle. We also discuss some approaches to solving this open problem. 
 \end{abstract}
 
 % Graphs and minors
@@ -18,14 +19,14 @@
 % Robertson and Seymour Graph Minor Structure Theorem
 % Ingredients of GMST
 % Orientable case
-% Conjecture for Klein Bottle, open for Klein Bottles.
+% Conjecture for Klein bottle, open for Klein bottles.
 
 
 %\epigraph{Man, in his quest for knowledge and progress, is determined and cannot be deterred.}{John F. Kennedy}
 %\newpage
 
 \section*{Acknowledgements}
-I am grateful to David Wood for guiding and supervising me throughout this project. He has taught me everything that I know about graph theory and I would not be where I am now without his guidance. I would also like to thank fellow graph theorists Jofre Costa, Nickolai Karol, Robert Hickingbotham and Marc Distel for their support and discussions. I would also like to thank members of the Monash discrete maths community, including Ian Wanless, Nick Wormald, Daniel Horsley and Graham Farr for teaching me combinatorial and discrete mathematics and inspiring me to take this path. Most of all, I thank my family, friends, and Diesel for supporting me through my honours year and allowing me to do my studies. I would like to mention fellow honours student Brice Arrigo for helping me with reading my thesis and providing useful suggestions.
+I am grateful to David Wood for guiding and supervising me throughout this project. He has taught me everything that I know about graph theory and I would not be where I am now without his guidance. I would also like to thank fellow graph theory students Jofre Costa, Nikolai Karol, Robert Hickingbotham and Marc Distel for their support and discussions. Additionally, I would also like to thank PhD student Corbin Reid for his invaluable insight to a topological problem. I would also like to thank members of the Monash discrete maths community, including Ian Wanless, Nick Wormald, Daniel Horsley and Graham Farr for teaching me combinatorial and discrete mathematics and inspiring me to take this path. Most of all, I thank my family, friends, and Diesel for supporting me through my honours year and allowing me to do my studies. I would like to mention fellow honours student Brice Arrigo for copy editing my thesis and providing useful suggestions.
 
 \section*{Declaration}
 
