@@ -4,9 +4,11 @@ This section goes into more detail about graphs on surfaces.
 
 \subsection{Surfaces}
 
-The terminology in this section is based on \textcite{moharGraphsSurfaces2001} Graphs on Surfaces. Recall a surface is a compact $2$-manifold. Recall also that every surface is homeomorphic to a sphere with $h$ handles and $c$ crosscaps, for some integer $h$ and $c$. This is the classification of surfaces. The \textit{Euler genus} of a surface \(\Sigma\), obtained from a sphere by adding \(h\) handles and \(c\) crosscaps, is \(2h + c\).
+The terminology in this section is based on \textcite{moharGraphsSurfaces2001} Graphs on Surfaces. Recall a surface is a compact $2$-manifold. 
 
-Furthermore, a sphere with one handle and one crosscap is homeomorphic to a sphere with three crosscaps. Therefore, any sphere with a mix of handles and crosscaps is homeomorphic to one with all crosscaps. Note that Euler genus is an invariant under homeomorphism. 
+\textit{Handles} are added to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise, and the other goes counter-clockwise. \textit{Crosscaps} are added to a surface $\Sigma$ by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. Every surface is homeomorphic to a sphere with $m$ handles and $n$ crosscaps. This is known as the classification of surfaces. The \textit{Euler genus} of a surface \(\Sigma\) with $m$ handles and $n$ crosscaps is $2m + n$.
+
+Furthermore, a sphere with one handle and one crosscap is homeomorphic to a sphere with three crosscaps. Therefore, any sphere with a mix of handles and crosscaps is homeomorphic to one with all crosscaps. Euler genus is an invariant under homeomorphism. 
 
 These are the Euler genus of some surfaces.
 \begin{enumerate}
@@ -16,12 +18,19 @@ These are the Euler genus of some surfaces.
 	\item The Euler genus of the Klein bottles is \(2\). 
 \end{enumerate}
 
-Note that ``genus'' and ``Euler genus'' are two distinct concepts. In many works, ``genus'' refers to the orientable genus. However, in this thesis, genus is a synonym for \underline{Euler genus} unless stated otherwise.
+Note that ``genus'' and ``Euler genus'' are two distinct concepts. In many works, ``genus'' refers to the orientable genus. 
 
 The orientability of a surface is an important tool to distinguish surfaces. A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \(S^2\) by only adding handles. An example of an orientable surface is the torus. A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can only be obtained from \(S^2\) by adding at least one crosscap. An example of a non-orientable surface is the projective plane or the Klein bottle. Compact orientable surfaces can be embedded on $\mathbb{R}^3$, but nonorientable surfaces cannot. This implies that a sphere with $n$ handles can be viewed as a subset of $\mathbb{R}^3$. 
 
+An \textit{embedding} of $G$ on a surface $\Sigma$ is a drawing of $G$ on $\Sigma$ such that no two edges cross. 
+A \textit{$2$-cell embedding} of a graph $G$ on a surface $\Sigma$ is an embedding of $G$ in $\Sigma$ such that every connected component of $\Sigma - G$ is homeomorphic to an open disk. This is also referred to as a \textit{map}. The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be $2$-cell embedded on $\Sigma$.
+
+Graphs that can be embedded on the plane are called \textit{planar} graphs. Graphs that can be 2-cell embedded on the torus are called \textit{toroidal} graphs, and graphs that can be 2-cell embedded on the projective plane are called \textit{projective-planar} graphs. Graphs that can be 2-cell embedded on a surface of genus $g$ are called \textit{genus $g$} graphs. Similarly to plane graphs, \textit{torus graphs} are graph drawings on the torus, and \textit{projective-plane graphs} are graphs drawings on the projective plane. 
+
 The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be embedded on \(\Sigma\) without crossings. If $G$ is restricted to be embedded on only orientable surfaces, then in the literature this is referred to as the ``genus'' of the graph. This thesis does not use this definition of genus, and in fact the orientability of the surface plays an important role throughout this paper.
 
+An extension for Euler's formula is below. Suppose $G$ is $2$-cell embedded on a surface $\Sigma$ of genus $g$. Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = 2 - g = \chi\). When $g = 0$, then $\Sigma$ is a $2$-sphere and this is the original Euler's formula. 
+The value $\chi$ is known as the \textit{Euler characteristic} of a topological space, in this case a surface. The Euler characteristic is invariant under homeomorphism. Calculating the Euler characteristic of any space is done through \textit{homological algebra}, specifically by looking at the free rank of homology groups. 
 
 \subsection{Graphs on surfaces}
 The family of graphs embeddable on a fixed surface $\Sigma$ is a minor-closed family. If $G$ is embedded on $\Sigma$, then $G - v$ for any vertex $v$ and $G - e$ for any edge $e$ is also embeddable on $\Sigma$. Furthermore, contracting any edge $e$ in $G$ maintains the property that no two edges cross. Edge contraction is a topological action on a graph and can be viewed as an ambient isotopy of $G$ on $\Sigma$. 
