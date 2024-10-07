@@ -38,3 +38,14 @@ Much work has been done on solving Hadwiger's conjecture, with a document by \te
 The Graph Minor Theorem is one of the deepest and most important theorems in graph theory, and was proven by \textcite{robertsonGraphMinorsXX2004}. The Graph Minor Theorem states that every minor-closed family $\mathcal{F}$ is characterised by a finite set of forbidden minors $\mathcal{H}$. A graph $G$ is in $\mathcal{F}$ if and only if $G$ is $\mathcal{H}$-minor free.
 For planar graphs, the two forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
 The family of graphs that can be embedded on a torus are the toroidal graphs.  17,523 forbidden toroidal graphs have been found, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of forbidden toroidal minors has not been found yet.
+
+Any result on $K_t$-minor-free graphs can be generalised to minor-closed classes. This is due to \cref{lem:minor-closed-Kt}. 
+
+\begin{lemma}\label{lem:minor-closed-Kt}
+    Every proper minor-closed class is $K_t$-minor free for some $t$. 
+\end{lemma}
+\begin{proof}
+    As $\mathcal{F}$ is proper, there exists a graph $H$ which is not in $\mathcal{F}$. But this means that $H$ is not a minor of any graph in $\mathcal{F}$. Then $K_t$ is not a minor of $\mathcal{F}$, where $t = |V(H)|$. Then $\mathcal{F}$ is $K_t$ minor free. 
+\end{proof}
+Note that $H$ may not be the smallest forbidden graph in $\mathcal{F}$, but the existence of such an $H$ is sufficient. 
+Then \cref{conj:bded_had_pn} implies \cref{lem:Minor-Closed_Pagenumber}. From \cref{lem:minor-closed-Kt}, every proper minor-closed graph family is $K_t$-minor free. Therefore, every graph in a proper minor-closed graph family can be embedded in a bounded number of pages.
