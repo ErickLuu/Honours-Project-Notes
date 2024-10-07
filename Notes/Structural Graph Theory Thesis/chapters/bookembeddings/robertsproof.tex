@@ -76,14 +76,6 @@ We can apply \cref{thm:clique_sum_pagenumber_bound} to prove that every $K_5$-mi
 \begin{theorem}[Wagner's theorem\cite{wagnerUeberEigenschaftEbenen1937}]\label{thm:WagnersTheorem}
 	Let \(G\) be a \(K_5\)-minor-free graph. Then \(G\) has a tree-decomposition of adhesion $\leq 3$ where every torso is either a planar graph or the Wagner graph \(V_8\).
 \end{theorem}
-A description of the Wagner graph is in \cref{fig:wagner}. 
-\begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}[thick,scale=2, every node/.style={scale=2}]
-		\input{figures/wagner-graph}
-	\end{tikzpicture}
-	\caption[Wagner graph]{The Wagner graph $V_8$, which can be embedded on four pages. The circular ordering is the clockwise circular ordering around the outerface. The edges are coloured such that the internal edges are on different pages. The spine edges can go on any page.}\label{fig:wagner}
-\end{figure}
 
 \begin{theorem}
 	Let \(G\) be a \(K_5\)-minor free graph. Then \(G\) has pagenumber \(\leq 19\).
@@ -91,5 +83,5 @@ A description of the Wagner graph is in \cref{fig:wagner}.
 
 \begin{proof}
 	Suppose \(G\) is \(K_5\)-minor free. Then by Wagner's theorem \cite{wagnerUeberEigenschaftEbenen1937}, \(G\) has a tree-decomposition of adhesion at most 3 where every torso is either a planar graph or the Wagner graph.
-	Planar graphs are \(4\)-colourable and can be embedded on four pages. The Wagner graph is \(3\)-colourable and can be embedded on four pages, from \textcite{yannakakisEmbeddingPlanarGraphs1989}. Therefore, if \(G\) is \(K_5\)-minor free, then \(G\) has pagenumber at most \(4 \cdot 4 + 3 = 19\) from \cref{thm:clique_sum_pagenumber_bound}.
+	Planar graphs are \(4\)-colourable and can be embedded on four pages. The Wagner graph is \(3\)-colourable and can be embedded on three pages, from \textcite{yannakakisEmbeddingPlanarGraphs1989}. Therefore, if \(G\) is \(K_5\)-minor free, then \(G\) has pagenumber at most \(4 \cdot 4 + 3 = 19\) from \cref{thm:clique_sum_pagenumber_bound}.
 \end{proof}
