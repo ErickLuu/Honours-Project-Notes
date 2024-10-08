@@ -2,23 +2,23 @@
 
 The main theorem we prove is:
 \begin{theorem}\label{thm:orientablevortices}
-	Let $G$ be a graph with a book-embedding of adhesion $\ell$ where every torso is $k$ almost-embeddable on an orientable surface of genus at most $g$. Now suppose there are $p$ vortices of depth $k$ which are embedded on every torso of $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where \[s = \gpk.\] 
+	Let $G$ be a graph with a book-embedding of adhesion $\ell$ where every torso is $k$ almost-embeddable on an orientable surface of Euler genus at most $g$. Now suppose there are $p$ vortices of depth $k$ which are embedded on every torso of $G$. Then $G$ can be embedded on $(2s + 2)(s) + \ell$ pages, where \[s = \gpk.\] 
 \end{theorem}
 We first start with 4-connected planar graphs, then move onto planar graphs, then move onto graphs on orientable surfaces. We have shown that the number of monochromatic paths on each of these surfaces is bounded. This allows us to place vortices with only a bounded increase in the number of pages needed. We show that the number of monochromatic paths on these graphs is bounded for every face. Then we will show that because the number of monochromatic paths for every face is bounded, we can add vortices.
 
 \begin{lemma}\label{lem:orientablesurfaces_monochromatic_edges}
-	Let $G$ be a graph embedded on an orientable surface of genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has at most $12(g + 1)$ monochromatic paths.
+	Let $G$ be a graph embedded on an orientable surface of Euler genus at most $g$. Then there exists a book-embedding $(<, \varphi)$ with $11 + 18g$ pages where every face of $G$ has at most $12(g + 1)$ monochromatic paths.
 \end{lemma}
 \begin{proof}
 	$G$ has a planar-nonplanar decomposition, $G_p$ and $E_n$, where $G_p$ is a spanning planar subgraph of $G$ and $E_n$ are nonplanar edges. From \cref{thm:embedded_graph}, there exists a book-embedding of $G_p$ in $11$ pages. To embed $E_n$, collect edges of the same homotopy type together. These edges can be embedded on $18g$ pages from \cref{lem:planar_nonplanar_orientable}, when $G$ is orientable. The reason this works is that the outerface is preserved in the $4$-connected tree-decomposition, which is a necessary condition in the orientable and non-orientable case.
 	From \cref{corr:orientable_nonplanar_faces} every face has a bounded number of monochromatic paths. However, every nonplanar edge splits a monochromatic path in two. Therefore, every face of $G$ has at most $12 + 3 \cdot 4g = 12(g + 1)$ monochromatic paths.
 \end{proof}
 \begin{lemma}\label{lem:orientablesurfaces_almostembeddable}
-	Let $G$ be a $k$-almost embeddable graph on an orientable surface of genus at most $g$, with $p$ vortices on $G$. Then $G$ has a book-embedding with at most $11 + 18g + 12(k + 1)(g + 1)$ pages.
+	Let $G$ be a $k$-almost embeddable graph on an orientable surface of Euler genus at most $g$, with $p$ vortices on $G$. Then $G$ has a book-embedding with at most $11 + 18g + 12(k + 1)(g + 1)$ pages.
 \end{lemma}
 
 \begin{proof}
-	Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ with $11 + 18g$ pages where every face has $12(g+1)$ monochromatic paths, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{corr:vortices_paths_pn}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded on at most \[11 + 18g + 12p(k + 1)(g + 1) = \gpk \] pages. Thus shown.
+	Suppose $G = G_0 \cup G_1 \cup \ldots \cup G_p$, where $G_0$ is embeddable on a surface of Euler genus $G$, and $G_i$, $1 \leq i \leq p$ are vortices. Then there exists a book-embedding $(<, \psi)$ with $11 + 18g$ pages where every face has $12(g+1)$ monochromatic paths, from \cref{lem:orientablesurfaces_monochromatic_edges}. But then from \cref{corr:vortices_paths_pn}, this means that every $G_1, \ldots, G_p$ on $G_0$ can be embedded on at most \[11 + 18g + 12p(k + 1)(g + 1) = \gpk \] pages. Thus shown.
 \end{proof}
 
 Now to prove \cref{thm:orientablevortices}. 

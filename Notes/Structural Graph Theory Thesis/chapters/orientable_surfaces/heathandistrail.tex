@@ -1,6 +1,6 @@
 % !TEX root = ./thesis.tex
 
-\section{Graphs embedded on a surface of bounded genus}\label{sec:pagenumber_bounded_genus}
+\section{Graphs embedded on an orientable surface of bounded genus}\label{sec:pagenumber_bounded_genus}
 
 \subsection{Planar graphs}\label{ssec:Planar_Graphs}
 A theorem by \textcite{yannakakisEmbeddingPlanarGraphs1989} allows an efficient embedding of planar graphs on surfaces.
@@ -8,22 +8,22 @@ A theorem by \textcite{yannakakisEmbeddingPlanarGraphs1989} allows an efficient 
 	Let $G$ be a 2-connected plane graph, and let $C$ be the outer cycle of $G$. Then there exists a $4$-page embedding $(<, \rho)$ of $G$ where the linear ordering $<$ restricted to $C$ is a path on $C$. 
 \end{theorem}
 
-From \cref{thm:Planar Graph Hickingbotham Bound}, every planar graph can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}. We require the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on a surface of bounded genus has bounded pagenumber.
+From \cref{thm:Planar Graph Hickingbotham Bound}, every planar graph can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}. We require the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on an orientable surface of bounded genus has bounded pagenumber.
 
 \subsection{Book-embeddings of orientable graphs}
 
 \begin{theorem}[\textcite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
 	Every orientable genus $g$ graph can be embedded in $18g$ pages.
 \end{theorem}
-Note that this bound extends the one found by \textcite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded genus.
-The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have genus $O(n^2)$, from \textcite{ringelMapColorTheorem1974}. Therefore, if $K_n$ has genus $g$ then the pagenumber of $K_n$ is $O(\sqrt{g})$.
+Note that this bound extends the one found by \textcite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded orientable genus.
+The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have Euler genus $O(n^2)$, from \textcite{ringelMapColorTheorem1974}. Therefore, if $K_n$ has Euler genus $g$ then the pagenumber of $K_n$ is $O(\sqrt{g})$.
 
 %In fact, there exists a family of graphs such that $\tilde{\gamma}(G) \in \Omega(|V(G)|)$ for every graph $G$ in the family. Consider $n$ copies of $K_6$ with a single vertex in each copy identified to a single vertex. Then each $K_6$ will occupy a single crosscap with no room for another copy of $K_6$ to fit. Therefore, this graph is of non-orientable genus $2n$. 
 
 \subsection{Proving \cref{thm:Genus_pagenumber_bound}}
 This section is a proof of \cref{thm:Genus_pagenumber_bound}. We first decompose a graph on an orientable surface into a planar spanning subgraph and nonplanar edges. Then this decomposition can be used to embed a graph on a book with a bounded number of pages.
 
-Let $G$ be a graph of genus $g$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning subgraph \(G_p\) embedded on $\mathbb{R}^2$ and set of nonplanar edges $E_N$. This partition has the following properties:
+Let $G$ be a graph of orientable genus $g$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning subgraph \(G_p\) embedded on $\mathbb{R}^2$ and set of nonplanar edges $E_N$. This partition has the following properties:
 \begin{enumerate}
 	\item Every edge in \(E_N\) are between vertices on the boundary of $F_0$, the outerface.
 	\item Adding any edge from $E_N$ to \(G_p\) breaks the conditions 1
@@ -130,7 +130,7 @@ Two traces $(T_1, T_2)$ are \textit{orientable} if \(T_1\) and \(T_2\) go in opp
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
-	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a genus $g$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g - 5\) pages.
+	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g - 5\) pages.
 \end{lemma}
 \begin{proof}
 	Use the algorithm from \cref{thm:4Pages_Planar} to embed $G_P$ on four pages with the property that the outercycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.

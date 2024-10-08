@@ -42,8 +42,8 @@ Next is an extension of \cref{thm:K5_Free_Planar} for graphs embedded on surface
 	If \(G\) is an Euler genus \(g\) graph, then \(G\) is \(K_t\)-minor free, where \(t > \sqrt{6g} + 4\). 
 \end{theorem}
 \begin{proof}
-	This proof mimics the above proof for planarity, but on surfaces of higher genus. 
-	Suppose \(G\) has \(n\) vertices and \(m\) edges and of Euler genus $g$. Then \(n - m + f = \chi = 2-g\), from Euler's theorem on surfaces. As at least three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on a genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). Thus \(t \leq \sqrt{6g} + 4\). So if $G$ has genus \(g\), then $G$ is \(K_t\)-minor free, where \(t > \sqrt{6g} + 4\). 
+	This proof mimics the above proof for planarity, but on surfaces of higher Euler genus. 
+	Suppose \(G\) has \(n\) vertices and \(m\) edges and of Euler genus $g$. Then \(n - m + f = \chi = 2-g\), from Euler's theorem on surfaces. As at least three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on an Euler genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). Thus \(t \leq \sqrt{6g} + 4\). So if $G$ has Euler genus \(g\), then $G$ is \(K_t\)-minor free, where \(t > \sqrt{6g} + 4\). 
 \end{proof}
 
 In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}. However, even though the torus and the Klein bottle have the same Euler genus, $K_7$ does not embed on the Klein bottle. 
@@ -58,7 +58,7 @@ In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is 
 	$K_8$ is not embeddable on the torus.
 \end{proposition}
 \begin{proof}
-	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus.
+	A torus has Euler genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus.
 \end{proof}
 
 A famous theorem involving map colourings on surfaces is Heawood's conjecture, from \textcite{heawoodMapcolourTheorem1890}. This theorem is also called the Map Colour Theorem. Piecewise linearly partition a surface $\Sigma$ into path-connected faces homeomorphic to a disk. Then a \textit{map} of $\Sigma$ is the graph obtained by placing a vertex at each face and placing an edge when two faces touch at a line. Let $\chi(g)$ be the minimum number of colours sufficient to colour all Euler genus $g$ maps. Heawood showed that when $g \geq 1$, 
