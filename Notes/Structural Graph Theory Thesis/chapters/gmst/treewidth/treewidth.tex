@@ -119,3 +119,22 @@ This implies that every $K_4$-minor-free graph is not $3$-connected, therefore e
 	Proof by contrapositive. Let $G$ be a graph with a $K_t$ minor. Then \(\tw(G) \geq t-1\).
 	If \(K_t\) is a minor of \(G\), then from \cref{thm:tw_minor_closure}, \(\tw(K_t) \leq \tw(G)\). As \(\tw(K_t) = t-1\), then \(\tw(G) \geq t - 1\). Therefore, if $\tw(G) \leq t$, then $K_{t+1}$ is the largest complete minor in $G$. Therefore, $G$ is $K_{t + 2}$-minor free. 
 \end{proof}
+
+A graph $G$ is \textit{$k$-degenerate} if every subgraph $H \subseteq G$ has a vertex of degree at most $k$. 
+
+\begin{proposition}
+	Every graph with treewidth at most $k$ is $k$-degenerate.
+\end{proposition}
+\begin{proof}
+	Let \( (B_{x: x \in V(T)}) \) be a tree-decomposition of $G$. Suppose for neighbouring bags $B_x, B_y$, $B_x \nsubseteq B_y$ and $B_y \nsubseteq B_x$. If $B_x \subseteq  B_y$, then contracting the edge $xy \in T$ is a tree-decomposition of $G$. Now take a leaf bag $B_1$ and let $B_2$ be its neighbour. Now let $v$ be a vertex in $B_1$ but not in $B_2$. $v$ has degree at most $k$ as there are $k+1$ vertices in $B_1$. As subgraphs of $G$ have treewidth at most $k$, then $G$ is $k$-degenerate.
+\end{proof}
+
+\begin{proposition}\label{prop:treewidth_edge_bound}
+	For every graph $G$ where $|V(G) \geq k$, if $\tw(G) \leq k$ then $|E(G)|\leq k |V(G)| - \binom{k + 1}{2}$. 
+\end{proposition}
+
+\begin{proof}
+	Proof by induction. Suppose $|V(G)| = k$. Then $|E(G)| \leq \binom{k}{2} = k |V(G)| - \binom{k + 1}{2}$. 
+
+	Fix $n > k$. Assume this property holds for every graph with $n-1$ vertices and treewidth at most $k$. Let $G$ be a graph where $\tw(G) \leq k$ and $G \leq n$. Now $G$ is $k$-degenerate, so $G$ has a vertex $v$ of degree at most $k$. $G - v$ has treewidth at most $k$. Then by the inductive hypothesis, $|E(G - v)| \leq k (n - 1) - \binom{k + 1}{2}$. $v$ has at most $k$ neighbours, so $|E(G)| \leq k(n -1) + k - \binom{k + 1}{2} = k |V(G)| - \binom{k + 1}{2}$. 
+\end{proof}
