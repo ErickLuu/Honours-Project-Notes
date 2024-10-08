@@ -28,7 +28,7 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
 	Suppose $H$ is a minor of $G$. Use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the first contracted edge and let \(G' := G / uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, a model \(\rho\) of \(H\) in \(G'\) exists. Then find $x \in V(H)$ such that $w \in V(\rho(x))$. If no such $x$ exists, then $\rho$ is a model of $H$ in $G$. Otherwise, delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\). 
 \end{proof}
 
-An important class of minor-closed graph families are the \(K_t\)-minor free graphs. For a graph \(G\), \(\had(G)\) is the largest \(t\) such that \(K_t\) is a minor of \(G\). $\had(G)$ is named after Hugo Hadwiger due to his conjecture below.
+An important class of minor-closed graph families are the \(K_t\)-minor-free graphs. For a graph \(G\), \(\had(G)\) is the largest \(t\) such that \(K_t\) is a minor of \(G\). $\had(G)$ is named after Hugo Hadwiger due to his conjecture below.
 \begin{conjecture}[Hadwiger's conjecture \cite{hadwigerUeberKlassifikationStreckenkomplexe1943}]\label{conj:Hadwiger's Conjecture}
 	For all graphs \(G\), \(\chi(G) \leq \had(G)\).
 \end{conjecture}
@@ -39,7 +39,7 @@ The Graph Minor Theorem is one of the deepest and most important theorems in gra
 For planar graphs, the two forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
 The family of graphs that can be embedded on a torus are the toroidal graphs.  17,523 forbidden toroidal graphs have been found, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of forbidden toroidal minors has not been found yet.
 
-Any result on $K_t$-minor free graphs can be generalised to minor-closed classes. This is due to \cref{lem:minor-closed-Kt}. 
+Any result on $K_t$-minor-free graphs can be generalised to minor-closed classes. This is due to \cref{lem:minor-closed-Kt}. 
 
 \begin{lemma}\label{lem:minor-closed-Kt}
     Every proper minor-closed class is $K_t$-minor free for some $t$. 
