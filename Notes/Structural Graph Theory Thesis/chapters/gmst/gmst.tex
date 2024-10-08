@@ -54,7 +54,7 @@ The reverse proposition, that if $G$ is $K_t$-minor free, then $G$ has bounded g
 \end{proposition}
 
 \begin{proof}
-	Consider $n$ copies of $K_5$ and identify one vertex in every $K_5$ to a single vertex $v$ to form $G$. Then $G$ is $K_6$-minor free. However, from \cref{thm:additivity_genus}, $G$ has genus $n$. Thus, $G$ has unbounded genus. 
+	Consider $n$ copies of $K_5$ and identify one vertex in every $K_5$ to a single vertex $v$ to form $G$. Then $G$ is $K_6$-minor free. However, from \cref{thm:additivity_genus}, $G$ has Euler genus $n$. Thus, $G$ has unbounded Euler genus. 
 \end{proof}
 
 \subsubsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
@@ -69,7 +69,7 @@ We prefer to use tree-decompositions and torsos over clique-sums. This is becaus
 Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ is \textit{$G$-clean} if $D$ is an open subset of $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\). No vertex appears more than once in $\Lambda$. The ordering of $\Lambda$ is around the boundary of $D$. 
 Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_k)$. A \textit{$D$-vortex} is a graph $H$ where $V(G) \cap V(H) = \Lambda$. Furthermore, there exists a \textit{path-decomposition} of \(H\) of bags \(B_1, B_2, \ldots B_k\) and \(x_i \in B_i\) for all \(i\). The \textit{depth} of the vortex $H$ is the path-width of $H$. 
 
-The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has genus around $\frac{2n}{3}$. As $G$ has an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and genus is arbitrarily large. However, let $G_0$ is the $n \times n - 1$ grid and $G_1$ is the $n \times 2$ grid in the back plus the red vertices. Then $G_0$ is planar and $G_1$ is a vortex of depth 6 on $G_0$, on the outerface. 
+The following figure, \cref{fig:tenniscourt} demonstrates the necessity of vortices. $G_n$ is $K_8$-minor free. However, $G_n$ has around $\frac{n}{3}$ $K_{3,3}$ copies, so has Euler genus around $\frac{2n}{3}$. As $G$ has an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and Euler genus is arbitrarily large. However, let $G_0$ is the $n \times n - 1$ grid and $G_1$ is the $n \times 2$ grid in the back plus the red vertices. Then $G_0$ is planar and $G_1$ is a vortex of depth 6 on $G_0$, on the outerface. 
 
 \begin{figure}[h]
 	\centering
@@ -81,7 +81,7 @@ Almost-embeddable graphs are a key component of the Graph Minor Structure Theore
 \begin{itemize}
 	\item \(G - A = G_0 \cup G_1 \cup G_2 \cup \ldots \cup G_{p'}\).
 	\item The number of vortices $p'$ is at most $p$.
-	\item There exists an embedding of \(G_0\) onto a surface \(\Sigma\) of genus \(\leq g\).
+	\item There exists an embedding of \(G_0\) onto a surface \(\Sigma\) of Euler genus \(\leq g\).
 	\item There exists pairwise disjoint \(G_0\)-clean discs \(D_1, D_2, \ldots, D_{p'}\) in \(\Sigma\).
 	\item \(G_i\) is a \(D_i\)-vortex of depth at most \(k\).
 \end{itemize}
