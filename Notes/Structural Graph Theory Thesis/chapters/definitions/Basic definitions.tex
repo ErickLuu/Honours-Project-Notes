@@ -1,18 +1,18 @@
 
 \section{Basic definitions}\label{sec: Basic definitions}
-A graph $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$. $E(G)$ is a set that contains two-element subsets of $V(G)$. An edge $ \{v, w\}$ \textit{joins} vertices $v$ and $w$. A graph is \textit{simple} if all edges join two distinct vertices, with at most one edge between any two vertices. In this paper, every graph is simple unless stated. Furthermore, all graphs $G$ are finite, so $|V(G)| < \infty$. The graph with all possible edges on $n$ vertices is the complete graph $K_n$. Graphs are defined up to isomorphism, or up to relabelling of the vertices. 
+A graph $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$. $E(G)$ is a set that contains two-element subsets of $V(G)$. An edge $ \{v, w\}$ \textit{joins} vertices $v$ and $w$. A graph is \textit{simple} if every edge join two distinct vertices, with at most one edge between any two vertices. In this paper, every graph is simple unless stated. Furthermore, every graphs $G$ are finite, so $|V(G)| < \infty$. The graph with all possible edges on $n$ vertices is the complete graph $K_n$. Graphs are defined up to isomorphism, or up to relabelling of the vertices. 
 
 \subsection{Graphs and subgraphs}
 Let $G$ be a graph. A \textit{subgraph} $H$ in $G$ is a graph with vertex set $V(H) \subseteq V(G)$ and edge set $E(H)$ with the property that if $vw$ is an edge in $E(H)$, then $vw$ is an edge in $E(G)$.
-Let $G$ be a graph and let $S$ be a non-empty subset of the vertex set of $G$. The \textit{induced subgraph} of $S$ in $G$ is the graph $G[S]$ with vertex set $S$ and edge set containing precisely all edges in $G$ incident to two vertices in $S$. Removing a set of vertices $S \subseteq V(G)$ from $G$ forms the induced subgraph $G - S := G[V(G) - S]$. 
+Let $G$ be a graph and let $S$ be a non-empty subset of the vertex set of $G$. The \textit{induced subgraph} of $S$ in $G$ is the graph $G[S]$ with vertex set $S$ and edge set containing precisely every edge in $G$ incident to two vertices in $S$. Removing a set of vertices $S \subseteq V(G)$ from $G$ forms the induced subgraph $G - S := G[V(G) - S]$. 
 $H$ is a \textit{spanning subgraph} of $G$ if $H$ is a subgraph of $G$ and $V(H) = V(G)$. 
 The neighbourhood of a set of vertices $A \subseteq V(G)$ are precisely all vertices that are adjacent to a vertex in $A$ and not in $A$ and is denoted as $N_G(A)$. Below are a list of useful subgraphs.
 
 \begin{itemize}
-	\item A \textit{path} in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell- 1}\) which join a sequence of vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\), and all the vertices are distinct.
+	\item A \textit{path} in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell- 1}\) which join a sequence of vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\), and each vertex are distinct.
 	\item A \textit{cycle} \(C\) in a graph \(G\) is a sequence of edges \(e_1, e_2, \ldots, e_{\ell}\) which join a sequence of distinct vertices \(v_1, v_2, \ldots, v_{\ell}\) such that \(e_i = v_i v_{i + 1}\) for \(1 \leq i \leq \ell - 1\) and \(e_\ell = v_\ell v_1\).
 	\item Let $G$ be a graph and $C$ be a cycle in $G$. A \textit{chord} in $C$ is an edge $e$ that joins two vertices in $C$ that are not adjacent in $C$. 
-	\item A \textit{Hamiltonian cycle} in a graph \(G\) is a cycle \(C\) such that all the vertices in \(G\) appear in \(C\). If a graph $G$ has a Hamiltonian cycle, then $G$ is a Hamiltonian graph. 
+	\item A \textit{Hamiltonian cycle} in a graph \(G\) is a cycle \(C\) such that every vertex in \(G\) appear in \(C\). If a graph $G$ has a Hamiltonian cycle, then $G$ is a Hamiltonian graph. 
 \end{itemize}
 
 For any path $P$, the subpath from $u$ to $v$ in $P$ is $P[u, v]$. The subpath from $u$ to $v$, then removing $v$ is $P[u, v)$, and the internal subpath from $u$ to $v$ is $P(u, v)$. 
@@ -36,7 +36,7 @@ Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B 
 \begin{theorem}[Menger's theorem, vertex-connectivity version]\label{thm:Menger_Vertex}
 	A graph \(G\) is \(k\)-connected if and only if for any two distinct vertices $u,v \in V(G)$, there are at least \(k\) internally disjoint paths between $u$ and $v$.
 \end{theorem}
-As a corollary, all Hamiltonian graphs are biconnected. For any two distinct vertices in a Hamiltonian graph, there are two internally disjoint paths by traversing the Hamiltonian cycle.
+As a corollary, every Hamiltonian graph is biconnected. For any two distinct vertices in a Hamiltonian graph, there are two internally disjoint paths by traversing the Hamiltonian cycle.
 \subsection{Block-cut diagram}
 A \textit{cut-vertex} $v$ in a connected graph $G$ has the property that $G - v$ is disconnected.
 A subgraph $H$ of a graph $G$ is a \textit{block} if:
@@ -47,7 +47,7 @@ A subgraph $H$ of a graph $G$ is a \textit{block} if:
 \end{itemize}
 
 \begin{theorem}
-	For all graphs $G$, blocks partition $E(G)$.
+	Blocks partition the edge set $E(G)$.
 \end{theorem}
 
 A \textit{block-cut tree} is a tree $T$ whose vertices are the blocks and cut-vertices of $G$, and $uv$ is an edge in $T$ whenever one block is adjacent to a cut-vertex. 

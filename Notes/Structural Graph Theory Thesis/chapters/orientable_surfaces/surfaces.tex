@@ -5,10 +5,10 @@ In this section, we discuss surfaces. We also introduce some machinery to deal w
 
 This section uses the planar-nonplanar decomposition to prove some properties on graphs embedded on a surface. Suppose a graph \(G\) is embedded on a surface $\Sigma$. The edges of $G$ can be partitioned into planar and nonplanar edges, from \textcite{heathPagenumberGenusGraphs1992}. If \(F\) is bounded by planar edges, a vortex can be added to \(F\) with a bounded number of pages. If the boundary of $F$ has non-planar edges, then additional machinery is necessary.
 
-This section proves that the number of monochromatic paths on every face on a surface is bounded. Recall a loop $\gamma$ is \textit{null-homotopic} if $\gamma$ is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for all \(i\). The length of the facial walk is \(n\).
+This section proves that the number of monochromatic paths on every face on a surface is bounded. Recall a loop $\gamma$ is \textit{null-homotopic} if $\gamma$ is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for every \(i\). The length of the facial walk is \(n\).
 
 \begin{lemma}\label{lem:orientable_facial_walks}
-	Let \(\Sigma \) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be an arbitrary set of nontrivial, non-intersecting loops that start and end at \(x_0\) on \(\Sigma \). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma - L\), such that each \(F_i\) is homeomorphic to a disk. Let $G$ be the graph with vertex set $\{x_0 \}$ and vertex set $L$. Then the length of the facial walk for all \(F\) is at most \(2g\).
+	Let \(\Sigma \) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be an arbitrary set of nontrivial, non-intersecting loops that start and end at \(x_0\) on \(\Sigma \). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma - L\), such that each \(F_i\) is homeomorphic to a disk. Let $G$ be the graph with vertex set $\{x_0 \}$ and vertex set $L$. Then the length of the facial walk for every \(F\) is at most \(2g\).
 \end{lemma}
 
 Parts of the proof was motivated by a discussion with Corbin Reid. The proof given is a topological one.
