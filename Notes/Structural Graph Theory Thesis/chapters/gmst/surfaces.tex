@@ -20,19 +20,20 @@ An \textit{embedding} of $G$ on a surface $\Sigma$ is a drawing of $G$ on $\Sigm
 A \textit{$2$-cell embedding} of a graph $G$ on a surface $\Sigma$ is an embedding of $G$ in $\Sigma$ such that every connected component of $\Sigma - G$ is homeomorphic to an open disk. This is also referred to as a \textit{map}.
 
 We now discuss some terminology of graphs on surfaces. Let $G$ be a graph and $\Sigma$ be a surface. Embedding $G$ in $\Sigma$ is referred to as the \textit{embedding} of $G$ in $\Sigma$, whereas embedding $G$ in a book is referred to as the \textit{layout} of $G$. The orientable genus of a graph \(G\), denoted \(\gamma(G)\), is the minimum genus of an orientable surface $\Sigma$ such that $G$ has an embedding on $\Sigma$. The non-orientable genus of a graph \(G\), denoted \(\tilde{\gamma}(G)\), is the minimum genus of a non-orientable surface $\Sigma$ such that $G$ has an embedding on $\Sigma$. 
-The \textit{Euler Genus} of a \textit{graph} \(G\) is the smallest Euler genus \(g\) surface \(\Sigma\) such that \(G\) can be $2$-cell embedded on $\Sigma$. Euler genus is a graph invariant, $\eg(G) = g$. By the classification of surfaces, $\eg(G) = \min(2 \gamma(G), \tilde{\gamma}(G))$. 
+
+The \textit{Euler genus} of a \textit{graph} \(G\), $\eg(G)$, is the smallest integer \(g\) such that \(G\) can be embedded on $\Sigma$ of Euler genus $g$. By the classification of surfaces, $\eg(G) = \min(2 \gamma(G), \tilde{\gamma}(G))$. 
 
 \textcite{moharOrientableGenusGraphs1998} showed that \(\tilde{\gamma}(G) \leq 2 \gamma(G) + 1\) for every graph, meaning that if the orientable genus is bounded, then the non-orientable genus is bounded.\ \textcite{auslanderImbeddingGraphsManifolds1963} showed that there exists graphs which are embeddable on the projective plane that have arbitrarily large orientable genus. 
 
-An extension for Euler's formula is below. Suppose $G$ is $2$-cell embedded on a surface $\Sigma$ of genus $g$. Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = 2 - g = \chi\). When $g = 0$, then $\Sigma$ is a $2$-sphere and this is the original Euler's formula. 
+An extension for Euler's formula is below. Suppose $G$ is $2$-cell embedded on a surface $\Sigma$ of Euler genus $g$. Let \(|F(G)|\) be the number of faces in a graph \(G\). Then \(|V(G)| - |E(G)| + |F(G)| = 2 - g = \chi\). When $g = 0$, then $\Sigma$ is a $2$-sphere and this is the original Euler's formula. 
 The value $\chi$ is known as the \textit{Euler characteristic} of a topological space, in this case a surface. The Euler characteristic is invariant under homeomorphism. Calculating the Euler characteristic of any space is done through \textit{homological algebra}, specifically by looking at the free rank of homology groups. 
 
-Graphs that can be embedded on the plane are called \textit{planar} graphs. Graphs that can be 2-cell embedded on the torus are called \textit{toroidal} graphs, and graphs that can be 2-cell embedded on the projective plane are called \textit{projective-planar} graphs. Graphs that can be 2-cell embedded on a surface of genus $g$ are called \textit{genus $g$} graphs. Similarly to plane graphs, \textit{torus graphs} are graph drawings on the torus, and \textit{projective-plane graphs} are graphs drawings on the projective plane. 
+Graphs that can be embedded on the plane are called \textit{planar} graphs. Graphs that can be 2-cell embedded on the torus are called \textit{toroidal} graphs, and graphs that can be 2-cell embedded on the projective plane are called \textit{projective-planar} graphs. Similarly to plane graphs, \textit{torus graphs} are graph drawings on the torus, and \textit{projective-plane graphs} are graphs drawings on the projective plane. 
 
 The family of graphs embeddable on a fixed surface $\Sigma$ is a minor-closed family. If $G$ is embedded on $\Sigma$, then $G - v$ for any vertex $v$ and $G - e$ for any edge $e$ is also embeddable on $\Sigma$. Furthermore, contracting any edge $e$ in $G$ maintains the property that no two edges cross. Edge contraction is a topological action on a graph and can be viewed as an ambient isotopy of $G$ on $\Sigma$. 
-If $G$ is 2-cell embedded on a surface $\Sigma$ and every face in $G$ has three distinct vertices on its boundary, then $G$ is a \textit{triangulation} of $\Sigma$. Given graphs $G$ and $H$ with genus $g_1, g_2$,a new graph with genus $g_1 + g_2$ can be constructed.
+If $G$ is 2-cell embedded on a surface $\Sigma$ and every face in $G$ has three distinct vertices on its boundary, then $G$ is a \textit{triangulation} of $\Sigma$. Given graphs $G$ and $H$ with Euler genus $g_1, g_2$,a new graph with Euler genus $g_1 + g_2$ can be constructed.
 \begin{theorem}[\textcite{millerAdditivityTheoremGenus1987}]\label{thm:additivity_genus}
-	Let graphs $G$ and $H$ have genus $g_1$, $g_2$. Then the graph obtained from identifying a vertex in $G$ to a vertex in $H$ has genus $g_1 + g_2$. 
+	For all graphs $G$ and $H$, if $|V(G) \cap V(H)| \leq 1$, then $\eg(G \cup H) = \eg(G) + \eg(H)$. 
 \end{theorem}
 
 Next is an extension of \cref{thm:K5_Free_Planar} for graphs embedded on surfaces. 
