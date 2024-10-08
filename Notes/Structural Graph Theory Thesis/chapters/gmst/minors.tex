@@ -4,7 +4,7 @@ A description of edge contraction is in \cref{fig:edge_contraction}.
 \begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.5\textwidth]{figures/edge_contraction.svg}
-	\caption[Edge contraction]{This is an edge contraction of the edge $\{u, v\}$ to the single edge $w$. Note that edges incident to the common neighbour to both $u$ and $v$ becomes a single edge in the contraction. This maintains the property that the graph after edge contraction is simple.}\label{fig:edge_contraction}
+	\caption[Edge contraction]{Contraction of the edge $\{u, v\}$ to the vertex $w$. Note that edges incident to the common neighbour to both $u$ and $v$ becomes a single edge in the contraction. This maintains the property that the graph after edge contraction is simple.}\label{fig:edge_contraction}
 \end{figure}
 
 The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
@@ -19,7 +19,7 @@ A \textit{model} of a graph \(H\) in a graph \(G\) is a function $\rho$ which as
 \end{figure}
 
 \begin{lemma}
-	For graphs $G, H$, \(H\) is a model of \(G\) if and only if $H$ is a minor of $G$.
+	A graph \(H\) is a model of a graph \(G\) if and only if $H$ is a minor of $G$.
 \end{lemma}
 
 \begin{proof}
