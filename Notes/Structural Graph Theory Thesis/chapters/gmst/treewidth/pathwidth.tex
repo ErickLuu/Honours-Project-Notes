@@ -1,7 +1,7 @@
 \section{Path-width}\label{sec:Pathwidth}
 Similar to treewidth, the pathwidth of a graph \(G\) defines how similar $G$ is from a path. A path-decomposition is the same as a tree-decomposition restricted to a path. 
 
-Typically, $P$ is suppressed, so the bags are placed in order from 1 to $n$. Like for treewidth, The pathwidth of \(G\) is the largest pathwidth over all connected components.
+Typically, the path is suppressed in notation, so the bags are placed in order from 1 to $n$. Like for treewidth, The pathwidth of \(G\) is the largest pathwidth over all connected components.
 If a graph $G$ has a path-decomposition \({(B_i)}_i\), then $G$ has a tree-decomposition \(\left(P,{(B_i)}_i\right)\). Therefore,
 \begin{equation*}
 	\pw(G) \geq \tw(G).
@@ -40,7 +40,20 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 \end{proposition}
 
 \begin{proof}[Proof]
-	We show \(\pw(T) \leq 1 + \pw(T - V(P))\) for all $P$. If \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a path-decomposition of width $\pw(T - P)$. Order each connected component such that they appear in the order of their parents on the paths. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\).
+	We prove using induction. The pathwidth of a path $P$ is $1$.
 
-	We show there exists $P$ such that \(\pw(T) \geq 1 + \pw(T - V(P))\). Proceed by construction. Let \(B_1, \ldots B_n\) be a path-decomposition of \(T\). Let \(x\) live in bag \(B_1\) and \(y\) live in bag \(B_n\), the final bag. Then let \(P\) be the unique path from \(x\) to \(y\). Then \(P\) traverses through every bag in the path-decomposition. Therefore, \(\pw(T) \geq 1 + \pw(T - P)\) by adding every parent to the bag of each component. 
+	We show \(\pw(T) \leq 1 + \pw(T - V(P))\) for all $P$. If \(P\) is a path in \(T\) with vertices \(v_1, v_2, \ldots v_i\), then consider the subtrees hanging off \(v_i\) for all \(i\). \(T - V(P)\) will have a path-decomposition of width $\pw(T - P)$. Order each connected component such that they appear in the order of their parents on the paths. Then adding \(v_i\) to the bags of subtrees connected to \(v_i\), and the bag \((v_i, v_{i+1})\) between the subtrees \(v_i\) and \(v_{i + 1}\) will yield a path-decomposition of width \(1 + \pw(T - V(P))\) inductively.
+
+	We show there exists $P$ such that \(\pw(T) \geq 1 + \pw(T - V(P))\). Proceed by induction. Let \(B_1, \ldots B_n\) be a path-decomposition of \(T\). Let \(x\) live in bag \(B_1\) and \(y\) live in bag \(B_n\), the final bag. Then let \(P\) be the unique path from \(x\) to \(y\). Then \(P\) traverses through every bag in the path-decomposition. Therefore, \(\pw(T) \geq 1 + \pw(T - P)\) by adding every parent to the bag of each component. 
 \end{proof}
+
+The set of graphs $\{G : \pw(G) \leq k\}$ is a minor-closed class for the same reason that the set of graphs $\{G : \tw(G) \leq k\}$ is a minor-closed class.
+Ternary graphs of depth $d$ have pathwidth $d-1$. Graphs with path-width at least $w - 1$ contain every $w$-vertex forest as a minor. \textcite{seymourShorterProofPathwidth2023} provides a short proof of the above statement. 
+\begin{theorem}
+	$H$-minor free graphs have bounded pathwidth if and only if $H$ is a forest. 
+\end{theorem}
+
+\begin{theorem}
+	Suppose $H$ is a forest. Then \textcite{seymourShorterProofPathwidth2023} proved that every graph that does not contain $H$ as a minor has path-width at most $|V(H)| - 2$. Note that the original proof was by \textcite{robertsonGraphMinorsExcluding1983}. 
+	Suppose $H$ is not a forest. Then $H$ is not a minor of any tree, so $H$ is not a minor of any ternary tree. But ternary trees have unbounded pathwidth, so $H$-minor free graphs have unbounded pathwidth.
+\end{theorem}
