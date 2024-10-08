@@ -32,17 +32,15 @@ An important class of minor-closed graph families are the \(K_t\)-minor-free gra
 \begin{conjecture}[Hadwiger's conjecture \cite{hadwigerUeberKlassifikationStreckenkomplexe1943}]\label{conj:Hadwiger's Conjecture}
 	For every graph \(G\), \(\chi(G) \leq \had(G)\).
 \end{conjecture}
-Much work has been done on solving Hadwiger's conjecture, with a document by \textcite{seymourHadwigersConjecture2016} on the latest progress. However, \cref{conj:Hadwiger's Conjecture} remains unsolved. Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
+Much work has been done on solving Hadwiger's conjecture, with a survey by \textcite{seymourHadwigersConjecture2016} on the latest progress. However, \cref{conj:Hadwiger's Conjecture} remains unsolved. Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
 
  \subsection{Graph Minor Theorem}
-The Graph Minor Theorem is one of the deepest and most important theorems in graph theory, and was proven by \textcite{robertsonGraphMinorsXX2004}. The Graph Minor Theorem states that every minor-closed family $\mathcal{F}$ is characterised by a finite set of forbidden minors $\mathcal{H}$. A graph $G$ is in $\mathcal{F}$ if and only if $G$ is $\mathcal{H}$-minor free.
-For planar graphs, the two forbidden minors are \(K_5\) and \(K_{3,3}\), from \textcite{wagnerUeberEigenschaftEbenen1937}. 
-The family of graphs that can be embedded on a torus are the toroidal graphs.  17,523 forbidden toroidal graphs have been found, with a database maintained by \textcite{myrvoldLargeSetTorus2018}. A complete enumeration of forbidden toroidal minors has not been found yet.
+The Graph Minor Theorem is one of the deepest and most important theorems in graph theory, and was proven by \textcite{robertsonGraphMinorsXX2004}. The Graph Minor Theorem states that every proper minor-closed family $\mathcal{F}$ is characterised by a finite set of forbidden minors $\mathcal{H}$. A graph $G$ is in $\mathcal{F}$ if and only if $G$ is $\mathcal{H}$-minor free.
 
-Any result on $K_t$-minor-free graphs can be generalised to minor-closed classes. This is due to \cref{lem:minor-closed-Kt}. 
+Any result on $K_t$-minor-free graphs implies results about minor-closed families. This is due to \cref{lem:minor-closed-Kt}. 
 
 \begin{lemma}\label{lem:minor-closed-Kt}
-    Every proper minor-closed class is $K_t$-minor free for some $t$. 
+    Every proper minor-closed family is $K_t$-minor free for some $t$. 
 \end{lemma}
 \begin{proof}
     As $\mathcal{F}$ is proper, there exists a graph $H$ which is not in $\mathcal{F}$. But this means that $H$ is not a minor of any graph in $\mathcal{F}$. Then $K_t$ is not a minor of $\mathcal{F}$, where $t = |V(H)|$. Then $\mathcal{F}$ is $K_t$-minor free. 
