@@ -1,6 +1,6 @@
 \section{Surfaces and graphs on surfaces}
 
-The terminology in this section is based on \textcite{moharGraphsSurfaces2001} Graphs on Surfaces. Recall a surface is a compact $2$-manifold. 
+The terminology in this section is based on \textcite{moharGraphsSurfaces2001} Graphs on Surfaces. An \textit{$n$-manifold} $M$ is a second-countable Hausdorff space where every point in $M$ has an open neighbourhood homeomorphic to an open ball in $\mathbb{R}^n$. A surface is a compact $2$-manifold. 
 
 \textit{Handles} are added to a surface \(\Sigma\) by removing two disks in \(\Sigma\) and identifying the boundaries such that one goes clockwise, and the other goes counter-clockwise. \textit{Crosscaps} are added to a surface $\Sigma$ by removing a disk in \(\Sigma\) and identifying opposite points on the boundary. Every surface is homeomorphic to a sphere with $m$ handles and $n$ crosscaps. This is known as the classification of surfaces. The \textit{Euler genus} of a surface \(\Sigma\) with $m$ handles and $n$ crosscaps is $2m + n$.
 
@@ -61,6 +61,16 @@ In the case when the surface is a torus, $K_7$ is a toroidal graph but $K_8$ is 
 \begin{proof}
 	A torus has genus 2. By Euler's equation, if a graph $G$ is embedded on a torus, then $|V(G)| - |E(G)| + |F(G)| = 2 - 2 = 0$, where $|F(G)|$ counts the number of faces on the surface. Every face bounds at least three vertices and every edge touches two faces. Therefore, $|F(G)| \leq 2|E(G)|/3$. Suppose $K_8$ is embeddable on the torus. Then $|V(G)| = 8$ and $|E(G)| = 28$. Therefore, $|F(G)| = 20$. But $|F(G)| \leq 2 (28)/3 \leq 19$. Therefore, $K_8$ is not embeddable on the torus.
 \end{proof}
+
+A famous theorem involving map colourings on surfaces is Heawood's conjecture, from \textcite{heawoodMapcolourTheorem1890}. This theorem is also called the Map Colour Theorem. Piecewise linearly partition a surface $\Sigma$ into path-connected faces homeomorphic to a disk. Then a \textit{map} of $\Sigma$ is the graph obtained by placing a vertex at each face and placing an edge when two faces touch at a line. Heawood showed that the minimum number of colours sufficient to colour all Euler genus $g$ maps when $g \geq 1$ is
+	\begin{equation*}
+		\gamma(g) := \left\lfloor 
+		\frac{7 + \sqrt{1 + 24g}}{2}
+		\right\rfloor.
+	\end{equation*}
+When $g = 0$, this is the Four-Colour theorem, which was unproven when \textcite{ringelMapColorTheorem1974} was written.  
+However, Heawood did not show that $\gamma(g)$ is necessary, which became Heawood's conjecture. 
+Ringel and Young \cite{ringelMapColorTheorem1974} showed that for almost every case, $\gamma(g)$ is also necessary, and proved Heawood's conjecture. The case where this does not hold is the Klein-bottle case. Every Klein-bottle graph is $6$-colourable, but $\gamma(g) = 7$. 
 
 Let $I = [0, 1]$.
 A \textit{loop} is a continuous function $\gamma : I \rightarrow X$ where $\gamma(0) = \gamma(1) = x_0$. The point $x_0$ is the \textit{base point}. A \textit{homotopy} between two loops $\alpha, \beta$ is a continuous map $h : I \times I \rightarrow (x)$ where $h(0, t) = h(1, t) = x$ for all $t$, $h(\cdot, 0) = \alpha$, $h(\cdot, 1) = \beta$. A \textit{null-homotopic} loop is a loop homotopy to the constant map at $x_0$, and a \textit{nontrivial} loop is one that is not null-homotopic. On a sphere or plane, all loops are null-homotopic. Homotopic and null-homotopic loops come up in our discussion of graphs on surfaces as they can be used to classify edges embedded on a surface when the graph is a single point $x_0$. 
