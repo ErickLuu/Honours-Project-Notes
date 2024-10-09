@@ -1,9 +1,9 @@
 \subsection{Decomposing planar graphs}
-This subsection discusses a tree-decomposition of planar graphs into $4$-connected components. Then this tree-decomposition can be applied to \cref{thm:clique_sum_pagenumber_bound}. Firstly, Menger's theorem is discussed as this is important for future proofs. Then a decomposition of planar graphs into $4$-connected torsos is proven.
+This subsection discusses a decomposition of planar graphs into $4$-connected parts. Then this decomposition can be applied to \cref{thm:clique_sum_pagenumber_bound}. Firstly, Menger's theorem is discussed as this is important for future proofs. Then a decomposition of planar graphs into $4$-connected torsos is proven.
 
 \subsubsection{Menger's theorem}
 
-Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is an essential theorem and is used throughout this section. 
+Menger's theorem \cite{mengerZurAllgemeinenKurventheorie1927} is used throughout this section. 
 Let \(G\) be a graph and \(A, B \subseteq V(G)\). An \(AB\)-path is a path in \(G\) that starts in \(A\) and ends in \(B\) with no internal vertices in \(A \cup B\). An \(AB\)-connector is a set of disjoint \(AB\)-paths. An \(AB\)-separator is a set \(S \subseteq V(G)\) so that \(G - S\) contains no \(AB\)-path. Then:
 \begin{theorem}[Menger's theorem]\label{thm:Menger}
 	Let $G$ be a graph and let $A, B \subseteq V(G)$. Then the size of the smallest \(AB\)-separator of \(G\) is equal to the size of the largest \(AB\)-connector.
@@ -14,13 +14,13 @@ Now take two distinct vertices \(x, y\). Let \(A = N_G(x) \cup \{x\} \) and \(B 
 \end{theorem}
 
 \subsubsection{Planar Graph Decomposition}
-The aim of this section is to prove \cref{lem:planar_graphs_4_connected_cliqesums}. This is done by an argument by induction to decompose a graph into smaller elements. 
+The aim of this section is to prove \cref{lem:planar_graphs_4_connected_cliqesums}, which is well-known but not explicitly proven in the literature. 
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
-	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{\leq 4}$, with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
+	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{t}$, where $t \leq 4$, with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
 This proof is built from the observation that a planar triangulation is $4$-connected if and only if it has no separating triangle. This observation is then extended through the proof to deal with every planar graph rather than triangulations. Finally, induction is used to reduce the graph to smaller components. We first prove some properties about planar graphs, namely that a triangle can be added without breaking the property that the graph is planar.
 
-Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two components $U, V$ and there exist vertices in both the interior of $U$ and $V$. Every nonseparating triangle bound a face. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
+Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two parts $U, V$ and there exist vertices in both the interior of $U$ and $V$. Every nonseparating triangle bound a face. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
 \begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/separating triangle.svg}
@@ -29,7 +29,7 @@ Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle th
 
 \cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. \textcite{woodThomassensChoosabilityArgument2010} provides a proof of \cref{lem:rooted_triangle}.
 
-A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$ in $G$ where $u, v, w$ are in separate components. 
+A \textit{rooted $K_3$ model} on a set $\{u, v, w\}$ on a graph $G$ is a model of $K_3$ in $G$ where $\{u, v, w\}$ are in separate parts. 
 
 \begin{lemma}\label{lem:edge_contraction_2connected}
 	Let $v$ be a vertex in a 2-connected graph $G$. Then $v$ has a neighbour $w$ where $G/vw$ is 2-connected.
@@ -39,7 +39,7 @@ A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$
 \end{proof}
 
 \begin{lemma}\label{lem:rooted_triangle}
-	Every graph $G$ with vertices $u, v, w$ has a rooted $K_3$ on $u, v, w$ if and only if there exists no cut-set $S$ where $|S| \leq 1$ and $H - S$ places the set $\{u,v,w\} \setminus S$ each in separate components. 
+	Every graph $G$ with vertices $u, v, w$ has a rooted $K_3$ model on $u, v, w$ if and only if there exists no cut-set $S$ where $|S| \leq 1$ and $H - S$ places the set $\{u,v,w\} \setminus S$ each in separate components. 
 \end{lemma}
 \begin{proof}
 	For the forwards direction, let $U,V,W$ be the three subgraphs that contain $u, v, w$ respectively, and contracting $U, V, W$ to a single vertex creates a $K_3$ subgraph. Let $x \in V(G)$ be a vertex. Then without loss of generality, $x$ is not in $U$ or $V$. Therefore, $G - x$ has $U$ and $V$ in the same component. No cut-set $S$ which places $\{u,v,w\} \setminus S$ in separate components exists. 
@@ -48,20 +48,20 @@ A \textit{rooted triangle} on a set $u, v, w$ on a graph $G$ is a model of $K_3$
 
 	If $G$ is connected but not $2$-connected, take $x$ to be a cut-vertex. Since $G - x$ does not place $u,v,w$ in separate components, then without loss of generality, $u,v$ are in the same component. Let $y$ be a vertex that is a neighbour of $x$ in a component that does not contain $u,v$. Let $G'$ be the graph obtained by contracting $xy$ to a vertex $z$. If $y = w$, then $z = w$. In $G'$, $u,v$ are also in the same component of $G' - z$. Furthermore, any other cut-vertex in $G'$ is also a cut-vertex in $G$. $|V(G')| < |V(G)|$, so induction can be applied on $G'$. 
 
-	If $G$ is 2-connected, then choose a vertex $x \in V(G)$ that is not $u,v,w$. Then there exists an edge $xy$ where $G/xy$ is $2$-connected. Therefore, no vertex can be a cut vertex in $G/xy$. Applying induction on $G/xy$, $G$ has a $K_3$ minor rooted at $u,v,w$.
+	If $G$ is 2-connected, then choose a vertex $x \in V(G)$ that is not $u,v,w$. Then there exists an edge $xy$ where $G/xy$ is $2$-connected. Therefore, no vertex can be a cut vertex in $G/xy$. Applying induction on $G/xy$, $G$ has a $K_3$ model rooted at $u,v,w$.
 \end{proof}
 
 
 \cref{lem:rooted_triangle} proves \cref{thm:cutset_added_edges}. 
 
 \begin{lemma}\label{thm:cutset_added_edges}
-	Suppose $G$ is a $3$-connected planar graph with cut-set $u,v,w$. Then $G + uv, uw, vw$ is planar. 
+	Suppose $G$ is a $3$-connected planar graph with cut-set ${u,v,w}$. Then $G + uv, uw, vw$ is planar. 
 \end{lemma}
 
 \begin{proof}
-	Let $G_1$ and $G_2$ be the two subgraphs that are disconnected in $G - \{u,v,w\}$. Then if $G_i + \{u,v,w\}$ has a rooted $K_3$ minor on $u,v,w$ for $i = 1,2$, then contract this minor to $K_3$ and delete all other vertices in $G_1$. Repeat for $G_2$. Then $G_i + uv + uw + vw$ is a planar graph, $i = 1,2$. Because $uvw$ is not a separating triangle in $G_i$, then $uvw$ bounds a face in $G_1$ and $G_2$. Draw $G_1$ and $G_2$ on the sphere and stereographically project $G_2$ so that $uvw$ bounds the outerface. Then draw $G_2$ on $uvw$ in $G_1$ for a graph drawing of $G + uv, uw, vw$. 
+	Let $G_1$ and $G_2$ be the two subgraphs that are disconnected in $G - \{u,v,w\}$. Then if $G_i + \{u,v,w\}$ has a rooted $K_3$ model on $u,v,w$ for $i = 1,2$, then contract this model to $K_3$ and delete all other vertices in $G_1$. Repeat for $G_2$. Then $G_i + uv + uw + vw$ is a planar graph, $i = 1,2$. Because $uvw$ is not a separating triangle in $G_i$, then $uvw$ bounds a face in $G_1$ and $G_2$. Draw $G_1$ and $G_2$ on the sphere and stereographically project $G_2$ so that $uvw$ bounds the outerface. Then draw $G_2$ on $uvw$ in $G_1$ for a graph drawing of $G + uv, uw, vw$. 
 	
-	Suppose $G_2 + \{u,v,w\}$ has no rooted $K_3$ minor. By \cref{lem:rooted_triangle}, $G_2$ has a cut-set $S$, $|S| \leq 1$, where $G_2 - S$ places $u,v,w - S$ in different components. Call the components of $G_2 - S$ that contain $u,v,w$, $G_u, G_v, G_w$ respectively. If $S$ is empty, then $G_2$ has components $G_u, G_v, G_w$, and assume without loss of generality that $G_u$ contains a vertex distinct from $u$. But this implies that $u$ is a cut vertex from $G_u$ to $G$, so $G$ is not $3$-connected. Now suppose that $G_u,G_v, G_w$ only contain $u$, $v$, $w$ respectively. Then $\{u,v,w\}$ is not a cutset. 
+	Suppose $G_2 + \{u,v,w\}$ has no rooted $K_3$ model. By \cref{lem:rooted_triangle}, $G_2$ has a cut-set $S$, $|S| \leq 1$, where $G_2 - S$ places $u,v,w - S$ in different components. Call the components of $G_2 - S$ that contain $u,v,w$, $G_u, G_v, G_w$ respectively. If $S$ is empty, then $G_2$ has components $G_u, G_v, G_w$, and assume without loss of generality that $G_u$ contains a vertex distinct from $u$. But this implies that $u$ is a cut vertex from $G_u$ to $G$, so $G$ is not $3$-connected. Now suppose that $G_u,G_v, G_w$ only contain $u$, $v$, $w$ respectively. Then $\{u,v,w\}$ is not a cutset. 
 	
 	Suppose $S = x$ distinct from $u,v,w$. Without loss of generality, suppose $G_u$ contains a vertex distinct from $u$. Then $x, u$ disconnects $G_u$ from $G$, so there exists a cutset of size 2. Now suppose $G_u, G_v, G_w$ only contain $u,v,w$ respectively. Then add the edges $uv, uw, vw$ without any crossings around $x$. Suppose without loss of generality that $S = v$. Then suppose without loss of generalisation $G_u$ contains another vertex distinct from $u$. Then $G - u - v$ separates $G_u$ from $G$, so $\{u,v\}$ is a cutset. Finally, suppose $G_u, G_w$ only contain $u$ and $w$ respectively. Then $v$ is a separator, so $G$ is not $3$-connected, or $G - u,v,w$ separates nothing. Then every single case contradicts the fact that $u,v,w$ is a minimal cut-set. Thus shown.
 \end{proof}
