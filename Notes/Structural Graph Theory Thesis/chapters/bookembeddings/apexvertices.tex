@@ -1,10 +1,8 @@
 \section{Apex vertices}
 In this section, we prove that apex vertices can be added with a bounded increase to the number of pages. Typically, apex vertices are the most problematic ingredient when applying the Graph Minor Structure theorem, but in this case they are a trivial addition.
 \begin{theorem}\label{thm:apex_vertices_pagenumber}
-	If \(G\) is a graph with vertex partition \((A, B)\) such that \(G' = G[B]\) is embeddable on $s$ pages, then \(G\) is embeddable on \(s + |A| \) pages.
+	If \(G\) is a graph with vertex set \(A\) such that \(G - A\) is embeddable on $s$ pages, then \(G\) is embeddable on \(s + |A| \) pages.
 \end{theorem}
 \begin{proof}
-	Let \(G'\) have a book-embedding \((<, \rho)\) on $s$ pages. Place the vertices of \(A\) at the start of \((<)\), with order $u_1, u_2, \ldots, u_a$. For every edge \(u_i v \), \(u_i \in A\), \(v \in G'\), colour \(\rho(u_i v) = i\), and for any edge \(u_i u_j\) where $u_i, u_j \in A$, $i < j$, colour $u_i u_j$ with colour $i$. Then this is a proper book-embedding. If two edges $uv$, $xy$ cross, and if $uv, xy \in E(G')$, then $uv, xy$ are given different colours as $(< \rho)$ is a book-embedding of $G'$. If $u$ or $x$ are in $A$, then $uv, xy$ have different colours because their leftmost vertices are different. The number of pages necessary is $s + |A|$. 
+	Let \(G - A\) have a book-embedding \((<, \rho)\) on $s$ pages. Place the vertices of \(A\) at the start of \((<)\), with order $u_1, u_2, \ldots, u_a$. For every edge \(u_i v \), \(u_i \in A\), \(v \in G - A\), colour \(\rho(u_i v) = i\), and for any edge \(u_i u_j\) where $u_i, u_j \in A$, $i < j$, colour $u_i u_j$ with colour $i$. Then this is a proper book-embedding. If two edges $uv$, $xy$ cross, and if $uv, xy \in E(G - A)$, then $uv, xy$ are given different colours as $(< \rho)$ is a book-embedding of $G'$. If $u$ or $x$ are in $A$, then $uv, xy$ have different colours because their leftmost vertices are different. The number of pages necessary is $s + |A|$. 
 \end{proof}
-
-Therefore, a fixed number of apex vertices do not affect the pagenumber.
