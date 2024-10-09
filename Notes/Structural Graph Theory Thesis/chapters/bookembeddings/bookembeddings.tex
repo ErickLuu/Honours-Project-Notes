@@ -4,7 +4,9 @@ A \textit{book-embedding} of a graph \(G\) is an embedding of \(G\) on a book, w
 The \textit{pagenumber} of a graph \(G\) is the minimum number of pages required to embed \(G\) on a book. This is also referred to as \textit{book-thickness}, or \textit{stack-number}. The pagenumber of a graph $G$ is $\pn(G)$.
 
 Book-embeddings have an equivalent combinatorial definition. A \textit{book embedding} of a graph \(G\) is an arrangement of the vertices of \(G\) in a total ordering \(v_1 < v_2 < \cdots < v_n\). The edges in \(E(G)\) are coloured so that if there are vertices with ordering \(v_a < v_b < v_c < v_d\) and edges \(v_a v_c\) and \(v_b v_d\) in $E(G)$, then $v_a v_c$ and $v_b v_d$ are assigned different colours.
-The ordering of \(V(G)\) in the book embedding is denoted as \((<)\) or as \((\leq)\). For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}v_{|G|}, v_{|G|}v_{1} \right\} \) are called \textit{spine edges}.
+The ordering of \(V(G)\) in the book embedding is denoted as \((<)\) or as \((\leq)\). A book-embedding of a graph $G$ is notated as $(<, \psi)$, where $<$ is an ordering of the vertices and $\psi$ is a colouring of the edges. 
+
+For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}v_{|G|}, v_{|G|}v_{1} \right\} \) are called \textit{spine edges}.
 
 A circular ordering of a set $S$ is an ordering where the elements of $S$ are in a circle rather than on a straight line. A circular ordering of a book-embedding is equivalent to a linear ordering of a book-embedding. We can go from a circular ordering to a linear ordering by choosing a vertex to be at the start of the sequence. By ignoring the starting vertex, we can go from a linear ordering to a circular ordering. Another book-embedding of $K_5$, this time with a circular ordering, is in \cref{fig:circular_book-embedding}.
 
