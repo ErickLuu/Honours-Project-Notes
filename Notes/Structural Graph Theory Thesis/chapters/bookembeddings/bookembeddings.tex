@@ -33,7 +33,7 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	Suppose $G$ is embedded in a book with two pages. All spine edges can be added onto a single page with no crossings, creating a Hamiltonian cycle. Two pages are homeomorphic to $\mathbb{R}^2$ by flipping one page over, so $G$ is a subgraph of a planar graph with a Hamiltonian cycle. 
 \end{proof}
 \subsection{Properties of pagenumber}\label{ssec:Related_Properties}
-\cref{lem:Edge_Bound} is contained within \textcite{bernhartBookThicknessGraph1979}.
+\textcite{bernhartBookThicknessGraph1979} proved \cref{lem:Edge_Bound}.
 \begin{proposition}\label{lem:Edge_Bound}
 	If a graph \(G\) with $n$ vertices can be embedded on $k$ pages, then \(G\) has at most \(n + k(n-3)\) edges.
 \end{proposition}
@@ -53,10 +53,10 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	\input{figures/k8-withcolouring}
 	\caption[Embedding $K_8$ on four pages]{Circular embedding of \(K_8\) with four pages, the minimum possible.}\label{fig:k8 coloured with colours}
 \end{figure}
-The proof of \cref{thm:Pagenumber_Complete_Graph} is from \textcite{bernhartBookThicknessGraph1979}
+The proof of \cref{thm:Pagenumber_Complete_Graph} is by \textcite{bernhartBookThicknessGraph1979}
 Therefore, for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\).
 
-\cref{thm:Colouring_Bound} bounds the chromatic number and is from \textcite{bernhartBookThicknessGraph1979}. This proof uses degeneracy. 
+\cref{thm:Colouring_Bound} bounds the chromatic number and is by \textcite{bernhartBookThicknessGraph1979}. This proof uses degeneracy. 
 A simple lemma connecting $k$-degenerate graphs and chromatic number helps prove this theorem. 
 \begin{lemma}
 	Every $k$-degenerate graph is $k + 1$-colourable.
@@ -77,13 +77,13 @@ This lemma is applied to \cref{thm:Colouring_Bound}.
 Let $G$ be a graph. A \textit{subdivision} of an edge $uv \in E(G)$ deletes $uv$ and adds a new vertex $w$ with edges $uw$ and $wv$. A graph subdivision of $G$ is to do this for all edges in $G$. A $k$-subdivision of $G$ is to subdivide each edge $k$ times in $G$, so that the edge $e$ is replaced with a path $P$ of length $k$.\ \textcite{atneosenEmbeddabilityCompacta$n$books} proved that every graph can be subdivided a finite number of times such the subdivision has pagenumber 3.\ \textcite{dujmovicStacksQueuesTracks2005} showed that it is sufficient to subdivide $O(\log\pn(G))$ times. 
 
 Subdivisions show that the class of graphs with pagenumber $\leq p$ is not a minor-closed class, meaning that it does not hold that every minor $H$ of a graph $G$ has the property that $\pn(H) \leq \pn(G)$. 
-Subdivide $K_n$ $n$ times. From \textcite{atneosenEmbeddabilityCompacta$n$books}, the subdivision of $K_n$ can be embedded on three pages. But $K_n$ is a minor of its subdivision, and from \cref{thm:Pagenumber_Complete_Graph}, $\pn(K_n) = \lceil \frac{n}{2} \rceil$. 
+Subdivide $K_n$ $n$ times. \textcite{atneosenEmbeddabilityCompacta$n$books} proved that this subdivision of $K_n$ can be embedded on three pages. But $K_n$ is a minor of its subdivision, and from \cref{thm:Pagenumber_Complete_Graph}, $\pn(K_n) = \lceil \frac{n}{2} \rceil$. 
 
 \begin{theorem}
 	There exists a family of 2-degenerate graphs with unbounded pagenumber.
 \end{theorem}
 \begin{proof}
-	Let $G_n$ be the complete graph $K_n$ with every edge subdivided once. Then $G_n$ is bipartite, so is $2$-colourable, and $2$-degenerate. However, from \textcite{eppsteinSeparatingThicknessGeometric2002}, for every $t$ there exists an $n$ such that $G_n$ cannot be embedded in $t-1$ pages. This proof uses \textit{Ramsey theory}.
+	Let $G_n$ be the complete graph $K_n$ with every edge subdivided once. Then $G_n$ is bipartite, so is $2$-colourable, and $2$-degenerate. \textcite{eppsteinSeparatingThicknessGeometric2002} showed that for every $t$ there exists an $n$ such that $G_n$ cannot be embedded in $t-1$ pages. This proof uses \textit{Ramsey theory}.
 \end{proof}
 
 An \textit{expander graph} is a sparse, highly connected graph. Expander graphs share many properties with random graphs, but are constructed explicitly. One type of expander graph is a \textit{bipartite \varepsilon-expander}, where $\varepsilon \in (0, 1]$. A graph $G$ is a bipartite \varepsilon-expander if there exists a bipartition $ \{A, B\}$ of $V(G)$ such that $|A| = |B|$ and for all subsets $S \subset A$ where $|S| \leq \frac{|A|}{2}$, $|N(S)| \geq (1 + \varepsilon) |S|$. 
@@ -91,6 +91,6 @@ An \textit{expander graph} is a sparse, highly connected graph. Expander graphs 
 
 
 Book-embeddings of graphs has applications in processor design by \textcite{chungEmbeddingGraphsBooks1987}, bioinformatics by \textcite{haslingerRNAStructuresPseudoknots1999}, and in graph drawings by \textcite{woodBoundedDegreeBook2002}. 
-The project of finding upper and lower bounds of the pagenumber of planar graphs was started by \textcite{bernhartBookThicknessGraph1979} when they conjectured that planar graphs had unbounded pagenumber. However, \textcite{bussPagenumberPlanarGraphs1984} showed that every graph could be embedded in nine pages, and \textcite{heathEmbeddingPlanarGraphs1984} brought down the number of needed pages to seven.\ \textcite{yannakakisEmbeddingPlanarGraphs1989} devised an algorithm to embed a graph in four pages. Yannakakis, in this paper, claimed that there exists planar graphs which cannot be embedded in three pages. However, his proof was incomplete, and the full proof was left unpublished. In 2020, \textcite{yannakakisPlanarGraphsThat2020} published his full proof. At around the same time, \textcite{bekosFourPagesAre2020} also proved that there exists a planar graph requiring four pages.
+The project of finding upper and lower bounds of the pagenumber of planar graphs was started by \textcite{bernhartBookThicknessGraph1979} when they conjectured that planar graphs had unbounded pagenumber. However, \textcite{bussPagenumberPlanarGraphs1984} showed that every graph could be embedded in nine pages, and \textcite{heathEmbeddingPlanarGraphs1984} showed that seven pages were necessary.\ \textcite{yannakakisEmbeddingPlanarGraphs1989} devised an algorithm to embed a graph in four pages. Yannakakis, in this paper, claimed that there exists planar graphs which cannot be embedded in three pages. However, his proof was incomplete, and the full proof was left unpublished. In 2020, \textcite{yannakakisPlanarGraphsThat2020} published his full proof. At around the same time, \textcite{bekosFourPagesAre2020} also proved that there exists a planar graph requiring four pages.
 
 \textcite{malitzGraphsEdgesHave1994} proved that any graph with $e$ edges has pagenumber $O(\sqrt{e})$. Additionally, he proved that for every random $d$-regular graph $G$ with $n$ vertices, $\pn(G) \in \Omega(\sqrt{d} n^{1/2 - 1/d})$. For random 3-regular graphs $G$ with $n$ vertices, $\pn(G) \in \Omega(n^{1/6})$. These constructions of $\Omega(n^d)$ pagenumber graphs are not explicit.\ \textcite{eppsteinThreeDimensionalGraphProducts2024} showed that $\pn(P_n \boxtimes P_n \boxtimes P_n) \in \Theta(n^{1/3})$. This is an explicit construction of a graph of degree at most 26 with pagenumber in $\Theta(n^{1/3})$. 
