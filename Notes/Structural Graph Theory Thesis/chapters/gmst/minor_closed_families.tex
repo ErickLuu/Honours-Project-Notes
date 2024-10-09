@@ -1,15 +1,6 @@
 \section{Minor-closed graph families}\label{sec:minor_closed_families}
 This is a compilation of important information on small $K_t$-minor-free graphs and some important minor-closed families. \cref{tab:kt_minor_free} compiles a list of $K_t$-minor-free graphs and their characterisation. There is no known good characterisation of $K_6$-minor-free graphs. 
 
-The Wagner graph $V_8$ is in \cref{fig:wagner}. 
-\begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}[thick,scale=1.5, every node/.style={scale=2}]
-		\input{figures/wagner-graph}
-	\end{tikzpicture}
-	\caption[Wagner graph]{The Wagner graph $V_8$, which can be embedded on four pages. The circular ordering is the clockwise circular ordering around the outerface. The edges are coloured such that the internal edges are on different pages. The spine edges can go on any page.}\label{fig:wagner}
-\end{figure}
-
 \begin{table}[h!]
     \centering
     \caption{$K_t$-minor free characterisations}\label{tab:kt_minor_free}
@@ -20,8 +11,8 @@ The Wagner graph $V_8$ is in \cref{fig:wagner}.
         1                       & Empty graph       &           \\
         2                       & Edgeless graph    &           \\
         3                       & Forests           &           \\
-        4                       & Treewidth $\leq 2$&  See notes written by {\textcite{norinMath599GraphMinors2017}}         \\
-        5                       & Clique-sums of planar and Wagner graphs & {\textcite{wagnerUeberEigenschaftEbenen1937}}\\
+        4                       & Treewidth $\leq 2$&  See {\textcite{norinMath599GraphMinors2017}}         \\
+        5                       & Clique-sums of planar graphs and $V_8$ & {\textcite{wagnerUeberEigenschaftEbenen1937}}\\
         \bottomrule
     \end{tabular*}
 \end{table}
@@ -38,15 +29,15 @@ This is listed in no particular order. There are infinitely many minor-closed gr
     Family name                  & \# MFM & List/Partial list of minors                      & References \\ \midrule
     Forests                      & 1                                  & $K_3$                                            &            \\
     Planar Graphs                & 2                                  & $K_5$, $K_{3,3}$                                 & \tablefootnote{\textcite{wagnerUeberEigenschaftEbenen1937}}           \\
-    Toroidal Graphs              & $\geq 17523$                       & $K_8$                                            & \tablefootnote{\textcite{myrvoldLargeSetTorus2018}}           \\
+    Toroidal Graphs              & $\geq 17523$                       & $K_8, K_5 \cup K_5, K_{3,3} \cup K_{3,3}$        & \tablefootnote{\textcite{myrvoldLargeSetTorus2018}}           \\
     Projective-planar Graphs     & 35                                 &                                   & \tablefootnote{\textcite{archdeaconKuratowskiTheoremProjective1980}}           \\
-    Graphs embedded on a fixed surface & & &\\
+    Graphs embedded on a fixed surface                      & & &\\
     $\tw(G) \leq 2$              & 1                                  & $K_4$                                            &            \\
-    $\tw(G) \leq 3$              & 4                                  & $K_5$, $K_{2,2,2}$, $P_2 \square C_5$, Wagner graph & \tablefootnote{\textcite{arnborgForbiddenMinorsCharacterization1990}}           \\
+    $\tw(G) \leq 3$              & 4                                  & $K_5$, $K_{2,2,2}$, $P_2 \square C_5$, $V_8$ & \tablefootnote{\textcite{arnborgForbiddenMinorsCharacterization1990}}           \\
     $\tw(G) \leq 4$              & $\geq 75$                          & $K_6$                                            & \tablefootnote{\textcite{sandersLinearAlgorithmsGraphs1993}}           \\
-    $\tw(G) \leq k$              &                                    &                                                  &            \\
+    $\tw(G) \leq k$              &                                    & $K_{k + 2}$                                      &            \\
     Linklessly Embeddable graphs & 7                                  & $K_6$, Petersen Family                           & \tablefootnote{\textcite{robertsonLinklessEmbeddingsGraphs1993}} \\
-    Knotlessly Embeddable graphs & $\geq 3$                           &                                                  & \tablefootnote{\textcite{conwayKnotsLinksSpatial1983,foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003}}\\
+    Knotlessly Embeddable graphs & $\geq 263$                           & $K_7$, $K_{3,3,1,1}$                                            & \tablefootnote{\textcite{conwayKnotsLinksSpatial1983,foisyIntrinsicallyKnottedGraphs2002,foisyNewlyRecognizedIntrinsically2003}}\\
     \bottomrule
     \end{tabular*}
     

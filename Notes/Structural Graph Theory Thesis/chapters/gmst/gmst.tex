@@ -89,9 +89,13 @@ Almost-embeddable graphs are a key component of the Graph Minor Structure Theore
  If the apex set $A$ is empty, then the graph $G$ is $(g, p, k)$-almost embeddable. 
 
 \begin{theorem}[Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}]\label{thm:gmst}
-	For every \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable. The  family of graphs with tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). 
+	For every \(t\), there exists \(g, p, a \geq 0\) and \(k, \ell \geq 1\) such that every \(K_t\)-minor-free graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable.
 \end{theorem}
-There is a strengthening of this conjecture. $g$ is the minimal Euler genus over all surfaces where $K_t$ does not embed on.
+The family of graphs with tree-decomposition of adhesion $\leq \ell$ with torsos $(g, p, k, a)$-almost-embeddable is \(\mathcal{G}(g, p, k, a)\). 
+
+\begin{theorem}[Strong Graph Minor Structure Theorem \cite{robertsonGraphMinorsXVI2003}]\label{thm:strong_gmst}
+	Every $H$-minor-free graph $G$ has a book-embedding where every torso is $(p, k, a)$-almost-embeddable on a surface $\Sigma$ which $H$ does not embed on.
+\end{theorem}
 
 Note that $\ell$ is implied to be less than $t$, as this would imply that the torsos have a $K_t$ clique. In fact $\ell$ is at most $a + 2k + \left\lfloor 
 \frac{1}{2} (7 + \sqrt{1 + 24g})
