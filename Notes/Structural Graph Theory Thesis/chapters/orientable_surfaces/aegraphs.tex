@@ -10,7 +10,7 @@ What we plan to show is this:
 The most problematic section is dealing with vortices on surfaces.
 To work with vortices, consider how an ordering affects the face that the vortex is sitting on. Then see what happens when the vortex is added onto the face. 
 
-To solve this problem, we define some new concepts. Let \(G\) be a graph. A vertex ordering \((<)\) \textit{preserves} a face \(F\) if $<$ restricted to the vertices on the boundary of $F$ maintains the natural order when traversing the boundary of the face.
+To solve this problem, we define some new concepts. Let \(G\) be a graph embedded on some surface $\Sigma$. Let $F$ be a face on $\Sigma$ and let $S$ be a walk on the boundary of $F$. $S$ induces many circular orderings on the boundary of $F$. If a vertex $v$ appears multiple times in $S$, then $v$ is a cut vertex. A sub-ordering of $S$ is a sub-walk of $S$ where if a vertex $v$ appears multiple times in $S$, then $v$ appears exactly once restricted to where $v$ previously appeared. A vertex ordering \((<)\) \textit{preserves} \(F\) if $<$ restricted to the boundary of $F$ is equal to some sub-ordering of $S$.
 Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is given the same colour from $\varphi$. $F$ being a preserved face implies that $F$ has a single monochromatic path, but not the other way around. 
 
 \begin{figure}[h!]
@@ -107,6 +107,10 @@ From \cref{lem:Hamiltonian_preserved_faces}, if \(G\) is a Hamiltonian planar gr
 
 Then this can be extended to every connected planar graph, adding a constant number of monochromatic paths.
 In \cref{ssec:Clique_sum_Pagenumber_bound}, at most three vertices will be moved to the start of the decomposition. The number of pages needed to embed \(F\) is bounded.
+
+\begin{lemma}
+	Let $G$ be a graph embedded on $\Sigma$ and let $C$ be a cycle on $G$. 
+\end{lemma}
 
 
 \begin{theorem}\label{thm:embedded_graph}
