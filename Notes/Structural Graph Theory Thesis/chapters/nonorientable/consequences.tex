@@ -1,4 +1,26 @@
 \section{Results}
-We discuss some results of \cref{conj:bded_had_pn}.
+We show some minor-closed classes have bounded pagenumber.
+
+\begin{proposition}
+	For every projective-planar graph $H$, there exists a function $c = c(H)$ where every $H$-minor-free graph can be embedded on $c$ pages. 
+\end{proposition}
+\begin{proof}
+	Apply \cref{thm:strong_gmst} to a $H$-minor-free graph $G$. Since $H$ is embedded on a projective-plane, $G$ has a tree-decomposition where every torso is $(g,p,k,a)$-almost-embeddable on an orientable surface. $g, p, k,a$ depend on $H$. Then $G$ has bounded pagenumber, from \cref{corr:orientable_surfaces_gpka}.
+\end{proof}
+
+\begin{corollary}\cref{corr:k6_minor_pn}
+	Every $K_6$-minor-free graph $G$ can be embedded on a bounded number of pages.
+\end{corollary}
+
+\begin{proof}
+	Since $K_6$ is a projective-planar graph, then every $K_6$-minor-free graph can be embedded on a bounded number of pages. Since $K_6$ embeds on both the torus and the projective plane, if a graph $G$ is $K_6$-minor-free, then there exists a tree-decomposition of $G$ where every torso is almost-embeddable on a plane. This is directly from \cref{thm:strong_gmst}. 
+\end{proof}
+\begin{corollary}
+    Every linklessly embeddable graph can be embedded on a bounded number of pages.
+\end{corollary}
+This comes from the fact that linklessly embeddable graphs are $K_6$-minor-free.
+
+What is not known is if every $K_7$-minor-free graph is 
+
 
 %\cref{conj:bded_had_pn} also implies a weakening of Hadwiger's conjecture, \cref{conj:Hadwiger's Conjecture}.  If a graph $G$ is $K_t$ minor free, then from \cref{conj:bded_had_pn}, $G$ can be embedded on $f(t)$ pages. But from \cref{thm:Colouring_Bound}, this implies that $G$ can be coloured with $2f(t) + 2$ colours. 
