@@ -27,8 +27,6 @@ The list below are the steps taken to prove \cref{thm:bounded_almost_embeddable}
 	\item Suppose \(G\) is $2$-cell embedded on an orientable surface. \textcite{heathPagenumberGenusGraphs1992} gives a planar-nonplanar decomposition of $G$. Then apply the previous steps to the spanning planar subgraph.
 \end{enumerate}
 
-\subsection{Faces and Monochromatic paths}
-
 Preserved faces allow us to embed vortices with a bounded number of pages. 
 
 \begin{lemma}[Vortex on preserved faces]\label{lem:preserved_faces_pagenumber}
@@ -88,7 +86,7 @@ This is proven by adding $G_1, \ldots, G_p$ to $G_0$ one at a time and running \
 	\caption[One-page decomposition]{Description of \cref{lem:one_page_decomposition}. \(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\).}\label{fig:preserving_pages}
 \end{figure}
 
-We shall now prove \cref{lem:vortices_mono_paths}.
+We now prove \cref{lem:vortices_mono_paths}.
 \begin{proof}
 	Use the path-decomposition on \(G'\) as the set \((B_1, \ldots , B_n)\) in proving \cref{lem:vortices_mono_paths}. Then apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, add on the faces in the exact order. Then the monochromatic paths are preserved in the ordering, and in fact from \cref{lem:one_page_decomposition}, they are bounded.
 \end{proof}

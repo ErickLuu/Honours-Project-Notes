@@ -2,26 +2,23 @@
 
 \section{Graphs embedded on an orientable surface of bounded genus}\label{sec:pagenumber_bounded_genus}
 
-\subsection{Planar graphs}\label{ssec:Planar_Graphs}
 A theorem by \textcite{yannakakisEmbeddingPlanarGraphs1989} allows an efficient embedding of planar graphs on surfaces.
 \begin{theorem}\label{thm:4Pages_Planar}
 	Let $G$ be a 2-connected plane graph, and let $C$ be the outer cycle of $G$. Then there exists a $4$-page embedding $(<, \rho)$ of $G$ where the linear ordering $<$ restricted to $C$ is a path on $C$. 
 \end{theorem}
 
-From \cref{thm:Planar Graph Hickingbotham Bound}, every planar graph can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}. We require the fact that the number of pages to embed a planar graph is bounded for proving that graphs embedded on an orientable surface of bounded genus has bounded pagenumber.
+From \cref{thm:Planar Graph Hickingbotham Bound}, every planar graph can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}. \label{thm:4Pages_Planar} is used by multiple authors to bound the number of pages necessary to embed graphs on surfaces.
 
-\subsection{Book-embeddings of orientable graphs}
-
+\textcite{heathPagenumberGenusGraphs1992} proved the following theorem:
 \begin{theorem}[\textcite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
-	Every orientable genus $g$ graph can be embedded in $18g$ pages.
+	When $g \geq 1$, every orientable genus $g$ graph can be embedded in $18g$ pages.
 \end{theorem}
 Note that this bound extends the one found by \textcite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded orientable genus.
 The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have Euler genus $O(n^2)$, as shown by \textcite{ringelMapColorTheorem1974}. Therefore, if $K_n$ has Euler genus $g$ then the pagenumber of $K_n$ is $O(\sqrt{g})$.
 
 %In fact, there exists a family of graphs such that $\tilde{\gamma}(G) \in \Omega(|V(G)|)$ for every graph $G$ in the family. Consider $n$ copies of $K_6$ with a single vertex in each copy identified to a single vertex. Then each $K_6$ will occupy a single crosscap with no room for another copy of $K_6$ to fit. Therefore, this graph is of non-orientable genus $2n$. 
 
-\subsection{Proving \cref{thm:Genus_pagenumber_bound}}
-This section is a proof of \cref{thm:Genus_pagenumber_bound}. We first decompose a graph on an orientable surface into a planar spanning subgraph and nonplanar edges. Then this decomposition can be used to embed a graph on a book with a bounded number of pages.
+We prove \cref{thm:Genus_pagenumber_bound}. We first decompose a graph on an orientable surface into a planar spanning subgraph and nonplanar edges. Then this decomposition can be used to embed a graph on a book with a bounded number of pages.
 
 Let $G$ be a graph of orientable genus $g$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning subgraph \(G_p\) embedded on $\mathbb{R}^2$ and set of nonplanar edges $E_N$. This partition has the following properties:
 \begin{enumerate}
@@ -41,16 +38,15 @@ $G_p$ is a maximal planar subgraph with respect to the conditions above. Through
 %	\item \(E(G_P)\) is maximal, so we cannot add edges from \(E_N\) to \(G_P\) without breaking properties 1 and 2.
 %\end{enumerate}
 
-\subsubsection{Decomposing graphs on surfaces}\label{sssec:Planar_nonplanar_decomp}
-
+We now do a planar-nonplanar decomposition of graphs embedded on surfaces.
 \begin{claim}
 	There exists a planar-nonplanar decomposition of any graph 2-cell embedded on a surface. 
 \end{claim}
 \begin{proof}
 	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single cycle and define this cycle as $G_p$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\).
-	\paragraph{Adding vertices to biconnected block}
+	\paragraph{Adding vertices to biconnected block:}
 	Suppose $F$ is the outerface of \(G_P\). Define an oriented walk around the boundary $F$ to be a trace. If \(v_i \rightarrow v_j \rightarrow v_k\) is a walk with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and can be added to \(G_P\). Add as many vertices $v_k$ as possible. 
-	\paragraph{Creating a new biconnected block}
+	\paragraph{Creating a new biconnected block:}
 	If no \(v_k\) exists, then find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). Add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then add all safe edges. This is so that every edge in \(E_p\) maintains the property that both endpoints are on the boundary.
 	
 	After repeating this operation, every edge in \(E_N\) satisfies the two properties above. If an edge \(vw\) has \(v\) in $G_p$ and $w$ not in $G_p$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) nor \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage. This has the corollary that every vertex is in \(G_P\).
@@ -58,7 +54,7 @@ $G_p$ is a maximal planar subgraph with respect to the conditions above. Through
 	Now every edge in \(E_N\) cannot be added to \(G_P\) without crossing over another edge, and \(G_P\) is maximal. Therefore, all edges in \(E_N\) satisfy the conditions listed above.
 \end{proof}
 
-A description of safe vertices and unsafe vertices is in \cref{fig:safe_vertices}.
+Safe vertices and unsafe vertices are illustrated in \cref{fig:safe_vertices}.
 
 \begin{figure}[h!]
 	\centering
@@ -90,9 +86,7 @@ A description of safe vertices and unsafe vertices is in \cref{fig:safe_vertices
 % 	If \(F\) is a chordal face of \(G\), then any triangulation maintains the property. If \(F\) is non-chordal and the boundary has edges in \(V_i\) and \(V_{i + 1}\), then add edges that are only between vertices in \(V_i\) and \(V_{i + 1}\). This will suffice to build a new triangulated graph \(G'\) where all vertices and edges are in the correct place.
 % \end{proof}
 
-\subsubsection{Classifying nonplanar edges according to homotopy class}
-
-This section builds an equivalence class of nonplanar edges. Let \(C_0\) be the walk on the boundary of \(F_0\), the outerface of $G_P$. Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
+We build an equivalence class of nonplanar edges according to homotopy class. Let \(C_0\) be the walk on the boundary of \(F_0\), the outerface of $G_P$. Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
 
 Nonplanar edges need to be classified so that they can be embedded on a book. Suppose that \(u_1v_1, u_2v_2 \in E_N\) are part of the boundary of the same face \(F\) on the embedding of \(G\). Then \(u_1v_1\) and \(u_2v_2\) are \textit{homotopic} if:
 \begin{enumerate}
@@ -130,7 +124,7 @@ Two traces $(T_1, T_2)$ are \textit{orientable} if \(T_1\) and \(T_2\) go in opp
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
-	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g - 5\) pages.
+	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g \geq 1$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g - 5\) pages.
 \end{lemma}
 \begin{proof}
 	Use the algorithm from \cref{thm:4Pages_Planar} to embed $G_P$ on four pages with the property that the outercycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.

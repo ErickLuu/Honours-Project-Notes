@@ -14,7 +14,7 @@
 	Let $G$ be a graph and $u$ be a vertex in $G$. If \(G-u\) is \(K_{t}\)-minor free, then $G$ is $K_{t+1}$-minor free. 
 \end{proposition}
 \begin{proof}
-	We shall prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model $\rho$ in \(G\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(u\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - u\), as \(G - \rho(v)\) does not contain \(u\). So \(G - u\) has a \(K_t\) minor. 
+	We prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model $\rho$ in \(G\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(u\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - u\), as \(G - \rho(v)\) does not contain \(u\). So \(G - u\) has a \(K_t\) minor. 
 \end{proof}
 \subsection{Clique-sums}\label{sssec:Clique_Sums}
 The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph formed from both $G$ and $H$ by identifying two cliques together. The clique-sum of $G$ and $H$ is \(G \oplus_k H\), and is defined as follows. Find cliques of size $k$ in \(G\) and \(H\), \(C_G\) and \(C_H\) respectively. Identify the vertices in \(C_G\) and \(C_H\) to glue \(G\) and \(H\) together, and possibly delete edges in $C_G$. An illustration can be found in \cref{fig:clique-sum}. 
