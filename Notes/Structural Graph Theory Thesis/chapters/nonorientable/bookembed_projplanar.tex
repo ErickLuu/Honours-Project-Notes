@@ -5,14 +5,14 @@ This section discusses graphs embedded on non-orientable surfaces. Heath and Ist
 \begin{conjecture}\label{lem:planar_nonplanar_nonorientable}
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on a non-orientable surface \(\Sigma\) of non-orientable genus $g$. Then \(G\) can be embedded on \( O(g)\) pages.
 \end{conjecture}
-However, the outline given in their paper is insufficient to prove \cref{lem:planar_nonplanar_nonorientable}. In fact, their proof method fails when a graph is projective-planar, as stated by \textcite{nakamotoBookEmbeddingProjectiveplanar2015} and \textcite{ozekiBookEmbeddingGraphs2019}. We came to the same conclusion after attempting to apply their proof to a projective-planar graph. An example of a projective-planar graph is in \cref{fig:projectiveplanar}.
-As \textcite{Blankenship-PhD03} relies on Heath and Istrail's result, we are fairly confident that the approach taken by Blankenship is incomplete and therefore \cref{conj:bded_had_pn} is still an open problem. 
+However, the outline given in their paper is insufficient to prove \cref{lem:planar_nonplanar_nonorientable}. In fact, their proof method fails when a graph is projective-planar, as stated by \textcite{nakamotoBookEmbeddingProjectiveplanar2015} and \textcite{ozekiBookEmbeddingGraphs2019}. We came to the same conclusion after attempting to apply their proof to some simple projective-planar graphs. An example of a projective-planar graph is in \cref{fig:projectiveplanar}.
+As \textcite{Blankenship-PhD03} relies on Heath and Istrail's result, we are confident that \cref{conj:bded_had_pn} is still an open problem. 
 
 However, \textcite{nakamotoBookEmbeddingProjectiveplanar2015} prove the following theorem:
 
 \begin{figure}[h]
     \centering
-    \includesvg[width = 0.8 \textwidth]{figures/projective_planar_graph.svg}
+    \includesvg[width = 0.5 \textwidth]{figures/projective_planar_graph.svg}
     \caption[Projective planar graph]{Graph embedded on the projective plane, the purple circle. This graph is not a triangulation of the projective plane as the edges that pass through the projective plane do not bound a triangle.}\label{fig:projectiveplanar}\end{figure}
 
 \begin{theorem}[\textcite{nakamotoBookEmbeddingProjectiveplanar2015}]\label{thm:proj_planar_graphs_9pages}
@@ -31,7 +31,7 @@ This proof relies on triangulations of surfaces. Recall a graph $G$ is a \textit
 \end{proof}
 \begin{figure}[h!]
     \centering
-    \includesvg[width = 0.8 \textwidth]{figures/facetriangulation.svg}
+    \includesvg[width = 0.5 \textwidth]{figures/facetriangulation.svg}
     \caption[Face triangulation]{A triangulation of a face with five vertices on its boundary, where there exists a duplicate green vertex.}\label{fig:triangulation}
 \end{figure}
 As a consequence, every projective-planar graph is a subgraph of a triangulation of the projective plane. 
