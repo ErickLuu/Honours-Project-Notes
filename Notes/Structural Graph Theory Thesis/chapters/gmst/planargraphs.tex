@@ -47,16 +47,16 @@ Another application of Euler's formula is to bound the number of edges in an out
 \end{proof}
 \cref{thm:K5_Free_Planar} shows that the class of planar graphs excludes $K_5$. 
 \begin{lemma}\label{thm:K5_Free_Planar}
-	If \(G\) is a planar graph, then \(G\) is \(K_5\)-minor free.
+	If \(G\) is a planar graph, then \(G\) is \(K_5\)-minor-free.
 \end{lemma}
 \begin{proof}
 	If \(G\) is planar with \(n\) vertices and \(m\) edges where $n \geq 3$, then \(m \leq 3n -6\).
-	However, \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \cdot 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor free.
+	However, \(K_5\) has \(5\) vertices and \(10\) edges, but  \( 10 > 3 \cdot 5 - 6\), so \(K_5\) is not planar. As the family of planar graphs is minor-closed, if \(G\) is planar, then $G$ is \(K_5\)-minor-free.
 \end{proof}
 
 This forms a part of the Kuratowski-Wagner theorem, which was proven by \Textcite{kuratowskiProblemeCourbesGauches1930,wagnerUeberEigenschaftEbenen1937}. 
 \begin{theorem}[Kuratowski-Wagner theorem]
-	A graph $G$ is planar if and only if $G$ is $K_5$-minor free and $K_{3,3}$-minor free. 
+	A graph $G$ is planar if and only if $G$ is $K_5$-minor-free and $K_{3,3}$-minor-free. 
 \end{theorem}
 In fact, Kuratowski proved a stronger result. He proved that a graph $G$ is planar if and only if $G$ is $K_5$-subdivision free and $K_{3,3}$-subdivision free. 
 

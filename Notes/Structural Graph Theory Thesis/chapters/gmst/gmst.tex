@@ -1,17 +1,17 @@
 \section{Graph Minor Structure Theorem}\label{sec:Kt_Minor_Free}
-\textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of \(K_t\)-minor-free graphs. Every graph that is $K_t$-minor free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor-free graphs, meaning that a subset, or a single one of these ingredients constitutes a $K_t$-minor-free graph. The ingredients are listed below.
+\textcite{robertsonGraphMinorsXVII1999} proved a rough characterisation of \(K_t\)-minor-free graphs. Every graph that is $K_t$-minor-free can be constructed from the following ingredients. This is a coarse characterisation of $K_t$-minor-free graphs, meaning that a subset, or a single one of these ingredients constitutes a $K_t$-minor-free graph. The ingredients are listed below.
 \begin{itemize}
 	\item Graphs of bounded Euler genus.
 	\item Sets of apex vertices.
 	\item Graphs of bounded treewidth.
 	\item Sets of vortices on graphs.
 \end{itemize}
-\textcite{robertsonGraphMinorsXVII1999} showed that every \(K_t\)-minor free graph can be built up from smaller graphs with the above ingredients. We have shown that graphs embeddable on a surface of Euler genus $g$ are $K_t$-minor free, where $t = \left\lfloor \sqrt{6g} \right\rfloor + 5$. 
+\textcite{robertsonGraphMinorsXVII1999} showed that every \(K_t\)-minor-free graph can be built up from smaller graphs with the above ingredients. We have shown that graphs embeddable on a surface of Euler genus $g$ are $K_t$-minor-free, where $t = \left\lfloor \sqrt{6g} \right\rfloor + 5$. 
 
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 
 \begin{proposition}
-	Let $G$ be a graph and $u$ be a vertex in $G$. If \(G-u\) is \(K_{t}\)-minor free, then $G$ is $K_{t+1}$-minor free. 
+	Let $G$ be a graph and $u$ be a vertex in $G$. If \(G-u\) is \(K_{t}\)-minor-free, then $G$ is $K_{t+1}$-minor-free. 
 \end{proposition}
 \begin{proof}
 	We prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model $\rho$ in \(G\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(u\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - u\), as \(G - \rho(v)\) does not contain \(u\). So \(G - u\) has a \(K_t\) minor. 
@@ -34,27 +34,27 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 \end{proof}
 
 \begin{proposition}\label{prop:cliquesum_minor}
-	Let $t$ be an integer greater than $1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor free. 
+	Let $t$ be an integer greater than $1$. Suppose $G$ and $H$ are $K_t$-minor-free graphs. Then $G \oplus_k H$ is $K_{t}$-minor-free. 
 \end{proposition}
 \begin{proof}
 	Firstly, $k$ is less than $t$. If $G$ has a clique of size $t$ then $G$ has a $K_t$ minor. Let $C = V(G) \cap V(H)$ be the clique that is being pasted over. Furthermore, suppose that no edges in $C$ were deleted when pasting cliques. Adding more edges does not remove a $K_t$ minor. 
 
-	Suppose, for the sake of contradiction, that $G \oplus_k H$ is not $K_t$-minor free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Furthermore, $\rho$ cannot have one subgraph in $G - C$ and another in $H - C$, as $C$ is a separator of $G - C$ and $H - C$.
-	Therefore, every connected subgraph of $\rho$ uses a vertex in $C$, or is completely contained in $G - C$, or is contained in $H - C$. But the set of connected subgraphs which intersect $C$ are pairwise adjacent as $C$ is a clique. Therefore, restricting these connected subgraphs to only $C$ is also a valid model. But this is a model of $K_t$ in only $G$, which contradicts $G$ being $K_t$-minor free. 
+	Suppose, for the sake of contradiction, that $G \oplus_k H$ is not $K_t$-minor-free. Then there exists a model $\rho: V(K_t) \rightarrow G\oplus_k H$ of $K_t$ in $G \oplus_k H$. $\rho$ cannot have its image only in $G$ or only in $H$, as that implies that $G$ or $H$ has a $K_t$ minor. Furthermore, $\rho$ cannot have one subgraph in $G - C$ and another in $H - C$, as $C$ is a separator of $G - C$ and $H - C$.
+	Therefore, every connected subgraph of $\rho$ uses a vertex in $C$, or is completely contained in $G - C$, or is contained in $H - C$. But the set of connected subgraphs which intersect $C$ are pairwise adjacent as $C$ is a clique. Therefore, restricting these connected subgraphs to only $C$ is also a valid model. But this is a model of $K_t$ in only $G$, which contradicts $G$ being $K_t$-minor-free. 
 \end{proof}
 \subsection{Graphs on surfaces}
 
 \cref{prop:cliquesum_minor} and \cref{thm:bounded_genus_kt_free} implies \cref{corr:clique_sum_genus}.
 \begin{corollary}\label{corr:clique_sum_genus}
-	If \(G\) is the clique-sum of Euler genus \(g\) graphs, then \(G\) is \(K_{\lceil \sqrt{6g} + 5 \rceil}\)-minor free.
+	If \(G\) is the clique-sum of Euler genus \(g\) graphs, then \(G\) is \(K_{\lceil \sqrt{6g} + 5 \rceil}\)-minor-free.
 \end{corollary}
-The reverse proposition, that if $G$ is $K_t$-minor free, then $G$ has bounded genus, does not hold.
+The reverse proposition, that if $G$ is $K_t$-minor-free, then $G$ has bounded genus, does not hold.
 \begin{proposition}\label{prop:k5_large_genus}
-	There exists graphs $G$ where \(G\) has arbitrarily large genus, but $G$ is \(K_{5}\)-minor free.
+	There exists graphs $G$ where \(G\) has arbitrarily large genus, but $G$ is \(K_{5}\)-minor-free.
 \end{proposition}
 
 \begin{proof}
-	Consider $n$ copies of $K_{3,3}$. Then $G$ is $K_5$-minor free. However, from \cref{thm:additivity_genus}, $G$ has Euler genus $n$. 
+	Consider $n$ copies of $K_{3,3}$. Then $G$ is $K_5$-minor-free. However, from \cref{thm:additivity_genus}, $G$ has Euler genus $n$. 
 \end{proof}
 
 \subsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
@@ -69,7 +69,7 @@ We prefer to use tree-decompositions and torsos over clique-sums. This is becaus
 Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ in $\Sigma$ is \textit{$G$-clean} if $D$ is an open subset of $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\), where no vertex appears more than once in $\Lambda$, and the ordering of $\Lambda$ is around the boundary of $D$. 
 Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_k)$. A \textit{$D$-vortex} is a graph $H$ where $V(G) \cap V(H) = \Lambda$, and a \textit{path-decomposition} of \(H\) \((B_1, B_2, \ldots B_k)\) where \(x_i \in B_i\) for all \(i\). The \textit{depth} of the vortex $H$ is $\max_{i}(|B_i|) - 1$. 
 
-\cref{fig:tenniscourt} demonstrates the necessity of vortices. This counterexample is provided by \textcite{seeseGridsTheirMinors1989}. $G_n$ is $K_8$-minor free. However, $G_n$ has at least $\frac{n}{3}$ disjoint models of $K_{3,3}$, so has Euler genus at least $\frac{n}{3}$, from \cref{prop:k5_large_genus}. As $G$ has an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and Euler genus is arbitrarily large. However, let $G_0$ is the $n \times (n - 1)$ grid and $G_1$ is the $n \times 2$ grid in the back plus the red vertices. Then $G_0$ is planar and $G_1$ is a vortex of depth 6 on $G_0$ embedded on the outerface.
+\cref{fig:tenniscourt} demonstrates the necessity of vortices. This counterexample is provided by \textcite{seeseGridsTheirMinors1989}. $G_n$ is $K_8$-minor-free. However, $G_n$ has at least $\frac{n}{3}$ disjoint models of $K_{3,3}$, so has Euler genus at least $\frac{n}{3}$, from \cref{prop:k5_large_genus}. As $G$ has an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and Euler genus is arbitrarily large. However, let $G_0$ is the $n \times (n - 1)$ grid and $G_1$ is the $n \times 2$ grid in the back plus the red vertices. Then $G_0$ is planar and $G_1$ is a vortex of depth 6 on $G_0$ embedded on the outerface.
 
 \begin{figure}[h]
 	\centering

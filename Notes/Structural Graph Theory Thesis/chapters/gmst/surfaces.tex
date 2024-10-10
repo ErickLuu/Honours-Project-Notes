@@ -47,14 +47,14 @@ If $G$ is 2-cell embedded on a surface $\Sigma$ and every face in $G$ has three 
 Next is an extension of \cref{thm:K5_Free_Planar} for graphs embedded on surfaces. 
 
 \begin{theorem}\label{thm:bounded_genus_kt_free}
-	If \(G\) is an Euler genus \(g\) graph, then \(G\) is \(K_t\)-minor free, where \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
+	If \(G\) is an Euler genus \(g\) graph, then \(G\) is \(K_t\)-minor-free, where \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
 \end{theorem}
 \begin{proof}
 	This proof mimics the above proof for planarity.
-	Suppose \(G\) has \(n\) vertices, \(m\) edges and Euler genus $g$. Then \(n - m + f = 2-g\), from Euler's formula on surfaces. Since three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on an Euler genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). \(t \leq \sqrt{6g} + 4\). So if $G$ has Euler genus \(g\), then $G$ is \(K_t\)-minor free, where \(t > \sqrt{6g} + 4\), so \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
+	Suppose \(G\) has \(n\) vertices, \(m\) edges and Euler genus $g$. Then \(n - m + f = 2-g\), from Euler's formula on surfaces. Since three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on an Euler genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). \(t \leq \sqrt{6g} + 4\). So if $G$ has Euler genus \(g\), then $G$ is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\), so \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
 \end{proof}
-When $\Sigma$ is a sphere, then $g = 0$. So $t = 5$. So planar graphs are $K_5$-minor free. \cref{thm:bounded_genus_kt_free} is an extension of \cref{thm:K5_Free_Planar} to higher genus surfaces. 
-When $\Sigma$ is a torus, then $g = 2$. Then $t = 8$, so every toroidal graph is $K_8$-minor free. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}. However, even though the torus and the Klein bottle have the same Euler genus, $K_7$ does not embed on the Klein bottle. 
+When $\Sigma$ is a sphere, then $g = 0$. So $t = 5$. So planar graphs are $K_5$-minor-free. \cref{thm:bounded_genus_kt_free} is an extension of \cref{thm:K5_Free_Planar} to higher genus surfaces. 
+When $\Sigma$ is a torus, then $g = 2$. Then $t = 8$, so every toroidal graph is $K_8$-minor-free. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}. However, even though the torus and the Klein bottle have the same Euler genus, $K_7$ does not embed on the Klein bottle. 
 
 \begin{figure}[h!]
 	\centering

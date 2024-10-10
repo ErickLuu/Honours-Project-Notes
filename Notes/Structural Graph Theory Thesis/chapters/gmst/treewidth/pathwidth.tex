@@ -50,10 +50,10 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 The set of graphs $\{G : \pw(G) \leq k\}$ is a minor-closed class for the same reason that the set of graphs $\{G : \tw(G) \leq k\}$ is a minor-closed class.
 Ternary graphs of depth $d$ have pathwidth $d-1$. Graphs with path-width at least $w - 1$ contain every $w$-vertex forest as a minor. \textcite{seymourShorterProofPathwidth2023} provides a short proof of the above statement. 
 \begin{theorem}
-	$H$-minor free graphs have bounded pathwidth if and only if $H$ is a forest. 
+	$H$-minor-free graphs have bounded pathwidth if and only if $H$ is a forest. 
 \end{theorem}
 
 \begin{theorem}
 	Suppose $H$ is a forest. Then \textcite{seymourShorterProofPathwidth2023} proved that every graph that does not contain $H$ as a minor has path-width at most $|V(H)| - 2$. Note that the original proof was by \textcite{robertsonGraphMinorsExcluding1983}. 
-	Suppose $H$ is not a forest. Then $H$ is not a minor of any tree, so $H$ is not a minor of any ternary tree. But ternary trees have unbounded pathwidth, so $H$-minor free graphs have unbounded pathwidth.
+	Suppose $H$ is not a forest. Then $H$ is not a minor of any tree, so $H$ is not a minor of any ternary tree. But ternary trees have unbounded pathwidth, so $H$-minor-free graphs have unbounded pathwidth.
 \end{theorem}

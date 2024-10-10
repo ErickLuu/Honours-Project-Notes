@@ -84,7 +84,7 @@ This implies that the set of graphs $\left\{G : \tw(G) \leq k\right\}$ is a mino
 In fact, graphs of treewidth at most 2 have a simple characterisation.
 
 \begin{proposition}\label{prop:k4-minor}
-	A graph $G$ has treewidth at most 2 if and only if $G$ is $K_4$-minor free. 
+	A graph $G$ has treewidth at most 2 if and only if $G$ is $K_4$-minor-free. 
 \end{proposition}
 
 To prove \cref{prop:k4-minor}, the following lemma is used:
@@ -100,7 +100,7 @@ This implies that every $K_4$-minor-free graph is not $3$-connected, therefore e
 \begin{proof}
 	For the forwards direction, suppose $G$ contains $K_4$ as a minor. Then from \cref{thm:tw_minor_closure}, $\tw(G) \geq \tw(K_4) = 3$. Therefore, $G$ has treewidth greater than 2. 
 
-	For the backwards direction, we use induction on the number of vertices. Suppose $G$ is $K_4$-minor free. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree at most 2. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$-minor free and has a tree-decomposition of width 2. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth at most 2. Thus shown. 
+	For the backwards direction, we use induction on the number of vertices. Suppose $G$ is $K_4$-minor-free. For the base case, suppose $G$ is $K_3$. Then $G$ has a tree-decomposition where every bag contains at most $3$ vertices. Now suppose $|V(G)| > 3$. Then $G$ contains a vertex $v$ of degree at most 2. Take $u, w$ to be the neighbours of $v$. Now contract $v$ into $u$. By induction on the number of vertices, $G / \{uv\}$ is also $K_4$-minor-free and has a tree-decomposition of width 2. As $vw$ is an edge, there exists a bag $B$ that contains $u$ and $w$. Then add a leaf bag $B'$ to $B$ containing $u, v, w$. This is a tree-decomposition of $G$ with treewidth at most 2. Thus shown. 
 \end{proof}
 
 %Define a \(k\)-tree inductively. The complete graph \(K_{k+1}\) is a \(k\)-tree. If \(G\) is a \(k\)-tree, then adding any new vertex to \(G\) that is adjacent to a $k$-clique in \(G\) results in another \(k\)-tree.
@@ -113,11 +113,11 @@ This implies that every $K_4$-minor-free graph is not $3$-connected, therefore e
 
 
 \begin{proposition}\label{thm:treewidth_clique-minor-free}
-	Every graph with treewidth at most $t$ is $K_{t+2}$-minor free. 
+	Every graph with treewidth at most $t$ is $K_{t+2}$-minor-free. 
 \end{proposition}
 \begin{proof}
 	Proof by contrapositive. Let $G$ be a graph with a $K_t$ minor. Then \(\tw(G) \geq t-1\).
-	If \(K_t\) is a minor of \(G\), then from \cref{thm:tw_minor_closure}, \(\tw(K_t) \leq \tw(G)\). As \(\tw(K_t) = t-1\), then \(\tw(G) \geq t - 1\). Therefore, if $\tw(G) \leq t$, then $K_{t+1}$ is the largest complete minor in $G$. Therefore, $G$ is $K_{t + 2}$-minor free. 
+	If \(K_t\) is a minor of \(G\), then from \cref{thm:tw_minor_closure}, \(\tw(K_t) \leq \tw(G)\). As \(\tw(K_t) = t-1\), then \(\tw(G) \geq t - 1\). Therefore, if $\tw(G) \leq t$, then $K_{t+1}$ is the largest complete minor in $G$. Therefore, $G$ is $K_{t + 2}$-minor-free. 
 \end{proof}
 
 A graph $G$ is \textit{$k$-degenerate} if every subgraph $H \subseteq G$ has a vertex of degree at most $k$. 
