@@ -4,7 +4,7 @@
     Every graph embedded on a Klein bottle can be embedded in a bounded number of pages.
 \end{conjecture}
 
-This section provides some strategies in proving that every Klein-bottle graph can be embedded on a book with a bounded number of pages. The technologies used are irreducible triangulations and edge contraction, with an induction argument to reduce every Klein-bottle graph to a finite set of irreducible triangulations.
+This section provides some strategies in proving that every Klein bottle graph can be embedded on a book with a bounded number of pages. The technologies used are irreducible triangulations and edge contraction, with an induction argument to reduce every Klein bottle graph to a finite set of irreducible triangulations.
 
 A possible approach is to find a way to divide the Klein bottle into a planar spanning subgraph and nonplanar edges where each edge goes through a single crosscap. Then find a way to partition the planar subgraph so that the boundary of each region can go through one edge. Furthermore, the boundary of $G_P$ has to be oriented so that edges that go through a crosscap are reversed and edges that go through two crosscaps are in the same direction. 
 
@@ -42,7 +42,7 @@ In the case of the Klein bottle, the full list of irreducible triangulations of 
 This approach cannot be generalised to higher Euler genus graphs, as an enumeration of irreducible triangulations for higher Euler genus surfaces is unknown.
 In a previous paper, \textcite{lawrencenkoIrreducibleTriangulationsKlein1997} claimed that there were 25. However, Sulanke found 4 more graphs, a modification of one of the original irreducible triangulations. 
 
-In an attempt to prove \cref{conj:klein_bottle}, a structure of a Klein-bottle graph was devised. Let $G$ be a triangulation of the Klein bottle. A \textit{$\phi$-structure} of $G$ is a decomposition of the vertices and edges of $G$ with the following properties:
+In an attempt to prove \cref{conj:klein_bottle}, a structure of a Klein bottle graph was devised. Let $G$ be a triangulation of the Klein bottle. A \textit{$\phi$-structure} of $G$ is a decomposition of the vertices and edges of $G$ with the following properties:
 \begin{itemize}
     \item $G$ has vertex set $A \cup \{v\}$ where $A$ is a set of vertices and $v$ is a single vertex in $G$.
     \item $G_P$ is a spanning planar subgraph of $G[A]$ which is edge-maximal, meaning that adding any edge not in $G_P$ to $G_P$ breaks the planarity condition.
@@ -57,14 +57,14 @@ A description of the figure is in \cref{fig:phiembedding}.
 \begin{figure}[h]
     \centering
     \includesvg{figures/kleinbottlegraph.svg}
-    \caption[$\phi$-embedding of a Klein-bottle graph.]{ A $\phi$-embedding on a Klein-bottle graph. If this structure exists on a Klein bottle, then the graph can be embedded on a bounded number of pages. }\label{fig:phiembedding}
+    \caption[$\phi$-embedding of a Klein bottle graph.]{ A $\phi$-embedding on a Klein bottle graph. If this structure exists on a Klein bottle, then the graph can be embedded on a bounded number of pages. }\label{fig:phiembedding}
 \end{figure}
 
 \begin{claim}
-    Every Klein-bottle graph with the $\phi$-structure can be embedded on $11$ pages. 
+    Every Klein bottle graph with the $\phi$-structure can be embedded on $11$ pages. 
 \end{claim}
 \begin{proof}
-    Take a $\phi$-structure on a Klein-bottle graph $G$. Let $B_1$ and $B_2$ be the two halves of $G_P$ partitioned by $P$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis' algorithm on $B_1$ and $B_2$, orienting the graph in opposite directions. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented the same way. $b$ and $e$ go on another book, and $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page. Then this is a book-embedding on $11$ pages. 
+    Take a $\phi$-structure on a Klein bottle graph $G$. Let $B_1$ and $B_2$ be the two halves of $G_P$ partitioned by $P$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis' algorithm on $B_1$ and $B_2$, orienting the graph in opposite directions. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented the same way. $b$ and $e$ go on another book, and $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page. Then this is a book-embedding on $11$ pages. 
 \end{proof}
 
-What is not known is if Klein-bottle graphs with the $\phi$-structure maintains the $\phi$-structure under edge splitting. In fact, we are not sure if the $\phi$-structure even exists on irreducible triangulations of the Klein bottle. We want to find a structure invariant under edge splitting where every irreducible triangulation of the Klein bottle contains this structure. Furthermore, the existence of this structure allows Klein-bottle graphs to be embedded on a bounded number of pages.
+What is not known is if Klein bottle graphs with the $\phi$-structure maintains the $\phi$-structure under edge splitting. In fact, we are not sure if the $\phi$-structure even exists on irreducible triangulations of the Klein bottle. We want to find a structure invariant under edge splitting where every irreducible triangulation of the Klein bottle contains this structure. Furthermore, the existence of this structure allows Klein bottle graphs to be embedded on a bounded number of pages.
