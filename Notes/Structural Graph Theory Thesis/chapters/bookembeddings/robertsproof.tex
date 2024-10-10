@@ -4,8 +4,8 @@ This section discusses tree-decompositions and book-embeddings of graphs where e
 This section proves that every graph with a tree-decomposition where every torso can be embedded on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. 
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
-	Let \(G\) be a graph with a tree-decomposition \((B_x: x \in V(T))\). Suppose every torso \(G \langle B_x \rangle\) can be embedded on \(s\) pages and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
-	Then $G$ can be embedded on \( cs + \ell \) pages.
+	Let \(G\) be a graph with a tree-decomposition \((T, (B_x)_x)\). Suppose every torso \(G \langle B_x \rangle\) can be embedded on \(s\) pages and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
+	Then $G$ can be embedded on \( cs + \ell \) pages. Let this book-embedding be $(<, \psi)$. Let $G\langle B_x \rangle$ be embedded on $(<_x, \psi_x)$. Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except a clique of size $\ell$ is moved to the start of the book-embedding. 
 \end{theorem}
 
 To prove\cref{thm:clique_sum_pagenumber_bound}, the hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that induction can be applied, (\cref{lem:Hickingbotham_Lemma}) Then given a tree-decomposition, a leaf is removed. Then induction is done on the rest of the tree. Finally, the leaf is added back in so that the stronger induction hypothesis can be shown to hold. 

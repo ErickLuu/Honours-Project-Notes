@@ -108,9 +108,12 @@ From \cref{lem:Hamiltonian_preserved_faces}, if \(G\) is a Hamiltonian planar gr
 Then this can be extended to every connected planar graph, adding a constant number of monochromatic paths.
 In \cref{ssec:Clique_sum_Pagenumber_bound}, at most three vertices will be moved to the start of the decomposition. The number of pages needed to embed \(F\) is bounded.
 
-\begin{lemma}
-	Let $G$ be a graph embedded on $\Sigma$ and let $C$ be a cycle on $G$. 
+\begin{lemma}\cref{lem:mono_paths_move}
+	Let $G$ be a graph embedded on $\Sigma$ and let $(<, \psi)$ be a book-embedding of $G$ with $k$ pages. Let $F$ be a face on $\Sigma$ and suppose $F$ has $m$ monochromatic paths. Let $v$ be a vertex on $F$ that is not a cut-vertex. Then let $<'$ be $<$ but $v$ is moved to the front. Then there exists a colouring $\phi'$ on $k + 1$ colours such that $F$ with the book-embedding $(<', \psi')$ has $m + 4$ monochromatic paths.
 \end{lemma}
+\begin{proof}
+	Colour each of the edges that $v$ is adjacent to on the boundary of $F$ a new colour $c$. Since $v$ is not a cut-vertex, then $v$ is on the border of two monochromatic paths, or in the interior of one monochromatic path. Then colouring the edges of $v$ with an additional colour adds one monochromatic path. 
+\end{proof}
 
 
 \begin{theorem}\label{thm:embedded_graph}
