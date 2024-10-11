@@ -107,15 +107,25 @@ From \cref{lem:Hamiltonian_preserved_faces}, if \(G\) is a Hamiltonian planar gr
 
 Then this can be extended to every connected planar graph, adding a constant number of monochromatic paths, as shown by \cref{thm:planar_graph__be_mono_paths}.
 
+\begin{lemma}\label{lemma:decomposition_faces}
+	Let $G$ be a planar graph embedded on $\mathbb{R^2}$, and let $F$ be a face. The vertex set of $F$ has a tree-decomposition $(T, (B_x)_x)$ of adhesion 1 where each torso is a cycle.
+\end{lemma}
+
+\begin{proof}
+	Suppose the boundary of $F$ is a cycle $C$. Then there are no cut-vertices, so $C$ is a valid cycle.
+
+	Now suppose $F$ has Let $W$ be a walk around the boundary of $F$, and suppose the sum times duplicate vertices appear is $n$. Suppose for all faces with walks with $n-1$ duplicate vertices, the lemma holds. Take a cut-vertex $v$ and look at the first and last time $v$ appears in $W$, call these positions $a, b$. Then let $W_1$ be the subwalk $W[a, b-1]$ and let $W_2$ be the subwalk of $W - W[a, b-1]$, removing $[a, b-1]$. Now both $W_1$ and $W_2$ bound subfaces of $F$. Then applying the inductive hypothesis, $W_1$ and $W_2$ have the decomposition above. Then there is a bag containing $v$ in the tree-decomposition of $W_1$ and $W_2$, so join the two bags. As $W_1$ and $W_2$ only have $v$ in common, then $w_1, w_2$ contain $w$. 
+\end{proof}
+
 
 \begin{theorem}\label{thm:planar_graph__be_mono_paths}
-	Let \( G \) be a planar graph embedded on $\mathbb{R}^2$. Then $G$ can be embedded on 11 pages where every face has at most $12$ monochromatic paths. 
+	Let \( G \) be a planar graph embedded on $\mathbb{R}^2$. Then $G$ can be embedded on 11 pages where every face has at most $12$ monochromatic paths.
 \end{theorem}
 
 \begin{proof}
 	Use \cref{lem:planar_graphs_4_connected_cliqesums} to build a rooted tree-decomposition $((T,r), (B_x)_x)$ of $G$ with adhesion $3$. Every torso is either a $4$-connected planar graph or $K_t$ where $t \leq 4$.
 	
-	Every torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to $((T,r), (B_x)_x)$ to embed $G$ in a book. Let the root bag be the bag that contains the outerface. 
+	Every torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to $((T,r), (B_x)_x)$ to embed $G$ in a book.
 
 	If $v$ is a cut-vertex of $G$, then $v$ is in an adhesion set of torsos $G \langle B_x \rangle$ and $G \langle B_y \rangle$. Assume that $B_y$ is the parent of $B_x$. Then from \cref{thm:clique_sum_pagenumber_bound}, the ordering does not change, so $v$ is not moved anywhere. Then any face $F$ where every vertex on the boundary of $F$ is in $B_x$ is preserved. 
 
@@ -125,7 +135,9 @@ Then this can be extended to every connected planar graph, adding a constant num
 	
 	Now apply \cref{thm:clique_sum_pagenumber_bound}. Each vertex in $S$ is given $2$ new colours. Let $C$ be the walk around the boundary of $F$. As no vertex in $S$ is a cut-vertex, every vertex in $S$ appears once. Therefore, every vertex has two neighbours. From \cref{thm:clique_sum_pagenumber_bound}, move these vertices to the front and recolour each edge between a vertex in $S$ and a vertex in $F_v$ a different colour. Let $S = \{u,v\}$. $v$ splits the single monochromatic path in three. Then if $w$ is in the middle of a monochromatic path, then by recolouring each edge of $w$ different colours, $w$ adds at most four monochromatic paths. There are two monochromatic paths that $w$ is on the boundary of and two monochromatic paths, the original one that $w$ was on. Therefore, $F$ has at most $7$ monochromatic paths.
 
-	Now suppose $|S| = 3$. Then by the same argument, no vertex is a cut vertex, so every vertex in $S$ is adjacent to two vertices in $F_v$. One vertex splits the single monochromatic path in three, and the other vertex adds four new monochromatic paths. The final vertex adds another four monochromatic paths Therefore, $F$ has at most $12$ monochromatic paths.
+	Now suppose $|S| = 3$. Then by the same argument, no vertex is a cut vertex, so every vertex in $S$ is adjacent to two vertices in $F_v$. One vertex splits the single monochromatic path in three, and the other vertex adds four new monochromatic paths. The final vertex adds another four monochromatic paths. Therefore, $F$ has at most $12$ monochromatic paths.
 
-	Now as any face $F$ has a decomposition into cycles and cut-vertices, and as the cut vertices preserve faces, then every face $F$ has at most $12$ monochromatic paths. 
+	Now from \cref{lemma:decomposition_faces}, each face has a tree-decomposition into cycles and cut-vertices. But since the outerface is preserved when dealing with $1$-decompositions, then the decomposition is also preserved. 
+	
+	As the cut vertices preserve faces, then every face $F$ has at most $12$ monochromatic paths.
 \end{proof}	
