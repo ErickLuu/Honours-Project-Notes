@@ -3,18 +3,17 @@
 \section{Almost-embeddable graphs on the projective plane}
 
 \begin{theorem}\label{thm:projective_planar_be}
-	Every $G \in \mathcal{G}(g, p, k)$ where $g = 1$ can be embedded on $1152p^2 k^2 + 2304 pk + 1151$ pages.
+	Every $G \in \mathcal{G}(g, p, k)$ where $g = 1$ can be embedded on $1151 + 9600 k p + 20000 k^2 p^2$ pages.
 \end{theorem}
 Recall the definition of almost-embeddable from \cref{thm:gmst}. 
 \begin{lemma}\label{lem:proj_planar vortices}
-	Every projective-planar graph with $p$ vortices of depth $k$ can be embedded on $23 + 24pk$ pages.
+	Every projective-planar graph with $p$ vortices of depth $k$ can be embedded on $23 + 100pk$ pages.
 \end{lemma}
 \begin{proof}
-	Let $G$ be a graph almost-embeddable on the projective plane, so there are subgraphs $G_0, \ldots, G_p$ where $G_0$ is a projective-planar graph, $G_1, \ldots, G_p$ are vortices on $G_0$ of depth $\leq k$. 
-	Run Nakamoto's algorithm on $G_0$, but instead of implementing Yannakakis's algorithm on the planar section, use \cref{thm:Planar Graph Hickingbotham Bound}. Then $G_0$ can be embedded in at most $23$ pages. However, every face of this embedding has at most $24$ monochromatic paths, from \cref{corr:orientable_nonplanar_faces}. Therefore, from \cref{lem:orientablesurfaces_monochromatic_edges}, every book-embedding requires $23 + 24pk$ pages.
+	Let $G$ be a graph almost-embeddable on the projective plane, so there are subgraphs $G_0, \ldots, G_p$ where $G_0$ is a projective-planar graph, $G_1, \ldots, G_p$ are vortices on $G_0$ of depth $\leq k$. Use \cref{thm:proj_planar_graphs_23pages}. Then $G_0$ can be embedded in at most $23$ pages, where each face has at most 100 monochromatic paths. Therefore, from \cref{lem:orientablesurfaces_monochromatic_edges}, every book-embedding requires $23 + 100pk$ pages.
 \end{proof}
 
 Using \cref{lem:proj_planar vortices}, we can now prove \cref{thm:projective_planar_be}.
 \begin{proof}
-	Let $G \in \mathcal{G}(g, p, k)$ where $g = 1$. Then every torso has at most $p$ vortices of depth $k$, so every torso can be embedded in $23 + 24 pk$ pages. Then from \cref{corr:bded_pn_tree_decomp}, $G$ can be embedded on $2s^2 + 4s + 1$ pages, whee $s = 23 + 24pk$. Therefore, $G$ can be embedded on $1152p^2 k^2 + 2304 pk + 1151$ pages.
+	Let $G \in \mathcal{G}(g, p, k)$ where $g = 1$. Then every torso has at most $p$ vortices of depth $k$, so every torso can be embedded in $23 + 100 pk$ pages. Then from \cref{corr:bded_pn_tree_decomp}, $G$ can be embedded on $2s^2 + 4s + 1$ pages, whee $s = 23 + 100pk$. Therefore, $G$ can be embedded on $1151 + 9600 k p + 20000 k^2 p^2$ pages.
 \end{proof}

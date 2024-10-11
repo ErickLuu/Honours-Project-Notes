@@ -125,7 +125,7 @@ Then this can be extended to every connected planar graph, adding a constant num
 \begin{proof}
 	Use \cref{lem:planar_graphs_4_connected_cliqesums} to build a rooted tree-decomposition $((T,r), (B_x)_x)$ of $G$ with adhesion $3$. Every torso is either a $4$-connected planar graph or $K_t$ where $t \leq 4$.
 	
-	Every torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to $((T,r), (B_x)_x)$ to embed $G$ in a book.
+	Every torso $G \langle B_x \rangle$ has a tree-decomposition where every face is preserved, from \cref{lem:Hamiltonian_preserved_faces}. Then apply \cref{thm:clique_sum_pagenumber_bound} to $((T,r), (B_x)_x)$ to embed $G$ in a book. The number of pages used is $2 \cdot 4 + 3 = 11$. 
 
 	If $v$ is a cut-vertex of $G$, then $v$ is in an adhesion set of torsos $G \langle B_x \rangle$ and $G \langle B_y \rangle$. Assume that $B_y$ is the parent of $B_x$. Then from \cref{thm:clique_sum_pagenumber_bound}, the ordering does not change, so $v$ is not moved anywhere. Then any face $F$ where every vertex on the boundary of $F$ is in $B_x$ is preserved. 
 
