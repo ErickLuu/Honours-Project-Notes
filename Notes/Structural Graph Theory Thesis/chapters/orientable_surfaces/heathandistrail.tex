@@ -121,8 +121,8 @@ Two traces $(T_1, T_2)$ are \textit{orientable} if \(T_1\) and \(T_2\) go in opp
 \end{proof}
 
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
-	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g \geq 1$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g - 5\) pages.
+	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g \geq 1$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g + 2\) pages.
 \end{lemma}
 \begin{proof}
-	Use an algorithm by \textcite{yannakakisEmbeddingPlanarGraphs1989} to embed $G_P$ on four pages with the property that the outercycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.
+	Use \label{thm:Planar Graph Hickingbotham Bound} to embed $G_P$ on four pages with the property that the outer-cycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(11 + 3(6g - 3) = 18g + 2\) pages suffice if \(G\) has a planar-nonplanar decomposition.
 \end{proof}
