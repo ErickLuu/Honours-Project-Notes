@@ -2,12 +2,9 @@
 
 \section{Graphs embedded on an orientable surface of bounded genus}\label{sec:pagenumber_bounded_genus}
 
-A theorem by \textcite{yannakakisEmbeddingPlanarGraphs1989} allows an efficient embedding of planar graphs on surfaces.
-\begin{theorem}\label{thm:4Pages_Planar}
-	Let $G$ be a 2-connected plane graph, and let $C$ be the outer cycle of $G$. Then there exists a $4$-page embedding $(<, \rho)$ of $G$ where the linear ordering $<$ restricted to $C$ is a path on $C$. 
-\end{theorem}
+\textcite{yannakakisEmbeddingPlanarGraphs1989} showed that every planar graph can be embedded on four pages.
 
-From \cref{thm:Planar Graph Hickingbotham Bound}, every planar graph can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}. \label{thm:4Pages_Planar} is used by multiple authors to bound the number of pages necessary to embed graphs on surfaces.
+From \cref{thm:Planar Graph Hickingbotham Bound}, every planar graph can be embedded on $11$ pages. However, the proof given by Yannakakis is tight, as there exist planar graphs that need four pages, from \textcite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}. 
 
 \textcite{heathPagenumberGenusGraphs1992} proved the following theorem:
 \begin{theorem}[\textcite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
@@ -127,5 +124,5 @@ Two traces $(T_1, T_2)$ are \textit{orientable} if \(T_1\) and \(T_2\) go in opp
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g \geq 1$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g - 5\) pages.
 \end{lemma}
 \begin{proof}
-	Use the algorithm from \cref{thm:4Pages_Planar} to embed $G_P$ on four pages with the property that the outercycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.
+	Use an algorithm by \textcite{yannakakisEmbeddingPlanarGraphs1989} to embed $G_P$ on four pages with the property that the outercycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(4 + 3(6g - 3) = 18g-5\) pages suffice if \(G\) has a planar-nonplanar decomposition.
 \end{proof}
