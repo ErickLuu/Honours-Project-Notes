@@ -1,7 +1,7 @@
-\section{Planar graphs and monochromatic paths}
+\section{Monochromatic paths}
 
 We wish to find a book-embedding of an almost-embeddable graph on some orientable surface. To do so, we need to introduce some new terminology to work with vortices on surfaces. 
-Recall the definition of $(g, p, k, a)$-almost-embeddable from \cref{ssec:Robertson_Seymour_Graph_Structure}. A graph $G$ is $(g, p, k)$-almost-embeddable if $G$ is $(g, p, k, a)$-almost-embeddable and $a = 0$, so $G$ has no apex set.
+Recall the definition of $(g, p, k, a)$-almost-embeddable from \cref{ssec:Robertson_Seymour_Graph_Structure}. A graph $G$ is $(g, p, k)$-almost-embeddable if $G$ is $(g, p, k, 0)$-almost-embeddable, so $G$ has no apex set.
 What we plan to show is this:
 \begin{theorem}\label{thm:bounded_almost_embeddable}
 	Suppose $G$ is $(g, p, k)$-almost embeddable on an orientable surface. Then $G$ can be embedded on \(f(g, p, k)\) pages for some function $f$.
@@ -21,27 +21,28 @@ Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\
 
 The list below are the steps taken to prove \cref{thm:bounded_almost_embeddable}.
 \begin{enumerate}
-	\item Suppose $G$ is a \(4\)-connected planar graph. There is a book-embedding where every face is monochromatic. 
+	\item Suppose $G$ is a \(4\)-connected planar graph. There is a book-embedding where every face is monochromatic, by \cref{thm:4-connected_planar_ham_cycle}. 
 	\item Suppose \(G\) is a connected planar graph. Faces are not preserved, but a fixed number of vertices are moved around on every face. Additional pages are necessary to embed $G$, but the number of monochromatic paths is bounded. 
-	\item Suppose \(G\) is $2$-cell embedded on an orientable surface. \textcite{heathPagenumberGenusGraphs1992} gives a planar-nonplanar decomposition of $G$. Then apply the previous steps to the spanning planar subgraph.
+	\item Suppose \(G\) is $2$-cell embedded on an orientable surface. \textcite{heathPagenumberGenusGraphs1992} gives a planar-nonplanar decomposition of $G$. Then apply the previous steps to the spanning planar subgraph and add vortices.
 \end{enumerate}
 
 Preserved faces allow us to embed vortices with a bounded number of pages. 
 
 \begin{lemma}[Vortex on preserved faces]\label{lem:preserved_faces_pagenumber}
-	Suppose a graph \(G\) has partition \(G = G_0 \cup G_1\), where \(G_0\) is embedded on a surface $\Sigma$ and \(G_1\) is a vortex on a face $F$ of $G_0$ with depth \(k\). Suppose $(<, \varphi)$ is a $p$-page book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(p + k + 1\) pages. Furthermore, the new ordering restricted to $G_0$ is $(<, \varphi)$.
+	Suppose a graph \(G = G_0 \cup G_1\), where \(G_0\) is embedded on a surface $\Sigma$ and \(G_1\) is a vortex on a face $F$ of $G_0$ with depth \(k\). Suppose $(<, \varphi)$ is a $p$-page book-embedding of \(G_0\) which preserves \(F\). Then $G$ can be embedded on \(p + k + 1\) pages. Furthermore, the new ordering restricted to $G_0$ is $(<, \varphi)$.
 \end{lemma}
 
 \begin{proof}
-	We repeat a similar argument to \cref{thm:bded_treewidth_bded_pagenumber}. Let \(B_1, \ldots, B_i\) be the path-decomposition of \(G_1\). Let \(\sigma(v)\) be the first time \(v\) appears in the path-decomposition. Colour the edges of \(G_1\) as such. If \(uv \in E(G_1)\), then:
+	We repeat a similar argument to \cref{thm:bded_treewidth_bded_pagenumber}. Let \(B_1, \ldots, B_i\) be a path-decomposition of \(G_1\). Let \(\sigma(v)\) be the first time \(v\) appears in the path-decomposition. Colour the edges of \(G_1\) as such. If \(uv \in E(G_1)\), then:
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
 			c(T_u) & \text{ if } \sigma(u) \leq \sigma(v), \\
-			c(T_v) & \text{ if } \sigma(v) \leq \sigma(u)
+			c(T_v) & \text{ if } \sigma(v) \leq \sigma(u).
 		\end{cases}
 	\end{equation}
-	then is a book-embedding of \(G_1\) with \(k+1\) colours for the same reason as \cref{thm:bded_treewidth_bded_pagenumber}.
+	This is a book-embedding of \(G_1\) with \(k+1\) colours. Since the intersection graphs of every graph is perfect, we can colour with $k + 1$ colours. Furthermore, suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. 
+
 	To add this book-embedding to \(G_0\), add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. An illustration of such a book-embedding is in \cref{fig:preserved_face}.
 \end{proof}
 
