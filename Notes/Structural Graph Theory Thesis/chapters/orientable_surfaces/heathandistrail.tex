@@ -8,21 +8,21 @@ From \cref{thm:Planar Graph Hickingbotham Bound}, every planar graph can be embe
 
 \textcite{heathPagenumberGenusGraphs1992} proved the following theorem:
 \begin{theorem}[\textcite{heathPagenumberGenusGraphs1992}]\label{thm:Genus_pagenumber_bound}
-	When $g \geq 1$, every orientable genus $g$ graph can be embedded in $18g$ pages.
+	When $g \geq 1$, every orientable genus $g$ graph can be embedded in $18g+2$ pages.
 \end{theorem}
 Note that this bound extends the one found by \textcite{yannakakisEmbeddingPlanarGraphs1989} to graph families of bounded orientable genus.
-The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have Euler genus $O(n^2)$, as shown by \textcite{ringelMapColorTheorem1974}. Therefore, if $K_n$ has Euler genus $g$ then the pagenumber of $K_n$ is $O(\sqrt{g})$.
+The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHave1994}. This is best possible as complete graphs $K_n$ have pagenumber $O(n)$ but have Euler genus $O(n^2)$, as shown by \textcite{ringelMapColorTheorem1974}. Therefore, if $K_n$ has Euler genus $g$ then the pagenumber of $K_n$ is $\Theta(\sqrt{g})$.
 
 %In fact, there exists a family of graphs such that $\tilde{\gamma}(G) \in \Omega(|V(G)|)$ for every graph $G$ in the family. Consider $n$ copies of $K_6$ with a single vertex in each copy identified to a single vertex. Then each $K_6$ will occupy a single crosscap with no room for another copy of $K_6$ to fit. Therefore, this graph is of non-orientable genus $2n$. 
 
-We prove \cref{thm:Genus_pagenumber_bound}. We first decompose a graph on an orientable surface into a planar spanning subgraph and nonplanar edges. Then this decomposition can be used to embed a graph on a book with a bounded number of pages.
+This section \cref{thm:Genus_pagenumber_bound}. We first decompose a graph $G$ on an orientable surface into a planar spanning subgraph and some `nonplanar' edges. This decomposition can be used to embed a graph on a book with a bounded number of pages.
 
-Let $G$ be a graph of orientable genus $g$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning subgraph \(G_p\) embedded on $\mathbb{R}^2$ and set of nonplanar edges $E_N$. This partition has the following properties:
+Let $G$ be a connected graph embedded on a surface $\Sigma$. A subgraph $H$ of $G$ inherits an embedding on $\Sigma$ if the embedding of $H$ is a subembedding of $G$ on $\Sigma$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning connected subgraph \(G_p\) embedded on $\Sigma$, with the same embedding as $G$, and set of `nonplanar' edges $E_N$. This decomposition of $G$ has the following properties:
 \begin{enumerate}
-	\item Every edge in \(E_N\) are between vertices on the boundary of $F_0$, the outerface.
-	\item Adding any edge from $E_N$ to \(G_p\) breaks the conditions 1
+	\item Every edge in \(E_N\) are between vertices on the boundary of $F_0$, the outerface of $G_p$.
+	\item Adding any edge from $E_N$ to \(G_p\) breaks conditions 1.
 \end{enumerate}
-$G_p$ is a maximal planar subgraph with respect to the conditions above. Through some stereographic projection from $S^2$ to $\mathbb{R}^2$, $F_0$ will be assumed to be the outerface. The set $(G_p, E_N)$ is a \textit{planar-nonplanar decomposition} of $G$. 
+$G_p$ is a maximal planar subgraph with respect to the conditions above. The set $(G_p, E_N)$ is a \textit{planar-nonplanar decomposition} of $G$. 
 % To talk about graphs embedded in surfaces, we assign to each face a cyclic permutation \(\sigma_v\) which represents the sequence of vertices encountered when traversing the boundary of a face in counterclockwise order.
 
 % $\sigma_v$ enough to represent any graph in an orientable surface, but not enough for a non-orientable surface. We have to attach on an orientation to each edge, where each edge is either orientation-preserving or orientation-reversing.
@@ -34,30 +34,44 @@ $G_p$ is a maximal planar subgraph with respect to the conditions above. Through
 %	\item For each \(vw \in E_N\), \(v\) and \(w\) live on the outerface \(F_0\).
 %	\item \(E(G_P)\) is maximal, so we cannot add edges from \(E_N\) to \(G_P\) without breaking properties 1 and 2.
 %\end{enumerate}
+We build an equivalence class of nonplanar edges in a planar-nonplanar decomposition according to homotopy class. Let $G$ be a graph embedded on $\Sigma$ and let $(G_P, E_n)$ be a planar-nonplanar decomposition. Let \(C_0\) be the walk on the boundary of \(F_0\), the outerface of $G_P$. Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
+
+Nonplanar edges need to be classified so that they can be embedded on a book. Suppose that \(u_1v_1, u_2v_2 \in E_N\) are part of the boundary of the same face \(F\) on the embedding of \(G\). Then \(u_1v_1\) and \(u_2v_2\) are \textit{homotopic} if both conditions hold.
+\begin{enumerate}
+	\item \(u_1v_1\) and \(u_2v_2\) are the only edges of \(E_N\) on the boundary of \(F\).
+	\item There exist traces \(T_u = u_1 \rightarrow \cdots \rightarrow u_2\) and \(T_v = v_1 \rightarrow \cdots \rightarrow v_2\) such that \(T_u\) and \(T_v\) are on the boundary of \(F\).
+\end{enumerate}
+Then extend homotopy to be an equivalence relation, with homotopy classes being the classes of loops that are homotopic to each other. 
+Think of \(G_n\) as living on a disk on \(S\) and the loops \(u_1v_1\) and \(u_2 v_2\) living on a handle or passing through a crosscap. Taking \(G_n\) to a point, \(u_1v_1\) and \(u_2v_2\) are homotopic if and only if the two loops are homotopic in a topological sense.
 
 We now do a planar-nonplanar decomposition of graphs embedded on surfaces.
-\begin{claim}
-	There exists a planar-nonplanar decomposition of any graph 2-cell embedded on a surface. 
+\begin{claim}\cref{claim:planar_nonplanar_decomp}
+	There exists a planar-nonplanar decomposition of any graph 2-cell embedded on any surface, and the trace of any homotopy class lies on the same block, except for two vertices adjacent to special endpoints $x$ and $y$. 
 \end{claim}
 \begin{proof}
-	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single cycle and define this cycle as $G_p$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We want to maintain the property that if \(v \in G_P\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(G_p\).
+	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single face and define this face as $G_p$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We maintain the property that for any \(v \in V(G_P)\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(F_0\).
 	\paragraph{Adding vertices to biconnected block:}
-	Suppose $F$ is the outerface of \(G_P\). Define an oriented walk around the boundary $F$ to be a trace. If \(v_i \rightarrow v_j \rightarrow v_k\) is a walk with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a safe edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_j,v_k\) is the boundary of a face, then \(v_k\) is a safe vertex and can be added to \(G_P\). Add as many vertices $v_k$ as possible. 
+	Suppose $F$ is the outerface of \(G_P\). Define an oriented walk around the boundary of $F$ to be a \textit{trace}. If \(v_i \rightarrow v_j \rightarrow v_k\) is a walk with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a \textit{safe} edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_k,v_j\) is the boundary of a face, then \(v_k\) is a \textit{safe vertex} and can be added to \(G_P\). This face is biconnected as there are no cut-vertices, as triangles are added at every step. Add as many vertices $v_k$ as possible. 
+
 	\paragraph{Creating a new biconnected block:}
-	If no \(v_k\) exists, then find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). Add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then add all safe edges. This is so that every edge in \(E_p\) maintains the property that both endpoints are on the boundary.
+	If no \(v_k\) exists, then find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). Add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then add all safe edges. This is so that every edge $xy$ in \(E_p\) has $x$ and $y$ on the boundary of $F_0$. 
 	
-	After repeating this operation, every edge in \(E_N\) satisfies the two properties above. If an edge \(vw\) has \(v\) in $G_p$ and $w$ not in $G_p$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) nor \(w\) added to \(G_P\), then the algorithm has not finished yet. By connectivity, we can add \(v\) and \(w\) at some stage. This has the corollary that every vertex is in \(G_P\).
+	After repeating this operation, every edge in \(E_N\) are between two vertices on the boundary of $F_0$ and adding any edge from $E_N$ to $G_p$ breaks the first condition. If an edge \(vw\) has \(v\) in $G_p$ and $w$ not in $G_p$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) nor \(w\) added to \(G_P\), then the algorithm has not finished yet. This algorithm always finds some vertex $v$ which is neighbouring $G_P$ and adds $v$. Since $G$ is connected, then every vertex is added to $G_P$. Thus, $G_P$ is spanning.
 	
-	Now every edge in \(E_N\) cannot be added to \(G_P\) without crossing over another edge, and \(G_P\) is maximal. Therefore, all edges in \(E_N\) satisfy the conditions listed above.
+	Now every edge in \(E_N\) cannot be added to \(G_P\) without crossing over another edge, and \(G_P\) is maximal. Therefore, every edge in \(E_N\) are between two vertices on the boundary of $F_0$ and adding any edge from $E_N$ to $G_p$ breaks the first condition.
+
+	Suppose $v_k$ was just added to $G_P$ and $v_k, z$ is a nonplanar edge where $z$ is not in the same block as $v_k$. Then no other edge incident to $v_k$ is homotopic to $v_k, z$ otherwise $v_k$ would have been a safe vertex and added to $z$. Then the homotopy class will just have $z$. 
+
+	Suppose a new homotopy class $H$ has multiple edges added when $v_k$ is added. Then the endpoints of $H$ must be in the same block as $v_k$, as edges in a single block is added. Let $T_1 = u_1, \ldots, u_s$ and $T_2 = v_1, \ldots, v_t$ be the trace of $H$. The only vertices that are not in the same block must be the endpoints of $H$. If $w$ extends $H$, then either $u_1 w$ and $v_1 w$ are edges or $u_s w$, $v_t w$ are edges. Then $T_1$ and $T_2$ cannot be both extended as $v_t w$ or $u_s w$ is now a cut edge. If $v_t$ is $w'$ and $w$ is its neighbour, then $w$ is cut off. Then every new edge in $H$ must be adjacent to $w$. Define $x := w$. This argument can be repeated for $u_1, v_1$, and define $y := u_1$ when $u_1$ is the vertex that is cut off. 
 \end{proof}
+
 
 Safe vertices and unsafe vertices are illustrated in \cref{fig:safe_vertices}.
 
 \begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/safe_vertices.svg}
-	\caption[Safe and unsafe vertices]{On the left is a safe vertex $v_k$. Notice how this is not on $G_P$ but can be added without breaking the biconnected planarity condition. On the right is an unsafe vertex $w$. This cannot be added to a block in $G_P$ as there is a bridge edge. Therefore, $w$ is added as on its own separate block.}
-	\label{fig:safe_vertices}
+	\caption[Safe and unsafe vertices]{On the left is a safe vertex $v_k$. Notice how this is not on $G_P$ but can be added without breaking the biconnected planarity condition. On the right is an unsafe vertex $w$. This cannot be added to a block in $G_P$ as there is a bridge edge. Therefore, $w$ is added as on its own separate block.}\label{fig:safe_vertices}
 \end{figure}
 
 % \subsubsection{Level sets and cycles}
@@ -83,46 +97,38 @@ Safe vertices and unsafe vertices are illustrated in \cref{fig:safe_vertices}.
 % 	If \(F\) is a chordal face of \(G\), then any triangulation maintains the property. If \(F\) is non-chordal and the boundary has edges in \(V_i\) and \(V_{i + 1}\), then add edges that are only between vertices in \(V_i\) and \(V_{i + 1}\). This will suffice to build a new triangulated graph \(G'\) where all vertices and edges are in the correct place.
 % \end{proof}
 
-We build an equivalence class of nonplanar edges according to homotopy class. Let \(C_0\) be the walk on the boundary of \(F_0\), the outerface of $G_P$. Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
-
-Nonplanar edges need to be classified so that they can be embedded on a book. Suppose that \(u_1v_1, u_2v_2 \in E_N\) are part of the boundary of the same face \(F\) on the embedding of \(G\). Then \(u_1v_1\) and \(u_2v_2\) are \textit{homotopic} if:
-\begin{enumerate}
-	\item \(u_1v_1\) and \(u_2v_2\) are the only edges of \(E_N\) on the boundary of \(F\).
-	\item There exist traces \(T_u = u_1 \rightarrow \cdots \rightarrow u_2\) and \(T_v = v_1 \rightarrow \cdots \rightarrow v_2\) such that \(T_u\) and \(T_v\) are on the boundary of \(F\).
-\end{enumerate}
-Then extend homotopy to be an equivalence relation, with homotopy classes being the classes of loops that are homotopic to each other. 
-Think of \(G_n\) as living on a disk on \(S\) and the loops \(u_1v_1\) and \(u_2 v_2\) living on a handle or passing through a crosscap. Taking \(G_n\) to a point, \(u_1v_1\) and \(u_2v_2\) are homotopic if and only if the two loops are homotopic in a topological sense.
 
 Now homotopy classes need to be embedded on a book, and the orientability of the surface plays an important role. Let \(u_1 v_1, \ldots, u_k v_k\) be a homotopy class of edges such that $u_1, \ldots u_k$ are in cyclic order around $C_0$. Let trace \(T_1\) be the concatenation of traces from \(u_1\) to \(u_2\), $u_2$ to $u_3$, up to $u_k$. Finally, let trace \(T_2\) be the concatenation of traces from \(v_1\) to \(v_2\), $v_2$ to $v_3$, up to $v_k$.
 Two traces $(T_1, T_2)$ are \textit{orientable} if \(T_1\) and \(T_2\) go in opposite directions on $C_0$, and \textit{non-orientable} if \(T_1\) and \(T_2\) go in the same direction on $C_0$.
 
-\begin{lemma}
-	Let $G$ be a graph. If \(G\) is embedded in an orientable surface $\Sigma$, then every homotopy class is orientable.
+\begin{lemma}\label{lem:orientable_traces}
+	Let $G$ be a graph embedded in an orientable surface $\Sigma$. Let $(G_P, E_N)$ be a planar-nonplanar decomposition of $G$. Then every homotopy class of $E_N$ is orientable. 
 \end{lemma}
 \begin{proof}
-	Embed the graph on $\Sigma$. If there are two traces that are non-orientable, then those edges must all pairwise cross, meaning that there exists a crosscap on the surface. Then $\Sigma$ is non-orientable  Therefore, if $\Sigma$ is orientable, every homotopy class is orientable. 
+	Let $H$ be a homotopy class of edges in $E_N$. Since $H$ is a homotopy class, there exists a closed disk $D_1$ on $\Sigma$ of which every edge in $E_N$ is on. Furthermore, the maximal traces $T_1, T_2$ of $H$ are on the boundary of $D_1$. Add a loop $L$ around $G_P$ which bounds a closed disk $D_0$ containing $G_P$. $L$ intersects every edge in $E_N$ twice. Add vertices at every intersection point, and add edges between consecutive vertices on $L$. Now add an orientation to $D_0$, suppose this orientation goes anticlockwise. Then this forces $D_1$ to go anticlockwise as well, meaning that $T_1$ is going in the opposite direction to $T_2$ on the boundary of $T_1$. Then $T_1$ and $T_2$ are orientable. As this holds for every homotopy class of $H$, $T_1$ and $T_2$ are orientable. 
 \end{proof}
 
 \begin{lemma}
 	Let $G$ be a graph. If \(G\) is \(2\)-cell embedded on a surface of Euler genus \(g\), then any planar-nonplanar decomposition has at most \(3g-3\) homotopy classes. 
 \end{lemma}
 \begin{proof}
-	Decompose \(G\) to a \((G_P, E_N)\) decomposition of \(G\). Suppose \(E_N \neq \emptyset\). Identify \(G_P\) to a single point, and identify each homotopy class to a single edge. Draw a circle around the point \(G_P\), and place vertices where the circle intersects all edges. Delete the vertex \(G_P\), and call the new graph \(H\). Let \(n = |V(H)|\), \(m = |E(H)|\), where \(h\) is the number of homotopy classes, and \(f\) is the number of faces. From Euler's theorem on surfaces, \(n - m + f = 2 - g\). Since \(H\) is cubic as every vertex has two edges on the circle and one on the homotopy class, then \(3n = 2m\) by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, \(n = 2h\). The interior face of \(H\) has \(v\) incident edges, and the remaining \(f-1\) faces have at least 3 incident edges each. If a face has four edges, then the two nonplanar edges are homotopy equivalent. Therefore, \(3(f-1) + n \leq 2m\), by double counting faces and edges. Use the previous facts that $n = 2h$ and $n - m + f = 2 - g$. After an algebraic manipulation, \(h \leq 3g - 3 \). 
-	%\begin{align*}
-	%	3n  & \geq 6(f - 1) + n         \\
-	%	2n  & \geq 6f + 6               \\
-	%	4h  & \geq 5 f - 6              \\
-	%	4h  & \geq 5(2 - g + m - n) - 6 \\
-	%	4h  & \geq 6 - 6g + 3n          \\
-	%	4h  & \geq 6 - 6g + 6h          \\
-	%	-2h & \geq 6 - 6g               \\
-	%	h   & \leq 3g - 3
-	%\end{align*}
+	Decompose \(G\) to a planar-nonplanar decomposition of \(G\), \((G_P, E_N)\). Suppose \(E_N \neq \emptyset\). Identify \(G_P\) to a single point, and identify each homotopy class to a single edge. Draw a circle $S$ that bounds a disk around \(G_P\), and place new vertices where $S$ intersects an edge in $E_N$. Add edges between vertices on $S$. Delete \(G_P\), and call the new graph \(H\) embedded on $\Sigma$. Let \(n = |V(H)|\), \(m = |E(H)|\). Let \(h\) be the number of homotopy classes, and \(f\) is the number of faces on this embedding of $H$. Since $H$ is connected, we can apply Euler's formula. So, \(n - m + f = 2 - g\). Since \(H\) is cubic as every vertex has two edges on $S$ and one on the homotopy class, then \(3n = 2m\) by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, and every homotopy class is incident to two edges, \(n = 2h\). The interior face of \(H\) has \(v\) incident edges, and the remaining \(f-1\) faces have at least 3 incident edges each. If a face has four edges, then the two nonplanar edges are homotopy equivalent. Then every face has at least six edges. Every edge is incident to two faces. Place a 'dot' on the left and right side of each edge. $f-1$ faces get at least $6$ dots and $1$ face gets $n$ dots. Each edge has two dots. Therefore, \(  6(f-1) + n \leq 2m \). Use the previous facts that $n = 2h$, $3n = 2m$, and $n - m + f = 2 - g$. After an algebraic manipulation, \(h \leq 3g - 3 \). 
+	\begin{align*}
+		3n  & \geq 6(f - 1) + n         && \text{from } 2n \leq 3m \\
+		2n  & \geq 6f - 6               \\
+		4h  & \geq 6(2 - g + m - n) - 6 && \text{from } n = 2h \text{ and } f = 2 - g + m - n\\
+		-2h & \geq 6 - 6g               \\
+		h   & \leq 3g - 3
+	\end{align*}
 \end{proof}
+
+Let \(G\) be a graph embedded on some surface $\Sigma$. Let $F$ be a face on $\Sigma$ and let $S$ be a walk on the boundary of $F$. $S$ induces many circular orderings on the boundary of $F$. If a vertex $v$ appears multiple times in $S$, then $v$ is a cut vertex. A sub-ordering of $S$ is a sub-walk of $S$ where if a vertex $v$ appears multiple times in $S$, then $v$ appears exactly once restricted to where $v$ previously appeared. A vertex ordering \((<)\) \textit{preserves} \(F\) if $<$ restricted to the boundary of $F$ is equal to some sub-ordering of $S$.
 
 \begin{lemma}\label{lem:planar_nonplanar_orientable}
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g \geq 1$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g + 2\) pages.
 \end{lemma}
 \begin{proof}
-	Use \label{thm:Planar Graph Hickingbotham Bound} to embed $G_P$ on four pages with the property that the outer-cycle remains in order with respect to the embedding. For each homotopy class in \(E_P\), allocate three pages. One page is for vertices in the same block, and the other two pages are used for edges between blocks. Therefore, \(11 + 3(6g - 3) = 18g + 2\) pages suffice if \(G\) has a planar-nonplanar decomposition.
+	Use \cref{thm:Planar Graph Hickingbotham Bound} to embed $G_P$ on four pages with the property that the outer-cycle is preserved. Let $H$ be a homotopy class in $E_P$.
+	Take a block-cut tree $T$ of $G_P$. Edges in $H$ that go between the same block go on the same page. These edges do not cross because of \cref{lem:orientable_traces}. Now use the property from \cref{claim:planar_nonplanar_decomp} that every edge in $H$ that is not on the same block is adjacent to either $x$ or $y$. Colour all the edges adjacent to $x$ a new colour and all adjacent to $y$ the same colour. In total, there are three colours. 
+	Therefore, \(11 + 3(6g - 3) = 18g + 2\) pages suffice if \(G\) has a planar-nonplanar decomposition.
 \end{proof}
