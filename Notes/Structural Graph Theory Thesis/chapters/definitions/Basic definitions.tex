@@ -1,6 +1,6 @@
 
 \section{Basic definitions}\label{sec: Basic definitions}
-A graph $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$. $E(G)$ is a set that contains two-element subsets of $V(G)$. An edge $ \{v, w\}$ \textit{joins} vertices $v$ and $w$. A graph is \textit{simple} if every edge join two distinct vertices, with at most one edge between any two vertices. In this paper, every graph is simple unless stated. Furthermore, every graphs $G$ are finite, so $|V(G)| < \infty$. The graph with all possible edges on $n$ vertices is the complete graph $K_n$. Graphs are defined up to isomorphism, or up to relabelling of the vertices. 
+A \textit{graph} $G$ is a pair of sets; a vertex set $V(G)$ and an edge set $E(G)$ that contains two-element subsets of $V(G)$. An edge $ \{v, w\}$ \textit{joins} vertices $v$ and $w$. A graph is \textit{simple} if every edge join two distinct vertices, with at most one edge between any two vertices. In this paper, every graph is simple unless stated. Furthermore, every graphs $G$ are finite, so $|V(G)| < \infty$. The graph with all possible edges on $n$ vertices is the complete graph $K_n$. Graphs are defined up to isomorphism, or up to relabelling of the vertices. 
 
 \subsection{Graphs and subgraphs}
 Let $G$ be a graph. A \textit{subgraph} $H$ in $G$ is a graph with vertex set $V(H) \subseteq V(G)$ and edge set $E(H)$ with the property that if $vw$ is an edge in $E(H)$, then $vw$ is an edge in $E(G)$.
@@ -50,7 +50,7 @@ A subgraph $H$ of a graph $G$ is a \textit{block} if:
 	Blocks partition the edge set $E(G)$.
 \end{theorem}
 
-A \textit{block-cut tree} is a tree $T$ whose vertices are the blocks and cut-vertices of $G$, and $uv$ is an edge in $T$ whenever one block is adjacent to a cut-vertex. 
+A \textit{block-cut tree} of a graph $G$ is a tree $T$ whose vertices are the blocks and cut-vertices of $G$, and $uv$ is an edge in $T$ whenever one block is adjacent to a cut-vertex. 
 
 \begin{theorem}\label{thm:block-cut tree}
 	Every graph has a block-cut tree.

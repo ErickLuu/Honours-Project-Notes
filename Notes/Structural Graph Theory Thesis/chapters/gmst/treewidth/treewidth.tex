@@ -2,8 +2,8 @@ The \textit{treewidth} of a graph \(G\) measures how similar $G$ is to a forest.
 \begin{definition}[Tree-decomposition]\label{def:tree-decomposition}
 	A tree-decomposition \(\tree\) of a graph \(G\) is defined as a tree \(T\) with associated \textit{bags} \(\lbrace B_x : x \in V(T) \rbrace\) such that:
 	\begin{itemize}
-		\item $\bigcup_{x \in V(T)} B_x = V(G)$.
-		\item For all \(v \in V(G)\), the subset of vertices \(\left\lbrace x \in V(T): v \in B_x \right\rbrace\) induces a connected subtree in \(V(T)\).
+		\item $\bigcup_{x \in V(T)} B_x = V(G)$,
+		\item For all \(v \in V(G)\), the subset of vertices \(\left\lbrace x \in V(T): v \in B_x \right\rbrace\) induces a connected subtree in \(V(T)\),
 		\item For all edges \(vw \in E(G)\), there exists a bag \(B_x\) such that both \(v\) and \(w\) are in \(B_x\).
 	\end{itemize}
 \end{definition}
@@ -74,7 +74,7 @@ This implies that the set of graphs $\left\{G : \tw(G) \leq k\right\}$ is a mino
 	The treewidth of an outerplanar graph $G$ is at most 2.
 \end{proposition}
 \begin{proof}
-	Let \(G'\) be a \textit{weak triangulation} of \(G\), meaning that every face except for the outerface has three vertices. Since \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). Then look at the \textit{weak dual} of \(G'\). This is a tree \(T\), where every node \(v_f\) in \(T\) corresponds to an internal face \(f\) in \(G'\). Then let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\). Every vertex is on the boundary of some internal face, so every vertex is in some bag. Every bag has at most 3 vertices. Furthermore, every edge is on the boundary of some internal face, so every edge is in some bag. Finally, let $v$ be a vertex. Then the bags that contain $v$ are connected in $T$. This is because the sequence of internal faces which are adjacent to $v$ are connected in $T$. Thus, \(\tw(G) \leq 2\). Refer to \cref{fig:outerplanar_treedecomp} for an example of a tree-decomposition. The green vertices and black edges are an outerplanar graph. The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.
+	Let \(G'\) be a \textit{weak triangulation} of \(G\), meaning that every face except for the outerface has three vertices. Since \(G\) is a minor of \(G'\), \(\tw(G) \leq \tw(G')\). Then look at the \textit{weak dual} of \(G'\), a tree \(T\) where every vertex \(v_F\) in \(T\) corresponds to an internal face \(F\) in \(G'\). Let \(B_{v_f}\) be the bag of the tree-decomposition, where \(B_{v_f}\) is the set of vertices on the boundary of the face \(f\). Then the tree \(T\) with bags \(B_{v_f}\) is a valid tree-decomposition of \(G'\). Every vertex is on the boundary of some internal face, so every vertex is in some bag. Every bag has at most 3 vertices. Furthermore, every edge is on the boundary of some internal face, so every edge is in some bag. Finally, let $v$ be a vertex. Then the bags that contain $v$ are connected in $T$. This is because the sequence of internal faces which are adjacent to $v$ are connected in $T$. Thus, \(\tw(G) \leq 2\). Refer to \cref{fig:outerplanar_treedecomp} for an example of a tree-decomposition. The green vertices and black edges are an outerplanar graph. The red vertices and blue edges are the weak dual. The magenta circles around green vertices are examples of bags in the tree-decomposition.
 	\begin{figure}[h!]
 		\centering
 		\includesvg[width = 0.5\textwidth]{figures/outerplanar_tree_decomposition.svg}
