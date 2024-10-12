@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:version="1.4-rc1 (61ec3f2, 2024-09-26)"
    sodipodi:docname="edge_contraction.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,15 +23,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="1.0544998"
-     inkscape:cx="347.084"
-     inkscape:cy="303.93558"
-     inkscape:window-width="1920"
-     inkscape:window-height="1051"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:zoom="1.4912879"
+     inkscape:cx="280.96519"
+     inkscape:cy="390.60197"
+     inkscape:window-width="2560"
+     inkscape:window-height="1417"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1-7" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1" />
   <g
@@ -59,48 +59,48 @@
        d="M 44.886721,73.865165 V 139.90271"
        id="path2" />
     <ellipse
-       style="fill:#00ff00;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;fill-opacity:0.762025;stroke:#000000;stroke-width:0.13184"
        id="path1"
        cx="44.886723"
        cy="73.865166"
-       rx="6.032258"
-       ry="6.5645161" />
+       rx="3.8606453"
+       ry="4.2012901" />
     <ellipse
-       style="fill:#00ff00;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;fill-opacity:0.762025;stroke:#000000;stroke-width:0.13184"
        id="path1-7"
        cx="44.886723"
        cy="139.90271"
-       rx="6.032258"
-       ry="6.5645161" />
+       rx="3.8606453"
+       ry="4.2012901" />
     <ellipse
-       style="fill:#333333;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
+       style="fill:#333333;fill-opacity:0.762025;stroke:#000000;stroke-width:0.13184"
        id="path1-7-9"
        cx="81.326851"
        cy="104.29877"
-       rx="6.032258"
-       ry="6.5645161" />
+       rx="3.8606453"
+       ry="4.2012901" />
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
-       x="31.112698"
-       y="81.79628"
+       x="43.991333"
+       y="74.706978"
        id="text6"><tspan
          sodipodi:role="line"
          id="tspan6"
          style="stroke-width:0.206"
-         x="31.112698"
-         y="81.79628">u</tspan></text>
+         x="43.991333"
+         y="74.706978">u</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.175px;fill:none;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
-       x="32.938072"
-       y="133.2352"
+       x="43.205334"
+       y="141.50346"
        id="text7"><tspan
          sodipodi:role="line"
          id="tspan7"
          style="stroke-width:0.206"
-         x="32.938072"
-         y="133.2352">v</tspan></text>
+         x="43.205334"
+         y="141.50346">v</tspan></text>
   </g>
   <g
      inkscape:label="Layer 2"
@@ -128,26 +128,28 @@
        id="path6-7"
        sodipodi:nodetypes="ccc" />
     <ellipse
-       style="fill:#00ff00;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
+       style="fill:#00ff00;fill-opacity:0.762025;stroke:#000000;stroke-width:0.13184"
        id="path1-1"
        cx="44.886723"
        cy="103.68085"
-       rx="6.032258"
-       ry="6.5645161" />
+       rx="3.8606453"
+       ry="4.2012901" />
     <ellipse
-       style="fill:#333333;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
+       style="fill:#333333;fill-opacity:0.762025;stroke:#000000;stroke-width:0.13184"
        id="path1-7-9-8"
        cx="81.326851"
        cy="104.29877"
-       rx="6.032258"
-       ry="6.5645161" />
+       rx="3.8606453"
+       ry="4.2012901" />
     <text
        xml:space="preserve"
-       style="font-size:3.175px;fill:none;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-       x="33.596569"
-       y="98.473061"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:none;fill-opacity:0.762025;stroke:#000000;stroke-width:0.206"
+       x="42.524754"
+       y="103.53236"
        id="text6-6"><tspan
          sodipodi:role="line"
-         id="tspan8">w</tspan></text>
+         id="tspan8"
+         x="42.524754"
+         y="103.53236">w</tspan></text>
   </g>
 </svg>

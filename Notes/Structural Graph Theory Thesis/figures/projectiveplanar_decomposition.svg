@@ -27,10 +27,10 @@
      inkscape:zoom="3.121924"
      inkscape:cx="287.96345"
      inkscape:cy="433.54675"
-     inkscape:window-width="2560"
+     inkscape:window-width="3440"
      inkscape:window-height="1417"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-x="3832"
+     inkscape:window-y="112"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -271,26 +271,26 @@
        inkscape:original-d="m 99.000002,72.999996 c 0.166666,15.166667 0.333333,30.333334 0.499999,45.499994 0.166666,15.16667 0.333333,30.33333 0.499999,45.5"
        sodipodi:nodetypes="ccc" />
     <ellipse
-       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.299199;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
        id="path8"
        cx="99"
        cy="91"
-       rx="3"
-       ry="2.9999998" />
+       rx="2.4000001"
+       ry="2.3999999" />
     <ellipse
-       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.299199;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
        id="path8-6"
        cx="100"
        cy="142"
-       rx="3"
-       ry="2.9999998" />
+       rx="2.4000001"
+       ry="2.3999999" />
     <ellipse
-       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.299199;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
        id="path8-64"
        cx="106.90366"
        cy="92.086998"
-       rx="3"
-       ry="2.9999998" />
+       rx="2.4000001"
+       ry="2.3999999" />
     <ellipse
        style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.12518;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
        id="path8-64-25"
@@ -362,12 +362,12 @@
        rx="0.95982599"
        ry="1.0504507" />
     <ellipse
-       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:#00ff00;fill-opacity:0.931915;stroke:#000000;stroke-width:0.299199;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
        id="path8-1"
        cx="91"
        cy="140"
-       rx="3"
-       ry="2.9999998" />
+       rx="2.4000001"
+       ry="2.3999999" />
     <text
        xml:space="preserve"
        style="font-size:3.88056px;font-family:'CMU Sans Serif';-inkscape-font-specification:'CMU Sans Serif, Normal';fill:#000000;fill-opacity:0.931915;stroke:#000000;stroke-width:0.373999;stroke-linejoin:bevel;stroke-dasharray:none;stroke-dashoffset:0"
