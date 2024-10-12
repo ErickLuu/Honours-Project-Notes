@@ -16,6 +16,10 @@ These are the Euler genus of some surfaces.
 
 The orientability of a surface is an important tool to distinguish surfaces. A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \(S^2\) by only adding handles. An example of an orientable surface is the torus. A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can only be obtained from \(S^2\) by adding at least one crosscap. An example of a non-orientable surface is the projective plane or the Klein bottle. Compact orientable surfaces can be embedded in $\mathbb{R}^3$, but non-orientable surfaces cannot. The \textit{genus} of an orientable surface is the number of handles. The \textit{genus} of a non-orientable surface is the number of crosscaps, and is equal to the Euler genus. 
 
+Let $I = [0, 1]$, and $\Sigma$ be a surface.
+A \textit{loop} is a continuous function $\gamma : I \rightarrow \Sigma$ where $\gamma(0) = \gamma(1) = x_0$. The point $x_0$ is the \textit{base point}. A \textit{homotopy} between two loops $\alpha, \beta$ is a continuous map $h : I \times I \rightarrow (x)$ where $h(0, t) = h(1, t) = x$ for all $t$, $h(\cdot, 0) = \alpha$, $h(\cdot, 1) = \beta$. A \textit{null-homotopic} loop is a loop homotopy to the constant map at $x_0$, and a \textit{nontrivial} loop is one that is not null-homotopic. On a sphere or plane, all loops are null-homotopic. Homotopic and null-homotopic loops come up in our discussion of graphs on surfaces as they can be used to classify edges embedded on a surface when the graph is a single point $x_0$. 
+
+
 \subsection{Graphs on surfaces}
 
 An \textit{embedding} of $G$ on a surface $\Sigma$ is a drawing of $G$ on $\Sigma$ such that no two edges cross. 
@@ -78,6 +82,3 @@ Ringel and Young \cite{ringelMapColorTheorem1974} showed that for almost every c
 The case where this does not hold is the Klein bottle case. Every Klein bottle graph is $6$-colourable, but when $g = 2$, $\left\lfloor 
 \frac{7 + \sqrt{1 + 24g}}{2}
 \right\rfloor = 7$. This is related to the fact that $K_7$ does not embed on the Klein bottle. 
-
-Let $I = [0, 1]$.
-A \textit{loop} is a continuous function $\gamma : I \rightarrow X$ where $\gamma(0) = \gamma(1) = x_0$. The point $x_0$ is the \textit{base point}. A \textit{homotopy} between two loops $\alpha, \beta$ is a continuous map $h : I \times I \rightarrow (x)$ where $h(0, t) = h(1, t) = x$ for all $t$, $h(\cdot, 0) = \alpha$, $h(\cdot, 1) = \beta$. A \textit{null-homotopic} loop is a loop homotopy to the constant map at $x_0$, and a \textit{nontrivial} loop is one that is not null-homotopic. On a sphere or plane, all loops are null-homotopic. Homotopic and null-homotopic loops come up in our discussion of graphs on surfaces as they can be used to classify edges embedded on a surface when the graph is a single point $x_0$. 
