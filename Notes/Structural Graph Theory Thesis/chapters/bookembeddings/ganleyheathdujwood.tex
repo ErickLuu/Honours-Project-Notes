@@ -31,7 +31,7 @@ This is a simple proof to bound the chromatic number of graphs of bounded treewi
 			z(T_v) & \text{ if } \sigma(v) \leq \sigma(u)
 		\end{cases}
 	\end{equation}
-	Then $(\sigma, c)$ is a proper book-embedding of \(G\). Suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. Finally, the number of pages used is \(\chi(H) = k + 1\), so \(\pn(G) \leq k + 1\). Thus shown.
+	Then $(\sigma, c)$ is a proper book-embedding of \(G\). Suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. Finally, the number of pages used is \(\chi(H) = k + 1\), so \(\pn(G) \leq k + 1\). 
 \end{proof}
 For a simpler example, consider the case when $T$ is a path. The proof given below is identical in spirit to \cref{thm:bded_treewidth_bded_pagenumber}, but omits many of the details specific to trees.
 
