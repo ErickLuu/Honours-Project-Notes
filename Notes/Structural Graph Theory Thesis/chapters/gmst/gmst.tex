@@ -30,7 +30,7 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 	Let $t \geq 1$. Let $G_1, G_2$ be two graphs with treewidth $t$. Then for all $k \leq t + 1$, $G_1 \oplus_k G_2$ has treewidth $t$. 
 \end{proposition}
 \begin{proof}
-	Suppose $C = V(G_1) \cap V(G_2)$ be the clique that is glued over, where $|C| = k$. Let $(B_x: x \in T_1)$ be a tree-decomposition of $G_1$ of minimum width. Let $(B_x : x \in T_2)$ be a tree-decomposition of $G_2$ of minimum width. Then $C$ appears in some bag $A_x$ and $B_y$ by \cref{lem:clique}. Let $T = T_1 \sqcup T_2$. Add a new node $u$ to $T$ and let $B_u = C$. Then add edges $ux, uy$ to $E(T)$ to form a new tree. Every vertex not in $C$ has a subtree in $T$. If $v \in C$, then the induced subgraph in $T$ is the graph $T_1(v) \cup T_2(v) \cup u$. $T_1(v) \cup T_2(v) \cup u$ is a subtree of $T$. Finally, every edge in $G_1 \cup G_2$ remains in $T$. Therefore, $T$ is a tree-decomposition of $G_1 \oplus_k G_2$. The size of each bag in $T$ is still at most $t + 1$, so the treewidth of $G_1 \oplus_k G_2 \leq t$.
+	Suppose $C = V(G_1) \cap V(G_2)$ be the clique that is glued over, where $|C| = k$. Let $(T_1, (B_x)_x)$ be a tree-decomposition of $G_1$ of minimum width. Let $(T_2, (B_x)_x)$ be a tree-decomposition of $G_2$ of minimum width. Then $C$ appears in some bag $A_x$ and $B_y$ by \cref{lem:clique}. Let $T = T_1 \sqcup T_2$. Add a new node $u$ to $T$ and let $B_u = C$. Then add edges $ux, uy$ to $E(T)$ to form a new tree. Every vertex not in $C$ has a subtree in $T$. If $v \in C$, then the induced subgraph in $T$ is the graph $T_1(v) \cup T_2(v) \cup u$. $T_1(v) \cup T_2(v) \cup u$ is a subtree of $T$. Finally, every edge in $G_1 \cup G_2$ remains in $T$. Therefore, $T$ is a tree-decomposition of $G_1 \oplus_k G_2$. The size of each bag in $T$ is still at most $t + 1$, so the treewidth of $G_1 \oplus_k G_2 \leq t$.
 \end{proof}
 
 \begin{proposition}\label{prop:cliquesum_minor}
@@ -58,11 +58,11 @@ The reverse proposition, that if $G$ is $K_t$-minor-free, then $G$ has bounded g
 \end{proof}
 
 \subsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
-Given a graph \(G\) and a tree-decomposition \(\tree\), the \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\). The vertex set of \(G\langle B_x \rangle\) is $B_x$. \(vw\) is an edge in \(G\langle B_x \rangle\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $uv \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
+Given a graph \(G\) and a tree-decomposition \((T, (B_x)_x)\), the \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\). The vertex set of \(G\langle B_x \rangle\) is $B_x$. \(vw\) is an edge in \(G\langle B_x \rangle\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $uv \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
 The \textit{adhesion set} is the set \(B_x \cap B_y\). 
 The \textit{adhesion} of a tree is defined as \(\max(|B_x \cap B_y|)\) where \(xy\) is an edge in \(T\).
 
-Given \(G\) and a tree-decomposition \(\tree\), \(G\) is a clique-sum of the torsos \(G\langle B_x \rangle\) where the size of the cliques that we paste over is at most the adhesion of $\tree$. This holds for any arbitrary tree-decomposition.
+Given \(G\) and a tree-decomposition \((T, (B_x)_x)\), \(G\) is a clique-sum of the torsos \(G\langle B_x \rangle\) where the size of the cliques that we paste over is at most the adhesion of $\tree$. This holds for any arbitrary tree-decomposition.
 We prefer to use tree-decompositions and torsos over clique-sums. This is because the structure of tree-decompositions can be discussed.
 
 \subsection{Vortices}\label{sssec:vortices}

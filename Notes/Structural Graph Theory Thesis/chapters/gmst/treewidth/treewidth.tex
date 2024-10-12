@@ -8,6 +8,7 @@ The \textit{treewidth} of a graph \(G\) measures how similar $G$ is to a forest.
 	\end{itemize}
 \end{definition}
 The vertices of the tree \(T\) are \textit{nodes}, to distinguish them from the vertices of $G$. 
+The tree-decomposition is denoted as \((T, (B_x)_x)\), where $T$ is the tree, $x \in V(T)$, and $(B_x)$ is the bag associated with node $x$.
 The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x \in V(T) \rbrace\).
 The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree-decompositions of the graph \(G\). 
 
@@ -26,7 +27,7 @@ Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} wi
 The Helly property is most commonly associated with convex subsets of a Euclidean space, but other objects have the Helly property. 
 
 \begin{proposition}\label{lem:clique}
-	Let $G$ be a graph and $(T, (B_x)_{x \in V(T)})$ be a tree-decomposition. Then for every clique \(C\) in \(G\), there exists a node \(x \in V(T)\) such that \(C \subseteq B_x\).
+	Let $G$ be a graph and $(T, (B_x)_{x})$ be a tree-decomposition. Then for every clique \(C\) in \(G\), there exists a node \(x \in V(T)\) such that \(C \subseteq B_x\).
 \end{proposition}
 
 \begin{proof}
@@ -126,7 +127,7 @@ A graph $G$ is \textit{$k$-degenerate} if every subgraph $H \subseteq G$ has a v
 	Every graph with treewidth at most $k$ is $k$-degenerate.
 \end{proposition}
 \begin{proof}
-	Let \( (B_{x: x \in V(T)}) \) be a tree-decomposition of $G$. Suppose for neighbouring bags $B_x, B_y$, $B_x \nsubseteq B_y$ and $B_y \nsubseteq B_x$. If $B_x \subseteq  B_y$, then contracting the edge $xy \in T$ is a tree-decomposition of $G$. Now take a leaf bag $B_1$ and let $B_2$ be its neighbour. Now let $v$ be a vertex in $B_1$ but not in $B_2$. $v$ has degree at most $k$ as there are $k+1$ vertices in $B_1$. As subgraphs of $G$ have treewidth at most $k$, then $G$ is $k$-degenerate.
+	Let \( (T, (B_x)_x) \) be a tree-decomposition of $G$. Suppose for neighbouring bags $B_x, B_y$, $B_x \nsubseteq B_y$ and $B_y \nsubseteq B_x$. If $B_x \subseteq  B_y$, then contracting the edge $xy \in T$ is a tree-decomposition of $G$. Now take a leaf bag $B_1$ and let $B_2$ be its neighbour. Now let $v$ be a vertex in $B_1$ but not in $B_2$. $v$ has degree at most $k$ as there are $k+1$ vertices in $B_1$. As subgraphs of $G$ have treewidth at most $k$, then $G$ is $k$-degenerate.
 \end{proof}
 
 \begin{proposition}\label{prop:treewidth_edge_bound}
