@@ -23,15 +23,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="4.3509259"
-     inkscape:cx="324.75846"
-     inkscape:cy="131.12152"
-     inkscape:window-width="2560"
+     inkscape:zoom="4.4079405"
+     inkscape:cx="277.22697"
+     inkscape:cy="140.76869"
+     inkscape:window-width="3440"
      inkscape:window-height="1417"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-x="3832"
+     inkscape:window-y="112"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="true">
     <inkscape:grid
        id="grid1"
@@ -174,9 +174,10 @@
      transform="matrix(1.1762961,0,0,1.1293858,-10.482469,-2.2642512)" />
   <path
      style="fill:#000000;stroke:#000000;stroke-width:0.162949"
-     d="M 70.96868,34.992139 59.868585,49.763279"
+     d="M 70.114828,36.546996 59.868585,49.763279"
      id="path63"
-     transform="matrix(1.1711612,0,0,1.286292,-10.115764,-5.0101095)" />
+     transform="matrix(1.1711612,0,0,1.286292,-10.115764,-5.0101095)"
+     sodipodi:nodetypes="cc" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -228,23 +229,26 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 76.071382,22.729405 93.073906,50.083213"
-       id="path39" />
+       d="M 76.921509,23.533929 93.073907,50.083213"
+       id="path39"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 76.921508,50.887737 93.073906,50.083213"
-       id="path40" />
+       d="m 76.154019,49.967247 16.919887,0.115966"
+       id="path40"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.134472"
        d="M 76.154019,49.967247 93.883455,23.458466"
        id="path42" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.123556"
-       d="m 100.70984,34.812033 10.17272,-5.852715"
-       id="path44" />
+       d="M 99.895945,36.310594 110.88256,28.959318"
+       id="path44"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="m 93.924031,50.083213 2e-6,5.631667"
+       d="m 93.073907,50.083213 0.850126,5.631667"
        id="path45"
        sodipodi:nodetypes="cc" />
     <path
@@ -254,16 +258,18 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 99.874916,34.797261 70.120499,35.601786"
+       d="M 99.895945,36.310594 70.141528,37.115119"
        id="path47" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 76.071382,50.887737 70.120499,35.601786"
-       id="path48" />
+       d="M 76.071382,50.887737 70.1205,37.210833"
+       id="path48"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 76.921508,23.533928 70.120499,35.601786"
-       id="path49" />
+       d="m 76.921508,23.533928 -6.77998,13.581191"
+       id="path49"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
        d="m 76.921508,23.533928 16.949089,-0.06666"
@@ -274,20 +280,23 @@
        id="path51" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="m 100.72504,35.601786 h 10.20152"
-       id="path52" />
+       d="m 99.895945,36.310594 11.030615,0.09571"
+       id="path52"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 59.918986,35.601786 H 70.120499"
-       id="path53" />
+       d="M 59.918987,37.210833 H 70.1205"
+       id="path53"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
        d="m 76.071382,50.083213 v 5.631666"
        id="path54" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 76.071382,22.729405 V 15.488691"
-       id="path55" />
+       d="M 76.921509,23.533929 V 15.488691"
+       id="path55"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.228276"
        d="M 76.921508,23.533928 59.918986,26.752024"
@@ -298,21 +307,23 @@
        id="path60" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 93.924031,49.278689 110.92656,43.647023"
+       d="m 93.073907,50.083213 17.852653,-6.43619"
        id="path61"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 59.918986,43.244761 69.270372,36.40631"
-       id="path62" />
+       d="M 59.918986,43.244761 70.1205,37.210833"
+       id="path62"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
        d="m 76.921508,23.533928 8.501263,-8.045237"
        id="path66" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
-       d="M 84.572644,55.714879 92.22378,50.887737"
-       id="path67" />
+       d="m 84.572644,55.714879 8.501263,-5.631666"
+       id="path67"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:#000000;stroke:#000000;stroke-width:0.165402"
        d="M 76.071382,50.083213 59.918986,55.714879"
@@ -342,53 +353,53 @@
      inkscape:label="Layer 3"
      transform="matrix(1.1711612,0,0,1.286292,-10.115764,-5.0101095)">
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.169613"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.0848065"
        id="path2-8"
-       cx="85.484192"
-       cy="34.963566"
-       rx="2.1100099"
-       ry="2.0081444" />
+       cx="85.078384"
+       cy="36.065792"
+       rx="1.055005"
+       ry="1.0040722" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.169613"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.0848065"
        id="path2-8-5"
        cx="77.025406"
        cy="23.266298"
-       rx="2.1100099"
-       ry="2.0081444" />
+       rx="1.055005"
+       ry="1.0040722" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.169613"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.0848065"
        id="path2-8-6"
        cx="93.969055"
        cy="23.266298"
-       rx="2.1100099"
-       ry="2.0081444" />
+       rx="1.055005"
+       ry="1.0040722" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.169613"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.0848065"
        id="path2-8-3"
-       cx="100.30594"
-       cy="34.992138"
-       rx="2.1100099"
-       ry="2.0081444" />
+       cx="100.02306"
+       cy="35.597191"
+       rx="1.055005"
+       ry="1.0040722" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.169613"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.0848065"
        id="path2-8-62"
-       cx="70.662445"
-       cy="34.992138"
-       rx="2.1100099"
-       ry="2.0081444" />
+       cx="70.133705"
+       cy="36.534393"
+       rx="1.055005"
+       ry="1.0040722" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.169613"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.0848065"
        id="path2-8-0"
        cx="76.121742"
        cy="48.978127"
-       rx="2.1100099"
-       ry="2.0081444" />
+       rx="1.055005"
+       ry="1.0040722" />
     <ellipse
-       style="fill:#00ff00;stroke:#000000;stroke-width:0.169613"
+       style="fill:#00ff00;stroke:#000000;stroke-width:0.0848065"
        id="path2-8-7"
        cx="93.065399"
        cy="48.978127"
-       rx="2.1100099"
-       ry="2.0081444" />
+       rx="1.055005"
+       ry="1.0040722" />
   </g>
 </svg>
