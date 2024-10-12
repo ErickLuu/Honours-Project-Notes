@@ -3,11 +3,12 @@ This subsection uses \cref{lem:planar_graphs_4_connected_cliqesums} and \cref{th
 
 Firstly, \textcite{tutteTheoremPlanarGraphs1956} proves an important theorem regarding $4$-connected planar graphs.
 
-\begin{theorem}\label{thm:4-connected_planar_ham_cycle}
+\begin{theorem}[\textcite{tutteTheoremPlanarGraphs1956}]\label{thm:4-connected_planar_ham_cycle}
 	Every 4-connected planar graph is Hamiltonian.
 \end{theorem}
 
-\cref{thm:4-connected_planar_ham_cycle} is used to prove \cref{thm:Planar Graph Hickingbotham Bound}.
+\cref{thm:4-connected_planar_ham_cycle} is used to prove \cref{thm:Planar Graph Hickingbotham Bound}. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for every \(i\). The length of the facial walk is \(n\).
+
 
 \begin{corollary}\label{thm:Planar Graph Hickingbotham Bound}
 	Let \(G\) be a 2-connected planar graph. Then $G$ can be embedded on $11$ pages, with book-embedding $(<, \rho)$. $<$ restricted to the vertices outer cycle $C$ traverses every vertex in order of the traversal of the boundary of the outerface. Furthermore, for every face cycle $C$, $<_{V(C) - \{u, v, w\}} = C - \{u, v, w\}$ for some vertices $u$, $v$, $w$. 
