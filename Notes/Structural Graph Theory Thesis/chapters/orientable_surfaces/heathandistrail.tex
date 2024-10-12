@@ -17,12 +17,12 @@ The best known bound is \(O(\sqrt{g})\), found by \textcite{malitzGenusGraphsHav
 
 This section \cref{thm:Genus_pagenumber_bound}. We first decompose a graph $G$ on an orientable surface into a planar spanning subgraph and some `nonplanar' edges. This decomposition can be used to embed a graph on a book with a bounded number of pages.
 
-Let $G$ be a connected graph embedded on a surface $\Sigma$. A subgraph $H$ of $G$ inherits an embedding on $\Sigma$ if the embedding of $H$ is a subembedding of $G$ on $\Sigma$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning connected subgraph \(G_p\) embedded on $\Sigma$, with the same embedding as $G$, and set of `nonplanar' edges $E_N$. This decomposition of $G$ has the following properties:
+Let $G$ be a connected graph embedded on a surface $\Sigma$. A subgraph $H$ of $G$ inherits an embedding on $\Sigma$ if the embedding of $H$ is a subembedding of $G$ on $\Sigma$. Heath and Istrail partition the edge-set of \(G\) to a planar spanning connected subgraph \(G_P\) embedded on $\Sigma$, with the same embedding as $G$, and set of `nonplanar' edges $E_N$. This decomposition of $G$ has the following properties:
 \begin{enumerate}
-	\item Every edge in \(E_N\) are between vertices on the boundary of $F_0$, the outerface of $G_p$.
-	\item Adding any edge from $E_N$ to \(G_p\) breaks conditions 1.
+	\item Every edge in \(E_N\) are between vertices on the boundary of $F_0$, the outerface of $G_P$.
+	\item Adding any edge from $E_N$ to \(G_P\) breaks conditions 1.
 \end{enumerate}
-$G_p$ is a maximal planar subgraph with respect to the conditions above. The set $(G_p, E_N)$ is a \textit{planar-nonplanar decomposition} of $G$. 
+$G_P$ is a maximal planar subgraph with respect to the conditions above. The set $(G_P, E_N)$ is a \textit{planar-nonplanar decomposition} of $G$. 
 % To talk about graphs embedded in surfaces, we assign to each face a cyclic permutation \(\sigma_v\) which represents the sequence of vertices encountered when traversing the boundary of a face in counterclockwise order.
 
 % $\sigma_v$ enough to represent any graph in an orientable surface, but not enough for a non-orientable surface. We have to attach on an orientation to each edge, where each edge is either orientation-preserving or orientation-reversing.
@@ -30,11 +30,11 @@ $G_p$ is a maximal planar subgraph with respect to the conditions above. The set
 % A planar-nonplanar decomposition of \(G\) is a triple \((R, G_P, E_N)\) where \(R\) is a rotation of \(G\) representing the surface embedding on the surface \(S\), \(G\) is a spanning planar graph, and \(E_N = E - E(G_P)\).
 % This satisfies a list of properties:
 % \begin{enumerate}
-% 	\item The subrotation induces a planar embedding of \(G_p\), so we can arrange \(G\) on the surface \(S\) such that the embedding of \(G_p\) is planar.
+% 	\item The subrotation induces a planar embedding of \(G_P\), so we can arrange \(G\) on the surface \(S\) such that the embedding of \(G_P\) is planar.
 %	\item For each \(vw \in E_N\), \(v\) and \(w\) live on the outerface \(F_0\).
 %	\item \(E(G_P)\) is maximal, so we cannot add edges from \(E_N\) to \(G_P\) without breaking properties 1 and 2.
 %\end{enumerate}
-We build an equivalence class of nonplanar edges in a planar-nonplanar decomposition according to homotopy class. Let $G$ be a graph embedded on $\Sigma$ and let $(G_P, E_n)$ be a planar-nonplanar decomposition. Let \(C_0\) be the facial walk of \(F_0\), the outerface of $G_P$. Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
+We build an equivalence class of nonplanar edges in a planar-nonplanar decomposition according to homotopy class. Let $G$ be a graph embedded on $\Sigma$ and let $(G_P, E_N)$ be a planar-nonplanar decomposition. Let \(C_0\) be the facial walk of \(F_0\), the outerface of $G_P$. Each vertex on the boundary of \(F_0\) appears at least once on $C_0$. If a vertex $v$ appears more than once on $C_0$, then $v$ is an \textit{articulation point}, meaning $v$ separates biconnected components. Heath and Istrail refer to a directed subpath of \(C_0\) as a \textit{trace}. Let \(T = v_1 \rightarrow v_2 \rightarrow \cdots \rightarrow v_t\) be a trace. The inverse trace is \(T^{-1} = v_t \rightarrow v_{t-1} \rightarrow \cdots \rightarrow v_1\).
 
 Nonplanar edges need to be classified so that they can be embedded on a book. Suppose that \(u_1v_1, u_2v_2 \in E_N\) are part of the boundary of the same face \(F\) on the embedding of \(G\). Then \(u_1v_1\) and \(u_2v_2\) are \textit{homotopic} if both conditions hold.
 \begin{enumerate}
@@ -49,16 +49,16 @@ We now do a planar-nonplanar decomposition of graphs embedded on surfaces.
 	There exists a planar-nonplanar decomposition of any graph 2-cell embedded on any surface, and the trace of any homotopy class lies on the same block, except for two vertices adjacent to special endpoints $x$ and $y$. 
 \end{claim}
 \begin{proof}
-	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single face and define this face as $G_p$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We maintain the property that for any \(v \in V(G_P)\), and edge \(vw \in E_n\), then \(v\) is a vertex on the boundary of \(F_0\).
+	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single face and define this face as $G_P$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We maintain the property that for any \(v \in V(G_P)\), and edge \(vw \in E_N\), then \(v\) is a vertex on the boundary of \(F_0\).
 	\paragraph{Adding vertices to biconnected block:}
 	Suppose $F$ is the outerface of \(G_P\). Define an oriented facial walk $F$ to be a \textit{trace}. If \(v_i \rightarrow v_j \rightarrow v_k\) is a walk with no edge of \(E_N\) incident to \(v_j\), then \(v_i v_k \in E(G_T)\) is called a \textit{safe} edge. If \(v_i \rightarrow v_j\) is on the boundary of \(G_P\), and \(v_k \notin V(G_P)\), and \(v_i,v_k,v_j\) is the boundary of a face, then \(v_k\) is a \textit{safe vertex} and can be added to \(G_P\). This face is biconnected as there are no cut-vertices, as triangles are added at every step. Add as many vertices $v_k$ as possible. 
 
 	\paragraph{Creating a new biconnected block:}
 	If no \(v_k\) exists, then find a \(w'\) which is the newest vertex in \(V(G_P)\) adjacent to a vertex \(w\) not in \(V(G_P)\). Add the vertex \(w\) and the edge \(w w'\) to \(G_P\). Then add all safe edges. This is so that every edge $xy$ in \(E_p\) has $x$ and $y$ on the boundary of $F_0$. 
 	
-	After repeating this operation, every edge in \(E_N\) are between two vertices on the boundary of $F_0$ and adding any edge from $E_N$ to $G_p$ breaks the first condition. If an edge \(vw\) has \(v\) in $G_p$ and $w$ not in $G_p$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) nor \(w\) added to \(G_P\), then the algorithm has not finished yet. This algorithm always finds some vertex $v$ which is neighbouring $G_P$ and adds $v$. Since $G$ is connected, then every vertex is added to $G_P$. Thus, $G_P$ is spanning.
+	After repeating this operation, every edge in \(E_N\) are between two vertices on the boundary of $F_0$ and adding any edge from $E_N$ to $G_P$ breaks the first condition. If an edge \(vw\) has \(v\) in $G_P$ and $w$ not in $G_P$, then at some step \(w\) is added as a safe vertex or biconnected block. If an edge \(vw\) has neither \(v\) nor \(w\) added to \(G_P\), then the algorithm has not finished yet. This algorithm always finds some vertex $v$ which is neighbouring $G_P$ and adds $v$. Since $G$ is connected, then every vertex is added to $G_P$. Thus, $G_P$ is spanning.
 	
-	Now every edge in \(E_N\) cannot be added to \(G_P\) without crossing over another edge, and \(G_P\) is maximal. Therefore, every edge in \(E_N\) are between two vertices on the boundary of $F_0$ and adding any edge from $E_N$ to $G_p$ breaks the first condition.
+	Now every edge in \(E_N\) cannot be added to \(G_P\) without crossing over another edge, and \(G_P\) is maximal. Therefore, every edge in \(E_N\) are between two vertices on the boundary of $F_0$ and adding any edge from $E_N$ to $G_P$ breaks the first condition.
 
 	Suppose $v_k$ was just added to $G_P$ and $v_k, z$ is a nonplanar edge where $z$ is not in the same block as $v_k$. Then no other edge incident to $v_k$ is homotopic to $v_k, z$ otherwise $v_k$ would have been a safe vertex and added to $z$. Then the homotopy class will just have $z$. 
 
