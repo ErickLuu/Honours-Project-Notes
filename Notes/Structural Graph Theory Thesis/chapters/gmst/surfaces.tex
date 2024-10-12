@@ -58,13 +58,24 @@ Next is an extension of \cref{thm:K5_Free_Planar} for graphs embedded on surface
 	Suppose \(G\) has \(n\) vertices, \(m\) edges and Euler genus $g$. Then \(n - m + f = 2-g\), from Euler's formula on surfaces. Since three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on an Euler genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). \(t \leq \sqrt{6g} + 4\). So if $G$ has Euler genus \(g\), then $G$ is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\), so \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
 \end{proof}
 When $\Sigma$ is a sphere, then $g = 0$. So $t = 5$. So planar graphs are $K_5$-minor-free. \cref{thm:bounded_genus_kt_free} is an extension of \cref{thm:K5_Free_Planar} to higher genus surfaces. 
+
+When $\Sigma$ is a projective plane, then $g = 1$, so $t = 7$. So $K_7$ does not embed on the projective plane. $K_6$ does embed on the projective plane. \cref{fig:k6_on_proj_plane} is one embedding.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[width = 0.5\textwidth]{figures/k6_projective_plane.svg}
+	\caption[$K_6$ embedded on the projective plane]{$K_6$ embedded on the projective plane. $K_6$ can be $2$-cell embedded on the projective plane.}\label{fig:k6_on_proj_plane}
+\end{figure}
+
 When $\Sigma$ is a torus, then $g = 2$. Then $t = 8$, so every toroidal graph is $K_8$-minor-free. $K_7$ is a toroidal graph but $K_8$ is not. An example of an embedding of $K_7$ on a torus is in \cref{fig:k7_on_torus}. However, even though the torus and the Klein bottle have the same Euler genus, $K_7$ does not embed on the Klein bottle. 
 
 \begin{figure}[h!]
 	\centering
-	\includesvg[height = 0.3\textheight]{figures/k7 on torus.svg}
-	\caption[Toroidal graph]{An example of a toroidal graph $K_7$ embedded on a torus.}\label{fig:k7_on_torus}
+	\includesvg[width = 0.5\textwidth]{figures/k7 on torus.svg}
+	\caption[$K_7$ embedded on the torus]{$K_7$ embedded on a torus. Therefore, $K_7$ is a toroidal graph.}\label{fig:k7_on_torus}
 \end{figure}
+
+When $\Sigma$ is the Klein bottle, then $g = 2$. Then $t = 8$, but $K_7$ cannot be embedded on the Klein bottle.
 
 A famous theorem involving map colourings on surfaces is Heawood's conjecture, by \textcite{heawoodMapcolourTheorem1890}. This theorem is also called the Map Colour Theorem. Piecewise linearly partition a surface $\Sigma$ into path-connected faces homeomorphic to a disk. Then a \textit{map} of $\Sigma$ is the graph obtained by placing a vertex at each face and placing an edge when two faces touch at a line. Let $\chi(g)$ be the minimum number of colours sufficient to colour all Euler genus $g$ maps. Heawood showed that when $g \geq 1$, 
 	\begin{equation*}
