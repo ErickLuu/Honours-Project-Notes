@@ -3,14 +3,14 @@
 In this section, we discuss surfaces. We also introduce some machinery to deal with vortices on surfaces. Bounding the number of pages of graphs embedded on a surface is crucial for applying the Graph Minor Structure Theorem to this problem. This section discusses orientable surfaces.
 \subsection{Non-planar decomposition}
 
-This section uses the planar-nonplanar decomposition to prove some properties on graphs embedded on a surface. Suppose a graph \(G\) is embedded on a surface $\Sigma$. \textcite{heathPagenumberGenusGraphs1992} showed the edges of $G$ can be partitioned into planar and nonplanar edges. If \(F\) is bounded by planar edges, a vortex can be added to \(F\) with a bounded number of pages. If the boundary of $F$ has non-planar edges, then additional machinery is necessary.
+This section uses the planar-nonplanar decomposition to prove some properties on graphs embedded on a surface. Suppose a graph \(G\) is embedded on a surface $\Sigma$. \textcite{heathPagenumberGenusGraphs1992} showed the edges of $G$ can be partitioned into planar and nonplanar edges. If \(F\) is bounded by edges in $G_P$, a vortex can be added to \(F\) with a bounded number of pages, from \cref{thm:planar_graph__be_mono_paths}. If the boundary of $F$ has edges in $G_n$, then additional machinery is necessary.
 
-This section proves that the number of monochromatic paths on every face on a surface is bounded. Recall a loop $\gamma$ is \textit{null-homotopic} if $\gamma$ is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. 
+This section proves that the number of monochromatic paths on every face on a surface is bounded, when the edges in $G_P$ are coloured from \cref{thm:planar_graph__be_mono_paths}, and the nonplanar edges are coloured in the same way as \cref{lem:planar_nonplanar_orientable}. Recall a loop $\gamma$ is \textit{null-homotopic} if $\gamma$ is homotopy equivalent to a constant loop, and \textit{nontrivial} if this is not the case. 
 \begin{lemma}\label{lem:orientable_facial_walks}
-	Let \(\Sigma \) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be an arbitrary set of nontrivial, non-intersecting loops that start and end at \(x_0\) on \(\Sigma \). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma - L\), such that each \(F_i\) is homeomorphic to a disk. Let $G$ be the graph with vertex set $\{x_0 \}$ and vertex set $L$. Then the length of the facial walk for every \(F\) is at most \(2g\).
+	Let \(\Sigma \) be a surface of Euler genus \(g\) and let \(x_0\) be a point on the surface. Then let \(L\) be an arbitrary set of nontrivial, non-intersecting loops that start and end at \(x_0\) on \(\Sigma \). Then let \(F_1, \ldots, F_j\) be faces on \(\Sigma - L\), such that each \(F_i\) is homeomorphic to a disk. Let $G$ be the graph with vertex set $\{x_0 \}$ and vertex set $L$. Then the length of the facial walk for all $F_1, \ldots, F_j$ is at most \(2g\).
 \end{lemma}
 
-Parts of the proof was motivated by a discussion with Corbin Reid. The proof given is a topological one.
+This is a simple topological proof.
 
 \begin{proof}
 	This proof uses the dual graph and a spanning tree to inductively add faces to a spanning disk. 
@@ -34,7 +34,7 @@ Parts of the proof was motivated by a discussion with Corbin Reid. The proof giv
 	so \(|F_2| \leq 2g\) and by symmetry so is \(|F_1|\).
 \end{proof}
 \begin{corollary}\label{corr:orientable_nonplanar_faces}
-	Let \(G\) be a graph embedded on a surface \(\Sigma\) with a planar-nonplanar decomposition and let \(F\) be a nonplanar face. Suppose \(G\) has Euler genus \(g\). Then \(F\) transitions between edges on the boundary of $G_p$ and nonplanar edges at most $4g$ times.
+	Let \(G\) be a graph embedded on a surface \(\Sigma\) with a planar-nonplanar decomposition $(G_P, E_N)$ and let \(F\) be a nonplanar face. Suppose \(G\) has Euler genus \(g\). Then \(F\) transitions between edges on the boundary of $G_p$ and nonplanar edges at most $4g$ times.
 \end{corollary}
 
 \begin{proof}
