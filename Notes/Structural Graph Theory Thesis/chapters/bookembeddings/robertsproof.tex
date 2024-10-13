@@ -2,10 +2,14 @@
 This section discusses tree-decompositions and book-embeddings of graphs where every component has a tree-decomposition. \textcite{hickingbothamStackNumberCliqueSum2023} proved that every graph with a tree-decomposition where every torso is embeddable on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. This proof can be seen as an extension of \cref{thm:bded_treewidth_bded_pagenumber}, where each torso has bounded pagenumber, rather than a bounded number of vertices. This proof is then applied to planar graphs, using a lemma that every planar graph has an embedding and tree-decomposition where every torso is either $K_{\leq 4}$ or a $4$-connected planar graph. 
 
 This section proves that every graph with a tree-decomposition where every torso can be embedded on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. 
-
+A rooted tree $(T, r)$ is a tree with $r$ as a root vertex. A \textit{rooted tree-decomposition} $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node. 
 \begin{theorem}[By \textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let \(G\) be a graph with a rooted tree-decomposition \(((T, r), (B_x)_x)\). Suppose every torso \(G \langle B_x \rangle\) can be embedded on \(s\) pages and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
-	Then $G$ can be embedded on \( cs + \ell \) pages. Let this book-embedding be $(<, \psi)$. Let $G\langle B_x \rangle$ be embedded on $(<_x, \psi_x)$, with parent $B_y$. Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except the adhesion set $B_x \cap B_y$ where $|B_x \cap B_y|\ell$ is moved to the start of the book-embedding, and each vertex in $B_x \cap B_y$ are given at most $\ell$ new colours. Furthermore, if $\ell = 1$, then $<|_{B_x} = <$ up to a circular ordering.
+	Then $G$ can be embedded on \( cs + \ell \) pages. Let this book-embedding be $(<, \psi)$. Let $G\langle B_x \rangle$ be embedded on $(<_x, \psi_x)$, with parent $B_y$. 
+	
+	Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except the adhesion set $B_x \cap B_y$ where $|B_x \cap B_y|\ell$ is moved to the start of the book-embedding, and each vertex in $B_x \cap B_y$ are given at most $\ell$ new colours. 
+	
+	Furthermore, if the adhesion set $B_x \cap B_y$ is consecutive in $<_x$, then $<_x = <$ up to a circular ordering.
 \end{theorem}
 
 To prove\cref{thm:clique_sum_pagenumber_bound}, the hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that induction can be applied, (\cref{lem:Hickingbotham_Lemma}) Then given a tree-decomposition, a leaf is removed. Then induction is done on the rest of the tree. Finally, the leaf is added back in so that the stronger induction hypothesis can be shown to hold. 
@@ -14,21 +18,21 @@ Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a v
 
 \cref{lem:Hickingbotham_Lemma} is a strengthening of \cref{thm:clique_sum_pagenumber_bound} in the case that the tree-decomposition of $G$ is a single bag. The reason for the strengthening is to apply the induction hypothesis.
 \begin{lemma}\label{lem:Hickingbotham_Lemma}
-	Let \(G\) be an $s$-page embeddable, $c$-colourable graph. Let $C$ be a clique in $G$ with an ordering \(\sigma_C\), and $|C| \leq \ell$. There exists a \(cs + \ell\)-page layout \((\leq, \psi)\) of \(G\) where:
+	Let \(G\) be an $s$-page embeddable, $c$-colourable graph, with book-embedding \((\leq_a, \psi_a)\). Let $C$ be a clique in $G$ with an ordering \(\sigma_C\), and $|C| \leq \ell$. There exists a \(cs + \ell\)-page layout \((\leq, \psi)\) of \(G\) where:
 	\begin{enumerate}
 		\item The vertex ordering has the structure \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 		\item For every \(u \in V(C)\), the edges \(\lbrace uv \in E(G) : u \leq v \rbrace\) are a monochromatic star.
 		\item For every clique \(J\), the last vertex of \(J\) is a rainbow-vertex.
 	\end{enumerate}
 
-	If $\ell = 1$, then the circular ordering is maintained. 
+	If $C$ is consecutive in $\leq_a$, then $\leq_a = \leq$ up to a circular ordering.
 \end{lemma}
 \begin{proof}
-	Let \((\leq_a, \psi_a)\) be an \(s\)-page layout of \(G\) and let \(\rho: V(G) \rightarrow [c]\) be a proper colouring of \(V(G)\).
+	Let \(\rho: V(G) \rightarrow [c]\) be a proper colouring of \(V(G)\).
 
 	Let \(u_1, \ldots, u_k\) be the vertices of \(C\) ordered by \(\sigma_C\). Note that \(k \leq \ell\). Then the new ordering starts with \(u_1 \leq u_2 \leq \ldots, \leq u_k\), and all vertices not in \(K\) are placed after, according to \(\leq_a\).
 
-	If $\ell = 1$, then rotate the linear ordering so that the vertex $v$ where $\{v\} = C$ is at the start of the ordering. 
+	If $C$ is consecutive in $\leq_a$, then $C$ is at the start of the ordering. 
 
 	The edge-colouring \(\psi\) is defined as follows. For every edge \(u_i v\) where \(u_i \in V(C)\) and \(u_i \leq v\), \(\psi(u_i v) = i\). If neither \(u\) nor \(v\) are in \(V(C)\), and \(u \leq v\), then let \(\psi(uv) = (\rho(u), \psi_a(uv))\). Then this edge-colouring requires \(|\rho| |\psi_a| + k \leq cs + \ell\) pages.
 
@@ -38,9 +42,13 @@ Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a v
 \end{proof}
 
 \begin{theorem}[\textcite{hickingbothamStackNumberCliqueSum2023}]
-	Suppose a graph \(G\) has a tree-decomposition \((T, (B_x)_x)\) with torsos \(G \langle B_x \rangle\) and adhesion at most \(\ell\). Suppose that for every torso $G\langle B_x \rangle$, \(\pn(G\langle B_x \rangle) \leq s\) and \(\chi(G\langle B_x \rangle) \leq c\). Then \(G\) can be embedded on \(cs + \ell\) pages.
+	Suppose a graph \(G\) has a rooted tree-decomposition \(((T,r), (B_x)_x)\) with torsos \(G \langle B_x \rangle\) and adhesion at most \(\ell\). Suppose that for every torso $G\langle B_x \rangle$, \(\pn(G\langle B_x \rangle) \leq s\) and \(\chi(G\langle B_x \rangle) \leq c\). Then \(G\) can be embedded on \(cs + \ell\) pages.
 
-	Furthermore, if $\ell = 1$, then the circular ordering of every torso is maintained.
+	Let this book-embedding be $(<, \psi)$. Let $G\langle B_x \rangle$ be embedded on $(<_x, \psi_x)$, with parent $B_y$. 
+	
+	Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except the adhesion set $B_x \cap B_y$ where $|B_x \cap B_y|\ell$ is moved to the start of the book-embedding, and each vertex in $B_x \cap B_y$ are given at most $\ell$ new colours. 
+	
+	Furthermore, if the adhesion set $B_x \cap B_y$ is consecutive in $<_x$, then $<_x = <$ up to a circular ordering.
 \end{theorem}
 Order the nodes \(v_0, \ldots, v_k\) in $T$ with respect to a breath-first search. Let $B_i = B_{v_i}$. 
 A breadth-first search maintains the property that for each \(i\), \(T[v_0, \ldots, v_{i}]\) is a tree and \(v_i\) is a leaf in \(T[v_0, \ldots, v_{i}]\).
