@@ -447,6 +447,11 @@ If a PL knot has genus 0, then the fundamental longitude bounds a disk. Then thi
 
 
 \section{11}
+\setkeys{Gin}{width=1cm}
+\newcommand{\RIIcross}{\includegraphics{Figures/Crossings/R2cross.png}}
+\newcommand{\RIIItop}{\includegraphics{Figures/Crossings/R3top.png}}
+\newcommand{\RIIIbottom}{\includegraphics[angle = 180]{Figures/Crossings/R3top.png}}
+
 
 \subsection{4}
 
@@ -455,12 +460,20 @@ Firstly, $P$ is always invariant under ambient isotopy. When the knot diagram is
 If $P$ is invariant under Reidermeister II moves and ambient isotopy, $P$ is invariant under Reidermeister III moves. 
 
 This is because of the following:
+\begin{align*}
+    P(\RIIItop) &= P(\RIIIbottom)\\
+    &= f(A)P(\includegraphics{Figures/Crossings/R3Ares.png}) + g(A)P(\includegraphics{Figures/Crossings/R3Bres.png})\\
+    &= f(A)P(\includegraphics[angle = 180]{Figures/Crossings/R3Ares.png}) + g(A)P(\includegraphics[angle = 180]{Figures/Crossings/R3Bres.png})\\
+    &=P(\RIIIbottom)
+\end{align*}
+where the third step comes from applying Reidermeister II moves and the ambient isotopy relation.
 
 
 Now $P$ is invariant under Reidermeister II moves if and only if $fg = 1$ and $h = -f^2 - g^2$. 
 
-This is because:
-
+\begin{align}
+    P(\RIIcross) &= 
+\end{align}
 
 Therefore, $P$ is invariant under ambient isotopy, Reidermeister II and III moves if and only if $fg = 1$ and $h = -f^2 - g^2$. 
 
