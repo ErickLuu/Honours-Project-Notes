@@ -492,5 +492,23 @@ Exercise 6 implies that if a knot $K$ is amphichiral, then $V(K)(t) = V(K)(t^{-1
 
 The left trefoil has Jones polynomial $-t^{-4} + t^{-3} + t^{-1}$, and $t \mapsto t^{-1}$ is a different polynomial. Therefore, the left trefoil is not amphichiral.
 
+\subsection{7}
 
+First, we want to show that $w(K_1 \# K_2) = w(K_1) + w(K_2)$ and $\langle K_1 \# K_2 \rangle = \langle K_1 \rangle\langle K_2 \rangle$. If this holds, then \[(-A)^{-3w(K_1 \# K_2)} \langle K_1 \# K_2 \rangle = (-A)^{-3w(K_1)} \langle K_1 \rangle (-A)^{-3w(K_2)} \langle K_2 \rangle,\] which implies that $V(K_1 \# K_2) = V(K_1) V(K_2)$ by setting $t^{1/2} = A^{-2}$. 
+
+Firstly, $w(K_1 \# K_2) = w(K_1) + w(K_2)$ since every crossing in $w(K_1 \# K_2)$ is either in $K_1$ or $K_2$, so the writhe number is additive. 
+
+We have from the sum of states formula that:
+\[\langle K_1 \# K_2\rangle = \sum_{s}\left[A^{d(s)}(-A^2 - A^{-2})^{|s| - 1} \right],\] where $d(s)$ is the sum of $A - B$ turns for each crossing and $|s|$ are the number of disjoint circles at the end. 
+
+We can decompose every state $s$ into two substates $s_1, s_2$ where $s_1$ are on crossings in $K_1$ and $s_2$ are on crossings in $K_2$. Each $s_1$ is paired with an $s_2$ to form all $s$, and in fact every combination of $s_1$ and $s_2$ appears exactly once. Secondly, since $d(s)$ counts the number of $A - B$ crossings, $d(s) = d(s_1) + d(s_2)$. Finally, the number of disjoint circles of $s_1$ and $s_2$ is equal to $s$ except that two circles, one from $K_1$ and one from $K_2$ are linked together from the connected sum operation. Then $|s| = |s_1| + |s_2| - 1$. So
+
+\begin{align*}
+    \langle K_1 \# K_2\rangle &= \sum_{s}\left[A^{d(s)}(-A^2 - A^{-2})^{|s| - 1} \right]\\
+    &= \sum_{s_1 + s_2}\left[A^{d(s_1) + d(s_2)}(-A^2 - A^{-2})^{|s_1|- 1 + |s_2| - 1} \right]\\
+    &= \sum_{s_1 + s_2}\left[A^{d(s_1)}(-A^2 - A^{-2})^{|s_1|- 1} \right] \left[A^{d(s_2)}(-A^2 - A^{-2})^{|s_2|- 1} \right]\\
+    &= \sum_{s_1}\left[A^{d(s_1)}(-A^2 - A^{-2})^{|s_1|- 1} \right] \sum_{s_2}\left[A^{d(s_2)}(-A^2 - A^{-2})^{|s_2|- 1} \right]\\
+    &= \langle K_1 \rangle \langle K_2 \rangle
+\end{align*}
+Therefore,  $V(K_1 \# K_2) = V(K_1) V(K_2)$.
 \end{document}
