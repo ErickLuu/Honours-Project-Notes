@@ -1,11 +1,14 @@
 \subsection{Bounding the number of pages of a planar graph}
 This subsection uses \cref{lem:planar_graphs_4_connected_cliqesums} and \cref{thm:clique_sum_pagenumber_bound} to find a book-embedding of planar graphs. This book-embedding is different from the one provided by \textcite{yannakakisEmbeddingPlanarGraphs1989} as it does not require a planar triangulation. Because of this fact, this proof is used in future sections with respect to adding vortices on faces. 
 
-Firstly, \textcite{tutteTheoremPlanarGraphs1956} proves an important theorem regarding $4$-connected planar graphs.
+Firstly, \textcite{tutteTheoremPlanarGraphs1956} proves every $4$-connected planar graph is Hamiltonian.
 
-\begin{theorem}[\textcite{tutteTheoremPlanarGraphs1956}]\label{thm:4-connected_planar_ham_cycle}
-	Every 4-connected planar graph is Hamiltonian.
+In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}. A graph $G$ is Hamiltonian-connected if for all edges $xy \in E(G)$, there is a Hamiltonian path that goes through $xy$. 
+
+\begin{theorem}[\textcite{thomassenTheoremPathsPlanar1983}]\label{thm:4-connected_planar_ham_cycle}
+	Every 4-connected planar graph is Hamiltonian-connected.
 \end{theorem}
+
 
 \cref{thm:4-connected_planar_ham_cycle} is used to prove \cref{thm:Planar Graph Hickingbotham Bound}. A \textit{facial walk} is a sequence of edges \(e_1, \ldots, e_n\) that bound a face such that \(e_i\) is incident to \(e_{i + 1}\) modulo \(n\) for every \(i\). The length of the facial walk is \(n\).
 

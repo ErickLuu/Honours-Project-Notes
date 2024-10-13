@@ -446,6 +446,51 @@ The figure eight knot has presentation
 If a PL knot has genus 0, then the fundamental longitude bounds a disk. Then this means that $\pi_1(S^3 - K)$ is $\mathbb{Z}$ because we can generate $\pi_1$ with only the fundamental longitude. Then the knot is the unknot. Not for link. See subsection 2.
 
 
+\section{11}
+
+\subsection{4}
+
+Firstly, $P$ is always invariant under ambient isotopy. When the knot diagram is moved around, the crossings do not change and the underlying $4$-valent graphs stay the same. Therefore, the properties of $P$ are the same.  
+
+If $P$ is invariant under Reidermeister II moves and ambient isotopy, $P$ is invariant under Reidermeister III moves. 
+
+This is because of the following:
+
+
+Now $P$ is invariant under Reidermeister II moves if and only if $fg = 1$ and $h = -f^2 - g^2$. 
+
+This is because:
+
+
+Therefore, $P$ is invariant under ambient isotopy, Reidermeister II and III moves if and only if $fg = 1$ and $h = -f^2 - g^2$. 
+
+\subsection{5}
+
+We want to show that \[(-A)^{-3w(L \sqcup O)} \langle L \sqcup O \rangle = (-A)^{-3w(L)}(-A^{-2} - A^2)\langle L \rangle\] If this is the case, then setting $t^{1/2} = A^{-2}$ yields $V(L \sqcup O) = (-t^{-1/2} - t^{1/2}) V(L)$.
+
+Firstly, $w(L \sqcup O) = w(L) + w(O)$, as these knots are disjoint. Then $w(O) = 0$ as there are no crossings in $O$. So $w(L \sqcup O) = w(L)$. Next, \[\langle L \sqcup O \rangle = (-A^{-2} - A^2)\langle L \rangle.\] So \[(-A)^{-3w(L \sqcup O)} \langle L \sqcup O \rangle = (-A)^{-3w(L)}(-A^{-2} - A^2)\langle L \rangle.\]
+
+\subsection{6}
+
+We want to show that \[(-A)^{-3w(L^*)}\langle L^* \rangle(A) = (-A)^{3w(L)}\langle L \rangle(A^{-1}).\] If this is the case, then substituting $t^{1/2} = A^{-2}$ yields $V(L^*)(t) = V(L)(t^{-1})$. 
+
+Firstly, $w(L^*) = -w(L)$. This is because the arrows now go the opposite direction on each crossing. 
+
+Next, $\langle L^* \rangle(A) = \langle L \rangle(A^{-1})$. We prove this by induction.
+For the base case, if $L$ is the unknot, the $L^*$ is also the unknot so $\langle L^* \rangle(A) = \langle L \rangle(A^{-1}) = 1$. If there is a disjoint unknot, then flipping the link keeps the unknot disjoint. Assume for the induction hypothesis that $\langle L^* \rangle(A) = \langle L \rangle(A^{-1})$, and the knot we are working with is $L \sqcup O$. Then
+\[\langle L \sqcup O \rangle(A^{-1}) = (-A^2 - A^{-2}) \langle L \rangle(A^{-1}) = (-A^2 - A^{-2}) \langle L^* \rangle(A) = \langle O \sqcup L^* \rangle(A).\]
+This is because $(-A^2 - A^{-2})$ is symmetric when $A \mapsto A^{-1}$.
+
+Finally, if $L$ has a crossing, then the crossing goes the other way in $L^*$. So \[\langle L \rangle(A^{-1}) = A^{-1} \langle \text{left turn} \rangle(A^{-1}) + A \langle \text{right turn} \rangle(A^{-1}).\] By induction, \[\langle \text{left turn} \rangle(A^{-1}) = \langle \text{left turn}^* \rangle(A)\]
+and  \[\langle \text{right turn} \rangle(A^{-1}) = \langle \text{right turn}^* \rangle(A).\]
+But in $L^*$, the left and right turns are swapped, so \[\langle L^{*} \rangle(A) = A \langle \text{right turn}^* \rangle(A) + A^{-1} \langle \text{left turn}^* \rangle(A) = A \langle \text{right turn} \rangle(A^{-1}) + A^{-1} \langle \text{left turn} \rangle(A^{-1}) = \langle L \rangle(A^{-1}).\]
+
+Then by induction, $(-A)^{-3w(L^*)}\langle L^* \rangle(A) = (-A)^{3w(L)}\langle L \rangle(A^{-1})$, so $V(L^*)(t) = V(L)(t^{-1})$. 
+
+\subsection{7}
+Exercise 6 implies that if a knot $K$ is amphichiral, then $V(K)(t) = V(K)(t^{-1})$. 
+
+The left trefoil has Jones polynomial $-t^{-4} + t^{-3} + t^{-1}$, and $t \mapsto t^{-1}$ is a different polynomial. Therefore, the left trefoil is not amphichiral.
 
 
 \end{document}
