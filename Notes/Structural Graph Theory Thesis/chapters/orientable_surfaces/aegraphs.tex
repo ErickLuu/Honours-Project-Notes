@@ -68,7 +68,7 @@ This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying 
 \end{lemma}
 \begin{proof}
 	The proof given is similar to the one in \cref{lem:preserved_faces_pagenumber}. 
-	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. For each vertex \(v\) in \(G\), let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. Colour the edges like so:
+	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. For each vertex \(v\) in \(G\), let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. An example is in \cref{fig:preserving_pages}. Colour the edges like so:
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
@@ -77,7 +77,7 @@ This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying 
 		\end{cases}
 	\end{equation}
 
-	Then if two edges cross in the book-embedding, then they have different colours. If two edges cross, then that implies that in a book-embedding of the path \(P\) with \((B_1, \ldots, B_n)\) added in like \cref{lem:preserved_faces_pagenumber}, then they will cross as well. Two examples are given in \cref{fig:preserving_pages}.
+	Then if two edges cross in the circular book-embedding, then they have different colours. Suppose that there are edges $vw$ and $pq$, and $c(vw) = c(pq)$.  Suppose without loss of generality that $\sigma(v) < \sigma(w) < \sigma(p) \leq \sigma(q)$. Consider the edge $x_{\sigma(w)-1} x_{\sigma(w)}$. This edge splits the one-page circular embedding into two region $R_1$, $R_2$. Two things can happen with the sub-paths $P[x_1,x_{\sigma(w) - 1}]$ and $P[x_{\sigma(w)}, x_n]$. Either both subpaths are in the same region, or are in opposite regions. An example is given in \cref{fig:preserving_pages}. If both subpaths are on opposite paths, then $v,w$ are on the boundary of $R_1$, and $p, q$ are on the boundary of $R_2$. Therefore, $vw, pq$ do not cross. If both paths are on the same side, then $vw$ will not cross $pq$, as there is no way to cross the path from $x_1$ to $x_{\sigma(w) - 1}$ without also forcing the page to be non-monochromatic. Therefore, $vw$, $pq$ do not cross. 
 \end{proof}
 
 \begin{figure}[h!]
@@ -85,13 +85,13 @@ This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying 
 	\includesvg[pretex=\tiny, width = 0.8\textwidth]{figures/one_page_embedding.svg}
 	\caption[One-page decomposition]{Description of \cref{lem:one_page_decomposition}. \(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\).}\label{fig:preserving_pages}
 \end{figure}
-
+Having a one-page book-embedding of a path is useful because of the lemma above. The edge $x_{\sigma(w)-1} x_{\sigma(w)}$ splits the book-embedding into two regions. Therefore, we can force edges that are the same colour to not cross. 
 We now prove \cref{lem:vortices_mono_paths}.
 \begin{proof}
 	Use the path-decomposition on \(G'\) as the set \((B_1, \ldots , B_n)\) in proving \cref{lem:vortices_mono_paths}. Then apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, add on the faces in the exact order. Then the monochromatic paths are preserved in the ordering, and in fact from \cref{lem:one_page_decomposition}, they are bounded.
 \end{proof}
 \begin{lemma}\label{lem:Hamiltonian_preserved_faces}
-	Let \(G\) be a Hamiltonian planar graph with Hamiltonian cycle $C$ Then there exists a book-embedding $(\leq, \varphi)$ on two pages where every face of $G$ is preserved, and the circular ordering of $\leq$ is $C$.
+	Let \(G\) be a Hamiltonian planar graph with Hamiltonian cycle $C$. Then there exists a book-embedding $(\leq, \varphi)$ on two pages where every face of $G$ is preserved, and the circular ordering of $\leq$ is $C$.
 \end{lemma}
 
 \begin{proof}
@@ -116,10 +116,10 @@ Then this can be extended to every connected planar graph, adding a constant num
 	Now suppose $F$ has a cut vertex. Let $W$ be a facial walk of $F$, and suppose the sum times duplicate vertices appear is $n$. Suppose for all faces with walks with $n-1$ duplicate vertices, the lemma holds. Take a cut-vertex $v$ and look at the first and last time $v$ appears in $W$, call these positions $a, b$. Then let $W_1$ be the subwalk $W[a, b-1]$ and let $W_2$ be the subwalk of $W - W[a, b-1]$, removing $[a, b-1]$. Now both $W_1$ and $W_2$ bound subfaces of $F$. Then applying the inductive hypothesis, $W_1$ and $W_2$ have the decomposition above. Then there is a bag containing $v$ in the tree-decomposition of $W_1$ and $W_2$, so join the two bags. As $W_1$ and $W_2$ only have $v$ in common, then $w_1, w_2$ contain $w$. 
 \end{proof}
 
-We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where there is no cut-set of size 3.
+We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where every face has a bounded number of cut-sets of size 3 on its boundary. We conjecture that every planar graph can be embedded on a bounded number of pages with a bounded number of monochromatic paths on each face. 
 
 \begin{theorem}\label{thm:planar_graph__be_mono_paths}
-	Let \( G \) be a planar graph embedded in $\mathbb{R}^2$, with $k$ sets of graphs with adhesion $3$. Then $G$ can be embedded on 11 pages where every face has at most $8k$ monochromatic paths. 
+	Let \( G \) be a planar graph embedded in $\mathbb{R}^2$, with every face having at most $k$ cut-sets of size $3$ on every face. Then $G$ can be embedded on 11 pages where every face has at most $8k$ monochromatic paths. 
 \end{theorem}
 
 $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node. 
@@ -136,7 +136,18 @@ $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node.
 	No vertex in $S$ is a cut vertex, because that would imply from \cref{lem:planar_graphs_4_connected_cliqesums} that $|S| = 1$. Let $(<_x, \psi_x)$ be a two-page book-embedding of $G \langle B_x \rangle$, from \cref{lem:Hamiltonian_preserved_faces}. Now $F$ has a single monochromatic face.
 	From \cref{thm:4-connected_planar_ham_cycle}, there is a Hamiltonian cycle in $B_x$ with edge $ab$ on the cycle. From \cref{lem:Hamiltonian_preserved_faces}, this implies that $ab$ is consecutive on the cycle. From \cref{thm:clique_sum_pagenumber_bound}, this cycle is the same in $B_x$. If $ab$ is the boundary on a face $F$, then every face in $G[B_x \cup B_y]$ is contained in either $B_x$ or $B_y$. So every face is monochromatic. If $ab$ is a chord on a face $F$, $F$ lies in the subtree rooted at $B_x$ and $B_y$. Then $F$ can be coloured with a single monochromatic as we can cycle through colours of $B_x$ so that the colour of $F$ in $B_x$ and the colour of $F$ in $B_y$ matches. Then every face is preserved in the book-embedding. 
 
-	If $S = \{u,v,w\}$, and if $u$ appears on a face $F$, then no vertices are moved around. If $u,v$ appear on a face $F$, then the edge $uv$ is in $B_x$. Then there is a face $F'$ in $B_x$ with the edge $uv$ on its boundary so that $F'$ is a part of $F$. But this means that there is a monochromatic path from $u$ to $v$. In this book-embedding, $u,v,w$ are moved to the very front. Then the edges of $u,v,w$ break the preserved face at $F$ and $F'$. Only the edges that $u$ and $v$ is adjacent to change colours, meaning that the number of monochromatic paths at the end is $8$. Repeat for all cut-sets of size $3$ on the boundary of $F$, and as there are a bounded number of cutsets in $G$, then $F$ has $8k$ monochromatic paths.
+	If $S = \{u,v,w\}$, and if $u$ appears on a face $F$, then no vertices are moved around. If $u,v$ appear on a face $F$, then the edge $uv$ is in $B_x$. Then there is a face $F'$ in $B_x$ with the edge $uv$ on its boundary so that $F'$ is a part of $F$. But this means that there is a monochromatic path from $u$ to $v$. In this book-embedding, $u,v,w$ are moved to the very front. Then the edges of $u,v,w$ break the preserved face at $F$ and $F'$. Only the edges that $u$ and $v$ is adjacent to change colours, meaning that the number of monochromatic paths at the end is $8$. 
+	$u,v,w$ cannot all appear on a face $F$ as this implies that either $G$ is disconnected or there is a cutset of size $2$, breaking the condition that the cutsets are minimal. 
+	Repeat for all cut-sets of size $3$ on the boundary of $F$, and as there are a bounded number of cutsets in $G$, then $F$ has $8k$ monochromatic paths.
 
 \end{proof}	
-There is no restriction on the number of planar graphs with cut-sets of size $3$. There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated is unbounded.
+There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}.
+However, we conjecture that the only counterexamples are graphs with faces that look like \cref{fig:moved_vertices}, up to removing cut-sets of sizes $1$ and $2$. Notice how any two faces have at most two triangles in common, because if there were three triangles in common, there would be a cutset of size two. We conjecture that there is a way to apply \textcite{thomassenTheoremPathsPlanar1983} to only have one vertex out of the cutset $C$ to be moved out of position, and that every face has a bounded number of monochromatic paths. 
+
+
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/counterexample.svg}
+	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ with faces that require an unbounded number of vertices. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected components, with cut-sets the green vertices on the ends. Let $F$ be a face. $F$ can have an unbounded number of blue components on its boundary. The number of faces touching a particular blue component is at least three, so there may be some face with an unbounded number of monochromatic paths.}\label{fig:moved_vertices}
+\end{figure}
