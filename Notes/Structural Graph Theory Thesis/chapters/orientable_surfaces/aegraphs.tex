@@ -68,7 +68,7 @@ This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying 
 \end{lemma}
 \begin{proof}
 	The proof given is similar to the one in \cref{lem:preserved_faces_pagenumber}. 
-	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. For each vertex \(v\) in \(G\), let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. Colour the edges like so:
+	Suppose \(G\) has the structure as described in \cref{lem:vortices_mono_paths}. For each vertex \(v\) in \(G\), let \(\sigma(v)\) be the index of the first bag \(v\) appears in. Then in the book-embedding of \(G\), place all bags of \(v_i\) after \(x_i\) in the book-embedding, following the orientation of the path with the book-embedding. An example is in \cref{fig:preserving_pages}. Colour the edges like so:
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
@@ -77,7 +77,7 @@ This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying 
 		\end{cases}
 	\end{equation}
 
-	Then if two edges cross in the book-embedding, then they have different colours. If two edges cross, then that implies that in a book-embedding of the path \(P\) with \((B_1, \ldots, B_n)\) added in like \cref{lem:preserved_faces_pagenumber}, then they will cross as well. Two examples are given in \cref{fig:preserving_pages}.
+	Then if two edges cross in the circular book-embedding, then they have different colours. Suppose that there are edges $vw$ and $pq$, and $c(vw) = c(pq)$.  Suppose without loss of generality that $\sigma(v) < \sigma(w) < \sigma(p) \leq \sigma(q)$. Consider the edge $x_{\sigma(w)-1} x_{\sigma(w)}$. This edge splits the one-page circular embedding into two region $R_1$, $R_2$. Two things can happen with the sub-paths $P[x_1,x_{\sigma(w) - 1}]$ and $P[x_{\sigma(w)}, x_n]$. Either both subpaths are in the same region, or are in opposite regions. An example is given in \cref{fig:preserving_pages}. If both subpaths are on opposite paths, then $v,w$ are on the boundary of $R_1$, and $p, q$ are on the boundary of $R_2$. Therefore, $vw, pq$ do not cross. If both paths are on the same side, then $vw$ will not cross $pq$, as there is no way to cross the path from $x_1$ to $x_{\sigma(w) - 1}$ without also forcing the page to be non-monochromatic. Therefore, $vw$, $pq$ do not cross. 
 \end{proof}
 
 \begin{figure}[h!]
@@ -91,7 +91,7 @@ We now prove \cref{lem:vortices_mono_paths}.
 	Use the path-decomposition on \(G'\) as the set \((B_1, \ldots , B_n)\) in proving \cref{lem:vortices_mono_paths}. Then apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, add on the faces in the exact order. Then the monochromatic paths are preserved in the ordering, and in fact from \cref{lem:one_page_decomposition}, they are bounded.
 \end{proof}
 \begin{lemma}\label{lem:Hamiltonian_preserved_faces}
-	Let \(G\) be a Hamiltonian planar graph with Hamiltonian cycle $C$ Then there exists a book-embedding $(\leq, \varphi)$ on two pages where every face of $G$ is preserved, and the circular ordering of $\leq$ is $C$.
+	Let \(G\) be a Hamiltonian planar graph with Hamiltonian cycle $C$. Then there exists a book-embedding $(\leq, \varphi)$ on two pages where every face of $G$ is preserved, and the circular ordering of $\leq$ is $C$.
 \end{lemma}
 
 \begin{proof}
@@ -113,7 +113,7 @@ Then this can be extended to every connected planar graph, adding a constant num
 \begin{proof}
 	Suppose the facial walk of $F$ is a cycle $C$. Then there are no cut-vertices, so $C$ is a valid cycle.
 
-	Now suppose $F$ has a cut vertex.Let $W$ be a facial walk of $F$, and suppose the sum times duplicate vertices appear is $n$. Suppose for all faces with walks with $n-1$ duplicate vertices, the lemma holds. Take a cut-vertex $v$ and look at the first and last time $v$ appears in $W$, call these positions $a, b$. Then let $W_1$ be the subwalk $W[a, b-1]$ and let $W_2$ be the subwalk of $W - W[a, b-1]$, removing $[a, b-1]$. Now both $W_1$ and $W_2$ bound subfaces of $F$. Then applying the inductive hypothesis, $W_1$ and $W_2$ have the decomposition above. Then there is a bag containing $v$ in the tree-decomposition of $W_1$ and $W_2$, so join the two bags. As $W_1$ and $W_2$ only have $v$ in common, then $w_1, w_2$ contain $w$. 
+	Now suppose $F$ has a cut vertex. Let $W$ be a facial walk of $F$, and suppose the sum times duplicate vertices appear is $n$. Suppose for all faces with walks with $n-1$ duplicate vertices, the lemma holds. Take a cut-vertex $v$ and look at the first and last time $v$ appears in $W$, call these positions $a, b$. Then let $W_1$ be the subwalk $W[a, b-1]$ and let $W_2$ be the subwalk of $W - W[a, b-1]$, removing $[a, b-1]$. Now both $W_1$ and $W_2$ bound subfaces of $F$. Then applying the inductive hypothesis, $W_1$ and $W_2$ have the decomposition above. Then there is a bag containing $v$ in the tree-decomposition of $W_1$ and $W_2$, so join the two bags. As $W_1$ and $W_2$ only have $v$ in common, then $w_1, w_2$ contain $w$. 
 \end{proof}
 
 We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where every face has a bounded number of cut-sets of size 3 on its boundary.
