@@ -450,7 +450,14 @@ If a PL knot has genus 0, then the fundamental longitude bounds a disk. Then thi
 \setkeys{Gin}{width=1cm}
 \newcommand{\RIIcross}{\includegraphics{Figures/Crossings/R2cross.png}}
 \newcommand{\RIIItop}{\includegraphics{Figures/Crossings/R3top.png}}
-\newcommand{\RIIIbottom}{\includegraphics[angle = 180]{Figures/Crossings/R3top.png}}
+\newcommand{\RIIIbottom}{\raisebox{5pt}{\includegraphics[angle = 180]{Figures/Crossings/R3top.png}}}
+\newcommand{\Kcross}{\includegraphics[width = 0.5cm]{Figures/Crossings/crossing.png}}
+\newcommand{\Kcrossreflect}{\reflectbox{\includegraphics[width = 0.5cm]{Figures/Crossings/crossing.png}}}
+
+\newcommand{\ARes}{\raisebox{-5pt}{\includegraphics[width = 0.8cm]{Figures/Crossings/A_res.png}}}
+\newcommand{\BRes}{\includegraphics[width = 0.5cm]{Figures/Crossings/B_res.png}}
+\newcommand{\plusOne}{\includesvg[width = 0.5cm]{Figures/Crossings/arrow_crossing.svg}}
+\newcommand{\minusOne}{\reflectbox{\includesvg[width = 0.5cm]{Figures/Crossings/arrow_crossing.svg}}}
 
 
 \subsection{4}
@@ -461,9 +468,8 @@ If $P$ is invariant under Reidermeister II moves and ambient isotopy, $P$ is inv
 
 This is because of the following:
 \begin{align*}
-    P(\RIIItop) &= P(\RIIIbottom)\\
-    &= f(A)P(\includegraphics{Figures/Crossings/R3Ares.png}) + g(A)P(\includegraphics{Figures/Crossings/R3Bres.png})\\
-    &= f(A)P(\includegraphics[angle = 180]{Figures/Crossings/R3Ares.png}) + g(A)P(\includegraphics[angle = 180]{Figures/Crossings/R3Bres.png})\\
+    P(\RIIItop) &= f(A)P(\raisebox{-5pt}{\includegraphics{Figures/Crossings/R3Ares.png}}) + g(A)P(\raisebox{-5pt}{\includegraphics{Figures/Crossings/R3Bres.png}})\\
+    &= f(A)P(\raisebox{10pt}{\includegraphics[angle = 180]{Figures/Crossings/R3Ares.png}}) + g(A)P(\raisebox{10pt}{\includegraphics[angle = 180]{Figures/Crossings/R3Bres.png}})\\
     &=P(\RIIIbottom)
 \end{align*}
 where the third step comes from applying Reidermeister II moves and the ambient isotopy relation.
@@ -471,9 +477,14 @@ where the third step comes from applying Reidermeister II moves and the ambient 
 
 Now $P$ is invariant under Reidermeister II moves if and only if $fg = 1$ and $h = -f^2 - g^2$. 
 
-\begin{align}
-    P(\RIIcross) &= 
-\end{align}
+\begin{align*}
+    P(\RIIcross) &= f(A)P(\includegraphics{Figures/Crossings/R2Ares.png}) + g(A) P(\includegraphics{Figures/Crossings/R2Bres.png})\\
+    &= f(A)\left(f(A)P(\ARes) + g(A) P(\raisebox{-5pt}{\includesvg[width = 0.8cm]{Figures/Crossings/R2djcircle.svg}})\right) + g(A)\left(f(A) P(\BRes) + g(A)P(\ARes)\right)\\
+    &=f(A)\left(f(A)P(\ARes) + g(A) h(A) P(\ARes)\right) + g(A)\left(f(A) P(\BRes) + g(A)P(\ARes)\right)\\
+    &= g fP(\BRes) +(f^2 + fgh + g^2) P(\ARes)
+\end{align*}
+
+Since $P$ is a polynomial,$g fP(\BRes) +(f^2 + fgh + g^2) P(\ARes) = P(\BRes)$ if and only if $gf = 1$ and $f^2 + h + g^2 = 0$. Then $h = -f^2 - g^2$.
 
 Therefore, $P$ is invariant under ambient isotopy, Reidermeister II and III moves if and only if $fg = 1$ and $h = -f^2 - g^2$. 
 
@@ -487,23 +498,21 @@ Firstly, $w(L \sqcup O) = w(L) + w(O)$, as these knots are disjoint. Then $w(O) 
 
 We want to show that \[(-A)^{-3w(L^*)}\langle L^* \rangle(A) = (-A)^{3w(L)}\langle L \rangle(A^{-1}).\] If this is the case, then substituting $t^{1/2} = A^{-2}$ yields $V(L^*)(t) = V(L)(t^{-1})$. 
 
-Firstly, $w(L^*) = -w(L)$. This is because the arrows now go the opposite direction on each crossing. 
+Firstly, $w(L^*) = -w(L)$. This is because for every crossing, \plusOne, which is $+1$ writhe becomes \minusOne, which is $-1$ writhe. 
 
 Next, $\langle L^* \rangle(A) = \langle L \rangle(A^{-1})$. We prove this by induction.
 For the base case, if $L$ is the unknot, the $L^*$ is also the unknot so $\langle L^* \rangle(A) = \langle L \rangle(A^{-1}) = 1$. If there is a disjoint unknot, then flipping the link keeps the unknot disjoint. Assume for the induction hypothesis that $\langle L^* \rangle(A) = \langle L \rangle(A^{-1})$, and the knot we are working with is $L \sqcup O$. Then
 \[\langle L \sqcup O \rangle(A^{-1}) = (-A^2 - A^{-2}) \langle L \rangle(A^{-1}) = (-A^2 - A^{-2}) \langle L^* \rangle(A) = \langle O \sqcup L^* \rangle(A).\]
 This is because $(-A^2 - A^{-2})$ is symmetric when $A \mapsto A^{-1}$.
 
-Finally, if $L$ has a crossing, then the crossing goes the other way in $L^*$. So \[\langle L \rangle(A^{-1}) = A^{-1} \langle \text{left turn} \rangle(A^{-1}) + A \langle \text{right turn} \rangle(A^{-1}).\] By induction, \[\langle \text{left turn} \rangle(A^{-1}) = \langle \text{left turn}^* \rangle(A)\]
-and  \[\langle \text{right turn} \rangle(A^{-1}) = \langle \text{right turn}^* \rangle(A).\]
-But in $L^*$, the left and right turns are swapped, so \[\langle L^{*} \rangle(A) = A \langle \text{right turn}^* \rangle(A) + A^{-1} \langle \text{left turn}^* \rangle(A) = A \langle \text{right turn} \rangle(A^{-1}) + A^{-1} \langle \text{left turn} \rangle(A^{-1}) = \langle L \rangle(A^{-1}).\]
-
-Then by induction, $(-A)^{-3w(L^*)}\langle L^* \rangle(A) = (-A)^{3w(L)}\langle L \rangle(A^{-1})$, so $V(L^*)(t) = V(L)(t^{-1})$. 
+Finally,  \[\langle \Kcross \rangle(A^{-1}) = A^{-1} \langle \ARes \rangle(A^{-1}) + A \langle \BRes \rangle(A^{-1}).\] By induction, \[\langle \ARes \rangle(A^{-1}) = \langle \ARes^* \rangle(A)\]
+and  \[\langle \BRes \rangle(A^{-1}) = \langle \BRes^* \rangle(A).\]
+But if $L$ has \Kcross, then \Kcross becomes \Kcrossreflect in $L^*$. So in $L^*$, \ARes and \BRes are swapped, so \[\langle \Kcrossreflect \rangle(A) = A \langle \BRes^* \rangle(A) + A^{-1} \langle \ARes^* \rangle(A) = A \langle \BRes \rangle(A^{-1}) + A^{-1} \langle \ARes \rangle(A^{-1}) = \langle \Kcross \rangle(A^{-1}).\] Therefore, $\langle L^* \rangle(A) = \langle L \rangle(A^{-1})$. Finally, $(-A)^{-3w(L^*)}\langle L^* \rangle(A) = (-A)^{3w(L)}\langle L \rangle(A^{-1})$, so $V(L^*)(t) = V(L)(t^{-1})$. 
 
 \subsection{7}
 Exercise 6 implies that if a knot $K$ is amphichiral, then $V(K)(t) = V(K)(t^{-1})$. 
 
-The left trefoil has Jones polynomial $-t^{-4} + t^{-3} + t^{-1}$, and $t \mapsto t^{-1}$ is a different polynomial. Therefore, the left trefoil is not amphichiral.
+The right trefoil has Jones polynomial $-t^4 + t^3 + t$, from Lickorish (p 29). By exercise 6,  $t \mapsto t^{-1}$ is the Jones polynomial of the left trefoil, which is $-t^{-4} + t^{-3} + t^{-1}$. Therefore, the left trefoil is not amphichiral.
 
 \subsection{8}
 
