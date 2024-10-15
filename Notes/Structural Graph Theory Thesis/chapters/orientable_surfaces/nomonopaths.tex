@@ -8,9 +8,9 @@ We conjecture the following:
 	Given an $s$-page book-embedding $(<, \psi)$ of $P$, there exists an $f(s, k)$ book-embedding of $G$ that preserves the given book-embedding of $P$.
 \end{conjecture}
 
-If this conjecture holds, then it implies the following:
+If \cref{conj:fsk_be} holds, then it implies the following:
 
-\begin{corollary}
+\begin{corollary}\label{corr:fsk_be}
 	Let $G$ be a graph, where $G = G_0 \cup G_1 \cup \ldots \cup G_p$. $G_0$ is embedded on a surface $\Sigma$ with Euler genus $g$, and $G_i$ is a vortex on $G_0$ on a face $F_i$ of width $k$. If every graph embedded on $\Sigma$ has a book-embedding on $s$ pages, there exists a $p f$ book-embedding of $G$, where $f = f(s, k)$.
 \end{corollary}
 
@@ -24,5 +24,7 @@ If this conjecture holds, then it implies the following:
 
 	Then repeat for every vortex. The number of pages needed to embed every vortex is $p f$ where $f = f(s, k)$. 
 \end{proof}
+
+This implies \cref{conj:bded_had_pn} in the case when $\Sigma$ is an orientable surface or projective plane, through \cref{thm:apex_vertices_pagenumber} and \cref{thm:gmst}. 
 
 However, we have no evidence for or against \cref{conj:fsk_be}.
