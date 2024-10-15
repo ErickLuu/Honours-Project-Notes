@@ -36,11 +36,11 @@ This is a simple proof to bound the chromatic number of graphs of bounded treewi
 For a simpler example, consider the case when $T$ is a path. The proof given below is identical in spirit to \cref{thm:bded_treewidth_bded_pagenumber}, but omits many of the details specific to trees.
 
 \begin{theorem}\label{thm:pw_book_embedding}
-	Every graph \(G\) with \(\pw(G) \leq k\) can be embedded on $k + 1$ pages.
+	Every graph \(G\) with a path-decomposition $\{B_1, B_2, \ldots , B_n\}$ of width $k$ and a path $P = x_1, x_2, \ldots, x_n$ where $x_i \in B_i$ can be embedded on $k + 1$ pages. Furthermore, this embedding restricted to $P$ maintains the order of $P$.
 \end{theorem}
 
 \begin{proof}
-	Let $G$ have path-decomposition $\{B_1, B_2, \ldots , B_k\}$. For every vertex $v$, let $\sigma(v)$ be the smallest $i$ where $v \in B_i$. Colour each vertex so that in each bag, no two vertices are assigned the same colour. This is possible to do in $k+1$ colours as interval intersection graphs are perfect. Then colour edges where the edge $uv$ is given the colour of $u$ when $u < v$. Then $(\sigma, c)$ where $c$ is the edge colouring is a proper book-embedding. If two edges $uv$, $xy$ cross and $u < x < v < y$, then $u,v$ is in some bag $B$. But as $x$ is a subpath, and is between $u$ and $v$, then $x$ is also in the same bag as $uv$. So $u,x,v$ are in the same bag. But then $uv$ and $xy$ are given different colours. 
+	For every vertex $v$ not in $P$, let $h(v)$ be the smallest $i$ where $v \in B_i$. Let $C_i$ be the set containing all vertices where $h(v) = i$. The vertex ordering $<$ is $P$, but we place every vertex in $C_i$ after $x_i$. Colour each vertex so that in each bag, no two vertices are assigned the same colour. This is possible to do in $k+1$ colours as interval intersection graphs are perfect. Then colour edges where the edge $uv$ is given the colour of $u$ when $u < v$. Then this is a proper book-embedding. If two edges $uv$, $xy$ cross and $u < x < v < y$, then $u,v$ is in some bag $B$. But as $x$ is a subpath, and is between $u$ and $v$, then $x$ is also in the same bag as $uv$. So $u,x,v$ are in the same bag. But then $uv$ and $xy$ are given different colours. 
 \end{proof}
 
 \textcite{dujmovicGraphTreewidthGeometric2007} showed that when $k \leq 2$, every graph with treewidth $k$ can be embedded on $k$ pages. However, when $k \geq 3$, there exist graphs with treewidth $k$ that cannot be embedded on $k$ pages. Therefore, when $k \geq 3$, the bound by \textcite{ganleyPagenumberTrees2001} is tight. 

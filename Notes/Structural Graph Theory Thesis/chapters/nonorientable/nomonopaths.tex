@@ -43,16 +43,11 @@ However, the following proposition holds. Let $P$ be a path. A \textit{$k$-pertu
 \end{proposition}
 
 \begin{proof}
-	Let $Z_i$ be the set of vertices moved to the front of $P_i$. Let bag $B'_{i,j} = B_{i,j} \cup Z_i$ for all $i$. Then the bags $B'_{i,j}$ is a path-decomposition of $G$. Every edge in $G$ is in some bag by definition, and if $x \in A_i \cap A_j$, then $x$ must be in some bag in $B_{j, \cdot}$, so $x$ must be in all the bags from $B_{a, \cdot}$ to $B_{j, \cdot}$, as $G$ has an original path-decomposition.  
-	
-	Let $A_i$ be the subpath $P_i$ with $Z_i$ removed. 
+	Let $A_i$ be the set of vertices moved to the front of $P_i$, and let $D_i$ to be the set of vertices that are not moved in $P_i$. Then $P' = A_1 D_1 A_2 D_2 \ldots A_m D_m$. 
+	Let $v$ be a vertex in $G$ and let $h(v)$ be the first bag encountered in the path-decomposition that contains $v$.
+	Let $C_{i,j} = \{v \in V(G): h(v) = (i,j)\}$. Place $C_{i,j}$ after the vertex $x_{i,j}$ in $P'$ to form the linear ordering $<$.
 
-	Let $v$ be a vertex in some $A_i$. Let $h(v):= \min_i\left\{ v \in B_i \right\}$. The spanning subgraph $G[\cup A_i]$ has a path-decomposition \[(B_{1,1}, B_{1,2}, \ldots, B_{1,n_{1}}, \ldots, B_{m, n_{m}})\] minus vertices in $Z_i$, so there is a book-embedding of $G[\cup A_i]$ in $k + 1$ colours.
-	
-	Let $v_{i,a}$ be a vertex in some $A_i$. Let $h(v_{i,a}) := \min_i\left\{ w \in A_i \right\}$. Then colour $v_{i,a}$ so that $v_{i,a}$ is given a different colouring from any other vertex in $P_i$. So $(k + 1 + \ell)$ colours are used.
-
-
-	Let $P' = Z_1 A_1 \ldots Z_m A_m$. Let $\psi(vw)$ equal $\psi(v)$ if $v$ is before $w$ in $P'$. Then this book-embedding does not cross, as this is the same book-embedding as \cref{thm:pw_book_embedding}. Then the number of pages used is the number of colours used, which is $(k + 1 + \ell)$. 
+	Let a new path-decomposition of $G$ be \[B_{1,1} \cup A_1, B_{1,2} \cup A_1, \ldots B_{1, n_1} \cup A_1, B_{2,1} \cup A_2, \ldots, B_{2,n_2} \cup A_2.\] Then this is a real path-decomposition of $A_i$. Now $h(x)$ for $x \in A_i$ is ${i, 1}$. Place all the vertices in $h(x)$ at the very start of the book-embedding. Using \cref{thm:pw_book_embedding}, there is a book-embedding of $G$ on $(k + 1 + \ell)$ pages while respecting $P'$. 
 
 \end{proof}
 
@@ -64,10 +59,6 @@ Let $G$ be a plane graph and let $F$ be a face on $G$. The \textit{depth} of a f
 	\caption[Face of depth 3]{An example of a face of depth 3. Surrounding this face is the root torso, which is 4-connected. On the boundary of the face are 4-connected torsos with a cutset of size 3. The deepest a single cutset is, is 3 cutsets deep. Therefore, the face has depth 3 with respect to the outer root torso.}\label{fig:face_depth}
 \end{figure}
 
-\begin{proposition}
+\begin{conjecture}
 	Suppose $G = G_0 \cup G_1$. $G_0$ is embedded on a surface, $G_1$ is a vortex of width $\ell$ embedded on a face $F$ of depth $k$. If $G_0$ can be embedded on $s$ pages, then $G$ can be embedded on $f(\ell, s, k)$ pages.
-\end{proposition}
-
-\begin{proof}
-	Let 
-\end{proof}
+\end{conjecture}
