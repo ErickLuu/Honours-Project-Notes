@@ -55,3 +55,19 @@ However, the following proposition holds. Let $P$ be a path. A \textit{$k$-pertu
 	Let $P' = Z_1 A_1 \ldots Z_m A_m$. Let $\psi(vw)$ equal $\psi(v)$ if $v$ is before $w$ in $P'$. Then this book-embedding does not cross, as this is the same book-embedding as \cref{thm:pw_book_embedding}. Then the number of pages used is the number of colours used, which is $(k + 1 + \ell)$. 
 
 \end{proof}
+
+Let $G$ be a plane graph and let $F$ be a face on $G$. The \textit{depth} of a face $F$ is the highest stack of 3-connected torsos with respect to a fixed root torso $r$. An example of face-depth is in \cref{fig:face_depth}.
+
+\begin{figure}
+	\centering
+	\includesvg[width = 0.7\textwidth]{figures/face_depth.svg}
+	\caption[Face of depth 3]{An example of a face of depth 3. Surrounding this face is the root torso, which is 4-connected. On the boundary of the face are 4-connected torsos with a cutset of size 3. The deepest a single cutset is, is 3 cutsets deep. Therefore, the face has depth 3 with respect to the outer root torso.}\label{fig:face_depth}
+\end{figure}
+
+\begin{proposition}
+	Suppose $G = G_0 \cup G_1$. $G_0$ is embedded on a surface, $G_1$ is a vortex of width $\ell$ embedded on a face $F$ of depth $k$. If $G_0$ can be embedded on $s$ pages, then $G$ can be embedded on $f(\ell, s, k)$ pages.
+\end{proposition}
+
+\begin{proof}
+	Let 
+\end{proof}
