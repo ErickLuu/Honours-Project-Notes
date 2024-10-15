@@ -31,6 +31,27 @@ However, this is incorrect. Let $G$ be a graph with a path $(x_1, \ldots, x_{16}
 
 \begin{figure}[h!]
 	\centering
-	\includesvg[width = 0.7\textwidth]{figures/counterexample2.svg}
-	\caption[Counterexample to bounded number of colours]{A graph $G$ with a path $x_1, \ldots, x_{16}$ and a given embedding $x_1 x_5 x_9, \ldots, x_{16}, x_{12}, x_{8}, x_{4}$. Then we can force edges between bags to pairwise cross, breaking the condition that there are a bounded number of pages to embed this book}\label{fig:counterexample_2}
+	\includesvg[pretex = tiny, width = 0.7\textwidth]{figures/counterexample2.svg}
+	\caption[Counterexample to bounded number of colours]{A graph $G$ with a path $x_1, \ldots, x_{16}$ and a given embedding $x_1 x_5 x_9, \ldots, x_{16}, x_{12}, x_{8}, x_{4}$. Then we can force edges between bags to pairwise cross, breaking the condition that there are a bounded number of pages to embed this book.}\label{fig:counterexample_2}
 \end{figure}
+
+
+However, the following proposition holds. Let $P$ be a path. A \textit{$k$-perturbation} of $P$ is an operation that partitions $P$ into subpaths $P_1, \ldots, P_n$ and for every $P_i$, $k$ vertices are moved to the front of $P_i$. 
+
+\begin{proposition}
+	Let $G$ be a graph with a path $P = (P_1, P_2, \ldots, P_m)$ such that $P_i = (x_{i,1}, x_{i,2}, \ldots, x_{i, n_{i}})$ is a subpath of $P$. Suppose further $G$ has a path-decomposition \[(B_{1,1}, B_{1,2}, \ldots, B_{1,n_{1}}, \ldots, B_{m, n_{m}})\] such that $x_{i,j} \in B_{i,j}$ and $|B_{i,j}| \leq k$. Given any $\ell$-perturbation $P'$ of $P$, there is a $(k + 1 + \ell)$-page book-embedding of $G$ respecting $P'$.
+\end{proposition}
+
+\begin{proof}
+	Let $Z_i$ be the set of vertices moved to the front of $P_i$. Let bag $B'_{i,j} = B_{i,j} \cup Z_i$ for all $i$. Then the bags $B'_{i,j}$ is a path-decomposition of $G$. Every edge in $G$ is in some bag by definition, and if $x \in A_i \cap A_j$, then $x$ must be in some bag in $B_{j, \cdot}$, so $x$ must be in all the bags from $B_{a, \cdot}$ to $B_{j, \cdot}$, as $G$ has an original path-decomposition.  
+	
+	Let $A_i$ be the subpath $P_i$ with $Z_i$ removed. 
+
+	Let $v$ be a vertex in some $A_i$. Let $h(v):= \min_i\left\{ v \in B_i \right\}$. The spanning subgraph $G[\cup A_i]$ has a path-decomposition \[(B_{1,1}, B_{1,2}, \ldots, B_{1,n_{1}}, \ldots, B_{m, n_{m}})\] minus vertices in $Z_i$, so there is a book-embedding of $G[\cup A_i]$ in $k + 1$ colours.
+	
+	Let $v_{i,a}$ be a vertex in some $A_i$. Let $h(v_{i,a}) := \min_i\left\{ w \in A_i \right\}$. Then colour $v_{i,a}$ so that $v_{i,a}$ is given a different colouring from any other vertex in $P_i$. So $(k + 1 + \ell)$ colours are used.
+
+
+	Let $P' = Z_1 A_1 \ldots Z_m A_m$. Let $\psi(vw)$ equal $\psi(v)$ if $v$ is before $w$ in $P'$. Then this book-embedding does not cross, as this is the same book-embedding as \cref{thm:pw_book_embedding}. Then the number of pages used is the number of colours used, which is $(k + 1 + \ell)$. 
+
+\end{proof}
