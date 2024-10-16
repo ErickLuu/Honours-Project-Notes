@@ -26,13 +26,13 @@
      showguides="false"
      inkscape:zoom="2.0989207"
      inkscape:cx="327.31108"
-     inkscape:cy="247.03173"
-     inkscape:window-width="1920"
-     inkscape:window-height="1051"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:cy="247.03172"
+     inkscape:window-width="3440"
+     inkscape:window-height="1417"
+     inkscape:window-x="3832"
+     inkscape:window-y="112"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <inkscape:path-effect
@@ -268,13 +268,6 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <ellipse
-       style="fill:none;stroke-width:0;stroke:#000000;stroke-dasharray:none"
-       id="path1"
-       cx="116.94598"
-       cy="86.639854"
-       rx="62.751499"
-       ry="54.907562" />
     <circle
        style="fill:none;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
        id="path2"
@@ -481,17 +474,6 @@
        id="path19"
        inkscape:path-effect="#path-effect19"
        inkscape:original-d="m 47.060164,87.985824 c 28.288022,0.239363 56.576046,0.478729 84.864066,0.718092" />
-    <text
-       xml:space="preserve"
-       style="font-size:2.11666667px;font-family:Sans;-inkscape-font-specification:'Sans Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ff0000;stroke:#ff0000;stroke-width:0.2;stroke-dasharray:none;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal"
-       x="64.367088"
-       y="34.406361"
-       id="text19"><tspan
-         sodipodi:role="line"
-         id="tspan19"
-         style="stroke-width:0.2;font-size:2.11666667px;-inkscape-font-specification:'Sans Bold';font-family:Sans;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal"
-         x="64.367088"
-         y="34.406361" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.11667px;font-family:Sans;-inkscape-font-specification:'Sans Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.2;stroke-dasharray:none"
