@@ -1,10 +1,30 @@
 
-\begin{proposition}
-    Suppose $G$ is a graph with a path-decomposition \[X_1,(A_{1,i})_i, X_2,\ldots, X_n, (A_{n,i})_i,Z_n,(B_{n-1, i})_i, Z_{n-1}, (B_{n-1, i})_i, \ldots,(B_{1, i})_i Z_1\] where $(A_{s,i})_i$ is a subpath of bags. Furthermore, $|B_i|, |C_i|, |A_{s,i}| \leq k$ for all $i$. Suppose that this path-decomposition is rooted on \[P = x_1,(a_{1,i})_i, x_2,\ldots, x_n, (a_{n,i})_i,z_n,(b_{n-1, i})_i, z_{n-1}, (b_{n-1, i})_i, \ldots, (b_{2,i})_i, z_1,\] 
-    where $(a_{s,i})_i$, $(b_{s,i})_i$ is a path.
-    Then let \[\sigma = x_1, z_1, (a_{1,i})_i x_2 z_2, (a_{2,i})_i, \ldots x_n z_n, (b_{n-1, i})_i, (b_{n-2, i})_i, \ldots (b_{1, i})_i.\] Then there is a book-embedding $(\leq, \phi)$ of $G$ which preserves $\sigma$. 
-\end{proposition}
+% \begin{proposition}
+%     Suppose $G$ is a graph with a path-decomposition \[X_1,(A_{1,i})_i, X_2,\ldots, X_n, (A_{n,i})_i,Z_n,(B_{n-1, i})_i, Z_{n-1}, (B_{n-1, i})_i, \ldots,(B_{1, i})_i Z_1\] where $(A_{s,i})_i$ is a subpath of bags. Furthermore, $|B_i|, |C_i|, |A_{s,i}| \leq k$ for all $i$. Suppose that this path-decomposition is rooted on \[P = x_1,(a_{1,i})_i, x_2,\ldots, x_n, (a_{n,i})_i,z_n,(b_{n-1, i})_i, z_{n-1}, (b_{n-1, i})_i, \ldots, (b_{2,i})_i, z_1,\] 
+%     where $(a_{s,i})_i$, $(b_{s,i})_i$ is a path.
+%     Then let \[\sigma = x_1, z_1, (a_{1,i})_i x_2 z_2, (a_{2,i})_i, \ldots x_n z_n, (b_{n-1, i})_i, (b_{n-2, i})_i, \ldots (b_{1, i})_i.\] Then there is a book-embedding $(\leq, \phi)$ of $G$ which preserves $\sigma$. 
+% \end{proposition}
+
+% \begin{proof}
+%     Let us define a new book-embedding of $G$. For a vertex $v \in V(G)$, let $h(v)$ be the first bag $v$ appears in. Let $C_i$ be the bag that contains every vertex where $h(v) = Z_i$. Then 
+% \end{proof}
+
+Let $G$ be a graph and let $\leq, \phi$ be a book-embedding on $G$ on $s$ pages. Two edges $uv, xy$ are \textit{pairwise nested} if $u < x < y < v$, where every vertex is distinct. 
+
+\begin{conjecture}\label{conj:pairwise_nested}
+    For every graph $G$ embedded on a surface $\Sigma$ of bounded genus $g$, for any set of faces $F_1, \ldots, F_k$, there exists a book-embedding of $G$ with $f(g, k)$ pages. Furthermore for each $i$, at most $h(g, k)$ edges on the boundary of $F_i$ are pairwise nested. 
+\end{conjecture}
+
+\cref{conj:pairwise_nested} implies \cref{conj:bded_had_pn}. 
 
 \begin{proof}
-    Let us define a new book-embedding of $G$. For a vertex $v \in V(G)$, let $h(v)$ be the first bag $v$ appears in. Let $C_i$ be the bag that contains every vertex where $h(v) = Z_i$. Then 
+    Let $G = G_0 \cup G_1 \cup \ldots \cup G_p$ where $G_0$ is a graph embedded on $\Sigma$ with the condition from \cref{conj:pairwise_nested}. $G_i$ is a vortex of width $k$ on $F_i$. Let $\sigma = (x_1, \ldots, x_n)$ be the ordering of the vertices around $G_i \cap F_i$. Add edges to $F_i$ so that $\Sigma$ is a cycle around $F_i$. 
+
+    Now let $(B_1, \ldots, B_n)$ be the bags rooted on $\Sigma$. Now $G_0$ plus the edges added on $F_i$ will have a book-embedding on $f(g, k)$ pages where at most $h(g, k)$ pages on the boundary of $F_i$ are pairwise nested.
+
+    For each vertex $v$ in $G_i$, let $h(v) = \min_i\{v \in B_i\}$. Then let $C_i = \{v : h(v) = i\}$. Now let $B_i'$ be $B_i$ with the bags $B_{i-1}, B_{i + 1}$ and the bags of any pairwise nested bags above. There will be at most $h(g, k)$ edges, so the size of each bag is bounded. But this new book-embedding will contain a bounded number of vertices. Furthermore, this book-embedding, by duplicating vertices, 
 \end{proof}
+
+If $G$ is a planar graph that is Hamiltonian, then $G$ has at most two pairwise nested edges on each face. Each face is preserved, so restricting $G$ to the vertices touching a face yields that every edge is a spine edge. Then $G$ has two pairwise nestings. 
+
+It is not true 

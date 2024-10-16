@@ -18,7 +18,7 @@ The aim of this section is to prove \cref{lem:planar_graphs_4_connected_cliqesum
 \begin{proposition}\label{lem:planar_graphs_4_connected_cliqesums}
 	Every planar graph has a tree-decomposition where each torso is a \(4\)-connected planar graph or $K_{t}$, where $t \leq 4$, with adhesion at most \(3\). Furthermore, adhesion sets between $4$-connected torsos are separating triangles.
 \end{proposition}
-This proof is built from the observation that a planar triangulation is $4$-connected if and only if it has no separating triangle. This observation is then extended through the proof to deal with every planar graph rather than triangulations. Finally, induction is used to reduce the graph to smaller components. We first prove some properties about planar graphs, namely that a triangle can be added without breaking the property that the graph is planar.
+This proof is built from the observation that a planar triangulation is $4$-connected if and only if it has no separating triangle. This observation is then extended through the proof to deal with every planar graph rather than triangulations. Finally, induction is used to reduce the graph to smaller parts. We first prove some properties about planar graphs, namely that a triangle can be added without breaking the property that the graph is planar.
 
 Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle that separates $\mathbb{R}^2$ into two connected components $U$ and $V$, and vertices lie in the interior of $U$ and $V$. Every nonseparating triangle bound a face. \cref{fig:separating_triangle} illustrates an example of a separating triangle. 
 \begin{figure}[h!]
@@ -27,7 +27,7 @@ Let $G$ be a plane graph. A \textit{separating triangle} on $G$ is a triangle th
 	\caption[Separating faces]{Two plane graphs. The one on the left has a blue separating triangle and the one on the right has a blue nonseparating triangle.}\label{fig:separating_triangle}
 \end{figure}
 
-\cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. \textcite{woodThomassensChoosabilityArgument2010} provides a proof of \cref{lem:rooted_triangle}.
+\cref{lem:planar_graphs_4_connected_cliqesums} uses the fact that planar graphs are a minor-closed class, so contracting edges preserves planarity. \cref{lem:edge_contraction_2connected} is necessary to prove \cref{lem:planar_graphs_4_connected_cliqesums}. \textcite{woodThomassensChoosabilityArgument2010} provide a proof of \cref{lem:rooted_triangle}, though this lemma is well known in the literature. 
 
 A \textit{rooted $K_3$ model} on a set $\{u, v, w\}$ on a graph $G$ is a model of $K_3$ in $G$ where $\{u, v, w\}$ are in separate parts. 
 
@@ -35,7 +35,7 @@ A \textit{rooted $K_3$ model} on a set $\{u, v, w\}$ on a graph $G$ is a model o
 	Let $v$ be a vertex in a 2-connected graph $G$. Then $v$ has a neighbour $w$ where $G/vw$ is 2-connected.
 \end{lemma}
 \begin{proof}
-	Suppose on the contrary that for every neighbour $w$ of $v$, $G/vw$ is not $2$-connected, meaning that $vw$ is a cut-edge for every $w$. Now iterate over every neighbour of $v$. Let $H$ be the smallest component in $G - \{v,w\}$ over every neighbour $w$ of $G$, and let $w$ be the neighbour which achieves this minimum. As $G$ is $2$-connected, $v$ has a neighbour $x$ in $H$. Then $G - \{v, x\}$ is disconnected as $\{v,x\}$ is a cut-set. Furthermore, a component of $G - \{v,x\}$ is a proper subgraph of $H$. If this was not the case, then $G - \{v,w\}$ breaks $H$ into two components, but $H$ is connected. However, $H$ is minimal over all neighbours. Therefore, this subgraph cannot exist. By contradiction, $v$ has some neighbour $w$ where $G/vw$ is $2$-connected. 
+	Suppose on the contrary that for every neighbour $w$ of $v$, $G/vw$ is not $2$-connected, meaning that $vw$ is a cut-edge for every $w$. Now iterate over every neighbour of $v$. Let $H$ be the smallest component in $G - \{v,w\}$ over every neighbour $w$ of $G$, and let $w$ be the neighbour which achieves this minimum. As $G$ is $2$-connected, $v$ has a neighbour $x$ in $H$. Then $G - \{v, x\}$ is disconnected as $\{v,x\}$ is a cut-set. Furthermore, a component of $G - \{v,x\}$ is a proper subgraph of $H$, as $G - \{v, x\}$ must disconnect $G$.  However, $H$ is minimal over all neighbours. Therefore, this subgraph cannot exist. By contradiction, $v$ has some neighbour $w$ where $G/vw$ is $2$-connected. 
 \end{proof}
 
 \begin{lemma}\label{lem:rooted_triangle}
@@ -81,7 +81,7 @@ Finally, this is the proof of \cref{lem:planar_graphs_4_connected_cliqesums}.
 
 	\begin{figure}[h!]
 		\centering
-		\includesvg[width = 0.8\textwidth]{figures/decomposition4.svg}
+		\includesvg[width = 0.4\textwidth]{figures/decomposition4.svg}
 		\caption[Tree-decomposition of $K_4$]{This is a tree-decomposition of $K_3$ and $K_4$ of adhesion $\leq 3$. Every torso is either $K_3$ or $K_4$.}\label{fig:treedecomp_k4}
 	\end{figure}
 	

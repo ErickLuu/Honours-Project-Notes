@@ -21,19 +21,20 @@ This is a simple proof to bound the chromatic number of graphs of bounded treewi
 \textcite{ganleyPagenumberTrees2001} considered the case where \(G\) is a \(k\)-tree. $k$-trees are not used in this proof, and a tree-decomposition of \(G\) is used instead. 
 
 \begin{proof}
-	Let  $(T, (B_x)_x)$ be a tree-decomposition of \(G\). Perform a depth-first search on \(T\), starting at an arbitrary root node \(r\). Let \(\sigma(v)\) of a vertex \(v\) in \(V(G)\) be the first time \(v \in B_x\), $x \in T$ appears in the depth-first search. $\sigma(v)$ determines when $v$ appears in the book-embedding. Within each bag $B_x$, if two vertices $v,w$ first appear in $B_x$, then $v$ and $w$ are ordered arbitrarily in the book-embedding. Now consider the subtree \(T_v\) induced by the bags \(B_x\) containing \(v\). Let \(H\) be the intersection graph of the subtrees. \(V(H) = \lbrace T_v : v \in G \rbrace\) and \(T_u T_v \in E(H)\) if there exists a common bag containing both $u$ and $v$. \(H\) is perfect as all intersection graphs of subtrees are perfect. Therefore, \(\chi(H) = \omega(H)\). Then \(H\) is \(k + 1\)-colourable. Let $z: V(H) \rightarrow [k + 1]$ be a proper colouring of $H$. 
+	Let  $(T, (B_x)_x)$ be a tree-decomposition of \(G\). Perform a depth-first search on \(T\), starting at an arbitrary root node \(r\). Let \(h(v)\) of a vertex \(v\) in \(V(G)\) be the first time \(v \in B_x\), $x \in T$ appears in the depth-first search. $h(v)$ is a 'home' function and determines when $v$ appears in the book-embedding. Within each bag $B_x$, if two vertices $v,w$ first appear in $B_x$, then $v$ and $w$ are ordered arbitrarily in the book-embedding. Now consider the subtree \(T_v\) induced by the bags \(B_x\) containing \(v\). Let \(H\) be the intersection graph of the subtrees. \(V(H) = \lbrace T_v : v \in G \rbrace\) and \(T_u T_v \in E(H)\) if there exists a common bag containing both $u$ and $v$. \(H\) is perfect as all intersection graphs of subtrees are perfect. Therefore, \(\chi(H) = \omega(H)\). Then \(H\) is \(k + 1\)-colourable. Let $z: V(H) \rightarrow [k + 1]$ be a proper colouring of $H$. 
 
 	Assign the edges of \(G\) a colour. Colour each edge \(uv \in E(G)\) as follows:
 	\begin{equation}
 		c(uv) =
 		\begin{cases}
-			z(T_u) & \text{ if } \sigma(u) \leq \sigma(v), \\
-			z(T_v) & \text{ if } \sigma(v) \leq \sigma(u)
+			z(T_u) & \text{ if } h(u) \leq h(v), \\
+			z(T_v) & \text{ if } h(v) \leq h(u)
 		\end{cases}
 	\end{equation}
-	Then $(\sigma, c)$ is a proper book-embedding of \(G\). Suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. Finally, the number of pages used is \(\chi(H) = k + 1\), so \(\pn(G) \leq k + 1\). 
+	Then $(h, c)$ is a proper book-embedding of \(G\). Suppose that edges \(uv\), \(xy\) cross, so \(h(u) \leq h(x) \leq h(v) \leq h(y)\). However, this implies that $u,x,v$ are in some bag $B$. \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $h(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. Finally, the number of pages used is \(\chi(H) = k + 1\), so \(\pn(G) \leq k + 1\). 
 \end{proof}
-For a simpler example, consider the case when $T$ is a path. The proof given below is identical in spirit to \cref{thm:bded_treewidth_bded_pagenumber}, but omits many of the details specific to trees.
+For a simpler example, consider the case when $T$ is a path. The proof given below is identical in spirit to \cref{thm:bded_treewidth_bded_pagenumber}, but omits many of the details specific to trees. 
+Let $G$ be a graph. A linear book-embedding $<$ \textit{maintains} the order of a path $P = (x_1, x_2, \ldots, x_n)$ when if $x_i, x_j \in P$, $i < j$, then $x_i < x_j$ in the book-embedding. A circular book-embedding $<$ maintains the order of a cycle $C$ if we can start $<$ and $C$ at the same vertex and the new linear ordering maintains the order of the induced path. 
 
 \begin{theorem}\label{thm:pw_book_embedding}
 	Every graph \(G\) with a path-decomposition $\{B_1, B_2, \ldots , B_n\}$ of width $k$ and a path $P = x_1, x_2, \ldots, x_n$ where $x_i \in B_i$ can be embedded on $k + 1$ pages. Furthermore, this embedding restricted to $P$ maintains the order of $P$.
