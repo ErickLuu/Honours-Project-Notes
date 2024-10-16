@@ -1,5 +1,8 @@
 
-In this section, we find some graph parameter that allows us to bound the number of pages necessary to embed a vortex on a face. We first show why the obvious conjecture that every graph embedded on a surface $\Sigma$ with a book-embedding on $s$ pages implies \cref{conj:bded_had_pn} is incorrect. We move on from monochromatic paths and discuss $k$-perturbed paths. 
+In this section, we find some graph parameter that allows us to bound the number of pages necessary to embed a vortex on a face. The obvious conjecture would be that there is a way to embed a vortex on any face with a bounded number of pages, which is \cref{conj:fsk_be}. We show that \cref{conj:fsk_be} implies \cref{conj:bded_had_pn} in certain cases. We also show \cref{conj:fsk_be} has a counterexample.
+
+We move on from monochromatic paths and discuss $k$-perturbed paths. $k$-perturbed paths are structures that may appear on the boundary of a face. However, there is no way to control $k$-perturbed paths. 
+We finally discuss our final conjecture which implies \cref{conj:bded_had_pn}. 
 
 \begin{conjecture}[Incorrect conjecture]\label{conj:fsk_be}
 	Let $G$ be a graph and let $(B_1, \ldots, B_n)$ be a path- decomposition of $G$ of width $k$. Let $P$ be a path $(x_1, \ldots, x_b)$ where $x_i \in B_i$. 
@@ -30,6 +33,6 @@ However, \cref{conj:fsk_be} is incorrect. Let $G$ be a graph with a path $(x_1, 
 
 \begin{figure}[h!]
 	\centering
-	\includesvg[inkscapelatex=false, width = 0.7\textwidth]{figures/counterexample2.svg}
+	\includesvg[inkscapelatex=false, width = 0.5\textwidth]{figures/counterexample2.svg}
 	\caption[Counterexample to bounded number of colours]{A graph $G$ with a path $x_1, \ldots, x_{16}$ and a given embedding $x_1 x_5 x_9, \ldots, x_{16}, x_{12}, x_{8}, x_{4}$. Then we can force edges between bags to pairwise cross, breaking the condition that there are a bounded number of pages to embed this book.}\label{fig:counterexample_2}
 \end{figure}
