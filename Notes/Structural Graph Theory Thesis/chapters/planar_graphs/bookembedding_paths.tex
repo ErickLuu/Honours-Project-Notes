@@ -1,13 +1,14 @@
 
-In this section, we find some graph parameter that allows us to bound the number of pages necessary to embed a vortex on a face. The obvious conjecture would be that there is a way to embed a vortex on any face with a bounded number of pages, which is \cref{conj:fsk_be}. We show that \cref{conj:fsk_be} implies \cref{conj:bded_had_pn} in certain cases. We also show \cref{conj:fsk_be} has a counterexample.
+In this section, we find some graph parameter that allows us to bound the number of pages necessary to embed a vortex on a face.
 
 We move on from monochromatic paths and discuss $k$-perturbed paths. $k$-perturbed paths are structures that may appear on the boundary of a face. However, there is no way to control $k$-perturbed paths. 
 
-\begin{conjecture}[Incorrect conjecture]\label{conj:fsk_be}
+The obvious claim would be that there is a way to embed a vortex on any face with a bounded number of pages, which is \cref{conj:fsk_be}. We show that \cref{conj:fsk_be} implies \cref{conj:bded_had_pn} in certain cases. We also show \cref{conj:fsk_be} is incorrect and has a counterexample.
+\begin{claim}[Incorrect claim]\label{conj:fsk_be}
 	Let $G$ be a graph and let the tuple of paths $(B_1, \ldots, B_n)$ be a path-decomposition of $G$ of width $k$. Let $P$ be a path $(x_1, \ldots, x_b)$ where $x_i \in B_i$. 
 
 	Given an $s$-page book-embedding $(<, \psi)$ of $P$, there exists an $f(s, k)$ book-embedding of $G$ that preserves the given book-embedding of $P$.
-\end{conjecture}
+\end{claim}
 
 If \cref{conj:fsk_be} holds, then it implies the following:
 
@@ -28,10 +29,12 @@ If \cref{conj:fsk_be} holds, then it implies the following:
 
 This implies \cref{conj:bded_had_pn} in the case when $\Sigma$ is an orientable surface or projective plane, using \cref{lem:planar_nonplanar_orientable} and \cref{thm:proj_planar_graphs_23pages} through \cref{thm:apex_vertices_pagenumber} and \cref{thm:gmst}. 
 
-However, \cref{conj:fsk_be} is incorrect. Let $G$ be a graph with a path $(x_1, \ldots, x_{16})$ and book-embedding $x_1 x_5 x_9, \ldots, x_{16}, x_{12}, x_{8}, x_{4}$, as in \cref{fig:counterexample_2}.
+However, \cref{conj:fsk_be} is incorrect. Let $G$ be a graph with a path $(x_1, \ldots, x_{16})$ and book-embedding $x_1 x_5 x_9, \ldots, x_{16}, x_{12}, x_{8}, x_{4}$, as in \cref{fig:counterexample_2}. We can force edges between bags to pairwise cross, breaking the condition that there are a bounded number of pages to embed this book. Since we add an edge between bags $B_i$ and $B_{i + 2}$, vertices in $B_i$ can also live in just $B_i$ and $B_{i + 2}$, bounding the size of each bag, but the number of pages used is unbounded. Furthermore, only two colours are used. Therefore, $f(s, k)$ does not exist.
 
 \begin{figure}[h!]
 	\centering
 	\includesvg[inkscapelatex=false, width = 0.5\textwidth]{figures/counterexample2.svg}
-	\caption[Counterexample to bounded number of colours]{A graph $G$ with a path $x_1, \ldots, x_{16}$ and a given embedding $x_1 x_5 x_9, \ldots, x_{16}, x_{12}, x_{8}, x_{4}$. Then we can force edges between bags to pairwise cross, breaking the condition that there are a bounded number of pages to embed this book.}\label{fig:counterexample_2}
+	\caption[Counterexample to bounded number of colours]{A graph $G$ with a path $x_1, \ldots, x_{16}$ and a given embedding $x_1 x_5 x_9, \ldots, x_{16}, x_{12}, x_{8}, x_{4}$. }\label{fig:counterexample_2}
 \end{figure}
+
+However, this permutation of the path $P$ moves around a lot of vertices. In many of the examples shown, only a few vertices are moved. This can be handled quite nicely. 

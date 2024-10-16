@@ -110,7 +110,7 @@ Then this can be extended to every connected planar graph, adding a constant num
 
 We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where every face has a bounded number of cut-sets of size 3 on its boundary. We assumed that every face has a bounded number of cut-sets of size 3 on its boundary, but this was not the case. \cref{fig:moved_vertices} provides a counterexample. 
 
-We conjecture that every planar graph can be embedded on a bounded number of pages with a bounded number of monochromatic paths on each face. 
+We conjecture that every planar graph can be embedded on a bounded number of pages with a bounded number of monochromatic paths on each face. This will have to be a different book-embedding than the one given in \cref{thm:Planar Graph Hickingbotham Bound}. The book-embedding given by \cref{thm:Planar Graph Hickingbotham Bound} is not sufficient to prove this conjecture, because of \cref{fig:moved_vertices}.  
 
 \begin{theorem}\label{thm:planar_graph__be_mono_paths}
 	Let \( G \) be a planar graph embedded in $\mathbb{R}^2$, with every face having at most $k$ cut-sets of size $3$ on every face. Then $G$ can be embedded on 11 pages where every face has at most $8k$ monochromatic paths. 
@@ -135,13 +135,16 @@ $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node.
 	Repeat for all cut-sets of size $3$ on the boundary of $F$, and as there are a bounded number of cutsets in $G$, then $F$ has $8k$ monochromatic paths.
 
 \end{proof}	
-There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}. 
-Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
-Let $F$ be a face. $F$ can have an unbounded number of blue components on its boundary. The number of faces touching a particular blue component is at least three, so there may be some face with an unbounded number of monochromatic paths.
+
+
+There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}. There may be book-embedding of planar graphs where the number of monochromatic paths is bounded, but the method shown by \cref{thm:planar_graph__be_mono_paths} does not provide such a book-embedding. 
+
+Look at \cref{fig:moved_vertices}. Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
+Let $F$ be a face. $F$ can have an unbounded number of blue torsos on its boundary.  There may be some face with an unbounded number of monochromatic paths.
 
 
 \begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/counterexample.svg}
-	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ with faces that require an unbounded number of vertices. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected components, with cut-sets the green vertices on the ends.}\label{fig:moved_vertices}
+	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ with faces that require an unbounded number of vertices. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected torsos, with cut-sets the green vertices on the ends.}\label{fig:moved_vertices}
 \end{figure}

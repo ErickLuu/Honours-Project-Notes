@@ -45,9 +45,9 @@ Then extend homotopy to be an equivalence relation, with homotopy classes being 
 Think of \(G_n\) as living on a disk on \(S\) and the loops \(u_1v_1\) and \(u_2 v_2\) living on a handle or passing through a crosscap. Taking \(G_n\) to a point, \(u_1v_1\) and \(u_2v_2\) are homotopic if and only if the two loops are homotopic in a topological sense.
 
 We now do a planar-nonplanar decomposition of graphs embedded on surfaces.
-\begin{claim}\label{claim:planar_nonplanar_decomp}
+\begin{proposition}\label{claim:planar_nonplanar_decomp}
 	There exists a planar-nonplanar decomposition of any graph 2-cell embedded on any surface, and the trace of any homotopy class lies on the same block, except for two vertices adjacent to special endpoints $x$ and $y$. 
-\end{claim}
+\end{proposition}
 \begin{proof}
 	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single face and define this face as $G_P$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We maintain the property that for any \(v \in V(G_P)\), and edge \(vw \in E_N\), then \(v\) is a vertex on the boundary of \(F_0\).
 	\paragraph{Adding vertices to biconnected block:}
