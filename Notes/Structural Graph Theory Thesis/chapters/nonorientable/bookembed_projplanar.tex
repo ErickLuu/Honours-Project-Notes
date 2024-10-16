@@ -23,7 +23,7 @@ Firstly, a planar spanning disk is found with nonplanar edges. Then a non-contac
 We prove a weaker version of the above theorem.
 
 \begin{theorem}\label{thm:proj_planar_graphs_23pages}
-	Every graph embedded on the projective plane has a book-embedding with 23 pages, where every face has $24$ monochromatic paths. 
+	Every graph embedded on the projective plane has a book-embedding with 23 pages. 
 \end{theorem}
 
 This proof relies on triangulations of surfaces. Recall a graph $G$ is a \textit{triangulation} of a surface $\Sigma$ if every face has three distinct vertices on its boundary. Note that unlike graphs embedded on the sphere, there exists graphs embedded on surfaces which are edge-maximal but not a triangulation. \textcite{hararyMaximalToroidalGraph1973} gives an example of such a graph embedded on a torus. 
@@ -75,7 +75,7 @@ Now we will prove \cref{thm:proj_planar_graphs_23pages}. This is done by breakin
     Let $H$ be a projective-planar graph. Let $G$ be a triangulation of the projective plane, where $H$ is a subgraph.
     Now apply \cref{lem:proj_planar triangulation} to $G$. Let $B_1, B_2$ be the two paths from $x$ to $y$ on the boundary of $B$. Let $D_1$ be the planar subgraph bounded by $P \cup B_1$, similarly for $D_2$. Finally, let $s$ be the vertex clockwise to $x$ on $B$, and let $t$ be the vertex clockwise to $y$ on $B$.
 
-    From \cref{thm:planar_graph__be_mono_paths}, there exists a 11-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P \cup B_1$. Similarly, there exists a 11-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P \cup B_2$.
+    From \cref{thm:planar_graph__be_mono_paths}, there exists an 11-page embedding $(<_1, \sigma_1)$ of $D_1$ which preserves the cycle $P \cup B_1$. Similarly, there exists an 11-page embedding $(<_2, \sigma_2)$ of $D_2$ which preserves the cycle $P \cup B_2$.
     Let $t$ be at the start of the vertex ordering of $<_1$ and $s$ be at the end of the vertex ordering of $<_2$. 
     Combine these two embeddings along $P$ (interlace $<_1, <_2$ along $P$) to form a book-embedding $(<, \sigma)$ of $G_P$ with 22 pages. This is a vertex ordering of every edge in $G$ as $G_P$ is spanning. 
 
@@ -83,8 +83,6 @@ Now we will prove \cref{thm:proj_planar_graphs_23pages}. This is done by breakin
 
     An example of the book-embedding is in \cref{fig:projectiveplanarbookembedding}. The path given is the book-embedding of $B \cup P$, the coloured regions are the book-embeddings of $D_1$ and $D_2$, and the other edges are edges in $E_N$. 
     This embeds a projective-planar graph in 23 pages.
-
-    Furthermore, each face transitions from planar to nonplanar edges $4$ times, from \cref{corr:orientable_nonplanar_faces}, and there are 24 monochromatic paths on each face of $G_P$. Then each face of $G$ has at most $4(24 + 1) = 100$ monochromatic paths.
 \end{proof}
 
 
