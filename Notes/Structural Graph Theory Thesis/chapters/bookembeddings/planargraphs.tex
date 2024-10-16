@@ -14,13 +14,13 @@ In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}.
 
 
 \begin{corollary}\label{thm:Planar Graph Hickingbotham Bound}
-	Let \(G\) be a 2-connected planar graph. Then $G$ can be embedded on $11$ pages, with book-embedding $(<, \rho)$. $<$ restricted to the vertices outer cycle $C$ traverses every vertex in order of the traversal of the boundary of the outerface. Furthermore, for every face cycle $C$, $<_{V(C) - \{u, v, w\}} = C - \{u, v, w\}$ for some vertices $u$, $v$, $w$. 
+	Let \(G\) be a 2-connected planar graph. Then $G$ can be embedded on $11$ pages, with book-embedding $(<, \rho)$. $<$ restricted to the vertices outer cycle $C$ traverses every vertex in order of the traversal of the boundary of the outerface except for vertices in a cut-set of size 3.
 \end{corollary}
 \begin{proof}
 	From \cref{thm:4-connected_planar_ham_cycle}, every $4$-connected planar graph is Hamiltonian. Furthermore, $K_4$ is a Hamiltonian planar graph.
 	Recall that Hamiltonian planar graphs can be embedded on two pages, from \cref{lem:Pagenumber_2}. 
 	Then apply \cref{thm:clique_sum_pagenumber_bound} with tree-decomposition from \cref{lem:planar_graphs_4_connected_cliqesums} to $G$. Then $G$ can be embedded on \(2 \cdot 4 + 3 = 11\) pages. Furthermore, the embedding restricted a face boundary preserves the ordering of the facial walk.
 
-	From the construction given in \cref{lem:planar_graphs_4_connected_cliqesums}, every $4$-connected component is glued to another $4$-connected component by a separating face. Therefore, every face only changes by $3$ vertices, from \cref{thm:clique_sum_pagenumber_bound}. Therefore, removing $3$ vertices from every face preserves the cyclic ordering of every face.
+	From the construction given in \cref{lem:planar_graphs_4_connected_cliqesums}, every $4$-connected component is glued to another $4$-connected component by a separating face. Now a vertex must be moved to the front, so the vertex is not preserved. 
 \end{proof}
 
