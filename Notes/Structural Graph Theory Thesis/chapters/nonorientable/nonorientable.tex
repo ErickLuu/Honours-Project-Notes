@@ -3,14 +3,15 @@
 \section{Future work}
 
 \textcite{heathPagenumberGenusGraphs1992} did not adequately prove that graphs embedded on non-orientable surfaces of genus $g$ can be bounded on $k$ pages where $k = k(g)$. For the case when the surface is of genus $1$, \textcite{nakamotoBookEmbeddingProjectiveplanar2015} showed that every projective-planar graph can be embedded in $9$ pages, which was improved to 6 by \textcite{ozekiBookEmbeddingGraphs2019}. However, we want to prove a book-embedding for all non-orientable surfaces. 
+
 \textcite{ozekiBookEmbeddingGraphs2019} states that they were unable to prove that all Klein bottle graphs can be embedded on a bounded number of pages. \cref{sec:kleinbottle} discusses some strategies to embed Klein bottle graphs, but the problem remains open. The Klein bottle case is just one example in the much broader class of non-orientable surfaces, which is stated in \cref{conj:nonorientable}. For the case that the surface is a projective plane, then $G$ can be embedded in 6 pages, from \textcite{ozekiBookEmbeddingGraphs2019}. 
+
 \begin{conjecture}\label{conj:nonorientable}
 	Every non-orientable genus $g$ graph can be embedded in $f(g)$ pages for some function $f$. 
 \end{conjecture}
 
-Every non-orientable genus $g$ surface is homeomorphic to a sphere with $n$ handles and one or two crosscaps. If a graph $G$ is embedded on a surface of higher genus, then it may be possible to remove handles and reduce $G$ to a graph embedded on a projective plane or a Klein bottle. Then $G$ may be embeddable on a bounded number of pages. This will need to be developed further in future work.
+To be compatible with \cref{corr:vortices_paths_pn}, the following strengthening is necessary. We were unable to prove this conjecture for the sphere.
 
-To be compatible with \cref{corr:vortices_paths_pn}, the following strengthening is necessary. 
 \begin{conjecture}\label{conj:nonorientable_monochromatic_paths}
 	Every graph embedded on a surface of Euler genus $g$ can be embedded on $f(g)$ pages where every face has $h(g)$ monochromatic paths. 
 \end{conjecture}
@@ -26,7 +27,7 @@ To be compatible with \cref{corr:vortices_paths_pn}, the following strengthening
 	Let $G$ be a $(g, p, k)$-almost-embeddable graph, on a non-orientable surface of genus $g$. By \cref{conj:nonorientable_monochromatic_paths}, there is a book-embedding of $G$ where every face has $h(g)$ monochromatic paths. Then by \cref{corr:vortices_paths_pn}, $G$ can be embedded in $f + h p (k+1)$ pages. 
 \end{proof}
 
-This implies \cref{conj:bded_had_pn}.
+\cref{corr:aegraphs} implies \cref{conj:bded_had_pn}.
 \begin{corollary}\label{corr:bound_gmst}
 	If \cref{conj:nonorientable_monochromatic_paths} holds, then every $\mathcal{G}(g, p, k, a)$ graph can be embedded on $2s^2 + 4s + 1$ pages, where $s =  4g h (k + 1) + f + a$, where $h = h(g)$ and $f = f(g)$ are from \cref{conj:nonorientable_monochromatic_paths}. 
 \end{corollary}

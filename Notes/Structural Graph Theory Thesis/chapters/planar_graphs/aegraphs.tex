@@ -135,15 +135,13 @@ $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node.
 	Repeat for all cut-sets of size $3$ on the boundary of $F$, and as there are a bounded number of cutsets in $G$, then $F$ has $8k$ monochromatic paths.
 
 \end{proof}	
-There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}.
+There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}. 
+Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
+Let $F$ be a face. $F$ can have an unbounded number of blue components on its boundary. The number of faces touching a particular blue component is at least three, so there may be some face with an unbounded number of monochromatic paths.
 
 
 \begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/counterexample.svg}
-	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ with faces that require an unbounded number of vertices. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected components, with cut-sets the green vertices on the ends.
-	
-	Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
-
-	Let $F$ be a face. $F$ can have an unbounded number of blue components on its boundary. The number of faces touching a particular blue component is at least three, so there may be some face with an unbounded number of monochromatic paths.}\label{fig:moved_vertices}
+	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ with faces that require an unbounded number of vertices. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected components, with cut-sets the green vertices on the ends.}\label{fig:moved_vertices}
 \end{figure}
