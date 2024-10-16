@@ -69,7 +69,7 @@ An example of the cut-set vertices and the particular cases that arise is in \cr
 
 \begin{figure}[h!]
 	\centering
-	\includesvg[width = 0.8\textwidth]{figures/planar_separators.svg}
+	\includesvg[width =0.9\textwidth]{figures/planar_separators.svg}
 	\caption[Decomposition of graph]{An illustration of the cases that are handled when dealing with cut-sets.}\label{fig:cutsets}
 \end{figure}
 
@@ -91,7 +91,7 @@ Finally, this is the proof of \cref{lem:planar_graphs_4_connected_cliqesums}.
 
 	Suppose $G$ is disconnected. Then run this algorithm on every component and add arbitrary edges between each subtree to make a tree-decomposition.
 
-	Suppose $G$ is connected but not $2$-connected, so there exists a cut vertex $v$. Now let $G_1, G_2$ be the two disconnected subgraphs of $G - v$, where both $G_1$ and $G_2$ are nonempty subgraphs. $G_1 + v$ and $G_2 + v$ are planar graphs as they are planar subgraphs. Then $|V(G_i + v)| < |V(G)|$, so use induction on $G_1 + v$ and $G_2 + v$. This yields a tree-decomposition $\tree_1, \tree_2$ with the properties above. Add an edge between a bag $B_1$ in $\tree_1$ containing $v$ and a bag $B_2$ in $\tree_2$ containing $v$. Then the adhesion of these two bags is $1$, so it satisfies the property above. 
+	Suppose $G$ is connected but not $2$-connected, so there exists a cut vertex $v$. Now let $G_1, G_2$ be the two disconnected subgraphs of $G - v$, where both $G_1$ and $G_2$ are nonempty subgraphs. $G_1 + v$ and $G_2 + v$ are planar graphs as they are subgraphs of planar graphs. Then $|V(G_i + v)| < |V(G)|$, so use induction on $G_1 + v$ and $G_2 + v$. This yields a tree-decomposition $\tree_1, \tree_2$ with the properties above. Add an edge between a bag $B_1$ in $\tree_1$ containing $v$ and a bag $B_2$ in $\tree_2$ containing $v$. Then the adhesion of these two bags is $1$, so it satisfies the property above. 
 
 	Suppose $G$ is $2$-connected but not $3$-connected, so there exists a cut-set $\{u,v\}$. Let $G_1, G_2$ be the two subgraphs that are separated by $G - \{u, v\}$. Firstly, $G_1' := G_1 + \{u,v\} + uv$ is a planar graph. As $G$ is $2$-connected, there exists a cycle of $u$ and $v$, so there either exists an edge $uv$ or there exists a path $P$ in $G_2$ from $u$ to $v$. Contracting this path $P$ to an edge yields another planar graph $G_1'$ where $uv$ is an edge. Repeating this, $G_2' := G_2 + \{u,v\} + uv$ is also a planar graph. Then use induction on $G_1'$ and $G_2'$ with tree-decomposition $\tree_1, \tree_2$ respectively. As $uv$ is an edge in both subgraphs, there exists a bag $B_1, B_2$ in $\tree_1, \tree_2$ that contains both $u$ and $v$. Add an edge between both bags. Finally, the edge $uv$ is in every torso $G\langle B_x \rangle$ where $u, v \in B_x$. Without loss of generality, suppose $B_x$ was originally in $\tree_1$. If $u$ and $v$ are in a bag $B_x$, then there exists a unique path of nodes from $B_x$ to $B_1$ containing $u$ and $v$. This is because of the property that the bags that contain $u$ are connected, and between any two vertices on a tree there exists a unique path. Then $B_x$ is adjacent to a bag that contains $u$ and $v$, so $G \langle B_x \rangle$ contains $uv$. 
 

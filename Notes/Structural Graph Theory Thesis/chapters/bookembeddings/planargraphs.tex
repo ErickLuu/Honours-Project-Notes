@@ -1,9 +1,11 @@
 \subsection{Bounding the number of pages of a planar graph}
 This subsection uses \cref{lem:planar_graphs_4_connected_cliqesums} and \cref{thm:clique_sum_pagenumber_bound} to find a book-embedding of planar graphs. This book-embedding is different from the one provided by \textcite{yannakakisEmbeddingPlanarGraphs1989} as it does not require a planar triangulation. Because of this fact, this proof is used in future sections with respect to adding vortices on faces. 
 
-Firstly, \textcite{tutteTheoremPlanarGraphs1956} proves every $4$-connected planar graph is Hamiltonian.
+A \textit{Hamiltonian path} $P$ on a graph $G$ is a path that visits every vertex in $G$ exactly once. A \textit{Hamiltonian cycle} $C$ on a graph $G$ is a cycle that visits every vertex in $G$ exactly once.  
 
-In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}. A graph $G$ is \textit{Hamiltonian-connected} if for all edges $xy \in E(G)$, there is a Hamiltonian path that goes through $xy$. 
+A graph $G$ is \textit{Hamiltonian} if $G$ has a Hamiltonian cycle.
+Firstly, \textcite{tutteTheoremPlanarGraphs1956} proves every $4$-connected planar graph is Hamiltonian.
+In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}. A graph $G$ is \textit{Hamiltonian-connected} if for all edges $xy \in E(G)$, there is a Hamiltonian cycle that goes through $xy$. 
 
 \begin{theorem}[\textcite{thomassenTheoremPathsPlanar1983}]\label{thm:4-connected_planar_ham_cycle}
 	Every 4-connected planar graph is Hamiltonian-connected.
