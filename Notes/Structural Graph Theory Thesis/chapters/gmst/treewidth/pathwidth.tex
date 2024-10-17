@@ -1,7 +1,7 @@
 \section{Path-width}\label{sec:Pathwidth}
 Similar to treewidth, the pathwidth of a graph \(G\) defines how similar $G$ is from a path. A path-decomposition is the same as a tree-decomposition restricted to a path. 
 
-Typically, the path is suppressed in notation, so the bags are placed in order from 1 to $n$. Like for treewidth, The pathwidth of \(G\) is the largest pathwidth over all connected components.
+Typically, the path is suppressed in notation, so the bags are placed in order from 1 to $n$, and is denoted as $(B_i)_{i \in [n]}$, or simply $(B_i)_i$. Similarly for treewidth, the pathwidth of \(G\) is the largest pathwidth over all connected components.
 If a graph $G$ has a path-decomposition \({(B_i)}_i\), then $G$ has a tree-decomposition \(\left(P,{(B_i)}_i\right)\). Therefore,
 \begin{equation*}
 	\pw(G) \geq \tw(G).
@@ -24,7 +24,7 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 \end{proof}
 \begin{figure}[h!]
 	\centering
-	\includesvg[pretex=\tiny, width = 0.8\textwidth]{figures/caterpillar}
+	\includesvg[width = 0.8\textwidth]{figures/caterpillar}
 	\caption[Caterpillar graph]{A caterpillar graph with central path \((v_1, v_2, v_3, v_4, v_5, v_6)\).}\label{fig:caterpillar}
 \end{figure}
 
@@ -53,7 +53,7 @@ Ternary graphs of depth $d$ have pathwidth $d-1$. Graphs with path-width at leas
 	$H$-minor-free graphs have bounded pathwidth if and only if $H$ is a forest. 
 \end{theorem}
 
-\begin{theorem}
+\begin{proof}
 	Suppose $H$ is a forest. Then \textcite{seymourShorterProofPathwidth2023} proved that every graph that does not contain $H$ as a minor has path-width at most $|V(H)| - 2$. Note that the original proof was by \textcite{robertsonGraphMinorsExcluding1983}. 
 	Suppose $H$ is not a forest. Then $H$ is not a minor of any tree, so $H$ is not a minor of any ternary tree. But ternary trees have unbounded pathwidth, so $H$-minor-free graphs have unbounded pathwidth.
-\end{theorem}
+\end{proof}

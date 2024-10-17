@@ -14,10 +14,10 @@ These are the Euler genus of some surfaces.
 	\item The Euler genus of the Klein bottle is \(2\). 
 \end{enumerate}
 
-The orientability of a surface is an important tool to distinguish surfaces. A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \(S^2\) by only adding handles. An example of an orientable surface is the torus. A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can only be obtained from \(S^2\) by adding at least one crosscap. Equivalently, a surface is orientable if there is a triangulation of the surface where every triangle can be oriented clockwise. An example of a non-orientable surface is the projective plane or the Klein bottle. Compact orientable surfaces can be embedded in $\mathbb{R}^3$, but non-orientable surfaces cannot. The \textit{genus} of an orientable surface is the number of handles. The \textit{genus} of a non-orientable surface is the number of crosscaps, and is equal to the Euler genus. 
+The orientability of a surface is an important tool to distinguish surfaces. A surface \(\Sigma\) is \textit{orientable} if \(\Sigma\) can be obtained from \(S^2\) by only adding handles. An example of an orientable surface is the torus. Equivalently, a surface is orientable if there is a triangulation of the surface where every triangle can be oriented clockwise. A surface \(\Sigma\) is \textit{non-orientable} if \(\Sigma\) can only be obtained from \(S^2\) by adding at least one crosscap. An example of a non-orientable surface is the projective plane or the Klein bottle. Compact orientable surfaces can be embedded in $\mathbb{R}^3$, but non-orientable surfaces cannot. The \textit{genus} of an orientable surface is the number of handles. The \textit{genus} of a non-orientable surface is the number of crosscaps, and is equal to the Euler genus. 
 
 Let $I = [0, 1]$, and $\Sigma$ be a surface.
-A \textit{loop} is a continuous function $\gamma : I \rightarrow \Sigma$ where $\gamma(0) = \gamma(1) = x_0$. The point $x_0$ is the \textit{base point}. A \textit{homotopy} between two loops $\alpha, \beta$ is a continuous map $h : I \times I \rightarrow (x)$ where $h(0, t) = h(1, t) = x$ for all $t$, $h(\cdot, 0) = \alpha$, $h(\cdot, 1) = \beta$. A \textit{null-homotopic} loop is a loop homotopy to the constant map at $x_0$, and a \textit{nontrivial} loop is one that is not null-homotopic. On a sphere or plane, all loops are null-homotopic. Homotopic and null-homotopic loops come up in our discussion of graphs on surfaces as they can be used to classify edges embedded on a surface when the graph is a single point $x_0$. 
+A \textit{loop} is a continuous function $\gamma : I \rightarrow \Sigma$ where $\gamma(0) = \gamma(1) = x_0$. The point $x_0$ is the \textit{base point}. A \textit{homotopy} between two loops $\alpha, \beta$ is a continuous map $h : I \times I \rightarrow \Sigma$ where $h(0, t) = h(1, t) = x$ for all $t$, $h(\cdot, 0) = \alpha$, $h(\cdot, 1) = \beta$. A \textit{null-homotopic} loop is a loop homotopic to the constant map at $x_0$, and a \textit{nontrivial} loop is one that is not null-homotopic. On a sphere or plane, all loops are null-homotopic. Homotopic and null-homotopic loops come up in our discussion of graphs on surfaces as they can be used to classify edges embedded on a surface when the graph is a single point $x_0$. 
 
 
 \subsection{Graphs on surfaces}
@@ -40,9 +40,9 @@ An extension for Euler's formula is below.
 When $g = 0$, then $\Sigma$ is a $2$-sphere and this is the original Euler's formula. 
 The value $\chi := 2-g$ is known as the \textit{Euler characteristic} of a topological space, in this case a surface. The Euler characteristic is invariant under homeomorphism. Calculating the Euler characteristic of any space is done through \textit{homological algebra}, specifically by looking at the free rank of homology groups. 
 
-Graphs that can be embedded on the plane are called \textit{planar} graphs. Graphs that can be 2-cell embedded on the torus are called \textit{toroidal} graphs, and graphs that can be 2-cell embedded on the projective plane are called \textit{projective-planar} graphs. Similarly to plane graphs, \textit{torus graphs} are graph drawings on the torus, and \textit{projective-plane graphs} are graphs drawings on the projective plane. 
+Graphs that can be embedded on the plane are called \textit{planar} graphs. Graphs that can be 2-cell embedded on the torus are called \textit{toroidal} graphs, and graphs that can be 2-cell embedded on the projective plane are called \textit{projective-planar} graphs. Similarly to plane graphs, \textit{torus graphs} are graphs drawn on the torus, and \textit{projective-plane graphs} are graphs drawn on the projective plane. 
 
-The family of graphs embeddable on a fixed surface $\Sigma$ is a minor-closed family. If $G$ is embedded on $\Sigma$, then $G - v$ for any vertex $v$ and $G - e$ for any edge $e$ is also embeddable on $\Sigma$. Furthermore, contracting any edge $e$ in $G$ maintains the property that no two edges cross. Edge contraction is a topological action on a graph and can be viewed as an ambient isotopy of $G$ on $\Sigma$. 
+The family of graphs embeddable on a fixed surface $\Sigma$ is a minor-closed family. If $G$ is embedded on $\Sigma$, then $G - v$ for any vertex $v$ and $G - e$ for any edge $e$ is also embeddable on $\Sigma$. Furthermore, contracting any edge $e$ in $G$ maintains the property that no two edges cross. Edge contraction is a topological action on a graph and can be viewed as a homotopy of the edges of $G$ on $\Sigma$. 
 If $G$ is 2-cell embedded on a surface $\Sigma$ and every face in $G$ has three distinct vertices on its boundary, then $G$ is a \textit{triangulation} of $\Sigma$. Given graphs $G$ and $H$ with Euler genus $g_1, g_2$, a new graph with Euler genus $g_1 + g_2$ can be constructed.
 \begin{theorem}[\textcite{millerAdditivityTheoremGenus1987}]\label{thm:additivity_genus}
 	For all graphs $G$ and $H$, if $|V(G) \cap V(H)| \leq 1$, then $\eg(G \cup H) = \eg(G) + \eg(H)$. 
@@ -57,8 +57,7 @@ Next is an extension of \cref{thm:K5_Free_Planar} for graphs embedded on surface
 	This proof mimics the above proof for planarity.
 	Suppose \(G\) has \(n\) vertices, \(m\) edges and Euler genus $g$. Then \(n - m + f = 2-g\), from Euler's formula on surfaces. Since three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on an Euler genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). \(t \leq \sqrt{6g} + 4\). So if $G$ has Euler genus \(g\), then $G$ is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\), so \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
 \end{proof}
-When $\Sigma$ is a sphere, then $g = 0$. So $t = 5$. So planar graphs are $K_5$-minor-free. \cref{thm:bounded_genus_kt_free} is an extension of \cref{thm:K5_Free_Planar} to higher genus surfaces. 
-
+When $\Sigma$ is a sphere, then $g = 0$. So $t = 5$. So planar graphs are $K_5$-minor-free. 
 When $\Sigma$ is a projective plane, then $g = 1$, so $t = 7$. So $K_7$ does not embed on the projective plane. $K_6$ does embed on the projective plane. \cref{fig:k6_on_proj_plane} is one embedding.
 
 \begin{figure}[h!]
@@ -75,18 +74,16 @@ When $\Sigma$ is a torus, then $g = 2$. Then $t = 8$, so every toroidal graph is
 	\caption[$K_7$ embedded on the torus]{$K_7$ embedded on a torus. Therefore, $K_7$ is a toroidal graph.}\label{fig:k7_on_torus}
 \end{figure}
 
-When $\Sigma$ is the Klein bottle, then $g = 2$. Then $t = 8$, but $K_7$ cannot be embedded on the Klein bottle.
-
 A famous theorem involving map colourings on surfaces is Heawood's conjecture, by \textcite{heawoodMapcolourTheorem1890}. This theorem is also called the Map Colour Theorem. Piecewise linearly partition a surface $\Sigma$ into path-connected faces homeomorphic to a disk. Then a \textit{map} of $\Sigma$ is the graph obtained by placing a vertex at each face and placing an edge when two faces touch at a line. Let $\chi(g)$ be the minimum number of colours sufficient to colour all Euler genus $g$ maps. Heawood showed that when $g \geq 1$, 
 	\begin{equation*}
 		\chi(g) \leq \left\lfloor 
 		\frac{7 + \sqrt{1 + 24g}}{2}
 		\right\rfloor.
 	\end{equation*}
-When $g = 0$, this is the Four-Colour theorem, which was unproven \citetitle{ringelMapColorTheorem1974} by \textcite{ringelMapColorTheorem1974} was written.  
+When $g = 0$, this is the Four-Colour theorem, which was unproven when \citetitle{ringelMapColorTheorem1974} by \textcite{ringelMapColorTheorem1974} was written.  
 Ringel and Young \cite{ringelMapColorTheorem1974} showed that for almost every case,
 \begin{equation*}
-	\chi(g) \geq \left\lfloor 
+	\chi(g) = \left\lfloor 
 	\frac{7 + \sqrt{1 + 24g}}{2}
 	\right\rfloor.
 \end{equation*}

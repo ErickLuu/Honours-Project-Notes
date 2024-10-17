@@ -1,13 +1,13 @@
 \section{Graph minors}
 A graph \(H\) is a \textit{minor} of a graph \(G\) if a graph isomorphic to \(H\) can be obtained from \(G\) by deleting vertices, deleting edges, and \textit{contracting} edges. Let $G$ be a graph and let $uv$ be an edge in $E(G)$. To \textit{contract} \(uv\), we delete both \(u\) and \(v\) and create a new vertex \(w\) with neighbourhood \(N(w) = N_G(u) \cup N_G(v)\). The graph obtained after contracting the edge \(uv\) in $G$ is written as \(G/uv\).
-A description of edge contraction is in \cref{fig:edge_contraction}.
+A description of edge contraction is in \cref{fig:edge_contraction}.  Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
 \begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width = 0.5\textwidth]{figures/edge_contraction.svg}
-	\caption[Edge contraction]{Contraction of the edge $\{u, v\}$ to the vertex $w$. Note that edges incident to the common neighbour to both $u$ and $v$ becomes a single edge in the contraction. This maintains the property that the graph after edge contraction is simple.}\label{fig:edge_contraction}
+	\caption[Edge contraction]{Contraction of the edge $\{u, v\}$ to the vertex $w$. Note that edges incident to common neighbours of both $u$ and $v$ becomes a single edge in the contraction. This maintains the property that the graph after edge contraction is simple.}\label{fig:edge_contraction}
 \end{figure}
 
-The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
+The statement ``\(H\) is a minor of \(G\)'' is written as \(H \leq G\). A graph \(G\) is \textit{\(H\)-minor-free} if $H$ is not a minor of $G$. A family of graphs \(\mathcal{F}\) is \textit{minor-closed} if and only if when $G$ is in \(\mathcal{F}\) and \(H \leq G\), then $H$ is in \(\mathcal{F}\).
 
 An example of a minor-closed class is the class of planar graphs.
 
@@ -28,14 +28,13 @@ Let $G$ and $H$ be graphs. A \textit{model} of \(H\) in \(G\) is a function $\rh
 	Suppose $H$ is a minor of $G$. Use induction to show that \(H\) has a model in \(G\). Suppose \(H\) is obtained from \(G\) by contraction operations only. We can assume this by taking a subgraph of \(G\) if necessary. Let \(uv\) be the first contracted edge and let \(G' := G / uv\). Let \(w\) be the vertex obtained after contracting \(uv\). Then by induction, a model \(\rho\) of \(H\) in \(G'\) exists. Then find $x \in V(H)$ such that $w \in V(\rho(x))$. If no such $x$ exists, then $\rho$ is a model of $H$ in $G$. Otherwise, delete \(w\) from \(V(\rho(x)) \) and add $u, v$ to $V(\rho(x))$, the edge $uv$, and the edges from $u$ and $v$ to the neighbours in $w$ in $\rho(x)$. Then this is a model of \(H\) in \(G\). 
 \end{proof}
 
-An important class of minor-closed graph families are the \(K_t\)-minor-free graphs. For a graph \(G\), \(\had(G)\) is the largest \(t\) such that \(K_t\) is a minor of \(G\). $\had(G)$ is named after Hugo Hadwiger due to his conjecture below.
+An important minor-closed graph family is the set of \(K_t\)-minor-free graphs for a fixed $t \geq 0$. For a graph \(G\), \(\had(G)\) is the largest \(t\) such that \(K_t\) is a minor of \(G\). The set of $K_t$-minor-free graphs is the set of graphs $G$ where $\had(G) \leq t - 1$. $\had(G)$ is named after Hugo Hadwiger due to his conjecture below.
 \begin{conjecture}[Hadwiger's conjecture \cite{hadwigerUeberKlassifikationStreckenkomplexe1943}]\label{conj:Hadwiger's Conjecture}
 	For every graph \(G\), \(\chi(G) \leq \had(G)\).
 \end{conjecture}
-Much work has been done on solving Hadwiger's conjecture, with a survey by \textcite{seymourHadwigersConjecture2016} on the latest progress. However, \cref{conj:Hadwiger's Conjecture} remains unsolved. Much of structural graph theory involves graph minors in some way. Many of the theorems that we will discuss throughout this report discuss graph minors. 
+Much work has been done on solving Hadwiger's conjecture, with a survey by \textcite{seymourHadwigersConjecture2016} on the latest progress. However, \cref{conj:Hadwiger's Conjecture} remains unsolved.
 
- \subsection{Graph Minors}
-Any result on $K_t$-minor-free graphs implies results about minor-closed families. This is due to \cref{lem:minor-closed-Kt}. 
+ Any result on $K_t$-minor-free graphs implies results about minor-closed families. This is due to \cref{lem:minor-closed-Kt}. 
 
 \begin{lemma}\label{lem:minor-closed-Kt}
     Every proper minor-closed family is $K_t$-minor-free for some $t$. 
@@ -44,4 +43,4 @@ Any result on $K_t$-minor-free graphs implies results about minor-closed familie
     As $\mathcal{F}$ is proper, there exists a graph $H$ which is not in $\mathcal{F}$. But this means that $H$ is not a minor of any graph in $\mathcal{F}$. Then $K_t$ is not a minor of $\mathcal{F}$, where $t = |V(H)|$. Then $\mathcal{F}$ is $K_t$-minor-free. 
 \end{proof}
 Note that $H$ may not be the smallest forbidden graph in $\mathcal{F}$, but the existence of such an $H$ is sufficient. 
-Then \cref{conj:bded_had_pn} implies \cref{lem:Minor-Closed_Pagenumber}. From \cref{lem:minor-closed-Kt}, every proper minor-closed graph family is $K_t$-minor-free. Therefore, every graph in a proper minor-closed graph family can be embedded in a bounded number of pages.
+Then \cref{conj:bded_had_pn} implies \cref{lem:Minor-Closed_Pagenumber}. From \cref{lem:minor-closed-Kt}, every proper minor-closed graph family is $K_t$-minor-free. Therefore, every graph in a proper minor-closed graph family can be embedded in a bounded number of pages, which is \cref{lem:Minor-Closed_Pagenumber}. 

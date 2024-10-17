@@ -11,7 +11,7 @@
 \subsection{Apex sets}\label{sssec:Apex_Vertices}
 
 \begin{proposition}
-	Let $G$ be a graph and $u$ be a vertex in $G$. If \(G-u\) is \(K_{t}\)-minor-free, then $G$ is $K_{t+1}$-minor-free. 
+	Let $G$ be a graph and $u \in V(G)$. If \(G-u\) is \(K_{t}\)-minor-free, then $G$ is $K_{t+1}$-minor-free. 
 \end{proposition}
 \begin{proof}
 	We prove the contrapositive. Suppose \(G\) has a \(K_{t + 1}\) minor. Then \(K_{t + 1}\) has a model $\rho$ in \(G\). Now let \(v\) be the vertex in \(K_{t + 1}\) such that \(\rho(v)\) contains \(u\). Then delete \(v\) from \(K_{t + 1}\) to form $K_t$. \(K_t\) is a minor of \(G - \rho(v)\). But \(G - \rho(v)\) is a minor of \(G - u\), as \(G - \rho(v)\) does not contain \(u\). So \(G - u\) has a \(K_t\) minor. 
@@ -30,7 +30,7 @@ The \textit{\(k\)-clique-sum} of two graphs \(G\) and \(H\) is a new graph forme
 	Let $t \geq 1$. Let $G_1, G_2$ be two graphs with treewidth $t$. Then for all $k \leq t + 1$, $G_1 \oplus_k G_2$ has treewidth $t$. 
 \end{proposition}
 \begin{proof}
-	Suppose $C = V(G_1) \cap V(G_2)$ be the clique that is glued over, where $|C| = k$. Let $(T_1, (B_x)_x)$ be a tree-decomposition of $G_1$ of minimum width. Let $(T_2, (B_x)_x)$ be a tree-decomposition of $G_2$ of minimum width. Then $C$ appears in some bag $A_x$ and $B_y$ by \cref{lem:clique}. Let $T = T_1 \sqcup T_2$. Add a new node $u$ to $T$ and let $B_u = C$. Then add edges $ux, uy$ to $E(T)$ to form a new tree. Every vertex not in $C$ has a subtree in $T$. If $v \in C$, then the induced subgraph in $T$ is the graph $T_1(v) \cup T_2(v) \cup u$. $T_1(v) \cup T_2(v) \cup u$ is a subtree of $T$. Finally, every edge in $G_1 \cup G_2$ remains in $T$. Therefore, $T$ is a tree-decomposition of $G_1 \oplus_k G_2$. The size of each bag in $T$ is still at most $t + 1$, so the treewidth of $G_1 \oplus_k G_2 \leq t$.
+	Suppose $C = V(G_1) \cap V(G_2)$ is the clique that is glued over, where $|C| = k$. Let $(T_1, (B_x)_x)$ be a tree-decomposition of $G_1$ of minimum width. Let $(T_2, (B_x)_x)$ be a tree-decomposition of $G_2$ of minimum width. Then $C$ appears in some bag $A_x$ and $B_y$ by \cref{lem:clique}. Let $T = T_1 \sqcup T_2$. Add a new node $u$ to $T$ and let $B_u = C$. Then add edges $ux, uy$ to $E(T)$ to form a new tree. Every vertex not in $C$ has a subtree in $T$. If $v \in C$, then the induced subgraph in $T$ is the graph $T_1(v) \cup T_2(v) \cup u$. So $T_1(v) \cup T_2(v) \cup u$ is a subtree of $T$. Finally, every edge in $G_1 \cup G_2$ remains in $T$. Therefore, $T$ is a tree-decomposition of $G_1 \oplus_k G_2$. The size of each bag in $T$ is still at most $t + 1$, so the treewidth of $G_1 \oplus_k G_2 \leq t$.
 \end{proof}
 
 \begin{proposition}\label{prop:cliquesum_minor}
@@ -54,11 +54,11 @@ The reverse proposition, that if $G$ is $K_t$-minor-free, then $G$ has bounded g
 \end{proposition}
 
 \begin{proof}
-	Consider $n$ copies of $K_{3,3}$. Then $G$ is $K_5$-minor-free. However, from \cref{thm:additivity_genus}, $G$ has Euler genus $n$. 
+	Let $G$ be $n$ copies of $K_{3,3}$. Then $G$ is $K_5$-minor-free. However, from \cref{thm:additivity_genus}, $G$ has Euler genus $n$. 
 \end{proof}
 
 \subsection{Torsos and adhesion}\label{sssec:Torsos and Adhesion}
-Let \(G\) be a graph and \((T, (B_x)_x)\) a tree-decomposition of $G$. The \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\) with vertex set $B_x$, and \(vw \in E(G\langle B_x \rangle)\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $uv \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
+Let \(G\) be a graph and \((T, (B_x)_x)\) a tree-decomposition of $G$. The \textit{torso} of a bag \(B_x\) of \(T\) is the graph \(G\langle B_x \rangle\) with vertex set $B_x$, and \(vw \in E(G\langle B_x \rangle)\) if and only if $vw \in E(G)$ or \(v,w \in B_x \cap B_y\), where \(y\) is any neighbour of \(x\) in \(T\). The edge $uv$ where $u,v \in B_x \cap B_y$ are called \textit{torso edges}. The set \(B_x \cap B_y\) for all neighbours \(y\) of \(x\) in \(T\) is a clique in \(G\langle B_x \rangle\).
 The \textit{adhesion set} is the set \(B_x \cap B_y\). 
 The \textit{adhesion} of a tree is defined as \(\max(|B_x \cap B_y|)\) where \(xy\) is an edge in \(T\).
 
@@ -66,8 +66,8 @@ Given \(G\) and a tree-decomposition \((T, (B_x)_x)\), \(G\) is a clique-sum of 
 We prefer to use tree-decompositions and torsos over clique-sums. This is because the structure of tree-decompositions can be discussed.
 
 \subsection{Vortices}\label{sssec:vortices}
-Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ in $\Sigma$ is \textit{$G$-clean} if $D$ is an open subset of $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\), where no vertex appears more than once in $\Lambda$, and the ordering of $\Lambda$ is around the boundary of $D$. 
-Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_k)$. A \textit{$D$-vortex} is a graph $H$ where $V(G) \cap V(H) = \Lambda$, and a \textit{path-decomposition} of \(H\) \((B_1, B_2, \ldots B_k)\) where \(x_i \in B_i\) for all \(i\). The \textit{depth} of the vortex $H$ is $\max_{i}(|B_i|) - 1$. 
+Let \(G\) be embedded on a surface \(\Sigma\), and let \(F\) be a face on \(G\). A disc $D$ in $\Sigma$ is \textit{$G$-clean} if $D$ is an open subset of $F$ and $G \cap D$ is a tuple of vertices \(\Lambda = (x_1, x_2, \ldots, x_b)\), where no vertex appears more than once in $\Lambda$, and the ordering of $\Lambda$ is around the boundary of $D$. A path-decomposition $(B_i)_{i \in [n]}$ is \textit{rooted} on a path $P = (x_1, \ldots, x_n)$ if $x_i \in B_i$ for all $i$.
+Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \cap D = \Lambda = (x_1, x_2, \ldots, x_k)$. A \textit{$D$-vortex} is a graph $H$ where $V(G) \cap V(H) = \Lambda$, and there is a \textit{path-decomposition} of \(H\) \((B_1, B_2, \ldots B_k)\) rooted on $\Lambda$. The \textit{depth} of the vortex $H$ is $\max_{i}(|B_i|) - 1$. 
 
 \cref{fig:tenniscourt} demonstrates the necessity of vortices. This counterexample is provided by \textcite{seeseGridsTheirMinors1989}. $G_n$ is $K_8$-minor-free. However, $G_n$ has at least $\frac{n}{3}$ disjoint models of $K_{3,3}$, so has Euler genus at least $\frac{n}{3}$, from \cref{prop:k5_large_genus}. As $G$ has an $n \times n$ grid minor, $G$ has treewidth at least $n$. As $G$ can be arbitrarily large, the number of apex vertices to remove to bound the treewidth and Euler genus is arbitrarily large. However, let $G_0$ is the $n \times (n - 1)$ grid and $G_1$ is the $n \times 2$ grid in the back plus the red vertices. Then $G_0$ is planar and $G_1$ is a vortex of depth 6 on $G_0$ embedded on the outerface.
 
@@ -77,7 +77,7 @@ Let $G$ be a graph embedded on $\Sigma$. Let $D$ be a $G$-clean disc with $G \ca
 	\caption[Graph vortex counterexample]{A graph with large genus and large treewidth. The subgraph embedded on the surface is $G_0$ and $B_1, \ldots, B_n$ are the bags of $G_1$.}\label{fig:tenniscourt}
 \end{figure}
 \subsection{Robertson-Seymour Graph Minor Structure Theorem}\label{ssec:Robertson_Seymour_Graph_Structure}
-Almost-embeddable graphs are a key component of the Graph Minor Structure Theorem. Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)- almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) where the following holds:
+Almost-embeddable graphs are a key component of the Graph Minor Structure Theorem. Given integers \(g, p, a \geq 0\), \(k \geq 1\), a graph \(G\) is \((g, p, k, a)\)-almost-embeddable if there exists an \(A \subseteq V(G)\) with \(|A| \leq a\), and there exists subgraphs \(G_0, G_1, \ldots,  G_{p'}\) of \(G\) where the following holds:
 \begin{itemize}
 	\item \(G - A = G_0 \cup G_1 \cup G_2 \cup \ldots \cup G_{p'}\).
 	\item The number of vortices $p'$ is at most $p$.
@@ -100,7 +100,7 @@ The family of graphs with tree-decomposition of adhesion $\leq \ell$ with torsos
 Note that $\ell$ is implied to be less than $t$, as this would imply that the torsos have a $K_t$ clique. In fact $\ell$ is at most $a + 2k + \left\lfloor 
 \frac{1}{2} (7 + \sqrt{1 + 24g})
 \right\rfloor$. This result is a lemma by \textcite{dujmovicLayeredSeparatorsMinorclosed2017}. 
-There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost embeddable, then \(G\) has no \(K_t\) minor. \textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. Robertson and Seymour did not give explicit bounds.
+There exists a function \(t(g, p, k, a)\) such that if a graph has a tree-decomposition of adhesion \(\leq \ell\) and each torso is \((g, p, k, a)\)-almost-embeddable, then \(G\) has no \(K_t\) minor. \textcite{kawarabayashiQuicklyExcludingNonplanar2021} found upper bounds for $g, p, k, a$. Robertson and Seymour did not give explicit bounds.
 
 \begin{theorem}[\textcite{kawarabayashiQuicklyExcludingNonplanar2021}]
 	Let $t \geq 1$ be a positive integer. Let $G$ be a $K_t$-minor-free graph. Then let $\alpha = t^{18 \cdot 10^{7} t^{26} + c}$ for a constant $c$, which is defined in the paper. Then setting $g = t(t+1)$, $p = 2t^2$, $k = \alpha$, $\ell = 4\alpha$, and $a = 3\alpha$, $G \in \mathcal{G}(g,p,k,a)$. 
