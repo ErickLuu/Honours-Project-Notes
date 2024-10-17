@@ -1,4 +1,5 @@
-
+\section{Perturbed paths and book-embeddings}
+We move on from monochromatic paths and discuss $k$-perturbed paths. $k$-perturbed paths are structures that may appear on the boundary of a face. However, there is no way to control $k$-perturbed paths. 
 Let $P$ be a path. A \textit{$k$-perturbation} of $P$ is an operation that partitions $P$ into subpaths $P_1, \ldots, P_n$ and for every $P_i$, $k$ vertices are moved to the front of $P_i$. 
 
 \begin{proposition}\label{prop:k-perturbation}
@@ -16,7 +17,7 @@ Let $P$ be a path. A \textit{$k$-perturbation} of $P$ is an operation that parti
 
 Let $G$ be a plane graph and let $F$ be a face on $G$. Suppose $F$ is rooted at a torso $R$. Let $H$ be the graph with vertex set the torsos on the boundary of $F$, ignoring $R$ and two torsos $J, K$ are connected if $V(J) \cap V(K) \neq \emptyset$. Then the depth of $F$ is the size of the largest connected component of $F$. An example of face-depth is in \cref{fig:face_depth}.
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.5\textwidth]{figures/face_depth.svg}
 	\caption[Face of depth 3]{An example of a face of depth 3. Surrounding this face is the root torso, which is 4-connected. On the boundary of the face are 4-connected torsos with a cutset of size 3.  Therefore, the face has depth 3 with respect to the outer root torso.}\label{fig:face_depth}
