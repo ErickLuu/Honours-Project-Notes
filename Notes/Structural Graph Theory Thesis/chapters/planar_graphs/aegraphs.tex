@@ -83,6 +83,39 @@ We now prove \cref{lem:vortices_mono_paths}.
 	Use the path-decomposition on \(G'\) as the set \((B_1, \ldots , B_n)\) in proving \cref{lem:vortices_mono_paths}. Then apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, add on the faces in the exact order. Then the monochromatic paths are preserved in the ordering, and in fact from \cref{lem:one_page_decomposition}, they are bounded.
 \end{proof}
 
+\begin{conjecture}\label{conj:nonorientable_monochromatic_paths}
+	Every graph embedded on a surface of Euler genus $g$ can be embedded on $f(g)$ pages where every face has $h(g)$ monochromatic paths. 
+\end{conjecture}
+
+\cref{conj:nonorientable_monochromatic_paths} is a strengthening of \cref{conj:nonorientable}. We believe this holds for every surface, including the sphere.
+\cref{conj:nonorientable_monochromatic_paths} implies the following:
+
+\begin{corollary}\label{corr:aegraphs}
+	If \cref{conj:nonorientable_monochromatic_paths} holds, then every $(g, p, k)$-almost-embeddable graph is embeddable on $h p (k + 1) + f$ pages, where $h = h(g)$ and $f = f(g)$ are from \cref{conj:nonorientable_monochromatic_paths}.
+\end{corollary}
+
+\begin{proof}
+	Let $G$ be a $(g, p, k)$-almost-embeddable graph, on a non-orientable surface of genus $g$. By \cref{conj:nonorientable_monochromatic_paths}, there is a book-embedding of $G$ where every face has $h(g)$ monochromatic paths. Then by \cref{corr:vortices_paths_pn}, $G$ can be embedded in $f + h p (k+1)$ pages. 
+\end{proof}
+
+\cref{corr:aegraphs} implies \cref{conj:bded_had_pn}.
+\begin{corollary}\label{corr:bound_gmst}
+	If \cref{conj:nonorientable_monochromatic_paths} holds, then every $\mathcal{G}(g, p, k, a)$ graph can be embedded on $2s^2 + 4s + 1$ pages, where $s =  4g h (k + 1) + f + a$, where $h = h(g)$ and $f = f(g)$ are from \cref{conj:nonorientable_monochromatic_paths}. 
+\end{corollary}
+
+\begin{proof}
+	Let $G \in \mathcal{G}(g, p, k, a)$. Then $G$ has a tree-decomposition where every torso is $(g, p, k, a)$-almost embeddable. From \cref{corr:aegraphs} and \cref{thm:apex_vertices_pagenumber}, every torso is embeddable on $s = 4g h (k + 1) + f + a$ pages. Then from \cref{corr:bded_pn_tree_decomp}, $G$ is embeddable on $2s^2 + 4s + 1$ pages.
+\end{proof}
+
+\begin{corollary}
+	If \cref{conj:nonorientable_monochromatic_paths} holds, then every $K_t$-minor-free graph can be embedded on $f(t)$ pages. 
+\end{corollary}
+
+\begin{proof}
+	Applying the Graph Minor Structure Theorem to \cref{corr:bound_gmst} every $K_t$-minor-free graph is in $\mathcal{G}(g, p, k, a)$ for some $g, p, k, a$ as a function of $t$. Therefore, every $K_t$-minor-free graph can be embedded on a bounded number of pages. 
+\end{proof}
+
+Therefore, finding a book-embedding of graphs on non-orientable surface with every face having a bounded number of monochromatic paths would prove \cref{conj:bded_had_pn}. Finding any book-embedding of graphs on non-orientable surfaces is difficult enough, and having the additional condition of monochromatic paths may be more difficult. Nevertheless, finding any bound will be useful.
 
 A \textit{Hamiltonian path} $P$ on a graph $G$ is a path that visits every vertex in $G$ exactly once. A \textit{Hamiltonian cycle} $C$ on a graph $G$ is a cycle that visits every vertex in $G$ exactly once.  
 
@@ -110,16 +143,6 @@ In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}.
 From \cref{lem:Hamiltonian_preserved_faces}, if \(G\) is a Hamiltonian planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\). As a consequence of \cref{thm:4-connected_planar_ham_cycle}, every 4-connected planar graph has a circular ordering which preserves every face.
 
 Then this can be extended to every connected planar graph, adding a constant number of monochromatic paths, as shown by \cref{thm:planar_graph__be_mono_paths}.
-
-\begin{lemma}\label{lemma:decomposition_faces}
-	Let $G$ be a planar graph embedded on $\mathbb{R}^2$, and let $F$ be a face. The vertex set of $F$ has a tree-decomposition $(T, (B_x)_x)$ of adhesion 1 where each torso is a cycle.
-\end{lemma}
-
-\begin{proof}
-	Suppose the facial walk of $F$ is a cycle $C$. Then there are no cut-vertices, so $C$ is a valid cycle.
-
-	Now suppose $F$ has a cut vertex. Let $W$ be a facial walk of $F$, and suppose the sum times duplicate vertices appear is $n$. Suppose for all faces with walks with $n-1$ duplicate vertices, the lemma holds. Take a cut-vertex $v$ and look at the first and last time $v$ appears in $W$, call these positions $a, b$. Then let $W_1$ be the subwalk $W[a, b-1]$ and let $W_2$ be the subwalk of $W - W[a, b-1]$, removing $[a, b-1]$. Now both $W_1$ and $W_2$ bound subfaces of $F$. Then applying the inductive hypothesis, $W_1$ and $W_2$ have the decomposition above. Then there is a bag containing $v$ in the tree-decomposition of $W_1$ and $W_2$, so join the two bags. As $W_1$ and $W_2$ only have $v$ in common, then $w_1, w_2$ contain $w$. 
-\end{proof}
 
 We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where every face has a bounded number of cut-sets of size 3 on its boundary. We assumed that every face has a bounded number of cut-sets of size 3 on its boundary, but this was not the case. \cref{fig:moved_vertices} provides a counterexample. 
 
