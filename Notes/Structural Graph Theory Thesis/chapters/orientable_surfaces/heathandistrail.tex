@@ -129,7 +129,7 @@ Let \(G\) be a graph embedded on some surface $\Sigma$. Let $F$ be a face on $\S
 	Suppose a graph \(G\) has a planar-nonplanar decomposition \((G_P, E_N)\) on an Euler genus $g \geq 1$ orientable surface \(\Sigma\). Then \(G\) can be embedded on \(18g + 2\) pages.
 \end{lemma}
 \begin{proof}
-	Use \cref{thm:Planar Graph Hickingbotham Bound} to embed $G_P$ on four pages with the property that the outer-cycle is preserved. Let $H$ be a homotopy class in $E_P$.
+	Use \cref{thm:planar_graph__be_mono_paths} to embed $G_P$ on four pages with the property that the outer-cycle is preserved. Let $H$ be a homotopy class in $E_P$.
 	Take a block-cut tree $T$ of $G_P$. Edges in $H$ that go between the same block go on the same page. These edges do not cross because of \cref{lem:orientable_traces}. Now use the property from \cref{claim:planar_nonplanar_decomp} that every edge in $H$ that is not on the same block is adjacent to either $x$ or $y$. Colour all the edges adjacent to $x$ a new colour and all adjacent to $y$ the same colour. In total, there are three colours. 
 	Therefore, \(11 + 3(6g - 3) = 18g + 2\) pages suffice if \(G\) has a planar-nonplanar decomposition.
 \end{proof}
