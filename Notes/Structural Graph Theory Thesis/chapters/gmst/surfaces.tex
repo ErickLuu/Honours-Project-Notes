@@ -55,7 +55,7 @@ Next is an extension of \cref{thm:K5_Free_Planar} for graphs embedded on surface
 \end{theorem}
 \begin{proof}
 	This proof mimics the above proof for planarity.
-	Suppose \(G\) has \(n\) vertices, \(m\) edges and Euler genus $g$. Then \(n - m + f = 2-g\), from Euler's formula on surfaces. Since three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on an Euler genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). \(t \leq \sqrt{6g} + 4\). So if $G$ has Euler genus \(g\), then $G$ is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\), so \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
+	Suppose \(G\) has \(n\) vertices, \(m\) edges and Euler genus $g$. Then \(n - m + f = 2-g\), from Euler's formula on surfaces. Since three vertices bound each face and each edge touches exactly two faces, then \(f \leq 2m/3\). Therefore, \(m \leq 3(n + g - 2)\). If \(K_t\) is embeddable on an Euler genus \(g\) graph, then \(\binom{t}{2} \leq 3 (t + g - 2)\). So \(t \leq \sqrt{6g} + 4\). So if $G$ has Euler genus \(g\), then $G$ is \(K_t\)-minor-free, where \(t > \sqrt{6g} + 4\), so \(t = \left\lfloor \sqrt{6g} \right\rfloor + 5\). 
 \end{proof}
 When $\Sigma$ is a sphere, then $g = 0$. So $t = 5$. So planar graphs are $K_5$-minor-free. 
 When $\Sigma$ is a projective plane, then $g = 1$, so $t = 7$. So $K_7$ does not embed on the projective plane. $K_6$ does embed on the projective plane. \cref{fig:k6_on_proj_plane} is one embedding.

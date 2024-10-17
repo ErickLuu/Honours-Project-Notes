@@ -33,7 +33,7 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 			c(T_v) & \text{ if } \sigma(v) \leq \sigma(u).
 		\end{cases}
 	\end{equation}
-	This is a book-embedding of \(G_1\) with \(k+1\) colours. Since the intersection graphs of every graph is perfect, we can colour with $k + 1$ colours. Furthermore, suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. 
+	This is a book-embedding of \(G_1\) with \(k+1\) colours. Since the intersection graphs of every graph is perfect, we can colour with $k + 1$ colours. Furthermore, suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. So \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. 
 
 	To add this book-embedding to \(G_0\), add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. An illustration of such a book-embedding is in \cref{fig:preserved_face}.
 \end{proof}
@@ -75,7 +75,7 @@ This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying 
 \begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width = 0.8\textwidth]{figures/one_page_embedding.svg}
-	\caption[One-page decomposition]{Description of \cref{lem:one_page_decomposition}. \(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\).}\label{fig:preserving_pages}
+	\caption[One-page decomposition]{Description of \cref{lem:one_page_decomposition}. The path \(x_1, \ldots, x_n\) are on a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\).}\label{fig:preserving_pages}
 \end{figure}
 Having a one-page book-embedding of a path is useful because of the lemma above. The edge $x_{\sigma(w)-1} x_{\sigma(w)}$ splits the book-embedding into two regions. Therefore, we can force edges that are the same colour to not cross. 
 We now prove \cref{lem:vortices_mono_paths}.
