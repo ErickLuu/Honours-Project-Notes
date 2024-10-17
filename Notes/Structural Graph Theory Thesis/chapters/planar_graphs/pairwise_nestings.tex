@@ -9,7 +9,7 @@
 %     Let us define a new book-embedding of $G$. For a vertex $v \in V(G)$, let $h(v)$ be the first bag $v$ appears in. Let $C_i$ be the bag that contains every vertex where $h(v) = Z_i$. Then 
 % \end{proof}
 
-Let $G$ be a graph and let $\leq, \phi$ be a book-embedding on $G$ on $s$ pages. Two edges $uv, xy$ are \textit{pairwise nested} if $u < x < y < v$, where every vertex is distinct. 
+Let $G$ be a graph and let $\leq, \phi$ be a book-embedding on $G$ on $s$ pages. Two edges $uv, xy$ \textit{pairwise nest} if $u < x < y < v$. Two edges $uv, xy$ \textit{pairwise cross} if $u < x < v < y$. Every vertex on the endpoints of the edges is distinct.
 
 \begin{conjecture}\label{conj:pairwise_nested}
     For every graph $G$ embedded on a surface $\Sigma$ of bounded genus $g$, for any set of faces $F_1, \ldots, F_k$, there exists a book-embedding of $G$ with $f(g, k)$ pages. Furthermore for each $i$, at most $h(g, k)$ edges on the boundary of $F_i$ are pairwise nested. 
@@ -17,14 +17,43 @@ Let $G$ be a graph and let $\leq, \phi$ be a book-embedding on $G$ on $s$ pages.
 
 \cref{conj:pairwise_nested} implies \cref{conj:bded_had_pn}. 
 
+We first prove the following.
+\begin{proposition}\label{prop:nested_edges}
+    Let $G$ be a graph with a path $P = x_1, x_2, \ldots, x_n$ and  path-decomposition $(B_1, B_2, \ldots, B_n)$ rooted at $P$ of width $k + 1$. Further suppose $\sigma$ is an ordering of $P$ where at most $c$ edges pairwise cross and at most $c$ edges pairwise nest. Then $G$ has a book-embedding that respects $\sigma$ with page-number $k(c^2 + 1)$.
+\end{proposition}
+
 \begin{proof}
-    Let $G = G_0 \cup G_1 \cup \ldots \cup G_p$ where $G_0$ is a graph embedded on $\Sigma$ with the condition from \cref{conj:pairwise_nested}. Assume that $G_i$ is a vortex of width $k$ on $F_i$. Let $\sigma = (x_1, \ldots, x_n)$ be the ordering of the vertices around $G_i \cap F_i$. Add edges to $F_i$ so that $\Sigma$ is a cycle around $F_i$. 
+    Let $x_i$ be an arbitrary vertex in $P$. We say two edges $uv$, $xy$ are related by $\lhd$ if it holds that $\sigma$ gives this ordering $x <_\sigma y <_\sigma x_0 <_\sigma u <_\sigma v$ to the vertices $u,v, x, y$. This set of vertices is distinct and does not include $x_i$. This forms a poset of the edges. There are only $c$ of these edges that pairwise nest, and $c$ edges that pairwise cross. By Dilworth's theorem \cite{dilworthDecompositionTheoremPartially1950}, there are at most $c^2$ edges of $P$ with $v <_\sigma x_i <_\sigma w$. Let $S$ be the set of edges $vw$ where $v <_\sigma x_i <_\sigma w$.
 
-    Now let $(B_1, \ldots, B_n)$ be the bags rooted on $\Sigma$. Now $G_0$ plus the edges added on $F_i$ will have a book-embedding on $f(g, k)$ pages where at most $h(g, k)$ pages on the boundary of $F_i$ are pairwise nested.
+    Let $A_i$ be the left endpoints with respect to $\sigma$ of all the edges in $S$, and the neighbours of $x_i$ in $P$, $x_{i-1}$ and $x_{i + 1}$. Then $|A_i| leq c^2 + 2$. Now let $B_i' = B_i \cup \left(\bigcup_{x_j \in A_i} B_j\right)$. So $|B_i'| \leq (c^2 + 1) k$. Now ordering these bags, $B'_{\sigma(1)}, B'_{\sigma(2)}, \ldots, B'_{\sigma(n)}$ is a path-decomposition of $G$ with width $k (c^2 + 1)- 1$. 
+    
+    Every vertex is in some bag of this new path-decomposition. If $v \in B_i$, then $v \in B'_{i}$. Furthermore, every edge is in some bag for the same reason.
 
-    For each vertex $v$ in $G_i$, let $h(v) = \min_i\{v \in B_i\}$. Then let $C_i = \{v : h(v) = i\}$. Now let $B_i'$ be $B_i$ with the bags $B_{i-1}, B_{i + 1}$ and the bags of any pairwise nested bags above. There will be at most $h(g, k)$ edges, so the size of each bag is bounded. But this new book-embedding will contain a bounded number of vertices. Furthermore, this book-embedding, by duplicating vertices, 
+    Finally let $v$ be a vertex. If $v$ is in bags $B_{i},  B_{i + 1}, B_{i + 2}, \ldots B_j$, then in the new book-embedding, $v$ is in a subpath. Firstly, there is a subpath of bags that contain $B_i$ in $\sigma$. These are all the bags from $B'_{i}$ to $B'_{i + 1}$ in $\sigma$. This is a subpath from the definition of $B'$, as it is the union of bags that pass by an edge, which is a subpath. This is the same for $B'_{i + 1}$. But notice that $B'_i$ and $B'_{i + 1}$ share $B'_i$ as a common bag, as there is an edge from $B'_{i}$ to $B'_{i + 1}$. But since the set of bags that contain $B'_{i + 1}$ is a subpath in $\sigma$, the union is also a subpath. Repeat for all bags until $B_j$. Then the bags that contain $v$ form a subpath.
+
+    Finally, this new tree-decomposition is rooted on $\sigma$, so it respects $\sigma$. Then $G$ has a book-embedding that respects $\sigma$ on $k(c^2 + 1)$ pages. 
 \end{proof}
 
-If $G$ is a planar graph that is Hamiltonian, then $G$ has at most two pairwise nested edges on each face. Each face is preserved, so restricting $G$ to the vertices touching a face yields that every edge is a spine edge. Then $G$ has two pairwise nestings. 
+\begin{lemma}\label{lem:paths}
+    Let $P = x_1, x_2, \ldots, x_n$ be a path. Let $\sigma$ be a new ordering of $P$ with $c$ pairwise crossing edges. Then there is a book-embedding of $P$ with vertex ordering $\sigma$ on $O(c \log c)$ pages.
+\end{lemma}
 
-It is not true 
+
+\begin{proof}
+    Define $H$ to be a new graph. $H$ has vertex set $E(P)$ and edge set $uv$ if edges $u$ and $v$ pairwise cross. $H$ is a circle graph. \textcite{daviesImprovedBoundsColouring2022} proved that if $H$ has clique number $\omega$, then $\chi(H) \leq O(\omega \log \omega)$. Since the largest clique in $H$ is $c$, then $H$ can be coloured in $O(c \log c)$ colours. But this colouring places every edge that pairwise crosses on a different page, so there is a book-embedding of $P$ with vertex ordering $\sigma$ on $O(c \log c)$ pages.
+\end{proof}
+
+\cref{lem:paths} and \cref{prop:nested_edges} implies \cref{corr:nested_edges_pn}.
+
+\begin{corollary}\label{corr:nested_edges_pn}
+    Let $G$ be a graph with a path $P = x_1, x_2, \ldots, x_n$ and  path-decomposition $(B_1, B_2, \ldots, B_n)$ rooted at $P$ of width $k + 1$. Further suppose $\sigma$ is an ordering of $P$ where at most $c$ edges pairwise cross and $\sigma$ embeds $G$ on $k$ pages. Then $G$ has a book-embedding that respects $\sigma$ with page-number $f(s, k)$.
+\end{corollary}
+
+Now we prove that \cref{conj:pairwise_nested} implies \cref{conj:bded_had_pn}. 
+\begin{proof}
+    Let $G = G_0 \cup G_1 \cup \ldots \cup G_p$ where $G_0$ is a graph embedded on $\Sigma$ with the condition from \cref{conj:pairwise_nested}. Assume that $G_i$ is a vortex of width $k$ on $F_i$. Let $P = (x_1, \ldots, x_n)$ be the ordering of the vertices around $G_i \cap F_i$. Add edges to $F_i$ so that $P$ is a cycle around $F_i$. Then there is a linear ordering $\sigma$ of $V(G_0)$ with at most $f(g, k)$ pairwise crossing edges and at most $f(g, k)$ pairwise crossing edges around $F_i$, from \cref{conj:pairwise_nested}. But from \cref{corr:nested_edges_pn}, this means that there is a book-embedding of $G_i$ on $\sigma$, the ordering of $G_0$ on a bounded number of pages. Adding on every vortex onto $G_0$ using a different page for each vortex, $G$ has a book-embedding on a bounded number of pages. But this states that every $(g, p, k)$-almost-embeddable graphs have bounded pagenumber. 
+
+    But every $K_t$-minor-free graph $H$ has a tree-decomposition where every torso is $(g, p, k, a)$-almost-embeddable. However from \cref{thm:apex_vertices_pagenumber}, a bounded number of apex vertices do not blow up the pagenumber. Then from \cref{thm:clique_sum_pagenumber_bound}, the pagenumber of $H$ is bounded, since every torso has bounded pagenumber.
+\end{proof}
+
+If $G$ is a planar graph that is Hamiltonian, then $G$ has at most two pairwise nested edges on each face. Each face is preserved, so restricting $G$ to the vertices touching a face yields that every edge is a spine edge. Then $G$ has two pairwise nested vertices. 
