@@ -82,6 +82,19 @@ We now prove \cref{lem:vortices_mono_paths}.
 \begin{proof}
 	Use the path-decomposition on \(G'\) as the set \((B_1, \ldots , B_n)\) in proving \cref{lem:vortices_mono_paths}. Then apply \cref{lem:one_page_decomposition} for the monochromatic \(v_i\) to each of the monochromatic paths. From the construction of the vortices in \cref{lem:preserved_faces_pagenumber}, add on the faces in the exact order. Then the monochromatic paths are preserved in the ordering, and in fact from \cref{lem:one_page_decomposition}, they are bounded.
 \end{proof}
+
+
+A \textit{Hamiltonian path} $P$ on a graph $G$ is a path that visits every vertex in $G$ exactly once. A \textit{Hamiltonian cycle} $C$ on a graph $G$ is a cycle that visits every vertex in $G$ exactly once.  
+
+A graph $G$ is \textit{Hamiltonian} if $G$ has a Hamiltonian cycle.
+Firstly, \textcite{tutteTheoremPlanarGraphs1956} proves every $4$-connected planar graph is Hamiltonian.
+In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}. A graph $G$ is \textit{Hamiltonian-connected} if for all edges $xy \in E(G)$, there is a Hamiltonian cycle that goes through $xy$. 
+
+\begin{theorem}[\textcite{thomassenTheoremPathsPlanar1983}]\label{thm:4-connected_planar_ham_cycle}
+	Every 4-connected planar graph is Hamiltonian-connected.
+\end{theorem}
+
+
 \begin{lemma}\label{lem:Hamiltonian_preserved_faces}
 	Let \(G\) be a Hamiltonian planar graph with Hamiltonian cycle $C$. Then there exists a book-embedding $(\leq, \varphi)$ on two pages where every face of $G$ is preserved, and the circular ordering of $\leq$ is $C$.
 \end{lemma}
@@ -90,7 +103,7 @@ We now prove \cref{lem:vortices_mono_paths}.
 	Let \(<\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every edge in $G - C$ is inside either the interior or exterior of \(C\). Colour every edge in $C$ and on the interior of $\mathbb{R}^2 - C$ red and colour the other edges blue. This is a book-embedding as both regions can be embedded on a single page with the same cyclic ordering. Furthermore, every face is preserved. Because $\mathbb{R}$ is orientable, affix an orientation to every face \(F\) on $G$ such that the order of the vertices in the orientation is the same order as the orientation in \(D\).
 	\begin{figure}[h!]
 		\centering
-		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
+		\includesvg[pretex=\tiny, width=0.5\linewidth]{figures/hamiltonian-planar}
 		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
@@ -142,6 +155,6 @@ Let $F$ be a face. $F$ can have an unbounded number of blue components on its bo
 
 \begin{figure}[h!]
 	\centering
-	\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/counterexample.svg}
+	\includesvg[pretex=\tiny, width=0.5\linewidth]{figures/counterexample.svg}
 	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ with faces that require an unbounded number of vertices. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected components, with cut-sets the green vertices on the ends.}\label{fig:moved_vertices}
 \end{figure}

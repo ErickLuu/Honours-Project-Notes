@@ -8,7 +8,7 @@ The ordering of \(V(G)\) in the book embedding is denoted as \((<)\) or as \((\l
 
 For a book-embedding \((v_1, v_2, \ldots, v_{|G|})\), the edges \( \left\{ v_1 v_2, v_2 v_3, \ldots, v_{|G| - 1}v_{|G|}, v_{|G|}v_{1} \right\} \) are called \textit{spine edges}.
 
-A circular ordering of a set $S$ is an ordering where the elements of $S$ are in a circle rather than on a straight line. A circular ordering of a book-embedding is equivalent to a linear ordering of a book-embedding. We can go from a circular ordering to a linear ordering by choosing a vertex to be at the start of the sequence. By ignoring the starting vertex, we can go from a linear ordering to a circular ordering. Another book-embedding of $K_5$, this time with a circular ordering, is in \cref{fig:circular_book-embedding}.
+A circular ordering of a set $S$ is an ordering where the elements of $S$ are in a circle rather than on a straight line. The edges are then coloured so that edges of the same colour do not pairwise cross on a circular embedding. A circular ordering of a book-embedding is equivalent to a linear ordering of a book-embedding. We can go from a circular ordering to a linear ordering by choosing a vertex to be at the start of the sequence. By ignoring the starting vertex, we can go from a linear ordering to a circular ordering. Another book-embedding of $K_5$, this time with a circular ordering, is in \cref{fig:circular_book-embedding}.
 
 \begin{figure}[h!]
 	\centering
@@ -21,7 +21,7 @@ Book-embeddings were introduced by \textcite{kainenRecentResultsTopological1974,
 	A graph \(G\) can be embedded on a single page if and only if \(G\) is an outerplanar graph.
 \end{proposition}
 \begin{proof}
-	Suppose $G$ is outerplanar, and embedded in $\mathbb{R}^2$. The outer-cycle formed by the vertices on the outerplanar graph partitions $\mathbb{R}^2$ into two sections, an inner-face and an outerface. Every vertex can be placed on the boundary of the inner-face and every edge can be placed on the inner-face without crossing. Then traversing around the boundary of the inner-face yields a circular ordering, where no two edges cross. Then this is a one-page book-embedding of $G$. 
+	Suppose $G$ is outerplanar, and embedded in $\mathbb{R}^2$. The outer-cycle formed by the vertices on the outerplanar graph partitions $\mathbb{R}^2$ into two sections, an inner region and an outerface. Every vertex can be placed on the boundary of an inner region and every edge can be placed on the inner region without crossing. Then traversing around the boundary of the inner region yields a circular ordering, where no two edges cross. Then this is a one-page book-embedding of $G$. 
 
 	If $G$ has a one-page book-embedding, then embedding the circular book-embedding onto $\mathbb{R}^2$ through the inclusion map shows that $G$ is outerplanar. 
 \end{proof}
@@ -60,8 +60,7 @@ A paper by \textcite{bernhartBookThicknessGraph1979} calculated the book-thickne
 	\input{figures/k8-withcolouring}
 	\caption[Embedding $K_8$ on four pages]{Circular embedding of \(K_8\) with four pages, the minimum possible.}\label{fig:k8 coloured with colours}
 \end{figure}
-The proof of \cref{thm:Pagenumber_Complete_Graph} is by \textcite{bernhartBookThicknessGraph1979}
-Therefore, for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\).
+So for any graph \(G\) on \(n\) vertices, \(n \geq 4\), \(\pn(G) \leq \lceil n/2 \rceil\).
 
 \cref{thm:Colouring_Bound} bounds the chromatic number and is by \textcite{bernhartBookThicknessGraph1979}. This proof uses degeneracy. 
 A simple lemma connecting $k$-degenerate graphs and chromatic number helps prove this theorem. 

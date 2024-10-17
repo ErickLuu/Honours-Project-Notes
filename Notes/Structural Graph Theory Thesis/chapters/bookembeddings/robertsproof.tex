@@ -1,17 +1,17 @@
 \section{Tree-decompositions and pagenumber}\label{sec:BoundedPagenumber}
-This section discusses tree-decompositions and book-embeddings of graphs where every component has a tree-decomposition. \textcite{hickingbothamStackNumberCliqueSum2023} proved that every graph with a tree-decomposition where every torso is embeddable on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. This proof can be seen as an extension of \cref{thm:bded_treewidth_bded_pagenumber}, where each torso has bounded pagenumber, rather than a bounded number of vertices. This proof is then applied to planar graphs, using a lemma that every planar graph has an embedding and tree-decomposition where every torso is either $K_{\leq 4}$ or a $4$-connected planar graph. 
+This section discusses tree-decompositions and book-embeddings of graphs where every torso in the tree-decomposition has a bounded book-embedding. \textcite{hickingbothamStackNumberCliqueSum2023} proved that every graph with a tree-decomposition where every torso is embeddable on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. This proof can be seen as an extension of \cref{thm:bded_treewidth_bded_pagenumber}, where each torso has bounded pagenumber, rather than a bounded number of vertices. This proof is then applied to planar graphs, using a lemma that every planar graph has a tree-decomposition where every torso is either $K_{\leq 4}$ or a $4$-connected planar graph. 
 
 A rooted tree $(T, r)$ is a tree with $r$ as a root vertex. $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node. 
 \begin{theorem}[By \textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let \(G\) be a graph with a rooted tree-decomposition \(((T, r), (B_x)_x)\). Suppose every torso \(G \langle B_x \rangle\) can be embedded on \(s\) pages and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
 	Then $G$ can be embedded on \( cs + \ell \) pages. Let this book-embedding be $(<, \psi)$. Let $G\langle B_x \rangle$ be embedded on $(<_x, \psi_x)$, with parent $B_y$. 
 	
-	Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except the adhesion set $B_x \cap B_y$ where $|B_x \cap B_y|\ell$ is moved to the start of the book-embedding, and each vertex in $B_x \cap B_y$ are given at most $\ell$ new colours. 
+	Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except the adhesion set $B_x \cap B_y$ is moved to the start of the book-embedding, and each vertex in $B_x \cap B_y$ are given at most $\ell$ new colours. 
 	
 	Furthermore, if the adhesion set $B_x \cap B_y$ is consecutive in $<_x$, then $<_x = <$ up to a circular ordering.
 \end{theorem}
 
-To prove\cref{thm:clique_sum_pagenumber_bound}, the hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that induction can be applied, (\cref{lem:Hickingbotham_Lemma}) Then given a tree-decomposition, a leaf is removed. Then induction is done on the rest of the tree. Finally, the leaf is added back in so that the stronger induction hypothesis can be shown to hold. 
+To prove \cref{thm:clique_sum_pagenumber_bound}, the hypothesis in \cref{thm:clique_sum_pagenumber_bound} is strengthened so that induction can be applied, in \cref{lem:Hickingbotham_Lemma}. Then given a tree-decomposition, a leaf is removed. Then induction is done on the rest of the tree. Finally, the leaf is added back in so that the stronger induction hypothesis can be shown to hold. 
 
 Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a vertex ordering of \(V(C)\), and let \(C \leq \ell \). Let $J$ be a clique in $G$. A vertex $v$ is a \textit{rainbow vertex} in $J$ in a book-embedding $(<, \psi)$ if the set of edges $\{u_i v | u_i < v, u_i \in J\}$ each have distinct colours. The structure of the book-embedding will look like this: \((\underbrace{u_1, u_2, \ldots, u_k}_{\text{Vertices in } C}, \underbrace{v_1, v_2, \ldots, v_l}_{\text{Vertices not in }C})\).
 
@@ -24,14 +24,14 @@ Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a v
 		\item For every clique \(J\), the last vertex of \(J\) is a rainbow-vertex.
 	\end{enumerate}
 
-	If $C$ is consecutive in $\leq_a$, then $\leq_a = \leq$ up to a circular ordering.
+	If $C$ is consecutive in $\leq_a$, then $\leq_a$ equals $\leq$ up to a circular ordering.
 \end{lemma}
 \begin{proof}
 	Let \(\rho: V(G) \rightarrow [c]\) be a proper colouring of \(V(G)\).
 
 	Let \(u_1, \ldots, u_k\) be the vertices of \(C\) ordered by \(\sigma_C\). Note that \(k \leq \ell\). Then the new ordering starts with \(u_1 \leq u_2 \leq \ldots, \leq u_k\), and all vertices not in \(K\) are placed after, according to \(\leq_a\).
 
-	If $C$ is consecutive in $\leq_a$, then $C$ is at the start of the ordering. 
+	If $C$ is consecutive in $\leq_a$, then $C$ is at the start of the ordering. This is done by rotating $\leq_a$. 
 
 	The edge-colouring \(\psi\) is defined as follows. For every edge \(u_i v\) where \(u_i \in V(C)\) and \(u_i \leq v\), \(\psi(u_i v) = i\). If neither \(u\) nor \(v\) are in \(V(C)\), and \(u \leq v\), then let \(\psi(uv) = (\rho(u), \psi_a(uv))\). Then this edge-colouring requires \(|\rho| |\psi_a| + k \leq cs + \ell\) pages.
 
@@ -45,9 +45,9 @@ Let \(C\) be a clique in \(G\) and let \(\sigma_C = (u_1, \ldots , u_k)\) be a v
 
 	Let this book-embedding be $(<, \psi)$. Let $G\langle B_x \rangle$ be embedded on $(<_x, \psi_x)$, with parent $B_y$. 
 	
-	Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except the adhesion set $B_x \cap B_y$ where $|B_x \cap B_y|\ell$ is moved to the start of the book-embedding, and each vertex in $B_x \cap B_y$ are given at most $\ell$ new colours. 
+	Restricting $(<, \psi)$ to $B_x$ yields the same book-embedding as $<_x$, except the adhesion set $B_x \cap B_y$ is moved to the start of the book-embedding, and each vertex in $B_x \cap B_y$ are given at most $\ell$ new colours. 
 	
-	Furthermore, if the adhesion set $B_x \cap B_y$ is consecutive in $<_x$, then $<_x = <$ up to a circular ordering.
+	Furthermore, if the adhesion set $B_x \cap B_y$ is consecutive in $<_x$, then $<_x$ equals $<$ up to a circular ordering.
 \end{theorem}
 Order the nodes \(v_0, \ldots, v_k\) in $T$ with respect to a breath-first search. Let $B_i = B_{v_i}$. 
 A breadth-first search maintains the property that for each \(i\), \(T[v_0, \ldots, v_{i}]\) is a tree and \(v_i\) is a leaf in \(T[v_0, \ldots, v_{i}]\).
