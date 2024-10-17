@@ -10,7 +10,7 @@ What we attempted to show was this:
 The most problematic section is dealing with vortices on surfaces.
 To work with vortices, consider how an ordering affects the face that the vortex is sitting on. Then see what happens when the vortex is added onto the face. 
 
-Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is given the same colour from $\varphi$. $F$ being a preserved face implies that $F$ has a single monochromatic path, but not the other way around. We were not able to show that every planar graph has a book-embedding where every face has a bounded number of monochromatic paths. This would imply that every graph embedded on an orientable surface can be embedded on a bounded number of pages. 
+Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is given the same colour from $\varphi$. Then $F$ being a preserved face implies that $F$ has a single monochromatic path, but not the other way around. We were not able to show that every planar graph has a book-embedding where every face has a bounded number of monochromatic paths. This would imply that every graph embedded on an orientable surface can be embedded on a bounded number of pages. 
 
 \begin{figure}[h!]
 	\centering
@@ -91,7 +91,7 @@ We now prove \cref{lem:vortices_mono_paths}.
 	\begin{figure}[h!]
 		\centering
 		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
-		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
+		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. The drawing of $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
 From \cref{lem:Hamiltonian_preserved_faces}, if \(G\) is a Hamiltonian planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\). As a consequence of \cref{thm:4-connected_planar_ham_cycle}, every 4-connected planar graph has a circular ordering which preserves every face.
@@ -140,7 +140,7 @@ $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node.
 There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}. There may be book-embedding of planar graphs where the number of monochromatic paths is bounded, but the method shown by \cref{thm:planar_graph__be_mono_paths} does not provide such a book-embedding. 
 
 Look at \cref{fig:moved_vertices}. Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
-Let $F$ be a face. $F$ can have an unbounded number of blue torsos on its boundary.  There may be some face with an unbounded number of monochromatic paths.
+Let $F$ be a face. Then $F$ can have an unbounded number of blue torsos on its boundary.  There may be some face with an unbounded number of monochromatic paths.
 
 
 \begin{figure}[h!]

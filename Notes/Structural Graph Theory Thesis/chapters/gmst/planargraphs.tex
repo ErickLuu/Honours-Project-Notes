@@ -14,7 +14,7 @@ The \textit{dual graph} $G^*$ of a connected planar graph $G$ with vertex set $F
 A simple proof of this fact is by \textcite{staudtGeometrieLage1847}.
 
 \begin{proof}
-	Choose any spanning tree $T$ in $G$. $T$ is connected and without cycles. Now consider the edges $E(G - T)$ and consider the corresponding edge set $E^*$ in $G^*$. $T$ is not closed, therefore $\mathbb{R}^2 - T$ has a single connected component. Therefore, $E^*$ in $G^*$ is connected. Furthermore, $E^*$ is acyclic, as if a cycle exists then the cycle of faces bounds some vertex, contradicting $T$ being spanning. Therefore, $G^*$ has a corresponding spanning tree, partitioning the edges of $G$. Therefore, $|E(G)| = (|V(G)| - 1) + (|F(G)| - 1)$, so $|V(G)| - |E(G)| + |F(G)| = 2$. 
+	Choose any spanning tree $T$ in $G$. Then $T$ is connected and without cycles. Now consider the edges $E(G - T)$ and consider the corresponding edge set $E^*$ in $G^*$. Since $T$ is acyclic, $\mathbb{R}^2 - T$ has a single connected component. Therefore, $E^*$ in $G^*$ is connected. Furthermore, $E^*$ is acyclic, as if a cycle exists then the cycle of faces bounds some vertex, contradicting $T$ being spanning. Therefore, $G^*$ has a corresponding spanning tree, partitioning the edges of $G$. Therefore, $|E(G)| = (|V(G)| - 1) + (|F(G)| - 1)$, so $|V(G)| - |E(G)| + |F(G)| = 2$. 
 \end{proof}
 
 The most immediate application is bounding the number of edges in a planar graph.

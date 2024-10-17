@@ -22,11 +22,11 @@ Let $G$ be a plane graph and let $F$ be a face on $G$. Suppose $F$ is rooted at 
 \end{figure}
 
 \begin{proposition}
-	Suppose $G = G_0 \cup G_1$. $G_0$ is embedded on a surface, $G_1$ is a vortex of width $\ell$ embedded on a face $F$ of depth $k$ with respect to a root $R$. If $G_0$ can be embedded on $s$ pages, then $G$ can be embedded on $(3k + s + \ell + 1)$ pages.
+	Suppose $G = G_0 \cup G_1$. Suppose further that $G_0$ is embedded on a surface, $G_1$ is a vortex of width $\ell$ embedded on a face $F$ of depth $k$ with respect to a root $R$. If $G_0$ can be embedded on $s$ pages, then $G$ can be embedded on $(3k + s + \ell + 1)$ pages.
 \end{proposition}
 
 \begin{proof}
-	Let $S$ be the walk around the face $F$, and let $C$ be a cycle around the face $F$. $C$ does not intersect the $G$-clean disk that $G_1$ is on. Break $C$ into subpaths that contain a single connected component of $3$-connected torsos. Then each subpath will have at most $3k$ vertices that are moved to the very front, and since each subpath do not share a vertex, these subpaths are disjoint. $3k$ vertices are moved to the very start in the book-embedding, from \cref{thm:Planar Graph Hickingbotham Bound} This is a $3k$-perturbation of $C$. By \cref{prop:k-perturbation}, $G_1$ can be embedded on $(3k + s + \ell + 1)$ pages. 
+	Let $S$ be the walk around the face $F$, and let $C$ be a cycle around the face $F$. Then $C$ does not intersect the $G$-clean disk that $G_1$ is on. Break $C$ into subpaths that contain a single connected component of $3$-connected torsos. Then each subpath will have at most $3k$ vertices that are moved to the very front, and since each subpath do not share a vertex, these subpaths are disjoint. So $3k$ vertices are moved to the very start in the book-embedding, from \cref{thm:Planar Graph Hickingbotham Bound} This is a $3k$-perturbation of $C$. By \cref{prop:k-perturbation}, $G_1$ can be embedded on $(3k + s + \ell + 1)$ pages. 
 \end{proof}
 
 Since there exist planar graphs with faces with an unbounded number of depth $k$ faces, this is not useful for finding a total bound for every planar graph. Therefore, another method will have to be found to embed any planar graph where every face has a bounded number of $k$-perturbed paths. 
