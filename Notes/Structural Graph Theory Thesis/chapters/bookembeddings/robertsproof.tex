@@ -1,7 +1,7 @@
 \section{Tree-decompositions and pagenumber}\label{sec:BoundedPagenumber}
 This section discusses tree-decompositions and book-embeddings of graphs where every torso in the tree-decomposition has a bounded book-embedding. \textcite{hickingbothamStackNumberCliqueSum2023} proved that every graph with a tree-decomposition where every torso is embeddable on $s$ pages can be embedded on $2s^2 + 4s + 1$ pages. This proof can be seen as an extension of \cref{thm:bded_treewidth_bded_pagenumber}, where each torso has bounded pagenumber, rather than a bounded number of vertices. This proof is then applied to planar graphs, using a lemma that every planar graph has a tree-decomposition where every torso is either $K_{\leq 4}$ or a $4$-connected planar graph. 
 
-A rooted tree $(T, r)$ is a tree with $r$ as a root vertex. $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node. 
+A rooted tree $(T, r)$ is a tree with $r$ as a root vertex. We denote $ ((T,r), (B_x)_x)$ as a tree-decomposition with $r$ as the root node. 
 \begin{theorem}[By \textcite{hickingbothamStackNumberCliqueSum2023}]\label{thm:clique_sum_pagenumber_bound}
 	Let \(G\) be a graph with a rooted tree-decomposition \(((T, r), (B_x)_x)\). Suppose every torso \(G \langle B_x \rangle\) can be embedded on \(s\) pages and is \(c\)-colourable. Further, suppose the adhesion of the tree-decomposition is at most \(\ell\).
 	Then $G$ can be embedded on \( cs + \ell \) pages. Let this book-embedding be $(<, \psi)$. Let $G\langle B_x \rangle$ be embedded on $(<_x, \psi_x)$, with parent $B_y$. 

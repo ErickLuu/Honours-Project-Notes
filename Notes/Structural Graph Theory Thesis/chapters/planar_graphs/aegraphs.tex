@@ -10,7 +10,7 @@ What we attempted to show was this:
 The most problematic section is dealing with vortices on surfaces.
 To work with vortices, consider how an ordering affects the face that the vortex is sitting on. Then see what happens when the vortex is added onto the face. 
 
-Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is given the same colour from $\varphi$. $F$ being a preserved face implies that $F$ has a single monochromatic path, but not the other way around. We were not able to show that every planar graph has a book-embedding where every face has a bounded number of monochromatic paths. This would imply that every graph embedded on an orientable surface can be embedded on a bounded number of pages. 
+Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is given the same colour from $\varphi$. Then $F$ being a preserved face implies that $F$ has a single monochromatic path, but not the other way around. We were not able to show that every planar graph has a book-embedding where every face has a bounded number of monochromatic paths. This would imply that every graph embedded on an orientable surface can be embedded on a bounded number of pages. 
 
 \begin{figure}[h!]
 	\centering
@@ -33,7 +33,7 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 			c(T_v) & \text{ if } \sigma(v) \leq \sigma(u).
 		\end{cases}
 	\end{equation}
-	This is a book-embedding of \(G_1\) with \(k+1\) colours. Since the intersection graphs of every graph is perfect, we can colour with $k + 1$ colours. Furthermore, suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. 
+	This is a book-embedding of \(G_1\) with \(k+1\) colours. Since the intersection graphs of every graph is perfect, we can colour with $k + 1$ colours. Furthermore, suppose that edges \(uv\), \(xy\) cross, so \(\sigma(u) \leq \sigma(x) \leq \sigma(v) \leq \sigma(y)\). However, this implies that $u,x,v$ are in some bag $B$. So \(uv\) is an edge in \(B\), and we do a depth-first search to establish the ordering of $\sigma(u)$. So \(u, x, v\) are in the same bags. However, this implies that the trees \(T_u\) and \(T_x\) intersect, meaning that \(c(uv) \neq c(xy)\). Therefore, all crossing edges are assigned different colours. 
 
 	To add this book-embedding to \(G_0\), add the vertices that appear first in \(B_i\) after the associated vertex \(v_i\) in \(G_0\) such that \(v_i\) is on the face \(F\) and \(v_i \in B_i\). This is a book-embedding of \(G\) requiring at most \(\pn(G_0) + k + 1\) colours. An illustration of such a book-embedding is in \cref{fig:preserved_face}.
 \end{proof}
@@ -75,7 +75,7 @@ This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying 
 \begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width = 0.8\textwidth]{figures/one_page_embedding.svg}
-	\caption[One-page decomposition]{Description of \cref{lem:one_page_decomposition}. \(x_1, \ldots, x_n\) are the vertices with a path that is a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\).}\label{fig:preserving_pages}
+	\caption[One-page decomposition]{Description of \cref{lem:one_page_decomposition}. The path \(x_1, \ldots, x_n\) are on a single book-embedding and \(B_1, \ldots, B_n\) are the bags of the embedding. Notice that there are two different ways that the \(n + 1\)-th bag can end up, but both ways still maintain the property that this is a book-embedding. This diagram is a circular ordering of \(x_1, \ldots, x_n\).}\label{fig:preserving_pages}
 \end{figure}
 Having a one-page book-embedding of a path is useful because of the lemma above. The edge $x_{\sigma(w)-1} x_{\sigma(w)}$ splits the book-embedding into two regions. Therefore, we can force edges that are the same colour to not cross. 
 We now prove \cref{lem:vortices_mono_paths}.
@@ -104,7 +104,7 @@ In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}.
 	\begin{figure}[h!]
 		\centering
 		\includesvg[pretex=\tiny, width=0.5\linewidth]{figures/hamiltonian-planar}
-		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
+		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. The drawing of $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
 From \cref{lem:Hamiltonian_preserved_faces}, if \(G\) is a Hamiltonian planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\). As a consequence of \cref{thm:4-connected_planar_ham_cycle}, every 4-connected planar graph has a circular ordering which preserves every face.
@@ -123,7 +123,7 @@ Then this can be extended to every connected planar graph, adding a constant num
 
 We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where every face has a bounded number of cut-sets of size 3 on its boundary. We assumed that every face has a bounded number of cut-sets of size 3 on its boundary, but this was not the case. \cref{fig:moved_vertices} provides a counterexample. 
 
-We conjecture that every planar graph can be embedded on a bounded number of pages with a bounded number of monochromatic paths on each face. 
+We conjecture that every planar graph can be embedded on a bounded number of pages with a bounded number of monochromatic paths on each face. This will have to be a different book-embedding than the one given in \cref{thm:Planar Graph Hickingbotham Bound}. The book-embedding given by \cref{thm:Planar Graph Hickingbotham Bound} is not sufficient to prove this conjecture, because of \cref{fig:moved_vertices}.  
 
 \begin{theorem}\label{thm:planar_graph__be_mono_paths}
 	Let \( G \) be a planar graph embedded in $\mathbb{R}^2$, with every face having at most $k$ cut-sets of size $3$ on every face. Then $G$ can be embedded on 11 pages where every face has at most $8k$ monochromatic paths. 
@@ -148,9 +148,12 @@ $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node.
 	Repeat for all cut-sets of size $3$ on the boundary of $F$, and as there are a bounded number of cutsets in $G$, then $F$ has $8k$ monochromatic paths.
 
 \end{proof}	
-There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}. 
-Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
-Let $F$ be a face. $F$ can have an unbounded number of blue components on its boundary. The number of faces touching a particular blue component is at least three, so there may be some face with an unbounded number of monochromatic paths.
+
+
+There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}. There may be book-embedding of planar graphs where the number of monochromatic paths is bounded, but the method shown by \cref{thm:planar_graph__be_mono_paths} does not provide such a book-embedding. 
+
+Look at \cref{fig:moved_vertices}. Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
+Let $F$ be a face. Then $F$ can have an unbounded number of blue torsos on its boundary.  There may be some face with an unbounded number of monochromatic paths.
 
 
 \begin{figure}[h!]

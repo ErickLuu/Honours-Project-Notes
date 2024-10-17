@@ -3,14 +3,14 @@ The \textit{treewidth} of a graph \(G\) measures how similar $G$ is to a forest.
 	A tree-decomposition \(\tree\) of a graph \(G\) is defined as a tree \(T\) with associated \textit{bags} \(\lbrace B_x : x \in V(T) \rbrace\) such that:
 	\begin{itemize}
 		\item $\bigcup_{x \in V(T)} B_x = V(G)$,
-		\item For all \(v \in V(G)\), the subset of vertices \(\left\lbrace x \in V(T): v \in B_x \right\rbrace\) induces a connected subtree in \(V(T)\),
+		\item For all \(v \in V(G)\), the subset of vertices \(\left\lbrace x  \in V(T): v \in B_x \right\rbrace\) induces a connected subtree in \(V(T)\),
 		\item For all edges \(vw \in E(G)\), there exists a bag \(B_x\) such that both \(v\) and \(w\) are in \(B_x\).
 	\end{itemize}
 \end{definition}
 The vertices of the tree \(T\) are \textit{nodes}, to distinguish them from the vertices of $G$. 
 The tree-decomposition is denoted as \((T, (B_x)_x)\), where $T$ is the tree, $x \in V(T)$, and $(B_x)$ is the bag associated with node $x$.
-The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x \in V(T) \rbrace\).
-The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width for all tree-decompositions of the graph \(G\). 
+The \textit{width} of the tree decomposition \(\tree\) is defined as \(\max \lbrace |B_x| - 1 : x~\in~V(T) \rbrace\).
+The treewidth of a graph \(G\), denoted as \(\tw(G)\), is defined to be the smallest width over all tree-decompositions of the graph \(G\). 
 
 Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} with applications to dynamic programming under the name ``dimension''. Treewidth was then rediscovered by \textcite{halinSfunctionsGraphs1976}, under the name of ``S-function''. Neither of the papers above introduced the notion of a tree-decomposition.
 
@@ -22,7 +22,7 @@ Treewidth was introduced by \textcite{berteleChapterEliminationVariables1972} wi
 	Let \(T_1, \ldots, T_k\) be subtrees of a tree \(T\) such that for all $i, j \in \{1 \ldots k\}$, $V(T_i) \cap V(T_j)$ is nonempty. Then there exists a vertex in $T_1 \cap T_2 \cap \ldots \cap T_k$.
 \end{lemma}
 \begin{proof}
-	This proof is by induction on the number of vertices of $T$. Suppose $T$ has a single vertex. Then the Helly property holds. By induction, suppose the Helly property holds for all trees with at most $n$ vertices. Suppose $T$ has $n + 1$ vertices and \(T_1, \ldots, T_k\) are subtrees which satisfy the property above. Let $v$ be a leaf vertex of $T$ with neighbour $w$. If one of the subtrees $T_i = \{v\}$, then by non-empty intersection, all trees contain $v$. $v$ is the common intersection. Otherwise, consider $T - v$ and the subtrees $(T_1 - v, \ldots, T_k - v)$. If $v \in T_i \cap T_j$, then as none of the subtrees is the single vertex $\{v\}$, $w \in T_i \cap T_j$. Therefore, $T_i - v \cap T_j - v$ is non-empty. By the induction hypothesis, $T - v$ has a vertex common to all $(T_1 - v, \ldots, T_k - v)$, so \(T_1, \ldots, T_k\) has a common vertex in $T$. 
+	This proof is by induction on the number of vertices of $T$. Suppose $T$ has a single vertex. Then the Helly property holds. By induction, suppose the Helly property holds for all trees with at most $n$ vertices. Suppose $T$ has $n + 1$ vertices and \(T_1, \ldots, T_k\) are subtrees which satisfy the property above. Let $v$ be a leaf vertex of $T$ with neighbour $w$. If one of the subtrees $T_i = \{v\}$, then by non-empty intersection, all trees contain $v$. Otherwise, consider $T - v$ and the subtrees $(T_1 - v, \ldots, T_k - v)$. If $v \in T_i \cap T_j$, then as none of the subtrees is the single vertex $\{v\}$, $w \in T_i \cap T_j$. Therefore, $T_i - v \cap T_j - v$ is non-empty. By the induction hypothesis, $T - v$ has a vertex common to all $(T_1 - v, \ldots, T_k - v)$, so \(T_1, \ldots, T_k\) has a common vertex in $T$. 
 \end{proof}
 The Helly property is most commonly associated with convex subsets of a Euclidean space, but other objects have the Helly property. 
 
@@ -31,7 +31,7 @@ The Helly property is most commonly associated with convex subsets of a Euclidea
 \end{proposition}
 
 \begin{proof}
-	Let \(\tree\) be a tree-decomposition. Every vertex \(v\) induces a connected subtree \(T_v\) in \(T\). For any two vertices \(x, y\) in \(C\), the edge \(xy\) is inside a bag \(B_z\) corresponding to a node \(z\). Therefore, \(T_x\) and \(T_y\) intersects. Then by the Helly property, there exists a node \(v\) such that \(C \subseteq B_v\).
+	Let \(\tree\) be a tree-decomposition. Every vertex \(v\) induces a connected subtree \(T_v\) in \(T\). For any two vertices \(x, y\) in \(C\), the edge \(xy\) is inside a bag \(B_z\) corresponding to a node \(z\). Therefore, \(T_x\) and \(T_y\) intersect. Then by the Helly property, there exists a node \(v\) such that \(C \subseteq B_v\).
 \end{proof}
 
 Recall that $K_n$ is the complete graph on $n$ vertices.
@@ -47,7 +47,7 @@ Recall that $K_n$ is the complete graph on $n$ vertices.
 	Let $G, H$ be graphs. If \(H\) is a minor of \(G\), then \(\tw(H) \leq \tw(G)\).
 \end{proposition}
 \begin{proof}
-	Let \( \{T, {(B_x)}_{x} \} \) be a tree-decomposition of \(G\). Remove an edge $e$ from $G$. Then \( \{T, {(B_x)}_{x} \} \) is a tree-decomposition of $G - e$. Remove a vertex $v$ from $G$. Then \( \{ T, {(B_x - v)}_{x \in V(T)} \} \) is a tree-decomposition of $G - v$. Contract an edge $vw$ in $G$ to $u$. Define a new tree-decomposition $\tree'$ by relabelling \(v\) and \(w\) in all $B_x$ to \(u\). $\tree'$ is a valid tree-decomposition of $G / uv$. The induced subtree of \(u\) is the union of the induced subtrees of \(v\) and \(w\), which share a node. As $v$ and $w$ share the edge $vw$, then there exists a bag $B_x$ such that $v, w \in B_x$. Every neighbour of \(v\) or \(w\) is a neighbour of \(u\). The edges in the neighbourhood do not change. Notice that the size of each bag in each operation does not increase. Therefore, if $H \leq G$ by a series of vertex deletions, edge deletions, and edge contractions, the tree-decomposition \( \{T, {(B_x)}_{x} \} \) of $G$ can have the algorithm applied above to build a tree-decomposition of $H$ with width at most the tree-decomposition of $G$. Then by the minimality of the treewidth, \(\tw(H) \leq \tw(G)\). 
+	Let \( \{T, {(B_x)}_{x} \} \) be a tree-decomposition of \(G\). Remove an edge $e$ from $G$. Then \( \{T, {(B_x)}_{x} \} \) is a tree-decomposition of $G - e$. Remove a vertex $v$ from $G$. Then \( \{ T, {(B_x - v)}_{x \in V(T)} \} \) is a tree-decomposition of $G - v$. Contract an edge $vw$ in $G$ to $u$. Define a new tree-decomposition $\tree'$ by relabelling \(v\) and \(w\) in all $B_x$ to \(u\). Then $\tree'$ is a valid tree-decomposition of $G / uv$. The induced subtree of \(u\) is the union of the induced subtrees of \(v\) and \(w\), which share a node. As $v$ and $w$ share the edge $vw$, then there exists a bag $B_x$ such that $v, w \in B_x$. Therefore $T_u$ is connected. Every neighbour of \(v\) or \(w\) is a neighbour of \(u\). The edges in the neighbourhood do not change. Notice that the size of each bag in each operation does not increase. Therefore, if $H \leq G$ by a series of vertex deletions, edge deletions, and edge contractions, the tree-decomposition \( \{T, {(B_x)}_{x} \} \) of $G$ can have the algorithm applied above to build a tree-decomposition of $H$ with width at most the tree-decomposition of $G$. Then by the minimality of the treewidth, \(\tw(H) \leq \tw(G)\). 
 \end{proof}
 
 This implies that the set of graphs $\left\{G : \tw(G) \leq k\right\}$ is a minor-closed class. 
@@ -117,7 +117,7 @@ This implies that every $K_4$-minor-free graph is not $3$-connected, therefore e
 	Every graph with treewidth at most $t$ is $K_{t+2}$-minor-free. 
 \end{proposition}
 \begin{proof}
-	Proof by contrapositive. Let $G$ be a graph with a $K_t$ minor. Then \(\tw(G) \geq t-1\).
+	We will prove the contrapositive. Let $G$ be a graph with a $K_t$ minor. Then \(\tw(G) \geq t-1\).
 	If \(K_t\) is a minor of \(G\), then from \cref{thm:tw_minor_closure}, \(\tw(K_t) \leq \tw(G)\). As \(\tw(K_t) = t-1\), then \(\tw(G) \geq t - 1\). Therefore, if $\tw(G) \leq t$, then $K_{t+1}$ is the largest complete minor in $G$. Therefore, $G$ is $K_{t + 2}$-minor-free. 
 \end{proof}
 
@@ -127,15 +127,15 @@ A graph $G$ is \textit{$k$-degenerate} if every subgraph $H \subseteq G$ has a v
 	Every graph with treewidth at most $k$ is $k$-degenerate.
 \end{proposition}
 \begin{proof}
-	Let \( (T, (B_x)_x) \) be a tree-decomposition of $G$. Suppose for neighbouring bags $B_x, B_y$, $B_x \nsubseteq B_y$ and $B_y \nsubseteq B_x$. If $B_x \subseteq  B_y$, then contracting the edge $xy \in T$ is a tree-decomposition of $G$. Now take a leaf bag $B_1$ and let $B_2$ be its neighbour. Now let $v$ be a vertex in $B_1$ but not in $B_2$. $v$ has degree at most $k$ as there are $k+1$ vertices in $B_1$. As subgraphs of $G$ have treewidth at most $k$, then $G$ is $k$-degenerate.
+	Let \( (T, (B_x)_x) \) be a tree-decomposition of $G$. Suppose for neighbouring bags $B_x, B_y$, $B_x \nsubseteq B_y$ and $B_y \nsubseteq B_x$. If $B_x \subseteq  B_y$, then contracting the edge $xy \in T$ is a tree-decomposition of $G$. Now take a leaf bag $B_1$ and let $B_2$ be its neighbour. Now let $v$ be a vertex in $B_1$ but not in $B_2$. So $v$ has degree at most $k$ as there are $k+1$ vertices in $B_1$. As subgraphs of $G$ have treewidth at most $k$, then $G$ is $k$-degenerate.
 \end{proof}
 
 \begin{proposition}\label{prop:treewidth_edge_bound}
-	For every graph $G$ where $|V(G) \geq k$, if $\tw(G) \leq k$ then $|E(G)|\leq k |V(G)| - \binom{k + 1}{2}$. 
+	For every graph $G$ where $|V(G)| \geq k$, if $\tw(G) \leq k$ then $|E(G)|\leq k |V(G)| - \binom{k + 1}{2}$. 
 \end{proposition}
 
 \begin{proof}
 	Proof by induction. Suppose $|V(G)| = k$. Then $|E(G)| \leq \binom{k}{2} = k |V(G)| - \binom{k + 1}{2}$. 
 
-	Fix $n > k$. Assume this property holds for every graph with $n-1$ vertices and treewidth at most $k$. Let $G$ be a graph where $\tw(G) \leq k$ and $G \leq n$. Now $G$ is $k$-degenerate, so $G$ has a vertex $v$ of degree at most $k$. $G - v$ has treewidth at most $k$. Then by the inductive hypothesis, $|E(G - v)| \leq k (n - 1) - \binom{k + 1}{2}$. $v$ has at most $k$ neighbours, so $|E(G)| \leq k(n -1) + k - \binom{k + 1}{2} = k |V(G)| - \binom{k + 1}{2}$. 
+	Fix $n > k$. Assume this property holds for every graph with $n-1$ vertices and treewidth at most $k$. Let $G$ be a graph where $\tw(G) \leq k$ and $G \leq n$. Now $G$ is $k$-degenerate, so $G$ has a vertex $v$ of degree at most $k$. So $G - v$ has treewidth at most $k$. Then by the inductive hypothesis, $|E(G - v)| \leq k (n - 1) - \binom{k + 1}{2}$. Since $v$ has at most $k$ neighbours, so $|E(G)| \leq k(n -1) + k - \binom{k + 1}{2} = k |V(G)| - \binom{k + 1}{2}$. 
 \end{proof}

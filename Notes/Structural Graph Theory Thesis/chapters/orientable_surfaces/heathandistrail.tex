@@ -45,9 +45,9 @@ Then extend homotopy to be an equivalence relation, with homotopy classes being 
 Think of \(G_n\) as living on a disk on \(S\) and the loops \(u_1v_1\) and \(u_2 v_2\) living on a handle or passing through a crosscap. Taking \(G_n\) to a point, \(u_1v_1\) and \(u_2v_2\) are homotopic if and only if the two loops are homotopic in a topological sense.
 
 We now do a planar-nonplanar decomposition of graphs embedded on surfaces.
-\begin{claim}\label{claim:planar_nonplanar_decomp}
+\begin{proposition}\label{claim:planar_nonplanar_decomp}
 	There exists a planar-nonplanar decomposition of any graph 2-cell embedded on any surface, and the trace of any homotopy class lies on the same block, except for two vertices adjacent to special endpoints $x$ and $y$. 
-\end{claim}
+\end{proposition}
 \begin{proof}
 	Suppose \(G\) is a graph 2-cell embedded on a surface \(\Sigma\). Start at a single face and define this face as $G_P$. Add edges and vertices to the planar part incrementally. At each step, set \(G_P\) to be the current planar part and \(E_N\) to be the edges that are outside the planar part. There are two types of edges in \(E_N\): edges which have both endpoints on the boundary \(V(G_P)\), so cannot become edges of \(G_P\), and edges that have either one or no endpoints in \(V(G_P)\). We maintain the property that for any \(v \in V(G_P)\), and edge \(vw \in E_N\), then \(v\) is a vertex on the boundary of \(F_0\).
 	\paragraph{Adding vertices to biconnected block:}
@@ -105,20 +105,21 @@ Two traces $(T_1, T_2)$ are \textit{orientable} if \(T_1\) and \(T_2\) go in opp
 	Let $G$ be a graph embedded in an orientable surface $\Sigma$. Let $(G_P, E_N)$ be a planar-nonplanar decomposition of $G$. Then every homotopy class of $E_N$ is orientable. 
 \end{lemma}
 \begin{proof}
-	Let $H$ be a homotopy class of edges in $E_N$. Since $H$ is a homotopy class, there exists a closed disk $D_1$ on $\Sigma$ of which every edge in $E_N$ is on. Furthermore, the maximal traces $T_1, T_2$ of $H$ are on the boundary of $D_1$. Add a loop $L$ around $G_P$ which bounds a closed disk $D_0$ containing $G_P$. $L$ intersects every edge in $E_N$ twice. Add vertices at every intersection point, and add edges between consecutive vertices on $L$. Now add an orientation to $D_0$, suppose this orientation goes anticlockwise. Then this forces $D_1$ to go anticlockwise as well, meaning that $T_1$ is going in the opposite direction to $T_2$ on the boundary of $T_1$. Then $T_1$ and $T_2$ are orientable. As this holds for every homotopy class of $H$, $T_1$ and $T_2$ are orientable. 
+	Let $H$ be a homotopy class of edges in $E_N$. Since $H$ is a homotopy class, there exists a closed disk $D_1$ on $\Sigma$ of which every edge in $E_N$ is on. Furthermore, the maximal traces $T_1, T_2$ of $H$ are on the boundary of $D_1$. Add a loop $L$ around $G_P$ which bounds a closed disk $D_0$ containing $G_P$. Then $L$ intersects every edge in $E_N$ twice. Add vertices at every intersection point, and add edges between consecutive vertices on $L$. Now add an orientation to $D_0$, suppose this orientation goes anticlockwise. Then this forces $D_1$ to go anticlockwise as well, meaning that $T_1$ is going in the opposite direction to $T_2$ on the boundary of $T_1$. Then $T_1$ and $T_2$ are orientable. As this holds for every homotopy class of $H$, $T_1$ and $T_2$ are orientable. 
 \end{proof}
 
 \begin{lemma}
 	Let $G$ be a graph. If \(G\) is \(2\)-cell embedded on a surface of Euler genus \(g\), then any planar-nonplanar decomposition has at most \(3g-3\) homotopy classes. 
 \end{lemma}
 \begin{proof}
-	Decompose \(G\) to a planar-nonplanar decomposition of \(G\), \((G_P, E_N)\). Suppose \(E_N \neq \emptyset\). Identify \(G_P\) to a single point, and identify each homotopy class to a single edge. Draw a circle $S$ that bounds a disk around \(G_P\), and place new vertices where $S$ intersects an edge in $E_N$. Add edges between vertices on $S$. Delete \(G_P\), and call the new graph \(H\) embedded on $\Sigma$. Let \(n = |V(H)|\), \(m = |E(H)|\). Let \(h\) be the number of homotopy classes, and \(f\) is the number of faces on this embedding of $H$. Since $H$ is connected, we can apply Euler's formula. So, \(n - m + f = 2 - g\). Since \(H\) is cubic as every vertex has two edges on $S$ and one on the homotopy class, then \(3n = 2m\) by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, and every homotopy class is incident to two edges, \(n = 2h\). The interior face of \(H\) has \(v\) incident edges, and the remaining \(f-1\) faces have at least 3 incident edges each. If a face has four edges, then the two nonplanar edges are homotopy equivalent. Then every face has at least six edges. Every edge is incident to two faces. Place a 'dot' on the left and right side of each edge. $f-1$ faces get at least $6$ dots and $1$ face gets $n$ dots. Each edge has two dots. Therefore, \(  6(f-1) + n \leq 2m \). Use the previous facts that $n = 2h$, $3n = 2m$, and $n - m + f = 2 - g$. After an algebraic manipulation, \(h \leq 3g - 3 \). 
+	Decompose \(G\) to a planar-nonplanar decomposition of \(G\), \((G_P, E_N)\). Suppose \(E_N \neq \emptyset\). Identify \(G_P\) to a single point, and identify each homotopy class to a single edge. Draw a circle $S$ that bounds a disk around \(G_P\), and place new vertices where $S$ intersects an edge in $E_N$. Add edges between vertices on $S$. Delete \(G_P\), and call the new graph \(H\) embedded on $\Sigma$. Let \(n = |V(H)|\), \(m = |E(H)|\). Let \(h\) be the number of homotopy classes, and \(f\) is the number of faces on this embedding of $H$. Since $H$ is connected, we can apply Euler's formula. So, \(n - m + f = 2 - g\). Since \(H\) is cubic as every vertex has two edges on $S$ and one on the homotopy class, then \(3n = 2m\) by the handshaking lemma. Since there is only one nonplanar edge for each homotopy class, and every homotopy class is incident to two edges, \(n = 2h\). The interior face of \(H\) has \(v\) incident edges, and the remaining \(f-1\) faces have at least 3 incident edges each. If a face has four edges, then the two nonplanar edges are homotopy equivalent. Then every face has at least six edges. Every edge is incident to two faces. Place a 'dot' on the left and right side of each edge. The internal $f-1$ faces get at least $6$ dots and the single outerface gets $n$ dots. Each edge has two dots. Therefore, \(  6(f-1) + n \leq 2m \). Use the previous facts that $n = 2h$, $3n = 2m$, and $n - m + f = 2 - g$. After an algebraic manipulation, \(h \leq 3g - 3 \). 
 	\begin{align*}
 		3n  & \geq 6(f - 1) + n         && \text{from } 2n \leq 3m \\
 		2n  & \geq 6f - 6               \\
 		4h  & \geq 6(2 - g + m - n) - 6 && \text{from } n = 2h \text{ and } f = 2 - g + m - n\\
 		-2h & \geq 6 - 6g               \\
-		h   & \leq 3g - 3
+		h   & \leq 3g - 3. 
+		&&\mbox{}\hfill \qedhere
 	\end{align*}
 \end{proof}
 

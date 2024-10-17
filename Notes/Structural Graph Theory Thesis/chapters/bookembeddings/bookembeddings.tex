@@ -53,7 +53,7 @@ A paper by \textcite{bernhartBookThicknessGraph1979} calculated the book-thickne
 \begin{proof}
 	Firstly, $\pn(K_n) \leq \lceil \frac{n}{2} \rceil$. Arrange the vertices of $K_n$ in any circular ordering $v_1 < v_2 < \cdots < v_n$. Then colour edges $v_1 v_2, v_2 v_{n}, v_{n} v_{3}, v_{3} v_{n-1}, \ldots$ in a zigzag pattern. Refer to \cref{fig:k8 coloured with colours} for a description of a zigzagging pattern. Rotate this pattern $\lceil n/2 \rceil$ times. 
 
-	Secondly, $\pn(K_n) \geq \lceil \frac{n}{2} \rceil$. Use \cref{lem:Edge_Bound}. \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\). As \(\pn(K_n)\) is an integer, take the ceiling of \(\frac{n}{2}\).
+	Secondly, $\pn(K_n) \geq \lceil \frac{n}{2} \rceil$. Use \cref{lem:Edge_Bound}, and \(K_n\) has \(n\) vertices and \(\binom{n}{2}\) edges. Then \(\pn(K_n) \geq \frac{\binom{n}{2} - n}{n - 3} = \frac{n}{2}\) when \(n \geq 4\). As \(\pn(K_n)\) is an integer, take the ceiling of \(\frac{n}{2}\).
 \end{proof}
 \begin{figure}[ht]
 	\centering
