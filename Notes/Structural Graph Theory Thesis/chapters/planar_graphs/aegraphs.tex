@@ -2,19 +2,19 @@
 
 We wish to find a book-embedding of an almost-embeddable graph on some orientable surface. To do so, we need to introduce some new terminology to work with vortices on surfaces. 
 Recall the definition of $(g, p, k, a)$-almost-embeddable from \cref{ssec:Robertson_Seymour_Graph_Structure}. A graph $G$ is $(g, p, k)$-almost-embeddable if $G$ is $(g, p, k, 0)$-almost-embeddable, so $G$ has no apex set.
-What we attempted to show was this:
-\begin{theorem}\label{thm:bounded_almost_embeddable}
-	Suppose $G$ is $(g, p, k)$-almost embeddable on an orientable surface. Then $G$ can be embedded on \(f(g, p, k)\) pages for some function $f$.
-\end{theorem}
+What we attempt to show was this:
+\begin{conjecture}\label{thm:bounded_almost_embeddable}
+	Suppose $G$ is $(g, p, k)$-almost embeddable on some surface. Then $G$ can be embedded on \(f(g, p, k)\) pages for some function $f$.
+\end{conjecture}
 
 We discuss monochromatic paths as a tool to embed vortices into a book. We show that if there is a book-embedding of every graph embedded on a surface where every face has a bounded number of monochromatic paths, then we can add vortices without blowing up the pagenumber. However, we cannot show that there exists such a book-embedding.
 
-Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is given the same colour from $\varphi$. Then $F$ being a preserved face implies that $F$ has a single monochromatic path, but not the other way around. We were not able to show that every planar graph has a book-embedding where every face has a bounded number of monochromatic paths. This would imply that every graph embedded on an orientable surface can be embedded on a bounded number of pages. 
+Let \(F\) be a face on \(G\). Let \( (<, \varphi) \) be a book-embedding of \(G\). A \textit{monochromatic path} $P$ on the boundary of $F$ is a maximal path where every edge is given the same colour from $\varphi$. A face $F$ being preserved implies that $F$ has a single monochromatic path, but not the other way around. We were not able to show that every planar graph has a book-embedding where every face has a bounded number of monochromatic paths. This would imply that every graph embedded on an orientable surface can be embedded on a bounded number of pages. An example of a monochromatic path is in \cref{fig:mono_paths}. Left is a face embedded on $\mathbb{R}^2$. The circular book-embedding has edges coloured red and blue. This face has four monochromatic paths. Right is a circular ordering of the vertices on the boundary of the face. Every edge coloured red is embedded on a single page.
 
 \begin{figure}[h!]
 	\centering
 	\includesvg[width = 0.8\textwidth]{figures/monochromatic_paths.svg}
-	\caption[Monochromatic paths]{An example of a monochromatic path on a face. Above is a face embedded on $\mathbb{R}^2$. The circular book-embedding has edges coloured red and blue. This face has four monochromatic paths. Below is a circular ordering of the vertices on the boundary of the face. Every edge coloured red is embedded on a single page.}
+	\caption[Monochromatic paths]{An example of a monochromatic path on a face.}\label{fig:mono_paths}
 \end{figure}
 
 Preserved faces allow us to embed vortices with a bounded number of pages. 
@@ -39,18 +39,18 @@ Preserved faces allow us to embed vortices with a bounded number of pages.
 
 \begin{figure}[h!]
 	\centering
-	\includesvg[pretex=\tiny, width = 0.8\textwidth]{figures/bookembedding_preserved_face.svg}
+	\includesvg[pretex=\tiny, width = \textwidth]{figures/bookembedding_preserved_face.svg}
 	\caption[Book-embedding of a preserved face]{A book-embedding of a preserved face  with a vortex on the face. The green vertices are the boundary of the face and the other coloured vertices are distinct vertices in each bag. The bag is the red circle. This graph can be embedded on $3$ pages as the depth of the vortex attached is 2. }\label{fig:preserved_face}
 \end{figure}
 
 \begin{lemma}\label{lem:vortices_mono_paths}
-	Suppose \(G\) is a graph where $G = G_0 \cup G_1$, where \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\). Let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G_1\) is a vortex of depth $k$ on \(D\) with a path-decomposition \((B_0, \ldots, B_l)\) and \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Suppose there are at most \(m\) monochromatic paths for every face on $G_0$. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
+	Suppose \(G\) is a graph where $G = G_0 \cup G_1$, where \(G_0\) is embedded on a surface \(\Sigma \) of genus \(g\). Let \(F\) be a face on \(G_0\). Let \(v_1, v_2, \ldots, v_k\) be the vertices bordering \(F\). Let \(D\) be a \(G\)-clean disk on \(F\). Now suppose \(G_1\) is a $D$-vortex of depth $k$ with a path-decomposition \((B_0, \ldots, B_l)\) and \(G_0\) has a book-embedding \((<, \varphi)\) on $s$ pages. Suppose there are at most \(m\) monochromatic paths for every face on $G_0$. Then \(G\) can be embedded on \(s + m(k+1)\) pages.
 \end{lemma}
 
 \cref{lem:vortices_mono_paths} implies \cref{corr:vortices_paths_pn}.
 
 \begin{corollary}\label{corr:vortices_paths_pn}
-	Suppose $G$ is a graph where $G = G_0 \cup G_1 \cup \ldots \cup G_P$, $G_0$ is embedded on a surface $\Sigma$ of genus $g$, and $G_1, \ldots ,G_P$ are vortices on $G_0$. Suppose further that $G_0$ has $m$ monochromatic paths on each of its faces on $\Sigma$. Then $G$ can be embedded on $s + pm(k+1)$ pages.
+	Suppose $G$ is a graph where $G = G_0 \cup G_1 \cup \ldots \cup G_P$, $G_0$ is embedded on a surface $\Sigma$ of genus $g$, and $G_1, \ldots ,G_P$ are vortices on $G_0$, each embedded on a face $F_1, \ldots, F_P$. Suppose that every $F_i$ has a bounded number of monochromatic paths. Then $G$ can be embedded on $s + pm(k+1)$ pages.
 \end{corollary}
 
 This is proven by adding $G_1, \ldots, G_P$ to $G_0$ one at a time and applying \cref{lem:vortices_mono_paths} each time. To prove \cref{lem:vortices_mono_paths}, we prove \cref{lem:one_page_decomposition}.
@@ -85,8 +85,7 @@ We now prove \cref{lem:vortices_mono_paths}.
 \begin{conjecture}\label{conj:nonorientable_monochromatic_paths}
 	Every graph embedded on a surface of Euler genus $g$ can be embedded on $f(g)$ pages where every face has $h(g)$ monochromatic paths. 
 \end{conjecture}
-
-\cref{conj:nonorientable_monochromatic_paths} is a strengthening of \cref{conj:nonorientable}. We believe this holds for every surface, including the sphere.
+We believe this holds for every surface, including the sphere.
 \cref{conj:nonorientable_monochromatic_paths} implies the following:
 
 \begin{corollary}\label{corr:aegraphs}
@@ -116,6 +115,9 @@ We now prove \cref{lem:vortices_mono_paths}.
 
 Therefore, finding a book-embedding of graphs on non-orientable surface with every face having a bounded number of monochromatic paths would prove \cref{conj:bded_had_pn}. Finding any book-embedding of graphs on non-orientable surfaces is difficult enough, and having the additional condition of monochromatic paths may be more difficult. Nevertheless, finding any bound will be useful.
 
+\section{Decomposing planar graphs}
+We aimed in this section to prove that every planar graph $G$ has a book-embedding on a bounded number of vertices where every face has a bounded number of monochromatic paths. However, we were unable to prove this statement. The main roadblock were cutsets of size 3 on the boundary of a face. If $G$ has no cutsets of size 3, then every face is preserved. 
+
 A \textit{Hamiltonian path} $P$ on a graph $G$ is a path that visits every vertex in $G$ exactly once. A \textit{Hamiltonian cycle} $C$ on a graph $G$ is a cycle that visits every vertex in $G$ exactly once.  
 
 A graph $G$ is \textit{Hamiltonian} if $G$ has a Hamiltonian cycle.
@@ -132,20 +134,19 @@ In fact, there is a strengthening by \textcite{thomassenTheoremPathsPlanar1983}.
 \end{lemma}
 
 \begin{proof}
-	Let \(<\) be the circular ordering of these vertices by traversing \(C\). Now as \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every edge in $G - C$ is inside either the interior or exterior of \(C\). Colour every edge in $C$ and on the interior of $\mathbb{R}^2 - C$ red and colour the other edges blue. This is a book-embedding as both regions can be embedded on a single page with the same cyclic ordering. Furthermore, every face is preserved. Because $\mathbb{R}$ is orientable, affix an orientation to every face \(F\) on $G$ such that the order of the vertices in the orientation is the same order as the orientation in \(D\).
+	Let \(<\) be the circular ordering of these vertices by traversing \(C\). As \(G\) is planar, \(C\) splits the surface into an interior region and an exterior region, by the Jordan curve theorem. So every edge in $G - C$ is inside either the interior or exterior of \(C\). Colour every edge in $C$ and on the interior of $\mathbb{R}^2 - C$ red and colour the other edges blue. This is a book-embedding as both regions can be embedded on a single page with the same cyclic ordering. Furthermore, every face is preserved. Because $\mathbb{R}$ is orientable, affix an orientation to every face \(F\) on $G$ so that the order of the vertices in the orientation is the same order as the orientation in \(D\). This is in \cref{fig:hamiltonian_planar}.
 	\begin{figure}[h!]
 		\centering
-		\includesvg[pretex=\tiny, width=0.5\linewidth]{figures/hamiltonian-planar}
+		\includesvg[pretex=\tiny, width=0.3\linewidth]{figures/hamiltonian-planar}
 		\caption[Hamiltonian planar graph]{This is a Hamiltonian planar graph with a book-embedding of 2. The linear ordering is $v_1, v_2, \ldots,  v_8$. Let $C$ be the Hamiltonian cycle. The drawing of $C$ splits the plane into two regions. Then edges in the interior region and on $C$ are coloured red, and the remaining edges are blue. Now choosing any face and restricting the linear ordering to be around the face preserves each face. }\label{fig:hamiltonian_planar}
 	\end{figure}
 \end{proof}
 From \cref{lem:Hamiltonian_preserved_faces}, if \(G\) is a Hamiltonian planar graph, then the vertex ordering of the Hamiltonian cycle \((\leq)\) preserves all faces on \(G\). As a consequence of \cref{thm:4-connected_planar_ham_cycle}, every 4-connected planar graph has a circular ordering which preserves every face.
 
-Then this can be extended to every connected planar graph, adding a constant number of monochromatic paths, as shown by \cref{thm:planar_graph__be_mono_paths}.
+We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where every face has a bounded number of cut-sets of size 3 on its boundary. We assumed that the construction \cref{thm:planar_graph__be_mono_paths} forces every face has a bounded number of cut-sets of size 3 on its boundary, but this was not the case. \cref{fig:moved_vertices} provides a counterexample. 
 
-We want to show that there exists a book-embedding of every planar graph where every face has a bounded number of monochromatic paths. We were able to prove it in the special case where every face has a bounded number of cut-sets of size 3 on its boundary. We assumed that every face has a bounded number of cut-sets of size 3 on its boundary, but this was not the case. \cref{fig:moved_vertices} provides a counterexample. 
-
-We conjecture that every planar graph can be embedded on a bounded number of pages with a bounded number of monochromatic paths on each face. This will have to be a different book-embedding than the one given in \cref{thm:planar_graph__be_mono_paths}. The book-embedding given by \cref{thm:planar_graph__be_mono_paths} is not sufficient to prove this conjecture, because of \cref{fig:moved_vertices}.  
+We conjecture that every planar graph can be embedded on a bounded number of pages with a bounded number of monochromatic paths on each face. The reason we believe this conjecture holds is that every $4$-connected planar graph has this property.
+This will have to be a different book-embedding than the one given in \cref{thm:planar_graph__be_mono_paths}. The book-embedding given by \cref{thm:planar_graph__be_mono_paths} is not sufficient to prove this conjecture, because of \cref{fig:moved_vertices}.  
 
 \begin{theorem}\label{thm:planar_graph__be_mono_paths}
 	Let \( G \) be a planar graph embedded in $\mathbb{R}^2$, with every face having at most $k$ cut-sets of size $3$ on every face. Then $G$ can be embedded on 11 pages where every face has at most $8k$ monochromatic paths. 
@@ -172,14 +173,12 @@ $ ((T,r), (B_x)_x)$ is a tree-decomposition with $r$ as the root node.
 \end{proof}	
 
 
-There is no restriction on the number of planar graphs with cut-sets of size $3$.  There may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded. An example of such a graph is in \cref{fig:moved_vertices}. There may be book-embedding of planar graphs where the number of monochromatic paths is bounded, but the method shown by \cref{thm:planar_graph__be_mono_paths} does not provide such a book-embedding. 
-
-Look at \cref{fig:moved_vertices}. Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
-Let $F$ be a face. Then $F$ can have an unbounded number of blue torsos on its boundary.  There may be some face with an unbounded number of monochromatic paths.
+There is no restriction on the number of planar graphs with cut-sets of size $3$. Therefore, there may be an unbounded number of vertices moved from \cref{thm:clique_sum_pagenumber_bound}, meaning that the number of monochromatic paths that are generated may be unbounded in \cref{thm:planar_graph__be_mono_paths}. An example of such a graph is in \cref{fig:moved_vertices}. Let $T$ be a 4-connected torso with cut-set $\{u,v,w\}$. Note that even after applying \cref{thm:4-connected_planar_ham_cycle}, one of the vertices $u,v,w$ will have to be moved to the front of the book-embedding. 
+Let $F$ be a face. Then $F$ can have an unbounded number of blue torsos on its boundary. Then $F$ has an unbounded number of monochromatic paths.
 
 
 \begin{figure}[h!]
 	\centering
 	\includesvg[pretex=\tiny, width=0.5\linewidth]{figures/counterexample.svg}
-	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ with faces that require an unbounded number of vertices. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected components, with cut-sets the green vertices on the ends.}\label{fig:moved_vertices}
+	\caption[Counterexample to bounded number of moved vertices]{This is an example of a planar graph $G$ where \cref{thm:planar_graph__be_mono_paths} gives a face an unbounded number of monochromatic paths. The red path is a Hamiltonian cycle through a torso of $G$ embedded on the annulus. The blue shapes are $4$-connected components, with cut-sets the green vertices on the ends.}\label{fig:moved_vertices}
 \end{figure}

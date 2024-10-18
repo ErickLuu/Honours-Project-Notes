@@ -28,9 +28,9 @@ A graph \(G\) is a \textit{caterpillar} if \(G\) is a tree and $G$ has a path \(
 	\caption[Caterpillar graph]{A caterpillar graph with central path \((v_1, v_2, v_3, v_4, v_5, v_6)\).}\label{fig:caterpillar}
 \end{figure}
 
-\begin{example}
+\begin{proposition}
 	Recall that $K_n$ is the complete graph on $n$ vertices. It holds that \(\pw(K_n) = \tw(K_n) = n - 1\).
-\end{example}
+\end{proposition}
 \begin{proof}
 	The pathwidth of \(K_n\) is at least the treewidth of \(K_n\). But the pathwidth is at most \(n- 1\) (where all the vertices are in the same bag), but the treewidth of \(K_n\) is \(n - 1\). Therefore, \(\pw(K_n) = n - 1\).
 \end{proof}

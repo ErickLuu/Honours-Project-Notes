@@ -36,7 +36,7 @@ We first prove the following.
 
 \begin{figure}[h!]
     \centering
-    \includesvg[width = 0.8\textwidth]{figures/pairwise_disjoint.svg}
+    \includesvg[width = 0.7\textwidth]{figures/pairwise_disjoint.svg}
     \caption[Bag concatenation for pairwise disjoint edges]{A path $P$ and a rooted path-decomposition on $P$. The ordering induces some pairwise disjoint edges. The bag $B_6'$ contains the bags of edges that go past $B_6$ in $P$.}\label{fig:pairwise_disjoint}
 \end{figure}
 
@@ -62,7 +62,7 @@ Now we prove that \cref{conj:pairwise_nested} implies \cref{conj:bded_had_pn}.
     But every $K_t$-minor-free graph $H$ has a tree-decomposition where every torso is $(g, p, k, a)$-almost-embeddable. However from \cref{thm:apex_vertices_pagenumber}, a bounded number of apex vertices do not blow up the pagenumber. Then from \cref{thm:clique_sum_pagenumber_bound}, the pagenumber of $H$ is bounded, since every torso has bounded pagenumber.
 \end{proof}
 
-If $G$ is a planar graph that is Hamiltonian, then $G$ has at most two pairwise nested edges on each face. Each face is preserved, so restricting $G$ to the vertices touching a face yields that every edge is a spine edge. Then $G$ has two pairwise nested vertices.
+If $G$ is a Hamiltonian planar graph then $G$ has at most two pairwise nested edges on each face. Each face is preserved, so restricting $G$ to the vertices touching a face yields that every edge is a spine edge. Then $G$ has two pairwise nested edges. Planar graphs with $k$-pertubations have $k$ pairwise nested edges. 
 
 \begin{figure*}[h!]
     \centering
