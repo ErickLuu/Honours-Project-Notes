@@ -26,7 +26,7 @@ A large corpus of work on graphs on surfaces depends on understanding the proper
 \begin{theorem}[\textcite{barnetteAll2manifoldsHave1989}]
     Every surface $\Sigma$ has a finite number of irreducible triangulations.
 \end{theorem}
-As an example, the sphere has a single irreducible triangulation, $K_4$. \textcite{barnetteAll2manifoldsHave1989} showed the projective plane has two irreducible triangulations. \textcite{sulankeGeneratingIrreducibleTriangulations2006} showed the double torus has 396784 irreducible triangulations, the sphere with three crosscaps has 9708 irreducible triangulations and the sphere with four crosscaps has 6297982 irreducible triangulations.
+As an example, the sphere has a single irreducible triangulation, $K_4$. \textcite{barnetteAll2manifoldsHave1989} showed the projective plane has two irreducible triangulations. \textcite{sulankeGeneratingIrreducibleTriangulations2006} showed the double torus has 396\,784 irreducible triangulations, the sphere with three crosscaps has 9708 irreducible triangulations and the sphere with four crosscaps has 6\,297\,982 irreducible triangulations.
 
 The best known upper bound on the size of an irreducible triangulation is given by \textcite{joretIrreducibleTriangulationsAre2010}.
 
@@ -40,7 +40,7 @@ In the case of the Klein bottle, the full list of irreducible triangulations of 
 \begin{theorem}[\textcite{sulankeNoteIrreducibleTriangulations2006}]
     The Klein bottle has 29 irreducible triangulations. 
 \end{theorem} 
-This approach cannot be generalised to higher non-orientable genus graphs, as a complete enumeration of the irreducible triangulation of the surface with non-orientable genus $g$ has not been found.
+This approach cannot be generalised to higher non-orientable genus graphs, as a complete enumeration of the irreducible triangulation of all surfaces with non-orientable genus $g$ has not been found.
 In a previous paper, \textcite{lawrencenkoIrreducibleTriangulationsKlein1997} claimed that there were 25 irreducible triangulations. However, Sulanke found 4 more graphs.
 
 In an attempt to prove \cref{conj:klein_bottle}, a structure of a Klein bottle graph was devised. Let $G$ be a triangulation of the Klein bottle. A \textit{$\phi$-structure} of $G$ is a decomposition of the vertices and edges of $G$ with the following properties (see \cref{fig:phiembedding}):
@@ -65,7 +65,7 @@ A description of the figure is in \cref{fig:phiembedding}.
     Every Klein bottle graph with the $\phi$-structure can be embedded on $11$ pages. 
 \end{proposition}
 \begin{proof}
-    Take a $\phi$-structure on a Klein bottle graph $G$. Let $B_1$ and $B_2$ be the two halves of $G_P$ partitioned by $P$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis' algorithm on $B_1$ and $B_2$, orienting the graph in opposite directions. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented the same way. Firstly, $b$ and $e$ go on another book, and $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page. Then this is a book-embedding on $11$ pages. 
+    Take a $\phi$-structure on a Klein bottle graph $G$. Let $B_1$ and $B_2$ be the two halves of $G_P$ partitioned by $P$. Then there is a book-embedding of $G_P$ on eight pages, using Yannakakis' algorithm on $B_1$ and $B_2$, orienting the graph in opposite directions. However, this book-embedding has the property that sides $b$ and $e$ are oriented the opposite way, and $a, c$ and $d, f$ are oriented the same way. Firstly, edges that start and end on $b$ and $e$ go on another book, and edges that start and end on $d, a$ and $c, f$ go on another book. Then add every edge adjacent to $v$ on its own page and add $v$ to the start of the book-embedding. Then this is a book-embedding on $11$ pages. 
 \end{proof}
 
 It is not known if Klein bottle graphs with the $\phi$-structure maintain the $\phi$-structure under edge splitting. In fact, we are not sure if the $\phi$-structure even exists on all irreducible triangulations of the Klein bottle. We want to find a structure invariant under edge splitting where every irreducible triangulation of the Klein bottle contains this structure. Furthermore, the existence of this structure allows Klein bottle graphs to be embedded on a bounded number of pages.

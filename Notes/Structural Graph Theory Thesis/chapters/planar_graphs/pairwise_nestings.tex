@@ -35,9 +35,16 @@ We first prove the following.
 \end{proof}
 
 \begin{figure}[h!]
-    \centering
-    \includesvg[width = 0.7\textwidth]{figures/pairwise_disjoint.svg}
-    \caption[Bag concatenation for pairwise disjoint edges]{A path $P$ and a rooted path-decomposition on $P$. The ordering induces some pairwise disjoint edges. The bag $B_6'$ contains the bags of edges that go past $B_6$ in $P$.}\label{fig:pairwise_disjoint}
+    \begin{minipage}{0.8\textwidth}
+        \centering
+        \includesvg[width = 0.9\textwidth]{figures/pairwise_disjoint.svg}
+        \caption[Bag concatenation for pairwise disjoint edges]{A path $P$ and a rooted path-decomposition on $P$. The ordering induces some pairwise disjoint edges. The bag $B_6'$ contains the bags of edges that go past $B_6$ in $P$.}\label{fig:pairwise_disjoint}
+    \end{minipage}%
+    \begin{minipage}{0.2\textwidth}
+        \centering
+        \includesvg[width = 0.5\textwidth]{figures/pairwise nesting.svg}
+        \caption{Pearwise nesting}
+    \end{minipage}
 \end{figure}
 
 \begin{lemma}\label{lem:paths}
@@ -52,7 +59,7 @@ We first prove the following.
 \cref{lem:paths} and \cref{prop:nested_edges} implies \cref{corr:nested_edges_pn}.
 
 \begin{corollary}\label{corr:nested_edges_pn}
-    Let $G$ be a graph with a path $P = x_1, x_2, \ldots, x_n$ and  path-decomposition $(B_1, B_2, \ldots, B_n)$ rooted at $P$ of width $k + 1$. Further suppose $\sigma$ is an ordering of $P$ where at most $c$ edges pairwise cross and $\sigma$ embeds $G$ on $k$ pages. Then $G$ has a book-embedding that respects $\sigma$ with page-number $f(s, k)$.
+    Let $G$ be a graph with a path $P = x_1, x_2, \ldots, x_n$ and  path-decomposition $(B_1, B_2, \ldots, B_n)$ rooted at $P$ of width $k + 1$. Further suppose $\sigma$ is an ordering of $P$ where at most $c$ edges pairwise cross and $\sigma$ embeds $G$ on $k$ pages. Then $G$ has a book-embedding that respects $\sigma$ on $f(s, k)$ pages.
 \end{corollary}
 
 Now we prove that \cref{conj:pairwise_nested} implies \cref{conj:bded_had_pn}. 
@@ -63,9 +70,3 @@ Now we prove that \cref{conj:pairwise_nested} implies \cref{conj:bded_had_pn}.
 \end{proof}
 
 If $G$ is a Hamiltonian planar graph then $G$ has at most two pairwise nested edges on each face. Each face is preserved, so restricting $G$ to the vertices touching a face yields that every edge is a spine edge. Then $G$ has two pairwise nested edges. Planar graphs with $k$-pertubations have $k$ pairwise nested edges. 
-
-\begin{figure*}[h!]
-    \centering
-    \includesvg[width = 0.1\textwidth]{figures/pairwise nesting.svg}
-    \caption{Pearwise nesting}
-\end{figure*}
