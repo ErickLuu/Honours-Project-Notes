@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[english]{beamer}
 \usetheme{Madrid}
 
 \usepackage{amsmath}
@@ -10,6 +10,38 @@
 \usepackage{csquotes}
 \usepackage{babel}
 \usepackage[noabbrev, capitalise]{cleveref}
+
+\usepackage[style = numeric,
+citestyle=numeric,
+sorting=nyt,
+sortcites=true,
+autopunct=true,
+hyperref=true,
+abbreviate=false,
+backend=biber,
+isbn=false,
+url=false,
+eprint = false,
+maxbibnames=99
+]{biblatex}
+\renewbibmacro{in:}{}
+\DeclareSourcemap{
+	\maps[datatype=bibtex]{
+		\map{
+			\step[fieldset=extra, null]
+			\step[fieldset=urldate, null]
+			\step[fieldset=location, null]
+		}
+	}
+}
+\AtEveryBibitem{%
+	\clearfield{day}%
+	\clearfield{month}%
+	\clearfield{endday}%
+	\clearfield{endmonth}%
+}
+
+\addbibresource{book-embeddings.bib}
 
 \makeatletter
 %\setbeameroption{show notes on second screen}
@@ -44,8 +76,8 @@
       \begin{column}{0.5\textwidth}
         \begin{itemize}
           \item Graph $G = (V(G), E(G))$
-          \item Planar graph: embedded on plane
-          \item Euler's formula: V - E + F = 2
+          \item Planar graph: Graph embedded on plane
+          \item Planar graphs are 4-colourable \cite{appelEveryPlanarMap1989}
         \end{itemize}
       \end{column}
 
@@ -59,22 +91,67 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Minors}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item $H$ is a \textbf{minor} of $G$ if $H$ is obtained from $G$ through:
+          \begin{itemize}
+            \item vertex deletion
+            \item edge deletion
+            \item edge contraction
+          \end{itemize}
+          \begin{figure}
+            \centering
+            \includesvg[width = 0.7\textwidth]{figures/edge_contraction.svg}
+          \end{figure}
+        \end{itemize}
+    \end{column}
+    \pause
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item Minor-closed class = closed under minor relation
+          \item $G$ planar iff $G$ $\{K_5, K_{3,3}\}$-minor-free \cite{kuratowskiProblemeCourbesGauches1930,wagnerUeberEigenschaftEbenen1937}
+          \item Examples of Minor-closed classes:
+          \begin{itemize}
+            \item Linkless graphs
+            \item Knotless graphs
+          \end{itemize}
+        \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
     \frametitle{Surfaces}
     \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
         \item Surface = 2D manifold
-        \item 2 kinds: \begin{itemize}
-          \item Orientable
-          \item Nonorientable
+        \item Examples: \begin{itemize}
+          \item Sphere
+          \item Torus
+          \item Projective Plane
         \end{itemize}
-        \item Genus = 2*handles + crosscaps
+        \begin{figure}
+          \centering
+          \includesvg[width = 0.8\linewidth]{figures/surfaces.svg}
+          \caption{Surfaces}
+        \end{figure}
       \end{itemize}
+
     \end{column}
     \begin{column}{0.5 \textwidth}
+      \begin{itemize}
+        \item Extend planar graphs to any surface
+        \item Embed graph on surface
+        \item Graphs on surface = Minor-closed class
+      \end{itemize}
+      \pause
       \begin{figure}
         \centering
-        \includesvg[width = 0.8\linewidth]{figures/surfaces.svg}
+        \includesvg[width = 0.8\linewidth]{figures/k6_projective_plane.svg}
+        \caption{$K_6$ embedded on graph}
       \end{figure}
     \end{column}
     \end{columns}
@@ -88,18 +165,14 @@
         \item Book: half-planes glued on boundary
         \item Half Planes: Pages
         \item Book-embedding: Graph on book
-        \begin{itemize}
-          \item Vertices on boundary
-          \item Edges on pages
-          \item No edges cross
-        \end{itemize}
-        \item Pagenumber: Least number of pages to embed a graph.
+        \item Smallest no. pages to embed $G$ = pagenumber $G$
       \end{itemize}
     \end{column}
+    \pause
     \begin{column}{0.5\textwidth}
         \begin{figure}
           \centering
-          \includesvg[width = 0.8\linewidth]{figures/3page_K5.svg}
+          \includesvg[height = 0.8\textheight]{figures/3page_K5.svg}
         \end{figure}
     \end{column}
   \end{columns}
@@ -114,17 +187,23 @@
   \begin{columns}
     \begin{column}{0.5\textwidth}
         \begin{itemize}
-          \item Planar Graphs can be embedded on four pages.
-          \item Proven by Yannakakis
-          \item Cannot be improved
+          \item Planar Graphs can be embedded on four pages \cite{yannakakisEmbeddingPlanarGraphs1989}
+          \item Bound is tight! \cite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}
         \end{itemize}    
-    \end{column}
-      \begin{column}{0.5\textwidth}
+
         \begin{figure}
           \centering
           \includegraphics[width = \linewidth]{figures/Screenshot 2024-09-26 152422.png}
+          \caption{Planar graph with pagenumber 4, from \cite{bekosFourPagesAre2020}}
         \end{figure}
     \end{column}
+    \pause
+      \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Graphs embedded on surface with orientable genus $g$ can be embedded on $O(g)$ pages \cite{heathPagenumberGenusGraphs1992}
+        \item Projective-planar graphs can be embedded on 6 pages \cite{ozekiBookEmbeddingGraphs2019}
+      \end{itemize}
+      \end{column}
   \end{columns}
   \note{
     Originally thought to be unbounded
@@ -137,83 +216,46 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Minors}
-    \begin{columns}
-      \begin{column}{0.5\textwidth}
-          \begin{itemize}
-            \item $H$ is \textbf{minor} of $G$ if $H$ obtained from $G$ through \begin{itemize}
-              \item vertex deletion
-              \item edge deletion
-              \item edge contraction
-            \end{itemize}
-            \item $G$ is $H$-minor-free if $H$ is not a minor of $G$. 
-          \end{itemize}    
-      \end{column}
-        \begin{column}{0.5\textwidth}
-          \begin{figure}
-            \centering
-            \includesvg[width = \linewidth]{figures/edge_contraction.svg}
-          \end{figure}
-      \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}
   \frametitle{Main Conjecture}
   \begin{conjecture}
-  Every $K_t$-minor free graph is embeddable on $f(t)$ pages.
+    If $G$ is in Minor-closed class $\mathcal{G}$, then $G$ is embeddable on $f(\mathcal{G})$ pages.
   \end{conjecture}
-	
-  \begin{corollary}
-    Every minor-closed family can be embedded on bounded number of pages.
-  \end{corollary}
 	\note{Minor-closed family is family closed under taking minors
-		Examples of minor-closed families: planar graphs, Graphs embedded on surfaces etc}
+		Examples of minor-closed families: planar graphs, Graphs embedded on surfaces etc.}
 \end{frame}
 
 \begin{frame}
     \frametitle{Graph Minor Structure Theorem}
-    \begin{itemize}
-      \item $K_t$ minor-free graphs can be built from 4 ingredients. \begin{itemize}
-        \item Graphs on surfaces
-        \item Vortices on surfaces
-        \item Apex sets
-        \item Clique-Sums
-      \end{itemize}
-    \end{itemize}
-    \note{By Robertson and Seymour.}
+\begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item $K_t$ minor-free graphs can be built from 4 ingredients \cite{robertsonGraphMinorsXVII1999} \begin{itemize}
+            \item Graphs on surfaces
+            \item Vortices on surfaces
+            \item Apex sets
+            \item Clique-Sums
+          \end{itemize}
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \centering
+          \includesvg[width = 0.8\textwidth]{figures/Clique-sum.svg}
+          \caption{Clique sums, \cite{eppsteinCliquesum2023}}
+        \end{figure}
+      \end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Solved ingredients}
-  Adding these ingredients bounds page-number of a graph.
-  \begin{itemize}
-    \item Apex sets
-    \item Clique-Sums
-    \item Graphs on orientable surfaces 
-    \item Vortices on orientable surfaces
-    \item Graphs + vortices on projective plane
-  \end{itemize}
-  \note{nonorientable graphs cannot be moved onto an orientable surface because the orientable genus may be arbitrarily large with fixed nonorientable genus.}
+  \begin{conjecture}
+    Every graph embedded $\Sigma$ can be embedded on $k(\Sigma)$ pages with every face having a bounded number of pairwise nesting edges.
+\end{conjecture}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Open Problems}
-  \begin{conjecture}
-    Every graph embedded on a Klein Bottle can be embedded with a bounded number of pages
-  \end{conjecture}
-  \begin{conjecture}
-    Every graph embedded on a nonorientable surface can be embedded with a bounded number of pages
-  \end{conjecture}
+\begin{frame}[shrink = 50]
+  
+  \printbibliography
 \end{frame}
-
-\begin{frame}
-  \frametitle{Final conjecture}
-  \begin{conjecture}
-      Every graph embedded on a surface of genus $g$ can be embedded on $k(g)$ pages with every face having a bounded number of monochromatic paths.
-  \end{conjecture}
-  Stronger than previous conjecture, but implies main conjecture. 
-\end{frame}
-
 
 \end{document}
