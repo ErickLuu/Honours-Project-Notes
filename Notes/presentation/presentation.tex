@@ -11,8 +11,8 @@
 \usepackage{babel}
 \usepackage[noabbrev, capitalise]{cleveref}
 
-\usepackage[style = numeric,
-citestyle=numeric,
+\usepackage[style = alphabetic,
+citestyle=alphabetic,
 sorting=nyt,
 sortcites=true,
 autopunct=true,
@@ -44,7 +44,7 @@ maxbibnames=99
 \addbibresource{book-embeddings.bib}
 
 \makeatletter
-\setbeameroption{show notes on second screen}
+%\setbeameroption{show notes on second screen}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{page number in head/foot}{}
 \setbeamertemplate{title in head/foot}{}
@@ -116,16 +116,23 @@ maxbibnames=99
         \item Minor-closed class = closed under minor relation
         \item Examples of Minor-closed classes:
               \begin{itemize}
+                \item Forests
+                \item Outerplanar graphs
                 \item Planar graphs
-                \item Linkless graphs
-                \item Knotless graphs
               \end{itemize}
-        \item \textcite{kuratowskiProblemeCourbesGauches1930,wagnerUeberEigenschaftEbenen1937}: $G$ planar iff $G$ $\{K_5, K_{3,3}\}$-minor-free
+        \item \cite{kuratowskiProblemeCourbesGauches1930,wagnerUeberEigenschaftEbenen1937}: $G$ planar iff $G$ $\{K_5, K_{3,3}\}$-minor-free
       \end{itemize}
     \end{column}
   \end{columns}
   \note{mention minimal forbidden minors + graph minor theorem}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Graph Minor Theorem}
+    \begin{theorem}[\textcite{robertsonGraphMinorsXX2004}]
+      Every minor-closed class is characterised by a finite set of minimal forbidden minors.
+    \end{theorem}
+  \end{frame}
 
 \begin{frame}
   \frametitle{Surfaces}
@@ -173,12 +180,10 @@ maxbibnames=99
         \item Smallest no. pages to embed $G$ = pagenumber $G$
       \end{itemize}
     \end{column}
-    \pause
     \begin{column}{0.5\textwidth}
       \begin{figure}
         \centering
         \includesvg[height = 0.7\textheight]{figures/3page_K5.svg}
-        \caption{From \textcite{eppsteinBookEmbedding2014}}
       \end{figure}
     \end{column}
   \end{columns}
@@ -196,21 +201,20 @@ maxbibnames=99
         \item Planar Graphs can be embedded on four pages \cite{yannakakisEmbeddingPlanarGraphs1989}
         \item Bound is tight! \cite{yannakakisPlanarGraphsThat2020,bekosFourPagesAre2020}
       \end{itemize}
-
-      \begin{figure}
-        \centering
-        \includegraphics[width = \linewidth]{figures/Screenshot 2024-09-26 152422.png}
-        \caption{Planar graph with pagenumber 4, from \cite{bekosFourPagesAre2020}}
-      \end{figure}
     \end{column}
-    \pause
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item Graphs embedded on surface with orientable genus $g$ can be embedded on $O(g)$ pages \cite{heathPagenumberGenusGraphs1992}
+        \item Graphs embedded on orientable surface with genus $g$ can be embedded on $O(g)$ pages \cite{heathPagenumberGenusGraphs1992}
         \item Projective-planar graphs can be embedded on 6 pages \cite{ozekiBookEmbeddingGraphs2019}
       \end{itemize}
     \end{column}
   \end{columns}
+  \begin{figure}
+    \centering
+    \includegraphics[height = 0.5\textheight]{figures/Screenshot 2024-09-26 152422.png}
+    \caption{Planar graph with pagenumber 4, from \cite{bekosFourPagesAre2020}}
+  \end{figure}
+
   \note{
     Proven by Yannakakis in 2020, other paper with authors Bekos, Kaufmann, Klute, Pupyrev, Raftopoulou, Uedkerdt also proved this in 2020.
     Mention Nakamoto, Nozawa
@@ -220,7 +224,7 @@ maxbibnames=99
 \begin{frame}
   \frametitle{Main Conjecture}
   \begin{conjecture}
-    If $G$ is in minor-closed class $\mathcal{G}$, then $G$ is embeddable on $f(\mathcal{G})$ pages.
+    If $G$ is in proper minor-closed class $\mathcal{G}$, then $G$ is embeddable on $f(\mathcal{G})$ pages.
   \end{conjecture}
   \note{Minor-closed family is family closed under taking minors
     Examples of minor-closed families: planar graphs, Graphs embedded on surfaces etc.}
@@ -231,7 +235,7 @@ maxbibnames=99
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item Minor-closed class $\implies$ $K_t$-minor-free
+        \item Proper minor-closed class $\implies$ $K_t$-minor-free
         \item $K_t$-minor-free graphs can be built from 4 ingredients \cite{robertsonGraphMinorsXVII1999} \begin{itemize}
                 \item Graphs on surfaces
                 \item Vortices on surfaces
@@ -253,7 +257,7 @@ maxbibnames=99
 
 \begin{frame}
   \begin{conjecture}
-    Every graph embedded on $\Sigma$ can be embedded on $k(\Sigma)$ pages with every face having a bounded number of pairwise nesting edges.
+    Every graph embedded on $\Sigma$ can be embedded on $f(\Sigma)$ pages with every face having a bounded number of pairwise nesting edges.
   \end{conjecture}
 \end{frame}
 
